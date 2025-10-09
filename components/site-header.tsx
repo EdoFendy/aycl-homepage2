@@ -218,7 +218,7 @@ export function SiteHeader() {
                       >
                         <div className="flex items-start justify-start h-16 w-16 rounded-lg">
                           <Image
-                            src="/iconaSetUpFee.png"
+                            src="/iconaSetupfee.png"
                             alt="Set-Up Fee"
                             width={48}
                             height={48}
