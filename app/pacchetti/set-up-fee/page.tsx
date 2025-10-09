@@ -64,7 +64,7 @@ export default function SetUpFeePage() {
 
             <div className="relative hidden items-center justify-center md:flex">
               <Image
-                src="/SET-UP FEE.png"
+                src="/setupfee.png"
                 alt="Set-Up Fee Partnership"
                 width={520}
                 height={480}
