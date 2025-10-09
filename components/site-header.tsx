@@ -69,7 +69,6 @@ export function SiteHeader() {
                   />
                 ))}
               </span>
-              <span className="hidden sm:inline text-navy">Menu</span>
             </button>
           </div>
 
@@ -86,9 +85,7 @@ export function SiteHeader() {
                 height={44}
                 priority
               />
-              <span className="hidden sm:inline text-lg font-bold text-navy">
-                All You Can Leads
-              </span>
+       
             </Link>
           </div>
 
