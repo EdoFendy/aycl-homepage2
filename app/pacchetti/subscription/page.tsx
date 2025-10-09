@@ -57,19 +57,18 @@ export default function SubscriptionPage() {
               </Link>
             </div>
 
-            <div className="relative">
-              <div className="absolute -top-10 -right-10 w-72 h-72 bg-orange/20 rounded-full blur-3xl" />
-              <Card className="relative p-8 bg-gradient-to-br from-orange/5 to-white border-orange/30">
-                <Image
-                  src="/subscription-service-dashboard-with-recurring-appo.jpg"
-                  alt="Subscription Package"
-                  width={600}
-                  height={500}
-                  className="rounded-lg"
-                />
-              </Card>
+            <div className="relative flex items-center justify-center">
+              <Image
+                src="/calendario2.png"
+                alt="Subscription Package"
+                width={600}
+                height={500}
+                className="rounded-lg"
+                priority
+              />
             </div>
-          </div>
+            </div>
+
         </div>
       </section>
 
