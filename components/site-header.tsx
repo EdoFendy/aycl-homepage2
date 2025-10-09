@@ -12,6 +12,7 @@ import {
   BadgePercent,
   Rocket,
   Layers,
+  CreditCard,
 } from "lucide-react"
 
 const BORDER_DARK = "border-[#0B1D3A]" // blu più scuro per i bordi
@@ -292,6 +293,24 @@ export function SiteHeader() {
                           <span className="font-medium text-gray-800">Contattaci ora</span>
                         </span>
                         <span className="text-xs text-gray-500">Parla con noi</span>
+                      </Link>
+
+                      <Link
+                        href="/pagamenti"
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "mb-1 flex items-center justify-between rounded-xl bg-white/85 px-4 py-3 transition hover:shadow-md",
+                          BORDER_DARK,
+                          isActive("/pagamenti") && "ring-1 ring-navy/30",
+                        )}
+                      >
+                        <span className="flex items-start gap-3">
+                          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy/5 text-navy">
+                            <CreditCard className="h-4 w-4" />
+                          </span>
+                          <span className="font-medium text-gray-800">Pagamenti</span>
+                        </span>
+                        <span className="text-xs text-gray-500">Checkout sicuro</span>
                       </Link>
 
                       <div className={cn("hidden sm:block rounded-xl bg-gradient-to-tr from-sky-blue/10 via-white to-orange/10 p-4 text-sm text-gray-700", BORDER_DARK)}>
