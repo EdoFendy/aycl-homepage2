@@ -14,6 +14,17 @@ export function SiteFooter() {
             <p className="text-sm leading-relaxed">
               Il sistema proprietario per generare appuntamenti B2B qualificati
             </p>
+            <div className="mt-4 space-y-2 text-sm leading-relaxed">
+              <p className="font-semibold text-white">4YOU 4YOUR FUTURE SOCIEDAD LTDA</p>
+              <p>
+                Avenida touroperador neckermann 3
+                <br />
+                Campo Internacional, Maspalomas, 35100
+                <br />
+                Spain
+              </p>
+              <p>CIF B44593010</p>
+            </div>
           </div>
 
           <div>
@@ -62,18 +73,18 @@ export function SiteFooter() {
             <h4 className="mb-4 font-semibold text-white">Legale</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/contattaci" className="transition-colors hover:text-white">
+                <Link href="/privacy-policy" className="transition-colors hover:text-white">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/contattaci" className="transition-colors hover:text-white">
-                  Termini di Servizio
+                <Link href="/cookie-policy" className="transition-colors hover:text-white">
+                  Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="/contattaci" className="transition-colors hover:text-white">
-                  Cookie Policy
+                <Link href="/termini-e-condizioni" className="transition-colors hover:text-white">
+                  Termini e Condizioni
                 </Link>
               </li>
             </ul>
