@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Mail, MessageCircle, ArrowRight, Phone, MapPin } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function ContattaciPage() {
   const handleEmailClick = () => {
@@ -60,7 +61,13 @@ export default function ContattaciPage() {
 
               <div className="relative z-10 space-y-6">
                 <div className="w-20 h-20 bg-sky-blue/10 rounded-2xl flex items-center justify-center group-hover:bg-sky-blue/20 transition-colors">
-                  <Mail className="h-10 w-10 text-sky-blue" />
+                  <Image
+                    src="/iconaMessaggio.png"
+                    alt="Email"
+                    width={56}
+                    height={56}
+                    className="h-14 w-14"
+                  />
                 </div>
 
                 <div>
@@ -93,7 +100,13 @@ export default function ContattaciPage() {
 
               <div className="relative z-10 space-y-6">
                 <div className="w-20 h-20 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors">
-                  <MessageCircle className="h-10 w-10 text-orange" />
+                  <Image
+                    src="/iconaWhatsapp.png"
+                    alt="WhatsApp"
+                    width={56}
+                    height={56}
+                    className="h-14 w-14"
+                  />
                 </div>
 
                 <div>
@@ -132,7 +145,13 @@ export default function ContattaciPage() {
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Phone className="h-8 w-8 text-navy" />
+                  <Image
+                    src="/iconaTelefono.png"
+                    alt="Telefono"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-3">Telefono</h3>
                 <p className="text-gray-600 mb-4">Chiamaci per una consulenza immediata</p>
@@ -141,7 +160,13 @@ export default function ContattaciPage() {
 
               <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-sky-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="h-8 w-8 text-sky-blue" />
+                  <Image
+                    src="/iconaMessaggio.png"
+                    alt="Email"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-3">Email</h3>
                 <p className="text-gray-600 mb-4">Scrivici per informazioni dettagliate</p>
@@ -150,7 +175,13 @@ export default function ContattaciPage() {
 
               <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MapPin className="h-8 w-8 text-orange" />
+                  <Image
+                    src="/iconaPosizione.png"
+                    alt="Sede"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-3">Sede</h3>
                 <p className="text-gray-600 mb-4">Vieni a trovarci di persona</p>

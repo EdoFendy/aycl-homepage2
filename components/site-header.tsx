@@ -45,7 +45,7 @@ export function SiteHeader() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-[#0B1D3A1A] bg-white/70 backdrop-blur-md">
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-6 sm:px-6">
         {/* NAVBAR ROW */}
         <div className="grid grid-cols-3 items-center py-3 sm:py-4">
           {/* SINISTRA: pulsante 9 quadratini */}
