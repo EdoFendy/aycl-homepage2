@@ -144,3 +144,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Prevent horizontal scrolling and oversized sections on mobile */
+@layer base {
+  html,
+  body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  :where(main, section, header, footer) {
+    max-width: 100vw;
+    overflow-x: clip;
+  }
+
+  :where(main, section, header, footer) > * {
+    max-width: 100%;
+  }
+}

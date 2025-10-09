@@ -136,6 +136,21 @@
   }
 }
 
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body > * {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
 .faq-marquee-container {
   width: 100vw;
   margin-left: calc(50% - 50vw);
