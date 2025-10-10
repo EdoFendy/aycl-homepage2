@@ -81,7 +81,33 @@
     },
     "faq": {
       "title": "Domande Frequenti",
-      "subtitle": "Tutto quello che devi sapere sul Pacchetto Performance"
+      "subtitle": "Tutto quello che devi sapere sul Pacchetto Performance",
+      "items": [
+        {
+          "question": "Quali sono gli step operativi del Pacchetto Performance?",
+          "answer": "1. Call iniziale per verificare la possibilità di collaborazione e raccogliere le informazioni necessarie.\n2. Definizione dell'ICP basato su parametri oggettivi.\n3. Studio di fattibilità per calcolare la quotazione per appuntamento.\n4. Seconda call di confronto per condividere l'analisi e personalizzare l'offerta.\n5. Costruzione del piano operativo insieme al project manager dedicato.\n6. Attivazione delle campagne e fase di testing per l'ottimizzazione."
+        },
+        {
+          "question": "Come viene stabilita la quota per appuntamento?",
+          "answer": "La quota per appuntamento viene calcolata su parametri oggettivi: grandezza e complessità del cluster target, difficoltà e frequenza di contatto, localizzazione geografica del mercato. Se vengono definiti più ICP, a ciascuno corrisponderà una quotazione distinta."
+        },
+        {
+          "question": "Perché il Pacchetto Performance è valido solo per il primo anno?",
+          "answer": "Questo pacchetto è concepito come starter pack, pensato per provare il sistema in modo semplice e diretto. È l'opzione ideale per chi vuole iniziare subito a generare appuntamenti qualificati prima di passare a una formula più strutturata e scalabile."
+        },
+        {
+          "question": "Posso recedere dal contratto in qualsiasi momento?",
+          "answer": "Sì. È sempre possibile recedere dalla collaborazione con un preavviso di 28 giorni. In questo periodo portiamo a termine le attività già avviate, così la chiusura avviene in modo ordinato e senza interruzioni improvvise."
+        },
+        {
+          "question": "Come posso monitorare i risultati e le attività svolte?",
+          "answer": "Hai una dashboard personale su Sendura, aggiornata in tempo reale con tutti i dati di campagna, e report completi ogni due settimane con confronti regolari con il tuo project manager dedicato."
+        },
+        {
+          "question": "Quanto tempo serve per vedere i primi risultati?",
+          "answer": "I primi 30–90 giorni sono un periodo di testing: servono a raggiungere una massa di dati statisticamente rilevanti su cui basare le ottimizzazioni. L'obiettivo è portare il sistema a regime per garantire un flusso costante e prevedibile nel tempo."
+        }
+      ]
     },
     "cta": {
       "title": "Pronto a iniziare con Performance?",
@@ -161,7 +187,36 @@
       "calcTitle": "A single typical deal covers a full year of Performance and leaves margins for the next ones.",
       "calcDesc": "You're paying a coffee a day to open negotiations worth tens of thousands. If a meeting is canceled, you don't pay. If you close, ROI skyrockets. It's a pay‑per‑meeting model that outclasses any other sales expense."
     },
-    "faq": {"title": "Frequently Asked Questions", "subtitle": "Everything about the Performance Package"},
+    "faq": {
+      "title": "Frequently Asked Questions", 
+      "subtitle": "Everything about the Performance Package",
+      "items": [
+        {
+          "question": "What are the operational steps of the Performance Package?",
+          "answer": "1. Initial call to verify collaboration possibility and gather necessary information.\n2. ICP definition based on objective parameters.\n3. Feasibility study to calculate appointment pricing.\n4. Second comparison call to share analysis and customize the offer.\n5. Building the operational plan with your dedicated project manager.\n6. Campaign activation and testing phase for optimization."
+        },
+        {
+          "question": "How is the appointment fee established?",
+          "answer": "The appointment fee is calculated on objective parameters: size and complexity of the target cluster, difficulty and contact frequency, geographical market location. If multiple ICPs are defined, each will have a distinct quotation."
+        },
+        {
+          "question": "Why is the Performance Package valid only for the first year?",
+          "answer": "This package is conceived as a starter pack, designed to test the system in a simple and direct way. It's the ideal option for those who want to start generating qualified appointments immediately before moving to a more structured and scalable formula."
+        },
+        {
+          "question": "Can I withdraw from the contract at any time?",
+          "answer": "Yes. It's always possible to withdraw from the collaboration with 28 days notice. During this period we complete the activities already started, so the closure happens in an orderly manner without sudden interruptions."
+        },
+        {
+          "question": "How can I monitor results and activities?",
+          "answer": "You have a personal dashboard on Sendura, updated in real time with all campaign data, and complete reports every two weeks with regular comparisons with your dedicated project manager."
+        },
+        {
+          "question": "How long does it take to see the first results?",
+          "answer": "The first 30-90 days are a testing period: they serve to reach a mass of statistically relevant data on which to base optimizations. The goal is to bring the system to full operation to ensure a constant and predictable flow over time."
+        }
+      ]
+    },
     "cta": {"title": "Ready to start with Performance?", "subtitle": "Book a free call and see if Performance is right for you", "primary": "Book a Free Call", "secondary": "See Other Packages"}
   },
   "es": {
@@ -235,7 +290,36 @@
       "calcTitle": "Un solo deal típico cubre un año entero de Performance y deja margen para los siguientes.",
       "calcDesc": "Pagas un café al día para abrir negociaciones que valen decenas de miles. Si una cita se cancela, no pagas. Si cierras, el ROI se dispara. Es un modelo pay‑per‑meeting que supera cualquier otro gasto comercial."
     },
-    "faq": {"title": "Preguntas Frecuentes", "subtitle": "Todo sobre el Paquete Performance"},
+    "faq": {
+      "title": "Preguntas Frecuentes", 
+      "subtitle": "Todo sobre el Paquete Performance",
+      "items": [
+        {
+          "question": "¿Cuáles son los pasos operativos del Paquete Performance?",
+          "answer": "1. Llamada inicial para verificar la posibilidad de colaboración y recopilar la información necesaria.\n2. Definición del ICP basada en parámetros objetivos.\n3. Estudio de viabilidad para calcular la tarificación por cita.\n4. Segunda llamada de comparación para compartir el análisis y personalizar la oferta.\n5. Construcción del plan operativo junto al project manager dedicado.\n6. Activación de campañas y fase de testing para la optimización."
+        },
+        {
+          "question": "¿Cómo se establece la tarifa por cita?",
+          "answer": "La tarifa por cita se calcula sobre parámetros objetivos: tamaño y complejidad del cluster objetivo, dificultad y frecuencia de contacto, localización geográfica del mercado. Si se definen múltiples ICP, a cada uno corresponderá una tarificación distinta."
+        },
+        {
+          "question": "¿Por qué el Paquete Performance es válido solo para el primer año?",
+          "answer": "Este paquete está concebido como starter pack, pensado para probar el sistema de forma simple y directa. Es la opción ideal para quien quiere empezar inmediatamente a generar citas cualificadas antes de pasar a una fórmula más estructurada y escalable."
+        },
+        {
+          "question": "¿Puedo rescindir el contrato en cualquier momento?",
+          "answer": "Sí. Siempre es posible rescindir la colaboración con un preaviso de 28 días. En este período completamos las actividades ya iniciadas, así el cierre ocurre de forma ordenada y sin interrupciones súbitas."
+        },
+        {
+          "question": "¿Cómo puedo monitorear los resultados y las actividades?",
+          "answer": "Tienes un panel personal en Sendura, actualizado en tiempo real con todos los datos de campaña, e informes completos cada dos semanas con comparaciones regulares con tu project manager dedicado."
+        },
+        {
+          "question": "¿Cuánto tiempo se necesita para ver los primeros resultados?",
+          "answer": "Los primeros 30-90 días son un período de testing: sirven para alcanzar una masa de datos estadísticamente relevantes sobre los que basar las optimizaciones. El objetivo es llevar el sistema a pleno funcionamiento para garantizar un flujo constante y predecible en el tiempo."
+        }
+      ]
+    },
     "cta": {"title": "¿Listo para empezar con Performance?", "subtitle": "Reserva una llamada gratuita y verifica si Performance es para ti", "primary": "Reservar una Llamada Gratuita", "secondary": "Ver Otros Paquetes"}
   }
 }

@@ -36,12 +36,12 @@ export default function PerformancePage() {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-sky-blue/10 rounded-lg">
-                <span className="text-sm font-bold text-sky-blue">{t("hero.badge")}</span>
+              <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
+                <span className="text-sm font-bold text-orange">{t("hero.badge")}</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
                 {t.rich("hero.title", {
-                  strong: (chunks) => <span className="text-sky-blue">{chunks}</span>,
+                  strong: (chunks) => <span className="text-orange">{chunks}</span>,
                 })}
               </h1>
               <p className="text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
@@ -49,7 +49,7 @@ export default function PerformancePage() {
                 {t("hero.subtitle")}
               </p>
               <Link href="/contattaci">
-                <Button size="lg" className="bg-sky-blue hover:bg-sky-blue/90 text-white">
+                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
                   {t("hero.cta")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -227,16 +227,7 @@ export default function PerformancePage() {
             </Card>
           </div>
 
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-sky-blue/20 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-orange/20 border-2 border-white"></div>
-                <div className="w-8 h-8 rounded-full bg-navy/20 border-2 border-white"></div>
-              </div>
-              <span className="text-sm font-medium text-gray-600">{t("why.badgeRow")}</span>
-            </div>
-          </div>
+  
         </div>
       </section>
         <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
@@ -447,38 +438,7 @@ export default function PerformancePage() {
 
           <FAQCards
             className="mt-12"
-            items={[
-              {
-                question: "Quali sono gli step operativi del Pacchetto Performance?",
-                answer:
-                  "1. Call iniziale per verificare la possibilità di collaborazione e raccogliere le informazioni necessarie.\n2. Definizione dell'ICP basato su parametri oggettivi.\n3. Studio di fattibilità per calcolare la quotazione per appuntamento.\n4. Seconda call di confronto per condividere l'analisi e personalizzare l'offerta.\n5. Costruzione del piano operativo insieme al project manager dedicato.\n6. Attivazione delle campagne e fase di testing per l'ottimizzazione.",
-              },
-              {
-                question: "Come viene stabilita la quota per appuntamento?",
-                answer:
-                  "La quota per appuntamento viene calcolata su parametri oggettivi: grandezza e complessità del cluster target, difficoltà e frequenza di contatto, localizzazione geografica del mercato. Se vengono definiti più ICP, a ciascuno corrisponderà una quotazione distinta.",
-              },
-              {
-                question: "Perché il Pacchetto Performance è valido solo per il primo anno?",
-                answer:
-                  "Questo pacchetto è concepito come starter pack, pensato per provare il sistema in modo semplice e diretto. È l'opzione ideale per chi vuole iniziare subito a generare appuntamenti qualificati prima di passare a una formula più strutturata e scalabile.",
-              },
-              {
-                question: "Posso recedere dal contratto in qualsiasi momento?",
-                answer:
-                  "Sì. È sempre possibile recedere dalla collaborazione con un preavviso di 28 giorni. In questo periodo portiamo a termine le attività già avviate, così la chiusura avviene in modo ordinato e senza interruzioni improvvise.",
-              },
-              {
-                question: "Come posso monitorare i risultati e le attività svolte?",
-                answer:
-                  "Hai una dashboard personale su Sendura, aggiornata in tempo reale con tutti i dati di campagna, e report completi ogni due settimane con confronti regolari con il tuo project manager dedicato.",
-              },
-              {
-                question: "Quanto tempo serve per vedere i primi risultati?",
-                answer:
-                  "I primi 30–90 giorni sono un periodo di testing: servono a raggiungere una massa di dati statisticamente rilevanti su cui basare le ottimizzazioni. L'obiettivo è portare il sistema a regime per garantire un flusso costante e prevedibile nel tempo.",
-              },
-            ]}
+            items={t.raw("faq.items")}
           />
         </div>
       </section>

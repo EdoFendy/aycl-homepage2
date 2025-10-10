@@ -234,21 +234,6 @@ export default function SubscriptionPage() {
               </div>
             </div>
           </Card>
-
-        </div>
-
-        {/* CTA section */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-white border border-gray-200 rounded-full shadow-sm">
-            <div className="flex -space-x-2">
-              <div className="w-8 h-8 rounded-full bg-orange/20 border-2 border-white"></div>
-              <div className="w-8 h-8 rounded-full bg-sky-blue/20 border-2 border-white"></div>
-              <div className="w-8 h-8 rounded-full bg-navy/20 border-2 border-white"></div>
-            </div>
-            <span className="text-sm font-medium text-gray-600">
-              Oltre 50 aziende hanno già fatto questa scelta
-            </span>
-          </div>
         </div>
       </div>
     </section>
