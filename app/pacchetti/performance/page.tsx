@@ -438,6 +438,39 @@ export default function PerformancePage() {
         </div>
       </section>
 
+      {/* Call to Action Section */}
+      <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-sky-blue/10">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center p-8 bg-white/80 rounded-2xl shadow-lg border border-sky-blue/10">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <span className="inline-flex items-center justify-center rounded-full bg-orange/10 text-orange text-lg w-12 h-12 font-bold shadow">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">{t("cta.title")}</h2>
+            </div>
+            <div className="w-full mt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button 
+                data-cal-namespace="aycl-discovery"
+                data-cal-link="giovannilucchesini/aycl-discovery"
+                data-cal-config='{"layout":"month_view"}'
+                className="w-full sm:w-auto px-10 py-4 rounded-lg bg-orange hover:bg-orange/90 text-white font-semibold text-lg shadow-md transition duration-200 flex items-center justify-center gap-2"
+              >
+                <svg className="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10m-13 7V7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
+                {t("cta.primary")}
+              </button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-navy text-navy hover:bg-navy/5 px-10 py-4 rounded-lg shadow-sm font-semibold text-lg w-full sm:w-auto" 
+                onClick={() => window.location.href = '/pacchetti'}
+              >
+                {t("cta.secondary")}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
         {/* FAQ */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6">

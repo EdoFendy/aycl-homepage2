@@ -107,6 +107,11 @@
         "Continuous improvement su copy, canali e cluster."
       ]
     },
+    "cta": {
+      "title": "Pronto a iniziare la partnership Set-Up Fee?",
+      "primary": "Prenota una Call Gratuita",
+      "secondary": "Vedi Altri Pacchetti"
+    },
     "faq": {
       "badge": "Domande frequenti",
       "title": "FAQ sul pacchetto Set-Up Fee + Revenue Share",
@@ -199,6 +204,11 @@
       "opDesc": "Joint teams, vertical playbooks and localized assets. You keep control, we bring the machine.",
       "opBullets": ["Alignment workshops and sales/marketing training.", "Continuous improvement on copy, channels and clusters."]
     },
+    "cta": {
+      "title": "Ready to start the Set-Up Fee partnership?",
+      "primary": "Book a Free Call",
+      "secondary": "See Other Packages"
+    },
     "faq": {
       "badge": "Frequently Asked Questions",
       "title": "FAQ about Set-Up Fee + Revenue Share",
@@ -290,6 +300,11 @@
       "opTitle": "Perspectiva operativa",
       "opDesc": "Equipos conjuntos, playbooks verticales y activos localizados. Tú mantienes el control, nosotros llevamos la máquina.",
       "opBullets": ["Workshops de alineación y formación.", "Mejora continua en copy, canales y clusters."]
+    },
+    "cta": {
+      "title": "¿Listo para empezar la asociación Set-Up Fee?",
+      "primary": "Reservar una Llamada Gratuita",
+      "secondary": "Ver Otros Paquetes"
     },
     "faq": {
       "badge": "Preguntas Frecuentes",
