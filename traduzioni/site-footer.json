@@ -1,0 +1,70 @@
+{
+  "it": {
+    "brand": {
+      "name": "All You Can Leads",
+      "tagline": "Il sistema proprietario per generare appuntamenti B2B qualificati"
+    },
+    "sections": {
+      "packages": "Pacchetti",
+      "info": "Informazioni",
+      "legal": "Legale"
+    },
+    "links": {
+      "performance": "Performance",
+      "subscription": "Subscription",
+      "setup": "Set-up Fee",
+      "contact": "Contattaci ora",
+      "faq": "FAQ",
+      "privacy": "Privacy Policy",
+      "cookie": "Cookie Policy",
+      "terms": "Termini e Condizioni"
+    },
+    "copyright": "Tutti i diritti riservati."
+  },
+  "en": {
+    "brand": {
+      "name": "All You Can Leads",
+      "tagline": "The proprietary system to generate qualified B2B appointments"
+    },
+    "sections": {
+      "packages": "Packages",
+      "info": "Information",
+      "legal": "Legal"
+    },
+    "links": {
+      "performance": "Performance",
+      "subscription": "Subscription",
+      "setup": "Set-up Fee",
+      "contact": "Contact us now",
+      "faq": "FAQ",
+      "privacy": "Privacy Policy",
+      "cookie": "Cookie Policy",
+      "terms": "Terms and Conditions"
+    },
+    "copyright": "All rights reserved."
+  },
+  "es": {
+    "brand": {
+      "name": "All You Can Leads",
+      "tagline": "El sistema propietario para generar citas B2B cualificadas"
+    },
+    "sections": {
+      "packages": "Paquetes",
+      "info": "Información",
+      "legal": "Legal"
+    },
+    "links": {
+      "performance": "Rendimiento",
+      "subscription": "Suscripción",
+      "setup": "Cuota de configuración",
+      "contact": "Contáctanos ahora",
+      "faq": "FAQ",
+      "privacy": "Política de privacidad",
+      "cookie": "Política de cookies",
+      "terms": "Términos y Condiciones"
+    },
+    "copyright": "Todos los derechos reservados."
+  }
+}
+
+

@@ -1,0 +1,233 @@
+{
+  "it": {
+    "hero": {
+      "badge": "PACCHETTO SUBSCRIPTION",
+      "title": "Pacchetto <strong>Subscription</strong>: un flusso costante di appuntamenti qualificati",
+      "kicker": "Appuntamenti garantiti ogni mese e numeri prevedibili.",
+      "subtitle": "Range garantito di appuntamenti qualificati. Se non rispettiamo gli accordi, perdiamo per primi.",
+      "cta": "Richiedi Subscription",
+      "alt": "Subscription Package"
+    },
+    "how": {
+      "title": "Pacchetto Subscription: trattative valide per il tuo team",
+      "cards": {
+        "targetTitle": "Il tuo target",
+        "targetDesc": "Individuiamo il cluster di mercato ideale e fissiamo insieme il range mensile garantito.",
+        "strategyTitle": "La tua strategia",
+        "strategyDesc": "Definiamo piano d'azione, canali e messaggi. Liste dedicate dal nostro database.",
+        "collabTitle": "La collaborazione",
+        "collabDesc": "Lanciamo e gestiamo le campagne, analizziamo dati e ottimizziamo con report e call."
+      }
+    },
+    "why": {
+      "badge": "Perché Subscription",
+      "title": "La scelta che fa la differenza",
+      "subtitle": "Come il pacchetto Subscription trasforma il tuo approccio commerciale",
+      "benefits": [
+        "Vuoi un team che lavori con continuità su trattative reali.",
+        "Cerchi condizioni costruite su misura per la tua azienda.",
+        "Preferisci un flusso costante con risultati verificabili.",
+        "Hai bisogno di pianificare con numeri prevedibili."
+      ],
+      "footnote": "Risultati tangibili, collaborazione trasparente",
+      "problemsBadge": "✗ Problemi risolti",
+      "problemsTitle": "Grazie al pacchetto Subscription non dovrai più…",
+      "problems": [
+        "Sprecare il potenziale del tuo team con lead sbagliati.",
+        "Affidarti a strumenti di marketing troppo costosi e poco efficaci.",
+        "Lavorare con liste improvvisate di contatti a freddo e fuori target.",
+        "Basare le decisioni su sensazioni e opinioni."
+      ],
+      "problemsFoot": "Dimentica sprechi, inefficienze e improvvisazione"
+    },
+    "system": {
+      "title": "Accedi senza rischi ai pilastri del nostro sistema",
+      "subtitle": "Sales oriented, tech e data based: tecnologie, banche dati e team dedicati.",
+      "cards": {
+        "senduraTitle": "Sendura",
+        "senduraDesc": "App proprietaria per gestire e monitorare le campagne su tutti i canali.",
+        "dbTitle": "Database",
+        "dbDesc": "Contatti globali B2B con verifica continua via AI.",
+        "supportTitle": "Supporto",
+        "supportDesc": "Project manager dedicato e unione tra automazione e persone."
+      }
+    },
+    "guarantee": {
+      "badge": "Garanzia Totale",
+      "title": "Un abbonamento mensile, 100% senza rischi",
+      "subtitle": "Range mensile garantito di appuntamenti qualificati, con tutele su risultati e recesso.",
+      "steps": {
+        "1": {"title": "Fase di attivazione", "label": "Setup", "desc": "Pacchetto su misura; la prima rata all'inizio; rate in base al range mensile."},
+        "2": {"title": "Fase operativa", "label": "Risparmio 25%", "desc": "Seconda rata 28 giorni dopo il primo appuntamento qualificato; cadenza 28 giorni; -25% per appuntamento."},
+        "3": {"title": "Garanzie incluse", "label": "Sicurezza", "desc": "Rimborso se non ricevi appuntamenti in 60–90 giorni; recesso con 28 giorni; range coperto da garanzia."}
+      },
+      "notes": {
+        "title": "Note importanti",
+        "subtitle": "Informazioni chiave per il successo del tuo progetto",
+        "items": [
+          {"title": "Periodo di attivazione", "desc": "I primi 60–90 giorni servono per impostare e calibrare il sistema."},
+          {"title": "Monitoraggio continuo", "desc": "Report regolari e dashboard per monitorare ogni attività."},
+          {"title": "Garanzia totale", "desc": "Range mensile coperto e tutele sul recesso."}
+        ]
+      }
+    },
+    "cta": {
+      "title": "Pronto a iniziare?",
+      "primary": "Prenota una Call",
+      "secondary": "Scopri i Pacchetti"
+    },
+    "faq": {"title": "FAQ"}
+  },
+  "en": {
+    "hero": {
+      "badge": "SUBSCRIPTION PACKAGE",
+      "title": "<strong>Subscription</strong> Package: a steady flow of qualified meetings",
+      "kicker": "Guaranteed appointments every month and predictable numbers.",
+      "subtitle": "Guaranteed monthly range of qualified appointments. If we miss targets, we lose first.",
+      "cta": "Request Subscription",
+      "alt": "Subscription Package"
+    },
+    "how": {
+      "title": "Subscription: valid negotiations for your team",
+      "cards": {
+        "targetTitle": "Your target",
+        "targetDesc": "We identify the market cluster and agree on the guaranteed monthly range.",
+        "strategyTitle": "Your strategy",
+        "strategyDesc": "We define the action plan, channels and messages. Dedicated lists from our database.",
+        "collabTitle": "Collaboration",
+        "collabDesc": "We run campaigns, analyze data and optimize with reports and calls."
+      }
+    },
+    "why": {
+      "badge": "Why Subscription",
+      "title": "The choice that makes the difference",
+      "subtitle": "How Subscription transforms your sales approach",
+      "benefits": [
+        "You want a team working steadily on real negotiations.",
+        "You need conditions tailored to your company.",
+        "You prefer a steady flow with verifiable results.",
+        "You need to plan based on predictable numbers."
+      ],
+      "footnote": "Tangible results, transparent collaboration",
+      "problemsBadge": "✗ Solved problems",
+      "problemsTitle": "With Subscription you won't need to…",
+      "problems": [
+        "Waste your team's potential with the wrong leads.",
+        "Rely on overpriced and ineffective marketing tools.",
+        "Work with improvised cold/out-of-target lists.",
+        "Base decisions on gut feelings."
+      ],
+      "problemsFoot": "Forget waste, inefficiency and guesswork"
+    },
+    "system": {
+      "title": "Access our system pillars with no risk",
+      "subtitle": "Sales‑oriented, tech and data based: technologies, databases and dedicated teams.",
+      "cards": {
+        "senduraTitle": "Sendura",
+        "senduraDesc": "Proprietary app to manage and monitor campaigns across channels.",
+        "dbTitle": "Database",
+        "dbDesc": "Global B2B contacts with AI verification.",
+        "supportTitle": "Support",
+        "supportDesc": "Dedicated PM plus the blend of automation and people."
+      }
+    },
+    "guarantee": {
+      "badge": "Total Guarantee",
+      "title": "A monthly subscription, <strong>100% risk‑free</strong>",
+      "subtitle": "Guaranteed monthly range of qualified appointments with protections on results and termination.",
+      "steps": {
+        "1": {"title": "Activation phase", "label": "Setup", "desc": "Tailored package; first installment at start; installments based on monthly range."},
+        "2": {"title": "Operational phase", "label": "Save 25%", "desc": "Second installment 28 days after first qualified appointment; then every 28 days; -25% per appointment."},
+        "3": {"title": "Included guarantees", "label": "Safety", "desc": "Refund if no qualified appointments within 60–90 days; 28‑day termination; guaranteed range."}
+      },
+      "notes": {
+        "title": "Important notes",
+        "subtitle": "Key information for project success",
+        "items": [
+          {"title": "Activation period", "desc": "First 60–90 days to set up and calibrate the system."},
+          {"title": "Continuous monitoring", "desc": "Regular reports and dashboards to monitor every activity."},
+          {"title": "Total guarantee", "desc": "Guaranteed monthly range and protections on termination."}
+        ]
+      }
+    },
+    "cta": {"title": "Ready to start?", "primary": "Book a Call", "secondary": "See Packages"},
+    "faq": {"title": "FAQ"}
+  },
+  "es": {
+    "hero": {
+      "badge": "PAQUETE SUBSCRIPTION",
+      "title": "Paquete de <strong>Suscripción</strong>: flujo constante de citas cualificadas",
+      "kicker": "Citas garantizadas cada mes y números predecibles.",
+      "subtitle": "Rango mensual garantizado de citas cualificadas. Si no cumplimos, perdemos nosotros primero.",
+      "cta": "Solicitar Suscripción",
+      "alt": "Paquete Suscripción"
+    },
+    "how": {
+      "title": "Suscripción: negociaciones válidas para tu equipo",
+      "cards": {
+        "targetTitle": "Tu objetivo",
+        "targetDesc": "Identificamos el cluster y acordamos el rango mensual garantizado.",
+        "strategyTitle": "Tu estrategia",
+        "strategyDesc": "Definimos el plan, canales y mensajes. Listas dedicadas desde nuestra base de datos.",
+        "collabTitle": "Colaboración",
+        "collabDesc": "Lanzamos y gestionamos campañas, analizamos datos y optimizamos con informes y llamadas."
+      }
+    },
+    "why": {
+      "badge": "Por qué Suscripción",
+      "title": "La elección que marca la diferencia",
+      "subtitle": "Cómo Suscripción transforma tu enfoque comercial",
+      "benefits": [
+        "Quieres un equipo que trabaje de forma continua en negociaciones reales.",
+        "Buscas condiciones a medida para tu empresa.",
+        "Prefieres un flujo constante con resultados verificables.",
+        "Necesitas planificar con números predecibles."
+      ],
+      "footnote": "Resultados tangibles, colaboración transparente",
+      "problemsBadge": "✗ Problemas resueltos",
+      "problemsTitle": "Con Suscripción ya no tendrás que…",
+      "problems": [
+        "Desaprovechar el potencial de tu equipo con leads incorrectos.",
+        "Depender de herramientas de marketing caras e ineficaces.",
+        "Trabajar con listas improvisadas de contactos fríos y fuera de objetivo.",
+        "Basar decisiones en corazonadas."
+      ],
+      "problemsFoot": "Olvida el despilfarro y la improvisación"
+    },
+    "system": {
+      "title": "Accede sin riesgos a los pilares de nuestro sistema",
+      "subtitle": "Orientado a ventas, tecnología y datos: tecnologías, bases de datos y equipos dedicados.",
+      "cards": {
+        "senduraTitle": "Sendura",
+        "senduraDesc": "App propietaria para gestionar y monitorizar campañas en todos los canales.",
+        "dbTitle": "Base de datos",
+        "dbDesc": "Contactos B2B globales con verificación mediante IA.",
+        "supportTitle": "Soporte",
+        "supportDesc": "PM dedicado y mezcla de automatización y personas."
+      }
+    },
+    "guarantee": {
+      "badge": "Garantía Total",
+      "title": "Una suscripción mensual, <strong>100% sin riesgos</strong>",
+      "subtitle": "Rango mensual garantizado de citas cualificadas con protecciones sobre resultados y rescisión.",
+      "steps": {
+        "1": {"title": "Fase de activación", "label": "Setup", "desc": "Paquete a medida; primera cuota al inicio; cuotas según rango mensual."},
+        "2": {"title": "Fase operativa", "label": "Ahorro 25%", "desc": "Segunda cuota 28 días después de la primera cita cualificada; luego cada 28 días; -25% por cita."},
+        "3": {"title": "Garantías incluidas", "label": "Seguridad", "desc": "Reembolso si no recibes citas en 60–90 días; rescisión con 28 días; rango garantizado."}
+      },
+      "notes": {
+        "title": "Notas importantes",
+        "subtitle": "Información clave para el éxito del proyecto",
+        "items": [
+          {"title": "Periodo de activación", "desc": "Primeros 60–90 días para configurar y calibrar."},
+          {"title": "Monitorización continua", "desc": "Informes regulares y panel para monitorizar todo."},
+          {"title": "Garantía total", "desc": "Rango mensual garantizado y protecciones de rescisión."}
+        ]
+      }
+    },
+    "cta": {"title": "¿Listo para empezar?", "primary": "Reservar una Llamada", "secondary": "Ver Paquetes"},
+    "faq": {"title": "FAQ"}
+  }
+}
+
+

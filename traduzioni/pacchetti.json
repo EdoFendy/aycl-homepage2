@@ -1,0 +1,340 @@
+{
+  "it": {
+    "hero": {
+      "badge": "I Nostri Pacchetti",
+      "title": "Scegli il pacchetto giusto per la tua azienda",
+      "subtitle": "Ogni azienda è a un punto diverso del suo percorso. Scopri quale soluzione si adatta meglio alle tue ambizioni di crescita."
+    },
+    "setup": {
+      "badge": "Partnership Elite",
+      "revShare": "Revenue Share",
+      "title": "Set-Up Fee + Revenue Share",
+      "desc": "Per aziende ambiziose che puntano a scalare con obiettivi condivisi sul fatturato. Vinciamo insieme, cresciamo insieme.",
+      "strategy": "Strategia & Execution",
+      "partnership": "Partnership & Risultati",
+      "features": {
+        "customStrategy": "Strategia su misura per mercati complessi e buyer multi-stakeholder",
+        "dedicatedTeam": "Team cross-funzionale dedicato: marketing ops, SDR e data specialist",
+        "automation": "Automazione completa del processo di lead generation",
+        "revenueShare": "Revenue share: vinciamo solo se cresci anche tu",
+        "priorityAccess": "Accesso prioritario a nuove funzionalità e beta testing",
+        "advisoryBoard": "Advisory board trimestrale con i founder"
+      },
+      "cta": "Contattaci ora",
+      "ideal": "💼 Ideale per aziende B2B con ACV > €10k"
+    },
+    "performance": {
+      "badge": "Kickstart",
+      "setup": "⚡ Setup in 7 giorni",
+      "title": "Performance",
+      "desc": "Per iniziare in sicurezza e validare rapidamente il modello AYCL con zero rischi upfront.",
+      "pricing": {
+        "label": "Modello di pricing",
+        "desc": "💰 Paghi solo per risultati concreti: nessun costo fisso, solo appuntamenti qualificati svolti"
+      },
+      "features": {
+        "onboarding": "Onboarding dedicato e audit sul processo commerciale attuale",
+        "payPerResult": "Paghi solo gli appuntamenti qualificati effettivamente svolti",
+        "reporting": "Reportistica settimanale e ottimizzazioni continue",
+        "testing": "Test A/B su messaging e target audience"
+      },
+      "cta": "Contattaci ora"
+    },
+    "subscription": {
+      "badge": "Scale",
+      "title": "Subscription",
+      "desc": "Per team commerciali che vogliono continuità e volumi prevedibili.",
+      "pricing": "📅 Canone mensile fisso",
+      "features": {
+        "guaranteed": "Agenda di meeting qualificati garantita ogni mese",
+        "manager": "Account manager dedicato e dashboard KPI real-time",
+        "meetings": "Riunioni strategiche mensili"
+      },
+      "cta": "Contattaci ora"
+    },
+    "guide": {
+      "badge": "Guida alla Scelta",
+      "title": "Quale pacchetto fa al caso tuo?",
+      "subtitle": "Ogni soluzione è pensata per una fase diversa del tuo percorso di crescita. Scopri quale si adatta meglio alle tue esigenze attuali.",
+      "cards": {
+        "performance": {
+          "title": "Performance",
+          "tag": "Kickstart",
+          "idealTitle": "È ideale se...",
+          "ideal": [
+            "Vuoi testare il sistema senza rischi",
+            "Cerchi massima flessibilità",
+            "Paghi solo i risultati ottenuti",
+            "È il tuo primo anno di collaborazione"
+          ],
+          "perfectForLabel": "Perfetto per",
+          "perfectFor": "Startup e PMI che vogliono validare il modello senza investimenti upfront"
+        },
+        "subscription": {
+          "title": "Subscription",
+          "tag": "Scale",
+          "idealTitle": "È ideale se...",
+          "ideal": [
+            "Vuoi numeri prevedibili ogni mese",
+            "Hai un team commerciale attivo",
+            "Cerchi continuità e stabilità",
+            "Vuoi risparmiare il 25%"
+          ],
+          "perfectForLabel": "Perfetto per",
+          "perfectFor": "Aziende strutturate con team commerciali che vogliono flusso costante"
+        },
+        "setup": {
+          "title": "Set-Up Fee",
+          "tag": "Partnership Elite",
+          "idealTitle": "È ideale se...",
+          "ideal": [
+            "Vuoi scalare senza limiti",
+            "Cerchi una partnership strategica",
+            "Hai un'azienda ben strutturata",
+            "Pensi a lungo termine"
+          ],
+          "perfectForLabel": "Perfetto per",
+          "perfectFor": "Grandi aziende che vogliono partnership di lungo periodo con revenue share"
+        }
+      },
+      "unsure": {
+        "title": "Non sei sicuro?",
+        "desc": "Ogni pacchetto include onboarding completo, reportistica trasparente e supporto dedicato. Prenota una call gratuita per scoprire quale soluzione si adatta meglio alla tua azienda.",
+        "cta": "Prenota una Call Gratuita"
+      },
+      "trust": {
+        "active": "Aziende Attive",
+        "revenue": "Revenue Generato",
+        "appointments": "Appuntamenti",
+        "satisfaction": "Soddisfazione"
+      }
+    },
+    "trustIndicator": "✨ Tutti i pacchetti includono onboarding completo, reportistica trasparente e supporto dedicato"
+  },
+  "en": {
+    "hero": {
+      "badge": "Our Packages",
+      "title": "Choose the right package for your company",
+      "subtitle": "Every company is at a different stage. Discover which solution best fits your growth ambitions."
+    },
+    "setup": {
+      "badge": "Elite Partnership",
+      "revShare": "Revenue Share",
+      "title": "Set-Up Fee + Revenue Share",
+      "desc": "For ambitious companies aiming to scale with shared revenue goals. We win together, we grow together.",
+      "strategy": "Strategy & Execution",
+      "partnership": "Partnership & Results",
+      "features": {
+        "customStrategy": "Custom strategy for complex markets and multi-stakeholder buyers",
+        "dedicatedTeam": "Dedicated cross-functional team: marketing ops, SDR and data specialist",
+        "automation": "Complete automation of the lead generation process",
+        "revenueShare": "Revenue share: we only win if you grow too",
+        "priorityAccess": "Priority access to new features and beta testing",
+        "advisoryBoard": "Quarterly advisory board with founders"
+      },
+      "cta": "Contact us now",
+      "ideal": "💼 Ideal for B2B companies with ACV > €10k"
+    },
+    "performance": {
+      "badge": "Kickstart",
+      "setup": "⚡ Setup in 7 days",
+      "title": "Performance",
+      "desc": "Start safely and quickly validate the AYCL model with zero upfront risks.",
+      "pricing": {
+        "label": "Pricing model",
+        "desc": "💰 You only pay for concrete results: no fixed costs, only qualified appointments held"
+      },
+      "features": {
+        "onboarding": "Dedicated onboarding and audit on current sales process",
+        "payPerResult": "You only pay for qualified appointments actually held",
+        "reporting": "Weekly reporting and continuous optimizations",
+        "testing": "A/B testing on messaging and target audience"
+      },
+      "cta": "Contact us now"
+    },
+    "subscription": {
+      "badge": "Scale",
+      "title": "Subscription",
+      "desc": "For sales teams that want continuity and predictable volumes.",
+      "pricing": "📅 Fixed monthly fee",
+      "features": {
+        "guaranteed": "Guaranteed qualified meeting agenda every month",
+        "manager": "Dedicated account manager and real-time KPI dashboard",
+        "meetings": "Monthly strategic meetings"
+      },
+      "cta": "Contact us now"
+    },
+    "guide": {
+      "badge": "Choice Guide",
+      "title": "Which package suits you?",
+      "subtitle": "Each solution is designed for a different stage of your growth journey. Discover what best fits your current needs.",
+      "cards": {
+        "performance": {
+          "title": "Performance",
+          "tag": "Kickstart",
+          "idealTitle": "It's ideal if...",
+          "ideal": [
+            "You want to test the system without risks",
+            "You seek maximum flexibility",
+            "You pay only for results",
+            "It's your first year of collaboration"
+          ],
+          "perfectForLabel": "Perfect for",
+          "perfectFor": "Startups and SMEs wanting to validate the model without upfront investment"
+        },
+        "subscription": {
+          "title": "Subscription",
+          "tag": "Scale",
+          "idealTitle": "It's ideal if...",
+          "ideal": [
+            "You want predictable numbers every month",
+            "You have an active sales team",
+            "You seek continuity and stability",
+            "You want to save 25%"
+          ],
+          "perfectForLabel": "Perfect for",
+          "perfectFor": "Structured companies with sales teams that want a steady flow"
+        },
+        "setup": {
+          "title": "Set-Up Fee",
+          "tag": "Elite Partnership",
+          "idealTitle": "It's ideal if...",
+          "ideal": [
+            "You want to scale without limits",
+            "You are looking for a strategic partnership",
+            "You have a well-structured company",
+            "You think long-term"
+          ],
+          "perfectForLabel": "Perfect for",
+          "perfectFor": "Large companies seeking long-term partnership with revenue share"
+        }
+      },
+      "unsure": {
+        "title": "Not sure?",
+        "desc": "Each package includes complete onboarding, transparent reporting and dedicated support. Book a free call to discover which solution fits your company best.",
+        "cta": "Book a Free Call"
+      },
+      "trust": {
+        "active": "Active Companies",
+        "revenue": "Revenue Generated",
+        "appointments": "Appointments",
+        "satisfaction": "Satisfaction"
+      }
+    },
+    "trustIndicator": "✨ All packages include complete onboarding, transparent reporting and dedicated support"
+  },
+  "es": {
+    "hero": {
+      "badge": "Nuestros Paquetes",
+      "title": "Elige el paquete adecuado para tu empresa",
+      "subtitle": "Cada empresa está en una etapa diferente. Descubre qué solución se adapta mejor a tus ambiciones de crecimiento."
+    },
+    "setup": {
+      "badge": "Asociación Élite",
+      "revShare": "Participación en Ingresos",
+      "title": "Cuota de Configuración + Participación en Ingresos",
+      "desc": "Para empresas ambiciosas que apuntan a escalar con objetivos de ingresos compartidos. Ganamos juntos, crecemos juntos.",
+      "strategy": "Estrategia y Ejecución",
+      "partnership": "Asociación y Resultados",
+      "features": {
+        "customStrategy": "Estrategia a medida para mercados complejos y compradores multi-stakeholder",
+        "dedicatedTeam": "Equipo cross-funcional dedicado: marketing ops, SDR y especialista en datos",
+        "automation": "Automatización completa del proceso de generación de leads",
+        "revenueShare": "Participación en ingresos: solo ganamos si tú creces también",
+        "priorityAccess": "Acceso prioritario a nuevas funcionalidades y pruebas beta",
+        "advisoryBoard": "Consejo asesor trimestral con los fundadores"
+      },
+      "cta": "Contáctanos ahora",
+      "ideal": "💼 Ideal para empresas B2B con ACV > €10k"
+    },
+    "performance": {
+      "badge": "Kickstart",
+      "setup": "⚡ Configuración en 7 días",
+      "title": "Rendimiento",
+      "desc": "Para comenzar de forma segura y validar rápidamente el modelo AYCL sin riesgos iniciales.",
+      "pricing": {
+        "label": "Modelo de precios",
+        "desc": "💰 Solo pagas por resultados concretos: sin costos fijos, solo citas cualificadas realizadas"
+      },
+      "features": {
+        "onboarding": "Onboarding dedicado y auditoría del proceso comercial actual",
+        "payPerResult": "Solo pagas las citas cualificadas efectivamente realizadas",
+        "reporting": "Reportes semanales y optimizaciones continuas",
+        "testing": "Pruebas A/B en mensajería y audiencia objetivo"
+      },
+      "cta": "Contáctanos ahora"
+    },
+    "subscription": {
+      "badge": "Escala",
+      "title": "Suscripción",
+      "desc": "Para equipos comerciales que quieren continuidad y volúmenes predecibles.",
+      "pricing": "📅 Cuota mensual fija",
+      "features": {
+        "guaranteed": "Agenda de reuniones cualificadas garantizada cada mes",
+        "manager": "Gerente de cuenta dedicado y panel de KPI en tiempo real",
+        "meetings": "Reuniones estratégicas mensuales"
+      },
+      "cta": "Contáctanos ahora"
+    },
+    "guide": {
+      "badge": "Guía de Elección",
+      "title": "¿Qué paquete te conviene?",
+      "subtitle": "Cada solución está diseñada para una etapa diferente de tu camino de crecimiento. Descubre cuál se adapta mejor a tus necesidades actuales.",
+      "cards": {
+        "performance": {
+          "title": "Rendimiento",
+          "tag": "Kickstart",
+          "idealTitle": "Es ideal si...",
+          "ideal": [
+            "Quieres probar el sistema sin riesgos",
+            "Buscas máxima flexibilidad",
+            "Pagas solo por los resultados",
+            "Es tu primer año de colaboración"
+          ],
+          "perfectForLabel": "Perfecto para",
+          "perfectFor": "Startups y pymes que desean validar el modelo sin inversión inicial"
+        },
+        "subscription": {
+          "title": "Suscripción",
+          "tag": "Escala",
+          "idealTitle": "Es ideal si...",
+          "ideal": [
+            "Quieres números predecibles cada mes",
+            "Tienes un equipo comercial activo",
+            "Buscas continuidad y estabilidad",
+            "Quieres ahorrar un 25%"
+          ],
+          "perfectForLabel": "Perfecto para",
+          "perfectFor": "Empresas estructuradas con equipos comerciales que desean un flujo constante"
+        },
+        "setup": {
+          "title": "Cuota de Configuración",
+          "tag": "Asociación Élite",
+          "idealTitle": "Es ideal si...",
+          "ideal": [
+            "Quieres escalar sin límites",
+            "Buscas una asociación estratégica",
+            "Tienes una empresa bien estructurada",
+            "Piensas a largo plazo"
+          ],
+          "perfectForLabel": "Perfecto para",
+          "perfectFor": "Grandes empresas que desean asociaciones a largo plazo con participación en ingresos"
+        }
+      },
+      "unsure": {
+        "title": "¿No estás seguro?",
+        "desc": "Cada paquete incluye onboarding completo, informes transparentes y soporte dedicado. Reserva una llamada gratuita para descubrir qué solución se adapta mejor a tu empresa.",
+        "cta": "Reservar una Llamada Gratuita"
+      },
+      "trust": {
+        "active": "Empresas Activas",
+        "revenue": "Ingresos Generados",
+        "appointments": "Citas",
+        "satisfaction": "Satisfacción"
+      }
+    },
+    "trustIndicator": "✨ Todos los paquetes incluyen onboarding completo, informes transparentes y soporte dedicado"
+  }
+}
+
+

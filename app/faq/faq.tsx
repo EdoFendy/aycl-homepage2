@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
+import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import {
@@ -776,6 +777,7 @@ const chapters: Chapter[] = [
 ]
 
 export default function FAQMasterbookPage() {
+  const t = useTranslations("faq")
   const router = useRouter()
   const [query, setQuery] = useState("")
   const [activeChapter, setActiveChapter] = useState<string>("all")
@@ -902,7 +904,7 @@ export default function FAQMasterbookPage() {
   const toggleBookmark = (id: string) => setBookmarks((b) => ({ ...b, [id]: !b[id] }))
 
   const chapterTabs = [
-    { id: "all", title: "Tutte" },
+    { id: "all", title: t("tabs.all") },
     ...chapters.map((c) => ({ id: c.id, title: c.title })),
   ]
 
@@ -920,15 +922,14 @@ export default function FAQMasterbookPage() {
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full">
               <BookOpen className="w-4 h-4 text-navy" />
-              <span className="text-sm font-medium text-gray-700">Masterbook • FAQ Interattive</span>
+              <span className="text-sm font-medium text-gray-700">{t("header.badge")}</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-navy leading-tight text-balance">
-              Tutto su <span className="text-orange">All You Can Leads</span>
+              {t.rich("header.title", {
+                strong: (chunks) => <span className="text-orange">{chunks}</span>,
+              })}
             </h1>
-            <p className="text-gray-600 max-w-2xl">
-              Cerca, filtra per capitolo, espandi tutto e salva i tuoi preferiti. Ogni risposta ha un link diretto da
-              condividere con il team.
-            </p>
+            <p className="text-gray-600 max-w-2xl">{t("header.subtitle")}</p>
           </div>
 
           <div className="w-full lg:w-auto">
@@ -938,7 +939,7 @@ export default function FAQMasterbookPage() {
                   ref={searchRef}
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Cerca tra le FAQ (Generali, Performance, Set‑Up, Subscription)"
+                  placeholder={t("search.placeholder")}
                   className="w-full lg:w-96 outline-none bg-transparent text-sm placeholder:text-gray-400"
                 />
               </div>
@@ -958,27 +959,24 @@ export default function FAQMasterbookPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-navy">Parla con un nostro consulente</h3>
-                      <p className="text-gray-600">Hai domande specifiche? Preferisci una consulenza personalizzata?</p>
+                      <h3 className="text-2xl font-bold text-navy">{t("consult.title")}</h3>
+                      <p className="text-gray-600">{t("consult.subtitle")}</p>
                     </div>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">
-                    I nostri esperti sono a tua disposizione per una consulenza gratuita. Analizziamo insieme le tue esigenze 
-                    e ti aiutiamo a scegliere la soluzione più adatta per la tua azienda.
-                  </p>
+                  <p className="text-gray-700 leading-relaxed">{t("consult.body")}</p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button 
                       className="bg-orange hover:bg-orange/90 text-white px-6 py-3"
                       onClick={() => router.push('/contattaci')}
                     >
-                      Prenota una Call Gratuita
+                      {t("consult.ctaPrimary")}
                     </Button>
                     <Button 
                       variant="outline" 
                       className="border-navy text-navy hover:bg-navy/5 px-6 py-3"
                       onClick={() => router.push('/pacchetti')}
                     >
-                      Scopri i Pacchetti
+                      {t("consult.ctaSecondary")}
                     </Button>
                   </div>
                 </div>
@@ -1024,10 +1022,10 @@ export default function FAQMasterbookPage() {
         {/* Controls */}
         <div className="flex flex-wrap items-center gap-3 mb-4">
           <Button variant="outline" className="border-navy text-navy hover:bg-navy/5" onClick={() => toggleAll(true)}>
-            <ListTree className="w-4 h-4 mr-2" /> Espandi tutto
+            <ListTree className="w-4 h-4 mr-2" /> {t("controls.expand")}
           </Button>
           <Button variant="outline" className="border-navy text-navy hover:bg-navy/5" onClick={() => toggleAll(false)}>
-            <Filter className="w-4 h-4 mr-2" /> Comprimi tutto
+            <Filter className="w-4 h-4 mr-2" /> {t("controls.collapse")}
           </Button>
           <Button
             variant="outline"
@@ -1039,10 +1037,10 @@ export default function FAQMasterbookPage() {
               containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })
             }}
           >
-            Reset
+            {t("controls.reset")}
           </Button>
           <div className="ml-auto hidden md:flex items-center gap-2 text-xs text-gray-500">
-            <Sparkles className="w-4 h-4" /> {filtered.length} risultati
+            <Sparkles className="w-4 h-4" /> {filtered.length} {t("controls.results")}
           </div>
         </div>
 
@@ -1051,7 +1049,7 @@ export default function FAQMasterbookPage() {
           {/* Sidebar */}
           <aside className="lg:col-span-3 space-y-4 sticky top-24 self-start h-fit">
             <Card className="p-4">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Capitoli</div>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">{t("sidebar.chapters")}</div>
               <nav className="space-y-1">
                 {chapters.map((c) => (
                   <button
@@ -1082,7 +1080,7 @@ export default function FAQMasterbookPage() {
               <Card className="p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <BookmarkCheck className="w-4 h-4 text-orange" />
-                  <div className="text-sm font-semibold text-navy">Salvati</div>
+                  <div className="text-sm font-semibold text-navy">{t("sidebar.saved")}</div>
                 </div>
                 <ul className="space-y-2 text-sm">
                   {allItems
@@ -1183,9 +1181,9 @@ export default function FAQMasterbookPage() {
                               <button
                                 onClick={() => copyLink(item.id)}
                                 className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50"
-                                aria-label="Copia link diretto"
+                                aria-label={t("aria.copyLink")}
                               >
-                                <LinkIcon className="w-4 h-4" /> Copia link
+                                <LinkIcon className="w-4 h-4" /> {t("copy.button")}
                               </button>
                             </div>
                           </div>
@@ -1194,7 +1192,7 @@ export default function FAQMasterbookPage() {
                     ))}
 
                     {!grouped[chapter.id] && activeChapter !== "all" && (
-                      <div className="text-sm text-gray-500 py-8">Nessun risultato per questo capitolo.</div>
+                      <div className="text-sm text-gray-500 py-8">{t("noResultsChapter")}</div>
                     )}
                   </div>
                 </div>
@@ -1207,7 +1205,7 @@ export default function FAQMasterbookPage() {
                   className="border-navy text-navy hover:bg-navy/5"
                   onClick={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
                 >
-                  <ArrowUp className="w-4 h-4 mr-2" /> Torna su
+                  <ArrowUp className="w-4 h-4 mr-2" /> {t("backToTop")}
                 </Button>
               </div>
             </div>

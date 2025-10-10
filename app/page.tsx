@@ -8,9 +8,11 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
 import { FAQCards } from "@/components/faq-cards"
+import { useTranslations } from "next-intl"
 
 export default function HomePage() {
   const router = useRouter()
+  const t = useTranslations("home")
 
   const navigateTo = (path: string) => {
     router.push(path)
@@ -42,28 +44,26 @@ export default function HomePage() {
             <div className="space-y-8">
               <div className="inline-block px-4 py-2 bg-gray-50 rounded-full">
                 <span className="text-sm font-medium text-gray-700">
-                  <span className="font-bold">International</span> Leads Generator
+                  {t("hero.badge")}
                 </span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy leading-tight text-balance">
-                Appuntamenti qualificati con <span className="text-orange">decision maker B2B</span>
+                {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
               </h1>
 
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Trasformiamo tecnologia e dati in meeting costanti e garantiti con il tuo target
+                {t("hero.subtitle")}
               </p>
 
               <p className="text-base text-gray-500 leading-relaxed">
-                Basta budget bruciati in ADV dove vince solo chi ha più soldi. Basta perdere tempo con lead freddi e
-                fuori target. Il nostro sistema tech e data based riempie il tuo calendario, tu devi solo gestire le
-                trattative.
+                {t("hero.description")}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contattaci">
                   <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8">
-                    Prenota una Call
+                    {t("hero.cta.primary")}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -73,7 +73,7 @@ export default function HomePage() {
                     variant="outline"
                     className="border-navy text-navy hover:bg-navy/5 text-lg px-8 bg-transparent"
                   >
-                    Scopri di Più
+                    {t("hero.cta.secondary")}
                   </Button>
                 </Link>
               </div>
@@ -84,7 +84,7 @@ export default function HomePage() {
               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
               <Image
                 src="/logo.png"
-                alt="All You Can Leads"
+                alt={t("alt.logo")}
                 width={500}
                 height={500}
                 className="relative z-10"
@@ -99,8 +99,7 @@ export default function HomePage() {
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-6">
           <p className="text-center text-sm text-gray-600 mb-8">
-            Oltre <span className="font-bold text-navy">200+ aziende B2B</span> hanno rivoluzionato il loro modo di
-            generare opportunità
+            {t("trust.text")}
           </p>
         </div>
       </section>
@@ -115,7 +114,7 @@ export default function HomePage() {
               <div className="absolute -top-6 -right-6 w-48 h-48 border-4 border-sky-blue/30 rounded-lg rotate-6" />
                 <Image
                   src="/tavolo.png"
-                  alt="Business Challenge"
+                  alt={t("alt.businessChallenge")}
                   width={600}
                   height={500}
                   className="rounded-lg"
@@ -124,24 +123,22 @@ export default function HomePage() {
 
             <div className="space-y-6 order-1 lg:order-2">
               <h2 className="text-4xl font-bold text-navy text-balance">
-                Anche noi non riuscivamo a sederci ai tavoli che contano
+                {t("story.title")}
               </h2>
 
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  All You Can Leads è stata creata da un gruppo di imprenditori per le proprie attività. Avevamo bisogno
-                  di entrare in contatto con grandi aziende.
+                  {t("story.text1")}
                 </p>
                 <p>
-                  Avevamo attivato diverse fonti di traffico a pagamento, ma spendevamo tanto senza raggiungere le
-                  persone che volevamo.
+                  {t("story.text2")}
                 </p>
               </div>
 
               <div className="pt-4">
                 <div className="inline-flex items-center gap-2 text-orange font-semibold">
                   <div className="w-12 h-1 bg-orange" />
-                  <span>La nostra storia</span>
+                  <span>{t("story.badge")}</span>
                 </div>
               </div>
             </div>
@@ -154,48 +151,47 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-              Dati dal mercato
+              {t("stats.badge")}
             </span>
             <h2 className="text-4xl font-semibold text-navy leading-snug text-balance">
-              I numeri parlano chiaro
+              {t("stats.title")}
             </h2>
             <p className="text-base text-gray-600">
-              Trend reali che confermano quanto sia difficile mantenere canali di acquisizione profittevoli
-              senza un approccio mirato sui decision maker giusti.
+              {t("stats.subtitle")}
             </p>
           </div>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3 items-stretch">
           <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
           <Card className="metric-card-inner h-full p-8 text-center flex flex-col border-0 shadow-none">
-                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Costo per click</p>
-                <div className="mt-6 text-5xl font-semibold text-navy">+10.4%</div>
+                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.cpc.label")}</p>
+                <div className="mt-6 text-5xl font-semibold text-navy">{t("stats.metrics.cpc.value")}</div>
                 <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-                  Aumento del CPC dal 2023 al 2024 nelle campagne Google Ads e Microsoft Ads.
+                  {t("stats.metrics.cpc.desc")}
                 </p>
-                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">Worldstream.com</p>
+                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.cpc.source")}</p>
               </Card>
             </div>
 
             <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
               <Card className="metric-card-inner h-full p-8 text-center flex flex-col border-0 shadow-none">
-                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Budget marketing</p>
-                <div className="mt-6 text-5xl font-semibold text-navy">44%</div>
+                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.budget.label")}</p>
+                <div className="mt-6 text-5xl font-semibold text-navy">{t("stats.metrics.budget.value")}</div>
                 <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-                  Delle organizzazioni B2B ha tagliato investimenti marketing nell&apos;ultimo anno.
+                  {t("stats.metrics.budget.desc")}
                 </p>
-                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">Mycodelesswebsite.com</p>
+                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.budget.source")}</p>
               </Card>
             </div>
 
             <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
               <Card className="metric-card-inner h-full p-8 text-center flex flex-col border-0 shadow-none">
-                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">Lead qualificati</p>
-                <div className="mt-6 text-5xl font-semibold text-navy">85%</div>
+                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.leads.label")}</p>
+                <div className="mt-6 text-5xl font-semibold text-navy">{t("stats.metrics.leads.value")}</div>
                 <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-                  Dei marketer B2B considera ottenere lead qualificati la sfida principale.
+                  {t("stats.metrics.leads.desc")}
                 </p>
-                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">Magileads.com</p>
+                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.leads.source")}</p>
               </Card>
             </div>
           </div>
@@ -207,56 +203,53 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <div className="inline-block px-6 py-2 bg-sky-blue/10 rounded-full mb-6">
-              <span className="text-sm font-semibold text-sky-blue">La Soluzione</span>
+              <span className="text-sm font-semibold text-sky-blue">{t("solution.badge")}</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
-              Ora giochiamo alle nostre regole
+              {t("solution.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Sistema internazionale di generazione appuntamenti B2B qualificati
+              {t("solution.subtitle")}
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-navy">Tecnologia e Dati di proprietà</h3>
+              <h3 className="text-3xl font-bold text-navy">{t("solution.tech.title")}</h3>
               <p className="text-gray-600 leading-relaxed">
-                Utilizziamo strutture tecnologiche di nostra proprietà, tra cui{" "}
-                <span className="font-semibold text-navy">Sendura</span> (la nostra software app). Integrate con banche
-                dati verificate e arricchite costantemente, anche grazie a strumenti di intelligenza artificiale.
+                {t("solution.tech.text1")}
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Questo ci permette di raggiungere cluster di mercato specifici, con messaggi mirati, e portarti
-                direttamente al tavolo con figure che contano davvero.
+                {t("solution.tech.text2")}
               </p>
 
               <div className="grid grid-cols-2 gap-4 pt-6">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-navy">Database Proprietari</div>
-                    <div className="text-sm text-gray-600">Verificati e aggiornati</div>
+                    <div className="font-semibold text-navy">{t("solution.tech.features.database.title")}</div>
+                    <div className="text-sm text-gray-600">{t("solution.tech.features.database.desc")}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-navy">AI Integrata</div>
-                    <div className="text-sm text-gray-600">Segmentazione avanzata</div>
+                    <div className="font-semibold text-navy">{t("solution.tech.features.ai.title")}</div>
+                    <div className="text-sm text-gray-600">{t("solution.tech.features.ai.desc")}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-navy">Outreach Multicanale</div>
-                    <div className="text-sm text-gray-600">Massima copertura</div>
+                    <div className="font-semibold text-navy">{t("solution.tech.features.outreach.title")}</div>
+                    <div className="text-sm text-gray-600">{t("solution.tech.features.outreach.desc")}</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-navy">Controllo Totale</div>
-                    <div className="text-sm text-gray-600">Nessun intermediario</div>
+                    <div className="font-semibold text-navy">{t("solution.tech.features.control.title")}</div>
+                    <div className="text-sm text-gray-600">{t("solution.tech.features.control.desc")}</div>
                   </div>
                 </div>
               </div>
@@ -266,7 +259,7 @@ export default function HomePage() {
               <div className="absolute -top-8 -right-8 w-72 h-72 bg-orange/10 rounded-full blur-3xl" />
                 <Image
                   src="/scaccomatto.png"
-                  alt="Technology Platform"
+                  alt={t("alt.technologyPlatform")}
                   width={550}
                   height={450}
                   className="rounded-lg"
@@ -284,7 +277,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
-              Cosa significa All You Can Leads per un imprenditore B2B
+              {t("benefits.title")}
             </h2>
           </div>
 
@@ -294,15 +287,14 @@ export default function HomePage() {
                 <div className="flex justify-center mb-6">
                   <Image
                     src="/icona1.png"
-                    alt="Icona 1"
+                    alt={t("alt.icona1")}
                     width={64}
                     height={64}
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-navy mb-4">Meeting con decision maker interessati</h3>
+                <h3 className="text-2xl font-bold text-navy mb-4">{t("benefits.cards.meetings.title")}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Non sprechi più tempo con segretarie e lead fuori target. Ti portiamo direttamente al tavolo con
-                  membri dei board aziendali nel tuo target, pronti a scoprire le tue soluzioni.
+                  {t("benefits.cards.meetings.desc")}
                 </p>
                 <div className="mt-auto flex justify-center items-center"></div>
               </div>
@@ -313,15 +305,14 @@ export default function HomePage() {
                 <div className="flex justify-center mb-6">
                   <Image
                     src="/icona2.png"
-                    alt="Icona 2"
+                    alt={t("alt.icona2")}
                     width={64}
                     height={64}
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-navy mb-4">Fai lavorare il tuo team come si deve</h3>
+                <h3 className="text-2xl font-bold text-navy mb-4">{t("benefits.cards.team.title")}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Sfrutta al massimo il tempo del tuo reparto commerciale grazie ad agende piene di appuntamenti già
-                  fissati. Devono solo gestire trattative valide.
+                  {t("benefits.cards.team.desc")}
                 </p>
                 <div className="mt-auto flex justify-center items-center"></div>
               </div>
@@ -332,15 +323,14 @@ export default function HomePage() {
                 <div className="flex justify-center mb-6">
                   <Image
                     src="/icona3.png"
-                    alt="Icona 3"
+                    alt={t("alt.icona3")}
                     width={64}
                     height={64}
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-navy mb-4">Controllo e supporto costanti</h3>
+                <h3 className="text-2xl font-bold text-navy mb-4">{t("benefits.cards.control.title")}</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Una dashboard personale su Sendura permette di monitorare i risultati in tempo reale. Hai un project
-                  manager dedicato sempre al tuo fianco.
+                  {t("benefits.cards.control.desc")}
                 </p>
                 <div className="mt-auto flex justify-center items-center"></div>
               </div>
@@ -354,13 +344,13 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-              Il protocollo AYCL
+              {t("process.badge")}
             </span>
             <h2 className="text-4xl font-semibold text-navy leading-snug text-balance">
-              In cosa consiste il sistema All You Can Leads
+              {t("process.title")}
             </h2>
             <p className="text-sm text-gray-600">
-              Tre passaggi chiari e ripetibili per portare il tuo team davanti alle persone che decidono.
+              {t("process.subtitle")}
             </p>
           </div>
 
@@ -368,35 +358,32 @@ export default function HomePage() {
             {[
               {
                 step: "01",
-                label: "Fondamenta",
-                title: "Definizione dell'ICP",
-                copy:
-                  "Allineiamo il profilo del cliente ideale su criteri condivisi: settore, dimensioni, ruolo, trigger d'acquisto.",
+                label: t("process.steps.icp.label"),
+                title: t("process.steps.icp.title"),
+                copy: t("process.steps.icp.desc"),
                 image: {
                   src: "/ICT.png",
-                  alt: "Definizione ICP",
+                  alt: t("alt.definizioneIcp"),
                 },
               },
               {
                 step: "02",
-                label: "Attivazione",
-                title: "Piano strategico",
-                copy:
-                  "Sequenze multicanale con copy personalizzati, costruite su dati proprietari e monitorate con Sendura.",
+                label: t("process.steps.strategy.label"),
+                title: t("process.steps.strategy.title"),
+                copy: t("process.steps.strategy.desc"),
                 image: {
                   src: "/lucchettoorizzontale.png",
-                  alt: "Piano strategico",
+                  alt: t("alt.pianoStrategico"),
                 },
               },
               {
                 step: "03",
-                label: "Regime",
-                title: "Controllo qualità",
-                copy:
-                  "Appuntamenti confermati, dashboard condivisa e ottimizzazione continua sul feedback del tuo team.",
+                label: t("process.steps.quality.label"),
+                title: t("process.steps.quality.title"),
+                copy: t("process.steps.quality.desc"),
                 image: {
                   src: "/lentegraf.png",
-                  alt: "Controllo qualità",
+                  alt: t("alt.controlloQualita"),
                 },
               },
             ].map((item) => (
@@ -437,14 +424,13 @@ export default function HomePage() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
           <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-            Pacchetti su misura
+            {t("packages.badge")}
           </span>
           <h2 className="text-4xl lg:text-5xl font-semibold text-navy leading-snug text-balance">
-            Scopri il pacchetto giusto per la tua azienda
+            {t("packages.title")}
           </h2>
           <p className="text-base text-gray-600">
-            Tre percorsi modulari pensati per accompagnarti dall'idea al salto di scala. Ogni pacchetto include
-            metriche trasparenti, supporto operativo e focus sui decision maker che contano.
+            {t("packages.subtitle")}
           </p>
         </div>
 
@@ -467,16 +453,15 @@ export default function HomePage() {
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center rounded-full bg-orange px-4 py-1.5 text-sm font-bold text-white shadow-lg">
                     <Star className="w-4 h-4 mr-2 fill-white" />
-                    Partnership Elite
+                    {t("packages.setup.badge")}
                   </span>
                   <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold text-orange border border-orange/30">
-                    Revenue Share
+                    {t("packages.setup.revShare")}
                   </span>
                 </div>
-                <h3 className="text-4xl font-bold text-navy">Set-Up Fee + Revenue Share</h3>
+                <h3 className="text-4xl font-bold text-navy">{t("packages.setup.title")}</h3>
                 <p className="text-lg text-gray-700 max-w-2xl">
-                  Per aziende ambiziose che puntano a scalare con obiettivi condivisi sul fatturato. 
-                  Vinciamo insieme, cresciamo insieme.
+                  {t("packages.setup.desc")}
                 </p>
               </div>
               <div className="hidden lg:block">
@@ -488,40 +473,40 @@ export default function HomePage() {
               <div className="space-y-4">
                 <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
                   <TrendingUp className="w-4 h-4" />
-                  Strategia & Execution
+                  {t("packages.setup.strategy")}
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Strategia su misura per mercati complessi e buyer multi-stakeholder</span>
+                    <span className="font-medium">{t("packages.setup.features.customStrategy")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Team cross-funzionale dedicato: marketing ops, SDR e data specialist</span>
+                    <span className="font-medium">{t("packages.setup.features.dedicatedTeam")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Automazione completa del processo di lead generation</span>
+                    <span className="font-medium">{t("packages.setup.features.automation")}</span>
                   </li>
                 </ul>
               </div>
               <div className="space-y-4">
                 <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
                   <Zap className="w-4 h-4" />
-                  Partnership & Risultati
+                  {t("packages.setup.partnership")}
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Revenue share: vinciamo solo se cresci anche tu</span>
+                    <span className="font-medium">{t("packages.setup.features.revenueShare")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Accesso prioritario a nuove funzionalità e beta testing</span>
+                    <span className="font-medium">{t("packages.setup.features.priorityAccess")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Advisory board trimestrale con i founder</span>
+                    <span className="font-medium">{t("packages.setup.features.advisoryBoard")}</span>
                   </li>
                 </ul>
               </div>
@@ -532,10 +517,10 @@ export default function HomePage() {
                 className="w-full sm:w-auto bg-orange hover:bg-orange/90 text-white shadow-xl hover:shadow-2xl hover:shadow-orange/30 px-8 py-4 text-lg"
                 onClick={handleContactClick}
               >
-                Contattaci ora
+                {t("packages.setup.cta")}
               </Button>
               <span className="text-sm text-gray-600 font-medium">
-                💼 Ideale per aziende B2B con ACV {'>'} €10k
+                {t("packages.setup.ideal")}
               </span>
             </div>
           </Card>
@@ -555,43 +540,43 @@ export default function HomePage() {
             <div className="space-y-3 relative z-10">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-sky-blue/20 px-3 py-1 text-xs font-semibold text-sky-blue border border-sky-blue/30">
-                  Kickstart
+                  {t("packages.performance.badge")}
                 </span>
-                <span className="text-xs text-gray-500">⚡ Setup in 7 giorni</span>
+                <span className="text-xs text-gray-500">{t("packages.performance.setup")}</span>
               </div>
-              <h3 className="text-3xl font-bold text-navy">Performance</h3>
+              <h3 className="text-3xl font-bold text-navy">{t("packages.performance.title")}</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Per iniziare in sicurezza e validare rapidamente il modello AYCL con zero rischi upfront.
+                {t("packages.performance.desc")}
               </p>
             </div>
 
             <div className="bg-sky-blue/5 rounded-xl p-4 border border-sky-blue/20 relative z-10">
-              <p className="text-xs font-semibold text-sky-blue uppercase tracking-wider mb-2">Modello di pricing</p>
-              <p className="text-sm text-gray-700">💰 Paghi solo per risultati concreti: nessun costo fisso, solo appuntamenti qualificati svolti</p>
+              <p className="text-xs font-semibold text-sky-blue uppercase tracking-wider mb-2">{t("packages.performance.pricing.label")}</p>
+              <p className="text-sm text-gray-700">{t("packages.performance.pricing.desc")}</p>
             </div>
 
             <ul className="space-y-3 text-sm text-gray-700 relative z-10">
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Onboarding dedicato e audit sul processo commerciale attuale</span>
+                <span>{t("packages.performance.features.onboarding")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Paghi solo gli appuntamenti qualificati effettivamente svolti</span>
+                <span>{t("packages.performance.features.payPerResult")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Reportistica settimanale e ottimizzazioni continue</span>
+                <span>{t("packages.performance.features.reporting")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Test A/B su messaging e target audience</span>
+                <span>{t("packages.performance.features.testing")}</span>
               </li>
             </ul>
 
             <div className="mt-auto pt-4 relative z-10">
               <Button className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white shadow-md hover:shadow-lg transition-all duration-300" onClick={handleContactClick}>
-                Contattaci ora
+                {t("packages.performance.cta")}
               </Button>
             </div>
           </Card>
@@ -610,36 +595,36 @@ export default function HomePage() {
        
             <div className="space-y-2 relative z-10">
               <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">
-                Scale
+                {t("packages.subscription.badge")}
               </span>
-              <h3 className="text-2xl font-bold text-navy">Subscription</h3>
+              <h3 className="text-2xl font-bold text-navy">{t("packages.subscription.title")}</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Per team commerciali che vogliono continuità e volumi prevedibili.
+                {t("packages.subscription.desc")}
               </p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 relative z-10">
-              <p className="text-xs text-gray-600">📅 Canone mensile fisso</p>
+              <p className="text-xs text-gray-600">{t("packages.subscription.pricing")}</p>
             </div>
 
             <ul className="space-y-2.5 text-xs text-gray-700 relative z-10">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                <span>Agenda di meeting qualificati garantita ogni mese</span>
+                <span>{t("packages.subscription.features.guaranteed")}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                <span>Account manager dedicato e dashboard KPI real-time</span>
+                <span>{t("packages.subscription.features.manager")}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                <span>Riunioni strategiche mensili</span>
+                <span>{t("packages.subscription.features.meetings")}</span>
               </li>
             </ul>
 
             <div className="mt-auto pt-3 relative z-10">
               <Button className="w-full bg-navy hover:bg-navy/90 text-white text-sm py-2.5 transition-all duration-300" onClick={handleContactClick}>
-                Contattaci ora
+                {t("packages.subscription.cta")}
               </Button>
             </div>
           </Card>
@@ -647,9 +632,7 @@ export default function HomePage() {
 
         {/* Trust indicator */}
         <div className="mt-16 text-center">
-          <p className="text-sm text-gray-500">
-            ✓ Oltre 50 aziende B2B si affidano già ad AYCL per accelerare la crescita
-          </p>
+          <p className="text-sm text-gray-500">{t("packages.trust")}</p>
         </div>
       </div>
     </section>
@@ -658,8 +641,8 @@ export default function HomePage() {
       <section id="faq" className="py-24 relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">Domande Frequenti</h2>
-            <p className="text-xl text-gray-600">Tutto quello che devi sapere su All You Can Leads</p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">{t("faq.title")}</h2>
+            <p className="text-xl text-gray-600">{t("faq.subtitle")}</p>
           </div>
 
           <FAQCards
@@ -708,15 +691,15 @@ export default function HomePage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-balance">
-              Pronto a riempire il tuo calendario di opportunità reali?
+              {t("cta.title")}
             </h2>
             <p className="text-xl text-gray-200">
-              Smetti di sprecare budget in ADV e inizia a parlare con chi decide davvero
+              {t("cta.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link href="/contattaci">
                 <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8">
-                  Prenota una Call Gratuita
+                  {t("cta.button")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

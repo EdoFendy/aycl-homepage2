@@ -1,0 +1,166 @@
+{
+  "it": {
+    "hero": {
+      "badge": "Parliamone",
+      "title": "Pronto a riempire il tuo calendario di <strong>opportunità reali</strong>?",
+      "subtitle": "Scegli il modo più comodo per metterti in contatto con noi. Il nostro team è pronto ad ascoltare le tue esigenze e trovare la soluzione perfetta per la tua azienda."
+    },
+    "email": {
+      "alt": "Email",
+      "title": "Scrivici via Email",
+      "desc": "Preferisci comunicare via email? Inviaci un messaggio dettagliato e ti risponderemo entro 24 ore con tutte le informazioni di cui hai bisogno.",
+      "cta": "Invia Email",
+      "address": "info@allyoucanleads.com"
+    },
+    "whatsapp": {
+      "alt": "WhatsApp",
+      "title": "Contattaci su WhatsApp",
+      "desc": "Hai bisogno di una risposta veloce? Scrivici su WhatsApp e parliamo direttamente. Il nostro team è disponibile dal lunedì al venerdì, dalle 8:30 alle 20:30.",
+      "cta": "Apri WhatsApp",
+      "phone": "+39 340 123 4567"
+    },
+    "info": {
+      "title": "Altre informazioni utili",
+      "subtitle": "Tutto quello che ti serve per metterti in contatto con noi",
+      "phone": {
+        "alt": "Telefono",
+        "title": "Telefono",
+        "desc": "Chiamaci per una consulenza immediata",
+        "value": "+39 340 123 4567"
+      },
+      "email": {
+        "alt": "Email",
+        "title": "Email",
+        "desc": "Scrivici per informazioni dettagliate",
+        "value": "info@allyoucanleads.com"
+      },
+      "office": {
+        "alt": "Sede",
+        "title": "Sede",
+        "desc": "Vieni a trovarci di persona",
+        "value": "Milano, Italia"
+      }
+    },
+    "faqPreview": {
+      "title": "Hai ancora dubbi?",
+      "subtitle": "Consulta la nostra sezione FAQ o prenota una call gratuita per parlare direttamente con un nostro esperto",
+      "ctaFaq": "Vai alle FAQ",
+      "ctaCall": "Prenota una Call Gratuita"
+    },
+    "cta": {
+      "title": "Inizia oggi a generare appuntamenti qualificati",
+      "subtitle": "Smetti di sprecare budget in ADV e inizia a parlare con chi decide davvero",
+      "button": "Scopri i Pacchetti"
+    }
+  },
+  "en": {
+    "hero": {
+      "badge": "Let's talk",
+      "title": "Ready to fill your calendar with <strong>real opportunities</strong>?",
+      "subtitle": "Choose the most convenient way to get in touch. Our team is ready to listen to your needs and find the perfect solution for your company."
+    },
+    "email": {
+      "alt": "Email",
+      "title": "Write us by Email",
+      "desc": "Prefer to communicate via email? Send us a detailed message and we'll reply within 24 hours with all the information you need.",
+      "cta": "Send Email",
+      "address": "info@allyoucanleads.com"
+    },
+    "whatsapp": {
+      "alt": "WhatsApp",
+      "title": "Contact us on WhatsApp",
+      "desc": "Need a quick answer? Write us on WhatsApp and let's talk directly. Our team is available Monday to Friday, 8:30–20:30.",
+      "cta": "Open WhatsApp",
+      "phone": "+39 340 123 4567"
+    },
+    "info": {
+      "title": "More useful information",
+      "subtitle": "Everything you need to get in touch with us",
+      "phone": {
+        "alt": "Phone",
+        "title": "Phone",
+        "desc": "Call us for immediate advice",
+        "value": "+39 340 123 4567"
+      },
+      "email": {
+        "alt": "Email",
+        "title": "Email",
+        "desc": "Write us for detailed information",
+        "value": "info@allyoucanleads.com"
+      },
+      "office": {
+        "alt": "Office",
+        "title": "Office",
+        "desc": "Come and visit us in person",
+        "value": "Milan, Italy"
+      }
+    },
+    "faqPreview": {
+      "title": "Still have questions?",
+      "subtitle": "Check our FAQ section or book a free call to speak directly with one of our experts",
+      "ctaFaq": "Go to FAQ",
+      "ctaCall": "Book a Free Call"
+    },
+    "cta": {
+      "title": "Start generating qualified appointments today",
+      "subtitle": "Stop wasting budget on ads and start talking to real decision makers",
+      "button": "Explore Packages"
+    }
+  },
+  "es": {
+    "hero": {
+      "badge": "Hablemos",
+      "title": "¿Listo para llenar tu calendario de <strong>oportunidades reales</strong>?",
+      "subtitle": "Elige la forma más cómoda de ponerte en contacto con nosotros. Nuestro equipo está listo para escuchar tus necesidades y encontrar la solución perfecta para tu empresa."
+    },
+    "email": {
+      "alt": "Email",
+      "title": "Escríbenos por Email",
+      "desc": "¿Prefieres comunicarte por email? Envíanos un mensaje detallado y te responderemos en 24 horas con toda la información que necesitas.",
+      "cta": "Enviar Email",
+      "address": "info@allyoucanleads.com"
+    },
+    "whatsapp": {
+      "alt": "WhatsApp",
+      "title": "Contáctanos por WhatsApp",
+      "desc": "¿Necesitas una respuesta rápida? Escríbenos por WhatsApp y hablemos directamente. Nuestro equipo está disponible de lunes a viernes, de 8:30 a 20:30.",
+      "cta": "Abrir WhatsApp",
+      "phone": "+39 340 123 4567"
+    },
+    "info": {
+      "title": "Más información útil",
+      "subtitle": "Todo lo que necesitas para ponerte en contacto con nosotros",
+      "phone": {
+        "alt": "Teléfono",
+        "title": "Teléfono",
+        "desc": "Llámanos para una consulta inmediata",
+        "value": "+39 340 123 4567"
+      },
+      "email": {
+        "alt": "Email",
+        "title": "Email",
+        "desc": "Escríbenos para información detallada",
+        "value": "info@allyoucanleads.com"
+      },
+      "office": {
+        "alt": "Sede",
+        "title": "Sede",
+        "desc": "Ven a visitarnos en persona",
+        "value": "Milán, Italia"
+      }
+    },
+    "faqPreview": {
+      "title": "¿Aún tienes dudas?",
+      "subtitle": "Consulta nuestra sección de Preguntas Frecuentes o reserva una llamada gratuita para hablar con uno de nuestros expertos",
+      "ctaFaq": "Ir a las FAQ",
+      "ctaCall": "Reservar una Llamada Gratuita"
+    },
+    "cta": {
+      "title": "Empieza hoy a generar citas cualificadas",
+      "subtitle": "Deja de desperdiciar presupuesto en anuncios y empieza a hablar con quienes deciden de verdad",
+      "button": "Descubre los Paquetes"
+    }
+  }
+}
+
+

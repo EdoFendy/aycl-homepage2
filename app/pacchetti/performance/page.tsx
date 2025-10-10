@@ -18,8 +18,10 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
+import { useTranslations } from "next-intl"
 
 export default function PerformancePage() {
+  const t = useTranslations("pacchettiPerformance")
   return (
     <div className="relative min-h-screen overflow-hidden bg-white">
       <div className="pointer-events-none absolute -top-28 right-20 h-80 w-80 rounded-full bg-sky-blue/10 blur-3xl" />
@@ -35,19 +37,18 @@ export default function PerformancePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <div className="inline-block px-4 py-2 bg-sky-blue/10 rounded-lg">
-                <span className="text-sm font-bold text-sky-blue">PACCHETTO PERFORMANCE</span>
+                <span className="text-sm font-bold text-sky-blue">{t("hero.badge")}</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
-                Metti alla prova il sistema
+                {t("hero.title")}
               </h1>
-              <p className="text-2xl font-semibold text-gray-800">Accedi ora al sistema senza limiti e senza rischi.</p>
+              <p className="text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Trasformiamo la nostra struttura tecnologica e banche dati proprietarie in appuntamenti qualificati con
-                figure decisionali nel tuo target di riferimento.
+                {t("hero.subtitle")}
               </p>
               <Link href="/contattaci">
                 <Button size="lg" className="bg-sky-blue hover:bg-sky-blue/90 text-white">
-                  Richiedi Informazioni
+                  {t("hero.cta")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -58,7 +59,7 @@ export default function PerformancePage() {
               <Card className="relative p-8 bg-gradient-to-br from-sky-blue/5 to-white border-sky-blue/30">
                 <Image
                   src="/business-professional-reviewing-performance-metric.jpg"
-                  alt="Performance Package"
+                  alt={t("hero.alt")}
                   width={600}
                   height={500}
                   className="rounded-lg"
@@ -74,9 +75,7 @@ export default function PerformancePage() {
         <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">
-              Pacchetto Performance: siediti al tavolo con chi decide davvero
-            </h2>
+            <h2 className="text-4xl font-bold text-navy mb-4">{t("how.title")}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -86,12 +85,8 @@ export default function PerformancePage() {
                 <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
                   <Users className="h-8 w-8 text-sky-blue" />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-4">1. Il tuo profilo ideale</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Partiamo individuando l'ICP, ovvero il profilo del tuo cliente ideale. Sulla base di parametri
-                  misurabili, calcoliamo la quotazione degli appuntamenti nel tuo target. Ti facciamo affiancare da un
-                  project manager e inizia il processo di onboarding.
-                </p>
+                <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.1.title")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.steps.1.desc")}</p>
               </div>
             </Card>
 
@@ -101,11 +96,8 @@ export default function PerformancePage() {
                 <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
                   <Target className="h-8 w-8 text-sky-blue" />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-4">2. Strategia su misura</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Definiamo un piano d'azione strategico e i canali da includere. Selezioniamo e segmentiamo i contatti
-                  idonei direttamente dal nostro database proprietario. Avviamo e gestiamo interamente le tue campagne.
-                </p>
+                <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.2.title")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.steps.2.desc")}</p>
               </div>
             </Card>
 
@@ -115,12 +107,8 @@ export default function PerformancePage() {
                 <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
                   <TrendingUp className="h-8 w-8 text-sky-blue" />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-4">3. Monitoraggio e ottimizzazione</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Creiamo la tua dashboard personale con risultati in tempo reale, sulla nostra software app Sendura.
-                  Ogni due settimane ricevi un report completo del lavoro svolto e hai a disposizione una chiamata con
-                  il tuo project manager.
-                </p>
+                <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.3.title")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.steps.3.desc")}</p>
               </div>
             </Card>
           </div>
@@ -135,12 +123,10 @@ export default function PerformancePage() {
           <div className="text-center max-w-3xl mx-auto mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
               <Sparkles className="h-4 w-4 text-sky-blue" />
-              <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Perché Performance</span>
+              <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">{t("why.badge")}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">La scelta per testare il sistema in sicurezza</h2>
-            <p className="text-lg text-gray-600">
-              Scopri come il pacchetto Performance ti permette di verificare il metodo AYCL senza assumerti rischi inutili
-            </p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">{t("why.title")}</h2>
+            <p className="text-lg text-gray-600">{t("why.subtitle")}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -161,12 +147,7 @@ export default function PerformancePage() {
                 </div>
 
                 <ul className="space-y-5">
-                  {[
-                    "Hai bisogno di generare appuntamenti qualificati per la tua azienda.",
-                    "Vuoi vedere da vicino come funziona All You Can Leads.",
-                    "Devi capire come sfruttare questa occasione al meglio.",
-                    "Sei pronto a gestire trattative reali con i potenziali clienti.",
-                  ].map((item, index) => (
+                  {t.raw("why.benefits").map((item: string, index: number) => (
                     <li key={item} className="flex items-start gap-4 group/item">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-8 h-8 rounded-lg bg-sky-blue/10 flex items-center justify-center group-hover/item:bg-sky-blue/20 transition-colors">
@@ -181,7 +162,7 @@ export default function PerformancePage() {
                 <div className="mt-10 pt-6 border-t border-sky-blue/10">
                   <p className="text-sm text-gray-500 flex items-center gap-2">
                     <span className="w-2 h-2 bg-sky-blue rounded-full"></span>
-                    Accedi al metodo AYCL in modo trasparente e misurabile
+                    {t("why.footnote")}
                   </p>
                 </div>
               </div>
@@ -197,19 +178,14 @@ export default function PerformancePage() {
 
               <div className="relative p-10">
                 <div className="mb-8">
-                  <div className="inline-block px-3 py-1 bg-gray-100 rounded-full mb-4">
-                    <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">✗ Problemi risolti</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-navy leading-tight">Grazie al pacchetto Performance non dovrai più…</h3>
+                <div className="inline-block px-3 py-1 bg-gray-100 rounded-full mb-4">
+                  <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">{t("why.problemsBadge")}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-navy leading-tight">{t("why.problemsTitle")}</h3>
                 </div>
 
                 <ul className="space-y-5">
-                  {[
-                    "Bruciare soldi in aste pubblicitarie dai ritorni incerti.",
-                    "Sprecare tempo con lead freddi, fuori target o senza potere decisionale.",
-                    "Inventare strategie per generare contatti in organico.",
-                    "Affidare il futuro della tua attività a numeri che non tornano.",
-                  ].map((item) => (
+                  {t.raw("why.problems").map((item: string) => (
                     <li key={item} className="flex items-start gap-4 group/item">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center group-hover/item:bg-gray-200 transition-colors">
@@ -224,7 +200,7 @@ export default function PerformancePage() {
                 <div className="mt-10 pt-6 border-t border-gray-200">
                   <p className="text-sm text-gray-500 flex items-center gap-2">
                     <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                    Dimentica sprechi, inefficienze e improvvisazione
+                    {t("why.problemsFoot")}
                   </p>
                 </div>
               </div>
@@ -238,7 +214,7 @@ export default function PerformancePage() {
                 <div className="w-8 h-8 rounded-full bg-orange/20 border-2 border-white"></div>
                 <div className="w-8 h-8 rounded-full bg-navy/20 border-2 border-white"></div>
               </div>
-              <span className="text-sm font-medium text-gray-600">Decine di aziende hanno già iniziato da qui</span>
+              <span className="text-sm font-medium text-gray-600">{t("why.badgeRow")}</span>
             </div>
           </div>
         </div>
@@ -249,11 +225,8 @@ export default function PerformancePage() {
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">Accedi senza rischi ai pilastri del nostro sistema</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              All You Can Leads è un'azienda sales oriented, tech e data based. L'unione di tecnologie avanzate, banche
-              dati in costante aggiornamento e team di esperti dedicati.
-            </p>
+            <h2 className="text-4xl font-bold text-navy mb-4">{t("system.title")}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("system.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -261,33 +234,24 @@ export default function PerformancePage() {
               <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
                 <Zap className="h-8 w-8 text-sky-blue" />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">Sendura</h3>
-              <p className="text-gray-600 leading-relaxed">
-                La struttura tecnologica è racchiusa in una software app di nostra proprietà, Sendura. Ci permette di
-                gestire e monitorare le campagne su tutti i canali outreach che utilizziamo.
-              </p>
+              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
+              <p className="text-gray-600 leading-relaxed">{t("system.cards.senduraDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center mb-6">
                 <Database className="h-8 w-8 text-orange" />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">Database</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Il nostro archivio contiene contatti di membri di aziende in tutto il mondo e copre tutti i settori in
-                ambito B2B. I nostri strumenti di intelligenza artificiale attuano un costante processo di verifica.
-              </p>
+              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.dbTitle")}</h3>
+              <p className="text-gray-600 leading-relaxed">{t("system.cards.dbDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-navy/10 rounded-lg flex items-center justify-center mb-6">
                 <Headphones className="h-8 w-8 text-navy" />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">Supporto</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Tutti i nostri clienti vengono seguiti dall'inizio alla fine dal proprio project manager di riferimento.
-                Il vero valore nasce dall'unione tra automazione e contributo umano.
-              </p>
+              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.supportTitle")}</h3>
+              <p className="text-gray-600 leading-relaxed">{t("system.cards.supportDesc")}</p>
             </Card>
           </div>
         </div>
@@ -298,12 +262,8 @@ export default function PerformancePage() {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 space-y-6">
-              <h2 className="text-4xl font-bold text-navy">Meno di 8€ al giorno per portare al tavolo chi decide</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                È l'investimento più ridicolo che farai quest'anno rispetto al guadagno che puoi generare. Con meno di
-                un pranzo fuori al mese attivi un flusso di appuntamenti qualificati e paghi solo quando l'incontro si
-                svolge davvero.
-              </p>
+              <h2 className="text-4xl font-bold text-navy">{t("investment.title")}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("investment.desc")}</p>
             </div>
 
             <Card className="relative overflow-hidden p-10 bg-white border border-sky-blue/20 shadow-xl">
@@ -321,28 +281,7 @@ export default function PerformancePage() {
 
                   {/* Desktop version */}
                   <div className="relative hidden sm:flex justify-between items-end z-10" style={{minHeight: "140px"}}>
-                    {[
-                      {
-                        label: "Giorno 1",
-                        amount: "8€",
-                        caption: "Meno di due cappuccini per avere meeting reali.",
-                      },
-                      {
-                        label: "1° mese",
-                        amount: "240€",
-                        caption: "Quanto spenderesti in un test ADV di pochi giorni.",
-                      },
-                      {
-                        label: "6 mesi",
-                        amount: "1.440€",
-                        caption: "In genere basta una sola chiusura per ripagarlo.",
-                      },
-                      {
-                        label: "12 mesi",
-                        amount: "3.000€",
-                        caption: "Il costo annuo per avere il calendario sempre pieno.",
-                      },
-                    ].map((item, index) => (
+                    {t.raw("investment.timeline.desktop").map((item: any, index: number) => (
                       <div
                         key={item.label}
                         className="flex flex-col items-center gap-2 text-center w-1/4 min-w-[90px]"
@@ -362,23 +301,7 @@ export default function PerformancePage() {
 
                   {/* Mobile version - elementi distribuiti correttamente senza spazi vuoti */}
                   <div className="relative sm:hidden flex justify-between items-end z-10" style={{minHeight: "140px"}}>
-                    {[
-                      {
-                        label: "Giorno 1",
-                        amount: "8€",
-                        caption: "Meno di due cappuccini per avere meeting reali.",
-                      },
-                      {
-                        label: "6 mesi",
-                        amount: "1.440€",
-                        caption: "In genere basta una sola chiusura per ripagarlo.",
-                      },
-                      {
-                        label: "12 mesi",
-                        amount: "3.000€",
-                        caption: "Il costo annuo per avere il calendario sempre pieno.",
-                      },
-                    ].map((item, index) => {
+                    {t.raw("investment.timeline.mobile").map((item: any, index: number) => {
                       // Calcolare dinamicamente la larghezza basata sul numero di elementi visibili
                       const visibleItemsCount = 3;
                       const widthClass = visibleItemsCount === 3 ? "w-1/3" : visibleItemsCount === 2 ? "w-1/2" : "w-full";
@@ -463,16 +386,12 @@ export default function PerformancePage() {
 
             <div className="mt-12">
               <div className="relative overflow-hidden rounded-3xl border border-sky-blue/30 bg-gradient-to-r from-sky-blue/10 via-white to-orange/10 px-8 py-10 text-center shadow-lg">
-                <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
-                  Il conto della serva
-                </span>
+                <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">{t("investment.calcBadge")}</span>
                 <p className="mt-4 text-3xl font-bold text-navy">
-                  Un singolo deal tipico copre un anno intero di Performance e lascia margini per i successivi.
+                  {t("investment.calcTitle")}
                 </p>
                 <p className="mt-4 text-base text-gray-600 max-w-3xl mx-auto">
-                  Stai pagando il costo di un caffè al giorno per aprire trattative che valgono decine di migliaia di
-                  euro. Se un appuntamento salta, non lo paghi. Se chiudi, hai ROI esagerati. Non è magia: è un modello
-                  pay-per-meeting che mette in ridicolo qualsiasi altra voce di spesa commerciale.
+                  {t("investment.calcDesc")}
                 </p>
               </div>
             </div>
@@ -484,8 +403,8 @@ export default function PerformancePage() {
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">Domande Frequenti</h2>
-            <p className="text-xl text-gray-600">Tutto quello che devi sapere sul Pacchetto Performance</p>
+            <h2 className="text-4xl font-bold text-navy mb-4">{t("faq.title")}</h2>
+            <p className="text-xl text-gray-600">{t("faq.subtitle")}</p>
           </div>
 
           <FAQCards
@@ -533,24 +452,18 @@ export default function PerformancePage() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-bold text-balance">Pronto a iniziare con Performance?</h2>
-            <p className="text-xl text-gray-200">
-              Prenota una call gratuita e scopriamo insieme se il Pacchetto Performance è la soluzione giusta per te
-            </p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-balance">{t("cta.title")}</h2>
+            <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link href="/contattaci">
                 <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8">
-                  Prenota una Call Gratuita
+                  {t("cta.primary")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/pacchetti">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10 text-lg px-8 bg-transparent"
-                >
-                  Vedi Altri Pacchetti
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 bg-transparent">
+                  {t("cta.secondary")}
                 </Button>
               </Link>
             </div>

@@ -1,0 +1,111 @@
+{
+  "it": {
+    "header": {
+      "badge": "Masterbook • FAQ Interattive",
+      "title": "Tutto su <strong>All You Can Leads</strong>",
+      "subtitle": "Cerca, filtra per capitolo, espandi tutto e salva i preferiti. Ogni risposta ha un link diretto."
+    },
+    "search": {
+      "placeholder": "Cerca tra le FAQ (Generali, Performance, Set-Up, Subscription)"
+    },
+    "tabs": {"all": "Tutte"},
+    "sidebar": {"chapters": "Capitoli", "saved": "Salvati"},
+    "controls": {
+      "expand": "Espandi tutto",
+      "collapse": "Comprimi tutto",
+      "reset": "Reset",
+      "results": "risultati"
+    },
+    "copy": {"copied": "Link copiato negli appunti ✅", "button": "Copia link"},
+    "aria": {"save": "Salva nei preferiti", "copyLink": "Copia link diretto"},
+    "backToTop": "Torna su",
+    "save": "Salva",
+    "savedSingle": "Salvato",
+    "noResultsChapter": "Nessun risultato per questo capitolo.",
+    "chapters": {
+      "generali": "Generali",
+      "performance": "Performance Pack",
+      "setup-fee": "Set-Up Fee + Revenue Share",
+      "subscription": "Subscription Pack"
+    },
+    "consult": {
+      "title": "Parla con un nostro consulente",
+      "subtitle": "Hai domande specifiche? Preferisci una consulenza personalizzata?",
+      "body": "I nostri esperti sono a tua disposizione per una consulenza gratuita. Analizziamo insieme le tue esigenze e ti aiutiamo a scegliere la soluzione più adatta per la tua azienda.",
+      "ctaPrimary": "Prenota una Call Gratuita",
+      "ctaSecondary": "Scopri i Pacchetti"
+    }
+  },
+  "en": {
+    "header": {
+      "badge": "Masterbook • Interactive FAQ",
+      "title": "All about <strong>All You Can Leads</strong>",
+      "subtitle": "Search, filter by chapter, expand all and save favorites. Every answer has a direct link."
+    },
+    "search": {"placeholder": "Search FAQs (General, Performance, Set-Up, Subscription)"},
+    "tabs": {"all": "All"},
+    "sidebar": {"chapters": "Chapters", "saved": "Saved"},
+    "controls": {
+      "expand": "Expand all",
+      "collapse": "Collapse all",
+      "reset": "Reset",
+      "results": "results"
+    },
+    "copy": {"copied": "Link copied to clipboard ✅", "button": "Copy link"},
+    "aria": {"save": "Save to bookmarks", "copyLink": "Copy direct link"},
+    "backToTop": "Back to top",
+    "save": "Save",
+    "savedSingle": "Saved",
+    "noResultsChapter": "No results for this chapter.",
+    "chapters": {
+      "generali": "General",
+      "performance": "Performance Pack",
+      "setup-fee": "Set-Up Fee + Revenue Share",
+      "subscription": "Subscription Pack"
+    },
+    "consult": {
+      "title": "Talk to our consultant",
+      "subtitle": "Have specific questions? Prefer a personalized consultation?",
+      "body": "Our experts are available for a free consultation. We'll analyze your needs and help you choose the best solution for your company.",
+      "ctaPrimary": "Book a Free Call",
+      "ctaSecondary": "See Packages"
+    }
+  },
+  "es": {
+    "header": {
+      "badge": "Masterbook • FAQ Interactivas",
+      "title": "Todo sobre <strong>All You Can Leads</strong>",
+      "subtitle": "Busca, filtra por capítulo, expande todo y guarda favoritos. Cada respuesta tiene enlace directo."
+    },
+    "search": {"placeholder": "Busca en las FAQ (Generales, Performance, Set-Up, Subscription)"},
+    "tabs": {"all": "Todas"},
+    "sidebar": {"chapters": "Capítulos", "saved": "Guardados"},
+    "controls": {
+      "expand": "Expandir todo",
+      "collapse": "Contraer todo",
+      "reset": "Reset",
+      "results": "resultados"
+    },
+    "copy": {"copied": "Enlace copiado al portapapeles ✅", "button": "Copiar enlace"},
+    "aria": {"save": "Guardar en favoritos", "copyLink": "Copiar enlace directo"},
+    "backToTop": "Volver arriba",
+    "save": "Guardar",
+    "savedSingle": "Guardado",
+    "noResultsChapter": "No hay resultados para este capítulo.",
+    "chapters": {
+      "generali": "Generales",
+      "performance": "Paquete Performance",
+      "setup-fee": "Set-Up Fee + Revenue Share",
+      "subscription": "Paquete Suscripción"
+    },
+    "consult": {
+      "title": "Habla con nuestro consultor",
+      "subtitle": "¿Tienes preguntas específicas? ¿Prefieres una consulta personalizada?",
+      "body": "Nuestros expertos están disponibles para una consulta gratuita. Analizamos tus necesidades y te ayudamos a elegir la mejor solución para tu empresa.",
+      "ctaPrimary": "Reservar una Llamada Gratuita",
+      "ctaSecondary": "Ver Paquetes"
+    }
+  }
+}
+
+

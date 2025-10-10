@@ -4,8 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { LanguageSwitcher } from "@/components/language-switcher"
 import {
   Home as HomeIcon,
   MessageSquareText,
@@ -23,6 +25,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const btnRef = useRef<HTMLButtonElement | null>(null)
   const panelRef = useRef<HTMLDivElement | null>(null)
+  const t = useTranslations("siteHeader")
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href)
@@ -93,33 +96,18 @@ export function SiteHeader() {
 
           {/* DESTRA: CTA */}
           <div className="flex items-center justify-end gap-2 sm:gap-3">
-            <Link
-              href="/faq"
-              className={cn(
-                "hidden md:inline text-sm font-medium transition-colors",
-                isActive("/faq")
-                  ? "text-navy"
-                  : "text-gray-700 hover:text-navy",
-              )}
-            >
-              FAQ
-            </Link>
+            <LanguageSwitcher />
+            
+       
             <Link
               href="/contattaci"
               className={cn(
-                "hidden md:inline text-sm font-medium transition-colors",
-                isActive("/contattaci")
-                  ? "text-navy"
-                  : "text-gray-700 hover:text-navy",
+                "hidden md:inline text-sm font-semibold transition-colors px-4 py-2 rounded-lg bg-navy text-white hover:bg-navy/90"
               )}
             >
-              Contattaci ora
+              {t("nav.contactNow")}
             </Link>
-            <Link href="/contattaci">
-              <Button className="bg-navy text-white hover:bg-navy/90">
-                Book a demo
-              </Button>
-            </Link>
+  
           </div>
         </div>
 
@@ -156,12 +144,12 @@ export function SiteHeader() {
                     <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-gray-600">
                       <Image
                         src="/iconaRegalo.png"
-                        alt="Pacchetti"
+                        alt={t("alt.packages")}
                         width={28}
                         height={28}
                         className="inline-block align-top"
                       />
-                      Pacchetti
+                      {t("mega.title.packages")}
                     </p>
 
                     {/* Cards: su mobile colonna verticale scrollabile; su md griglia 2x2 */}
@@ -180,17 +168,15 @@ export function SiteHeader() {
                         <div className="flex items-start justify-start h-20 w-20 rounded-lg">
                           <Image
                             src="/iconaSubscr.png"
-                            alt="Subscription"
+                            alt={t("alt.subscription")}
                             width={48}
                             height={48}
                             className="h-12 w-12 align-top"
                           />
                         </div>
                         <div className="min-w-0">
-                          <p className="font-semibold text-navy">Subscription</p>
-                          <p className="text-sm text-gray-600">
-                            Meeting qualificati in abbonamento, continuità e controllo.
-                          </p>
+                          <p className="font-semibold text-navy">{t("mega.card.subscription.title")}</p>
+                          <p className="text-sm text-gray-600">{t("mega.card.subscription.desc")}</p>
                         </div>
                       </Link>
 
@@ -206,17 +192,15 @@ export function SiteHeader() {
                         <div className="flex items-start justify-start h-16 w-16 rounded-lg">
                           <Image
                             src="/iconaPerformance.png"
-                            alt="Performance"
+                            alt={t("alt.performance")}
                             width={48}
                             height={48}
                             className="h-12 w-12 align-top"
                           />
                         </div>
                         <div className="min-w-0">
-                          <p className="font-semibold text-navy">Performance</p>
-                          <p className="text-sm text-gray-600">
-                            Modello pay-per-result: pipeline e chiusure al centro.
-                          </p>
+                          <p className="font-semibold text-navy">{t("mega.card.performance.title")}</p>
+                          <p className="text-sm text-gray-600">{t("mega.card.performance.desc")}</p>
                         </div>
                       </Link>
 
@@ -232,17 +216,15 @@ export function SiteHeader() {
                         <div className="flex items-start justify-start h-16 w-16 rounded-lg">
                           <Image
                             src="/iconaSetupfee.png"
-                            alt="Set-Up Fee"
+                            alt={t("alt.setup")}
                             width={48}
                             height={48}
                             className="h-12 w-12 align-top"
                           />
                         </div>
                         <div className="min-w-0">
-                          <p className="font-semibold text-navy">Set-Up Fee</p>
-                          <p className="text-sm text-gray-600">
-                            Partnership a lungo termine con accesso permanente al sistema.
-                          </p>
+                          <p className="font-semibold text-navy">{t("mega.card.setup.title")}</p>
+                          <p className="text-sm text-gray-600">{t("mega.card.setup.desc")}</p>
                         </div>
                       </Link>
                     </div>
@@ -258,7 +240,7 @@ export function SiteHeader() {
                     )}
                   >
                     <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-gray-600">
-                      Naviga
+                      {t("rightCol.title.navigate")}
                     </p>
                     <div className={cn(
                       "flex flex-col gap-3 sm:block sm:overflow-visible"
@@ -275,14 +257,14 @@ export function SiteHeader() {
                         <span className="flex items-start gap-3">
                           <Image
                             src="/iconaHome.png"
-                            alt="Home"
+                            alt={t("alt.home")}
                             width={32}
                             height={32}
                             className="h-8 w-8 align-top"
                           />
-                          <span className="font-medium text-gray-800">Home</span>
+                          <span className="font-medium text-gray-800">{t("rightCol.home")}</span>
                         </span>
-                        <span className="text-xs text-gray-500">Apri</span>
+                        <span className="text-xs text-gray-500">{t("rightCol.open")}</span>
                       </Link>
                       <Link
                         href="/pacchetti"
@@ -296,14 +278,14 @@ export function SiteHeader() {
                         <span className="flex items-start gap-3">
                           <Image
                             src="/iconaRegalo.png"
-                            alt="Pacchetti"
+                            alt={t("alt.packages")}
                             width={32}
                             height={32}
                             className="h-8 w-8 align-top"
                           />
-                          <span className="font-medium text-gray-800">Pacchetti</span>
+                          <span className="font-medium text-gray-800">{t("rightCol.packages")}</span>
                         </span>
-                        <span className="text-xs text-gray-500">Scopri i nostri pacchetti </span>
+                        <span className="text-xs text-gray-500">{t("rightCol.packagesCta")}</span>
                       </Link>
                       <Link
                         href="/contattaci"
@@ -317,14 +299,14 @@ export function SiteHeader() {
                         <span className="flex items-start gap-3">
                           <Image
                             src="/iconaContact.png"
-                            alt="Contattaci"
+                            alt={t("alt.contact")}
                             width={32}
                             height={32}
                             className="h-8 w-8 align-top"
                           />
-                          <span className="font-medium text-gray-800">Contattaci ora</span>
+                          <span className="font-medium text-gray-800">{t("rightCol.contact")}</span>
                         </span>
-                        <span className="text-xs text-gray-500">Parla con noi</span>
+                        <span className="text-xs text-gray-500">{t("rightCol.contactCta")}</span>
                       </Link>
 
 
@@ -342,14 +324,14 @@ export function SiteHeader() {
                           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy/5 text-navy">
                             <HelpCircle className="h-4 w-4" />
                           </span>
-                          <span className="font-medium text-gray-800">FAQ</span>
+                          <span className="font-medium text-gray-800">{t("rightCol.faq")}</span>
                         </span>
-                        <span className="text-xs text-gray-500">Domande frequenti</span>
+                        <span className="text-xs text-gray-500">{t("rightCol.faqCta")}</span>
                       </Link>
 
                       <div className={cn("hidden sm:block rounded-xl bg-gradient-to-tr from-sky-blue/10 via-white to-orange/10 p-4 text-sm text-gray-700", BORDER_DARK)}>
-                        <span className="font-semibold text-navy">Suggerimento:</span>{" "}
-                        scopri il pacchetto ideale per il tuo team.
+                        <span className="font-semibold text-navy">{t("tip.label")}</span>{" "}
+                        {t("tip.text")}
                       </div>
                     </div>
                   </div>

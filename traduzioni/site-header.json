@@ -1,0 +1,142 @@
+{
+  "it": {
+    "nav": {
+      "faq": "FAQ",
+      "contactNow": "Contattaci ora"
+    },
+    "mega": {
+      "title": { "packages": "Pacchetti" },
+      "card": {
+        "subscription": {
+          "title": "Subscription",
+          "desc": "Meeting qualificati in abbonamento, continuità e controllo."
+        },
+        "performance": {
+          "title": "Performance",
+          "desc": "Modello pay-per-result: pipeline e chiusure al centro."
+        },
+        "setup": {
+          "title": "Set-Up Fee",
+          "desc": "Partnership a lungo termine con accesso permanente al sistema."
+        }
+      }
+    },
+    "rightCol": {
+      "title": { "navigate": "Naviga" },
+      "home": "Home",
+      "open": "Apri",
+      "packages": "Pacchetti",
+      "packagesCta": "Scopri i nostri pacchetti ",
+      "contact": "Contattaci ora",
+      "contactCta": "Parla con noi",
+      "faq": "FAQ",
+      "faqCta": "Domande frequenti"
+    },
+    "tip": {
+      "label": "Suggerimento:",
+      "text": "scopri il pacchetto ideale per il tuo team."
+    },
+    "alt": {
+      "packages": "Pacchetti",
+      "subscription": "Subscription",
+      "performance": "Performance",
+      "setup": "Set-Up Fee",
+      "home": "Home",
+      "contact": "Contattaci"
+    }
+  },
+  "en": {
+    "nav": {
+      "faq": "FAQ",
+      "contactNow": "Contact us now"
+    },
+    "mega": {
+      "title": { "packages": "Packages" },
+      "card": {
+        "subscription": {
+          "title": "Subscription",
+          "desc": "Qualified meetings on a subscription, continuity and control."
+        },
+        "performance": {
+          "title": "Performance",
+          "desc": "Pay-per-result model: pipeline and closings at the center."
+        },
+        "setup": {
+          "title": "Set-Up Fee",
+          "desc": "Long-term partnership with permanent access to the system."
+        }
+      }
+    },
+    "rightCol": {
+      "title": { "navigate": "Navigate" },
+      "home": "Home",
+      "open": "Open",
+      "packages": "Packages",
+      "packagesCta": "Discover our packages ",
+      "contact": "Contact us now",
+      "contactCta": "Talk to us",
+      "faq": "FAQ",
+      "faqCta": "Frequently asked questions"
+    },
+    "tip": {
+      "label": "Tip:",
+      "text": "discover the ideal package for your team."
+    },
+    "alt": {
+      "packages": "Packages",
+      "subscription": "Subscription",
+      "performance": "Performance",
+      "setup": "Set-Up Fee",
+      "home": "Home",
+      "contact": "Contact"
+    }
+  },
+  "es": {
+    "nav": {
+      "faq": "FAQ",
+      "contactNow": "Contáctanos ahora"
+    },
+    "mega": {
+      "title": { "packages": "Paquetes" },
+      "card": {
+        "subscription": {
+          "title": "Suscripción",
+          "desc": "Reuniones cualificadas por suscripción, continuidad y control."
+        },
+        "performance": {
+          "title": "Rendimiento",
+          "desc": "Modelo de pago por resultado: pipeline y cierres al centro."
+        },
+        "setup": {
+          "title": "Cuota de configuración",
+          "desc": "Colaboración a largo plazo con acceso permanente al sistema."
+        }
+      }
+    },
+    "rightCol": {
+      "title": { "navigate": "Navegar" },
+      "home": "Inicio",
+      "open": "Abrir",
+      "packages": "Paquetes",
+      "packagesCta": "Descubre nuestros paquetes ",
+      "contact": "Contáctanos ahora",
+      "contactCta": "Habla con nosotros",
+      "faq": "FAQ",
+      "faqCta": "Preguntas frecuentes"
+    },
+    "tip": {
+      "label": "Sugerencia:",
+      "text": "descubre el paquete ideal para tu equipo."
+    },
+    "alt": {
+      "packages": "Paquetes",
+      "subscription": "Suscripción",
+      "performance": "Rendimiento",
+      "setup": "Cuota de configuración",
+      "home": "Inicio",
+      "contact": "Contáctanos"
+    }
+  }
+}
+
+

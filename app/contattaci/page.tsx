@@ -5,8 +5,10 @@ import { Card } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { useTranslations } from "next-intl"
 
 export default function ContattaciPage() {
+  const t = useTranslations("contattaci")
   const handleEmailClick = () => {
     window.location.href = "mailto:info@allyoucanleads.com"
   }
@@ -31,16 +33,17 @@ export default function ContattaciPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-block px-6 py-2 bg-orange/10 rounded-full">
-              <span className="text-sm font-semibold text-orange">Parliamone</span>
+              <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
             </div>
 
             <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
-              Pronto a riempire il tuo calendario di <span className="text-orange">opportunità reali</span>?
+              {t.rich("hero.title", {
+                strong: (chunks) => <span className="text-orange">{chunks}</span>,
+              })}
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Scegli il modo più comodo per metterti in contatto con noi. Il nostro team è pronto ad ascoltare le tue
-              esigenze e trovare la soluzione perfetta per la tua azienda.
+              {t("hero.subtitle")}
             </p>
           </div>
         </div>
@@ -63,7 +66,7 @@ export default function ContattaciPage() {
                 <div className="w-20 h-20 bg-sky-blue/10 rounded-2xl flex items-center justify-center group-hover:bg-sky-blue/20 transition-colors">
                   <Image
                     src="/iconaMessaggio.png"
-                    alt="Email"
+                    alt={t("email.alt")}
                     width={56}
                     height={56}
                     className="h-14 w-14"
@@ -71,20 +74,17 @@ export default function ContattaciPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-3xl font-bold text-navy mb-3">Scrivici via Email</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Preferisci comunicare via email? Inviaci un messaggio dettagliato e ti risponderemo entro 24 ore con
-                    tutte le informazioni di cui hai bisogno.
-                  </p>
+                  <h3 className="text-3xl font-bold text-navy mb-3">{t("email.title")}</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6">{t("email.desc")}</p>
                 </div>
 
                 <div className="flex items-center gap-3 text-sky-blue font-semibold group-hover:gap-5 transition-all">
-                  <span>Invia Email</span>
+                  <span>{t("email.cta")}</span>
                   <ArrowRight className="h-5 w-5" />
                 </div>
 
                 <div className="pt-4 border-t border-gray-200">
-                  <p className="text-sm text-gray-500">info@allyoucanleads.com</p>
+                  <p className="text-sm text-gray-500">{t("email.address")}</p>
                 </div>
               </div>
             </Card>
@@ -102,7 +102,7 @@ export default function ContattaciPage() {
                 <div className="w-20 h-20 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors">
                   <Image
                     src="/iconaWhatsapp.png"
-                    alt="WhatsApp"
+                    alt={t("whatsapp.alt")}
                     width={56}
                     height={56}
                     className="h-14 w-14"
@@ -110,20 +110,17 @@ export default function ContattaciPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-3xl font-bold text-navy mb-3">Contattaci su WhatsApp</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Hai bisogno di una risposta veloce? Scrivici su WhatsApp e parliamo direttamente. Il nostro team è
-                    disponibile dal lunedì al venerdì, dalle 8:30 alle 20:30.
-                  </p>
+                  <h3 className="text-3xl font-bold text-navy mb-3">{t("whatsapp.title")}</h3>
+                  <p className="text-gray-600 leading-relaxed mb-6">{t("whatsapp.desc")}</p>
                 </div>
 
                 <div className="flex items-center gap-3 text-orange font-semibold group-hover:gap-5 transition-all">
-                  <span>Apri WhatsApp</span>
+                  <span>{t("whatsapp.cta")}</span>
                   <ArrowRight className="h-5 w-5" />
                 </div>
 
                 <div className="pt-4 border-t border-gray-200">
-                  <p className="text-sm text-gray-500">+39 340 123 4567</p>
+                  <p className="text-sm text-gray-500">{t("whatsapp.phone")}</p>
                 </div>
               </div>
             </Card>
@@ -138,54 +135,54 @@ export default function ContattaciPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-navy mb-6">Altre informazioni utili</h2>
-              <p className="text-xl text-gray-600">Tutto quello che ti serve per metterti in contatto con noi</p>
+              <h2 className="text-4xl font-bold text-navy mb-6">{t("info.title")}</h2>
+              <p className="text-xl text-gray-600">{t("info.subtitle")}</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Image
+                    <Image
                     src="/iconaTelefono.png"
-                    alt="Telefono"
+                    alt={t("info.phone.alt")}
                     width={40}
                     height={40}
                     className="h-10 w-10"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-3">Telefono</h3>
-                <p className="text-gray-600 mb-4">Chiamaci per una consulenza immediata</p>
-                <p className="text-navy font-semibold">+39 340 123 4567</p>
+                <h3 className="text-xl font-bold text-navy mb-3">{t("info.phone.title")}</h3>
+                <p className="text-gray-600 mb-4">{t("info.phone.desc")}</p>
+                <p className="text-navy font-semibold">{t("info.phone.value")}</p>
               </Card>
 
               <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-sky-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Image
+                    <Image
                     src="/iconaMessaggio.png"
-                    alt="Email"
+                    alt={t("info.email.alt")}
                     width={40}
                     height={40}
                     className="h-10 w-10"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-3">Email</h3>
-                <p className="text-gray-600 mb-4">Scrivici per informazioni dettagliate</p>
-                <p className="text-sky-blue font-semibold">info@allyoucanleads.com</p>
+                <h3 className="text-xl font-bold text-navy mb-3">{t("info.email.title")}</h3>
+                <p className="text-gray-600 mb-4">{t("info.email.desc")}</p>
+                <p className="text-sky-blue font-semibold">{t("info.email.value")}</p>
               </Card>
 
               <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
                 <div className="w-16 h-16 bg-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Image
+                    <Image
                     src="/iconaPosizione.png"
-                    alt="Sede"
+                    alt={t("info.office.alt")}
                     width={40}
                     height={40}
                     className="h-10 w-10"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-3">Sede</h3>
-                <p className="text-gray-600 mb-4">Vieni a trovarci di persona</p>
-                <p className="text-orange font-semibold">Milano, Italia</p>
+                <h3 className="text-xl font-bold text-navy mb-3">{t("info.office.title")}</h3>
+                <p className="text-gray-600 mb-4">{t("info.office.desc")}</p>
+                <p className="text-orange font-semibold">{t("info.office.value")}</p>
               </Card>
             </div>
           </div>
@@ -196,19 +193,17 @@ export default function ContattaciPage() {
       <section className="py-24 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl font-bold text-navy">Hai ancora dubbi?</h2>
-            <p className="text-xl text-gray-600">
-              Consulta la nostra sezione FAQ o prenota una call gratuita per parlare direttamente con un nostro esperto
-            </p>
+            <h2 className="text-4xl font-bold text-navy">{t("faqPreview.title")}</h2>
+            <p className="text-xl text-gray-600">{t("faqPreview.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link href="/">
                 <Button size="lg" variant="outline" className="border-navy text-navy hover:bg-navy/5 bg-transparent">
-                  Vai alle FAQ
+                  {t("faqPreview.ctaFaq")}
                 </Button>
               </Link>
               <Link href="/contattaci">
                 <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
-                  Prenota una Call Gratuita
+                  {t("faqPreview.ctaCall")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -224,16 +219,12 @@ export default function ContattaciPage() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-bold text-balance">
-              Inizia oggi a generare appuntamenti qualificati
-            </h2>
-            <p className="text-xl text-gray-200">
-              Smetti di sprecare budget in ADV e inizia a parlare con chi decide davvero
-            </p>
+            <h2 className="text-4xl lg:text-5xl font-bold text-balance">{t("cta.title")}</h2>
+            <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link href="/pacchetti">
                 <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8 w-full">
-                  Scopri i Pacchetti
+                  {t("cta.button")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

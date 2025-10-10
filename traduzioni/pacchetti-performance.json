@@ -1,0 +1,243 @@
+{
+  "it": {
+    "hero": {
+      "badge": "PACCHETTO PERFORMANCE",
+      "title": "Metti alla prova il sistema",
+      "kicker": "Accedi ora al sistema senza limiti e senza rischi.",
+      "subtitle": "Trasformiamo la nostra struttura tecnologica e banche dati proprietarie in appuntamenti qualificati con figure decisionali nel tuo target di riferimento.",
+      "cta": "Richiedi Informazioni",
+      "alt": "Performance Package"
+    },
+    "how": {
+      "title": "Pacchetto Performance: siediti al tavolo con chi decide davvero",
+      "steps": {
+        "1": {
+          "title": "1. Il tuo profilo ideale",
+          "desc": "Partiamo individuando l'ICP, il profilo del tuo cliente ideale. Calcoliamo la quotazione degli appuntamenti nel tuo target e avviamo l'onboarding con un project manager dedicato."
+        },
+        "2": {
+          "title": "2. Strategia su misura",
+          "desc": "Definiamo un piano d'azione strategico, selezioniamo e segmentiamo i contatti dal nostro database proprietario e gestiamo interamente le campagne."
+        },
+        "3": {
+          "title": "3. Monitoraggio e ottimizzazione",
+          "desc": "Dashboard personale su Sendura con risultati in tempo reale, report bisettimanali e call con il tuo project manager."
+        }
+      }
+    },
+    "why": {
+      "badge": "Perché Performance",
+      "title": "La scelta per testare il sistema in sicurezza",
+      "subtitle": "Scopri come il pacchetto Performance ti permette di verificare il metodo AYCL senza assumerti rischi inutili",
+      "benefits": [
+        "Hai bisogno di generare appuntamenti qualificati per la tua azienda.",
+        "Vuoi vedere da vicino come funziona All You Can Leads.",
+        "Devi capire come sfruttare questa occasione al meglio.",
+        "Sei pronto a gestire trattative reali con i potenziali clienti."
+      ],
+      "footnote": "Accedi al metodo AYCL in modo trasparente e misurabile",
+      "problemsBadge": "✗ Problemi risolti",
+      "problemsTitle": "Grazie al pacchetto Performance non dovrai più…",
+      "problems": [
+        "Bruciare soldi in aste pubblicitarie dai ritorni incerti.",
+        "Sprecare tempo con lead freddi, fuori target o senza potere decisionale.",
+        "Inventare strategie per generare contatti in organico.",
+        "Affidare il futuro della tua attività a numeri che non tornano."
+      ],
+      "problemsFoot": "Dimentica sprechi, inefficienze e improvvisazione",
+      "badgeRow": "Decine di aziende hanno già iniziato da qui"
+    },
+    "system": {
+      "title": "Accedi senza rischi ai pilastri del nostro sistema",
+      "subtitle": "All You Can Leads è un'azienda sales oriented, tech e data based. L'unione di tecnologie avanzate, banche dati in costante aggiornamento e team di esperti dedicati.",
+      "cards": {
+        "senduraTitle": "Sendura",
+        "senduraDesc": "La struttura tecnologica è racchiusa in una software app di nostra proprietà, Sendura. Ci permette di gestire e monitorare le campagne su tutti i canali outreach che utilizziamo.",
+        "dbTitle": "Database",
+        "dbDesc": "Il nostro archivio contiene contatti di membri di aziende in tutto il mondo e copre tutti i settori in ambito B2B. I nostri strumenti di intelligenza artificiale attuano un costante processo di verifica.",
+        "supportTitle": "Supporto",
+        "supportDesc": "Tutti i nostri clienti vengono seguiti dall'inizio alla fine dal proprio project manager di riferimento. Il vero valore nasce dall'unione tra automazione e contributo umano."
+      }
+    },
+    "investment": {
+      "title": "Meno di 8€ al giorno per portare al tavolo chi decide",
+      "desc": "È l'investimento più ridicolo che farai quest'anno rispetto al guadagno che puoi generare. Con meno di un pranzo fuori al mese attivi un flusso di appuntamenti qualificati e paghi solo quando l'incontro si svolge davvero.",
+      "timeline": {
+        "desktop": [
+          {"label": "Giorno 1", "amount": "8€", "caption": "Meno di due cappuccini per avere meeting reali."},
+          {"label": "1° mese", "amount": "240€", "caption": "Quanto spenderesti in un test ADV di pochi giorni."},
+          {"label": "6 mesi", "amount": "1.440€", "caption": "In genere basta una sola chiusura per ripagarlo."},
+          {"label": "12 mesi", "amount": "3.000€", "caption": "Il costo annuo per avere il calendario sempre pieno."}
+        ],
+        "mobile": [
+          {"label": "Giorno 1", "amount": "8€", "caption": "Meno di due cappuccini per avere meeting reali."},
+          {"label": "6 mesi", "amount": "1.440€", "caption": "In genere basta una sola chiusura per ripagarlo."},
+          {"label": "12 mesi", "amount": "3.000€", "caption": "Il costo annuo per avere il calendario sempre pieno."}
+        ]
+      },
+      "calcBadge": "Il conto della serva",
+      "calcTitle": "Un singolo deal tipico copre un anno intero di Performance e lascia margini per i successivi.",
+      "calcDesc": "Stai pagando il costo di un caffè al giorno per aprire trattative che valgono decine di migliaia di euro. Se un appuntamento salta, non lo paghi. Se chiudi, hai ROI esagerati. Non è magia: è un modello pay-per-meeting che mette in ridicolo qualsiasi altra voce di spesa commerciale."
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "subtitle": "Tutto quello che devi sapere sul Pacchetto Performance"
+    },
+    "cta": {
+      "title": "Pronto a iniziare con Performance?",
+      "subtitle": "Prenota una call gratuita e scopriamo insieme se il Pacchetto Performance è la soluzione giusta per te",
+      "primary": "Prenota una Call Gratuita",
+      "secondary": "Vedi Altri Pacchetti"
+    }
+  },
+  "en": {
+    "hero": {
+      "badge": "PERFORMANCE PACKAGE",
+      "title": "Put the system to the test",
+      "kicker": "Get access now with no limits and no risk.",
+      "subtitle": "We turn our proprietary tech stack and databases into qualified appointments with decision makers in your target.",
+      "cta": "Request Information",
+      "alt": "Performance Package"
+    },
+    "how": {
+      "title": "Performance Package: sit at the table with real decision makers",
+      "steps": {
+        "1": {"title": "1. Your ideal profile", "desc": "We define your ICP and pricing for appointments in your target, then start onboarding with a dedicated PM."},
+        "2": {"title": "2. Tailored strategy", "desc": "We build the plan, select and segment contacts from our database and run your campaigns end‑to‑end."},
+        "3": {"title": "3. Monitoring & optimization", "desc": "Personal dashboard on Sendura with real‑time results, bi‑weekly reports and PM calls."}
+      }
+    },
+    "why": {
+      "badge": "Why Performance",
+      "title": "The safe way to test the system",
+      "subtitle": "See how Performance lets you validate the AYCL method without unnecessary risk",
+      "benefits": [
+        "You need qualified appointments for your company.",
+        "You want to see how AYCL works up close.",
+        "You want to make the most of this opportunity.",
+        "You're ready to handle real negotiations."
+      ],
+      "footnote": "Access the AYCL method in a transparent, measurable way",
+      "problemsBadge": "✗ Solved problems",
+      "problemsTitle": "With Performance you won't need to…",
+      "problems": [
+        "Burn money on ad auctions with uncertain returns.",
+        "Waste time with cold, off‑target leads without decision power.",
+        "Invent strategies to generate contacts organically.",
+        "Rely on numbers that don't add up."
+      ],
+      "problemsFoot": "Forget waste, inefficiency and guesswork",
+      "badgeRow": "Dozens of companies started here"
+    },
+    "system": {
+      "title": "Access our system pillars with no risk",
+      "subtitle": "AYCL is sales‑oriented, tech and data based. Advanced technologies, constantly updated databases and dedicated teams.",
+      "cards": {
+        "senduraTitle": "Sendura",
+        "senduraDesc": "Our proprietary software app that manages and monitors outreach across all channels.",
+        "dbTitle": "Database",
+        "dbDesc": "Global B2B contacts with AI‑driven verification processes.",
+        "supportTitle": "Support",
+        "supportDesc": "A dedicated project manager follows you end‑to‑end. Real value comes from tech plus people."
+      }
+    },
+    "investment": {
+      "title": "Less than €8/day to reach decision makers",
+      "desc": "The most reasonable investment compared to the gains you can generate. With less than a lunch per month you activate a flow of qualified meetings and pay only when the meeting happens.",
+      "timeline": {
+        "desktop": [
+          {"label": "Day 1", "amount": "€8", "caption": "Less than two coffees to get real meetings."},
+          {"label": "Month 1", "amount": "€240", "caption": "What you'd spend in a few days of ad testing."},
+          {"label": "6 months", "amount": "€1,440", "caption": "Usually a single deal pays it back."},
+          {"label": "12 months", "amount": "€3,000", "caption": "Yearly cost to keep your calendar full."}
+        ],
+        "mobile": [
+          {"label": "Day 1", "amount": "€8", "caption": "Less than two coffees to get real meetings."},
+          {"label": "6 months", "amount": "€1,440", "caption": "Usually a single deal pays it back."},
+          {"label": "12 months", "amount": "€3,000", "caption": "Yearly cost to keep your calendar full."}
+        ]
+      },
+      "calcBadge": "Back‑of‑the‑napkin math",
+      "calcTitle": "A single typical deal covers a full year of Performance and leaves margins for the next ones.",
+      "calcDesc": "You're paying a coffee a day to open negotiations worth tens of thousands. If a meeting is canceled, you don't pay. If you close, ROI skyrockets. It's a pay‑per‑meeting model that outclasses any other sales expense."
+    },
+    "faq": {"title": "Frequently Asked Questions", "subtitle": "Everything about the Performance Package"},
+    "cta": {"title": "Ready to start with Performance?", "subtitle": "Book a free call and see if Performance is right for you", "primary": "Book a Free Call", "secondary": "See Other Packages"}
+  },
+  "es": {
+    "hero": {
+      "badge": "PAQUETE PERFORMANCE",
+      "title": "Pon a prueba el sistema",
+      "kicker": "Accede ahora sin límites y sin riesgos.",
+      "subtitle": "Convertimos nuestra infraestructura tecnológica y bases de datos propietarias en citas cualificadas con decisores de tu objetivo.",
+      "cta": "Solicitar Información",
+      "alt": "Paquete Performance"
+    },
+    "how": {
+      "title": "Paquete Performance: siéntate con quien realmente decide",
+      "steps": {
+        "1": {"title": "1. Tu perfil ideal", "desc": "Definimos tu ICP y la tarificación por cita en tu target; iniciamos el onboarding con un PM dedicado."},
+        "2": {"title": "2. Estrategia a medida", "desc": "Construimos el plan, seleccionamos y segmentamos contactos de nuestra base de datos y gestionamos las campañas end‑to‑end."},
+        "3": {"title": "3. Monitorización y optimización", "desc": "Panel personal en Sendura con resultados en tiempo real, informes quincenales y llamadas con el PM."}
+      }
+    },
+    "why": {
+      "badge": "Por qué Performance",
+      "title": "La opción segura para probar el sistema",
+      "subtitle": "Descubre cómo Performance te permite validar el método AYCL sin riesgos innecesarios",
+      "benefits": [
+        "Necesitas citas cualificadas para tu empresa.",
+        "Quieres ver de cerca cómo funciona AYCL.",
+        "Quieres aprovechar al máximo esta oportunidad.",
+        "Estás listo para gestionar negociaciones reales."
+      ],
+      "footnote": "Accede al método AYCL de forma transparente y medible",
+      "problemsBadge": "✗ Problemas resueltos",
+      "problemsTitle": "Con Performance ya no tendrás que…",
+      "problems": [
+        "Quemar dinero en subastas publicitarias de retorno incierto.",
+        "Perder tiempo con leads fríos, fuera de objetivo y sin poder de decisión.",
+        "Inventar estrategias para generar contactos de forma orgánica.",
+        "Confiar en números que no cuadran."
+      ],
+      "problemsFoot": "Olvida el despilfarro, la ineficiencia y la improvisación",
+      "badgeRow": "Decenas de empresas empezaron aquí"
+    },
+    "system": {
+      "title": "Accede sin riesgos a los pilares de nuestro sistema",
+      "subtitle": "AYCL es sales‑oriented, basada en tecnología y datos. Tecnologías avanzadas, bases de datos actualizadas y equipos dedicados.",
+      "cards": {
+        "senduraTitle": "Sendura",
+        "senduraDesc": "Nuestra app de software propietaria que gestiona y monitoriza el outreach en todos los canales.",
+        "dbTitle": "Base de datos",
+        "dbDesc": "Contactos B2B globales con procesos de verificación impulsados por IA.",
+        "supportTitle": "Soporte",
+        "supportDesc": "Un project manager dedicado te acompaña de principio a fin. El valor nace de la unión entre tecnología y personas."
+      }
+    },
+    "investment": {
+      "title": "Menos de 8€ al día para llegar a los decisores",
+      "desc": "La inversión más razonable comparada con los beneficios que puedes generar. Con menos de un almuerzo al mes activas un flujo de citas cualificadas y pagas solo cuando la reunión se realiza.",
+      "timeline": {
+        "desktop": [
+          {"label": "Día 1", "amount": "8€", "caption": "Menos de dos cafés para conseguir reuniones reales."},
+          {"label": "Mes 1", "amount": "240€", "caption": "Lo que gastarías en unos días de pruebas de anuncios."},
+          {"label": "6 meses", "amount": "1.440€", "caption": "Normalmente un solo cierre lo amortiza."},
+          {"label": "12 meses", "amount": "3.000€", "caption": "Coste anual para tener la agenda llena."}
+        ],
+        "mobile": [
+          {"label": "Día 1", "amount": "8€", "caption": "Menos de dos cafés para conseguir reuniones reales."},
+          {"label": "6 meses", "amount": "1.440€", "caption": "Normalmente un solo cierre lo amortiza."},
+          {"label": "12 meses", "amount": "3.000€", "caption": "Coste anual para tener la agenda llena."}
+        ]
+      },
+      "calcBadge": "La cuenta de la servilleta",
+      "calcTitle": "Un solo deal típico cubre un año entero de Performance y deja margen para los siguientes.",
+      "calcDesc": "Pagas un café al día para abrir negociaciones que valen decenas de miles. Si una cita se cancela, no pagas. Si cierras, el ROI se dispara. Es un modelo pay‑per‑meeting que supera cualquier otro gasto comercial."
+    },
+    "faq": {"title": "Preguntas Frecuentes", "subtitle": "Todo sobre el Paquete Performance"},
+    "cta": {"title": "¿Listo para empezar con Performance?", "subtitle": "Reserva una llamada gratuita y verifica si Performance es para ti", "primary": "Reservar una Llamada Gratuita", "secondary": "Ver Otros Paquetes"}
+  }
+}
+
+

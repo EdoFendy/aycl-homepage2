@@ -23,9 +23,11 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
+import { useTranslations } from "next-intl"
 
 export default function SubscriptionPage() {
   const router = useRouter()
+  const t = useTranslations("pacchettiSubscription")
   
   return (
     <div className="relative min-h-screen overflow-hidden bg-white">
@@ -41,22 +43,18 @@ export default function SubscriptionPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
-                <span className="text-sm font-bold text-orange">PACCHETTO SUBSCRIPTION</span>
+                <span className="text-sm font-bold text-orange">{t("hero.badge")}</span>
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy leading-tight text-balance">
-                Pacchetto <span className="text-orange">Subscription</span>: un flusso costante di appuntamenti qualificati
+                {t.rich("hero.title", {
+                  strong: (chunks) => <span className="text-orange">{chunks}</span>,
+                })}
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
-                Appuntamenti garantiti ogni mese e numeri prevedibili su cui basare le tue scelte.
-              </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Con il pacchetto Subscription il tuo successo è direttamente proporzionale al nostro. Ogni mese hai un
-                range garantito di appuntamenti qualificati. Se non rispettiamo gli accordi presi siamo i primi a
-                perderci. Vogliamo vincere insieme, costantemente.
-              </p>
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
+              <p className="text-lg text-gray-600 leading-relaxed">{t("hero.subtitle")}</p>
               <Link href="/contattaci">
                 <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
-                  Richiedi Subscription
+                  {t("hero.cta")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -65,7 +63,7 @@ export default function SubscriptionPage() {
             <div className="relative flex items-center justify-center">
               <Image
                 src="/calendario2.png"
-                alt="Subscription Package"
+                alt={t("hero.alt")}
                 width={600}
                 height={500}
                 className="rounded-lg"
@@ -80,9 +78,7 @@ export default function SubscriptionPage() {
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">
-              Pacchetto Subscription: trattative valide per il tuo team
-            </h2>
+            <h2 className="text-4xl font-bold text-navy mb-4">{t("how.title")}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -92,11 +88,8 @@ export default function SubscriptionPage() {
                 <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center">
                   <Target className="h-8 w-8 text-orange" />
                 </div>
-                <h3 className="text-xl font-bold text-navy">Il tuo target</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Individuiamo il cluster di mercato che vuoi raggiungere. Così chi gestisce le trattative ha già un
-                  profilo chiaro dei potenziali clienti. Insieme fissiamo il range di appuntamenti mensili garantiti.
-                </p>
+                <h3 className="text-xl font-bold text-navy">{t("how.cards.targetTitle")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.cards.targetDesc")}</p>
               </div>
             </Card>
 
@@ -106,11 +99,8 @@ export default function SubscriptionPage() {
                 <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center">
                   <Users className="h-8 w-8 text-orange" />
                 </div>
-                <h3 className="text-xl font-bold text-navy">La tua strategia</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Con il project manager di riferimento definiamo un piano d'azione personalizzato. Scegliamo canali e
-                  messaggi, creiamo liste di contatti dedicate dal nostro database proprietario.
-                </p>
+                <h3 className="text-xl font-bold text-navy">{t("how.cards.strategyTitle")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.cards.strategyDesc")}</p>
               </div>
             </Card>
 
@@ -120,11 +110,8 @@ export default function SubscriptionPage() {
                 <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center">
                   <CalendarCheck className="h-8 w-8 text-orange" />
                 </div>
-                <h3 className="text-xl font-bold text-navy">La collaborazione</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Lanciamo e gestiamo le campagne per te, analizziamo i dati e ottimizziamo di continuo. Report e call
-                  regolari ci tengono allineati sull'andamento.
-                </p>
+                <h3 className="text-xl font-bold text-navy">{t("how.cards.collabTitle")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.cards.collabDesc")}</p>
               </div>
             </Card>
           </div>
@@ -137,18 +124,14 @@ export default function SubscriptionPage() {
       
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
-            <Sparkles className="h-4 w-4 text-orange" />
-            <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Perché Subscription</span>
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
+              <Sparkles className="h-4 w-4 text-orange" />
+              <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">{t("why.badge")}</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">{t("why.title")}</h2>
+            <p className="text-lg text-gray-600">{t("why.subtitle")}</p>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
-            La scelta che fa la differenza
-          </h2>
-          <p className="text-lg text-gray-600">
-            Scopri come il pacchetto Subscription trasforma il tuo approccio commerciale
-          </p>
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
@@ -176,43 +159,21 @@ export default function SubscriptionPage() {
 
               {/* Benefits list */}
               <ul className="space-y-5">
-                {[
-                  { 
-                    text: "Vuoi un team che lavori con continuità su trattative reali.",
-                    highlight: "team con continuità"
-                  },
-                  { 
-                    text: "Cerchi condizioni di collaborazione costruite su misura per la tua azienda.",
-                    highlight: "su misura"
-                  },
-                  { 
-                    text: "Preferisci un flusso costante con risultati chiari e verificabili.",
-                    highlight: "risultati verificabili"
-                  },
-                  { 
-                    text: "Hai bisogno di pianificare sulla base di numeri prevedibili.",
-                    highlight: "numeri prevedibili"
-                  },
-                ].map((item, index) => (
+                {t.raw("why.benefits").map((text: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group/item">
                     <div className="flex-shrink-0 mt-1">
                       <div className="w-8 h-8 rounded-lg bg-orange/10 flex items-center justify-center group-hover/item:bg-orange/20 transition-colors">
                         <CheckCircle2 className="h-5 w-5 text-orange" />
                       </div>
                     </div>
-                    <span className="text-gray-700 leading-relaxed font-medium">
-                      {item.text}
-                    </span>
+                    <span className="text-gray-700 leading-relaxed font-medium">{text}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Bottom accent */}
               <div className="mt-10 pt-6 border-t border-orange/10">
-                <p className="text-sm text-gray-500 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-orange rounded-full"></span>
-                  Risultati tangibili, collaborazione trasparente
-                </p>
+                <p className="text-sm text-gray-500 flex items-center gap-2"><span className="w-2 h-2 bg-orange rounded-full"></span>{t("why.footnote")}</p>
               </div>
             </div>
           </Card>
@@ -231,41 +192,27 @@ export default function SubscriptionPage() {
             <div className="relative p-10">
               {/* Header */}
               <div className="mb-8">
-                <div className="inline-block px-3 py-1 bg-gray-100 rounded-full mb-4">
-                  <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">✗ Problemi risolti</span>
-                </div>
-                <h3 className="text-2xl font-bold text-navy leading-tight">
-                  Grazie al pacchetto Subscription non dovrai più…
-                </h3>
+                <div className="inline-block px-3 py-1 bg-gray-100 rounded-full mb-4"><span className="text-xs font-bold text-gray-600 uppercase tracking-wider">{t("why.problemsBadge")}</span></div>
+                <h3 className="text-2xl font-bold text-navy leading-tight">{t("why.problemsTitle")}</h3>
               </div>
 
               {/* Problems list */}
               <ul className="space-y-5">
-                {[
-                  "Sprecare il potenziale del tuo team con lead sbagliati.",
-                  "Affidarti a strumenti di marketing troppo costosi e poco efficaci.",
-                  "Lavorare con liste improvvisate di contatti a freddo e fuori target.",
-                  "Basare le tue decisioni sul sentimento e opinioni infondate.",
-                ].map((item, index) => (
+                {t.raw("why.problems").map((item: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group/item">
                     <div className="flex-shrink-0 mt-1">
                       <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center group-hover/item:bg-gray-200 transition-colors">
                         <X className="h-5 w-5 text-gray-600" />
                       </div>
                     </div>
-                    <span className="text-gray-700 leading-relaxed">
-                      {item}
-                    </span>
+                    <span className="text-gray-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Bottom accent */}
               <div className="mt-10 pt-6 border-t border-gray-200">
-                <p className="text-sm text-gray-500 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                  Dimentica sprechi, inefficienze e improvvisazione
-                </p>
+                <p className="text-sm text-gray-500 flex items-center gap-2"><span className="w-2 h-2 bg-gray-400 rounded-full"></span>{t("why.problemsFoot")}</p>
               </div>
             </div>
           </Card>
@@ -292,11 +239,8 @@ export default function SubscriptionPage() {
 <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">Accedi senza rischi ai pilastri del nostro sistema</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              All You Can Leads è un'azienda sales oriented, tech e data based. L'unione di tecnologie avanzate, banche
-              dati in costante aggiornamento e team di esperti dedicati.
-            </p>
+            <h2 className="text-4xl font-bold text-navy mb-4">{t("system.title")}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("system.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -304,33 +248,24 @@ export default function SubscriptionPage() {
               <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
                 <Zap className="h-8 w-8 text-sky-blue" />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">Sendura</h3>
-              <p className="text-gray-600 leading-relaxed">
-                La struttura tecnologica è racchiusa in una software app di nostra proprietà, Sendura. Ci permette di
-                gestire e monitorare le campagne su tutti i canali outreach che utilizziamo.
-              </p>
+              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
+              <p className="text-gray-600 leading-relaxed">{t("system.cards.senduraDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center mb-6">
                 <Database className="h-8 w-8 text-orange" />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">Database</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Il nostro archivio contiene contatti di membri di aziende in tutto il mondo e copre tutti i settori in
-                ambito B2B. I nostri strumenti di intelligenza artificiale attuano un costante processo di verifica.
-              </p>
+              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.dbTitle")}</h3>
+              <p className="text-gray-600 leading-relaxed">{t("system.cards.dbDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-navy/10 rounded-lg flex items-center justify-center mb-6">
                 <Headphones className="h-8 w-8 text-navy" />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">Supporto</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Tutti i nostri clienti vengono seguiti dall'inizio alla fine dal proprio project manager di riferimento.
-                Il vero valore nasce dall'unione tra automazione e contributo umano.
-              </p>
+              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.supportTitle")}</h3>
+              <p className="text-gray-600 leading-relaxed">{t("system.cards.supportDesc")}</p>
             </Card>
           </div>
         </div>
@@ -345,17 +280,13 @@ export default function SubscriptionPage() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6">
-                <Shield className="w-4 h-4 text-orange" />
-                <span className="text-sm font-semibold text-orange">Garanzia Totale</span>
-              </div>
+              <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6"><Shield className="w-4 h-4 text-orange" /><span className="text-sm font-semibold text-orange">{t("guarantee.badge")}</span></div>
               <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
-                Un abbonamento mensile, <span className="text-orange">100% senza rischi</span>
+                {t.rich("guarantee.title", {
+                  strong: (chunks) => <span className="text-orange">{chunks}</span>,
+                })}
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Il pacchetto Subscription funziona come un vero e proprio abbonamento. Ogni mese hai un range garantito di
-                appuntamenti qualificati coperto da garanzia. Se non raggiungiamo i risultati concordati, perdiamo per primi.
-              </p>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("guarantee.subtitle")}</p>
             </div>
 
             {/* Main content grid */}
@@ -380,16 +311,14 @@ export default function SubscriptionPage() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
-                              <h3 className="text-2xl font-bold text-navy">Fase di attivazione</h3>
-                              <span className="px-3 py-1 bg-orange/10 text-orange text-sm font-semibold rounded-full">
-                                Setup
-                              </span>
+                              <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.1.title")}</h3>
+                              <span className="px-3 py-1 bg-orange/10 text-orange text-sm font-semibold rounded-full">{t("guarantee.steps.1.label")}</span>
                             </div>
-                            <p className="text-gray-600 mb-4">Un pacchetto su misura per le tue esigenze</p>
+                            <p className="text-gray-600 mb-4">{t("guarantee.steps.1.desc")}</p>
                             <ul className="space-y-3 text-gray-700">
                               <li className="flex items-start gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-orange mt-0.5 flex-shrink-0" />
-                                <span>Le rate vengono stabilite in base al range di appuntamenti mensili</span>
+                                <span>{t("guarantee.steps.1.desc")}</span>
                               </li>
                               <li className="flex items-start gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-orange mt-0.5 flex-shrink-0" />
@@ -413,12 +342,10 @@ export default function SubscriptionPage() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
-                              <h3 className="text-2xl font-bold text-navy">Fase operativa</h3>
-                              <span className="px-3 py-1 bg-sky-blue/10 text-sky-blue text-sm font-semibold rounded-full">
-                                Risparmio 25%
-                              </span>
+                              <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.2.title")}</h3>
+                              <span className="px-3 py-1 bg-sky-blue/10 text-sky-blue text-sm font-semibold rounded-full">{t("guarantee.steps.2.label")}</span>
                             </div>
-                            <p className="text-gray-600 mb-4">Ricevi uno sconto sugli appuntamenti</p>
+                            <p className="text-gray-600 mb-4">{t("guarantee.steps.2.desc")}</p>
                             <ul className="space-y-3 text-gray-700">
                               <li className="flex items-start gap-3">
                                 <CheckCircle2 className="h-5 w-5 text-sky-blue mt-0.5 flex-shrink-0" />
@@ -450,24 +377,11 @@ export default function SubscriptionPage() {
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
-                              <h3 className="text-2xl font-bold text-navy">Garanzie incluse</h3>
-                              <span className="px-3 py-1 bg-navy/10 text-navy text-sm font-semibold rounded-full">
-                                Sicurezza
-                              </span>
+                              <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.3.title")}</h3>
+                              <span className="px-3 py-1 bg-navy/10 text-navy text-sm font-semibold rounded-full">{t("guarantee.steps.3.label")}</span>
                             </div>
                             <ul className="space-y-3 text-gray-700">
-                              <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
-                                <span>Rimborso completo se entro 60–90 giorni non ricevi appuntamenti qualificati</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
-                                <span>Possibilità di recedere con preavviso di 28 giorni</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
-                                <span>Range di appuntamenti mensili coperto da garanzia</span>
-                              </li>
+                              <li className="flex items-start gap-3"><CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" /><span>{t("guarantee.steps.3.desc")}</span></li>
                             </ul>
                           </div>
                         </div>
@@ -486,37 +400,52 @@ export default function SubscriptionPage() {
                     </div>
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-2xl font-bold text-navy mb-2">Note importanti</h3>
-                        <p className="text-gray-600 text-sm">Informazioni chiave per il successo del tuo progetto</p>
+                        <h3 className="text-2xl font-bold text-navy mb-2">{t("guarantee.notes.title")}</h3>
+                        <p className="text-gray-600 text-sm">{t("guarantee.notes.subtitle")}</p>
                       </div>
                       
                       <div className="space-y-4">
-                        <div className="flex items-start gap-3 p-4 bg-white/50 rounded-lg border border-sky-blue/10">
-                          <div className="w-8 h-8 bg-sky-blue/10 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span className="text-sky-blue font-bold text-sm">1</span>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-navy mb-1">Periodo di attivazione</h4>
-                            <p className="text-sm text-gray-700">I primi 60–90 giorni sono il periodo di attivazione: serve a impostare e calibrare il sistema.</p>
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-start gap-3 p-4 bg-white/50 rounded-lg border border-orange/10">
-                          <div className="w-8 h-8 bg-orange/10 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span className="text-orange font-bold text-sm">2</span>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-navy mb-1">Monitoraggio continuo</h4>
-                            <p className="text-sm text-gray-700">Ti accompagniamo con report regolari e dashboard per monitorare ogni attività.</p>
-                          </div>
-                        </div>
+                        {t.raw("guarantee.notes.items").map(
+                          (
+                            item: { title: string; desc: string },
+                            index: number,
+                          ) => (
+                            <div
+                              key={index}
+                              className={`flex items-start gap-3 p-4 bg-white/50 rounded-lg border ${
+                                index % 2 === 0
+                                  ? "border-sky-blue/10"
+                                  : "border-orange/10"
+                              }`}
+                            >
+                              <div
+                                className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                                  index % 2 === 0
+                                    ? "bg-sky-blue/10"
+                                    : "bg-orange/10"
+                                }`}
+                              >
+                                <span
+                                  className={`font-bold text-sm ${
+                                    index % 2 === 0
+                                      ? "text-sky-blue"
+                                      : "text-orange"
+                                  }`}
+                                >
+                                  {index + 1}
+                                </span>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-navy mb-1">{item.title}</h4>
+                                <p className="text-sm text-gray-700">{item.desc}</p>
+                              </div>
+                            </div>
+                          ),
+                        )}
                       </div>
                       
                       <div className="pt-4 border-t border-gray-200">
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <Shield className="w-4 h-4 text-orange" />
-                          <span className="font-medium">Garanzia totale sui risultati</span>
-                        </div>
+                        <div className="flex items-center gap-2 text-sm text-gray-600"><Shield className="w-4 h-4 text-orange" /><span className="font-medium">{t("guarantee.notes.title")}</span></div>
                       </div>
                     </div>
                   </Card>
@@ -531,24 +460,13 @@ export default function SubscriptionPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-navy mb-8">
-              Pronto a iniziare?
-            </h2>
+            <h2 className="text-2xl font-bold text-navy mb-8">{t("cta.title")}</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-orange hover:bg-orange/90 text-white px-8"
-                onClick={() => router.push('/contattaci')}
-              >
-                Prenota una Call
+              <Button size="lg" className="bg-orange hover:bg-orange/90 text-white px-8" onClick={() => router.push('/contattaci')}>
+                {t("cta.primary")}
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-navy text-navy hover:bg-navy/5 px-8"
-                onClick={() => router.push('/pacchetti')}
-              >
-                Scopri i Pacchetti
+              <Button size="lg" variant="outline" className="border-navy text-navy hover:bg-navy/5 px-8" onClick={() => router.push('/pacchetti')}>
+                {t("cta.secondary")}
               </Button>
             </div>
           </div>

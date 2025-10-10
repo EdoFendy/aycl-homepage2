@@ -6,9 +6,11 @@ import { ArrowRight, CheckCircle2, Zap, TrendingUp, Rocket, Crown, Sparkles, Sta
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
+import { useTranslations } from "next-intl"
 
 export default function PacchettiPage() {
   const router = useRouter()
+  const t = useTranslations("pacchetti")
 
   const navigateTo = (path: string) => {
     router.push(path)
@@ -40,15 +42,10 @@ export default function PacchettiPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-block px-6 py-2 bg-orange/10 rounded-full">
-              <span className="text-sm font-semibold text-orange">I Nostri Pacchetti</span>
+              <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
-              Scegli il pacchetto giusto per la tua azienda
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Ogni azienda è a un punto diverso del suo percorso. Scopri quale soluzione si adatta meglio alle tue
-              ambizioni di crescita.
-            </p>
+            <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">{t("hero.title")}</h1>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{t("hero.subtitle")}</p>
           </div>
 
       {/* Decorative elements */}
@@ -75,17 +72,14 @@ export default function PacchettiPage() {
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center rounded-full bg-orange px-4 py-1.5 text-sm font-bold text-white shadow-lg">
                     <Star className="w-4 h-4 mr-2 fill-white" />
-                    Partnership Elite
+                    {t("setup.badge")}
                   </span>
                   <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold text-orange border border-orange/30">
-                    Revenue Share
+                    {t("setup.revShare")}
                   </span>
                 </div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">Set-Up Fee + Revenue Share</h3>
-                <p className="text-lg text-gray-700 max-w-2xl">
-                  Per aziende ambiziose che puntano a scalare con obiettivi condivisi sul fatturato. 
-                  Vinciamo insieme, cresciamo insieme.
-                </p>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("setup.title")}</h3>
+                <p className="text-lg text-gray-700 max-w-2xl">{t("setup.desc")}</p>
               </div>
               <div className="hidden lg:block">
                 <Sparkles className="w-16 h-16 text-orange" />
@@ -96,40 +90,40 @@ export default function PacchettiPage() {
               <div className="space-y-4">
                 <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
                   <TrendingUp className="w-4 h-4" />
-                  Strategia & Execution
+                  {t("setup.strategy")}
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Strategia su misura per mercati complessi e buyer multi-stakeholder</span>
+                    <span className="font-medium">{t("setup.features.customStrategy")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Team cross-funzionale dedicato: marketing ops, SDR e data specialist</span>
+                    <span className="font-medium">{t("setup.features.dedicatedTeam")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Automazione completa del processo di lead generation</span>
+                    <span className="font-medium">{t("setup.features.automation")}</span>
                   </li>
                 </ul>
               </div>
               <div className="space-y-4">
                 <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
                   <Zap className="w-4 h-4" />
-                  Partnership & Risultati
+                  {t("setup.partnership")}
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Revenue share: vinciamo solo se cresci anche tu</span>
+                    <span className="font-medium">{t("setup.features.revenueShare")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Accesso prioritario a nuove funzionalità e beta testing</span>
+                    <span className="font-medium">{t("setup.features.priorityAccess")}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">Advisory board trimestrale con i founder</span>
+                    <span className="font-medium">{t("setup.features.advisoryBoard")}</span>
                   </li>
                 </ul>
               </div>
@@ -140,10 +134,10 @@ export default function PacchettiPage() {
                 className="w-full sm:w-auto bg-orange hover:bg-orange/90 text-white shadow-xl hover:shadow-2xl hover:shadow-orange/30 px-8 py-4 text-lg"
                 onClick={handleContactClick}
               >
-                Contattaci ora
+                {t("setup.cta")}
               </Button>
               <span className="text-sm text-gray-600 font-medium">
-                💼 Ideale per aziende B2B con ACV {'>'} €10k
+                {t("setup.ideal")}
               </span>
             </div>
           </Card>
@@ -163,43 +157,41 @@ export default function PacchettiPage() {
             <div className="space-y-3 relative z-10">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-sky-blue/20 px-3 py-1 text-xs font-semibold text-sky-blue border border-sky-blue/30">
-                  Kickstart
+                  {t("performance.badge")}
                 </span>
-                <span className="text-xs text-gray-500">⚡ Setup in 7 giorni</span>
+                <span className="text-xs text-gray-500">{t("performance.setup")}</span>
               </div>
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-navy">Performance</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Per iniziare in sicurezza e validare rapidamente il modello AYCL con zero rischi upfront.
-              </p>
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-navy">{t("performance.title")}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{t("performance.desc")}</p>
             </div>
 
             <div className="bg-sky-blue/5 rounded-xl p-4 border border-sky-blue/20 relative z-10">
-              <p className="text-xs font-semibold text-sky-blue uppercase tracking-wider mb-2">Modello di pricing</p>
-              <p className="text-sm text-gray-700">💰 Paghi solo per risultati concreti: nessun costo fisso, solo appuntamenti qualificati svolti</p>
+              <p className="text-xs font-semibold text-sky-blue uppercase tracking-wider mb-2">{t("performance.pricing.label")}</p>
+              <p className="text-sm text-gray-700">{t("performance.pricing.desc")}</p>
             </div>
 
             <ul className="space-y-3 text-sm text-gray-700 relative z-10">
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Onboarding dedicato e audit sul processo commerciale attuale</span>
+                <span>{t("performance.features.onboarding")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Paghi solo gli appuntamenti qualificati effettivamente svolti</span>
+                <span>{t("performance.features.payPerResult")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Reportistica settimanale e ottimizzazioni continue</span>
+                <span>{t("performance.features.reporting")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                <span>Test A/B su messaging e target audience</span>
+                <span>{t("performance.features.testing")}</span>
               </li>
             </ul>
 
             <div className="mt-auto pt-4 relative z-10">
               <Button className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white shadow-md hover:shadow-lg transition-all duration-300" onClick={handleContactClick}>
-                Contattaci ora
+                {t("performance.cta")}
               </Button>
             </div>
           </Card>
@@ -218,36 +210,34 @@ export default function PacchettiPage() {
             
             <div className="space-y-2 relative z-10">
               <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">
-                Scale
+                {t("subscription.badge")}
               </span>
-              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy">Subscription</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Per team commerciali che vogliono continuità e volumi prevedibili.
-              </p>
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy">{t("subscription.title")}</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">{t("subscription.desc")}</p>
             </div>
 
             <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 relative z-10">
-              <p className="text-xs text-gray-600">📅 Canone mensile fisso</p>
+              <p className="text-xs text-gray-600">{t("subscription.pricing")}</p>
             </div>
 
             <ul className="space-y-2.5 text-xs text-gray-700 relative z-10">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                <span>Agenda di meeting qualificati garantita ogni mese</span>
+                <span>{t("subscription.features.guaranteed")}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                <span>Account manager dedicato e dashboard KPI real-time</span>
+                <span>{t("subscription.features.manager")}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                <span>Riunioni strategiche mensili</span>
+                <span>{t("subscription.features.meetings")}</span>
               </li>
             </ul>
 
             <div className="mt-auto pt-3 relative z-10">
               <Button className="w-full bg-navy hover:bg-navy/90 text-white text-sm py-2.5 transition-all duration-300" onClick={handleContactClick}>
-                Contattaci ora
+                {t("subscription.cta")}
               </Button>
             </div>
           </Card>
@@ -256,9 +246,7 @@ export default function PacchettiPage() {
 
         {/* Trust indicator */}
         <div className="mt-16 text-center">
-          <p className="text-sm text-gray-500">
-            ✨ Tutti i pacchetti includono onboarding completo, reportistica trasparente e supporto dedicato
-          </p>
+          <p className="text-sm text-gray-500">{t("trustIndicator")}</p>
         </div>
         </div>
 
@@ -276,15 +264,12 @@ export default function PacchettiPage() {
             <div className="text-center mb-20">
               <div className="inline-flex items-center gap-2 bg-navy/10 px-4 py-2 rounded-full mb-6">
                 <Target className="w-4 h-4 text-navy" />
-                <span className="text-sm font-semibold text-navy">Guida alla Scelta</span>
+                <span className="text-sm font-semibold text-navy">{t("guide.badge")}</span>
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
-                Quale pacchetto fa al caso tuo?
+                {t("guide.title")}
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Ogni soluzione è pensata per una fase diversa del tuo percorso di crescita. 
-                Scopri quale si adatta meglio alle tue esigenze attuali.
-              </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("guide.subtitle")}</p>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
@@ -299,36 +284,26 @@ export default function PacchettiPage() {
                       <Zap className="w-6 h-6 text-sky-blue" />
                     </div>
                     <div>
-                      <h4 className="text-lg md:text-xl font-bold text-navy">Performance</h4>
-                      <p className="text-sm text-sky-blue font-semibold">Kickstart</p>
+                      <h4 className="text-lg md:text-xl font-bold text-navy">{t("guide.cards.performance.title")}</h4>
+                      <p className="text-sm text-sky-blue font-semibold">{t("guide.cards.performance.tag")}</p>
                     </div>
                   </div>
                   
                   <div className="mb-6">
-                    <h5 className="text-base md:text-lg font-bold text-navy mb-4">È ideale se...</h5>
+                    <h5 className="text-base md:text-lg font-bold text-navy mb-4">{t("guide.cards.performance.idealTitle")}</h5>
                     <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-sky-blue mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Vuoi testare il sistema senza rischi</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-sky-blue mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Cerchi massima flessibilità</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-sky-blue mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Paghi solo i risultati ottenuti</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-sky-blue mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">È il tuo primo anno di collaborazione</span>
-                      </li>
+                      {t.raw("guide.cards.performance.ideal").map((text: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700">{text}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   
                   <div className="bg-sky-blue/5 rounded-lg p-4 border border-sky-blue/20">
-                    <p className="text-sm font-semibold text-sky-blue mb-1">Perfetto per</p>
-                    <p className="text-sm text-gray-700">Startup e PMI che vogliono validare il modello senza investimenti upfront</p>
+                    <p className="text-sm font-semibold text-sky-blue mb-1">{t("guide.cards.performance.perfectForLabel")}</p>
+                    <p className="text-sm text-gray-700">{t("guide.cards.performance.perfectFor")}</p>
                   </div>
                 </div>
               </Card>
@@ -344,36 +319,26 @@ export default function PacchettiPage() {
                       <CalendarCheck className="w-6 h-6 text-orange" />
                     </div>
                     <div>
-                      <h4 className="text-lg md:text-xl font-bold text-navy">Subscription</h4>
-                      <p className="text-sm text-orange font-semibold">Scale</p>
+                      <h4 className="text-lg md:text-xl font-bold text-navy">{t("guide.cards.subscription.title")}</h4>
+                      <p className="text-sm text-orange font-semibold">{t("guide.cards.subscription.tag")}</p>
                     </div>
                   </div>
                   
                   <div className="mb-6">
-                    <h5 className="text-base md:text-lg font-bold text-navy mb-4">È ideale se...</h5>
+                    <h5 className="text-base md:text-lg font-bold text-navy mb-4">{t("guide.cards.subscription.idealTitle")}</h5>
                     <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Vuoi numeri prevedibili ogni mese</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Hai un team commerciale attivo</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Cerchi continuità e stabilità</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Vuoi risparmiare il 25%</span>
-                      </li>
+                      {t.raw("guide.cards.subscription.ideal").map((text: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700">{text}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   
                   <div className="bg-orange/5 rounded-lg p-4 border border-orange/20">
-                    <p className="text-sm font-semibold text-orange mb-1">Perfetto per</p>
-                    <p className="text-sm text-gray-700">Aziende strutturate con team commerciali che vogliono flusso costante</p>
+                    <p className="text-sm font-semibold text-orange mb-1">{t("guide.cards.subscription.perfectForLabel")}</p>
+                    <p className="text-sm text-gray-700">{t("guide.cards.subscription.perfectFor")}</p>
                   </div>
                 </div>
               </Card>
@@ -389,36 +354,26 @@ export default function PacchettiPage() {
                       <Crown className="w-6 h-6 text-navy" />
                     </div>
                     <div>
-                      <h4 className="text-lg md:text-xl font-bold text-navy">Set-Up Fee</h4>
-                      <p className="text-sm text-navy font-semibold">Partnership Elite</p>
+                      <h4 className="text-lg md:text-xl font-bold text-navy">{t("guide.cards.setup.title")}</h4>
+                      <p className="text-sm text-navy font-semibold">{t("guide.cards.setup.tag")}</p>
                     </div>
                   </div>
                   
                   <div className="mb-6">
-                    <h5 className="text-base md:text-lg font-bold text-navy mb-4">È ideale se...</h5>
+                    <h5 className="text-base md:text-lg font-bold text-navy mb-4">{t("guide.cards.setup.idealTitle")}</h5>
                     <ul className="space-y-3">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-navy mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Vuoi scalare senza limiti</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-navy mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Cerchi una partnership strategica</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-navy mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Hai un'azienda ben strutturata</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-navy mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700">Pensi a lungo termine</span>
-                      </li>
+                      {t.raw("guide.cards.setup.ideal").map((text: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-navy mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700">{text}</span>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   
                   <div className="bg-navy/5 rounded-lg p-4 border border-navy/20">
-                    <p className="text-sm font-semibold text-navy mb-1">Perfetto per</p>
-                    <p className="text-sm text-gray-700">Grandi aziende che vogliono partnership di lungo periodo con revenue share</p>
+                    <p className="text-sm font-semibold text-navy mb-1">{t("guide.cards.setup.perfectForLabel")}</p>
+                    <p className="text-sm text-gray-700">{t("guide.cards.setup.perfectFor")}</p>
                   </div>
                 </div>
               </Card>
@@ -429,17 +384,14 @@ export default function PacchettiPage() {
               <div className="bg-gradient-to-r from-navy/5 via-sky-blue/5 to-orange/5 rounded-2xl p-8 border border-gray-200">
                 <div className="flex items-center justify-center gap-2 mb-4">
                   <Shield className="w-6 h-6 text-navy" />
-                  <h3 className="text-xl font-bold text-navy">Non sei sicuro?</h3>
+                  <h3 className="text-xl font-bold text-navy">{t("guide.unsure.title")}</h3>
                 </div>
-                <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-                  Ogni pacchetto include onboarding completo, reportistica trasparente e supporto dedicato. 
-                  Prenota una call gratuita per scoprire quale soluzione si adatta meglio alla tua azienda.
-                </p>
+                <p className="text-gray-700 mb-6 max-w-2xl mx-auto">{t("guide.unsure.desc")}</p>
                 <Button 
                   className="bg-navy hover:bg-navy/90 text-white px-8 py-3"
                   onClick={() => router.push('/contattaci')}
                 >
-                  Prenota una Call Gratuita
+                  {t("guide.unsure.cta")}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </div>
@@ -452,119 +404,7 @@ export default function PacchettiPage() {
 
      
 
-      {/* Testimonial/Case Study Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/5 rounded-full blur-3xl" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6">
-                <Sparkles className="w-4 h-4 text-orange" />
-                <span className="text-sm font-semibold text-orange">Success Stories</span>
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
-                Aziende che hanno <span className="text-orange">rivoluzionato</span> la loro crescita
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Scopri come le nostre soluzioni hanno trasformato il business di aziende B2B in tutta Europa
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Case Study 1 */}
-              <Card className="p-8 bg-white border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-orange/10 rounded-lg flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-orange" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-navy">Software Company</h3>
-                    <p className="text-sm text-gray-600">Settore: Tecnologia</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-orange/5 rounded-lg">
-                      <div className="text-2xl font-bold text-orange">+340%</div>
-                      <div className="text-sm text-gray-600">Appuntamenti</div>
-                    </div>
-                    <div className="text-center p-4 bg-sky-blue/5 rounded-lg">
-                      <div className="text-2xl font-bold text-sky-blue">€2.3M</div>
-                      <div className="text-sm text-gray-600">Revenue generato</div>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 italic">
-                    "In 6 mesi abbiamo triplicato i nostri appuntamenti qualificati. AYCL ci ha portato direttamente dai decision maker che contano."
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <span className="font-semibold">Marco R.</span>
-                    <span>•</span>
-                    <span>CEO</span>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Case Study 2 */}
-              <Card className="p-8 bg-white border-sky-blue/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-sky-blue/10 rounded-lg flex items-center justify-center">
-                    <BarChart3 className="w-6 h-6 text-sky-blue" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-navy">Consulting Firm</h3>
-                    <p className="text-sm text-gray-600">Settore: Servizi</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-sky-blue/5 rounded-lg">
-                      <div className="text-2xl font-bold text-sky-blue">85%</div>
-                      <div className="text-sm text-gray-600">Conversion Rate</div>
-                    </div>
-                    <div className="text-center p-4 bg-navy/5 rounded-lg">
-                      <div className="text-2xl font-bold text-navy">€850k</div>
-                      <div className="text-sm text-gray-600">ACV medio</div>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 italic">
-                    "Il sistema AYCL ci ha permesso di accedere a mercati che prima erano impossibili da raggiungere. Risultati straordinari."
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <span className="font-semibold">Sarah L.</span>
-                    <span>•</span>
-                    <span>Managing Partner</span>
-                  </div>
-                </div>
-              </Card>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="mt-16 text-center">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-navy mb-2">50+</div>
-                  <div className="text-sm text-gray-600">Aziende Attive</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange mb-2">€15M+</div>
-                  <div className="text-sm text-gray-600">Revenue Generato</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-sky-blue mb-2">2,500+</div>
-                  <div className="text-sm text-gray-600">Appuntamenti</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-navy mb-2">95%</div>
-                  <div className="text-sm text-gray-600">Soddisfazione</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       </div>
     </div>
