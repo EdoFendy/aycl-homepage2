@@ -13,6 +13,7 @@ import {
   Rocket,
   Layers,
   CreditCard,
+  HelpCircle,
 } from "lucide-react"
 
 const BORDER_DARK = "border-[#0B1D3A]" // blu più scuro per i bordi
@@ -58,7 +59,7 @@ export function SiteHeader() {
               aria-haspopup="dialog"
               className={cn(
                 "group inline-flex items-center gap-2 rounded-xl border bg-white/80 px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-blue/40",
-                BORDER_DARK,
+              
               )}
             >
               {/* icona 9 quadratini */}
@@ -92,6 +93,17 @@ export function SiteHeader() {
 
           {/* DESTRA: CTA */}
           <div className="flex items-center justify-end gap-2 sm:gap-3">
+            <Link
+              href="/faq"
+              className={cn(
+                "hidden md:inline text-sm font-medium transition-colors",
+                isActive("/faq")
+                  ? "text-navy"
+                  : "text-gray-700 hover:text-navy",
+              )}
+            >
+              FAQ
+            </Link>
             <Link
               href="/contattaci"
               className={cn(
@@ -272,7 +284,27 @@ export function SiteHeader() {
                         </span>
                         <span className="text-xs text-gray-500">Apri</span>
                       </Link>
-
+                      <Link
+                        href="/pacchetti"
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "mb-1 flex items-center justify-between rounded-xl bg-white/85 px-4 py-3 transition hover:shadow-md",
+                          BORDER_DARK,
+                          isActive("/pacchetti") && "ring-1 ring-navy/30",
+                        )}
+                      >
+                        <span className="flex items-start gap-3">
+                          <Image
+                            src="/iconaRegalo.png"
+                            alt="Pacchetti"
+                            width={32}
+                            height={32}
+                            className="h-8 w-8 align-top"
+                          />
+                          <span className="font-medium text-gray-800">Pacchetti</span>
+                        </span>
+                        <span className="text-xs text-gray-500">Scopri i nostri pacchetti </span>
+                      </Link>
                       <Link
                         href="/contattaci"
                         onClick={() => setOpen(false)}
@@ -295,22 +327,24 @@ export function SiteHeader() {
                         <span className="text-xs text-gray-500">Parla con noi</span>
                       </Link>
 
+
+
                       <Link
-                        href="/pagamenti"
+                        href="/faq"
                         onClick={() => setOpen(false)}
                         className={cn(
                           "mb-1 flex items-center justify-between rounded-xl bg-white/85 px-4 py-3 transition hover:shadow-md",
                           BORDER_DARK,
-                          isActive("/pagamenti") && "ring-1 ring-navy/30",
+                          isActive("/faq") && "ring-1 ring-navy/30",
                         )}
                       >
                         <span className="flex items-start gap-3">
                           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy/5 text-navy">
-                            <CreditCard className="h-4 w-4" />
+                            <HelpCircle className="h-4 w-4" />
                           </span>
-                          <span className="font-medium text-gray-800">Pagamenti</span>
+                          <span className="font-medium text-gray-800">FAQ</span>
                         </span>
-                        <span className="text-xs text-gray-500">Checkout sicuro</span>
+                        <span className="text-xs text-gray-500">Domande frequenti</span>
                       </Link>
 
                       <div className={cn("hidden sm:block rounded-xl bg-gradient-to-tr from-sky-blue/10 via-white to-orange/10 p-4 text-sm text-gray-700", BORDER_DARK)}>
