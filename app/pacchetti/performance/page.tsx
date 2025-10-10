@@ -314,54 +314,93 @@ export default function PerformancePage() {
                   <span>Spingi sulle vendite</span>
                 </div>
 
-                <div className="relative mt-12 pt-20 pb-6">
-                  <div className="absolute inset-x-0 top-8 h-2 rounded-full bg-gradient-to-r from-navy via-sky-blue to-orange" />
-                  {[
-                    {
-                      label: "Giorno 1",
-                      amount: "8€",
-                      caption: "Meno di due cappuccini per avere meeting reali.",
-                      position: 0,
-                    },
-                    {
-                      label: "1° mese",
-                      amount: "240€",
-                      caption: "Quanto spenderesti in un test ADV di pochi giorni.",
-                      position: 33,
-                    },
-                    {
-                      label: "6 mesi",
-                      amount: "1.440€",
-                      caption: "In genere basta una sola chiusura per ripagarlo.",
-                      position: 66,
-                    },
-                    {
-                      label: "12 mesi",
-                      amount: "3.000€",
-                      caption: "Il costo annuo per avere il calendario sempre pieno.",
-                      position: 100,
-                    },
-                  ].map((item, index, array) => (
-                    <div
-                      key={item.label}
-                      className="absolute flex flex-col items-center gap-3 text-center"
-                      style={{
-                        left: `${item.position}%`,
-                        top: 0,
-                        transform:
-                          index === 0 ? "translateX(0)" : index === array.length - 1 ? "translateX(-100%)" : "translateX(-50%)",
-                      }}
-                    >
-                      <div className="w-px h-8 bg-sky-blue/40" />
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-lg font-bold text-navy shadow-lg ring-2 ring-sky-blue/40">
-                        {item.amount}
+                {/* Versione responsive: elementi distribuiti correttamente su mobile senza spazi vuoti */}
+                <div className="relative mt-8 pt-12 pb-6">
+                  {/* Barra */}
+                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-2 rounded-full bg-gradient-to-r from-navy via-sky-blue to-orange" style={{zIndex: 0}} />
+
+                  {/* Desktop version */}
+                  <div className="relative hidden sm:flex justify-between items-end z-10" style={{minHeight: "140px"}}>
+                    {[
+                      {
+                        label: "Giorno 1",
+                        amount: "8€",
+                        caption: "Meno di due cappuccini per avere meeting reali.",
+                      },
+                      {
+                        label: "1° mese",
+                        amount: "240€",
+                        caption: "Quanto spenderesti in un test ADV di pochi giorni.",
+                      },
+                      {
+                        label: "6 mesi",
+                        amount: "1.440€",
+                        caption: "In genere basta una sola chiusura per ripagarlo.",
+                      },
+                      {
+                        label: "12 mesi",
+                        amount: "3.000€",
+                        caption: "Il costo annuo per avere il calendario sempre pieno.",
+                      },
+                    ].map((item, index) => (
+                      <div
+                        key={item.label}
+                        className="flex flex-col items-center gap-2 text-center w-1/4 min-w-[90px]"
+                        style={{position: "relative", zIndex: 2}}
+                      >
+                        {/* Cerchio deve toccare la linea */}
+                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-base font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0 -mt-7">
+                          {item.amount}
+                        </div>
+                        <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500">
+                          {item.label}
+                        </span>
+                        <p className="text-xs text-gray-600 max-w-[140px] leading-snug">{item.caption}</p>
                       </div>
-                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                        {item.label}
-                      </span>
-                      <p className="text-sm text-gray-600 max-w-[160px] leading-snug">{item.caption}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+
+                  {/* Mobile version - elementi distribuiti correttamente senza spazi vuoti */}
+                  <div className="relative sm:hidden flex justify-between items-end z-10" style={{minHeight: "140px"}}>
+                    {[
+                      {
+                        label: "Giorno 1",
+                        amount: "8€",
+                        caption: "Meno di due cappuccini per avere meeting reali.",
+                      },
+                      {
+                        label: "6 mesi",
+                        amount: "1.440€",
+                        caption: "In genere basta una sola chiusura per ripagarlo.",
+                      },
+                      {
+                        label: "12 mesi",
+                        amount: "3.000€",
+                        caption: "Il costo annuo per avere il calendario sempre pieno.",
+                      },
+                    ].map((item, index) => {
+                      // Calcolare dinamicamente la larghezza basata sul numero di elementi visibili
+                      const visibleItemsCount = 3;
+                      const widthClass = visibleItemsCount === 3 ? "w-1/3" : visibleItemsCount === 2 ? "w-1/2" : "w-full";
+
+                      return (
+                        <div
+                          key={item.label}
+                          className={`flex flex-col items-center gap-2 text-center ${widthClass} min-w-[90px]`}
+                          style={{position: "relative", zIndex: 2}}
+                        >
+                          {/* Cerchio deve toccare la linea */}
+                          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-base font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0 -mt-7">
+                            {item.amount}
+                          </div>
+                          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500">
+                            {item.label}
+                          </span>
+                          <p className="text-xs text-gray-600 max-w-[140px] leading-snug">{item.caption}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </Card>

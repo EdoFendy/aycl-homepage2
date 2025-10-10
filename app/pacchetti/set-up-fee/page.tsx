@@ -36,11 +36,11 @@ export default function SetUpFeePage() {
                 </span>
               </div>
 
-              <h1 className="text-5xl font-bold leading-tight text-navy lg:text-6xl">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-navy">
                 Pacchetto <span className="text-orange">Set-Up Fee</span>: la partnership per scalare senza limiti.
               </h1>
 
-              <p className="text-2xl font-semibold text-gray-800">
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
                 Accesso a vita per espandere la tua azienda e condividere i risultati della crescita.
               </p>
               <p className="text-lg leading-relaxed text-gray-600">

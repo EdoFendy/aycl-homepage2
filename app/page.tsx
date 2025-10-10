@@ -46,11 +46,11 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy leading-tight text-balance">
                 Appuntamenti qualificati con <span className="text-orange">decision maker B2B</span>
               </h1>
 
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                 Trasformiamo tecnologia e dati in meeting costanti e garantiti con il tuo target
               </p>
 
@@ -448,17 +448,19 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-9 max-w-5xl mx-auto">
+        <div className="grid gap-8 lg:grid-cols-12 max-w-7xl mx-auto">
           {/* Set-Up Fee - PREMIUM HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-8 rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-12 shadow-2xl transition-all hover:scale-[1.02] hover:shadow-orange/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-9"
+            className="relative flex cursor-pointer flex-col gap-8 rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-12 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/set-up-fee")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
             role="link"
             tabIndex={0}
           >
-            {/* Decorative shine effect */}
+            {/* Enhanced decorative effects */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange/20 to-transparent rounded-full blur-3xl"></div>
+            <div className="absolute -top-4 -right-4 w-32 h-32 bg-orange/10 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-orange/5 to-transparent rounded-full blur-2xl"></div>
             
             <div className="flex items-start justify-between relative z-10">
               <div className="space-y-4 flex-1">
@@ -540,13 +542,17 @@ export default function HomePage() {
 
           {/* Performance - MEDIUM HIGHLIGHT */}
           <Card
-            className="flex cursor-pointer flex-col gap-6 rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-9 shadow-lg transition-all hover:border-sky-blue hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-6"
+            className="relative flex cursor-pointer flex-col gap-6 rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/performance")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
             role="link"
             tabIndex={0}
           >
-            <div className="space-y-3">
+            {/* Decorative effects for Performance */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-sky-blue/10 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl"></div>
+            
+            <div className="space-y-3 relative z-10">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-sky-blue/20 px-3 py-1 text-xs font-semibold text-sky-blue border border-sky-blue/30">
                   Kickstart
@@ -559,12 +565,12 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-sky-blue/5 rounded-xl p-4 border border-sky-blue/20">
+            <div className="bg-sky-blue/5 rounded-xl p-4 border border-sky-blue/20 relative z-10">
               <p className="text-xs font-semibold text-sky-blue uppercase tracking-wider mb-2">Modello di pricing</p>
               <p className="text-sm text-gray-700">💰 Paghi solo per risultati concreti: nessun costo fisso, solo appuntamenti qualificati svolti</p>
             </div>
 
-            <ul className="space-y-3 text-sm text-gray-700">
+            <ul className="space-y-3 text-sm text-gray-700 relative z-10">
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
                 <span>Onboarding dedicato e audit sul processo commerciale attuale</span>
@@ -583,8 +589,8 @@ export default function HomePage() {
               </li>
             </ul>
 
-            <div className="mt-auto pt-4">
-              <Button className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white shadow-md hover:shadow-lg" onClick={handleContactClick}>
+            <div className="mt-auto pt-4 relative z-10">
+              <Button className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white shadow-md hover:shadow-lg transition-all duration-300" onClick={handleContactClick}>
                 Contattaci ora
               </Button>
             </div>
@@ -592,14 +598,17 @@ export default function HomePage() {
 
           {/* Subscription - MINIMAL HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-5 rounded-2xl border border-gray-300 bg-white p-7 shadow-md transition-all hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-3"
+            className="relative flex cursor-pointer flex-col gap-5 rounded-2xl border border-gray-300 bg-white p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/subscription")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
             role="link"
             tabIndex={0}
           >
+            {/* Decorative effects for Subscription */}
+            <div className="absolute top-0 right-0 w-20 h-20 bg-navy/5 rounded-full blur-xl"></div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 bg-navy/3 rounded-full blur-lg"></div>
        
-            <div className="space-y-2">
+            <div className="space-y-2 relative z-10">
               <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">
                 Scale
               </span>
@@ -609,11 +618,11 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+            <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 relative z-10">
               <p className="text-xs text-gray-600">📅 Canone mensile fisso</p>
             </div>
 
-            <ul className="space-y-2.5 text-xs text-gray-700">
+            <ul className="space-y-2.5 text-xs text-gray-700 relative z-10">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
                 <span>Agenda di meeting qualificati garantita ogni mese</span>
@@ -628,8 +637,8 @@ export default function HomePage() {
               </li>
             </ul>
 
-            <div className="mt-auto pt-3">
-              <Button className="w-full bg-navy hover:bg-navy/90 text-white text-sm py-2.5" onClick={handleContactClick}>
+            <div className="mt-auto pt-3 relative z-10">
+              <Button className="w-full bg-navy hover:bg-navy/90 text-white text-sm py-2.5 transition-all duration-300" onClick={handleContactClick}>
                 Contattaci ora
               </Button>
             </div>
@@ -712,13 +721,7 @@ export default function HomePage() {
                 </Button>
               </Link>
               <Link href="/pacchetti">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10 text-lg px-8 bg-transparent"
-                >
-                  Scarica il Case Study
-                </Button>
+              
               </Link>
             </div>
           </div>

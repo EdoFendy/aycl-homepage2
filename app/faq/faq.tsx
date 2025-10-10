@@ -945,6 +945,55 @@ export default function FAQMasterbookPage() {
           </div>
         </div>
 
+        {/* Consultant Section */}
+        <div className="mb-12">
+          <GradientFrame>
+            <div className="p-8 lg:p-10">
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                <div className="flex-1 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-orange/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-navy">Parla con un nostro consulente</h3>
+                      <p className="text-gray-600">Hai domande specifiche? Preferisci una consulenza personalizzata?</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    I nostri esperti sono a tua disposizione per una consulenza gratuita. Analizziamo insieme le tue esigenze 
+                    e ti aiutiamo a scegliere la soluzione più adatta per la tua azienda.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button 
+                      className="bg-orange hover:bg-orange/90 text-white px-6 py-3"
+                      onClick={() => router.push('/contattaci')}
+                    >
+                      Prenota una Call Gratuita
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="border-navy text-navy hover:bg-navy/5 px-6 py-3"
+                      onClick={() => router.push('/pacchetti')}
+                    >
+                      Scopri i Pacchetti
+                    </Button>
+                  </div>
+                </div>
+                <div className="hidden lg:block">
+                  <div className="w-32 h-32 bg-gradient-to-br from-orange/20 to-sky-blue/20 rounded-full flex items-center justify-center">
+                    <svg className="w-16 h-16 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </GradientFrame>
+        </div>
+
         {/* Tabs / Chapter filters */}
         <div className="flex flex-wrap gap-2 mb-6">
           {chapterTabs.map((t) => (

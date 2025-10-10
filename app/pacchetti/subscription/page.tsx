@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import {
@@ -16,12 +17,16 @@ import {
   Database,
   Headphones,
   Zap,
+  Calendar,
+  TrendingUp,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
 
 export default function SubscriptionPage() {
+  const router = useRouter()
+  
   return (
     <div className="relative min-h-screen overflow-hidden bg-white">
       <div className="pointer-events-none absolute -top-28 right-16 h-80 w-80 rounded-full bg-orange/10 blur-3xl" />
@@ -38,10 +43,10 @@ export default function SubscriptionPage() {
               <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
                 <span className="text-sm font-bold text-orange">PACCHETTO SUBSCRIPTION</span>
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
-                Pacchetto <path className="text-orange">Subscription</path>: un flusso costante di appuntamenti qualificati
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy leading-tight text-balance">
+                Pacchetto <span className="text-orange">Subscription</span>: un flusso costante di appuntamenti qualificati
               </h1>
-              <p className="text-2xl font-semibold text-gray-800">
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">
                 Appuntamenti garantiti ogni mese e numeri prevedibili su cui basare le tue scelte.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -332,95 +337,219 @@ export default function SubscriptionPage() {
       </section>
       <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
 
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-navy mb-4">Un abbonamento mensile, 100% senza rischi</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-20 right-10 w-32 h-32 bg-orange/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-28 h-28 bg-sky-blue/5 rounded-full blur-3xl" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6">
+                <Shield className="w-4 h-4 text-orange" />
+                <span className="text-sm font-semibold text-orange">Garanzia Totale</span>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
+                Un abbonamento mensile, <span className="text-orange">100% senza rischi</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 Il pacchetto Subscription funziona come un vero e proprio abbonamento. Ogni mese hai un range garantito di
-                appuntamenti qualificati coperto da garanzia. Se non raggiungiamo i risultati concordati, perdiamo per
-                primi.
+                appuntamenti qualificati coperto da garanzia. Se non raggiungiamo i risultati concordati, perdiamo per primi.
               </p>
             </div>
 
-            <div className="relative flex flex-col lg:flex-row gap-12 items-stretch">
-              {/* Timeline verticale */}
-              <div className="hidden lg:flex flex-col items-center justify-center w-24 relative">
-                <div className="h-full w-1 bg-gradient-to-b from-orange via-sky-blue to-navy rounded-full" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-6 bg-orange rounded-full border-4 border-white shadow-lg" />
-                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-6 h-6 bg-sky-blue rounded-full border-4 border-white shadow-lg" />
-                <div className="absolute top-2/3 left-1/2 -translate-x-1/2 w-6 h-6 bg-navy rounded-full border-4 border-white shadow-lg" />
+            {/* Main content grid */}
+            <div className="grid lg:grid-cols-12 gap-8 items-start">
+              {/* Timeline and process steps */}
+              <div className="lg:col-span-8">
+                <div className="relative">
+                  {/* Enhanced timeline for desktop */}
+                  <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange via-sky-blue to-navy rounded-full" />
+                  
+                  {/* Process steps */}
+                  <div className="space-y-12">
+                    {/* Step 1: Fase di attivazione */}
+                    <div className="relative flex items-start gap-8">
+                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-orange rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                        <span className="text-white font-bold text-lg">1</span>
+                      </div>
+                      <Card className="flex-1 p-8 bg-white border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div className="flex items-start gap-6">
+                          <div className="w-16 h-16 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <LineChart className="h-8 w-8 text-orange" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-3">
+                              <h3 className="text-2xl font-bold text-navy">Fase di attivazione</h3>
+                              <span className="px-3 py-1 bg-orange/10 text-orange text-sm font-semibold rounded-full">
+                                Setup
+                              </span>
+                            </div>
+                            <p className="text-gray-600 mb-4">Un pacchetto su misura per le tue esigenze</p>
+                            <ul className="space-y-3 text-gray-700">
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-orange mt-0.5 flex-shrink-0" />
+                                <span>Le rate vengono stabilite in base al range di appuntamenti mensili</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-orange mt-0.5 flex-shrink-0" />
+                                <span>La prima rata viene versata all'inizio della collaborazione</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+
+                    {/* Step 2: Fase operativa */}
+                    <div className="relative flex items-start gap-8">
+                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-sky-blue rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                        <span className="text-white font-bold text-lg">2</span>
+                      </div>
+                      <Card className="flex-1 p-8 bg-white border-sky-blue/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div className="flex items-start gap-6">
+                          <div className="w-16 h-16 bg-sky-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <BarChart3 className="h-8 w-8 text-sky-blue" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-3">
+                              <h3 className="text-2xl font-bold text-navy">Fase operativa</h3>
+                              <span className="px-3 py-1 bg-sky-blue/10 text-sky-blue text-sm font-semibold rounded-full">
+                                Risparmio 25%
+                              </span>
+                            </div>
+                            <p className="text-gray-600 mb-4">Ricevi uno sconto sugli appuntamenti</p>
+                            <ul className="space-y-3 text-gray-700">
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                                <span>La seconda rata è prevista 28 giorni dopo il primo appuntamento qualificato svolto</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                                <span>Il pagamento prosegue con cadenza regolare ogni 28 giorni</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                                <span>Risparmi il 25% rispetto alla quotazione standard per appuntamento</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+
+                    {/* Step 3: Garanzie incluse */}
+                    <div className="relative flex items-start gap-8">
+                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-navy rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                        <span className="text-white font-bold text-lg">3</span>
+                      </div>
+                      <Card className="flex-1 p-8 bg-white border-navy/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        <div className="flex items-start gap-6">
+                          <div className="w-16 h-16 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <Shield className="h-8 w-8 text-navy" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-3">
+                              <h3 className="text-2xl font-bold text-navy">Garanzie incluse</h3>
+                              <span className="px-3 py-1 bg-navy/10 text-navy text-sm font-semibold rounded-full">
+                                Sicurezza
+                              </span>
+                            </div>
+                            <ul className="space-y-3 text-gray-700">
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                                <span>Rimborso completo se entro 60–90 giorni non ricevi appuntamenti qualificati</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                                <span>Possibilità di recedere con preavviso di 28 giorni</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                                <span>Range di appuntamenti mensili coperto da garanzia</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Step cards */}
-              <div className="flex-1 flex flex-col gap-8">
-                {/* Fase di attivazione */}
-                <Card className="p-8 bg-white border-orange/20 shadow-sm hover:shadow-xl transition-shadow flex flex-row items-center gap-6">
-                  <div className="w-14 h-14 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <LineChart className="h-7 w-7 text-orange" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-navy mb-2">Fase di attivazione</h3>
-                    <p className="text-sm font-semibold text-gray-500 mb-4">Un pacchetto su misura</p>
-                    <ul className="space-y-3 text-gray-700">
-                      <li>Le rate vengono stabilite in base al range di appuntamenti mensili.</li>
-                      <li>La prima rata viene versata all'inizio della collaborazione.</li>
-                    </ul>
-                  </div>
-                </Card>
-
-                {/* Fase operativa */}
-                <Card className="p-8 bg-white border-orange/20 shadow-sm hover:shadow-xl transition-shadow flex flex-row items-center gap-6">
-                  <div className="w-14 h-14 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <BarChart3 className="h-7 w-7 text-orange" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-navy mb-2">Fase operativa</h3>
-                    <p className="text-sm font-semibold text-gray-500 mb-4">Ricevi uno sconto sugli appuntamenti</p>
-                    <ul className="space-y-3 text-gray-700">
-                      <li>La seconda rata è prevista 28 giorni dopo il primo appuntamento qualificato svolto.</li>
-                      <li>Il pagamento prosegue con cadenza regolare ogni 28 giorni.</li>
-                      <li>Risparmi il 25% rispetto alla quotazione standard per appuntamento.</li>
-                    </ul>
-                  </div>
-                </Card>
-
-                {/* Garanzie incluse */}
-                <Card className="p-8 bg-white border-orange/20 shadow-sm hover:shadow-xl transition-shadow flex flex-row items-center gap-6">
-                  <div className="w-14 h-14 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Shield className="h-7 w-7 text-orange" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-navy mb-2">Garanzie incluse</h3>
-                    <ul className="space-y-3 text-gray-700">
-                      <li>Rimborso completo se entro 60–90 giorni non ricevi appuntamenti qualificati.</li>
-                      <li>Possibilità di recedere con preavviso di 28 giorni.</li>
-                      <li>Range di appuntamenti mensili coperto da garanzia.</li>
-                    </ul>
-                  </div>
-                </Card>
+              {/* Sidebar with important notes */}
+              <div className="lg:col-span-4">
+                <div className="sticky top-8">
+                  <Card className="p-8 bg-gradient-to-br from-sky-blue/5 via-white to-orange/5 border-2 border-sky-blue/20 relative overflow-hidden">
+                    <div className="absolute top-4 right-4 w-8 h-8 bg-sky-blue/10 rounded-full flex items-center justify-center">
+                      <span className="text-sky-blue font-bold text-sm">ℹ</span>
+                    </div>
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-2xl font-bold text-navy mb-2">Note importanti</h3>
+                        <p className="text-gray-600 text-sm">Informazioni chiave per il successo del tuo progetto</p>
+                      </div>
+                      
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3 p-4 bg-white/50 rounded-lg border border-sky-blue/10">
+                          <div className="w-8 h-8 bg-sky-blue/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-sky-blue font-bold text-sm">1</span>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-navy mb-1">Periodo di attivazione</h4>
+                            <p className="text-sm text-gray-700">I primi 60–90 giorni sono il periodo di attivazione: serve a impostare e calibrare il sistema.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start gap-3 p-4 bg-white/50 rounded-lg border border-orange/10">
+                          <div className="w-8 h-8 bg-orange/10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span className="text-orange font-bold text-sm">2</span>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-navy mb-1">Monitoraggio continuo</h4>
+                            <p className="text-sm text-gray-700">Ti accompagniamo con report regolari e dashboard per monitorare ogni attività.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="pt-4 border-t border-gray-200">
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <Shield className="w-4 h-4 text-orange" />
+                          <span className="font-medium">Garanzia totale sui risultati</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Note importanti */}
-              <div className="flex-1 flex flex-col items-center justify-center">
-                <Card className="p-10 bg-gradient-to-br from-sky-blue/5 to-white border-sky-blue/30 relative overflow-hidden flex flex-col items-center w-full max-w-md mx-auto">
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-white/20 border border-white/30 rounded-full text-xs font-bold text-navy">
-                    ℹ
-                  </div>
-                  <h3 className="text-2xl font-bold text-navy mb-6 text-center">Note importanti</h3>
-                  <ul className="space-y-4 text-gray-700 text-center">
-                    <li className="flex items-start gap-3 justify-center">
-                      <CheckCircle2 className="h-5 w-5 text-sky-blue mt-1 flex-shrink-0" />
-                      <span>I primi 60–90 giorni sono il periodo di attivazione: serve a impostare e calibrare il sistema.</span>
-                    </li>
-                    <li className="flex items-start gap-3 justify-center">
-                      <CheckCircle2 className="h-5 w-5 text-sky-blue mt-1 flex-shrink-0" />
-                      <span>Ti accompagniamo con report regolari e dashboard per monitorare ogni attività.</span>
-                    </li>
-                  </ul>
-                </Card>
-              </div>
+      {/* Call to Action Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-2xl font-bold text-navy mb-8">
+              Pronto a iniziare?
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-orange hover:bg-orange/90 text-white px-8"
+                onClick={() => router.push('/contattaci')}
+              >
+                Prenota una Call
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-navy text-navy hover:bg-navy/5 px-8"
+                onClick={() => router.push('/pacchetti')}
+              >
+                Scopri i Pacchetti
+              </Button>
             </div>
           </div>
         </div>
