@@ -17,7 +17,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FAQCarousel } from "@/components/faq-carousel"
+import { FAQCards } from "@/components/faq-cards"
 
 export default function PerformancePage() {
   return (
@@ -449,7 +449,7 @@ export default function PerformancePage() {
             <p className="text-xl text-gray-600">Tutto quello che devi sapere sul Pacchetto Performance</p>
           </div>
 
-          <FAQCarousel
+          <FAQCards
             className="mt-12"
             items={[
               {

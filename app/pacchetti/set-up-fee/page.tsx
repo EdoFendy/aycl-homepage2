@@ -16,7 +16,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FAQCarousel } from "@/components/faq-carousel"
+import { FAQCards } from "@/components/faq-cards"
 
 export default function SetUpFeePage() {
   return (
@@ -501,7 +501,7 @@ export default function SetUpFeePage() {
             </p>
           </div>
 
-          <FAQCarousel
+          <FAQCards
             className="mt-12"
             items={[
               {

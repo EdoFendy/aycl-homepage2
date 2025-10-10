@@ -19,7 +19,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FAQCarousel } from "@/components/faq-carousel"
+import { FAQCards } from "@/components/faq-cards"
 
 export default function SubscriptionPage() {
   return (
@@ -432,7 +432,7 @@ export default function SubscriptionPage() {
             <h2 className="text-4xl font-bold text-navy">FAQ</h2>
           </div>
 
-          <FAQCarousel
+          <FAQCards
             className="mt-12"
             items={[
               {

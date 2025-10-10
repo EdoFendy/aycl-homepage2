@@ -7,7 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
-import { FAQCarousel } from "@/components/faq-carousel"
+import { FAQCards } from "@/components/faq-cards"
 
 export default function HomePage() {
   const router = useRouter()
@@ -653,7 +653,7 @@ export default function HomePage() {
             <p className="text-xl text-gray-600">Tutto quello che devi sapere su All You Can Leads</p>
           </div>
 
-          <FAQCarousel
+          <FAQCards
             className="mt-12"
             items={[
               {
