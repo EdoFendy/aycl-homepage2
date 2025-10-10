@@ -400,12 +400,6 @@ export default function PacchettiPage() {
         </div>
       </section>
 
-
-
-     
-
-      
-
       </div>
     </div>
   )

@@ -321,9 +321,13 @@ export function SiteHeader() {
                         )}
                       >
                         <span className="flex items-start gap-3">
-                          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-navy/5 text-navy">
-                            <HelpCircle className="h-4 w-4" />
-                          </span>
+                        <Image
+                            src="/iconaFaq.png"
+                            alt={t("alt.contact")}
+                            width={32}
+                            height={32}
+                            className="h-8 w-8 align-top"
+                          />
                           <span className="font-medium text-gray-800">{t("rightCol.faq")}</span>
                         </span>
                         <span className="text-xs text-gray-500">{t("rightCol.faqCta")}</span>

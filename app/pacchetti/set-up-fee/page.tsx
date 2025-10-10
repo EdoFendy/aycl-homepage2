@@ -58,7 +58,7 @@ export default function SetUpFeePage() {
 
             <div className="relative hidden items-center justify-center md:flex">
               <Image
-                src="/setupfee.png"
+                src="/setupfee2.png"
                 alt={t("hero.alt")}
                 width={520}
                 height={480}
@@ -71,51 +71,63 @@ export default function SetUpFeePage() {
       </section>
 
       {/* COME FUNZIONA */}
-      <section className="bg-white py-24">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-6">
-          <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-navy">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-navy mb-4">
               {t.rich("how.title", { strong: (c) => <span className="text-orange">{c}</span> })}
             </h2>
           </div>
 
-          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
-            <Card className="relative overflow-hidden border border-transparent bg-gradient-to-br from-white via-navy/8 to-white p-[2px] transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <div className="relative rounded-[calc(1.5rem-2px)] bg-white/90 p-8 backdrop-blur">
-                <div className="absolute -top-8 -right-6 h-24 w-24 rounded-full bg-navy/15 blur-2xl" />
-                <div className="relative z-10 space-y-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-orange/5">
-                    <Compass className="h-8 w-8 text-navy" />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy">{t("how.cards.planTitle")}</h3>
-                  <p className="text-gray-600 leading-relaxed">{t("how.cards.planDesc")}</p>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="p-8 bg-white border-orange/20 hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-orange/5 rounded-full blur-xl" />
+              <div className="relative">
+                <div className="w-16 h-16 flex items-center justify-center mb-6">
+                  <Image 
+                    src="/iconaProgettazione.png" 
+                    alt={t("how.cards.planTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
+                <h3 className="text-xl font-bold text-navy mb-4">{t("how.cards.planTitle")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.cards.planDesc")}</p>
               </div>
             </Card>
 
-            <Card className="relative overflow-hidden border border-transparent bg-gradient-to-br from-white via-sky-blue/8 to-white p-[2px] transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <div className="relative rounded-[calc(1.5rem-2px)] bg-white/90 p-8 backdrop-blur">
-                <div className="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-sky-blue/15 blur-2xl" />
-                <div className="relative z-10 space-y-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-orange/5">
-                    <Settings className="h-8 w-8 text-navy" />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy">{t("how.cards.activateTitle")}</h3>
-                  <p className="text-gray-600 leading-relaxed">{t("how.cards.activateDesc")}</p>
+            <Card className="p-8 bg-white border-sky-blue/20 hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl" />
+              <div className="relative">
+                <div className="w-16 h-16 flex items-center justify-center mb-6">
+                  <Image 
+                    src="/iconaMachine.png" 
+                    alt={t("how.cards.activateTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
+                <h3 className="text-xl font-bold text-navy mb-4">{t("how.cards.activateTitle")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.cards.activateDesc")}</p>
               </div>
             </Card>
 
-            <Card className="relative overflow-hidden border border-transparent bg-white p-[2px] transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <div className="relative rounded-[calc(1.5rem-2px)] bg-white/90 p-8 backdrop-blur">
-                <div className="absolute -top-8 -left-6 h-24 w-24 rounded-full bg-orange/15 blur-2xl" />
-                <div className="relative z-10 space-y-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-orange/5">
-                    <TrendingUp className="h-8 w-8 text-navy" />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy">{t("how.cards.scaleTitle")}</h3>
-                  <p className="text-gray-600 leading-relaxed">{t("how.cards.scaleDesc")}</p>
+            <Card className="p-8 bg-white border-navy/20 hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-navy/5 rounded-full blur-xl" />
+              <div className="relative">
+                <div className="w-16 h-16 flex items-center justify-center mb-6">
+                  <Image 
+                    src="/Subscription_icona_Database.png" 
+                    alt={t("how.cards.scaleTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
+                <h3 className="text-xl font-bold text-navy mb-4">{t("how.cards.scaleTitle")}</h3>
+                <p className="text-gray-600 leading-relaxed">{t("how.cards.scaleDesc")}</p>
               </div>
             </Card>
           </div>
@@ -230,31 +242,56 @@ export default function SetUpFeePage() {
             </div>
 
           <div className="mt-16 grid max-w-6xl gap-8 md:grid-cols-3">
-            {[
-              {
-                title: t("infrastructure.cards.senduraTitle"),
-                description: t("infrastructure.cards.senduraDesc"),
-              },
-              {
-                title: t("infrastructure.cards.dbTitle"),
-                description: t("infrastructure.cards.dbDesc"),
-              },
-              {
-                title: t("infrastructure.cards.supportTitle"),
-                description: t("infrastructure.cards.supportDesc"),
-              },
-            ].map(({ title, description }) => (
-              <Card
-                key={title}
-                className="relative overflow-hidden border border-sky-blue/30 bg-white p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
-              >
-                <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-gradient-to-br from-sky-blue/15 to-transparent blur-2xl" />
-                <div className="relative z-10 space-y-4">
-                  <h3 className="text-2xl font-bold text-navy">{title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+            <Card className="relative overflow-hidden border border-sky-blue/30 bg-white p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-gradient-to-br from-sky-blue/15 to-transparent blur-2xl" />
+              <div className="relative z-10 space-y-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <Image 
+                    src="/Subscription_icona_Sendura.png" 
+                    alt={t("infrastructure.cards.senduraTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
-              </Card>
-            ))}
+                <h3 className="text-2xl font-bold text-navy">{t("infrastructure.cards.senduraTitle")}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{t("infrastructure.cards.senduraDesc")}</p>
+              </div>
+            </Card>
+
+            <Card className="relative overflow-hidden border border-sky-blue/30 bg-white p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-gradient-to-br from-sky-blue/15 to-transparent blur-2xl" />
+              <div className="relative z-10 space-y-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <Image 
+                    src="/Subscription_icona_Database.png" 
+                    alt={t("infrastructure.cards.dbTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-navy">{t("infrastructure.cards.dbTitle")}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{t("infrastructure.cards.dbDesc")}</p>
+              </div>
+            </Card>
+
+            <Card className="relative overflow-hidden border border-sky-blue/30 bg-white p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-gradient-to-br from-sky-blue/15 to-transparent blur-2xl" />
+              <div className="relative z-10 space-y-4">
+                <div className="w-16 h-16 flex items-center justify-center mb-4">
+                  <Image 
+                    src="/Subscription_icona_Support.png" 
+                    alt={t("infrastructure.cards.supportTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-navy">{t("infrastructure.cards.supportTitle")}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{t("infrastructure.cards.supportDesc")}</p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>

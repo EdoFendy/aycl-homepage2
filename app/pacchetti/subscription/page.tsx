@@ -85,8 +85,14 @@ export default function SubscriptionPage() {
             <Card className="p-8 bg-white border-orange/20 hover:shadow-xl transition-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-orange/5 rounded-full blur-xl" />
               <div className="relative space-y-4">
-                <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center">
-                  <Target className="h-8 w-8 text-orange" />
+                <div className="w-16 h-16 flex items-center justify-center">
+                  <Image 
+                    src="/Subscription_icona_IlTuoTarget.png" 
+                    alt={t("how.cards.targetTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy">{t("how.cards.targetTitle")}</h3>
                 <p className="text-gray-600 leading-relaxed">{t("how.cards.targetDesc")}</p>
@@ -96,8 +102,14 @@ export default function SubscriptionPage() {
             <Card className="p-8 bg-white border-orange/20 hover:shadow-xl transition-shadow relative overflow-hidden">
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange/5 rounded-full blur-xl" />
               <div className="relative space-y-4">
-                <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center">
-                  <Users className="h-8 w-8 text-orange" />
+                <div className="w-16 h-16 flex items-center justify-center">
+                  <Image 
+                    src="/Subscription_icona_Strategia.png" 
+                    alt={t("how.cards.strategyTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy">{t("how.cards.strategyTitle")}</h3>
                 <p className="text-gray-600 leading-relaxed">{t("how.cards.strategyDesc")}</p>
@@ -107,8 +119,14 @@ export default function SubscriptionPage() {
             <Card className="p-8 bg-white border-orange/20 hover:shadow-xl transition-shadow relative overflow-hidden">
               <div className="absolute top-0 left-0 w-24 h-24 bg-orange/5 rounded-full blur-xl" />
               <div className="relative space-y-4">
-                <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center">
-                  <CalendarCheck className="h-8 w-8 text-orange" />
+                <div className="w-16 h-16 flex items-center justify-center">
+                  <Image 
+                    src="/Subscription_icona_Collaborazione.png" 
+                    alt={t("how.cards.collabTitle")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy">{t("how.cards.collabTitle")}</h3>
                 <p className="text-gray-600 leading-relaxed">{t("how.cards.collabDesc")}</p>
@@ -150,10 +168,10 @@ export default function SubscriptionPage() {
               {/* Header */}
               <div className="mb-8">
                 <div className="inline-block px-3 py-1 bg-orange/10 rounded-full mb-4">
-                  <span className="text-xs font-bold text-orange uppercase tracking-wider">✓ Vantaggi</span>
+                  <span className="text-xs font-bold text-orange uppercase tracking-wider">{t("why.benefitsBadge")}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-navy leading-tight">
-                  Il pacchetto Subscription è la scelta giusta per te se…
+                  {t("why.benefitsTitle")}
                 </h3>
               </div>
 
@@ -245,24 +263,42 @@ export default function SubscriptionPage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="p-8 bg-white border-sky-blue/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
-                <Zap className="h-8 w-8 text-sky-blue" />
+              <div className="w-16 h-16 flex items-center justify-center mb-6">
+                <Image 
+                  src="/Subscription_icona_Sendura.png" 
+                  alt={t("system.cards.senduraTitle")}
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
               <p className="text-gray-600 leading-relaxed">{t("system.cards.senduraDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center mb-6">
-                <Database className="h-8 w-8 text-orange" />
+              <div className="w-16 h-16 flex items-center justify-center mb-6">
+                <Image 
+                  src="/Subscription_icona_Database.png" 
+                  alt={t("system.cards.dbTitle")}
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.dbTitle")}</h3>
               <p className="text-gray-600 leading-relaxed">{t("system.cards.dbDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-navy/10 rounded-lg flex items-center justify-center mb-6">
-                <Headphones className="h-8 w-8 text-navy" />
+              <div className="w-16 h-16 flex items-center justify-center mb-6">
+                <Image 
+                  src="/Subscription_icona_Support.png" 
+                  alt={t("system.cards.supportTitle")}
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.supportTitle")}</h3>
               <p className="text-gray-600 leading-relaxed">{t("system.cards.supportDesc")}</p>

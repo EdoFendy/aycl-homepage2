@@ -40,7 +40,9 @@ export default function PerformancePage() {
                 <span className="text-sm font-bold text-sky-blue">{t("hero.badge")}</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
-                {t("hero.title")}
+                {t.rich("hero.title", {
+                  strong: (chunks) => <span className="text-sky-blue">{chunks}</span>,
+                })}
               </h1>
               <p className="text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -55,14 +57,14 @@ export default function PerformancePage() {
             </div>
 
             <div className="relative">
-              <div className="absolute -top-8 -right-8 w-72 h-72 bg-sky-blue/20 rounded-full blur-3xl" />
-              <Card className="relative p-8 bg-gradient-to-br from-sky-blue/5 to-white border-sky-blue/30">
+              <Card className="relative p-0 bg-transparent border-none shadow-none">
                 <Image
-                  src="/business-professional-reviewing-performance-metric.jpg"
+                  src="/Performance.png"
                   alt={t("hero.alt")}
                   width={600}
                   height={500}
-                  className="rounded-lg"
+                  className="rounded-lg bg-transparent"
+                  style={{ background: "none", boxShadow: "none", border: "none", outline: "none" }}
                 />
               </Card>
             </div>
@@ -82,9 +84,15 @@ export default function PerformancePage() {
             <Card className="p-8 bg-white border-sky-blue/20 hover:shadow-xl transition-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl" />
               <div className="relative">
-                <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
-                  <Users className="h-8 w-8 text-sky-blue" />
-                </div>
+                {/* L'immagine è direttamente sullo sfondo senza bordi, ombre o contenitore */}
+                <Image 
+                  src="/IconaProfiloideale.png" 
+                  alt={t("how.steps.1.title")}
+                  width={64}
+                  height={64}
+                  className="mb-6 object-contain"
+                  style={{ display: "block", background: "none", boxShadow: "none", border: "none", outline: "none" }}
+                />
                 <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.1.title")}</h3>
                 <p className="text-gray-600 leading-relaxed">{t("how.steps.1.desc")}</p>
               </div>
@@ -93,8 +101,14 @@ export default function PerformancePage() {
             <Card className="p-8 bg-white border-sky-blue/20 hover:shadow-xl transition-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl" />
               <div className="relative">
-                <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
-                  <Target className="h-8 w-8 text-sky-blue" />
+                <div className="w-16 h-16 flex items-center justify-center mb-6">
+                  <Image 
+                    src="/IconaStrategia.png" 
+                    alt={t("how.steps.2.title")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.2.title")}</h3>
                 <p className="text-gray-600 leading-relaxed">{t("how.steps.2.desc")}</p>
@@ -104,8 +118,14 @@ export default function PerformancePage() {
             <Card className="p-8 bg-white border-sky-blue/20 hover:shadow-xl transition-shadow relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl" />
               <div className="relative">
-                <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
-                  <TrendingUp className="h-8 w-8 text-sky-blue" />
+                <div className="w-16 h-16 flex items-center justify-center mb-6">
+                  <Image 
+                    src="/IconaMonitoraggio.png" 
+                    alt={t("how.steps.3.title")}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.3.title")}</h3>
                 <p className="text-gray-600 leading-relaxed">{t("how.steps.3.desc")}</p>
@@ -231,24 +251,42 @@ export default function PerformancePage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="p-8 bg-white border-sky-blue/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-sky-blue/10 rounded-lg flex items-center justify-center mb-6">
-                <Zap className="h-8 w-8 text-sky-blue" />
+              <div className="w-16 h-16 flex items-center justify-center mb-6">
+                <Image 
+                  src="/Subscription_icona_Sendura.png" 
+                  alt={t("system.cards.senduraTitle")}
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
               <p className="text-gray-600 leading-relaxed">{t("system.cards.senduraDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center mb-6">
-                <Database className="h-8 w-8 text-orange" />
+              <div className="w-16 h-16 flex items-center justify-center mb-6">
+                <Image 
+                  src="/Subscription_icona_Database.png" 
+                  alt={t("system.cards.dbTitle")}
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.dbTitle")}</h3>
               <p className="text-gray-600 leading-relaxed">{t("system.cards.dbDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-navy/10 rounded-lg flex items-center justify-center mb-6">
-                <Headphones className="h-8 w-8 text-navy" />
+              <div className="w-16 h-16 flex items-center justify-center mb-6">
+                <Image 
+                  src="/Subscription_icona_Support.png" 
+                  alt={t("system.cards.supportTitle")}
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.supportTitle")}</h3>
               <p className="text-gray-600 leading-relaxed">{t("system.cards.supportDesc")}</p>

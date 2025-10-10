@@ -2,7 +2,7 @@
   "it": {
     "hero": {
       "badge": "PACCHETTO PERFORMANCE",
-      "title": "Metti alla prova il sistema",
+      "title": "Pacchetto <strong>Performance</strong>: metti alla prova il sistema",
       "kicker": "Accedi ora al sistema senza limiti e senza rischi.",
       "subtitle": "Trasformiamo la nostra struttura tecnologica e banche dati proprietarie in appuntamenti qualificati con figure decisionali nel tuo target di riferimento.",
       "cta": "Richiedi Informazioni",
@@ -93,7 +93,7 @@
   "en": {
     "hero": {
       "badge": "PERFORMANCE PACKAGE",
-      "title": "Put the system to the test",
+      "title": "Performance <strong>Package</strong>: put the system to the test",
       "kicker": "Get access now with no limits and no risk.",
       "subtitle": "We turn our proprietary tech stack and databases into qualified appointments with decision makers in your target.",
       "cta": "Request Information",
@@ -167,7 +167,7 @@
   "es": {
     "hero": {
       "badge": "PAQUETE PERFORMANCE",
-      "title": "Pon a prueba el sistema",
+      "title": "Paquete <strong>Performance</strong>: pon a prueba el sistema",
       "kicker": "Accede ahora sin límites y sin riesgos.",
       "subtitle": "Convertimos nuestra infraestructura tecnológica y bases de datos propietarias en citas cualificadas con decisores de tu objetivo.",
       "cta": "Solicitar Información",
