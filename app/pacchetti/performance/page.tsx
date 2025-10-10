@@ -19,9 +19,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
+import { getCalApi } from "@calcom/embed-react"
+import { useEffect } from "react"
 
 export default function PerformancePage() {
   const t = useTranslations("pacchettiPerformance")
+  
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"aycl-discovery"});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
+  }, [])
+  
   return (
     <div className="relative min-h-screen overflow-hidden bg-white">
       <div className="pointer-events-none absolute -top-28 right-20 h-80 w-80 rounded-full bg-sky-blue/10 blur-3xl" />
@@ -453,12 +463,15 @@ export default function PerformancePage() {
             <h2 className="text-4xl lg:text-5xl font-bold text-balance">{t("cta.title")}</h2>
             <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link href="/contattaci">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8">
-                  {t("cta.primary")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <button 
+                data-cal-namespace="aycl-discovery"
+                data-cal-link="giovannilucchesini/aycl-discovery"
+                data-cal-config='{"layout":"month_view"}'
+                className="bg-orange hover:bg-orange/90 text-white font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg justify-center w-full sm:w-auto"
+              >
+                {t("cta.primary")}
+                <ArrowRight className="h-5 w-5" />
+              </button>
               <Link href="/pacchetti">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 bg-transparent">
                   {t("cta.secondary")}

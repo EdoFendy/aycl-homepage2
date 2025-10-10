@@ -47,6 +47,14 @@
       "ctaFaq": "Vai alle FAQ",
       "ctaCall": "Prenota una Call Gratuita"
     },
+    "calendar": {
+      "badge": "Prenota una Call",
+      "title": "Prenota una call gratuita",
+      "subtitle": "Scegli il momento più comodo per te e parliamo del tuo progetto. La call è gratuita e senza impegno.",
+      "cardTitle": "Prenota la tua call di scoperta",
+      "cardDesc": "30 minuti per capire le tue esigenze e mostrarti come possiamo aiutarti a generare appuntamenti qualificati.",
+      "button": "Prenota Call Gratuita"
+    },
     "cta": {
       "title": "Inizia oggi a generare appuntamenti qualificati",
       "subtitle": "Smetti di sprecare budget in ADV e inizia a parlare con chi decide davvero",
@@ -101,6 +109,14 @@
       "ctaFaq": "Go to FAQ",
       "ctaCall": "Book a Free Call"
     },
+    "calendar": {
+      "badge": "Book a Call",
+      "title": "Book a free call",
+      "subtitle": "Choose the most convenient time for you and let's talk about your project. The call is free and with no commitment.",
+      "cardTitle": "Book your discovery call",
+      "cardDesc": "30 minutes to understand your needs and show you how we can help you generate qualified appointments.",
+      "button": "Book Free Call"
+    },
     "cta": {
       "title": "Start generating qualified appointments today",
       "subtitle": "Stop wasting budget on ads and start talking to real decision makers",
@@ -154,6 +170,14 @@
       "subtitle": "Consulta nuestra sección de Preguntas Frecuentes o reserva una llamada gratuita para hablar con uno de nuestros expertos",
       "ctaFaq": "Ir a las FAQ",
       "ctaCall": "Reservar una Llamada Gratuita"
+    },
+    "calendar": {
+      "badge": "Reserva una Llamada",
+      "title": "Reserva una llamada gratuita",
+      "subtitle": "Elige el momento más cómodo para ti y hablemos de tu proyecto. La llamada es gratuita y sin compromiso.",
+      "cardTitle": "Reserva tu llamada de descubrimiento",
+      "cardDesc": "30 minutos para entender tus necesidades y mostrarte cómo podemos ayudarte a generar citas cualificadas.",
+      "button": "Reservar Llamada Gratuita"
     },
     "cta": {
       "title": "Empieza hoy a generar citas cualificadas",

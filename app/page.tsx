@@ -9,10 +9,19 @@ import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
 import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
+import { getCalApi } from "@calcom/embed-react"
+import { useEffect } from "react"
 
 export default function HomePage() {
   const router = useRouter()
   const t = useTranslations("home")
+  
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"aycl-discovery"});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
+  }, [])
 
   const navigateTo = (path: string) => {
     router.push(path)
@@ -697,14 +706,19 @@ export default function HomePage() {
               {t("cta.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link href="/contattaci">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8">
-                  {t("cta.button")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <button 
+                data-cal-namespace="aycl-discovery"
+                data-cal-link="giovannilucchesini/aycl-discovery"
+                data-cal-config='{"layout":"month_view"}'
+                className="bg-orange hover:bg-orange/90 text-white font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg justify-center w-full sm:w-auto"
+              >
+                {t("cta.button")}
+                <ArrowRight className="h-5 w-5" />
+              </button>
               <Link href="/pacchetti">
-              
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 bg-transparent">
+                  {t("cta.secondary")}
+                </Button>
               </Link>
             </div>
           </div>

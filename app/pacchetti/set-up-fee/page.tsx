@@ -18,9 +18,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
+import { getCalApi } from "@calcom/embed-react"
+import { useEffect } from "react"
 
 export default function SetUpFeePage() {
   const t = useTranslations("pacchettiSetUpFee")
+  
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"aycl-discovery"});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
+  }, [])
+  
   return (
     <div className="min-h-screen bg-white">
       {/* HERO */}
@@ -46,12 +56,15 @@ export default function SetUpFeePage() {
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
-                <Link href="/contattaci">
-                  <Button size="lg" className="bg-orange hover:bg-orange/90 px-8 text-lg text-white">
+                <button 
+                  data-cal-namespace="aycl-discovery"
+                  data-cal-link="giovannilucchesini/aycl-discovery"
+                  data-cal-config='{"layout":"month_view"}'
+                  className="bg-orange hover:bg-orange/90 text-white font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg w-full sm:w-auto"
+                >
                   {t("hero.ctaPrimary")}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
                 <Link href="#pricing" className="text-navy underline underline-offset-4">{t("hero.ctaSecondary")}</Link>
               </div>
             </div>

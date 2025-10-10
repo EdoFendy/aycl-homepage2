@@ -2,13 +2,23 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import Cal, { getCalApi } from "@calcom/embed-react"
+import { useEffect } from "react"
 
 export default function ContattaciPage() {
   const t = useTranslations("contattaci")
+  
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"aycl-discovery"});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
+  }, [])
+
   const handleEmailClick = () => {
     window.location.href = "mailto:info@allyoucanleads.com"
   }
@@ -121,6 +131,38 @@ export default function ContattaciPage() {
 
                 <div className="pt-4 border-t border-gray-200">
                   <p className="text-sm text-gray-500">{t("whatsapp.phone")}</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Calendar Section */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative">
+        <div className="absolute  right-1/4 w-48 h-48 bg-orange/5 rounded-full blur-2xl" />
+        <div className="absolute  left-1/4 w-32 h-32 bg-sky-blue/5 rounded-full blur-xl" />
+        
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+
+            <Card className="p-8 bg-white border-2 border-orange/20 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-orange/10 rounded-full blur-xl" />
+              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-sky-blue/10 rounded-full blur-xl" />
+              
+              <div className="relative z-10">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-navy mb-4">{t("calendar.cardTitle")}</h3>
+                  <p className="text-gray-600">{t("calendar.cardDesc")}</p>
+                </div>
+                
+                <div className="w-full h-[600px] rounded-lg overflow-hidden border border-gray-200">
+                  <Cal 
+                    namespace="aycl-discovery"
+                    calLink="giovannilucchesini/aycl-discovery"
+                    style={{width:"100%",height:"100%",overflow:"scroll"}}
+                    config={{"layout":"month_view"}}
+                  />
                 </div>
               </div>
             </Card>

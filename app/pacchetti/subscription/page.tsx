@@ -24,10 +24,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
+import { getCalApi } from "@calcom/embed-react"
+import { useEffect } from "react"
 
 export default function SubscriptionPage() {
   const router = useRouter()
   const t = useTranslations("pacchettiSubscription")
+  
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"aycl-discovery"});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
+  }, [])
   
   return (
     <div className="relative min-h-screen overflow-hidden bg-white">
@@ -483,9 +492,14 @@ export default function SubscriptionPage() {
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-navy mb-8">{t("cta.title")}</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-orange hover:bg-orange/90 text-white px-8" onClick={() => router.push('/contattaci')}>
+              <button 
+                data-cal-namespace="aycl-discovery"
+                data-cal-link="giovannilucchesini/aycl-discovery"
+                data-cal-config='{"layout":"month_view"}'
+                className="bg-orange hover:bg-orange/90 text-white font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg justify-center w-full sm:w-auto"
+              >
                 {t("cta.primary")}
-              </Button>
+              </button>
               <Button size="lg" variant="outline" className="border-navy text-navy hover:bg-navy/5 px-8" onClick={() => router.push('/pacchetti')}>
                 {t("cta.secondary")}
               </Button>
