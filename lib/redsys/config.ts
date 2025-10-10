@@ -16,6 +16,36 @@ const envSchema = z.object({
   successUrl: z.string().url().optional(),
   failureUrl: z.string().url().optional(),
   merchantName: z.string().max(60).optional(),
+  payMethods: z
+    .string()
+    .trim()
+    .transform((value) => value.toUpperCase())
+    .refine((value) => /^[0-9A-Z]+$/u.test(value), "REDSYS_PAYMETHODS non valido")
+    .default("C"),
+  consumerLanguage: z
+    .string()
+    .trim()
+    .regex(/^\d{1,2}$/u, "REDSYS_CONSUMER_LANGUAGE deve essere di 1-2 cifre")
+    .default("7"),
+  enableEMV3DS: z
+    .boolean()
+    .default(true),
+  enableSCAExceptions: z
+    .boolean()
+    .default(false),
+  threeDSRequestorID: z
+    .string()
+    .trim()
+    .optional(),
+  threeDSRequestorName: z
+    .string()
+    .trim()
+    .max(40)
+    .optional(),
+  threeDSRequestorURL: z
+    .string()
+    .url()
+    .optional(),
 })
 
 type RedsysConfig = z.infer<typeof envSchema>
@@ -33,6 +63,13 @@ export function loadRedsysConfig() {
     successUrl: process.env.REDSYS_URL_OK,
     failureUrl: process.env.REDSYS_URL_KO,
     merchantName: process.env.REDSYS_MERCHANT_NAME,
+    payMethods: process.env.REDSYS_PAYMETHODS,
+    consumerLanguage: process.env.REDSYS_CONSUMER_LANGUAGE,
+    enableEMV3DS: process.env.REDSYS_ENABLE_EMV3DS === "true",
+    enableSCAExceptions: process.env.REDSYS_ENABLE_SCA_EXCEPTIONS === "true",
+    threeDSRequestorID: process.env.REDSYS_3DS_REQUESTOR_ID,
+    threeDSRequestorName: process.env.REDSYS_3DS_REQUESTOR_NAME,
+    threeDSRequestorURL: process.env.REDSYS_3DS_REQUESTOR_URL,
   })
 
   return result

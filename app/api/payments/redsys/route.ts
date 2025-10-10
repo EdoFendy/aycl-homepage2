@@ -2,7 +2,15 @@ import { NextResponse, type NextRequest } from "next/server"
 import { z } from "zod"
 
 import { loadRedsysConfig } from "@/lib/redsys/config"
-import { buildPaymentPayload, getGatewayUrl } from "@/lib/redsys/gateway"
+import { 
+  buildPaymentPayload, 
+  getGatewayUrl, 
+  createEMV3DSData, 
+  createTRAData, 
+  createLWVData,
+  createMITData,
+  type EMV3DSData 
+} from "@/lib/redsys/gateway"
 
 const amountSchema = z
   .union([z.string(), z.number()])
@@ -41,10 +49,47 @@ const requestSchema = z.object({
   orderId: z.string().trim().regex(/^\d{4,12}$/u, "orderId deve contenere 4-12 cifre").optional(),
   urlOk: z.string().url().optional(),
   urlKo: z.string().url().optional(),
+  // EMV3DS fields
+  emv3ds: z.object({
+    cardholderName: z.string().trim().max(45).optional(),
+    email: z.string().email().max(254).optional(),
+    mobilePhone: z.object({
+      cc: z.string().trim().max(3),
+      subscriber: z.string().trim().max(15),
+    }).optional(),
+    shipAddrLine1: z.string().trim().max(50).optional(),
+    shipAddrLine2: z.string().trim().max(50).optional(),
+    shipAddrLine3: z.string().trim().max(50).optional(),
+    shipAddrCity: z.string().trim().max(50).optional(),
+    shipAddrState: z.string().trim().max(3).optional(),
+    shipAddrPostCode: z.string().trim().max(16).optional(),
+    shipAddrCountry: z.string().trim().max(3).optional(),
+    transType: z.enum(["01", "03", "10", "11", "28"]).optional(),
+    transCategory: z.enum(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99"]).optional(),
+    browserAcceptHeader: z.string().trim().max(2048).optional(),
+    browserUserAgent: z.string().trim().max(2048).optional(),
+    browserLanguage: z.string().trim().max(8).optional(),
+    browserColorDepth: z.string().trim().max(4).optional(),
+    browserScreenHeight: z.string().trim().max(6).optional(),
+    browserScreenWidth: z.string().trim().max(6).optional(),
+    browserTZ: z.string().trim().max(5).optional(),
+    browserJavaEnabled: z.boolean().optional(),
+  }).optional(),
+  // SCA Exception
+  scaException: z.enum(["MIT", "LWV", "TRA", "COR"]).optional(),
+  // COF data for recurring payments
+  cofData: z.object({
+    type: z.enum(["I", "R", "U", "C", "M"]),
+    ini: z.enum(["S", "N", "Y"]),
+    fin: z.enum(["S", "N", "Y"]),
+    tds2: z.enum(["S", "N", "Y"]),
+    txnId: z.string().trim().max(40).optional(),
+  }).optional(),
 })
 
 const CURRENCY = "978"
 const TRANSACTION_TYPE = "0"
+const CONSUMER_LANGUAGE = "7"
 
 function generateOrderId() {
   const timestamp = Date.now().toString()
@@ -76,16 +121,57 @@ export async function POST(request: NextRequest) {
   const amountCents = parsed.data.amount
   const orderId = parsed.data.orderId ?? generateOrderId()
 
-  const merchantParams = {
+  const merchantParams: Record<string, string> = {
     DS_MERCHANT_AMOUNT: String(amountCents),
     DS_MERCHANT_ORDER: orderId,
     DS_MERCHANT_CURRENCY: CURRENCY,
     DS_MERCHANT_TRANSACTIONTYPE: TRANSACTION_TYPE,
+    DS_MERCHANT_CONSUMERLANGUAGE: config.consumerLanguage,
     DS_MERCHANT_URLOK: parsed.data.urlOk ?? config.successUrl ?? buildDefaultUrl(request, "/pagamenti/esito/successo"),
     DS_MERCHANT_URLKO: parsed.data.urlKo ?? config.failureUrl ?? buildDefaultUrl(request, "/pagamenti/esito/errore"),
     DS_MERCHANT_MERCHANTURL: config.notifyUrl ?? buildDefaultUrl(request, "/api/payments/redsys/notify"),
-    DS_MERCHANT_PRODUCTDESCRIPTION: parsed.data.description,
-    DS_MERCHANT_TITULAR: parsed.data.customerName,
+    ...(parsed.data.description && { DS_MERCHANT_PRODUCTDESCRIPTION: parsed.data.description }),
+    ...(parsed.data.customerName && { DS_MERCHANT_TITULAR: parsed.data.customerName }),
+  }
+
+  // Add EMV3DS data if enabled and provided
+  if (config.enableEMV3DS && parsed.data.emv3ds) {
+    const emv3dsData: EMV3DSData = {
+      ...parsed.data.emv3ds,
+      // Add 3DS Requestor info from config
+      threeDSRequestor: {
+        threeDSRequestorID: config.threeDSRequestorID,
+        threeDSRequestorName: config.threeDSRequestorName,
+        threeDSRequestorURL: config.threeDSRequestorURL,
+      },
+    }
+    merchantParams.DS_MERCHANT_EMV3DS = createEMV3DSData(emv3dsData)
+  }
+
+  // Add SCA Exception if enabled and provided
+  if (config.enableSCAExceptions && parsed.data.scaException) {
+    switch (parsed.data.scaException) {
+      case "TRA":
+        Object.assign(merchantParams, createTRAData())
+        break
+      case "LWV":
+        Object.assign(merchantParams, createLWVData())
+        break
+      case "MIT":
+        if (parsed.data.cofData) {
+          Object.assign(merchantParams, createMITData({
+            cofType: parsed.data.cofData.type,
+            cofIni: parsed.data.cofData.ini,
+            cofFin: parsed.data.cofData.fin,
+            cofTds2: parsed.data.cofData.tds2,
+            originalTxnId: parsed.data.cofData.txnId,
+          }))
+        }
+        break
+      case "COR":
+        Object.assign(merchantParams, { DS_MERCHANT_EXCEP_SCA: "COR" })
+        break
+    }
   }
 
   const { Ds_MerchantParameters, Ds_Signature, Ds_SignatureVersion } = buildPaymentPayload(config, merchantParams)
@@ -100,6 +186,8 @@ export async function POST(request: NextRequest) {
     orderId,
     amountCents,
     environment: config.environment,
+    emv3dsEnabled: config.enableEMV3DS,
+    scaExceptionsEnabled: config.enableSCAExceptions,
   })
 }
 
@@ -116,5 +204,9 @@ export async function GET(request: NextRequest) {
     defaultUrlOk: config.successUrl ?? buildDefaultUrl(request, "/pagamenti/esito/successo"),
     defaultUrlKo: config.failureUrl ?? buildDefaultUrl(request, "/pagamenti/esito/errore"),
     notifyUrl: config.notifyUrl ?? buildDefaultUrl(request, "/api/payments/redsys/notify"),
+    emv3dsEnabled: config.enableEMV3DS,
+    scaExceptionsEnabled: config.enableSCAExceptions,
+    consumerLanguage: config.consumerLanguage,
+    payMethods: config.payMethods,
   })
 }
