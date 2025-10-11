@@ -97,8 +97,16 @@ export function SiteHeader() {
           {/* DESTRA: CTA */}
           <div className="flex items-center justify-end gap-2 sm:gap-3">
             <LanguageSwitcher />
-            
-       
+
+            <Link
+              href="/pagamento"
+              className={cn(
+                "hidden md:inline text-sm font-semibold transition-colors px-4 py-2 rounded-lg bg-orange text-white hover:bg-orange/90"
+              )}
+            >
+              {t("nav.payNow")}
+            </Link>
+
             <Link
               href="/contattaci"
               className={cn(
@@ -107,7 +115,7 @@ export function SiteHeader() {
             >
               {t("nav.contactNow")}
             </Link>
-  
+
           </div>
         </div>
 
@@ -286,6 +294,27 @@ export function SiteHeader() {
                           <span className="font-medium text-gray-800">{t("rightCol.packages")}</span>
                         </span>
                         <span className="text-xs text-gray-500">{t("rightCol.packagesCta")}</span>
+                      </Link>
+                      <Link
+                        href="/pagamento"
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "mb-1 flex items-center justify-between rounded-xl bg-white/85 px-4 py-3 transition hover:shadow-md",
+                          BORDER_DARK,
+                          isActive("/pagamento") && "ring-1 ring-navy/30",
+                        )}
+                      >
+                        <span className="flex items-start gap-3">
+                          <Image
+                            src="/iconaPayment.svg"
+                            alt={t("alt.payment")}
+                            width={32}
+                            height={32}
+                            className="h-8 w-8 align-top"
+                          />
+                          <span className="font-medium text-gray-800">{t("rightCol.payNow")}</span>
+                        </span>
+                        <span className="text-xs text-gray-500">{t("rightCol.payNowCta")}</span>
                       </Link>
                       <Link
                         href="/contattaci"

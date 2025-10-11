@@ -62,6 +62,11 @@ export async function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/pagamento" className="transition-colors hover:text-white">
+                  {t("links.payment")}
+                </Link>
+              </li>
+              <li>
                 <Link href="/faq" className="transition-colors hover:text-white">
                   {t("links.faq")}
                 </Link>

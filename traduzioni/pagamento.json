@@ -1,0 +1,154 @@
+{
+  "it": {
+    "hero": {
+      "badge": "Pagamento sicuro",
+      "title": "Completa l'abbonamento annuale da <strong>3.000€</strong>",
+      "subtitle": "Inserisci i dati di fatturazione per procedere con il pagamento immediato tramite il gateway Redsys BBVA."
+    },
+    "form": {
+      "title": "Dati per la fatturazione",
+      "subtitle": "Utilizzeremo queste informazioni per emettere fattura elettronica e inviarti conferma dell'attivazione.",
+      "name": {
+        "label": "Nome e cognome",
+        "placeholder": "Mario Rossi"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "nome@azienda.it"
+      },
+      "company": {
+        "label": "Ragione sociale",
+        "placeholder": "AYCL S.r.l."
+      },
+      "vat": {
+        "label": "Partita IVA",
+        "placeholder": "IT12345678901"
+      },
+      "phone": {
+        "label": "Telefono",
+        "placeholder": "+39 02 1234567"
+      },
+      "notes": {
+        "label": "Note",
+        "placeholder": "Inserisci eventuali indicazioni per il nostro team"
+      },
+      "security": "Il pagamento è protetto con crittografia 3-D Secure attraverso Redsys.",
+      "assistance": "Riceverai una conferma immediata via email dal nostro team.",
+      "submit": {
+        "label": "Procedi al pagamento di {price}",
+        "loading": "Reindirizzamento verso Redsys..."
+      }
+    },
+    "summary": {
+      "badge": "Riepilogo ordine",
+      "title": "AYCL Annual Growth",
+      "subtitle": "Accesso completo al nostro programma annuale di generazione appuntamenti.",
+      "plan": "Piano",
+      "yearly": "/anno",
+      "description": "1 anno di strategia, tecnologia, campagne omnicanale e gestione appuntamenti.",
+      "features": [
+        "Pagamento sicuro su circuito BBVA/Redsys",
+        "Fatturazione elettronica e ricevuta immediata",
+        "Supporto dedicato del team AYCL",
+        "Rinnovo annuale manuale: nessun addebito automatico"
+      ],
+      "help": {
+        "title": "Serve aiuto?",
+        "description": "Scrivici su finance@aycl.it o contatta direttamente il tuo referente commerciale.",
+        "notice": "Dopo il pagamento verrai reindirizzato automaticamente alla pagina di conferma."
+      }
+    },
+    "success": {
+      "title": "Pagamento completato con successo",
+      "subtitle": "Abbiamo ricevuto il tuo ordine e ti invieremo a breve tutte le informazioni operative.",
+      "actions": {
+        "home": "Torna alla home",
+        "support": "Contatta il team"
+      }
+    },
+    "error": {
+      "title": "Pagamento non completato",
+      "subtitle": "Il circuito Redsys non ha confermato la transazione. Puoi riprovare oppure contattarci per assistenza immediata.",
+      "actions": {
+        "retry": "Riprova il pagamento",
+        "support": "Contatta il supporto"
+      }
+    }
+  },
+  "en": {
+    "hero": {
+      "badge": "Secure payment",
+      "title": "Complete the annual subscription of <strong>€3,000</strong>",
+      "subtitle": "Provide your billing details to finalize the payment through the Redsys BBVA production gateway."
+    },
+    "form": {
+      "title": "Billing information",
+      "subtitle": "We will use this data to issue the invoice and confirm the activation of your plan.",
+      "name": {
+        "label": "Full name",
+        "placeholder": "John Doe"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "name@company.com"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "AYCL Ltd."
+      },
+      "vat": {
+        "label": "VAT number",
+        "placeholder": "GB123456789"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+44 20 1234 5678"
+      },
+      "notes": {
+        "label": "Notes",
+        "placeholder": "Share any additional information for our team"
+      },
+      "security": "Payments are secured with Redsys 3-D Secure encryption.",
+      "assistance": "You will immediately receive a confirmation email from our team.",
+      "submit": {
+        "label": "Proceed to pay {price}",
+        "loading": "Redirecting to Redsys..."
+      }
+    },
+    "summary": {
+      "badge": "Order summary",
+      "title": "AYCL Annual Growth",
+      "subtitle": "Full access to our annual appointment generation programme.",
+      "plan": "Plan",
+      "yearly": "/year",
+      "description": "12 months of strategy, technology, omnichannel campaigns and appointment management.",
+      "features": [
+        "Secure payment through the BBVA/Redsys network",
+        "Immediate electronic invoicing and receipt",
+        "Dedicated support from the AYCL team",
+        "Manual annual renewal: no automatic charges"
+      ],
+      "help": {
+        "title": "Need support?",
+        "description": "Write to finance@aycl.it or reach out to your AYCL account manager.",
+        "notice": "After payment you will be redirected automatically to the confirmation page."
+      }
+    },
+    "success": {
+      "title": "Payment completed successfully",
+      "subtitle": "We have received your order and will send you all operational details shortly.",
+      "actions": {
+        "home": "Back to homepage",
+        "support": "Contact the team"
+      }
+    },
+    "error": {
+      "title": "Payment not completed",
+      "subtitle": "The Redsys network did not confirm the transaction. Please try again or contact us for immediate assistance.",
+      "actions": {
+        "retry": "Retry payment",
+        "support": "Contact support"
+      }
+    }
+  }
+}

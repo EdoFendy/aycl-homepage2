@@ -19,6 +19,7 @@ import {
   Zap,
   Calendar,
   TrendingUp,
+  CreditCard,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -61,12 +62,24 @@ export default function SubscriptionPage() {
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
               <p className="text-lg text-gray-600 leading-relaxed">{t("hero.subtitle")}</p>
-              <Link href="/contattaci">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
-                  {t("hero.cta")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link href="/contattaci">
+                  <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
+                    {t("hero.cta")}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/pagamento">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-orange text-orange hover:bg-orange/10"
+                  >
+                    {t("hero.payNow")}
+                    <CreditCard className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
 
             <div className="relative flex items-center justify-center">

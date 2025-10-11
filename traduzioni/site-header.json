@@ -2,7 +2,8 @@
   "it": {
     "nav": {
       "faq": "FAQ",
-      "contactNow": "Contattaci ora"
+      "contactNow": "Contattaci ora",
+      "payNow": "Acquista ora"
     },
     "mega": {
       "title": { "packages": "Pacchetti" },
@@ -27,6 +28,8 @@
       "open": "Apri",
       "packages": "Pacchetti",
       "packagesCta": "Scopri i nostri pacchetti ",
+      "payNow": "Pagamento online",
+      "payNowCta": "Completa l'acquisto",
       "contact": "Contattaci ora",
       "contactCta": "Parla con noi",
       "faq": "FAQ",
@@ -41,6 +44,7 @@
       "subscription": "Subscription",
       "performance": "Performance",
       "setup": "Set-Up Fee",
+      "payment": "Pagamento",
       "home": "Home",
       "contact": "Contattaci"
     }
@@ -48,7 +52,8 @@
   "en": {
     "nav": {
       "faq": "FAQ",
-      "contactNow": "Contact us now"
+      "contactNow": "Contact us now",
+      "payNow": "Pay now"
     },
     "mega": {
       "title": { "packages": "Packages" },
@@ -73,6 +78,8 @@
       "open": "Open",
       "packages": "Packages",
       "packagesCta": "Discover our packages ",
+      "payNow": "Online payment",
+      "payNowCta": "Complete your purchase",
       "contact": "Contact us now",
       "contactCta": "Talk to us",
       "faq": "FAQ",
@@ -87,6 +94,7 @@
       "subscription": "Subscription",
       "performance": "Performance",
       "setup": "Set-Up Fee",
+      "payment": "Payment",
       "home": "Home",
       "contact": "Contact"
     }
@@ -94,7 +102,8 @@
   "es": {
     "nav": {
       "faq": "FAQ",
-      "contactNow": "Contáctanos ahora"
+      "contactNow": "Contáctanos ahora",
+      "payNow": "Compra ahora"
     },
     "mega": {
       "title": { "packages": "Paquetes" },
@@ -119,6 +128,8 @@
       "open": "Abrir",
       "packages": "Paquetes",
       "packagesCta": "Descubre nuestros paquetes ",
+      "payNow": "Pago en línea",
+      "payNowCta": "Completa tu compra",
       "contact": "Contáctanos ahora",
       "contactCta": "Habla con nosotros",
       "faq": "FAQ",
@@ -133,6 +144,7 @@
       "subscription": "Suscripción",
       "performance": "Rendimiento",
       "setup": "Cuota de configuración",
+      "payment": "Pago",
       "home": "Inicio",
       "contact": "Contáctanos"
     }
