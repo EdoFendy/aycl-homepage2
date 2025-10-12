@@ -42,45 +42,45 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-20">
         {/* Geometric decorations */}
-        <div className="absolute top-20 right-10 w-32 h-32 bg-sky-blue/10 rotate-12 rounded-lg" />
-        <div className="absolute top-40 left-10 w-24 h-24 bg-orange/10 rounded-full" />
-        <div className="absolute bottom-10 right-1/4 w-16 h-48 bg-navy/5 -rotate-45" />
+        <div className="absolute top-16 right-4 w-20 h-20 bg-sky-blue/10 rotate-12 rounded-lg sm:top-20 sm:right-10 sm:w-32 sm:h-32" />
+        <div className="absolute top-32 left-4 w-16 h-16 bg-orange/10 rounded-full sm:top-40 sm:left-10 sm:w-24 sm:h-24" />
+        <div className="absolute bottom-6 right-1/4 w-12 h-32 bg-navy/5 -rotate-45 sm:bottom-10 sm:w-16 sm:h-48" />
 
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="inline-block px-4 py-2 bg-gray-50 rounded-full">
-                <span className="text-sm font-medium text-gray-700">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="inline-block px-3 py-1.5 bg-gray-50 rounded-full sm:px-4 sm:py-2">
+                <span className="text-xs font-medium text-gray-700 sm:text-sm">
                   {t("hero.badge")}
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy leading-tight text-balance">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy leading-tight text-balance">
                 {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
                 {t("hero.subtitle")}
               </p>
 
-              <p className="text-base text-gray-500 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
                 {t("hero.description")}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link href="/contattaci">
-                  <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8">
+                  <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
                     {t("hero.cta.primary")}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </Link>
                 <Link href="/pacchetti">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-navy text-navy hover:bg-navy/5 text-lg px-8 bg-transparent"
+                    className="border-navy text-navy hover:bg-navy/5 text-base px-6 bg-transparent sm:text-lg sm:px-8"
                   >
                     {t("hero.cta.secondary")}
                   </Button>
@@ -104,23 +104,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <p className="text-center text-sm text-gray-600 mb-8">
-            {t("trust.text")}
-          </p>
-        </div>
-      </section>
+
 
       {/* Story Section - Problem */}
-      <section className="py-24 relative">
+      <section className="pt-16 pb-0 relative sm:py-24">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-sky-blue to-orange" />
 
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="absolute -top-6 -right-6 w-48 h-48 border-4 border-sky-blue/30 rounded-lg rotate-6" />
+              <div className="absolute -top-3 -right-3 w-32 h-32 border-2 border-sky-blue/30 rounded-lg rotate-6 sm:-top-6 sm:-right-6 sm:w-48 sm:h-48 sm:border-4" />
                 <Image
                   src="/tavolo.png"
                   alt={t("alt.businessChallenge")}
@@ -130,12 +123,12 @@ export default function HomePage() {
                 />
             </div>
 
-            <div className="space-y-6 order-1 lg:order-2">
-              <h2 className="text-4xl font-bold text-navy text-balance">
+            <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy text-balance">
                 {t("story.title")}
               </h2>
 
-              <div className="space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
                 <p>
                   {t("story.text1")}
                 </p>
@@ -157,50 +150,50 @@ export default function HomePage() {
 
       {/* Stats Section */}
       <section className="py-0 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6">
+            <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 sm:px-4">
               {t("stats.badge")}
             </span>
-            <h2 className="text-4xl font-semibold text-navy leading-snug text-balance">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-navy leading-snug text-balance">
               {t("stats.title")}
             </h2>
-            <p className="text-base text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               {t("stats.subtitle")}
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3 items-stretch">
+          <div className="mt-12 sm:mt-16 grid gap-4 sm:gap-6 md:grid-cols-3 items-stretch">
           <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-          <Card className="metric-card-inner h-full p-8 text-center flex flex-col border-0 shadow-none">
-                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.cpc.label")}</p>
-                <div className="mt-6 text-5xl font-semibold text-navy">{t("stats.metrics.cpc.value")}</div>
-                <p className="mt-4 text-sm text-gray-600 leading-relaxed">
+          <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
+                <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.cpc.label")}</p>
+                <div className="mt-4 sm:mt-6 text-3xl sm:text-5xl font-semibold text-navy">{t("stats.metrics.cpc.value")}</div>
+                <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
                   {t("stats.metrics.cpc.desc")}
                 </p>
-                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.cpc.source")}</p>
+                <p className="mt-auto pt-4 sm:pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.cpc.source")}</p>
               </Card>
             </div>
 
             <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-              <Card className="metric-card-inner h-full p-8 text-center flex flex-col border-0 shadow-none">
-                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.budget.label")}</p>
-                <div className="mt-6 text-5xl font-semibold text-navy">{t("stats.metrics.budget.value")}</div>
-                <p className="mt-4 text-sm text-gray-600 leading-relaxed">
+              <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
+                <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.budget.label")}</p>
+                <div className="mt-4 sm:mt-6 text-3xl sm:text-5xl font-semibold text-navy">{t("stats.metrics.budget.value")}</div>
+                <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
                   {t("stats.metrics.budget.desc")}
                 </p>
-                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.budget.source")}</p>
+                <p className="mt-auto pt-4 sm:pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.budget.source")}</p>
               </Card>
             </div>
 
             <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-              <Card className="metric-card-inner h-full p-8 text-center flex flex-col border-0 shadow-none">
-                <p className="text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.leads.label")}</p>
-                <div className="mt-6 text-5xl font-semibold text-navy">{t("stats.metrics.leads.value")}</div>
-                <p className="mt-4 text-sm text-gray-600 leading-relaxed">
+              <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
+                <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.leads.label")}</p>
+                <div className="mt-4 sm:mt-6 text-3xl sm:text-5xl font-semibold text-navy">{t("stats.metrics.leads.value")}</div>
+                <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
                   {t("stats.metrics.leads.desc")}
                 </p>
-                <p className="mt-auto pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.leads.source")}</p>
+                <p className="mt-auto pt-4 sm:pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.leads.source")}</p>
               </Card>
             </div>
           </div>
@@ -208,57 +201,57 @@ export default function HomePage() {
       </section>
 
       {/* Solution Section */}
-      <section className="py-24 relative">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="inline-block px-6 py-2 bg-sky-blue/10 rounded-full mb-6">
-              <span className="text-sm font-semibold text-sky-blue">{t("solution.badge")}</span>
+      <section className="pt-16 pb-0 relative sm:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-block px-4 py-1.5 bg-sky-blue/10 rounded-full mb-4 sm:px-6 sm:py-2 sm:mb-6">
+              <span className="text-xs font-semibold text-sky-blue sm:text-sm">{t("solution.badge")}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4 sm:mb-6 text-balance">
               {t("solution.title")}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               {t("solution.subtitle")}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-navy">{t("solution.tech.title")}</h3>
-              <p className="text-gray-600 leading-relaxed">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-0 sm:mb-20">
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-navy">{t("solution.tech.title")}</h3>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {t("solution.tech.text1")}
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 {t("solution.tech.text2")}
               </p>
 
-              <div className="grid grid-cols-2 gap-4 pt-6">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4 sm:pt-6">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
                   <div>
-                    <div className="font-semibold text-navy">{t("solution.tech.features.database.title")}</div>
-                    <div className="text-sm text-gray-600">{t("solution.tech.features.database.desc")}</div>
+                    <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.database.title")}</div>
+                    <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.database.desc")}</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
                   <div>
-                    <div className="font-semibold text-navy">{t("solution.tech.features.ai.title")}</div>
-                    <div className="text-sm text-gray-600">{t("solution.tech.features.ai.desc")}</div>
+                    <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.ai.title")}</div>
+                    <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.ai.desc")}</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
                   <div>
-                    <div className="font-semibold text-navy">{t("solution.tech.features.outreach.title")}</div>
-                    <div className="text-sm text-gray-600">{t("solution.tech.features.outreach.desc")}</div>
+                    <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.outreach.title")}</div>
+                    <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.outreach.desc")}</div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-orange flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
                   <div>
-                    <div className="font-semibold text-navy">{t("solution.tech.features.control.title")}</div>
-                    <div className="text-sm text-gray-600">{t("solution.tech.features.control.desc")}</div>
+                    <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.control.title")}</div>
+                    <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.control.desc")}</div>
                   </div>
                 </div>
               </div>
@@ -430,7 +423,7 @@ export default function HomePage() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/5 rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-2 sm:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
           <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
             {t("packages.badge")}
@@ -446,7 +439,7 @@ export default function HomePage() {
         <div className="grid gap-8 lg:grid-cols-12 max-w-7xl mx-auto">
           {/* Set-Up Fee - PREMIUM HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-8 rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-12 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
+            className="relative flex cursor-pointer flex-col gap-8 rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-3 xs:p-4 sm:p-8 md:p-12 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/set-up-fee")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
             role="link"
@@ -457,9 +450,9 @@ export default function HomePage() {
             <div className="absolute -top-4 -right-4 w-32 h-32 bg-orange/10 rounded-full blur-2xl"></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-orange/5 to-transparent rounded-full blur-2xl"></div>
             
-            <div className="flex items-start justify-between relative z-10">
+            <div className="flex flex-col lg:flex-row items-start justify-between relative z-10">
               <div className="space-y-4 flex-1">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <span className="inline-flex items-center rounded-full bg-orange px-4 py-1.5 text-sm font-bold text-white shadow-lg">
                     <Star className="w-4 h-4 mr-2 fill-white" />
                     {t("packages.setup.badge")}
@@ -468,8 +461,8 @@ export default function HomePage() {
                     {t("packages.setup.revShare")}
                   </span>
                 </div>
-                <h3 className="text-4xl font-bold text-navy">{t("packages.setup.title")}</h3>
-                <p className="text-lg text-gray-700 max-w-2xl">
+                <h3 className="text-2xl xs:text-3xl md:text-4xl font-bold text-navy">{t("packages.setup.title")}</h3>
+                <p className="text-base md:text-lg text-gray-700 max-w-full">
                   {t("packages.setup.desc")}
                 </p>
               </div>
@@ -536,7 +529,7 @@ export default function HomePage() {
 
           {/* Performance - MEDIUM HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-6 rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
+            className="relative flex cursor-pointer flex-col gap-6 rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 xs:p-4 sm:p-7 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/performance")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
             role="link"
@@ -547,19 +540,19 @@ export default function HomePage() {
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl"></div>
             
             <div className="space-y-3 relative z-10">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-sky-blue/20 px-3 py-1 text-xs font-semibold text-sky-blue border border-sky-blue/30">
                   {t("packages.performance.badge")}
                 </span>
                 <span className="text-xs text-gray-500">{t("packages.performance.setup")}</span>
               </div>
-              <h3 className="text-3xl font-bold text-navy">{t("packages.performance.title")}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="text-2xl xs:text-2xl md:text-3xl font-bold text-navy">{t("packages.performance.title")}</h3>
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                 {t("packages.performance.desc")}
               </p>
             </div>
 
-            <div className="bg-sky-blue/5 rounded-xl p-4 border border-sky-blue/20 relative z-10">
+            <div className="bg-sky-blue/5 rounded-xl p-3 md:p-4 border border-sky-blue/20 relative z-10">
               <p className="text-xs font-semibold text-sky-blue uppercase tracking-wider mb-2">{t("packages.performance.pricing.label")}</p>
               <p className="text-sm text-gray-700">{t("packages.performance.pricing.desc")}</p>
             </div>
@@ -592,7 +585,7 @@ export default function HomePage() {
 
           {/* Subscription - MINIMAL HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-5 rounded-2xl border border-gray-300 bg-white p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
+            className="relative flex cursor-pointer flex-col gap-5 rounded-2xl border border-gray-300 bg-white p-3 xs:p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/subscription")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
             role="link"
@@ -606,13 +599,13 @@ export default function HomePage() {
               <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">
                 {t("packages.subscription.badge")}
               </span>
-              <h3 className="text-2xl font-bold text-navy">{t("packages.subscription.title")}</h3>
-              <p className="text-xs text-gray-600 leading-relaxed">
+              <h3 className="text-xl xs:text-2xl font-bold text-navy">{t("packages.subscription.title")}</h3>
+              <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                 {t("packages.subscription.desc")}
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 relative z-10">
+            <div className="bg-gray-50 rounded-lg p-2 md:p-3 border border-gray-200 relative z-10">
               <p className="text-xs text-gray-600">{t("packages.subscription.pricing")}</p>
             </div>
 

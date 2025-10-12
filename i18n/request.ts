@@ -16,6 +16,7 @@ export default getRequestConfig(async () => {
   const pacchettiSubscription = (await import("../traduzioni/pacchetti-subscription.json")).default as Record<string, any>
   const faq = (await import("../traduzioni/faq.json")).default as Record<string, any>
   const pagamento = (await import("../traduzioni/pagamento.json")).default as Record<string, any>
+  const whatsapp = (await import("../traduzioni/whatsapp.json")).default as Record<string, any>
 
   return {
     locale,
@@ -30,6 +31,7 @@ export default getRequestConfig(async () => {
       pacchettiSubscription: pacchettiSubscription[locale] ?? pacchettiSubscription.it,
       faq: faq[locale] ?? faq.it,
       pagamento: pagamento[locale] ?? pagamento.it,
+      whatsapp: whatsapp[locale] ?? whatsapp.it,
     },
   }
 })

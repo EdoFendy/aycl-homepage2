@@ -172,7 +172,8 @@
     "cta": {
       "title": "Pronto a riempire il tuo calendario di opportunità reali?",
       "subtitle": "Smetti di sprecare budget in ADV e inizia a parlare con chi decide davvero",
-      "button": "Prenota una Call Gratuita"
+      "button": "Prenota una Call Gratuita",
+      "secondary": "Scopri di Più"
     },
     "alt": {
       "logo": "All You Can Leads",
@@ -359,7 +360,8 @@
     "cta": {
       "title": "Ready to fill your calendar with real opportunities?",
       "subtitle": "Stop wasting budget on advertising and start talking to those who really decide",
-      "button": "Book a Free Call"
+      "button": "Book a Free Call",
+      "secondary": "Learn More"
     },
     "alt": {
       "logo": "All You Can Leads",
@@ -546,7 +548,8 @@
     "cta": {
       "title": "¿Listo para llenar tu calendario de oportunidades reales?",
       "subtitle": "Deja de desperdiciar presupuesto en publicidad y comienza a hablar con quienes realmente deciden",
-      "button": "Reservar una Llamada Gratuita"
+      "button": "Reservar una Llamada Gratuita",
+      "secondary": "Saber Más"
     },
     "alt": {
       "logo": "All You Can Leads",

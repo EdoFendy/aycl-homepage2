@@ -170,66 +170,7 @@ export default function ContattaciPage() {
         </div>
       </section>
 
-      {/* Additional Info Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative">
-        <div className="absolute top-10 right-1/4 w-48 h-48 bg-sky-blue/5 rounded-full blur-2xl" />
-
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-navy mb-6">{t("info.title")}</h2>
-              <p className="text-xl text-gray-600">{t("info.subtitle")}</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Image
-                    src="/iconaTelefono.png"
-                    alt={t("info.phone.alt")}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-navy mb-3">{t("info.phone.title")}</h3>
-                <p className="text-gray-600 mb-4">{t("info.phone.desc")}</p>
-                <p className="text-navy font-semibold">{t("info.phone.value")}</p>
-              </Card>
-
-              <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-sky-blue/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Image
-                    src="/iconaMessaggio.png"
-                    alt={t("info.email.alt")}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-navy mb-3">{t("info.email.title")}</h3>
-                <p className="text-gray-600 mb-4">{t("info.email.desc")}</p>
-                <p className="text-sky-blue font-semibold">{t("info.email.value")}</p>
-              </Card>
-
-              <Card className="p-8 bg-white border-gray-200 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Image
-                    src="/iconaPosizione.png"
-                    alt={t("info.office.alt")}
-                    width={40}
-                    height={40}
-                    className="h-10 w-10"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-navy mb-3">{t("info.office.title")}</h3>
-                <p className="text-gray-600 mb-4">{t("info.office.desc")}</p>
-                <p className="text-orange font-semibold">{t("info.office.value")}</p>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
+  
 
       {/* FAQ Preview */}
       <section className="py-24 relative">

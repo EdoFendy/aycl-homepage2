@@ -39,13 +39,15 @@ export default function PacchettiPage() {
         <div className="absolute top-20 right-10 w-48 h-48 bg-sky-blue/10 rounded-full blur-2xl" />
         <div className="absolute bottom-10 left-10 w-64 h-64 bg-orange/10 rotate-12" />
 
-        <div className="container mx-auto px-6">
+        {/* Meno padding laterale su mobile */}
+        <div className="container mx-auto px-4 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-block px-6 py-2 bg-orange/10 rounded-full">
               <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">{t("hero.title")}</h1>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{t("hero.subtitle")}</p>
+            <h1 className="text-4xl lg:text-6xl font-bold text-navy leading-tight text-balance">{t("hero.title")}</h1>
+            {/* max-w-full per dare più spazio al testo, override su mobile */}
+            <p className="text-3xl text-gray-600 leading-relaxed max-w-full sm:max-w-3xl mx-auto">{t("hero.subtitle")}</p>
           </div>
 
       {/* Decorative elements */}
@@ -53,10 +55,10 @@ export default function PacchettiPage() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/5 rounded-full blur-3xl"></div>
       
 
-      <div className="grid gap-6 md:gap-8 lg:grid-cols-12 max-w-7xl mx-auto py-12 justify-center px-4 md:px-6">
+      <div className="grid gap-6 md:gap-8 lg:grid-cols-12 max-w-7xl mx-auto py-12 justify-center px-1 sm:px-4 md:px-6">
       {/* Set-Up Fee - PREMIUM HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-6 md:gap-8 rounded-2xl md:rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-6 md:p-12 shadow-xl md:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
+            className="relative flex cursor-pointer flex-col gap-6 md:gap-8 rounded-2xl md:rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-3 sm:p-6 md:p-12 shadow-xl md:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/set-up-fee")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
             role="link"
@@ -79,7 +81,7 @@ export default function PacchettiPage() {
                   </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("setup.title")}</h3>
-                <p className="text-lg text-gray-700 max-w-2xl">{t("setup.desc")}</p>
+                <p className="text-lg text-gray-700 max-w-full md:max-w-2xl">{t("setup.desc")}</p>
               </div>
               <div className="hidden lg:block">
                 <Sparkles className="w-16 h-16 text-orange" />
@@ -144,7 +146,7 @@ export default function PacchettiPage() {
 
           {/* Performance - MEDIUM HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-6 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
+            className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 sm:p-6 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/performance")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
             role="link"
@@ -198,7 +200,7 @@ export default function PacchettiPage() {
 
           {/* Subscription - MINIMAL HIGHLIGHT */}
           <Card
-            className="relative flex cursor-pointer flex-col gap-4 md:gap-5 rounded-xl md:rounded-2xl border border-gray-300 bg-white p-5 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
+            className="relative flex cursor-pointer flex-col gap-4 md:gap-5 rounded-xl md:rounded-2xl border border-gray-300 bg-white p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
             onClick={() => navigateTo("/pacchetti/subscription")}
             onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
             role="link"

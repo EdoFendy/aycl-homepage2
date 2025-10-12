@@ -1,13 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useTranslations } from "next-intl"
 
 // ✅ Inserisci il tuo numero in formato internazionale senza +
 const WHATSAPP_NUMBER = "393331234567"
-const DEFAULT_MESSAGE = "Ciao! Parla con noi ora 🙂"
 
 export default function WhatsAppPopup() {
   const [open, setOpen] = useState(false)
+  const t = useTranslations("whatsapp")
 
   useEffect(() => {
     if (sessionStorage.getItem("whatsappPopupClosed") === "1") return
@@ -20,7 +21,7 @@ export default function WhatsAppPopup() {
     sessionStorage.setItem("whatsappPopupClosed", "1")
   }
 
-  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`
+  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t("defaultMessage"))}`
 
   return (
     <>
@@ -29,7 +30,7 @@ export default function WhatsAppPopup() {
         href={waHref}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat WhatsApp"
+        aria-label={t("fab.ariaLabel")}
         className="fixed bottom-4 right-4 z-[100000] flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[#25D366]/50"
       >
         {/* icona */}
@@ -41,7 +42,7 @@ export default function WhatsAppPopup() {
       {/* Popup: click disabilitati quando è chiuso */}
       <div
         role="dialog"
-        aria-label="Popup WhatsApp"
+        aria-label={t("popup.ariaLabel")}
         aria-hidden={!open}
         className={`fixed bottom-20 right-4 z-[100000] w-[90vw] max-w-sm transition-all ${
           open ? "pointer-events-auto opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-2"
@@ -51,7 +52,7 @@ export default function WhatsAppPopup() {
           <button
             onClick={handleClose}
             className="absolute right-2 top-2 rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            aria-label="Chiudi"
+            aria-label={t("popup.closeButton")}
           >
             ×
           </button>
@@ -64,15 +65,15 @@ export default function WhatsAppPopup() {
             </div>
 
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-gray-900">Parla con noi ora</p>
-              <p className="mt-1 text-sm text-gray-600">Siamo disponibili su WhatsApp. Clicca per iniziare la chat.</p>
+              <p className="text-sm font-semibold text-gray-900">{t("popup.title")}</p>
+              <p className="mt-1 text-sm text-gray-600">{t("popup.description")}</p>
               <a
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center justify-center rounded-lg bg-[#25D366] px-3 py-2 text-sm font-semibold text-white shadow hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-[#25D366]/50"
               >
-                Apri WhatsApp
+                {t("popup.button")}
               </a>
             </div>
           </div>

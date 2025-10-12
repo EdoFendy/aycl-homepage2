@@ -1,0 +1,41 @@
+{
+  "it": {
+    "fab": {
+      "ariaLabel": "Chat WhatsApp"
+    },
+    "popup": {
+      "ariaLabel": "Popup WhatsApp",
+      "closeButton": "Chiudi",
+      "title": "Parla con noi ora!",
+      "description": "Brucia le tappe e parla ora con un nostro consulente",
+      "button": "Apri WhatsApp"
+    },
+    "defaultMessage": "Brucia le tappe e parla ora con un nostro consulente"
+  },
+  "en": {
+    "fab": {
+      "ariaLabel": "WhatsApp Chat"
+    },
+    "popup": {
+      "ariaLabel": "WhatsApp Popup",
+      "closeButton": "Close",
+      "title": "Talk to us now!",
+      "description": "Skip the steps and talk now with one of our consultants",
+      "button": "Open WhatsApp"
+    },
+    "defaultMessage": "Skip the steps and talk now with one of our consultants"
+  },
+  "es": {
+    "fab": {
+      "ariaLabel": "Chat WhatsApp"
+    },
+    "popup": {
+      "ariaLabel": "Popup WhatsApp",
+      "closeButton": "Cerrar",
+      "title": "¡Habla con nosotros ahora!",
+      "description": "Quema las etapas y habla ahora con uno de nuestros consultores",
+      "button": "Abrir WhatsApp"
+    },
+    "defaultMessage": "Quema las etapas y habla ahora con uno de nuestros consultores"
+  }
+}
