@@ -13,6 +13,9 @@ export interface RedsysCustomerData {
   vatNumber?: string
   phone?: string
   notes?: string
+  addressLine1?: string
+  city?: string
+  postalCode?: string
 }
 
 export interface RedsysConfig {
@@ -29,6 +32,11 @@ export interface RedsysConfig {
   productDescription?: string
   merchantData?: string
   consumerLanguage?: string
+  module?: string
+  payMethods?: string
+  merchantBrandName?: string
+  emv3dsData?: string
+  additionalParameters?: Record<string, string | number>
 }
 
 export interface RedsysPaymentRequestOptions {
@@ -41,14 +49,14 @@ export interface RedsysGatewayForm {
   url: string
   order: string
   fields: Record<string, string>
-  rawParameters: Record<string, string>
+  rawParameters: Record<string, string | number>
 }
 
-export interface RedsysMerchantParameters {
+export interface RedsysMerchantParameters extends Record<string, string | number | undefined> {
   DS_MERCHANT_AMOUNT: string
   DS_MERCHANT_ORDER: string
   DS_MERCHANT_MERCHANTCODE: string
-  DS_MERCHANT_CURRENCY: string
+  DS_MERCHANT_CURRENCY: string | number
   DS_MERCHANT_TRANSACTIONTYPE: string
   DS_MERCHANT_TERMINAL: string
   DS_MERCHANT_URLOK: string
@@ -59,6 +67,10 @@ export interface RedsysMerchantParameters {
   DS_MERCHANT_PRODUCTDESCRIPTION?: string
   DS_MERCHANT_CONSUMERLANGUAGE?: string
   DS_MERCHANT_MERCHANTDATA?: string
+  DS_MERCHANT_MODULE?: string
+  DS_MERCHANT_PAYMETHODS?: string
+  DS_MERCHANT_MERCHANDNAME?: string
+  Ds_Merchant_EMV3DS?: string
 }
 
 export interface RedsysDecodedNotification extends Record<string, unknown> {
@@ -150,6 +162,30 @@ function buildMerchantData(customer: RedsysCustomerData, provided?: string): str
   return JSON.stringify(baseData)
 }
 
+export function createEmv3dsPayload(customer: RedsysCustomerData): string | undefined {
+  const address = customer.addressLine1?.trim()
+  const city = customer.city?.trim()
+  const postalCode = customer.postalCode?.trim()
+  const email = customer.email.trim()
+
+  if (!address || !city || !postalCode || !email) {
+    return undefined
+  }
+
+  const payload = {
+    addrMatch: "Y",
+    billAddrCity: city,
+    billAddrLine1: address,
+    billAddrPostCode: postalCode,
+    email,
+    acctInfo: {
+      chAccAgeInd: "01",
+    },
+  }
+
+  return JSON.stringify(payload)
+}
+
 export function createPaymentForm(
   options: RedsysPaymentRequestOptions,
   config: RedsysConfig,
@@ -174,24 +210,48 @@ export function createPaymentForm(
     DS_MERCHANT_MERCHANTURL: config.notificationUrl,
   }
 
-  if (config.merchantName) {
+  if (config.merchantName !== undefined) {
     merchantParameters.DS_MERCHANT_MERCHANTNAME = config.merchantName
   }
 
-  if (config.merchantTitular) {
+  if (config.merchantTitular !== undefined) {
     merchantParameters.DS_MERCHANT_TITULAR = config.merchantTitular
   }
 
-  if (config.productDescription) {
+  if (config.productDescription !== undefined) {
     merchantParameters.DS_MERCHANT_PRODUCTDESCRIPTION = config.productDescription
   }
 
-  if (consumerLanguage) {
+  if (consumerLanguage !== undefined) {
     merchantParameters.DS_MERCHANT_CONSUMERLANGUAGE = consumerLanguage
   }
 
-  if (merchantData) {
+  if (merchantData !== undefined) {
     merchantParameters.DS_MERCHANT_MERCHANTDATA = merchantData
+  }
+
+  if (config.module !== undefined) {
+    merchantParameters.DS_MERCHANT_MODULE = config.module
+  }
+
+  if (config.payMethods !== undefined) {
+    merchantParameters.DS_MERCHANT_PAYMETHODS = config.payMethods
+  }
+
+  if (config.merchantBrandName !== undefined) {
+    merchantParameters.DS_MERCHANT_MERCHANDNAME = config.merchantBrandName
+  }
+
+  if (config.emv3dsData !== undefined) {
+    merchantParameters.Ds_Merchant_EMV3DS = config.emv3dsData
+  }
+
+  if (config.additionalParameters) {
+    for (const [key, value] of Object.entries(config.additionalParameters)) {
+      if (value !== undefined) {
+        merchantParameters[key] = value
+      }
+    }
   }
 
   const encodedParameters = encodeMerchantParameters(merchantParameters)

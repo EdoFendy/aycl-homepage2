@@ -113,6 +113,38 @@ export default function PagamentoClientPage(): JSX.Element {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-2">
+                  <Label htmlFor="addressLine1">{t("form.address.label")}</Label>
+                  <Input
+                    id="addressLine1"
+                    name="addressLine1"
+                    required
+                    placeholder={t("form.address.placeholder") ?? undefined}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="city">{t("form.city.label")}</Label>
+                  <Input id="city" name="city" required placeholder={t("form.city.placeholder") ?? undefined} />
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
+                  <Label htmlFor="postalCode">{t("form.postalCode.label")}</Label>
+                  <Input
+                    id="postalCode"
+                    name="postalCode"
+                    required
+                    placeholder={t("form.postalCode.placeholder") ?? undefined}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">{t("form.phone.label")}</Label>
+                  <Input id="phone" name="phone" placeholder={t("form.phone.placeholder") ?? undefined} />
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-2">
                   <Label htmlFor="company">{t("form.company.label")}</Label>
                   <Input id="company" name="company" placeholder={t("form.company.placeholder") ?? undefined} />
                 </div>
@@ -122,15 +154,9 @@ export default function PagamentoClientPage(): JSX.Element {
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">{t("form.phone.label")}</Label>
-                  <Input id="phone" name="phone" placeholder={t("form.phone.placeholder") ?? undefined} />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="notes">{t("form.notes.label")}</Label>
-                  <Textarea id="notes" name="notes" rows={3} placeholder={t("form.notes.placeholder") ?? undefined} />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="notes">{t("form.notes.label")}</Label>
+                <Textarea id="notes" name="notes" rows={3} placeholder={t("form.notes.placeholder") ?? undefined} />
               </div>
 
               <div className={cn("rounded-xl border border-dashed border-gray-200 bg-gray-50/60 p-4", "flex flex-col gap-2")}

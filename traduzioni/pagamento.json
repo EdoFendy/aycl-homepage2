@@ -16,6 +16,18 @@
         "label": "Email",
         "placeholder": "nome@azienda.it"
       },
+      "address": {
+        "label": "Indirizzo",
+        "placeholder": "Via Roma 1"
+      },
+      "city": {
+        "label": "Città",
+        "placeholder": "Milano"
+      },
+      "postalCode": {
+        "label": "CAP",
+        "placeholder": "20100"
+      },
       "company": {
         "label": "Ragione sociale",
         "placeholder": "AYCL S.r.l."
@@ -91,6 +103,18 @@
       "email": {
         "label": "Email",
         "placeholder": "name@company.com"
+      },
+      "address": {
+        "label": "Address",
+        "placeholder": "123 Main Street"
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "Milan"
+      },
+      "postalCode": {
+        "label": "Postal code",
+        "placeholder": "20100"
       },
       "company": {
         "label": "Company",
