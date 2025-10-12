@@ -49,12 +49,12 @@ export default function PerformancePage() {
               <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
                 <span className="text-sm font-bold text-orange">{t("hero.badge")}</span>
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
+              <h1 className="text-3xl lg:text-4xl font-bold text-navy leading-tight text-balance">
                 {t.rich("hero.title", {
                   strong: (chunks) => <span className="text-orange">{chunks}</span>,
                 })}
               </h1>
-              <p className="text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
+              <p className="text-xl font-semibold text-gray-800">{t("hero.kicker")}</p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 {t("hero.subtitle")}
               </p>
@@ -297,62 +297,36 @@ export default function PerformancePage() {
       </section>
 
         {/* Investimento */}
-        <section className="py-24">
-        <div className="container mx-auto px-6">
+        <section className="py-16 sm:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16 space-y-6">
-              <h2 className="text-4xl font-bold text-navy">{t("investment.title")}</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("investment.desc")}</p>
+            <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy">{t("investment.title")}</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">{t("investment.desc")}</p>
             </div>
 
-            <Card className="relative overflow-hidden p-10 bg-white border border-sky-blue/20 shadow-xl">
+            <Card className="relative overflow-hidden p-4 sm:p-6 md:p-10 bg-white border border-sky-blue/20 shadow-xl">
               <div className="absolute inset-0 bg-gradient-to-r from-sky-blue/5 via-white to-orange/5" aria-hidden="true" />
               <div className="relative">
-                <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">
-                  <span>Accendi il sistema</span>
-                  <span>Spingi sulle vendite</span>
-                </div>
-
-                {/* Versione responsive: elementi distribuiti correttamente su mobile senza spazi vuoti */}
-                <div className="relative mt-8 pt-12 pb-6">
-                  {/* Barra */}
-                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-2 rounded-full bg-gradient-to-r from-navy via-sky-blue to-orange" style={{zIndex: 0}} />
-
-                  {/* Desktop version */}
-                  <div className="relative hidden sm:flex justify-between items-end z-10" style={{minHeight: "140px"}}>
-                    {t.raw("investment.timeline.desktop").map((item: any, index: number) => (
-                      <div
-                        key={item.label}
-                        className="flex flex-col items-center gap-2 text-center w-1/4 min-w-[90px]"
-                        style={{position: "relative", zIndex: 2}}
-                      >
-                        {/* Cerchio deve toccare la linea */}
-                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-base font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0 -mt-7">
-                          {item.amount}
-                        </div>
-                        <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500">
-                          {item.label}
-                        </span>
-                        <p className="text-xs text-gray-600 max-w-[140px] leading-snug">{item.caption}</p>
-                      </div>
-                    ))}
+                {/* Desktop version - orizzontale */}
+                <div className="hidden sm:block">
+                  <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-8">
+                    <span>Accendi il sistema</span>
+                    <span>Spingi sulle vendite</span>
                   </div>
 
-                  {/* Mobile version - elementi distribuiti correttamente senza spazi vuoti */}
-                  <div className="relative sm:hidden flex justify-between items-end z-10" style={{minHeight: "140px"}}>
-                    {t.raw("investment.timeline.mobile").map((item: any, index: number) => {
-                      // Calcolare dinamicamente la larghezza basata sul numero di elementi visibili
-                      const visibleItemsCount = 3;
-                      const widthClass = visibleItemsCount === 3 ? "w-1/3" : visibleItemsCount === 2 ? "w-1/2" : "w-full";
+                  <div className="relative mt-8 pt-12 pb-6">
+                    {/* Barra orizzontale */}
+                    <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-2 rounded-full bg-gradient-to-r from-navy via-sky-blue to-orange" style={{zIndex: 0}} />
 
-                      return (
+                    <div className="relative flex justify-between items-end z-10" style={{minHeight: "140px"}}>
+                      {t.raw("investment.timeline.desktop").map((item: any, index: number) => (
                         <div
                           key={item.label}
-                          className={`flex flex-col items-center gap-2 text-center ${widthClass} min-w-[90px]`}
+                          className="flex flex-col items-center gap-2 text-center w-1/4 min-w-[90px]"
                           style={{position: "relative", zIndex: 2}}
                         >
-                          {/* Cerchio deve toccare la linea */}
-                          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-base font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0 -mt-7">
+                          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-sm font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0 -mt-7">
                             {item.amount}
                           </div>
                           <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500">
@@ -360,63 +334,103 @@ export default function PerformancePage() {
                           </span>
                           <p className="text-xs text-gray-600 max-w-[140px] leading-snug">{item.caption}</p>
                         </div>
-                      );
-                    })}
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile version - verticale */}
+                <div className="sm:hidden">
+                  <div className="text-center mb-6">
+                    <div className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">
+                      Timeline di investimento
+                    </div>
+                  </div>
+
+                  <div className="relative">
+                    {/* Linea verticale */}
+                    <div className="absolute left-8 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-navy via-sky-blue to-orange" style={{zIndex: 0}} />
+
+                    <div className="space-y-8">
+                      {/* Timeline completa con tutti gli step dalle traduzioni */}
+                      {t.raw("investment.timeline.desktop").map((item: any, index: number) => (
+                        <div
+                          key={item.label}
+                          className="relative flex items-start gap-6"
+                          style={{position: "relative", zIndex: 2}}
+                        >
+                          {/* Cerchio sulla linea */}
+                          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xs font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0 relative z-10">
+                            {item.amount}
+                          </div>
+                          
+                          {/* Contenuto */}
+                          <div className="flex-1 pt-1">
+                            <div className="text-sm font-semibold text-navy mb-1">
+                              {item.label}
+                            </div>
+                            <p className="text-xs text-gray-600 leading-relaxed">
+                              {item.caption}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </Card>
 
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <Card className="p-8 bg-white border-sky-blue/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-bold text-navy mb-4">Paghi solo gli appuntamenti svolti</h3>
-                <ul className="space-y-3 text-sm text-gray-700 leading-relaxed">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
+              <Card className="p-4 sm:p-6 md:p-8 bg-white border-sky-blue/30 hover:shadow-xl transition-shadow">
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Paghi solo gli appuntamenti svolti</h3>
+                <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-sky-blue flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Ogni 14 giorni saldi solo gli appuntamenti qualificati che hai effettivamente sostenuto.
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-sky-blue flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Nessun canone nascosto, nessun costo per slot vuoti o lead mancati.
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-sky-blue flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Aumenti o riduci il volume in base a quanto puoi gestire: paghi sempre e solo per il valore reale.
                   </li>
                 </ul>
               </Card>
 
-              <Card className="p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-bold text-navy mb-4">Una spesa che fa sorridere il CFO</h3>
-                <ul className="space-y-3 text-sm text-gray-700 leading-relaxed">
+              <Card className="p-4 sm:p-6 md:p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Una spesa che fa sorridere il CFO</h3>
+                <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Meno di 60€ a settimana: meno di una cena di team o di un abbonamento software entry-level.
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Ogni meeting è un potenziale deal B2B: basta una chiusura media per moltiplicare l'investimento.
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Puoi rateizzare l'attivazione in 3, 6 o 12 mesi: nessun impatto di cassa significativo.
                   </li>
                 </ul>
               </Card>
 
-              <Card className="p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-bold text-navy mb-4">Cosa ottieni in cambio</h3>
-                <ul className="space-y-3 text-sm text-gray-700 leading-relaxed">
+              <Card className="p-4 sm:p-6 md:p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Cosa ottieni in cambio</h3>
+                <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-navy flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Project manager dedicato e tecnologia proprietaria senza costi extra.
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-navy flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Flusso continuo di meeting con decision maker nel tuo ICP.
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-navy flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
                     Statistiche, dashboard e report per misurare ogni singolo euro investito.
                   </li>
                 </ul>

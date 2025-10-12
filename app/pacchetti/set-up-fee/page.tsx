@@ -34,48 +34,48 @@ export default function SetUpFeePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* HERO */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-20 right-10 h-32 w-32 rotate-12 rounded-lg bg-sky-blue/10" />
-        <div className="absolute top-40 left-10 h-24 w-24 rounded-full bg-orange/10" />
-        <div className="absolute bottom-12 right-1/4 h-48 w-16 -rotate-45 bg-navy/5" />
+      <section className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-20">
+        <div className="absolute top-16 right-4 h-20 w-20 rotate-12 rounded-lg bg-sky-blue/10 sm:top-20 sm:right-10 sm:h-32 sm:w-32" />
+        <div className="absolute top-32 left-4 h-16 w-16 rounded-full bg-orange/10 sm:top-40 sm:left-10 sm:h-24 sm:w-24" />
+        <div className="absolute bottom-6 right-1/4 h-32 w-12 -rotate-45 bg-navy/5 sm:bottom-12 sm:h-48 sm:w-16" />
 
-        <div className="container mx-auto px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            <div className="space-y-8">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid items-center gap-8 lg:gap-16 lg:grid-cols-2">
+            <div className="space-y-6 lg:space-y-8 order-1 lg:order-1">
               <div className="inline-block rounded-full bg-orange px-4 py-2">
                 <span className="text-sm font-medium text-white">{t("hero.badge")}</span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-navy">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-navy">
                 {t.rich("hero.title", { strong: (c) => <span className="text-orange">{c}</span> })}
               </h1>
 
-              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
-              <p className="text-lg leading-relaxed text-gray-600">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-600">
                 {t("hero.subtitle")}
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
                 <button 
                   data-cal-namespace="aycl-discovery"
                   data-cal-link="giovannilucchesini/aycl-discovery"
                   data-cal-config='{"layout":"month_view"}'
-                  className="bg-orange hover:bg-orange/90 text-white font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg w-full sm:w-auto"
+                  className="bg-orange hover:bg-orange/90 text-white font-medium px-6 py-2.5 rounded-md transition-colors duration-200 flex items-center gap-2 text-base sm:text-lg w-full sm:w-auto"
                 >
                   {t("hero.ctaPrimary")}
-                  <ArrowRight className="h-5 w-5" />
+                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
-                <Link href="#pricing" className="text-navy underline underline-offset-4">{t("hero.ctaSecondary")}</Link>
+                <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base">{t("hero.ctaSecondary")}</Link>
               </div>
             </div>
 
-            <div className="relative hidden items-center justify-center md:flex">
+            <div className="relative flex items-center justify-center order-2 lg:order-1">
               <Image
                 src="/setupfee2.png"
                 alt={t("hero.alt")}
                 width={520}
                 height={480}
-                className=""
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl"
               />
             </div>
             </div>
@@ -312,123 +312,135 @@ export default function SetUpFeePage() {
       <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
 
       {/* MODELLO ECONOMICO + PRICING */}
-      <section id="pricing" className="relative overflow-hidden py-24 bg-white">
+      {/* ECONOMICS - Riformulata con focus su ricerca e valore */}
+      <section id="pricing" className="relative overflow-hidden py-16 sm:py-24 bg-white">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-navy/5 to-transparent" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-36 w-36 rounded-full bg-orange/15 blur-2xl" />
 
-        <div className="container relative z-10 mx-auto px-6">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.4fr,1fr]">
-            <div className="space-y-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-navy">
-                {t("economics.badge")}
-              </span>
-              <h2 className="text-4xl font-bold text-navy md:text-5xl">
-                {t("economics.title")}
-              </h2>
-              <p className="text-lg text-gray-600">{t("economics.desc")}</p>
-            </div>
-
-            <Card className="relative overflow-hidden border border-sky-blue/30 bg-gradient-to-br from-white via-sky-blue/5 to-white p-8 shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-blue/10 via-transparent to-orange/10" aria-hidden="true" />
-              <div className="relative z-10 space-y-4 text-sm text-gray-600">
-                <h3 className="text-xl font-bold text-navy">{t("economics.howTitle")}</h3>
-                <ul className="space-y-3">
-                  {t.raw("economics.bullets").map((b: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-1 h-4 w-4 text-sky-blue" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Card>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 mb-12 sm:mb-16">
+            <span className="inline-flex items-center justify-center rounded-full border border-orange/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange sm:px-4 sm:text-sm">
+              {t("economics.badge")}
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy">{t("economics.title")}</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">{t("economics.desc")}</p>
           </div>
 
-          {/* PRICING CARDS */}
-          <div className="mt-16 grid gap-8 md:grid-cols-3">
-            <Card className="relative overflow-hidden border border-orange/20 bg-white p-8 shadow-sm">
-              <div className="absolute -top-10 -left-10 h-24 w-24 rounded-full bg-orange/10 blur-2xl" />
-              <div className="relative z-10 space-y-4">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-orange/10">
-                    <Rocket className="h-5 w-5 text-orange" />
-                  </span>
-                  <span className="text-sm font-semibold uppercase tracking-wide text-orange">
-                    {t("economics.pricing.activation.badge")}
-                  </span>
+          {/* FASE DI RICERCA E VALORE - NUOVA SEZIONE PRINCIPALE */}
+          <div className="max-w-6xl mx-auto mb-16">
+            <div className="bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 rounded-3xl border border-orange/20 p-6 sm:p-8 md:p-12">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 rounded-full bg-orange/10 px-4 py-2 mb-4">
+                  <Rocket className="h-5 w-5 text-orange" />
+                  <span className="text-sm font-semibold text-orange">Fase di Ricerca e Valore</span>
                 </div>
-                <h3 className="text-lg font-semibold text-navy">{t("economics.pricing.activation.title")}</h3>
-                <ul className="mt-2 space-y-2 text-sm text-gray-600">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-orange" />
-                    <span>{t.rich("economics.pricing.activation.line", {
-                      euro: (c) => <>&euro;{c}</>,
-                    })}</span>
-                  </li>
-                  {(
-                    Array.isArray(
-                      t.raw("economics.pricing.activation.points") as unknown,
-                    )
-                      ? (t.raw("economics.pricing.activation.points") as string[])
-                      : []
-                  ).map((p: string, i: number) => (
-                    <li key={i} className="ml-6 list-disc text-sm text-gray-600">
-                      {p}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-navy mb-4">
+                  Investiamo insieme nella tua crescita
+                </h3>
+                <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+                  La Set-Up Fee non è un costo, ma un investimento condiviso per costruire la tua infrastruttura di crescita permanente.
+                </p>
               </div>
-            </Card>
 
-            <Card className="relative overflow-hidden border border-orange/20 bg-white p-8 shadow-sm">
-              <div className="absolute -bottom-12 -right-8 h-24 w-24 rounded-full bg-orange/10 blur-2xl" />
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-navy">Cosa costruiamo insieme</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Analisi approfondita del tuo mercato e ICP</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Database personalizzato con i tuoi prospect ideali</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Strategie di outreach su misura per il tuo settore</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Team dedicato e formazione del tuo staff</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-navy">Il valore che ottieni</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Accesso permanente alla nostra tecnologia</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Processi ottimizzati per la tua azienda</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Conoscenza approfondita del tuo mercato</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-gray-700">Partnership strategica a lungo termine</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white/50 rounded-2xl p-6 border border-orange/10">
+                <div className="text-center">
+                  <h4 className="text-lg font-semibold text-navy mb-2">Investimento Set-Up Fee</h4>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Da 20.000€ a 200.000€ in base alla complessità del tuo mercato e agli obiettivi di crescita
+                  </p>
+                  <div className="inline-flex items-center gap-2 bg-orange/10 rounded-full px-4 py-2">
+                    <span className="text-sm font-semibold text-orange">Un investimento, accesso permanente</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* FASE OPERATIVA E GARANZIE */}
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <Card className="relative overflow-hidden border border-sky-blue/20 bg-white p-6 sm:p-8 shadow-lg">
+              <div className="absolute -top-6 -right-6 h-20 w-20 rounded-full bg-sky-blue/10 blur-2xl" />
               <div className="relative z-10 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-orange/10">
-                    <TrendingUp className="h-5 w-5 text-orange" />
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-blue/10">
+                    <TrendingUp className="h-5 w-5 text-sky-blue" />
                   </span>
-                  <span className="text-sm font-semibold uppercase tracking-wide text-orange">
-                    {t("economics.pricing.operational.badge")}
+                  <span className="text-sm font-semibold uppercase tracking-wide text-sky-blue">
+                    Fase Operativa
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-navy">{t("economics.pricing.operational.title")}</h3>
+                <h3 className="text-lg font-semibold text-navy">Revenue Share</h3>
                 <p className="text-sm text-gray-600">
-                  {t.rich("economics.pricing.operational.desc", {
-                    strong: (c) => <strong>{c}</strong>,
-                  })}
+                  Percentuale concordata (circa 20%) sui deal chiusi generati da AYCL. 
+                  Siamo allineati ai tuoi risultati: guadagniamo solo se guadagni tu.
                 </p>
               </div>
             </Card>
 
-            <Card className="relative overflow-hidden border border-orange/20 bg-white p-8 shadow-sm">
-              <div className="absolute -top-12 right-10 h-24 w-24 rounded-full bg-orange/10 blur-2xl" />
+            <Card className="relative overflow-hidden border border-green-200 bg-white p-6 sm:p-8 shadow-lg">
+              <div className="absolute -bottom-6 -left-6 h-20 w-20 rounded-full bg-green-100 blur-2xl" />
               <div className="relative z-10 space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-orange/10">
-                    <Shield className="h-5 w-5 text-orange" />
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
+                    <Shield className="h-5 w-5 text-green-600" />
                   </span>
-                  <span className="text-sm font-semibold uppercase tracking-wide text-orange">
-                    {t("economics.pricing.guarantees.badge")}
+                  <span className="text-sm font-semibold uppercase tracking-wide text-green-600">
+                    Garanzie
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-navy">{t("economics.pricing.guarantees.title")}</h3>
-                <p className="text-sm text-gray-600">{t("economics.pricing.guarantees.desc")}</p>
+                <h3 className="text-lg font-semibold text-navy">Rimborso 100%</h3>
+                <p className="text-sm text-gray-600">
+                  Se nel primo anno non generiamo almeno il doppio della Set-Up Fee, 
+                  rimborso completo. Il nostro successo è legato al tuo.
+                </p>
               </div>
             </Card>
-          </div>
-
-          {/* NOTE INFO */}
-          <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-6">
-            <div className="flex flex-col gap-3 text-sm text-gray-700 md:flex-row md:items-center md:justify-between">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-bold">ℹ</span>
-                <span>{t.rich("economics.pricing.notes.0", { strong: (c) => <strong>{c}</strong> })}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-bold">★</span>
-                <span>{t.rich("economics.pricing.notes.1", { strong: (c) => <strong>{c}</strong> })}</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
