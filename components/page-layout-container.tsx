@@ -16,7 +16,7 @@ export function PageLayoutContainer({
   innerClassName,
 }: PageLayoutContainerProps) {
   return (
-    <div className={cn("container mx-auto px-4 sm:px-6", className)}>
+    <div className={cn("container mx-auto px-4", className)}>
       <LayoutWrapper>
         {innerClassName ? <div className={innerClassName}>{children}</div> : children}
       </LayoutWrapper>

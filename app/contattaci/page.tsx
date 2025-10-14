@@ -47,8 +47,8 @@ export default function ContattaciPage() {
               <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
             </div>
 
-            <h1 className="text-4xl lg:text-4xl font-bold text-navy leading-tight text-balance">
-              {t.rich("hero.title", {
+            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+            {t.rich("hero.title", {
                 strong: (chunks) => <span className="text-orange">{chunks}</span>,
               })}
             </h1>

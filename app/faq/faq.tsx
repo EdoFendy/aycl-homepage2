@@ -924,7 +924,7 @@ export default function FAQMasterbookPage() {
             <div className="inline-flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full">
               <BookOpen className="w-4 h-4 text-navy" />
               <span className="text-sm font-medium text-gray-700">{t("header.badge")}</span>
-      </PageLayoutContainer>
+            </div>
             <h1 className="text-4xl lg:text-4xl font-bold text-navy leading-tight text-balance">
               {t.rich("header.title", {
                 strong: (chunks) => <span className="text-orange">{chunks}</span>,
@@ -1112,7 +1112,7 @@ export default function FAQMasterbookPage() {
           >
             {/* progress bar */}
             <div
-              className="sticky top-0 h-1 bg-gradient-to-r from-orange via-sky-blue to-navy"
+              className="sticky top-0 h-1 bg-gradient-to-r from-orange via-sky-blue to-navy z-10"
               style={{ width: `${progress}%` }}
             />
 
@@ -1199,18 +1199,19 @@ export default function FAQMasterbookPage() {
                 </div>
               ))}
 
-              {/* Back to top */}
-              <div className="pt-6 flex justify-end">
-                <Button
-                  variant="outline"
-                  className="border-navy text-navy hover:bg-navy/5"
-                  onClick={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
-                >
-                  <ArrowUp className="w-4 h-4 mr-2" /> {t("backToTop")}
-                </Button>
-              </div>
             </div>
           </section>
+
+          {/* Back to top - Positioned below the FAQ container */}
+          <div className="lg:col-span-9 flex justify-end mt-4">
+            <Button
+              variant="outline"
+              className="border-navy text-navy hover:bg-navy/5"
+              onClick={() => containerRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <ArrowUp className="w-4 h-4 mr-2" /> {t("backToTop")}
+            </Button>
+          </div>
         </div>
       
 
@@ -1236,7 +1237,7 @@ export default function FAQMasterbookPage() {
           }))
         }) }}
       />
-    </div>
+      </PageLayoutContainer>
     </div>
   )
 }

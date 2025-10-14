@@ -47,7 +47,7 @@ export default function SetUpFeePage() {
                 <span className="text-sm font-medium text-white">{t("hero.badge")}</span>
               </div>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+              <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
                 {t.rich("hero.title", { strong: (c) => <span className="text-orange">{c}</span> })}
               </h1>
 

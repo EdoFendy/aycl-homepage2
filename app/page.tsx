@@ -60,8 +60,8 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-navy leading-tight text-balance">
-                  {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
+                <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+                {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
                 </h1>
 
                 <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">

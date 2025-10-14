@@ -50,7 +50,7 @@ export default function PerformancePage() {
               <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
                 <span className="text-sm font-bold text-orange">{t("hero.badge")}</span>
               </div>
-              <h1 className="text-3xl lg:text-4xl font-bold text-navy leading-tight text-balance">
+              <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
                 {t.rich("hero.title", {
                   strong: (chunks) => <span className="text-orange">{chunks}</span>,
                 })}
@@ -299,46 +299,72 @@ export default function PerformancePage() {
 
         {/* Investimento */}
         <section className="py-16 sm:py-24">
-        <PageLayoutContainer className="px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy">{t("investment.title")}</h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">{t("investment.desc")}</p>
-            </div>
+          <PageLayoutContainer className="px-4 sm:px-6">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy">{t("investment.title")}</h2>
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">{t("investment.desc")}</p>
+              </div>
 
-            <Card className="relative overflow-hidden p-4 sm:p-6 md:p-10 bg-white border border-sky-blue/20 shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-blue/5 via-white to-orange/5" aria-hidden="true" />
-              <div className="relative">
-                {/* Desktop version - orizzontale */}
-                <div className="hidden sm:block">
-                  <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-8">
-                    <span>Spesa quotidiana</span>
-                    <span>Investimento annuale</span>
-                  </div>
-
-                  <div className="relative mt-8 pt-12 pb-6">
-                    {/* Barra orizzontale */}
-                    <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-2 rounded-full bg-gradient-to-r from-navy via-sky-blue to-orange" style={{zIndex: 0}} />
-
-                    <div className="relative flex justify-between items-end z-10" style={{minHeight: "140px"}}>
-                      {t.raw("investment.timeline.desktop").map((item: any, index: number) => (
-                        <div
-                          key={item.label}
-                          className="flex flex-col items-center gap-2 text-center w-1/4 min-w-[90px]"
-                          style={{position: "relative", zIndex: 2}}
-                        >
-                          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-sm font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0 -mt-7">
-                            {item.amount}
+              <Card className="relative overflow-hidden p-4 sm:p-6 md:p-10 bg-white border border-sky-blue/20 shadow-xl">
+                <div className="absolute inset-0 bg-gradient-to-r from-sky-blue/5 via-white to-orange/5" aria-hidden="true" />
+                <div className="relative">
+                  {/* Desktop version - orizzontale */}
+                  <div className="hidden sm:block">
+                    <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-8">
+                      <span>Spesa quotidiana</span>
+                      <span>Investimento annuale</span>
+                    </div>
+                    <div className="relative mt-8 py-8">
+                      {/* Barra orizzontale */}
+                      <div
+                        className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-2 rounded-full bg-gradient-to-r from-navy via-sky-blue to-orange"
+                        style={{ zIndex: 0 }}
+                      />
+                      <div
+                        className="relative flex justify-between z-10"
+                        style={{ minHeight: "140px" }}
+                      >
+                        {t.raw("investment.timeline.desktop").map((item: any, index: number) => (
+                          <div
+                            key={item.label}
+                            className="flex flex-col items-center w-1/4 min-w-[90px]"
+                            style={{ 
+                              position: "relative", 
+                              zIndex: 2
+                            }}
+                          >
+                            {/* Titolo sopra (se presente) */}
+                            {item.label && item.label.includes('SPESA QUOTIDIANA') && (
+                              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500 mb-2" style={{ transform: 'translateY(30px)' }}>
+                                {item.label}
+                              </span>
+                            )}
+                            
+                            {/* Card circolare - sempre al centro della linea */}
+                            <div 
+                              className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-sm font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0"
+                              style={{ 
+                                transform: `translateY(${item.label.includes('1 mese') ? '21px' : '20px'})`
+                              }}
+                            >
+                              {item.amount}
+                            </div>
+                            
+                            {/* Titolo sotto (se presente) */}
+                            {item.label && !item.label.includes('SPESA QUOTIDIANA') && (
+                              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500 mt-2" style={{ transform: 'translateY(30px)' }}>
+                                {item.label}
+                              </span>
+                            )}
+                            
+                            {/* Descrizione sempre sotto */}
+                            <p className="text-xs text-gray-600 max-w-[140px] leading-snug mt-2 text-center" style={{ transform: 'translateY(30px)' }}>{item.caption}</p>
                           </div>
-                          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500">
-                            {item.label}
-                          </span>
-                          <p className="text-xs text-gray-600 max-w-[140px] leading-snug">{item.caption}</p>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
 
                 {/* Mobile version - verticale */}
                 <div className="sm:hidden">

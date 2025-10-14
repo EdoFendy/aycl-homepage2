@@ -30,7 +30,8 @@ export default function CheckoutFailPage() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-navy">
+            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+
                 Pagamento Non Completato
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">

@@ -56,7 +56,7 @@ export default function SubscriptionPage() {
               <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
                 <span className="text-sm font-bold text-orange">{t("hero.badge")}</span>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-4xl font-bold text-navy leading-tight text-balance">
+              <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
                 {t.rich("hero.title", {
                   strong: (chunks) => <span className="text-orange">{chunks}</span>,
                 })}

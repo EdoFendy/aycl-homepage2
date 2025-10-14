@@ -64,7 +64,8 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
           <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
             {t("hero.badge")}
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-navy text-balance">{t("hero.title")}</h1>
+          <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+          {t("hero.title")}</h1>
           <p className="text-sm sm:text-base text-gray-600">{t("hero.subtitle")}</p>
         </div>
 
