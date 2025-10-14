@@ -6,6 +6,7 @@ import { ArrowRight, XCircle, RefreshCw, Phone, Mail, AlertTriangle } from "luci
 import Image from "next/image"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export default function CheckoutFailPage() {
   const t = useTranslations("checkout")
@@ -19,7 +20,7 @@ export default function CheckoutFailPage() {
         <div className="absolute top-32 left-4 w-16 h-16 bg-orange/10 rounded-full sm:top-40 sm:left-10 sm:w-24 sm:h-24" />
         <div className="absolute bottom-6 right-1/4 w-12 h-32 bg-navy/5 -rotate-45 sm:bottom-10 sm:w-16 sm:h-48" />
 
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             {/* Error Icon */}
             <div className="flex justify-center">
@@ -136,7 +137,7 @@ export default function CheckoutFailPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
     </div>
   )

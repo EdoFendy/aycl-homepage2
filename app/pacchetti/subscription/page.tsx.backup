@@ -256,12 +256,12 @@ export default function SubscriptionPage() {
               </div>
             </div>
           </Card>
-        </div>
         </PageLayoutContainer>
-      </section>
+      </div>
+    </section>
 
-    {/* All You Can Leads System */}
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+{/* All You Can Leads System */}
+<section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <PageLayoutContainer className="px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-navy mb-4">{t("system.title")}</h2>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { PaymentGateway } from "@/components/payment-gateway";
 import type { DriveTestOrder } from "@/lib/drive-test";
+import { PageLayoutContainer } from "@/components/page-layout-container";
 
 type SearchParams = { [key: string]: string | string[] | undefined };
 
@@ -58,7 +59,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
       <div className="pointer-events-none absolute top-10 left-16 h-40 w-40 rounded-full bg-sky-blue/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-24 right-10 h-48 w-48 rounded-full bg-orange/10 blur-3xl" />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <PageLayoutContainer className="relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
             {t("hero.badge")}
@@ -124,7 +125,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
             </div>
           </div>
         )}
-      </div>
+      </PageLayoutContainer>
     </div>
   );
 }

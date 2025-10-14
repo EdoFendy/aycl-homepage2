@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export const metadata: Metadata = {
   title: "Privacy Policy | All You Can Leads",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <main className="bg-white py-16">
-      <div className="container mx-auto max-w-4xl px-6 space-y-10 text-gray-800">
+      <PageLayoutContainer className="px-6" innerClassName="max-w-4xl mx-auto space-y-10 text-gray-800">
         <header className="space-y-4">
           <p className="text-sm uppercase tracking-wide text-gray-500">Ultimo aggiornamento: Ottobre 2025</p>
           <h1 className="text-4xl font-bold text-navy">Privacy Policy (GDPR)</h1>
@@ -109,7 +110,7 @@ export default function PrivacyPolicyPage() {
             trattamento lo richiedessero, il Titolare provvederà alla sua designazione.
           </p>
         </section>
-      </div>
+      </PageLayoutContainer>
     </main>
   )
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export const metadata: Metadata = {
   title: "Termini e Condizioni | All You Can Leads",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <main className="bg-white py-16">
-      <div className="container mx-auto max-w-4xl px-6 space-y-10 text-gray-800">
+      <PageLayoutContainer className="px-6" innerClassName="max-w-4xl mx-auto space-y-10 text-gray-800">
         <header className="space-y-3">
           <p className="text-sm uppercase tracking-wide text-gray-500">Ultimo aggiornamento: Ottobre 2025</p>
           <h1 className="text-4xl font-bold text-navy">Termini e Condizioni</h1>
@@ -118,7 +119,7 @@ export default function TermsPage() {
           <h2 className="text-2xl font-semibold text-navy">10. Legge applicabile e foro competente</h2>
           <p>Le presenti condizioni sono regolate dalla legge italiana. Per ogni controversia sarà competente in via esclusiva il Foro di Milano.</p>
         </section>
-      </div>
+      </PageLayoutContainer>
     </main>
   )
 }

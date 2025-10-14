@@ -6,6 +6,8 @@ import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
+import { CheckCircle2, XCircle } from "lucide-react"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 type Quote = {
   text: string
@@ -134,13 +136,13 @@ export default function OutreachPage() {
         <div className="absolute inset-0 -z-20 bg-gradient-to-br from-white via-sky-blue/10 to-orange/5" />
         <div className="absolute -top-32 right-[-8%] h-72 w-72 rounded-full bg-orange/20 blur-[120px]" />
         <div className="absolute bottom-[-16%] left-[-10%] h-80 w-80 rounded-full bg-sky-blue/20 blur-[140px]" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-16 lg:grid-cols-[1.15fr_minmax(0,0.85fr)] xl:gap-24">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-sky-blue/30 bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue shadow-sm backdrop-blur">
                 <span>{t("hero.eyebrow")}</span>
               </div>
-              <h1 className="text-3xl font-bold tracking-tight text-navy sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="text-2xl font-bold tracking-tight text-navy sm:text-3xl md:text-4xl lg:text-4xl">
                 {t("hero.title")}
               </h1>
               <p className="max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
@@ -201,13 +203,13 @@ export default function OutreachPage() {
               </div>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Principle Section */}
       <section className="relative py-24">
         <div className="absolute inset-x-0 top-0 -z-10 h-1/2 bg-gradient-to-b from-navy/5 via-transparent to-transparent" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] xl:gap-16">
             <div className="space-y-6">
               <span className="inline-flex items-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
@@ -247,13 +249,13 @@ export default function OutreachPage() {
               <p className="text-base font-semibold text-navy sm:text-lg">{principleClosing.join(" ")}</p>
             </div>
           )}
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Architecture Section */}
       <section className="relative overflow-hidden bg-gray-50 py-24">
         <div className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-sky-blue/20 via-transparent to-transparent" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[1.1fr_minmax(0,0.9fr)] xl:gap-16">
             <div className="space-y-8">
               <div className="max-w-2xl">
@@ -297,15 +299,14 @@ export default function OutreachPage() {
               </div>
             </div>
             </div>
-          </div>
-      
+          </PageLayoutContainer>
       </section>
 
       {/* Application Section */}
       <section className="relative overflow-hidden bg-navy py-24 text-white">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.2,transparent_60%)]" />
         <div className="absolute -bottom-32 right-24 h-72 w-72 rounded-full bg-sky-blue/20 blur-[140px]" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="max-w-3xl">
             <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
               {t("application.title")}
@@ -334,13 +335,13 @@ export default function OutreachPage() {
               )
             })}
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* AI Stats Section */}
       <section className="relative py-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-sky-blue/15 to-white" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="text-center">
             <span className="inline-flex items-center justify-center rounded-full bg-sky-blue/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
               {t("ai.title")}
@@ -374,14 +375,14 @@ export default function OutreachPage() {
               </article>
             ))}
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Comparison Section */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative overflow-hidden py-20 sm:py-24">
         <div className="absolute inset-0 -z-20 bg-gradient-to-br from-white via-sky-blue/10 to-orange/10" />
         <div className="absolute inset-y-0 right-[8%] -z-10 hidden w-[32%] rounded-full bg-orange/30 blur-[160px] lg:block" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
               {t("comparison.title")}
@@ -389,20 +390,22 @@ export default function OutreachPage() {
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("comparison.title")}</h2>
             <p className="mt-4 text-base text-gray-600 sm:text-lg">{t("comparison.subtitle")}</p>
           </div>
-           <div className="mt-14 mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-navy/15 bg-white shadow-[0_48px_120px_-64px_rgba(1,47,107,0.55)]">
+           <div className="mt-10 mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-navy/15 bg-white shadow-[0_48px_120px_-64px_rgba(1,47,107,0.55)]">
             <div className="grid grid-cols-1 divide-y divide-navy/10 sm:grid-cols-[1fr_1fr_1fr] sm:divide-y-0 sm:border-b sm:border-navy/10">
-              <div className="px-6 py-6 sm:border-r sm:border-navy/10">
+              <div className="px-5 py-4 sm:px-6 sm:py-5 sm:border-r sm:border-navy/10">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-navy/60">
                   {t("comparison.aspectLabel")}
                 </p>
               </div>
-              <div className="px-6 py-6 sm:border-r sm:border-navy/10">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <div className="px-5 py-4 sm:px-6 sm:py-5 sm:border-r sm:border-navy/10">
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+                  <XCircle className="h-3.5 w-3.5 text-gray-400" />
                   {t("comparison.columns.traditional")}
                 </p>
               </div>
-              <div className="px-6 py-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-orange/70">
+              <div className="px-5 py-4 sm:px-6 sm:py-5">
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-orange" />
                   {t("comparison.columns.aycl")}
                 </p>
               </div>
@@ -411,29 +414,34 @@ export default function OutreachPage() {
               {comparisonRows.map((row, index) => (
                 <div
                   key={row.aspect}
-                  className="grid gap-6 px-6 py-10 sm:grid-cols-[1fr_1fr_1.1fr] sm:items-start"
+                  className="grid gap-4 px-5 py-6 sm:grid-cols-[1fr_1fr_1.1fr] sm:items-start sm:gap-6 sm:px-6 sm:py-5"
                 >
                   <div className="flex items-start gap-4">
                
                     <div>
-                      <h3 className="text-base font-semibold text-navy">{row.aspect}</h3>
+                      <h3 className="text-sm font-semibold text-navy sm:text-base">{row.aspect}</h3>
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-gray-200 bg-gray-50 p-5">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                      <div className="h-2.5 w-2.5 rounded-full bg-gray-400" />
-                      {t("comparison.columns.traditional")}
+                  <div className="rounded-2xl border border-gray-200 bg-gray-50 p-4 sm:p-5">
+                    <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500">
+                      <XCircle className="h-4 w-4 text-gray-400" />
+                      <span>{t("comparison.columns.traditional")}</span>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-gray-700">{row.traditional}</p>
+                    <p className="mt-3 text-[13px] leading-snug text-gray-600 sm:text-sm">{row.traditional}</p>
                   </div>
                   <div className="relative">
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange/40 via-orange/20 to-sky-blue/20 opacity-70 blur-2xl" aria-hidden />
-                    <div className="relative rounded-2xl border border-orange/40 bg-white/95 p-5 shadow-[0_36px_70px_-48px_rgba(255,165,0,0.55)]">
-                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange">
-                        <div className="h-2.5 w-2.5 rounded-full bg-orange" />
-                        {t("comparison.columns.aycl")}
+                    <div className="relative rounded-2xl border border-orange/50 bg-gradient-to-br from-orange/20 via-white to-sky-blue/10 p-4 sm:p-5 shadow-[0_36px_70px_-48px_rgba(255,165,0,0.55)]">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange">
+                          <CheckCircle2 className="h-4 w-4" />
+                          <span>{t("comparison.columns.aycl")}</span>
+                        </div>
+                        <span className="rounded-full bg-orange/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-orange/90">
+                          PRO
+                        </span>
                       </div>
-                      <p className="mt-3 text-sm leading-relaxed text-gray-800">{row.aycl}</p>
+                      <p className="mt-3 text-[13px] leading-snug text-gray-800 sm:text-sm">{row.aycl}</p>
                     </div>
                   </div>
                 </div>
@@ -443,13 +451,13 @@ export default function OutreachPage() {
               <p className="text-sm text-gray-600">{t("comparison.subtitle")}</p>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Sendura Section */}
       <section className="relative overflow-hidden bg-gray-50 py-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-blue/15 to-orange/10" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="text-center">
             <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
               {t("sendura.title")}
@@ -458,31 +466,15 @@ export default function OutreachPage() {
             <p className="mt-4 text-base text-gray-600 sm:text-lg">{t("sendura.intro")}</p>
           </div>
           <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_1.15fr] xl:gap-16">
-            <div className="relative">
-              <div className="absolute -top-10 -left-8 h-64 w-64 rounded-full bg-orange/20 blur-[120px]" />
-              <div className="absolute -bottom-12 right-0 h-60 w-60 rounded-full bg-sky-blue/20 blur-[120px]" />
-              <div className="relative overflow-hidden rounded-[2.75rem] border border-white/60 bg-white/95 shadow-[0_48px_120px_-60px_rgba(1,47,107,0.55)] backdrop-blur">
-                <div className="grid grid-cols-2 gap-3 p-3 sm:p-4">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-                    <Image
-                      src="/analytics-dashboard-with-real-time-metrics.jpg"
-                      alt="Dashboard outreach"
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 280px, 80vw"
-                    />
-                  </div>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-                    <Image
-                      src="/strategic-planning-with-data-analysis.jpg"
-                      alt="Pianificazione strategica"
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 280px, 80vw"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div>
+              <Image
+                src="/data_to_leads.png"
+                alt="Schema data to leads"
+                width={600}
+                height={600}
+                className="w-full h-auto"
+                priority
+              />
             </div>
             <div className="space-y-6">
               <div className="grid gap-4 sm:grid-cols-2">
@@ -512,13 +504,13 @@ export default function OutreachPage() {
               </div>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Learning & Personalization */}
       <section className="relative py-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-blue/10 to-white" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_minmax(0,0.9fr)] xl:gap-16">
             <div className="relative overflow-hidden rounded-[2.75rem] border border-navy/10 bg-white/95 p-8 shadow-[0_44px_90px_-60px_rgba(1,47,107,0.5)]">
               <div className="flex items-start gap-4">
@@ -618,13 +610,13 @@ export default function OutreachPage() {
               </article>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Human + AI */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy via-[#0a1d3c] to-slate-900 py-24 text-white">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,var(--sky-blue)/0.2,transparent_65%)]" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">{t("humanAi.title")}</h2>
             <p className="mt-4 text-base text-white/80 sm:text-lg">{t("humanAi.intro")}</p>
@@ -686,13 +678,13 @@ export default function OutreachPage() {
           <div className="mt-10 text-center text-sm font-semibold text-orange">
             {t("humanAi.closing")}
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Ecosystem */}
       <section className="relative py-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-blue/10 to-orange/10" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_1.05fr] xl:gap-16">
             <div className="space-y-6">
               <span className="inline-flex items-center justify-center rounded-full bg-navy/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-navy">
@@ -721,26 +713,22 @@ export default function OutreachPage() {
               <p className="text-sm font-semibold text-navy sm:text-base">{t("ecosystem.closing")}</p>
             </div>
             <div className="relative">
-              <div className="absolute -top-8 -right-8 h-48 w-48 rounded-full bg-orange/20 blur-3xl" />
-              <div className="absolute -bottom-12 -left-10 h-56 w-56 rounded-full bg-sky-blue/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2.75rem] border border-navy/10 shadow-[0_48px_96px_-60px_rgba(1,47,107,0.45)]">
-                <Image
-                  src="/strategic-planning-with-data-analysis.jpg"
-                  alt="Outreach evolution"
-                  width={540}
-                  height={420}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <Image
+                src="/ComeFunziona_4.png"
+                alt="Outreach evolution"
+                width={540}
+                height={420}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy/95 to-black py-24 text-white">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.25,transparent_65%)]" />
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl space-y-6 text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Pronto a trasformare il tuo outreach?</h2>
             <p className="text-base text-white/80 sm:text-lg">{t("microcopy")}</p>
@@ -779,7 +767,7 @@ export default function OutreachPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
     </div>
   )

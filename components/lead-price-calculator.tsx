@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Calculator, Info, Sparkles, ArrowRight, Copy } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import type { DriveTestOrder } from "@/lib/drive-test";
 
 interface BaseData {
@@ -22,6 +24,8 @@ interface CalculatorProps {
   locale?: string;
   className?: string;
   onCheckout?: (order: DriveTestOrder) => boolean | void;
+  variant?: "section" | "card";
+  id?: string;
 }
 
 interface FieldProps {
@@ -51,9 +55,12 @@ export default function LeadPriceCalculator({
   locale = "it-IT",
   className = "",
   onCheckout,
+  variant = "section",
+  id,
 }: CalculatorProps) {
   const t = useTranslations("calcolatore");
   const router = useRouter();
+  const isCardVariant = variant === "card";
 
   const [revenueBand, setRevenueBand] = useState(baseItalia[0]?.id || "");
   const [geo, setGeo] = useState(coeffGeo[0]?.id || "");
@@ -136,197 +143,270 @@ export default function LeadPriceCalculator({
     }
   }
 
+  const header = (
+    <div
+      className={cn(
+        isCardVariant
+          ? "space-y-2 text-left"
+          : "max-w-3xl mx-auto text-center space-y-3 sm:space-y-5"
+      )}
+    >
+      <span
+        className={cn(
+          "inline-flex items-center rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500",
+          isCardVariant ? "" : "justify-center mx-auto"
+        )}
+      >
+        {t("badge")}
+      </span>
+      <h2
+        className={cn(
+          "font-bold text-navy text-balance",
+          isCardVariant
+            ? "text-xl sm:text-2xl md:text-3xl"
+            : "text-2xl sm:text-3xl md:text-4xl"
+        )}
+      >
+        {t("title")}
+      </h2>
+      <p
+        className={cn(
+          "text-gray-600",
+          isCardVariant
+            ? "text-sm sm:text-base"
+            : "text-sm sm:text-base max-w-2xl mx-auto"
+        )}
+      >
+        {t("subtitle")}
+      </p>
+    </div>
+  );
+
+  const calculatorGrid = (
+    <div
+      className={cn(
+        "grid lg:grid-cols-5 gap-4 sm:gap-6 items-stretch",
+        isCardVariant ? "mt-6" : "mt-10 sm:mt-14"
+      )}
+    >
+      <div className="lg:col-span-3 h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))]">
+        <div className="rounded-[1rem] bg-white/95 backdrop-blur-sm p-5 sm:p-7 h-full">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+            <Field label={t("fields.revenueBand")}>
+              <select
+                className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
+                value={revenueBand}
+                onChange={(e) => setRevenueBand(e.target.value)}
+              >
+                {baseItalia.map((b) => (
+                  <option key={b.id} value={b.id}>{b.label}</option>
+                ))}
+              </select>
+            </Field>
+
+            <Field label={t("fields.geo")}>
+              <select
+                className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
+                value={geo}
+                onChange={(e) => setGeo(e.target.value)}
+              >
+                {coeffGeo.map((g) => (
+                  <option key={g.id} value={g.id}>{g.label}</option>
+                ))}
+              </select>
+            </Field>
+
+            <Field label={t("fields.sector")}>
+              <select
+                className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
+                value={sett}
+                onChange={(e) => setSett(e.target.value)}
+              >
+                {coeffSett.map((s) => (
+                  <option key={s.id} value={s.id}>{s.label}</option>
+                ))}
+              </select>
+            </Field>
+
+            <Field label={t("fields.risk")}>
+              <div className="flex items-center gap-3">
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  step={1}
+                  value={risk}
+                  onChange={(e) => setRisk(Number(e.target.value))}
+                  className="w-full accent-sky-blue"
+                />
+                <div className="w-14 text-right text-xs font-medium text-gray-600">{risk}%</div>
+              </div>
+              <p className="mt-1 text-[11px] text-gray-500">{t("hint.risk")}</p>
+            </Field>
+          </div>
+
+          <div className="mt-6 grid sm:grid-cols-3 gap-3 text-xs text-gray-700">
+            <Chip icon={<Calculator className="h-3.5 w-3.5" />}>
+              {t("chip.base", { v: `${format(calc.baseMin)} – ${format(calc.baseMax)}` })}
+            </Chip>
+            <Chip>
+              {t("chip.geo", { v: `${calc.geoMin} – ${calc.geoMax}` })}
+            </Chip>
+            <Chip>
+              {t("chip.sector", { v: `${calc.setMin} – ${calc.setMax}` })}
+            </Chip>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
+            <div className="grid sm:grid-cols-3 gap-4 text-center">
+              <Stat label={t("stat.min")}>{format(calc.priceMin)}</Stat>
+              <Stat label={t("stat.suggested")} highlight>
+                <div className="flex items-center justify-center gap-2">
+                  <Sparkles className="h-5 w-5" /> {format(calc.suggested)}
+                </div>
+              </Stat>
+              <Stat label={t("stat.max")}>{format(calc.priceMax)}</Stat>
+            </div>
+            <p className="mt-3 text-center text-[12px] text-gray-500 flex items-center justify-center gap-1">
+              <Info className="h-3.5 w-3.5" />
+              {t("footnote", { unit: calc.b?.label || "" })}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-span-2 h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))]">
+        <div className="rounded-[1rem] bg-white/95 backdrop-blur-sm p-5 sm:p-7 h-full flex flex-col">
+          <div className="text-center space-y-1">
+            <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{t("summary.badge")}</p>
+            <h3 className="text-xl sm:text-2xl font-bold text-navy">{t("summary.title")}</h3>
+            <p className="text-sm text-gray-600">{t("summary.subtitle")}</p>
+          </div>
+
+          <div className="mt-5 grid grid-cols-3 gap-3 text-center">
+            <div className="rounded-lg border border-gray-200 p-3">
+              <p className="text-[11px] text-gray-500">{t("summary.unitLabel")}</p>
+              <p className="text-lg font-semibold text-navy">{format(calc.suggested)}</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-3">
+              <p className="text-[11px] text-gray-500">{t("summary.qtyLabel")}</p>
+              <p className="text-lg font-semibold text-navy">{qty}</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-3">
+              <p className="text-[11px] text-gray-500">{t("summary.totalLabel")}</p>
+              <p className="text-lg font-semibold text-navy">{format(totalSuggested)}</p>
+            </div>
+          </div>
+
+          <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs text-gray-600">
+            <div>
+              <p className="uppercase tracking-wider text-gray-400">{t("summary.range")}</p>
+              <p>{format(totalMin)} – {format(totalMax)}</p>
+            </div>
+            <div>
+              <p className="uppercase tracking-wider text-gray-400">{t("summary.geoCoeff")}</p>
+              <p>{calc.geoMin} – {calc.geoMax}</p>
+            </div>
+            <div>
+              <p className="uppercase tracking-wider text-gray-400">{t("summary.settCoeff")}</p>
+              <p>{calc.setMin} – {calc.setMax}</p>
+            </div>
+          </div>
+
+          <div className="mt-auto flex flex-col gap-3">
+            <button
+              onClick={handleCheckout}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange px-5 py-3 text-white font-semibold shadow-lg transition-all duration-300 hover:translate-y-[-2px] hover:shadow-orange/30"
+            >
+              {t("ctaCheckout")} <ArrowRight className="h-4 w-4" />
+            </button>
+            <button
+              onClick={handleCopy}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-navy font-semibold hover:bg-gray-50"
+            >
+              <Copy className="h-4 w-4" /> {t("copy")}
+            </button>
+
+            <ul className="mt-2 space-y-1 text-xs text-gray-600">
+              <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-orange mt-0.5" />{t("bullets.a")}</li>
+              <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-orange mt-0.5" />{t("bullets.b")}</li>
+              <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-orange mt-0.5" />{t("bullets.c")}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const sliderSection = (
+    <div
+      className={cn(
+        isCardVariant ? "mt-8" : "mt-10 sm:mt-12 max-w-4xl mx-auto"
+      )}
+    >
+      <div className="rounded-2xl border border-gray-200 bg-white/95 p-5 sm:p-7 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="space-y-1">
+            <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{t("slider.badge")}</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-navy">{t("slider.label")}</h3>
+            <p className="text-sm text-gray-500">{t("slider.helper")}</p>
+          </div>
+          <div className="text-center sm:text-right">
+            <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{t("slider.current")}</p>
+            <p className="text-3xl font-bold text-navy">{qty}</p>
+            <p className="text-xs text-gray-500">{t("slider.appointments")}</p>
+          </div>
+        </div>
+        <div className="mt-4 sm:mt-6">
+          <input
+            type="range"
+            min={MIN_APPOINTMENTS}
+            max={MAX_APPOINTMENTS}
+            step={1}
+            value={qty}
+            onChange={(e) => setQty(Number(e.target.value))}
+            className="w-full accent-orange"
+            aria-valuemin={MIN_APPOINTMENTS}
+            aria-valuemax={MAX_APPOINTMENTS}
+            aria-valuenow={qty}
+            aria-label={t("slider.label")}
+          />
+          <div className="mt-2 flex justify-between text-xs font-medium text-gray-400">
+            <span>{MIN_APPOINTMENTS}</span>
+            <span>{MAX_APPOINTMENTS}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (isCardVariant) {
+    return (
+      <Card
+        id={id}
+        className={cn(
+          "relative overflow-hidden border border-sky-blue/30 bg-gradient-to-br from-sky-blue/5 via-white to-orange/5 px-5 py-6 sm:px-6 sm:py-8 md:px-8 shadow-lg",
+          className
+        )}
+      >
+        <div className="absolute top-0 right-0 h-24 w-24 rounded-full bg-sky-blue/10 blur-2xl" />
+        <div className="absolute bottom-0 left-0 h-28 w-28 rounded-full bg-orange/10 blur-2xl" />
+        <div className="relative z-10 flex flex-col gap-6">
+          {header}
+          {calculatorGrid}
+          {sliderSection}
+        </div>
+      </Card>
+    );
+  }
+
   return (
-    <section className={`relative py-16 sm:py-24 ${className}`}>
-      {/* top gradient bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-sky-blue to-orange" />
-
+    <section id={id} className={cn("relative py-16 sm:py-24", className)}>
+      <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" />
       <div className="container mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-5">
-          <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-            {t("badge")}
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy text-balance">
-            {t("title")}
-          </h2>
-          <p className="text-sm sm:text-base text-gray-600">{t("subtitle")}</p>
-        </div>
-
-        {/* Card */}
-        <div className="mt-10 sm:mt-14 grid lg:grid-cols-5 gap-4 sm:gap-6 items-stretch">
-          <div className="lg:col-span-3 h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))]">
-            <div className="rounded-[1rem] bg-white/95 backdrop-blur-sm p-5 sm:p-7 h-full">
-              {/* Inputs */}
-              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                <Field label={t("fields.revenueBand")}>
-                  <select className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
-                    value={revenueBand} onChange={(e) => setRevenueBand(e.target.value)}>
-                    {baseItalia.map((b) => (
-                      <option key={b.id} value={b.id}>{b.label}</option>
-                    ))}
-                  </select>
-                </Field>
-
-                <Field label={t("fields.geo")}>
-                  <select className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
-                    value={geo} onChange={(e) => setGeo(e.target.value)}>
-                    {coeffGeo.map((g) => (
-                      <option key={g.id} value={g.id}>{g.label}</option>
-                    ))}
-                  </select>
-                </Field>
-
-                <Field label={t("fields.sector")}>
-                  <select className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
-                    value={sett} onChange={(e) => setSett(e.target.value)}>
-                    {coeffSett.map((s) => (
-                      <option key={s.id} value={s.id}>{s.label}</option>
-                    ))}
-                  </select>
-                </Field>
-
-                <Field label={t("fields.risk")}>
-                  <div className="flex items-center gap-3">
-                    <input
-                      type="range"
-                      min={0}
-                      max={100}
-                      step={1}
-                      value={risk}
-                      onChange={(e) => setRisk(Number(e.target.value))}
-                      className="w-full accent-sky-blue"
-                    />
-                    <div className="w-14 text-right text-xs font-medium text-gray-600">{risk}%</div>
-                  </div>
-                  <p className="mt-1 text-[11px] text-gray-500">{t("hint.risk")}</p>
-                </Field>
-              </div>
-
-              {/* Formula + chips */}
-              <div className="mt-6 grid sm:grid-cols-3 gap-3 text-xs text-gray-700">
-                <Chip icon={<Calculator className="h-3.5 w-3.5" />}>{t("chip.base", { v: `${format(calc.baseMin)} – ${format(calc.baseMax)}` })}</Chip>
-                <Chip>{t("chip.geo", { v: `${calc.geoMin} – ${calc.geoMax}` })}</Chip>
-                <Chip>{t("chip.sector", { v: `${calc.setMin} – ${calc.setMax}` })}</Chip>
-              </div>
-
-              <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
-                <div className="grid sm:grid-cols-3 gap-4 text-center">
-                  <Stat label={t("stat.min")}>{format(calc.priceMin)}</Stat>
-                  <Stat label={t("stat.suggested")} highlight>
-                    <div className="flex items-center justify-center gap-2">
-                      <Sparkles className="h-5 w-5" /> {format(calc.suggested)}
-                    </div>
-                  </Stat>
-                  <Stat label={t("stat.max")}>{format(calc.priceMax)}</Stat>
-                </div>
-                <p className="mt-3 text-center text-[12px] text-gray-500 flex items-center justify-center gap-1">
-                  <Info className="h-3.5 w-3.5" />
-                  {t("footnote", { unit: calc.b?.label || "" })}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Summary / CTA */}
-          <div className="lg:col-span-2 h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))]">
-            <div className="rounded-[1rem] bg-white/95 backdrop-blur-sm p-5 sm:p-7 h-full flex flex-col">
-              <div className="text-center space-y-1">
-                <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{t("summary.badge")}</p>
-                <h3 className="text-xl sm:text-2xl font-bold text-navy">{t("summary.title")}</h3>
-                <p className="text-sm text-gray-600">{t("summary.subtitle")}</p>
-              </div>
-
-              <div className="mt-5 grid grid-cols-3 gap-3 text-center">
-                <div className="rounded-lg border border-gray-200 p-3">
-                  <p className="text-[11px] text-gray-500">{t("summary.unitLabel")}</p>
-                  <p className="text-lg font-semibold text-navy">{format(calc.suggested)}</p>
-                </div>
-                <div className="rounded-lg border border-gray-200 p-3">
-                  <p className="text-[11px] text-gray-500">{t("summary.qtyLabel")}</p>
-                  <p className="text-lg font-semibold text-navy">{qty}</p>
-                </div>
-                <div className="rounded-lg border border-gray-200 p-3">
-                  <p className="text-[11px] text-gray-500">{t("summary.totalLabel")}</p>
-                  <p className="text-lg font-semibold text-navy">{format(totalSuggested)}</p>
-                </div>
-              </div>
-
-              <div className="mt-5 grid grid-cols-3 gap-3 text-center text-xs text-gray-600">
-                <div>
-                  <p className="uppercase tracking-wider text-gray-400">{t("summary.range")}</p>
-                  <p>{format(totalMin)} – {format(totalMax)}</p>
-                </div>
-                <div>
-                  <p className="uppercase tracking-wider text-gray-400">{t("summary.geoCoeff")}</p>
-                  <p>{calc.geoMin} – {calc.geoMax}</p>
-                </div>
-                <div>
-                  <p className="uppercase tracking-wider text-gray-400">{t("summary.settCoeff")}</p>
-                  <p>{calc.setMin} – {calc.setMax}</p>
-                </div>
-              </div>
-
-              <div className="mt-auto flex flex-col gap-3">
-                <button
-                  onClick={handleCheckout}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange px-5 py-3 text-white font-semibold shadow-lg hover:shadow-orange/30 transition-all duration-300 hover:translate-y-[-2px]"
-                >
-                  {t("ctaCheckout")} <ArrowRight className="h-4 w-4" />
-                </button>
-                <button
-                  onClick={handleCopy}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-navy font-semibold hover:bg-gray-50"
-                >
-                  <Copy className="h-4 w-4" /> {t("copy")}
-                </button>
-
-                <ul className="mt-2 space-y-1 text-xs text-gray-600">
-                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-orange mt-0.5" />{t("bullets.a")}</li>
-                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-orange mt-0.5" />{t("bullets.b")}</li>
-                  <li className="flex items-start gap-2"><CheckCircle2 className="h-4 w-4 text-orange mt-0.5" />{t("bullets.c")}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Quantity slider */}
-        <div className="mt-10 sm:mt-12 max-w-4xl mx-auto">
-          <div className="rounded-2xl border border-gray-200 bg-white/95 p-5 sm:p-7 shadow-sm">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div className="space-y-1">
-                <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{t("slider.badge")}</p>
-                <h3 className="text-lg sm:text-xl font-semibold text-navy">{t("slider.label")}</h3>
-                <p className="text-sm text-gray-500">{t("slider.helper")}</p>
-              </div>
-              <div className="text-center sm:text-right">
-                <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{t("slider.current")}</p>
-                <p className="text-3xl font-bold text-navy">{qty}</p>
-                <p className="text-xs text-gray-500">{t("slider.appointments")}</p>
-              </div>
-            </div>
-            <div className="mt-4 sm:mt-6">
-              <input
-                type="range"
-                min={MIN_APPOINTMENTS}
-                max={MAX_APPOINTMENTS}
-                step={1}
-                value={qty}
-                onChange={(e) => setQty(Number(e.target.value))}
-                className="w-full accent-orange"
-                aria-valuemin={MIN_APPOINTMENTS}
-                aria-valuemax={MAX_APPOINTMENTS}
-                aria-valuenow={qty}
-                aria-label={t("slider.label")}
-              />
-              <div className="mt-2 flex justify-between text-xs font-medium text-gray-400">
-                <span>{MIN_APPOINTMENTS}</span>
-                <span>{MAX_APPOINTMENTS}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {header}
+        {calculatorGrid}
+        {sliderSection}
       </div>
     </section>
   );

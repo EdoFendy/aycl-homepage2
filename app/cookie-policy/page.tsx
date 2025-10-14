@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export const metadata: Metadata = {
   title: "Cookie Policy | All You Can Leads",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function CookiePolicyPage() {
   return (
     <main className="bg-white py-16">
-      <div className="container mx-auto max-w-4xl px-6 space-y-10 text-gray-800">
+      <PageLayoutContainer className="px-6" innerClassName="max-w-4xl mx-auto space-y-10 text-gray-800">
         <header className="space-y-4">
           <h1 className="text-4xl font-bold text-navy">Cookie Policy</h1>
           <p>
@@ -75,7 +76,7 @@ export default function CookiePolicyPage() {
             <li>Linee Guida del Garante Privacy Italiano 2021–2024.</li>
           </ul>
         </section>
-      </div>
+      </PageLayoutContainer>
     </main>
   )
 }

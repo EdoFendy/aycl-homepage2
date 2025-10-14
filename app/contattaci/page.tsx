@@ -8,6 +8,7 @@ import Image from "next/image"
 import { useTranslations } from "next-intl"
 import Cal, { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export default function ContattaciPage() {
   const t = useTranslations("contattaci")
@@ -40,7 +41,7 @@ export default function ContattaciPage() {
         <div className="absolute bottom-20 left-20 w-48 h-48 bg-sky-blue/10 -rotate-45" />
         <div className="absolute top-1/2 left-1/4 w-32 h-32 border-4 border-navy/10 rotate-12" />
 
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-block px-6 py-2 bg-orange/10 rounded-full">
               <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
@@ -56,12 +57,12 @@ export default function ContattaciPage() {
               {t("hero.subtitle")}
             </p>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Contact Methods */}
       <section className="py-24 relative">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Email Card */}
             <Card
@@ -135,7 +136,7 @@ export default function ContattaciPage() {
               </div>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Calendar Section */}
@@ -143,7 +144,7 @@ export default function ContattaciPage() {
         <div className="absolute  right-1/4 w-48 h-48 bg-orange/5 rounded-full blur-2xl" />
         <div className="absolute  left-1/4 w-32 h-32 bg-sky-blue/5 rounded-full blur-xl" />
         
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="max-w-6xl mx-auto">
 
             <Card className="p-8 bg-white border-2 border-orange/20 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
@@ -167,14 +168,14 @@ export default function ContattaciPage() {
               </div>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
   
 
       {/* FAQ Preview */}
       <section className="py-24 relative">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-4xl font-bold text-navy">{t("faqPreview.title")}</h2>
             <p className="text-xl text-gray-600">{t("faqPreview.subtitle")}</p>
@@ -192,7 +193,7 @@ export default function ContattaciPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* CTA Section */}
@@ -200,7 +201,7 @@ export default function ContattaciPage() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-balance">{t("cta.title")}</h2>
             <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
@@ -213,7 +214,7 @@ export default function ContattaciPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
       </div>
     </div>

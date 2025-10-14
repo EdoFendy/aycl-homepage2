@@ -23,6 +23,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 /**
  * FAQ Masterbook Page
@@ -916,14 +917,14 @@ export default function FAQMasterbookPage() {
       <div className="absolute top-40 left-10 w-28 h-28 bg-sky-blue/10 rounded-full blur-3xl" />
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-navy via-sky-blue to-orange" />
 
-      <div className="container mx-auto px-6 pt-28 pb-8">
+      <PageLayoutContainer className="px-6 pt-28 pb-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full">
               <BookOpen className="w-4 h-4 text-navy" />
               <span className="text-sm font-medium text-gray-700">{t("header.badge")}</span>
-            </div>
+      </PageLayoutContainer>
             <h1 className="text-4xl lg:text-5xl font-bold text-navy leading-tight text-balance">
               {t.rich("header.title", {
                 strong: (chunks) => <span className="text-orange">{chunks}</span>,

@@ -21,6 +21,7 @@ import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export default function PerformancePage() {
   const t = useTranslations("pacchettiPerformance")
@@ -43,7 +44,7 @@ export default function PerformancePage() {
         <div className="absolute top-20 right-10 w-64 h-64 bg-sky-blue/10 rounded-full blur-3xl" />
         <div className="absolute bottom-10 left-10 w-48 h-48 bg-orange/10 rotate-12" />
 
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
@@ -79,13 +80,13 @@ export default function PerformancePage() {
               </Card>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
         <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
 
         {/* Come Funziona */}
         <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-navy mb-4">{t("how.title")}</h2>
           </div>
@@ -142,14 +143,14 @@ export default function PerformancePage() {
               </div>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
         {/* È per te se */}
         <section className="py-32 relative overflow-hidden bg-gradient-to-b from-white via-gray-50/30 to-white">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-blue/5 via-transparent to-orange/5 rounded-full blur-3xl"></div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <PageLayoutContainer className="px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
               <Sparkles className="h-4 w-4 text-sky-blue" />
@@ -238,13 +239,13 @@ export default function PerformancePage() {
           </div>
 
   
-        </div>
+        </PageLayoutContainer>
       </section>
         <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
 
         {/* All You Can Leads System */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-navy mb-4">{t("system.title")}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("system.subtitle")}</p>
@@ -293,12 +294,12 @@ export default function PerformancePage() {
               <p className="text-gray-600 leading-relaxed">{t("system.cards.supportDesc")}</p>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
         {/* Investimento */}
         <section className="py-16 sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy">{t("investment.title")}</h2>
@@ -437,12 +438,12 @@ export default function PerformancePage() {
               </Card>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-sky-blue/10">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center p-8 bg-white/80 rounded-2xl shadow-lg border border-sky-blue/10">
             <div className="mb-6 flex items-center justify-center gap-3">
               <span className="inline-flex items-center justify-center rounded-full bg-orange/10 text-orange text-lg w-12 h-12 font-bold shadow">
@@ -470,12 +471,12 @@ export default function PerformancePage() {
               </Button>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
         {/* FAQ */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl font-bold text-navy mb-4">{t("faq.title")}</h2>
             <p className="text-xl text-gray-600">{t("faq.subtitle")}</p>
@@ -485,7 +486,7 @@ export default function PerformancePage() {
             className="mt-12"
             items={t.raw("faq.items")}
           />
-        </div>
+        </PageLayoutContainer>
       </section>
 
         {/* CTA */}
@@ -493,7 +494,7 @@ export default function PerformancePage() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 relative z-10">
+        <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-balance">{t("cta.title")}</h2>
             <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
@@ -514,7 +515,7 @@ export default function PerformancePage() {
               </Link>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
         </section>
       </div>
     </div>

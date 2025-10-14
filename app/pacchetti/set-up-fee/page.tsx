@@ -20,6 +20,7 @@ import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export default function SetUpFeePage() {
   const t = useTranslations("pacchettiSetUpFee")
@@ -39,14 +40,14 @@ export default function SetUpFeePage() {
         <div className="absolute top-32 left-4 h-16 w-16 rounded-full bg-orange/10 sm:top-40 sm:left-10 sm:h-24 sm:w-24" />
         <div className="absolute bottom-6 right-1/4 h-32 w-12 -rotate-45 bg-navy/5 sm:bottom-12 sm:h-48 sm:w-16" />
 
-        <div className="container mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid items-center gap-8 lg:gap-16 lg:grid-cols-2">
             <div className="space-y-6 lg:space-y-8 order-1 lg:order-1">
               <div className="inline-block rounded-full bg-orange px-4 py-2">
                 <span className="text-sm font-medium text-white">{t("hero.badge")}</span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-navy">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
                 {t.rich("hero.title", { strong: (c) => <span className="text-orange">{c}</span> })}
               </h1>
 
@@ -79,13 +80,12 @@ export default function SetUpFeePage() {
               />
             </div>
             </div>
-
-        </div>
+          </PageLayoutContainer>
       </section>
 
       {/* COME FUNZIONA */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-navy mb-4">
               {t.rich("how.title", { strong: (c) => <span className="text-orange">{c}</span> })}
@@ -144,7 +144,7 @@ export default function SetUpFeePage() {
               </div>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
 
@@ -156,7 +156,7 @@ export default function SetUpFeePage() {
           <div className="absolute left-1/2 top-1/2 h-[720px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-navy/5 via-transparent to-orange/5 blur-3xl" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6">
+        <PageLayoutContainer className="relative z-10 px-6">
             <div className="mx-auto mb-20 max-w-3xl space-y-4 text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-600 shadow-sm">
                 <Sparkles className="h-4 w-4 text-navy" />
@@ -235,7 +235,7 @@ export default function SetUpFeePage() {
                 <p className="mt-4 text-base text-gray-600 sm:mx-auto sm:max-w-3xl">{t("partnership.numbersDesc")}</p>
               </div>
             </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
 
@@ -244,7 +244,7 @@ export default function SetUpFeePage() {
         <div className="pointer-events-none absolute top-10 right-16 h-64 w-64 rounded-full bg-sky-blue/15 blur-3xl" />
         <div className="pointer-events-none absolute bottom-6 left-12 h-48 w-48 rounded-full bg-orange/10 blur-2xl" />
 
-        <div className="container relative z-10 mx-auto px-6">
+        <PageLayoutContainer className="relative z-10 px-6">
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-3 font-semibold text-sky-blue">
                 <div className="h-1 w-12 bg-gradient-to-r from-navy to-sky-blue" />
@@ -306,7 +306,7 @@ export default function SetUpFeePage() {
               </div>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
@@ -317,7 +317,7 @@ export default function SetUpFeePage() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-navy/5 to-transparent" />
         <div className="pointer-events-none absolute bottom-0 right-1/4 h-36 w-36 rounded-full bg-orange/15 blur-2xl" />
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-6">
+        <PageLayoutContainer className="relative z-10 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6 mb-12 sm:mb-16">
             <span className="inline-flex items-center justify-center rounded-full border border-orange/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange sm:px-4 sm:text-sm">
               {t("economics.badge")}
@@ -442,7 +442,7 @@ export default function SetUpFeePage() {
               </div>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
 
@@ -452,7 +452,7 @@ export default function SetUpFeePage() {
         <div className="pointer-events-none absolute left-10 top-12 h-40 w-40 rounded-full bg-orange/10 blur-2xl" />
         <div className="pointer-events-none absolute right-16 bottom-12 h-48 w-48 rounded-full bg-sky-blue/15 blur-3xl" />
 
-        <div className="container relative z-10 mx-auto px-6">
+        <PageLayoutContainer className="relative z-10 px-6">
           <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
             <Card className="relative overflow-hidden border border-sky-blue/30 bg-white/95 p-10 shadow-lg backdrop-blur">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-blue/10 via-transparent to-orange/10" />
@@ -486,13 +486,13 @@ export default function SetUpFeePage() {
               </div>
             </Card>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
 
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-sky-blue/10">
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center p-8 bg-white/80 rounded-2xl shadow-lg border border-sky-blue/10">
             <div className="mb-6 flex items-center justify-center gap-3">
               <span className="inline-flex items-center justify-center rounded-full bg-orange/10 text-orange text-lg w-12 h-12 font-bold shadow">
@@ -520,7 +520,7 @@ export default function SetUpFeePage() {
               </Button>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       {/* FAQ */}
@@ -528,7 +528,7 @@ export default function SetUpFeePage() {
         <div className="pointer-events-none absolute top-6 right-16 h-40 w-40 rounded-full bg-orange/15 blur-2xl" />
         <div className="pointer-events-none absolute bottom-8 left-12 h-52 w-52 rounded-full bg-sky-blue/10 blur-3xl" />
 
-        <div className="container mx-auto px-6">
+        <PageLayoutContainer className="px-6">
           <div className="mx-auto mb-12 max-w-4xl space-y-4 text-center">
             <span className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
               Domande frequenti
@@ -617,9 +617,8 @@ export default function SetUpFeePage() {
               </Button>
             </Link>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
     </div>
   )
 }
-

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
 import { useTranslations } from "next-intl"
 import LeadPriceCalculator from "@/components/lead-price-calculator"
+import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export default function PacchettiPage() {
   const router = useRouter()
@@ -41,7 +42,7 @@ export default function PacchettiPage() {
         <div className="absolute bottom-10 left-10 w-64 h-64 bg-orange/10 rotate-12" />
 
         {/* Meno padding laterale su mobile */}
-        <div className="container mx-auto px-4 sm:px-4 md:px-6">
+        <PageLayoutContainer className="px-4 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="inline-block px-6 py-2 bg-orange/10 rounded-full">
               <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
@@ -50,20 +51,21 @@ export default function PacchettiPage() {
             {/* max-w-full per dare più spazio al testo, override su mobile */}
             <p className="text-3xl text-gray-600 leading-relaxed max-w-full sm:max-w-3xl mx-auto">{t("hero.subtitle")}</p>
           </div>
+        </PageLayoutContainer>
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/5 rounded-full blur-3xl"></div>
-      
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/5 rounded-full blur-3xl"></div>
 
-      <div className="grid gap-6 md:gap-8 lg:grid-cols-12 max-w-7xl mx-auto py-12 justify-center px-1 sm:px-4 md:px-6">
-      {/* Set-Up Fee - PREMIUM HIGHLIGHT */}
-          <Card
-            className="relative flex cursor-pointer flex-col gap-6 md:gap-8 rounded-2xl md:rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-3 sm:p-6 md:p-12 shadow-xl md:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
-            onClick={() => navigateTo("/pacchetti/set-up-fee")}
-            onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
-            role="link"
-            tabIndex={0}
+        <PageLayoutContainer className="px-1 sm:px-4 md:px-6">
+          <div className="grid gap-6 md:gap-8 lg:grid-cols-12 max-w-7xl mx-auto py-12 justify-center">
+            {/* Set-Up Fee - PREMIUM HIGHLIGHT */}
+            <Card
+              className="relative flex cursor-pointer flex-col gap-6 md:gap-8 rounded-2xl md:rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-3 sm:p-6 md:p-12 shadow-xl md:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
+              onClick={() => navigateTo("/pacchetti/set-up-fee")}
+              onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
+              role="link"
+              tabIndex={0}
           >
             {/* Enhanced decorative effects */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange/20 to-transparent rounded-full blur-3xl"></div>
@@ -146,12 +148,12 @@ export default function PacchettiPage() {
           </Card>
 
           {/* Performance - MEDIUM HIGHLIGHT */}
-          <Card
-            className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 sm:p-6 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
-            onClick={() => navigateTo("/pacchetti/performance")}
-            onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
-            role="link"
-            tabIndex={0}
+            <Card
+              className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 sm:p-6 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
+              onClick={() => navigateTo("/pacchetti/performance")}
+              onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
+              role="link"
+              tabIndex={0}
           >
             {/* Decorative effects for Performance */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-sky-blue/10 rounded-full blur-2xl"></div>
@@ -200,12 +202,12 @@ export default function PacchettiPage() {
           </Card>
 
           {/* Subscription - MINIMAL HIGHLIGHT */}
-          <Card
-            className="relative flex cursor-pointer flex-col gap-4 md:gap-5 rounded-xl md:rounded-2xl border border-gray-300 bg-white p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
-            onClick={() => navigateTo("/pacchetti/subscription")}
-            onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
-            role="link"
-            tabIndex={0}
+            <Card
+              className="relative flex cursor-pointer flex-col gap-4 md:gap-5 rounded-xl md:rounded-2xl border border-gray-300 bg-white p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
+              onClick={() => navigateTo("/pacchetti/subscription")}
+              onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
+              role="link"
+              tabIndex={0}
           >
             {/* Decorative effects for Subscription */}
             <div className="absolute top-0 right-0 w-20 h-20 bg-navy/5 rounded-full blur-xl"></div>
@@ -248,22 +250,19 @@ export default function PacchettiPage() {
               </Button>
             </div>
           </Card>
-        </div>
 
+          <LeadPriceCalculator id="drive-test" variant="card" className="lg:col-span-12 cursor-default" />
+          </div>
+        </PageLayoutContainer>
 
         {/* Trust indicator */}
-        <div className="mt-16 text-center">
-          <p className="text-sm text-gray-500">{t("trustIndicator")}</p>
-        </div>
-        </div>
+        <PageLayoutContainer className="px-4 sm:px-6">
+          <div className="mt-16 text-center">
+            <p className="text-sm text-gray-500">{t("trustIndicator")}</p>
+          </div>
+        </PageLayoutContainer>
 
     </section>
-
-      {/* Drive Test Package */}
-      <div id="drive-test">
-        <LeadPriceCalculator />
-      </div>
-
 
       {/* Comparison Section */}
       <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
@@ -271,7 +270,7 @@ export default function PacchettiPage() {
         <div className="absolute top-20 right-10 w-32 h-32 bg-orange/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-28 h-28 bg-sky-blue/5 rounded-full blur-3xl" />
         
-        <div className="container mx-auto px-6 relative z-10">
+        <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
               <div className="inline-flex items-center gap-2 bg-navy/10 px-4 py-2 rounded-full mb-6">
@@ -409,7 +408,7 @@ export default function PacchettiPage() {
               </div>
             </div>
           </div>
-        </div>
+        </PageLayoutContainer>
       </section>
 
       </div>
