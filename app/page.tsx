@@ -60,7 +60,7 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-navy leading-tight text-balance">
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-navy leading-tight text-balance">
                   {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
                 </h1>
 
@@ -172,7 +172,7 @@ export default function HomePage() {
               <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
                 <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
                   <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.cpc.label")}</p>
-                  <div className="mt-4 sm:mt-6 text-3xl sm:text-5xl font-semibold text-navy">{t("stats.metrics.cpc.value")}</div>
+                  <div className="mt-4 sm:mt-6 text-3xl sm:text-4xl font-semibold text-navy">{t("stats.metrics.cpc.value")}</div>
                   <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
                     {t("stats.metrics.cpc.desc")}
                   </p>
@@ -183,7 +183,7 @@ export default function HomePage() {
               <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
                 <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
                   <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.budget.label")}</p>
-                  <div className="mt-4 sm:mt-6 text-3xl sm:text-5xl font-semibold text-navy">{t("stats.metrics.budget.value")}</div>
+                  <div className="mt-4 sm:mt-6 text-3xl sm:text-4xl font-semibold text-navy">{t("stats.metrics.budget.value")}</div>
                   <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
                     {t("stats.metrics.budget.desc")}
                   </p>
@@ -194,7 +194,7 @@ export default function HomePage() {
               <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
                 <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
                   <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.leads.label")}</p>
-                  <div className="mt-4 sm:mt-6 text-3xl sm:text-5xl font-semibold text-navy">{t("stats.metrics.leads.value")}</div>
+                  <div className="mt-4 sm:mt-6 text-3xl sm:text-4xl font-semibold text-navy">{t("stats.metrics.leads.value")}</div>
                   <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
                     {t("stats.metrics.leads.desc")}
                   </p>
@@ -214,7 +214,7 @@ export default function HomePage() {
               <div className="inline-block px-4 py-1.5 bg-sky-blue/10 rounded-full mb-4 sm:px-6 sm:py-2 sm:mb-6">
                 <span className="text-xs font-semibold text-sky-blue sm:text-sm">{t("solution.badge")}</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4 sm:mb-6 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-navy mb-4 sm:mb-6 text-balance">
                 {t("solution.title")}
               </h2>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -287,7 +287,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <LayoutWrapper>
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
+              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6 text-balance">
                 {t("benefits.title")}
               </h2>
             </div>
@@ -442,7 +442,7 @@ export default function HomePage() {
               <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
                 {t("packages.badge")}
               </span>
-              <h2 className="text-4xl lg:text-5xl font-semibold text-navy leading-snug text-balance">
+              <h2 className="text-4xl lg:text-4xl font-semibold text-navy leading-snug text-balance">
                 {t("packages.title")}
               </h2>
               <p className="text-base text-gray-600">
@@ -666,7 +666,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           <LayoutWrapper>
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">{t("faq.title")}</h2>
+              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("faq.title")}</h2>
               <p className="text-xl text-gray-600">{t("faq.subtitle")}</p>
             </div>
 
@@ -717,7 +717,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6 relative z-10">
           <LayoutWrapper>
             <div className="max-w-4xl mx-auto text-center space-y-8">
-              <h2 className="text-4xl lg:text-5xl font-bold text-balance">
+              <h2 className="text-4xl lg:text-4xl font-bold text-balance">
                 {t("cta.title")}
               </h2>
               <p className="text-xl text-gray-200">

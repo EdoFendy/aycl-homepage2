@@ -47,7 +47,7 @@ export default function PacchettiPage() {
             <div className="inline-block px-6 py-2 bg-orange/10 rounded-full">
               <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold text-navy leading-tight text-balance">{t("hero.title")}</h1>
+            <h1 className="text-4xl lg:text-4xl font-bold text-navy leading-tight text-balance">{t("hero.title")}</h1>
             {/* max-w-full per dare più spazio al testo, override su mobile */}
             <p className="text-3xl text-gray-600 leading-relaxed max-w-full sm:max-w-3xl mx-auto">{t("hero.subtitle")}</p>
           </div>
@@ -277,7 +277,7 @@ export default function PacchettiPage() {
                 <Target className="w-4 h-4 text-navy" />
                 <span className="text-sm font-semibold text-navy">{t("guide.badge")}</span>
               </div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
+              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6 text-balance">
                 {t("guide.title")}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("guide.subtitle")}</p>

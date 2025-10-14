@@ -47,7 +47,7 @@ export default function ContattaciPage() {
               <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold text-navy leading-tight text-balance">
+            <h1 className="text-4xl lg:text-4xl font-bold text-navy leading-tight text-balance">
               {t.rich("hero.title", {
                 strong: (chunks) => <span className="text-orange">{chunks}</span>,
               })}
@@ -203,7 +203,7 @@ export default function ContattaciPage() {
 
         <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-bold text-balance">{t("cta.title")}</h2>
+            <h2 className="text-4xl lg:text-4xl font-bold text-balance">{t("cta.title")}</h2>
             <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link href="/pacchetti">

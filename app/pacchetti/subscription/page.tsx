@@ -169,7 +169,7 @@ export default function SubscriptionPage() {
               <Sparkles className="h-4 w-4 text-orange" />
               <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">{t("why.badge")}</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">{t("why.title")}</h2>
+            <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("why.title")}</h2>
             <p className="text-lg text-gray-600">{t("why.subtitle")}</p>
           </div>
 
@@ -324,7 +324,7 @@ export default function SubscriptionPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
               <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6"><Shield className="w-4 h-4 text-orange" /><span className="text-sm font-semibold text-orange">{t("guarantee.badge")}</span></div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6 text-balance">
+              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6 text-balance">
                 {t.rich("guarantee.title", {
                   strong: (chunks) => <span className="text-orange">{chunks}</span>,
                 })}

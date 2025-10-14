@@ -162,7 +162,7 @@ export default function SetUpFeePage() {
                 <Sparkles className="h-4 w-4 text-navy" />
                 {t("partnership.badge")}
               </div>
-              <h2 className="text-4xl font-bold text-navy md:text-5xl">{t("partnership.title")}</h2>
+              <h2 className="text-4xl font-bold text-navy md:text-4xl">{t("partnership.title")}</h2>
               <p className="text-lg text-gray-600">{t("partnership.subtitle")}</p>
             </div>
 

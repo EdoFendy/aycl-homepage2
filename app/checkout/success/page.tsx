@@ -30,7 +30,7 @@ export default function CheckoutSuccessPage() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy">
+              <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold text-navy">
                 Pagamento Completato!
               </h1>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">

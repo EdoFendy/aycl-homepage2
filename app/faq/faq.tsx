@@ -925,7 +925,7 @@ export default function FAQMasterbookPage() {
               <BookOpen className="w-4 h-4 text-navy" />
               <span className="text-sm font-medium text-gray-700">{t("header.badge")}</span>
       </PageLayoutContainer>
-            <h1 className="text-4xl lg:text-5xl font-bold text-navy leading-tight text-balance">
+            <h1 className="text-4xl lg:text-4xl font-bold text-navy leading-tight text-balance">
               {t.rich("header.title", {
                 strong: (chunks) => <span className="text-orange">{chunks}</span>,
               })}
