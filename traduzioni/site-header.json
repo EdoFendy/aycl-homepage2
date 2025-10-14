@@ -28,6 +28,8 @@
       "open": "Apri",
       "packages": "Pacchetti",
       "packagesCta": "Scopri i nostri pacchetti ",
+      "outreach": "Come Funziona",
+      "outreachCta": "Come funziona il metodo AYCL",
       "payNow": "Pagamento online",
       "payNowCta": "Completa l'acquisto",
       "contact": "Contattaci ora",
@@ -44,6 +46,7 @@
       "subscription": "Subscription",
       "performance": "Performance",
       "setup": "Set-Up Fee",
+      "outreach": "Come Funziona",
       "payment": "Pagamento",
       "home": "Home",
       "contact": "Contattaci"
@@ -78,6 +81,8 @@
       "open": "Open",
       "packages": "Packages",
       "packagesCta": "Discover our packages ",
+      "outreach": "How It Works",
+      "outreachCta": "How the AYCL method works",
       "payNow": "Online payment",
       "payNowCta": "Complete your purchase",
       "contact": "Contact us now",
@@ -94,6 +99,7 @@
       "subscription": "Subscription",
       "performance": "Performance",
       "setup": "Set-Up Fee",
+      "outreach": "How It Works",
       "payment": "Payment",
       "home": "Home",
       "contact": "Contact"
@@ -128,6 +134,8 @@
       "open": "Abrir",
       "packages": "Paquetes",
       "packagesCta": "Descubre nuestros paquetes ",
+      "outreach": "Cómo Funciona",
+      "outreachCta": "Cómo funciona el método AYCL",
       "payNow": "Pago en línea",
       "payNowCta": "Completa tu compra",
       "contact": "Contáctanos ahora",
@@ -144,11 +152,11 @@
       "subscription": "Suscripción",
       "performance": "Rendimiento",
       "setup": "Cuota de configuración",
+      "outreach": "Cómo Funciona",
       "payment": "Pago",
       "home": "Inicio",
       "contact": "Contáctanos"
     }
   }
 }
-
 

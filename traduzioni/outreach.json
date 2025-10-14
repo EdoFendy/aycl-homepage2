@@ -1,0 +1,390 @@
+{
+  "it": {
+    "hero": {
+      "eyebrow": "Come Funziona AYCL",
+      "title": "Come funziona: da esigenza interna a metodo collaudato",
+      "paragraphs": [
+        "Come abbiamo raccontato, All You Can Leads nasce per rispondere a un'esigenza reale.",
+        "Avevamo bisogno di entrare in contatto diretto con potenziali clienti B2B per le nostre attività.",
+        "Con il tempo ci siamo accorti che le fonti di traffico a pagamento non bastavano più.",
+        "Le performance erano in calo, i costi in crescita e la possibilità di raggiungere aziende realmente in target sempre più limitata.",
+        "Abbiamo fatto un passo indietro e rivalutato il concetto di outreach, trasformandolo in un sistema strutturato, scalabile e misurabile.",
+        "Oggi lo usiamo per generare appuntamenti qualificati per noi e per i nostri clienti."
+      ],
+      "cta": {
+        "primary": "Prenota una call con il team",
+        "secondary": "Scopri i pacchetti AYCL"
+      }
+    },
+    "principle": {
+      "title": "Dal traffico al contatto reale",
+      "paragraphs": [
+        "Questo è il concetto alla base dell'outreach, nulla di più e nulla di meno.",
+        "La vera differenza risiede nel modo di applicare questo semplice principio.",
+        "Per anni l'outreach tradizionale è stato uno dei pilastri delle vendite B2B.",
+        "Ma il mercato si è saturato, i canali sono diventati più competitivi e gli approcci standard non bastano più.",
+        "Per emergere serve una strategia capace di integrare i canali, leggere i dati e adattarsi in tempo reale."
+      ]
+    },
+    "ai": {
+      "title": "Multicanale e AI: la combinazione che cambia le regole",
+      "quotes": [
+        {
+          "text": "La combinazione multicanale di email, LinkedIn e chiamate telefoniche permette di aumentare il tasso di risposta fino al 40% e di ridurre il costo per lead del 31% rispetto alle campagne a canale singolo.",
+          "source": "2025 Lead Generation Trends That Are Changing B2B Sales",
+          "author": "Martal Group",
+          "linkLabel": "martal.ca"
+        },
+        {
+          "text": "Le aziende che hanno integrato sistemi di intelligenza artificiale nei processi di marketing B2B registrano in media un +35% di efficienza e un +45% nel tasso di conversione dei lead qualificati.",
+          "source": "Report Marketing B2B 2025",
+          "author": "JoeFontana.it",
+          "linkLabel": "joefontana.it"
+        },
+        {
+          "text": "Una riduzione nel tempo di risposta alle richieste può aumentare il tasso di conversione delle vendite fino al 10-15%, poiché i lead vengono contattati quando l'interesse è più alto.",
+          "source": "AI Customer Service Statistics 2025",
+          "author": "Desk365.io",
+          "linkLabel": "desk365.io"
+        }
+      ]
+    },
+    "architecture": {
+      "title": "Dall'esperienza alla struttura",
+      "paragraphs": [
+        "Abbiamo capito che una comunicazione multicanale, supportata dall'AI, porta risultati nettamente superiori.",
+        "Su questa base abbiamo costruito la nostra infrastruttura tecnologica proprietaria e sviluppato banche dati uniche, in costante aggiornamento.",
+        "Oggi ogni campagna che gestiamo si fonda su un principio semplice: raggiungere le persone giuste, nel momento giusto, con il messaggio giusto.",
+        "Da qui nasce il nostro sistema: un ecosistema in cui tecnologia, AI e competenza umana si integrano per trasformare dati in conversazioni reali e conversazioni in opportunità."
+      ]
+    },
+    "comparison": {
+      "title": "Outreach tradizionale vs All You Can Leads",
+      "subtitle": "Due approcci, due risultati: cosa cambia quando l'outreach diventa un sistema.",
+      "aspectLabel": "Aspetto",
+      "columns": {
+        "traditional": "Outreach tradizionale",
+        "aycl": "All You Can Leads"
+      },
+      "rows": [
+        {
+          "aspect": "Canali utilizzati",
+          "traditional": "Basato su un solo canale (email o chiamate).",
+          "aycl": "Integrazione strutturata di email, LinkedIn, chiamate e messaggi."
+        },
+        {
+          "aspect": "Obiettivo principale",
+          "traditional": "Inviare messaggi in massa per ottenere risposte.",
+          "aycl": "Creare conversazioni mirate che generano appuntamenti qualificati."
+        },
+        {
+          "aspect": "Gestione dei dati",
+          "traditional": "Database spesso statici o poco aggiornati.",
+          "aycl": "Database proprietari costantemente arricchiti e ottimizzati."
+        },
+        {
+          "aspect": "Personalizzazione",
+          "traditional": "Limitata o assente; messaggi standardizzati.",
+          "aycl": "Personalizzazione profonda su tono, tempi e canali di contatto."
+        },
+        {
+          "aspect": "Uso della tecnologia",
+          "traditional": "Automazione semplice (invio massivo).",
+          "aycl": "AI integrata per ottimizzare tempi, risposte e targeting."
+        },
+        {
+          "aspect": "Apprendimento e miglioramento",
+          "traditional": "Poche metriche di ritorno e ottimizzazione lenta.",
+          "aycl": "Testing continuo e apprendimento progressivo basato sui dati."
+        },
+        {
+          "aspect": "Tempestività",
+          "traditional": "Risposte lente o manuali, con rischio di perdita d'interesse.",
+          "aycl": "Risposte rapide grazie all'automazione intelligente e alla gestione in tempo reale."
+        },
+        {
+          "aspect": "Ruolo dell'essere umano",
+          "traditional": "Esecuzione ripetitiva e spesso non strategica.",
+          "aycl": "Supervisione, strategia e comunicazione empatica nei momenti chiave."
+        },
+        {
+          "aspect": "Risultato tipico",
+          "traditional": "Bassa efficienza e alto tasso di disinteresse.",
+          "aycl": "Aumento del tasso di risposta (+40%) e riduzione del costo per lead (-31%)."
+        },
+        {
+          "aspect": "Visione complessiva",
+          "traditional": "Azione tattica, a breve termine.",
+          "aycl": "Ecosistema dinamico che cresce nel tempo, orientato al risultato."
+        }
+      ]
+    },
+    "application": {
+      "title": "Come lo applichiamo noi",
+      "paragraphs": [
+        "Abbiamo trasformato l'outreach in un sistema strutturato, scalabile e tracciabile.",
+        "Non è un insieme di azioni isolate, ma un ecosistema che unisce tecnologia, dati e intelligenza commerciale."
+      ]
+    },
+    "sendura": {
+      "title": "Sendura: la piattaforma che trasforma dati in appuntamenti qualificati",
+      "intro": "Alla base di tutto c'è Sendura, la nostra piattaforma proprietaria. È il cuore operativo del sistema All You Can Leads: ci permette di gestire ogni campagna multicanale, intersecare i flussi di contatto e monitorare in tempo reale ciò che accade.",
+      "bullets": [
+        "Combinare email, LinkedIn, chiamate e messaggi all'interno di una logica coerente.",
+        "Monitorare metriche di engagement e risposta su ogni canale.",
+        "Testare e ottimizzare costantemente approcci, messaggi e tempi di contatto.",
+        "Tradurre i dati in insight utili per fissare appuntamenti reali con decision maker qualificati."
+      ],
+      "closing": "In altre parole, Sendura trasforma il database in pipeline attiva, in modo misurabile, trasparente e scalabile."
+    },
+    "learning": {
+      "title": "Testing continuo e apprendimento progressivo",
+      "paragraphs": [
+        "Ogni campagna che gestiamo è parte di un ciclo di apprendimento. Analizziamo ogni messaggio, ogni risposta, ogni tasso di conversione per capire cosa funziona davvero e perché."
+      ],
+      "bullets": [
+        "Individuare i pattern di comportamento del target.",
+        "Affinare tono, linguaggio e sequenza dei messaggi.",
+        "Migliorare progressivamente la performance di ogni nuova campagna."
+      ],
+      "closing": "È un processo vivo, che evolve nel tempo: più dati raccogliamo, più le strategie diventano affilate."
+    },
+    "personalization": {
+      "title": "Personalizzazione: ogni cliente, una strategia diversa",
+      "intro": "Ogni azienda ha obiettivi, linguaggio e target diversi. Per questo motivo, ogni nostro progetto parte da un'analisi accurata del contesto: settore, dimensioni, area geografica e stile comunicativo.",
+      "bullets": [
+        "Canali più adatti.",
+        "Frequenza dei touchpoint.",
+        "Tono della comunicazione.",
+        "Struttura della sequenza."
+      ],
+      "closing": "L'obiettivo non è mai inviare di più, ma inviare meglio, raggiungendo le persone giuste nel modo giusto."
+    },
+    "humanAi": {
+      "title": "L'unione tra tecnologia e intelligenza umana",
+      "intro": "In un contesto di sviluppo sempre più veloce, crediamo nell'unione tra AI e competenza umana.",
+      "aiLabel": "L'AI ci aiuta a:",
+      "aiList": [
+        "Gestire grandi volumi di dati.",
+        "Rispondere in modo tempestivo.",
+        "Riconoscere pattern e ottimizzare i tempi di contatto."
+      ],
+      "humanLabel": "L'intelligenza umana interviene quando serve:",
+      "humanList": [
+        "Progettazione strategica.",
+        "Lettura del contesto.",
+        "Gestione delle risposte complesse.",
+        "Creazione di relazioni di valore."
+      ],
+      "closing": "Il nostro metodo è ibrido per scelta: la tecnologia accelera, l'esperienza guida."
+    },
+    "ecosystem": {
+      "title": "Un ecosistema in costante evoluzione",
+      "paragraphs": [
+        "Sendura registra ogni dato, insight e risultato, permettendoci di evolvere il nostro ecosistema in modo continuo.",
+        "Lavoriamo su tre livelli complementari."
+      ],
+      "levels": [
+        "Tecnologia, per migliorare velocità e precisione.",
+        "Strategia, per adattare il modello a ogni settore e mercato.",
+        "Esperienza umana, per dare senso e direzione ai dati."
+      ],
+      "closing": "Questo equilibrio ci permette di garantire risultati misurabili oggi e miglioramenti costanti nel tempo."
+    },
+    "microcopy": "Il nostro obiettivo non è riempire le inbox dei prospect, ma riempire le agende dei nostri clienti. Ogni dato, messaggio e contatto costruisce connessioni reali che generano opportunità di business."
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "How AYCL Works",
+      "title": "How it works: from internal need to proven method",
+      "paragraphs": [
+        "As we have shared, All You Can Leads was born to respond to a real need.",
+        "We needed direct conversations with potential B2B customers for our own ventures.",
+        "Over time we realised paid traffic sources were no longer enough.",
+        "Performance was falling, costs were rising and our ability to reach truly targeted companies kept shrinking.",
+        "We stepped back and re-evaluated outreach, turning it into a structured, scalable and measurable system.",
+        "Today we use it to generate qualified appointments for ourselves and for our clients."
+      ],
+      "cta": {
+        "primary": "Book a call with the team",
+        "secondary": "Explore AYCL packages"
+      }
+    },
+    "principle": {
+      "title": "From traffic to real contact",
+      "paragraphs": [
+        "That is the core concept behind outreach, nothing more and nothing less.",
+        "The real difference lies in the way you apply this simple principle.",
+        "For years, traditional outreach was one of the pillars of B2B sales.",
+        "But the market became saturated, channels turned more competitive and standard approaches stopped working.",
+        "To stand out you need a strategy that integrates channels, reads data and adapts in real time."
+      ]
+    },
+    "ai": {
+      "title": "Multichannel and AI: the combination that changes the rules",
+      "quotes": [
+        {
+          "text": "The multichannel combination of email, LinkedIn and phone calls can boost response rates by up to 40% and cut cost per lead by 31% compared with single-channel campaigns.",
+          "source": "2025 Lead Generation Trends That Are Changing B2B Sales",
+          "author": "Martal Group",
+          "linkLabel": "martal.ca"
+        },
+        {
+          "text": "Companies that integrate AI systems into their B2B marketing processes record on average +35% efficiency and +45% conversion on qualified leads.",
+          "source": "B2B Marketing Report 2025",
+          "author": "JoeFontana.it",
+          "linkLabel": "joefontana.it"
+        },
+        {
+          "text": "Reducing response time to enquiries can increase sales conversion by 10-15%, because leads are contacted when their interest is highest.",
+          "source": "AI Customer Service Statistics 2025",
+          "author": "Desk365.io",
+          "linkLabel": "desk365.io"
+        }
+      ]
+    },
+    "architecture": {
+      "title": "From experience to structure",
+      "paragraphs": [
+        "We learned that multichannel communication supported by AI delivers far better results.",
+        "On that foundation we built our proprietary technology infrastructure and developed unique databases that are constantly updated.",
+        "Today every campaign we manage follows one simple principle: reach the right people, at the right moment, with the right message.",
+        "This is where our system comes from: an ecosystem where technology, AI and human expertise combine to turn data into real conversations and conversations into opportunities."
+      ]
+    },
+    "comparison": {
+      "title": "Traditional outreach vs All You Can Leads",
+      "subtitle": "Two approaches, two outcomes: what changes when outreach becomes a system.",
+      "aspectLabel": "Aspect",
+      "columns": {
+        "traditional": "Traditional outreach",
+        "aycl": "All You Can Leads"
+      },
+      "rows": [
+        {
+          "aspect": "Channels used",
+          "traditional": "Single-channel focus (email or calls).",
+          "aycl": "Structured integration of email, LinkedIn, calls and messaging."
+        },
+        {
+          "aspect": "Primary goal",
+          "traditional": "Send mass messages to obtain replies.",
+          "aycl": "Create targeted conversations that generate qualified appointments."
+        },
+        {
+          "aspect": "Data management",
+          "traditional": "Databases often static or rarely updated.",
+          "aycl": "Proprietary databases constantly enriched and optimised."
+        },
+        {
+          "aspect": "Personalisation",
+          "traditional": "Limited or absent; standardised messages.",
+          "aycl": "Deep personalisation across tone, timing and contact channels."
+        },
+        {
+          "aspect": "Use of technology",
+          "traditional": "Simple automation focused on mass sending.",
+          "aycl": "Integrated AI to optimise timing, responses and targeting."
+        },
+        {
+          "aspect": "Learning and improvement",
+          "traditional": "Few return metrics and slow optimisation.",
+          "aycl": "Continuous testing and progressive learning driven by data."
+        },
+        {
+          "aspect": "Timeliness",
+          "traditional": "Slow or manual replies, risking loss of interest.",
+          "aycl": "Fast responses thanks to intelligent automation and real-time management."
+        },
+        {
+          "aspect": "Role of people",
+          "traditional": "Repetitive execution, rarely strategic.",
+          "aycl": "Supervision, strategy and empathetic communication at key moments."
+        },
+        {
+          "aspect": "Typical outcome",
+          "traditional": "Low efficiency and high drop-off.",
+          "aycl": "Higher response rate (+40%) and lower cost per lead (-31%)."
+        },
+        {
+          "aspect": "Overall vision",
+          "traditional": "Tactical, short-term actions.",
+          "aycl": "Dynamic ecosystem that compounds over time and stays outcome-driven."
+        }
+      ]
+    },
+    "application": {
+      "title": "How we apply it",
+      "paragraphs": [
+        "We turned outreach into a structured, scalable and trackable system.",
+        "It is not a set of isolated actions but an ecosystem that unites technology, data and commercial intelligence."
+      ]
+    },
+    "sendura": {
+      "title": "Sendura: the platform that turns data into qualified appointments",
+      "intro": "Everything starts with Sendura, our proprietary platform. It is the operational core of the All You Can Leads system: it lets us run every multichannel campaign, intersect contact flows and monitor in real time what is happening.",
+      "bullets": [
+        "Combine email, LinkedIn, calls and messaging within a coherent journey.",
+        "Monitor engagement and response metrics on every channel.",
+        "Continuously test and optimise approaches, messages and timing.",
+        "Turn data into insights that secure real meetings with qualified decision makers."
+      ],
+      "closing": "In other words, Sendura activates the database into a live pipeline that is measurable, transparent and scalable."
+    },
+    "learning": {
+      "title": "Continuous testing and progressive learning",
+      "paragraphs": [
+        "Every campaign we run feeds a learning cycle. We analyse each message, reply and conversion rate to understand what truly works and why."
+      ],
+      "bullets": [
+        "Spot behavioural patterns inside the target.",
+        "Refine tone, language and sequencing.",
+        "Progressively improve the performance of each new campaign."
+      ],
+      "closing": "It is a living process that evolves over time: the more data we gather, the sharper the strategies become."
+    },
+    "personalization": {
+      "title": "Personalisation: every client, a different strategy",
+      "intro": "Each company has its own goals, language and target. That is why every project begins with an in-depth context analysis: industry, size, geography and communication style.",
+      "bullets": [
+        "Most effective channels.",
+        "Touchpoint frequency.",
+        "Tone of voice.",
+        "Sequence architecture."
+      ],
+      "closing": "The goal is never to send more, but to send better by reaching the right people in the right way."
+    },
+    "humanAi": {
+      "title": "Where technology meets human intelligence",
+      "intro": "In an environment that evolves faster every day, we believe in the synergy between AI and human expertise.",
+      "aiLabel": "AI helps us:",
+      "aiList": [
+        "Handle large volumes of data.",
+        "Reply promptly.",
+        "Detect patterns and optimise contact timing."
+      ],
+      "humanLabel": "Human intelligence steps in to:",
+      "humanList": [
+        "Design the strategy.",
+        "Read the context.",
+        "Manage complex replies.",
+        "Build meaningful relationships."
+      ],
+      "closing": "Our method is hybrid by design: technology accelerates, experience leads."
+    },
+    "ecosystem": {
+      "title": "An ecosystem in constant evolution",
+      "paragraphs": [
+        "Sendura records every data point, insight and result, allowing us to evolve the ecosystem continuously.",
+        "We operate on three complementary levels."
+      ],
+      "levels": [
+        "Technology, to enhance speed and precision.",
+        "Strategy, to adapt the model to each industry and market.",
+        "Human experience, to give data meaning and direction."
+      ],
+      "closing": "This balance lets us guarantee measurable outcomes today and continuous improvements over time."
+    },
+    "microcopy": "Our goal is not to flood prospect inboxes, but to fill our clients' calendars. Every data point, message and touchpoint is designed to build real connections that unlock business opportunities."
+  }
+}

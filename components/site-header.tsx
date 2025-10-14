@@ -293,7 +293,29 @@ export function SiteHeader() {
                         </span>
                         <span className="text-xs text-gray-500">{t("rightCol.packagesCta")}</span>
                       </Link>
-  
+
+                      <Link
+                        href="/outreach"
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "mb-1 flex items-center justify-between rounded-lg bg-white/85 px-3 py-2 transition hover:shadow-md sm:rounded-xl sm:px-4 sm:py-3",
+                          BORDER_DARK,
+                          isActive("/outreach") && "ring-1 ring-navy/30",
+                        )}
+                      >
+                        <span className="flex items-start gap-2 sm:gap-3">
+                          <Image
+                            src="/iconaStrategia.png"
+                            alt={t("alt.outreach")}
+                            width={32}
+                            height={32}
+                            className="h-6 w-6 flex-shrink-0 align-top object-contain sm:h-8 sm:w-8"
+                          />
+                          <span className="text-sm font-medium text-gray-800 sm:text-base">{t("rightCol.outreach")}</span>
+                        </span>
+                        <span className="text-xs text-gray-500">{t("rightCol.outreachCta")}</span>
+                      </Link>
+
                       
                       <Link
                         href="/contattaci"

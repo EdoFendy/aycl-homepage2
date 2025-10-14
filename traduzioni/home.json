@@ -93,43 +93,43 @@
     "process": {
       "badge": "Il protocollo AYCL",
       "title": "In cosa consiste il sistema All You Can Leads",
-      "subtitle": "Tre passaggi chiari e ripetibili per portare il tuo team davanti alle persone che decidono.",
+      "subtitle": "Tre fasi operative per generare conversazioni reali e appuntamenti con i decisori giusti.",
       "steps": {
         "icp": {
           "label": "Fondamenta",
           "title": "Definizione dell'ICP",
-          "desc": "Allineiamo il profilo del cliente ideale su criteri condivisi: settore, dimensioni, ruolo, trigger d'acquisto."
+          "desc": "Il primo passo è individuare il profilo del tuo cliente ideale, in base a fattori oggettivi e verificabili. In questo modo stabiliamo i parametri di qualifica dell’appuntamento. Solo se il lead corrisponde all’ICP l’appuntamento è considerato qualificato."
         },
         "strategy": {
           "label": "Attivazione",
           "title": "Piano strategico",
-          "desc": "Sequenze multicanale con copy personalizzati, costruite su dati proprietari e monitorate con Sendura."
+          "desc": "Ci confrontiamo per mettere a punto una strategia personalizzata. Definiamo i canali e i messaggi, selezioniamo e segmentiamo i contatti in target direttamente dal nostro database. Avviamo, monitoriamo e ottimizziamo per raggiungere e mantenere la massima efficienza."
         },
         "quality": {
           "label": "Regime",
-          "title": "Controllo qualità",
-          "desc": "Appuntamenti confermati, dashboard condivisa e ottimizzazione continua sul feedback del tuo team."
+          "title": "Messa a regime",
+          "desc": "Dopo un primo periodo di testing (massimo 90 giorni) raggiungiamo l’efficienza operativa. Generiamo per te il flusso di opportunità concordato e continuiamo a confrontarci per ottenere risultati sempre migliori nel tempo."
         }
       }
     },
     "packages": {
       "badge": "Pacchetti su misura",
       "title": "Scopri il pacchetto giusto per la tua azienda",
-      "subtitle": "Tre percorsi modulari pensati per accompagnarti dall'idea al salto di scala. Ogni pacchetto include metriche trasparenti, supporto operativo e focus sui decision maker che contano.",
+      "subtitle": "Tre modelli base di collaborazione, pensati per aziende con possibilità e scopi diversi. Ognuno con l’obiettivo di riempirti l’agenda di appuntamenti qualificati.",
       "setup": {
         "badge": "Partnership Elite",
         "revShare": "Revenue Share",
         "title": "Set-Up Fee + Revenue Share",
-        "desc": "Per aziende ambiziose che puntano a scalare con obiettivi condivisi sul fatturato. Vinciamo insieme, cresciamo insieme.",
+        "desc": "Per aziende pronte a scalare. La tua crescita è la nostra vittoria.",
         "strategy": "Strategia & Execution",
         "partnership": "Partnership & Risultati",
         "features": {
-          "customStrategy": "Strategia su misura per mercati complessi e buyer multi-stakeholder",
-          "dedicatedTeam": "Team cross-funzionale dedicato: marketing ops, SDR e data specialist",
-          "automation": "Automazione completa del processo di lead generation",
-          "revenueShare": "Revenue share: vinciamo solo se cresci anche tu",
-          "priorityAccess": "Accesso prioritario a nuove funzionalità e beta testing",
-          "advisoryBoard": "Advisory board trimestrale con i founder"
+          "customStrategy": "Unico pagamento, zero costi fissi",
+          "dedicatedTeam": "Garanzia di fatturato generato",
+          "automation": "Il nostro guadagno dipende dal vostro",
+          "revenueShare": "Campagne e ICP senza limiti",
+          "priorityAccess": "Road-map strategica condivisa",
+          "advisoryBoard": "Personalizzazione completa"
         },
         "cta": "Contattaci ora",
         "ideal": "💼 Ideale per aziende B2B con ACV > €10k"
@@ -138,28 +138,29 @@
         "badge": "Kickstart",
         "setup": "⚡ Setup in 7 giorni",
         "title": "Performance",
-        "desc": "Per iniziare in sicurezza e validare rapidamente il modello AYCL con zero rischi upfront.",
+        "desc": "Per generare subito appuntamenti qualificati e pagare solo quelli che svolgi.",
         "pricing": {
           "label": "Modello di pricing",
           "desc": "💰 Paghi solo per risultati concreti: nessun costo fisso, solo appuntamenti qualificati svolti"
         },
         "features": {
-          "onboarding": "Onboarding dedicato e audit sul processo commerciale attuale",
-          "payPerResult": "Paghi solo gli appuntamenti qualificati effettivamente svolti",
-          "reporting": "Reportistica settimanale e ottimizzazioni continue",
-          "testing": "Test A/B su messaging e target audience"
+          "onboarding": "Valido solo come Access Pack",
+          "payPerResult": "Quota per appuntamento",
+          "reporting": "Avvio immediato della campagna",
+          "testing": "Un anno di collaborazione"
         },
         "cta": "Contattaci ora"
       },
       "subscription": {
         "badge": "Scale",
         "title": "Subscription",
-        "desc": "Per team commerciali che vogliono continuità e volumi prevedibili.",
+        "desc": "Per aziende con team commerciale, volume di appuntamenti stabile e prevedibile.",
         "pricing": "📅 Canone mensile fisso",
         "features": {
-          "guaranteed": "Agenda di meeting qualificati garantita ogni mese",
-          "manager": "Account manager dedicato e dashboard KPI real-time",
-          "meetings": "Riunioni strategiche mensili"
+          "guaranteed": "Abbonamento per la crescita aziendale",
+          "manager": "Range di appuntamenti garantito ogni mese",
+          "meetings": "Possibilità di recesso in qualunque momento",
+          "refund": "Garanzia di rimborso completa (90 giorni)"
         },
         "cta": "Contattaci ora"
       },
@@ -281,43 +282,43 @@
     "process": {
       "badge": "The AYCL protocol",
       "title": "What the All You Can Leads system consists of",
-      "subtitle": "Three clear and repeatable steps to bring your team in front of the people who decide.",
+      "subtitle": "Three operational phases to spark real conversations and book meetings with the right decision makers.",
       "steps": {
         "icp": {
           "label": "Foundations",
           "title": "ICP Definition",
-          "desc": "We align the ideal customer profile on shared criteria: sector, size, role, purchase triggers."
+          "desc": "We start by defining your ideal customer profile using objective, verifiable factors. This sets the qualification criteria for every meeting. Only when the lead matches the ICP do we consider the appointment qualified."
         },
         "strategy": {
           "label": "Activation",
           "title": "Strategic plan",
-          "desc": "Multi-channel sequences with personalized copy, built on proprietary data and monitored with Sendura."
+          "desc": "Together we build a tailored strategy. We define channels and messaging, select and segment contacts directly from our database, then launch, monitor and optimise to reach peak efficiency."
         },
         "quality": {
           "label": "Regime",
-          "title": "Quality control",
-          "desc": "Confirmed appointments, shared dashboard and continuous optimization on your team's feedback."
+          "title": "Operational ramp-up",
+          "desc": "After a testing window (max 90 days) we reach full operational efficiency. We deliver the agreed opportunity flow and keep iterating with you to unlock even better results over time."
         }
       }
     },
     "packages": {
       "badge": "Custom packages",
       "title": "Discover the right package for your company",
-      "subtitle": "Three modular paths designed to accompany you from idea to scale jump. Each package includes transparent metrics, operational support and focus on decision makers that matter.",
+      "subtitle": "Three core collaboration models for companies with different ambitions and resources. Each one is built to fill your calendar with qualified meetings.",
       "setup": {
         "badge": "Elite Partnership",
         "revShare": "Revenue Share",
         "title": "Set-Up Fee + Revenue Share",
-        "desc": "For ambitious companies that aim to scale with shared revenue objectives. We win together, we grow together.",
+        "desc": "For companies ready to scale. Your growth is our win.",
         "strategy": "Strategy & Execution",
         "partnership": "Partnership & Results",
         "features": {
-          "customStrategy": "Custom strategy for complex markets and multi-stakeholder buyers",
-          "dedicatedTeam": "Dedicated cross-functional team: marketing ops, SDR and data specialist",
-          "automation": "Complete automation of the lead generation process",
-          "revenueShare": "Revenue share: we only win if you grow too",
-          "priorityAccess": "Priority access to new features and beta testing",
-          "advisoryBoard": "Quarterly advisory board with founders"
+          "customStrategy": "Single upfront fee, zero fixed costs",
+          "dedicatedTeam": "Guaranteed revenue generation",
+          "automation": "Our upside depends on yours",
+          "revenueShare": "Unlimited campaigns and ICPs",
+          "priorityAccess": "Shared strategic roadmap",
+          "advisoryBoard": "Full customisation"
         },
         "cta": "Contact us now",
         "ideal": "💼 Ideal for B2B companies with ACV > €10k"
@@ -326,28 +327,29 @@
         "badge": "Kickstart",
         "setup": "⚡ Setup in 7 days",
         "title": "Performance",
-        "desc": "To start safely and quickly validate the AYCL model with zero upfront risks.",
+        "desc": "Designed to generate qualified meetings fast and pay only the ones you attend.",
         "pricing": {
           "label": "Pricing model",
           "desc": "💰 You only pay for concrete results: no fixed costs, only qualified appointments held"
         },
         "features": {
-          "onboarding": "Dedicated onboarding and audit on current sales process",
-          "payPerResult": "You only pay for qualified appointments actually held",
-          "reporting": "Weekly reporting and continuous optimizations",
-          "testing": "A/B testing on messaging and target audience"
+          "onboarding": "Access Pack only",
+          "payPerResult": "Per-appointment pricing",
+          "reporting": "Campaign live straight away",
+          "testing": "One-year collaboration"
         },
         "cta": "Contact us now"
       },
       "subscription": {
         "badge": "Scale",
         "title": "Subscription",
-        "desc": "For sales teams that want continuity and predictable volumes.",
+        "desc": "For companies with sales teams and a steady, predictable meeting volume.",
         "pricing": "📅 Fixed monthly fee",
         "features": {
-          "guaranteed": "Guaranteed qualified meeting agenda every month",
-          "manager": "Dedicated account manager and real-time KPI dashboard",
-          "meetings": "Monthly strategic meetings"
+          "guaranteed": "Growth subscription for your company",
+          "manager": "Guaranteed appointment range every month",
+          "meetings": "Cancel whenever you need",
+          "refund": "Full refund guarantee (90 days)"
         },
         "cta": "Contact us now"
       },
@@ -469,43 +471,43 @@
     "process": {
       "badge": "El protocolo AYCL",
       "title": "En qué consiste el sistema All You Can Leads",
-      "subtitle": "Tres pasos claros y repetibles para llevar a tu equipo frente a las personas que deciden.",
+      "subtitle": "Tres fases operativas para generar conversaciones reales y citas con los decisores correctos.",
       "steps": {
         "icp": {
           "label": "Fundamentos",
           "title": "Definición del ICP",
-          "desc": "Alineamos el perfil del cliente ideal en criterios compartidos: sector, tamaño, rol, disparadores de compra."
+          "desc": "El primer paso es identificar el perfil de tu cliente ideal, basándonos en factores objetivos y verificables. Así fijamos los parámetros para calificar una cita. Solo si el lead corresponde al ICP la cita se considera cualificada."
         },
         "strategy": {
           "label": "Activación",
           "title": "Plan estratégico",
-          "desc": "Secuencias multicanal con copy personalizado, construidas sobre datos propietarios y monitoreadas con Sendura."
+          "desc": "Nos alineamos contigo para diseñar una estrategia personalizada. Definimos canales y mensajes, seleccionamos y segmentamos los contactos en target directamente desde nuestra base de datos. Lanzamos, monitorizamos y optimizamos para mantener la máxima eficiencia."
         },
         "quality": {
           "label": "Régimen",
-          "title": "Control de calidad",
-          "desc": "Citas confirmadas, panel compartido y optimización continua sobre el feedback de tu equipo."
+          "title": "Puesta en régimen",
+          "desc": "Tras un periodo inicial de testing (máximo 90 días) alcanzamos la eficiencia operativa. Generamos el flujo de oportunidades acordado y seguimos iterando contigo para lograr resultados cada vez mejores."
         }
       }
     },
     "packages": {
       "badge": "Paquetes a medida",
       "title": "Descubre el paquete adecuado para tu empresa",
-      "subtitle": "Tres caminos modulares diseñados para acompañarte desde la idea hasta el salto de escala. Cada paquete incluye métricas transparentes, soporte operativo y enfoque en los tomadores de decisiones que importan.",
+      "subtitle": "Tres modelos básicos de colaboración, pensados para empresas con necesidades y objetivos distintos. Todos con la meta de llenarte la agenda de citas cualificadas.",
       "setup": {
         "badge": "Asociación Elite",
         "revShare": "Participación en Ingresos",
         "title": "Cuota de Configuración + Participación en Ingresos",
-        "desc": "Para empresas ambiciosas que apuntan a escalar con objetivos compartidos en facturación. Ganamos juntos, crecemos juntos.",
+        "desc": "Para empresas listas para escalar. Tu crecimiento es nuestra victoria.",
         "strategy": "Estrategia y Ejecución",
         "partnership": "Asociación y Resultados",
         "features": {
-          "customStrategy": "Estrategia a medida para mercados complejos y compradores multi-stakeholder",
-          "dedicatedTeam": "Equipo cross-funcional dedicado: marketing ops, SDR y especialista en datos",
-          "automation": "Automatización completa del proceso de generación de leads",
-          "revenueShare": "Participación en ingresos: solo ganamos si tú también creces",
-          "priorityAccess": "Acceso prioritario a nuevas funcionalidades y pruebas beta",
-          "advisoryBoard": "Junta asesora trimestral con los fundadores"
+          "customStrategy": "Pago único, cero costes fijos",
+          "dedicatedTeam": "Garantía de facturación generada",
+          "automation": "Nuestra ganancia depende de la vuestra",
+          "revenueShare": "Campañas e ICP ilimitados",
+          "priorityAccess": "Hoja de ruta estratégica compartida",
+          "advisoryBoard": "Personalización total"
         },
         "cta": "Contáctanos ahora",
         "ideal": "💼 Ideal para empresas B2B con ACV > €10k"
@@ -514,28 +516,29 @@
         "badge": "Kickstart",
         "setup": "⚡ Configuración en 7 días",
         "title": "Rendimiento",
-        "desc": "Para comenzar de forma segura y validar rápidamente el modelo AYCL con cero riesgos iniciales.",
+        "desc": "Para generar citas cualificadas de inmediato y pagar solo las que realizas.",
         "pricing": {
           "label": "Modelo de precios",
           "desc": "💰 Solo pagas por resultados concretos: sin costos fijos, solo citas cualificadas realizadas"
         },
         "features": {
-          "onboarding": "Onboarding dedicado y auditoría del proceso comercial actual",
-          "payPerResult": "Solo pagas las citas cualificadas efectivamente realizadas",
-          "reporting": "Reportes semanales y optimizaciones continuas",
-          "testing": "Pruebas A/B en mensajería y audiencia objetivo"
+          "onboarding": "Válido solo como Access Pack",
+          "payPerResult": "Cuota por cita",
+          "reporting": "Arranque inmediato de la campaña",
+          "testing": "Un año de colaboración"
         },
         "cta": "Contáctanos ahora"
       },
       "subscription": {
         "badge": "Escala",
         "title": "Suscripción",
-        "desc": "Para equipos comerciales que quieren continuidad y volúmenes predecibles.",
+        "desc": "Para empresas con equipo comercial y un volumen de citas estable y predecible.",
         "pricing": "📅 Cuota mensual fija",
         "features": {
-          "guaranteed": "Agenda de reuniones cualificadas garantizada cada mes",
-          "manager": "Gerente de cuenta dedicado y panel de KPI en tiempo real",
-          "meetings": "Reuniones estratégicas mensuales"
+          "guaranteed": "Suscripción para hacer crecer tu empresa",
+          "manager": "Rango de citas garantizado cada mes",
+          "meetings": "Posibilidad de cancelar en cualquier momento",
+          "refund": "Garantía de reembolso completa (90 días)"
         },
         "cta": "Contáctanos ahora"
       },

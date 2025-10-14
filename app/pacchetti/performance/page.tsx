@@ -311,8 +311,8 @@ export default function PerformancePage() {
                 {/* Desktop version - orizzontale */}
                 <div className="hidden sm:block">
                   <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-8">
-                    <span>Accendi il sistema</span>
-                    <span>Spingi sulle vendite</span>
+                    <span>Spesa quotidiana</span>
+                    <span>Investimento annuale</span>
                   </div>
 
                   <div className="relative mt-8 pt-12 pb-6">
@@ -387,66 +387,54 @@ export default function PerformancePage() {
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Ogni 14 giorni saldi solo gli appuntamenti qualificati che hai effettivamente sostenuto.
+                    1. Ogni 14 giorni saldi solo gli appuntamenti qualificati che hai effettivamente svolto.
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Nessun canone nascosto, nessun costo per slot vuoti o lead mancati.
+                    2. Nessun costo nascosto, nessun canone fisso, nessun trucco.
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Aumenti o riduci il volume in base a quanto puoi gestire: paghi sempre e solo per il valore reale.
+                    3. Dividiamo con te il rischio iniziale e ci assumiamo la responsabilità dei tuoi risultati.
                   </li>
                 </ul>
               </Card>
 
               <Card className="p-4 sm:p-6 md:p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Una spesa che fa sorridere il CFO</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Un investimento approvato in CDA</h3>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Meno di 60€ a settimana: meno di una cena di team o di un abbonamento software entry-level.
+                    1. Meno di 60€ a settimana, come una cena fuori.
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Ogni meeting è un potenziale deal B2B: basta una chiusura media per moltiplicare l'investimento.
+                    2. Trasforma una delle trattative in cliente e avrai già moltiplicato l’investimento.
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Puoi rateizzare l'attivazione in 3, 6 o 12 mesi: nessun impatto di cassa significativo.
+                    3. Hai la possibilità di rateizzare l’investimento iniziale in 3, 6 o 12 mesi.
                   </li>
                 </ul>
               </Card>
 
               <Card className="p-4 sm:p-6 md:p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Cosa ottieni in cambio</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">La collaborazione dell’anno</h3>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Project manager dedicato e tecnologia proprietaria senza costi extra.
+                    1. Flusso costante e prevedibile di appuntamenti che rispettano il target di riferimento.
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Flusso continuo di meeting con decision maker nel tuo ICP.
+                    2. Assistenza completa via chat, appuntamento fisso con project manager dedicato e report dettagliato del lavoro svolto.
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    Statistiche, dashboard e report per misurare ogni singolo euro investito.
+                    3. Access Pack valido per il primo anno di collaborazione: ci assumiamo parte del rischio per farti provare il nostro sistema.
                   </li>
                 </ul>
               </Card>
-            </div>
-
-            <div className="mt-12">
-              <div className="relative overflow-hidden rounded-3xl border border-sky-blue/30 bg-gradient-to-r from-sky-blue/10 via-white to-orange/10 px-8 py-10 text-center shadow-lg">
-                <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">{t("investment.calcBadge")}</span>
-                <p className="mt-4 text-3xl font-bold text-navy">
-                  {t("investment.calcTitle")}
-                </p>
-                <p className="mt-4 text-base text-gray-600 max-w-3xl mx-auto">
-                  {t("investment.calcDesc")}
-                </p>
-              </div>
             </div>
           </div>
         </div>

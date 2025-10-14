@@ -28,7 +28,7 @@
     "why": {
       "badge": "Perché Performance",
       "title": "La scelta per testare il sistema in sicurezza",
-      "subtitle": "Scopri come il pacchetto Performance ti permette di verificare il metodo AYCL senza assumerti rischi inutili",
+      "subtitle": "Metti alla prova il potenziale reale del sistema All You Can Leads e paga solo i risultati che ottieni",
       "benefits": [
         "Hai bisogno di generare appuntamenti qualificati per la tua azienda.",
         "Vuoi vedere da vicino come funziona All You Can Leads.",
@@ -61,23 +61,21 @@
     },
     "investment": {
       "title": "Meno di 8€ al giorno per portare al tavolo chi decide",
-      "desc": "È l'investimento più ridicolo che farai quest'anno rispetto al guadagno che puoi generare. Con meno di un pranzo fuori al mese attivi un flusso di appuntamenti qualificati e paghi solo quando l'incontro si svolge davvero.",
+      "desc": "Un investimento minimo rispetto ai ritorni generati. Meno di quanto spendi al bar ogni mese, per avere un flusso di appuntamenti qualificati attivo per un intero anno.",
       "timeline": {
         "desktop": [
-          {"label": "Giorno 1", "amount": "8€", "caption": "Meno di due cappuccini per avere meeting reali."},
-          {"label": "1° mese", "amount": "240€", "caption": "Quanto spenderesti in un test ADV di pochi giorni."},
-          {"label": "6 mesi", "amount": "1.440€", "caption": "In genere basta una sola chiusura per ripagarlo."},
-          {"label": "12 mesi", "amount": "3.000€", "caption": "Il costo annuo per avere il calendario sempre pieno."}
+          {"label": "Spesa quotidiana", "amount": "8€", "caption": "Colazione fuori / caffè e sigarette / panino e bibita."},
+          {"label": "Investimento mensile", "amount": "240€", "caption": "Testare le Meta ADS / due pieni di benzina / un cambio di stagione / un nuovo outfit."},
+          {"label": "Ticket medio potenziale", "amount": "1.440€", "caption": "Il valore che puoi generare con una sola trattativa chiusa."},
+          {"label": "Investimento annuale", "amount": "3.000€", "caption": "Calendario pieno di appuntamenti qualificati per un anno intero."}
         ],
         "mobile": [
-          {"label": "Giorno 1", "amount": "8€", "caption": "Meno di due cappuccini per avere meeting reali."},
-          {"label": "6 mesi", "amount": "1.440€", "caption": "In genere basta una sola chiusura per ripagarlo."},
-          {"label": "12 mesi", "amount": "3.000€", "caption": "Il costo annuo per avere il calendario sempre pieno."}
+          {"label": "Spesa quotidiana", "amount": "8€", "caption": "Colazione fuori / caffè e sigarette / panino e bibita."},
+          {"label": "Investimento mensile", "amount": "240€", "caption": "Testare le Meta ADS / due pieni di benzina / un cambio di stagione / un nuovo outfit."},
+          {"label": "Ticket medio potenziale", "amount": "1.440€", "caption": "Il valore che puoi generare con una sola trattativa chiusa."},
+          {"label": "Investimento annuale", "amount": "3.000€", "caption": "Calendario pieno di appuntamenti qualificati per un anno intero."}
         ]
-      },
-      "calcBadge": "Il conto della serva",
-      "calcTitle": "Un singolo deal tipico copre un anno intero di Performance e lascia margini per i successivi.",
-      "calcDesc": "Stai pagando il costo di un caffè al giorno per aprire trattative che valgono decine di migliaia di euro. Se un appuntamento salta, non lo paghi. Se chiudi, hai ROI esagerati. Non è magia: è un modello pay-per-meeting che mette in ridicolo qualsiasi altra voce di spesa commerciale."
+      }
     },
     "faq": {
       "title": "Domande Frequenti",
@@ -136,7 +134,7 @@
     "why": {
       "badge": "Why Performance",
       "title": "The safe way to test the system",
-      "subtitle": "See how Performance lets you validate the AYCL method without unnecessary risk",
+      "subtitle": "Experience the real potential of the All You Can Leads system and pay only for the results you achieve",
       "benefits": [
         "You need qualified appointments for your company.",
         "You want to see how AYCL works up close.",
@@ -169,23 +167,21 @@
     },
     "investment": {
       "title": "Less than €8/day to reach decision makers",
-      "desc": "The most reasonable investment compared to the gains you can generate. With less than a lunch per month you activate a flow of qualified meetings and pay only when the meeting happens.",
+      "desc": "A minimal investment compared to the upside you can generate. Less than what you spend at the bar each month to keep a flow of qualified meetings active for an entire year.",
       "timeline": {
         "desktop": [
-          {"label": "Day 1", "amount": "€8", "caption": "Less than two coffees to get real meetings."},
-          {"label": "Month 1", "amount": "€240", "caption": "What you'd spend in a few days of ad testing."},
-          {"label": "6 months", "amount": "€1,440", "caption": "Usually a single deal pays it back."},
-          {"label": "12 months", "amount": "€3,000", "caption": "Yearly cost to keep your calendar full."}
+          {"label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink."},
+          {"label": "Monthly investment", "amount": "€240", "caption": "Testing Meta ADS / two tanks of fuel / a seasonal wardrobe refresh / a new outfit."},
+          {"label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal."},
+          {"label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar."}
         ],
         "mobile": [
-          {"label": "Day 1", "amount": "€8", "caption": "Less than two coffees to get real meetings."},
-          {"label": "6 months", "amount": "€1,440", "caption": "Usually a single deal pays it back."},
-          {"label": "12 months", "amount": "€3,000", "caption": "Yearly cost to keep your calendar full."}
+          {"label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink."},
+          {"label": "Monthly investment", "amount": "€240", "caption": "Testing Meta ADS / two tanks of fuel / a seasonal wardrobe refresh / a new outfit."},
+          {"label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal."},
+          {"label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar."}
         ]
-      },
-      "calcBadge": "Back‑of‑the‑napkin math",
-      "calcTitle": "A single typical deal covers a full year of Performance and leaves margins for the next ones.",
-      "calcDesc": "You're paying a coffee a day to open negotiations worth tens of thousands. If a meeting is canceled, you don't pay. If you close, ROI skyrockets. It's a pay‑per‑meeting model that outclasses any other sales expense."
+      }
     },
     "faq": {
       "title": "Frequently Asked Questions", 
@@ -239,7 +235,7 @@
     "why": {
       "badge": "Por qué Performance",
       "title": "La opción segura para probar el sistema",
-      "subtitle": "Descubre cómo Performance te permite validar el método AYCL sin riesgos innecesarios",
+      "subtitle": "Pon a prueba el potencial real del sistema All You Can Leads y paga solo los resultados que obtienes",
       "benefits": [
         "Necesitas citas cualificadas para tu empresa.",
         "Quieres ver de cerca cómo funciona AYCL.",
@@ -272,23 +268,21 @@
     },
     "investment": {
       "title": "Menos de 8€ al día para llegar a los decisores",
-      "desc": "La inversión más razonable comparada con los beneficios que puedes generar. Con menos de un almuerzo al mes activas un flujo de citas cualificadas y pagas solo cuando la reunión se realiza.",
+      "desc": "Una inversión mínima frente al retorno que puedes generar. Menos de lo que gastas en el bar cada mes para mantener activo un flujo de citas cualificadas durante todo el año.",
       "timeline": {
         "desktop": [
-          {"label": "Día 1", "amount": "8€", "caption": "Menos de dos cafés para conseguir reuniones reales."},
-          {"label": "Mes 1", "amount": "240€", "caption": "Lo que gastarías en unos días de pruebas de anuncios."},
-          {"label": "6 meses", "amount": "1.440€", "caption": "Normalmente un solo cierre lo amortiza."},
-          {"label": "12 meses", "amount": "3.000€", "caption": "Coste anual para tener la agenda llena."}
+          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
+          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo."},
+          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
+          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
         ],
         "mobile": [
-          {"label": "Día 1", "amount": "8€", "caption": "Menos de dos cafés para conseguir reuniones reales."},
-          {"label": "6 meses", "amount": "1.440€", "caption": "Normalmente un solo cierre lo amortiza."},
-          {"label": "12 meses", "amount": "3.000€", "caption": "Coste anual para tener la agenda llena."}
+          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
+          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo."},
+          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
+          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
         ]
-      },
-      "calcBadge": "La cuenta de la servilleta",
-      "calcTitle": "Un solo deal típico cubre un año entero de Performance y deja margen para los siguientes.",
-      "calcDesc": "Pagas un café al día para abrir negociaciones que valen decenas de miles. Si una cita se cancela, no pagas. Si cierras, el ROI se dispara. Es un modelo pay‑per‑meeting que supera cualquier otro gasto comercial."
+      }
     },
     "faq": {
       "title": "Preguntas Frecuentes", 
@@ -323,5 +317,3 @@
     "cta": {"title": "¿Listo para empezar con Performance?", "subtitle": "Reserva una llamada gratuita y verifica si Performance es para ti", "primary": "Reservar una Llamada Gratuita", "secondary": "Ver Otros Paquetes"}
   }
 }
-
-

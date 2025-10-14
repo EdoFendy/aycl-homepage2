@@ -622,6 +622,10 @@ export default function HomePage() {
                 <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
                 <span>{t("packages.subscription.features.meetings")}</span>
               </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
+                <span>{t("packages.subscription.features.refund")}</span>
+              </li>
             </ul>
 
             <div className="mt-auto pt-3 relative z-10">
