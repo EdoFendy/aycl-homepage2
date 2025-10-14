@@ -18,6 +18,8 @@ export default getRequestConfig(async () => {
   const pagamento = (await import("../traduzioni/pagamento.json")).default as Record<string, any>
   const whatsapp = (await import("../traduzioni/whatsapp.json")).default as Record<string, any>
   const outreach = (await import("../traduzioni/outreach.json")).default as Record<string, any>
+  const calcolatore = (await import("../traduzioni/calcolatore.json")).default as Record<string, any>
+  const checkout = (await import("../traduzioni/checkout.json")).default as Record<string, any>
 
   return {
     locale,
@@ -34,7 +36,8 @@ export default getRequestConfig(async () => {
       pagamento: pagamento[locale] ?? pagamento.it,
       whatsapp: whatsapp[locale] ?? whatsapp.it,
       outreach: outreach[locale] ?? outreach.it,
+      calcolatore: calcolatore[locale] ?? calcolatore.it,
+      checkout: checkout[locale] ?? checkout.it,
     },
   }
 })
-

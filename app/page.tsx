@@ -11,6 +11,7 @@ import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
+import LeadPriceCalculator from "@/components/lead-price-calculator"
 
 export default function HomePage() {
   const router = useRouter()
@@ -642,6 +643,9 @@ export default function HomePage() {
         </div>
       </div>
     </section>
+
+      {/* Price Calculator Section */}
+      <LeadPriceCalculator />
 
       {/* FAQ Section */}
       <section id="faq" className="py-24 relative">

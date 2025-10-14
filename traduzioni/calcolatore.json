@@ -1,0 +1,167 @@
+{
+  "it": {
+    "badge": "Pacchetto Drive Test",
+    "title": "Configura il tuo Drive Test",
+    "subtitle": "Scegli fascia di fatturato, area e settore per stimare il prezzo unitario e decidere quanti appuntamenti includere nel test.",
+    "fields": {
+      "revenueBand": "Fascia fatturato target",
+      "geo": "Area / Paese",
+      "sector": "Settore / Industria",
+      "quantity": "Numero di meeting",
+      "risk": "Profilo di prezzo"
+    },
+    "hint": {
+      "risk": "Trascina verso MIN per offerte conservative, verso MAX per mercati complessi o urgenza."
+    },
+    "chip": {
+      "base": "Base Italia: {v}",
+      "geo": "Coeff. GEO: {v}",
+      "sector": "Coeff. SETT: {v}"
+    },
+    "stat": {
+      "min": "Prezzo MIN / meeting",
+      "suggested": "Prezzo CONSIGLIATO",
+      "max": "Prezzo MAX / meeting"
+    },
+    "footnote": "Calcolato su base Italia × coefficienti GEO e SETT. Fascia: {unit}.",
+    "summary": {
+      "badge": "Riepilogo",
+      "title": "Stima complessiva",
+      "subtitle": "Numeri pronti per inviare l'ordine di Drive Test.",
+      "unitLabel": "Per meeting",
+      "qtyLabel": "Quantità",
+      "totalLabel": "Totale stimato",
+      "range": "Range",
+      "geoCoeff": "Coeff. GEO",
+      "settCoeff": "Coeff. SETT"
+    },
+    "ctaCheckout": "Vai al checkout",
+    "copy": "Copia stima",
+    "bullets": {
+      "a": "Prezzi calcolati su base reale (Italia × GEO × SETT)",
+      "b": "Trasparente: min, max e consigliato già pronti",
+      "c": "Pronto per il checkout del pacchetto Drive Test"
+    },
+    "label": {
+      "priceUnit": "Prezzo consigliato / meeting:",
+      "quantity": "Appuntamenti:"
+    },
+    "slider": {
+      "badge": "Drive Test",
+      "label": "Quanti appuntamenti vuoi nel Drive Test?",
+      "helper": "Seleziona tra 5 e 20 appuntamenti qualificati per iniziare in sicurezza.",
+      "current": "Selezionati",
+      "appointments": "Appuntamenti"
+    }
+  },
+  "en": {
+    "badge": "Drive Test Package",
+    "title": "Configure your Drive Test",
+    "subtitle": "Choose revenue band, geography and industry to estimate the unit price, then decide how many appointments to include in your Drive Test.",
+    "fields": {
+      "revenueBand": "Target revenue band",
+      "geo": "Area / Country",
+      "sector": "Industry / Sector",
+      "quantity": "Number of meetings",
+      "risk": "Pricing profile"
+    },
+    "hint": {
+      "risk": "Slide toward MIN for conservative offers, toward MAX for complex markets or urgency."
+    },
+    "chip": {
+      "base": "Italy base: {v}",
+      "geo": "GEO coeff: {v}",
+      "sector": "SECTOR coeff: {v}"
+    },
+    "stat": {
+      "min": "MIN price / meeting",
+      "suggested": "RECOMMENDED price",
+      "max": "MAX price / meeting"
+    },
+    "footnote": "Computed as Italy base × GEO and SECTOR coefficients. Band: {unit}.",
+    "summary": {
+      "badge": "Summary",
+      "title": "Overall estimate",
+      "subtitle": "Ready-to-send numbers for the Drive Test order.",
+      "unitLabel": "Per meeting",
+      "qtyLabel": "Quantity",
+      "totalLabel": "Estimated total",
+      "range": "Range",
+      "geoCoeff": "GEO coeff",
+      "settCoeff": "SECTOR coeff"
+    },
+    "ctaCheckout": "Go to checkout",
+    "copy": "Copy estimate",
+    "bullets": {
+      "a": "Pricing logic mirrors the original sheet (Italy × GEO × SECTOR)",
+      "b": "Transparent range with min, max and recommended price",
+      "c": "Ready for the Drive Test checkout"
+    },
+    "label": {
+      "priceUnit": "Recommended price / meeting:",
+      "quantity": "Appointments:"
+    },
+    "slider": {
+      "badge": "Drive Test",
+      "label": "How many appointments do you want in the Drive Test?",
+      "helper": "Pick between 5 and 20 qualified appointments to get started safely.",
+      "current": "Selected",
+      "appointments": "Appointments"
+    }
+  },
+  "es": {
+    "badge": "Paquete Drive Test",
+    "title": "Configura tu Drive Test",
+    "subtitle": "Elige banda de facturación, zona y sector para estimar el precio unitario y decide cuántas citas incluir en el Drive Test.",
+    "fields": {
+      "revenueBand": "Banda de facturación objetivo",
+      "geo": "Área / País",
+      "sector": "Sector / Industria",
+      "quantity": "Número de reuniones",
+      "risk": "Perfil de precios"
+    },
+    "hint": {
+      "risk": "Desliza hacia MÍN para ofertas conservadoras, hacia MÁX para mercados complejos o urgencia."
+    },
+    "chip": {
+      "base": "Base Italia: {v}",
+      "geo": "Coef. GEO: {v}",
+      "sector": "Coef. SECTOR: {v}"
+    },
+    "stat": {
+      "min": "Precio MÍN / reunión",
+      "suggested": "Precio RECOMENDADO",
+      "max": "Precio MÁX / reunión"
+    },
+    "footnote": "Calculado como base Italia × coeficientes GEO y SECTOR. Banda: {unit}.",
+    "summary": {
+      "badge": "Resumen",
+      "title": "Estimación total",
+      "subtitle": "Números listos para enviar el pedido de Drive Test.",
+      "unitLabel": "Por reunión",
+      "qtyLabel": "Cantidad",
+      "totalLabel": "Total estimado",
+      "range": "Rango",
+      "geoCoeff": "Coef. GEO",
+      "settCoeff": "Coef. SECTOR"
+    },
+    "ctaCheckout": "Ir al checkout",
+    "copy": "Copiar estimación",
+    "bullets": {
+      "a": "La lógica replica la hoja original (Italia × GEO × SECTOR)",
+      "b": "Transparente: muestra mínimo, máximo y recomendado",
+      "c": "Listo para el checkout del Drive Test"
+    },
+    "label": {
+      "priceUnit": "Precio recomendado / reunión:",
+      "quantity": "Citas:"
+    },
+    "slider": {
+      "badge": "Drive Test",
+      "label": "¿Cuántas citas quieres en el Drive Test?",
+      "helper": "Elige entre 5 y 20 citas cualificadas para empezar con seguridad.",
+      "current": "Seleccionadas",
+      "appointments": "Citas"
+    }
+  }
+}

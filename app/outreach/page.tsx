@@ -176,32 +176,28 @@ export default function OutreachPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -top-12 -left-10 h-48 w-48 rounded-full bg-sky-blue/25 blur-3xl" />
-              <div className="absolute -bottom-16 right-0 h-56 w-56 rounded-full bg-orange/25 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[3rem] border border-white/60 bg-white/90 p-6 shadow-[0_48px_120px_-48px_rgba(1,47,107,0.55)] backdrop-blur">
-                <div className="relative overflow-hidden rounded-[2.25rem] border border-navy/10">
-                  <Image
-                    src="/modern-technology-dashboard-with-ai-and-data-analy.jpg"
-                    alt="Dashboard Sendura"
-                    width={540}
-                    height={400}
-                    className="h-full w-full object-cover"
-                    priority
-                  />
-                </div>
+              <div className="relative rounded-[3rem] p-6">
+                <Image
+                  src="/comefunziona_hero.png"
+                  alt="Dashboard Sendura"
+                  width={540}
+                  height={400}
+                  className="h-full w-full object-cover"
+                  priority
+                />
                 {heroOutcomeSecondary && (
                   <div className="mt-6 rounded-2xl border border-orange/30 bg-gradient-to-br from-orange/10 via-white to-sky-blue/10 p-5 text-sm leading-relaxed text-gray-700 shadow-inner">
                     {heroOutcomeSecondary}
                   </div>
                 )}
-                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                   <div className="rounded-2xl border border-sky-blue/30 bg-sky-blue/10 px-4 py-3 text-sm font-semibold text-navy text-center">
-                     <span>{t("ai.title")}</span>
-                   </div>
-                   <div className="rounded-2xl border border-orange/30 bg-orange/10 px-4 py-3 text-sm font-semibold text-navy text-center">
-                     <span>{t("principle.title")}</span>
-                   </div>
-                 </div>
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-sky-blue/30 bg-sky-blue/10 px-4 py-3 text-sm font-semibold text-navy text-center">
+                    <span>{t("ai.title")}</span>
+                  </div>
+                  <div className="rounded-2xl border border-orange/30 bg-orange/10 px-4 py-3 text-sm font-semibold text-navy text-center">
+                    <span>{t("principle.title")}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -289,21 +285,20 @@ export default function OutreachPage() {
                 })}
               </div>
             </div>
-            <div className="relative">
-              <div className="absolute -top-10 -right-8 h-48 w-48 rounded-full bg-orange/20 blur-3xl" />
-              <div className="absolute -bottom-12 -left-8 h-52 w-52 rounded-full bg-sky-blue/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2.75rem] border border-navy/10 shadow-[0_48px_96px_-52px_rgba(1,47,107,0.45)]">
+            <div>
+              <div>
                 <Image
-                  src="/business-professional-reviewing-performance-metric.jpg"
+                  src="/comefunziona2.png"
                   alt="Analisi performance outreach"
                   width={540}
                   height={420}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover rounded-[2.75rem]"
                 />
               </div>
             </div>
+            </div>
           </div>
-        </div>
+      
       </section>
 
       {/* Application Section */}

@@ -1,0 +1,239 @@
+{
+  "it": {
+    "hero": {
+      "badge": "Checkout Drive Test",
+      "title": "Rivedi e conferma l'ordine",
+      "subtitle": "Controlla il riepilogo del tuo Drive Test e scegli il metodo di pagamento preferito."
+    },
+    "order": {
+      "title": "Dettagli ordine",
+      "metrics": {
+        "unitPrice": "Prezzo unitario",
+        "quantity": "Appuntamenti",
+        "total": "Totale",
+        "range": "Forchetta stimata"
+      },
+      "jsonLabel": "Ordine in formato JSON",
+      "generatedAt": "Generato il {date}",
+      "empty": {
+        "title": "Nessun ordine disponibile",
+        "subtitle": "Torna al calcolatore per configurare il tuo Drive Test e riprova."
+      },
+      "cta": {
+        "calculator": "Apri il calcolatore",
+        "packages": "Torna ai pacchetti"
+      }
+    },
+    "payment": {
+      "title": "Preferisci pagare con…",
+      "subtitle": "Seleziona l'opzione che vuoi utilizzare al momento del pagamento finale.",
+      "methods": {
+        "creditCard": {
+          "label": "Carta di credito",
+          "description": "Visa, MasterCard, American Express."
+        },
+        "klarna": {
+          "label": "Klarna",
+          "description": "Paga in 3 rate senza interessi."
+        },
+        "paypal": {
+          "label": "PayPal",
+          "description": "Usa il saldo o collega la carta."
+        }
+      },
+      "note": "Dopo la conferma verrai reindirizzato per completare il pagamento sul gateway selezionato.",
+      "comingSoon": "Disponibile a breve",
+      "creditCard": {
+        "helper": "Inserisci i tuoi dati di fatturazione principali. Li useremo per creare il link di pagamento immediato.",
+        "success": "Link di pagamento generato. Ti reindirizziamo…"
+      },
+      "klarna": {
+        "helper": "Usa Klarna per suddividere l’investimento in rate flessibili. Ti guideremo passo dopo passo.",
+        "start": "Avvia checkout Klarna",
+        "loading": "Connessione a Klarna…",
+        "confirm": "Conferma con Klarna",
+        "confirming": "Autorizzazione in corso…",
+        "widgetTitle": "Completa il pagamento con Klarna",
+        "errors": {
+          "initialization": "Impossibile inizializzare Klarna. Riprova tra qualche secondo.",
+          "sdkNotReady": "Il widget Klarna non è ancora pronto. Attendi qualche istante.",
+          "session": "Impossibile creare la sessione Klarna. Verifica i dati e riprova.",
+          "authorization": "Autorizzazione Klarna non completata. Riprova o scegli un altro metodo."
+        }
+      },
+      "form": {
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "email": "Email"
+      },
+      "cta": {
+        "creditCard": "Paga con carta di credito",
+        "loading": "Creazione del pagamento…"
+      },
+      "errors": {
+        "missingFields": "Compila tutti i campi per continuare."
+      }
+    },
+    "actions": {
+      "back": "Torna alla homepage"
+    }
+  },
+  "en": {
+    "hero": {
+      "badge": "Drive Test Checkout",
+      "title": "Review and confirm your order",
+      "subtitle": "Check the summary of your Drive Test and pick the payment method you prefer."
+    },
+    "order": {
+      "title": "Order details",
+      "metrics": {
+        "unitPrice": "Unit price",
+        "quantity": "Appointments",
+        "total": "Total",
+        "range": "Estimated range"
+      },
+      "jsonLabel": "Order as JSON",
+      "generatedAt": "Generated on {date}",
+      "empty": {
+        "title": "No order available",
+        "subtitle": "Go back to the calculator, configure your Drive Test and try again."
+      },
+      "cta": {
+        "calculator": "Open the calculator",
+        "packages": "Back to packages"
+      }
+    },
+    "payment": {
+      "title": "How would you like to pay?",
+      "subtitle": "Select the option you prefer before finalising the checkout.",
+      "methods": {
+        "creditCard": {
+          "label": "Credit card",
+          "description": "Visa, MasterCard, American Express."
+        },
+        "klarna": {
+          "label": "Klarna",
+          "description": "Pay in 3 interest-free instalments."
+        },
+        "paypal": {
+          "label": "PayPal",
+          "description": "Use your balance or link your card."
+        }
+      },
+      "note": "After confirmation you'll be redirected to complete the payment on the selected gateway.",
+      "comingSoon": "Coming soon",
+      "creditCard": {
+        "helper": "Enter your main billing details. We’ll use them to create an instant payment link.",
+        "success": "Payment link generated. Redirecting…"
+      },
+      "klarna": {
+        "helper": "Use Klarna to split the investment into flexible instalments. We’ll guide you through the flow.",
+        "start": "Start Klarna checkout",
+        "loading": "Connecting to Klarna…",
+        "confirm": "Confirm with Klarna",
+        "confirming": "Authorising payment…",
+        "widgetTitle": "Complete your payment with Klarna",
+        "errors": {
+          "initialization": "We couldn’t initialise Klarna. Please try again in a moment.",
+          "sdkNotReady": "The Klarna widget is not ready yet. Please wait a moment.",
+          "session": "Unable to create the Klarna session. Check the details and try again.",
+          "authorization": "Klarna authorisation failed. Try again or choose another method."
+        }
+      },
+      "form": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email"
+      },
+      "cta": {
+        "creditCard": "Pay with credit card",
+        "loading": "Creating payment…"
+      },
+      "errors": {
+        "missingFields": "Please fill in all fields to continue."
+      }
+    },
+    "actions": {
+      "back": "Back to homepage"
+    }
+  },
+  "es": {
+    "hero": {
+      "badge": "Checkout Drive Test",
+      "title": "Revisa y confirma tu pedido",
+      "subtitle": "Comprueba el resumen de tu Drive Test y elige el método de pago que prefieras."
+    },
+    "order": {
+      "title": "Detalles del pedido",
+      "metrics": {
+        "unitPrice": "Precio unitario",
+        "quantity": "Citas",
+        "total": "Total",
+        "range": "Rango estimado"
+      },
+      "jsonLabel": "Pedido en formato JSON",
+      "generatedAt": "Generado el {date}",
+      "empty": {
+        "title": "No hay un pedido disponible",
+        "subtitle": "Vuelve a la calculadora, configura tu Drive Test y vuelve a intentarlo."
+      },
+      "cta": {
+        "calculator": "Abrir la calculadora",
+        "packages": "Volver a los paquetes"
+      }
+    },
+    "payment": {
+      "title": "¿Cómo prefieres pagar?",
+      "subtitle": "Selecciona la opción que quieras usar antes de finalizar el checkout.",
+      "methods": {
+        "creditCard": {
+          "label": "Tarjeta de crédito",
+          "description": "Visa, MasterCard, American Express."
+        },
+        "klarna": {
+          "label": "Klarna",
+          "description": "Paga en 3 cuotas sin intereses."
+        },
+        "paypal": {
+          "label": "PayPal",
+          "description": "Utiliza tu saldo o enlaza la tarjeta."
+        }
+      },
+      "note": "Tras la confirmación serás redirigido para completar el pago en la pasarela seleccionada.",
+      "comingSoon": "Próximamente",
+      "creditCard": {
+        "helper": "Introduce tus datos principales de facturación. Los usaremos para crear el enlace de pago instantáneo.",
+        "success": "Enlace de pago generado. Redirigiendo…"
+      },
+      "klarna": {
+        "helper": "Usa Klarna para dividir la inversión en cuotas flexibles. Te guiamos paso a paso.",
+        "start": "Iniciar checkout Klarna",
+        "loading": "Conectando con Klarna…",
+        "confirm": "Confirmar con Klarna",
+        "confirming": "Autorizando pago…",
+        "widgetTitle": "Completa tu pago con Klarna",
+        "errors": {
+          "initialization": "No se pudo inicializar Klarna. Vuelve a intentarlo en unos segundos.",
+          "sdkNotReady": "El widget de Klarna todavía no está listo. Espera un momento.",
+          "session": "No se pudo crear la sesión de Klarna. Comprueba los datos y vuelve a intentarlo.",
+          "authorization": "Autorización de Klarna no completada. Inténtalo de nuevo o elige otro método."
+        }
+      },
+      "form": {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Email"
+      },
+      "cta": {
+        "creditCard": "Pagar con tarjeta",
+        "loading": "Creando el pago…"
+      },
+      "errors": {
+        "missingFields": "Completa todos los campos para continuar."
+      }
+    },
+    "actions": {
+      "back": "Volver a la página principal"
+    }
+  }
+}

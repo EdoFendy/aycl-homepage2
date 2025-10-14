@@ -305,7 +305,7 @@ export function SiteHeader() {
                       >
                         <span className="flex items-start gap-2 sm:gap-3">
                           <Image
-                            src="/iconaStrategia.png"
+                            src="/IconaStrategia.png"
                             alt={t("alt.outreach")}
                             width={32}
                             height={32}

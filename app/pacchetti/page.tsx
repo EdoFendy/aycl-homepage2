@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
 import { useTranslations } from "next-intl"
+import LeadPriceCalculator from "@/components/lead-price-calculator"
 
 export default function PacchettiPage() {
   const router = useRouter()
@@ -257,6 +258,11 @@ export default function PacchettiPage() {
         </div>
 
     </section>
+
+      {/* Drive Test Package */}
+      <div id="drive-test">
+        <LeadPriceCalculator />
+      </div>
 
 
       {/* Comparison Section */}
