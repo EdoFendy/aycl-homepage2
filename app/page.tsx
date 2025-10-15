@@ -14,6 +14,10 @@ import { useEffect } from "react"
 import LeadPriceCalculator from "@/components/lead-price-calculator"
 import { LayoutWrapper, FullWidthLayoutWrapper, CenteredLayoutWrapper } from "@/components/layout-wrapper"
 
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
+  
+
+
 export default function HomePage() {
   const router = useRouter()
   const t = useTranslations("home")
@@ -54,10 +58,12 @@ export default function HomePage() {
           <LayoutWrapper>
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="space-y-6 sm:space-y-8">
-                <div className="inline-block px-3 py-1.5 bg-gray-50 rounded-full sm:px-4 sm:py-2">
-                  <span className="text-xs font-medium text-gray-700 sm:text-sm">
+                <div className="inline-block px-3 py-1.5  rounded-full sm:px-4 sm:py-2">
+                  <span className="text-xs font-medium text-orange sm:text-sm">
                     {t("hero.badge")}
                   </span>
+
+                  
                 </div>
 
                 <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
@@ -74,10 +80,12 @@ export default function HomePage() {
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link href="/contattaci">
-                    <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
-                      {t("hero.cta.primary")}
-                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                    </Button>
+                      
+                      <SlideArrowButton
+                      primaryColor="#ff9d3d"
+                      text={t("hero.cta.primary")}
+                    />
+
                   </Link>
                   <Link href="/pacchetti">
                     <Button
@@ -110,13 +118,11 @@ export default function HomePage() {
 
       {/* Story Section - Problem */}
       <section className="pt-16 pb-0 relative sm:py-24">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-sky-blue to-orange" />
 
         <div className="container mx-auto px-4 sm:px-6">
           <LayoutWrapper>
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
               <div className="relative order-2 lg:order-1">
-                <div className="absolute -top-3 -right-3 w-32 h-32 border-2 border-sky-blue/30 rounded-lg rotate-6 sm:-top-6 sm:-right-6 sm:w-48 sm:h-48 sm:border-4" />
                 <Image
                   src="/tavolo.png"
                   alt={t("alt.businessChallenge")}

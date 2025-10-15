@@ -94,11 +94,11 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@439&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="quicksand-root antialiased">
+      <body className="font-worksans antialiased">
         <NextIntlClientProvider key={locale} messages={messages} locale={locale}>
           <SiteHeader />
           <div className="flex min-h-screen flex-col">
