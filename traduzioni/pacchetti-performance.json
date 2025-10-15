@@ -136,7 +136,10 @@
             "amount": "€30.000",
             "caption": "Flusso costante garantito"
           }
-        ]
+        ],
+        "mobile": {
+          "title": "Timeline di investimento"
+        }
       }
     },
     "benefits": {
@@ -265,7 +268,40 @@
         }
       ]
     },
-    "cta": {"title": "Ready to start with Performance?", "subtitle": "Book a free call and see if Performance is right for you", "primary": "Book a Free Call", "secondary": "See Other Packages"}
+    "cta": {"title": "Ready to start with Performance?", "subtitle": "Book a free call and see if Performance is right for you", "primary": "Book a Free Call", "secondary": "See Other Packages"},
+    "investment": {
+      "timeline": {
+        "mobile": {
+          "title": "Investment timeline"
+        }
+      }
+    },
+    "benefits": {
+      "payOnly": {
+        "title": "Pay only for completed appointments",
+        "items": [
+          "Every 14 days you pay only for qualified appointments you actually completed.",
+          "No hidden costs, no fixed fees, no tricks.",
+          "We share the initial risk with you and take responsibility for your results."
+        ]
+      },
+      "investment": {
+        "title": "A CDA-approved investment",
+        "items": [
+          "Less than €60 per week, like a dinner out.",
+          "Convert one of the negotiations into a client and you've already multiplied the investment.",
+          "You can spread the initial investment over 3, 6 or 12 months."
+        ]
+      },
+      "collaboration": {
+        "title": "The collaboration of the year",
+        "items": [
+          "Constant and predictable flow of appointments that respect the target reference.",
+          "Complete assistance via chat, fixed appointment with dedicated project manager and detailed report of work done.",
+          "Access Pack valid for the first year of collaboration: we take on part of the risk to let you try our system."
+        ]
+      }
+    }
   },
   "es": {
     "hero": {
@@ -366,6 +402,39 @@
         }
       ]
     },
-    "cta": {"title": "¿Listo para empezar con Performance?", "subtitle": "Reserva una llamada gratuita y verifica si Performance es para ti", "primary": "Reservar una Llamada Gratuita", "secondary": "Ver Otros Paquetes"}
+    "cta": {"title": "¿Listo para empezar con Performance?", "subtitle": "Reserva una llamada gratuita y verifica si Performance es para ti", "primary": "Reservar una Llamada Gratuita", "secondary": "Ver Otros Paquetes"},
+    "investment": {
+      "timeline": {
+        "mobile": {
+          "title": "Timeline de inversión"
+        }
+      }
+    },
+    "benefits": {
+      "payOnly": {
+        "title": "Paga solo las citas realizadas",
+        "items": [
+          "Cada 14 días pagas solo las citas cualificadas que realmente realizaste.",
+          "Sin costes ocultos, sin cuotas fijas, sin trucos.",
+          "Compartimos contigo el riesgo inicial y nos responsabilizamos de tus resultados."
+        ]
+      },
+      "investment": {
+        "title": "Una inversión aprobada en CDA",
+        "items": [
+          "Menos de 60€ a la semana, como una cena fuera.",
+          "Convierte una de las negociaciones en cliente y ya habrás multiplicado la inversión.",
+          "Tienes la posibilidad de fraccionar la inversión inicial en 3, 6 o 12 meses."
+        ]
+      },
+      "collaboration": {
+        "title": "La colaboración del año",
+        "items": [
+          "Flujo constante y predecible de citas que respetan el target de referencia.",
+          "Asistencia completa vía chat, cita fija con project manager dedicado y reporte detallado del trabajo realizado.",
+          "Access Pack válido para el primer año de colaboración: nos hacemos cargo de parte del riesgo para que pruebes nuestro sistema."
+        ]
+      }
+    }
   }
 }

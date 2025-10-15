@@ -312,8 +312,8 @@ export default function PerformancePage() {
                   {/* Desktop version - orizzontale */}
                   <div className="hidden sm:block">
                     <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-8">
-                      <span>Spesa quotidiana</span>
-                      <span>Investimento annuale</span>
+                      <span>{t("investment.timeline.desktop.0.label")}</span>
+                      <span>{t("investment.timeline.desktop.3.label")}</span>
                     </div>
                     <div className="relative mt-8 py-8">
                       {/* Barra orizzontale */}
@@ -370,7 +370,7 @@ export default function PerformancePage() {
                 <div className="sm:hidden">
                   <div className="text-center mb-6">
                     <div className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">
-                      Timeline di investimento
+                      {t("investment.timeline.mobile.title")}
                     </div>
                   </div>
 
@@ -410,56 +410,38 @@ export default function PerformancePage() {
 
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
               <Card className="p-4 sm:p-6 md:p-8 bg-white border-sky-blue/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Paghi solo gli appuntamenti svolti</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">{t("benefits.payOnly.title")}</h3>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    1. Ogni 14 giorni saldi solo gli appuntamenti qualificati che hai effettivamente svolto.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    2. Nessun costo nascosto, nessun canone fisso, nessun trucco.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    3. Dividiamo con te il rischio iniziale e ci assumiamo la responsabilità dei tuoi risultati.
-                  </li>
+                  {t.raw("benefits.payOnly.items").map((item: string, index: number) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
+                      {index + 1}. {item}
+                    </li>
+                  ))}
                 </ul>
               </Card>
 
               <Card className="p-4 sm:p-6 md:p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Un investimento approvato in CDA</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">{t("benefits.investment.title")}</h3>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    1. Meno di 60€ a settimana, come una cena fuori.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    2. Trasforma una delle trattative in cliente e avrai già moltiplicato l’investimento.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    3. Hai la possibilità di rateizzare l’investimento iniziale in 3, 6 o 12 mesi.
-                  </li>
+                  {t.raw("benefits.investment.items").map((item: string, index: number) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
+                      {index + 1}. {item}
+                    </li>
+                  ))}
                 </ul>
               </Card>
 
               <Card className="p-4 sm:p-6 md:p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
-                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">La collaborazione dell’anno</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">{t("benefits.collaboration.title")}</h3>
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    1. Flusso costante e prevedibile di appuntamenti che rispettano il target di riferimento.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    2. Assistenza completa via chat, appuntamento fisso con project manager dedicato e report dettagliato del lavoro svolto.
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
-                    3. Access Pack valido per il primo anno di collaborazione: ci assumiamo parte del rischio per farti provare il nostro sistema.
-                  </li>
+                  {t.raw("benefits.collaboration.items").map((item: string, index: number) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
+                      {index + 1}. {item}
+                    </li>
+                  ))}
                 </ul>
               </Card>
             </div>
