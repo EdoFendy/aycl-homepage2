@@ -49,7 +49,7 @@ export default function PacchettiPage() {
             </div>
             <h1 className="text-4xl lg:text-4xl font-bold text-navy leading-tight text-balance">{t("hero.title")}</h1>
             {/* max-w-full per dare più spazio al testo, override su mobile */}
-            <p className="text-3xl text-gray-600 leading-relaxed max-w-full sm:max-w-3xl mx-auto">{t("hero.subtitle")}</p>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-full sm:max-w-3xl mx-auto">{t("hero.subtitle")}</p>
           </div>
         </PageLayoutContainer>
 
