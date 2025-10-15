@@ -672,38 +672,7 @@ export default function HomePage() {
 
             <FAQCards
               className="mt-12"
-              items={[
-                {
-                  question: "Qual è la differenza tra All You Can Leads e una normale agenzia di lead generation?",
-                  answer:
-                    "La maggior parte delle agenzie di lead generation ti vende liste di contatti generici o campagne pubblicitarie. All You Can Leads ribalta lo schema: portiamo direttamente appuntamenti reali con figure decisionali in target grazie a database proprietari, intelligenza artificiale e al nostro software interno Sendura.",
-                },
-                {
-                  question: "Come funziona il vostro sistema di generazione appuntamenti B2B?",
-                  answer:
-                    "Partiamo dalla definizione dell'ICP, selezioniamo i contatti dal nostro database, attiviamo un processo di interazione e scrematura, e solo a questo punto calendarizziamo appuntamenti con decision maker che hanno espresso interesse reale.",
-                },
-                {
-                  question: "Che differenza c'è tra lead e appuntamenti qualificati?",
-                  answer:
-                    "Un lead è solo un contatto. Un appuntamento qualificato è calendarizzato, rispetta i parametri dell'ICP concordato e l'interlocutore ha già interagito con noi dimostrando interesse. Se non rispetta l'ICP o non si presenta, l'appuntamento non viene conteggiato.",
-                },
-                {
-                  question: "Gli appuntamenti qualificati sono garantiti?",
-                  answer:
-                    "Sì. Nel pacchetto Performance paghi solo quelli svolti e conformi all'ICP. Nella Subscription è garantito un range mensile di appuntamenti. Nel Set-Up Fee la garanzia si estende al ritorno economico con modello revenue share.",
-                },
-                {
-                  question: "Quanto tempo serve per iniziare a vedere i primi risultati?",
-                  answer:
-                    "I primi 30-90 giorni sono un periodo di testing per raggiungere una massa di dati statisticamente rilevanti. In questa fase possono già arrivare appuntamenti, ma l'obiettivo è portare il sistema a regime per garantire un flusso costante e prevedibile nel tempo.",
-                },
-                {
-                  question: "Utilizzate l'intelligenza artificiale nei vostri sistemi?",
-                  answer:
-                    "Sì, l'AI è integrata in diversi punti del processo: segmentazione dei contatti, personalizzazione dei messaggi e gestione delle priorità di follow-up. L'obiettivo è aumentare efficienza e precisione senza sostituire le persone.",
-                },
-              ]}
+              items={t("faq.items")}
             />
           </LayoutWrapper>
         </div>

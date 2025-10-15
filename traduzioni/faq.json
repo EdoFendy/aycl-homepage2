@@ -34,6 +34,262 @@
       "body": "I nostri esperti sono a tua disposizione per una consulenza gratuita. Analizziamo insieme le tue esigenze e ti aiutiamo a scegliere la soluzione più adatta per la tua azienda.",
       "ctaPrimary": "Prenota una Call Gratuita",
       "ctaSecondary": "Scopri i Pacchetti"
+    },
+    "generali": {
+      "items": [
+        {
+          "question": "Qual è la differenza tra All You Can Leads e una normale agenzia di lead generation?",
+          "answer": "Le agenzie classiche vendono liste o campagne che producono click e form: dati freddi, spesso non verificati, che devi trasformare tu in opportunità. Risultato: costi alti, tempo perso e poche occasioni.\n\nAll You Can Leads ribalta lo schema:\n• Non vendiamo lead: portiamo appuntamenti reali con figure decisionali in target.\n• Niente dipendenza da Google/Meta: usiamo database proprietari verificati, AI per aggiornamento e segmentazione, e il nostro software interno Sendura.\n• Non scarichiamo su di te il lavoro: contattiamo, filtriamo e confermiamo l'interesse, fissando solo incontri calendarizzati.\n\nIn sintesi: dove gli altri ti lasciano un elenco da gestire, AYCL ti fa sedere con chi decide davvero."
+        },
+        {
+          "question": "Come funziona il vostro sistema di generazione appuntamenti B2B?",
+          "answer": "• Definizione dell'ICP: settore, fascia di fatturato, area geografica.\n• Selezione contatti in linea dal nostro database multilivello.\n• Interazione e scrematura per registrare l'interesse e scartare i fuori target.\n• Calendarizzazione di appuntamenti con decision maker che rispettano i parametri e hanno espresso interesse reale.\n\nCosì il tuo calendario si riempie di incontri con interlocutori che hanno superato più livelli di verifica."
+        },
+        {
+          "question": "In cosa consiste il protocollo All You Can Leads?",
+          "answer": "1. Call iniziale per verificare la collaborazione e raccogliere info.\n2. Definizione dell'ICP su parametri oggettivi (fatturato, settore, luogo).\n3. Studio di fattibilità e quotazione per appuntamento in linea con l'ICP.\n4. Seconda call: condivisione analisi e personalizzazione offerta.\n5. Piano operativo con project manager dedicato.\n6. Lancio, ottimizzazione e messa a regime fino a flusso costante."
+        },
+        {
+          "question": "Che differenza c'è tra lead e appuntamenti qualificati?",
+          "answer": "Un lead è un contatto grezzo (nome, email, telefono) e non indica un reale interesse.\n\nUn appuntamento qualificato invece:\n• È già calendarizzato sulla tua agenda;\n• Rispetta i parametri dell'ICP;\n• L'interlocutore sa perché viene contattato ed è interessato a un confronto;\n• La validità è oggettiva: se non rispetta l'ICP o no‑show, non viene conteggiato o viene sostituito in base al pacchetto."
+        },
+        {
+          "question": "Cosa significa decision maker B2B?",
+          "answer": "Figure con ruolo reale nei processi di acquisto: CEO/Presidenti nelle PMI; direttori/manager nelle aziende strutturate o multinazionali. Spesso la decisione è condivisa (board/comitati): ti portiamo a parlare con chi può influenzare e orientare la scelta."
+        },
+        {
+          "question": "Come identificate l'ICP della mia azienda?",
+          "answer": "L'ICP è definito su tre parametri: settore, fascia di fatturato, area geografica indicati da te. Segue uno studio di fattibilità per i canali e la migliore strategia d'ingaggio."
+        },
+        {
+          "question": "Potete raggiungere solo grandi aziende o anche PMI?",
+          "answer": "Lavoriamo con PMI, medie e multinazionali. Cambiano scrematura e figure target, la logica resta la stessa: metterti davanti a referenti con reale ruolo decisionale."
+        },
+        {
+          "question": "Mi portate direttamente a contatto con i decisori o rischio referenti poco rilevanti?",
+          "answer": "Sì, ma il livello dipende da necessità e struttura target:\n• Nelle PMI: di norma CEO/titolare.\n• In aziende strutturate/multinazionali: direttori di reparto o manager locali con budget e responsabilità.\n\nEsempio: per soluzioni marketing → in PMI l'imprenditore; in multinazionale il Direttore Marketing della BU italiana."
+        },
+        {
+          "question": "Quali tecnologie utilizzate per la generazione degli appuntamenti?",
+          "answer": "Infrastrutture proprietarie e strumenti avanzati di outreach multicanale. Ogni progetto è personalizzato per settore e target."
+        },
+        {
+          "question": "Da dove provengono i vostri dati e come vengono aggiornati?",
+          "answer": "• Approvvigionamento diretto: ricerca, raccolta e verifica periodica.\n• Provider certificati: dataset qualificati con contatti executive verificati.\n• Arricchimento proprietario: scoring ed enrichment con AI."
+        },
+        {
+          "question": "Utilizzate l'intelligenza artificiale nei vostri sistemi?",
+          "answer": "Sì. Dalla segmentazione alla personalizzazione dei messaggi, fino al follow‑up priority. L'AI potenzia il team umano, che mantiene il controllo di qualità."
+        },
+        {
+          "question": "Perché il vostro metodo è più efficace rispetto alla pubblicità online?",
+          "answer": "Le ADV si basano su aste dove vince chi spende di più. Con AYCL paghi il risultato (l'appuntamento), non il click o l'impression: l'investimento diventa meeting reali con persone che contano."
+        },
+        {
+          "question": "Quali problemi risolve l'outreach multicanale?",
+          "answer": "• Le ADV richiedono budget crescenti e margini ridotti;\n• Network/passaparola non sono prevedibili né scalabili.\n\nMoltiplicando i punti di contatto, aumenta la risposta e si stabilizza il flusso di opportunità."
+        },
+        {
+          "question": "Perché scegliere voi invece di assumere un'agenzia esterna o un media buyer?",
+          "answer": "Non siamo intermediari e non dipendiamo da piattaforme terze. Abbiamo infrastrutture proprietarie e ci assumiamo la responsabilità del risultato: non promesse, ma appuntamenti misurabili."
+        },
+        {
+          "question": "Differenze rispetto a cold calling o campagne generiche di email marketing?",
+          "answer": "Cold calling = contatti freddi, tempi lunghi, conversioni basse. Email generiche = database non profilati, risposte casuali.\n\nAYCL contatta, screma e registra l'interesse prima di fissare: quando ti siedi, l'interlocutore è in target e predisposto."
+        },
+        {
+          "question": "Gli appuntamenti qualificati sono garantiti?",
+          "answer": "• Performance: paghi solo quelli svolti e conformi all'ICP.\n• Subscription: garantito un range mensile.\n• Set‑Up Fee: garanzia estesa al ritorno economico (revenue share)."
+        },
+        {
+          "question": "Cosa accade se un appuntamento non corrisponde all'ICP definito?",
+          "answer": "• Performance: non lo paghi.\n• Subscription: viene sostituito.\n\nHai 48 ore per segnalarlo: verifichiamo subito e, se fuori ICP, viene escluso senza costi."
+        },
+        {
+          "question": "Come posso monitorare risultati e attività?",
+          "answer": "• Dashboard personale su Sendura in tempo reale.\n• Report bisettimanali e confronti regolari col project manager."
+        },
+        {
+          "question": "Avrò un referente dedicato?",
+          "answer": "Sì: un project manager dedicato, punto di contatto diretto."
+        },
+        {
+          "question": "Quanto tempo serve per vedere i primi risultati?",
+          "answer": "30–90 giorni di testing per massa dati e ottimizzazioni. Possono arrivare appuntamenti già in questa fase; obiettivo: regime stabile e prevedibile."
+        }
+      ]
+    },
+    "performance": {
+      "items": [
+        {
+          "question": "Quali sono gli step operativi del Pacchetto Performance?",
+          "answer": "1. Call iniziale e raccolta info.\n2. Definizione ICP (fatturato, settore, area geografica).\n3. Studio di fattibilità e quotazione per appuntamento.\n4. Seconda call: analisi e personalizzazione offerta.\n5. Piano operativo con PM dedicato.\n6. Attivazione, testing, ottimizzazione e messa a regime."
+        },
+        {
+          "question": "Come viene stabilita la quota per appuntamento?",
+          "answer": "• Grandezza/complessità del cluster target;\n• Difficoltà e frequenza di contatto;\n• Localizzazione geografica."
+        },
+        {
+          "question": "Perché il Pacchetto Performance è valido solo per il primo anno?",
+          "answer": "È uno starter pack per provare il sistema in modo diretto, generare appuntamenti qualificati e preparare il passaggio a formule più scalabili."
+        },
+        {
+          "question": "Posso recedere dal contratto in qualsiasi momento?",
+          "answer": "Sì: con preavviso di 28 giorni per chiusura ordinata delle attività."
+        },
+        {
+          "question": "Come si definisce l'ICP?",
+          "answer": "Settore, fascia di fatturato, area geografica + studio di fattibilità."
+        },
+        {
+          "question": "Come posso monitorare risultati e attività?",
+          "answer": "• Dashboard Sendura in tempo reale;\n• Report ogni due settimane + confronti col PM."
+        },
+        {
+          "question": "Mi portate direttamente dai decisori o rischio di parlare con figure non rilevanti?",
+          "answer": "Dipende da esigenze e struttura delle aziende target.\n• PMI: spesso CEO/titolare;\n• Multinazionali: direttori di reparto o manager locali con budget."
+        },
+        {
+          "question": "Potete raggiungere solo grandi aziende o anche PMI?",
+          "answer": "Entrambe: sistema flessibile con logica invariata sui decisori."
+        },
+        {
+          "question": "Da dove provengono i vostri dati e come vengono aggiornati?",
+          "answer": "• Approvvigionamento diretto;\n• Provider certificati;\n• Arricchimento proprietario con AI."
+        },
+        {
+          "question": "Cosa accade se un appuntamento non corrisponde all'ICP definito?",
+          "answer": "Non è valido: nel Performance non lo paghi.\nHai 72 ore per segnalarlo: verifichiamo ed escludiamo se fuori ICP."
+        },
+        {
+          "question": "Utilizzate l'intelligenza artificiale?",
+          "answer": "Sì, integrata in segmentazione, messaggi e priorità di follow‑up."
+        },
+        {
+          "question": "Avrò un referente dedicato?",
+          "answer": "Sì, project manager dedicato."
+        },
+        {
+          "question": "Quanto tempo per i risultati?",
+          "answer": "30–90 giorni di testing per arrivare a regime con flusso costante."
+        },
+        {
+          "question": "Quando devo saldare gli appuntamenti?",
+          "answer": "Ogni 14 giorni: paghi solo gli appuntamenti qualificati effettivamente svolti."
+        }
+      ]
+    },
+    "setupFee": {
+      "items": [
+        {
+          "question": "Quali sono gli step operativi del Pacchetto Set‑Up Fee + Revenue Share?",
+          "answer": "1. Call iniziale e valutazione compatibilità con revenue share.\n2. Definizione ICP (settore, area, dimensione).\n3. Studio di fattibilità operativo ed economico (potenziale mercato, ritorno atteso, KPI della partnership).\n4. Seconda call: termini e criteri di revenue share.\n5. Piano strategico/operativo con PM dedicato e roadmap orientata al fatturato.\n6. Attivazione, testing, ottimizzazione e messa a regime."
+        },
+        {
+          "question": "Quali parametri applicate per il calcolo della fee iniziale e della revenue share?",
+          "answer": "• Cluster di riferimento (settore e dimensione del mercato);\n• Volumi e complessità (contatti/canali da attivare);\n• Ticket medio delle trattative."
+        },
+        {
+          "question": "La mia azienda è adatta a questa formula di partnership?",
+          "answer": "Ideale per imprese strutturate con investimenti già attivi in crescita (es. traffico a pagamento), LTV chiara e portafoglio prodotti/servizi solido. Non adatta a chi deve ancora testare il mercato."
+        },
+        {
+          "question": "Che vantaggi offre l'accesso permanente al sistema rispetto a servizi a tempo/pacchetto?",
+          "answer": "• Tecnologia, database e know‑how sempre attivi per la tua azienda;\n• Partnership di lungo periodo con continuità di strategia e ottimizzazioni;\n• Allineamento totale tramite revenue share: cresciamo se cresci."
+        },
+        {
+          "question": "Come si definisce l'ICP?",
+          "answer": "Settore, fascia di fatturato, area geografica + studio di fattibilità."
+        },
+        {
+          "question": "Come posso monitorare risultati e attività?",
+          "answer": "• Dashboard Sendura real‑time;\n• Report ogni due settimane + confronti col PM."
+        },
+        {
+          "question": "Mi portate direttamente dai decisori o rischio di parlare con referenti che non decidono nulla?",
+          "answer": "• PMI: CEO/titolare;\n• Multinazionali: direttori di reparto/manager con budget.\n\nEsempio: per marketing, PMI → imprenditore; multinazionale → Direttore Marketing BU Italia."
+        },
+        {
+          "question": "Potete raggiungere solo grandi aziende o anche PMI?",
+          "answer": "Entrambe, stessa logica: incontrare chi ha peso decisionale."
+        },
+        {
+          "question": "Da dove provengono i vostri dati e come vengono aggiornati?",
+          "answer": "• Approvvigionamento diretto;\n• Provider certificati;\n• Arricchimento proprietario con AI."
+        },
+        {
+          "question": "Utilizzate l'intelligenza artificiale nei vostri sistemi?",
+          "answer": "Sì: segmentazione, personalizzazione e gestione priorità di follow‑up."
+        },
+        {
+          "question": "Avrò un referente dedicato durante la collaborazione?",
+          "answer": "Sì, project manager dedicato."
+        },
+        {
+          "question": "Quanto tempo serve per vedere i primi risultati?",
+          "answer": "30–90 giorni di testing → messa a regime con flusso costante e prevedibile."
+        }
+      ]
+    },
+    "subscription": {
+      "items": [
+        {
+          "question": "Quali sono gli step operativi del Pacchetto Subscription?",
+          "answer": "1. Call iniziale e raccolta info.\n2. Definizione ICP (fatturato, settore, area).\n3. Studio di fattibilità: quota per appuntamento e range mensile.\n4. Seconda call: analisi e personalizzazione offerta.\n5. Piano operativo con PM dedicato.\n6. Attivazione, testing, ottimizzazione e piena messa a regime."
+        },
+        {
+          "question": "Come viene stabilita la quota per appuntamento?",
+          "answer": "• Grandezza/complessità del cluster;\n• Difficoltà e frequenza di contatto;\n• Localizzazione geografica;\n• Quote distinte se sono definiti più ICP."
+        },
+        {
+          "question": "Quanti appuntamenti mensili sono previsti e come si stabilisce il range?",
+          "answer": "Il range si definisce sulla tua capacità di gestire trattative. Tu indichi il numero desiderato, noi verifichiamo la coerenza col target. Il minimo del range diventa la quota garantita."
+        },
+        {
+          "question": "Posso recedere dal contratto in qualsiasi momento?",
+          "answer": "Sì: preavviso di 28 giorni. Concludiamo le attività in corso; restano dovuti gli appuntamenti già confermati."
+        },
+        {
+          "question": "Come si definisce il profilo del cliente ideale (ICP)?",
+          "answer": "Settore, fascia di fatturato, area geografica + studio di fattibilità."
+        },
+        {
+          "question": "Come posso monitorare risultati e attività?",
+          "answer": "• Dashboard Sendura real‑time;\n• Report bisettimanali + confronti col PM."
+        },
+        {
+          "question": "Mi portate direttamente dai decisori o rischio di parlare con referenti che non decidono nulla?",
+          "answer": "• PMI: CEO/titolare;\n• Multinazionali: direttori/manager locali con budget.\n\nEsempio: marketing → imprenditore (PMI) / Direttore Marketing BU Italia (multinazionale)."
+        },
+        {
+          "question": "Potete raggiungere solo grandi aziende o anche PMI?",
+          "answer": "Entrambe, stessa logica sui decisori."
+        },
+        {
+          "question": "Da dove provengono i vostri dati e come vengono aggiornati?",
+          "answer": "• Approvvigionamento diretto;\n• Provider certificati;\n• Arricchimento proprietario con AI."
+        },
+        {
+          "question": "Cosa accade se un appuntamento non corrisponde all'ICP definito?",
+          "answer": "Non è valido: nel Performance non lo paghi.\nHai 72 ore per segnalarlo: verifichiamo subito e, se fuori ICP, viene escluso senza costi aggiuntivi."
+        },
+        {
+          "question": "Utilizzate l'intelligenza artificiale nei vostri sistemi?",
+          "answer": "Sì: segmentazione, personalizzazione e follow‑up priority."
+        },
+        {
+          "question": "Avrò un referente dedicato durante la collaborazione?",
+          "answer": "Sì, project manager dedicato."
+        },
+        {
+          "question": "Quanto tempo serve per iniziare a vedere i primi risultati?",
+          "answer": "30–90 giorni di testing → regime costante."
+        },
+        {
+          "question": "Quando devo saldare gli appuntamenti?",
+          "answer": "Una volta al mese, in base al range di appuntamenti qualificati previsto e agli incontri svolti."
+        }
+      ]
     }
   },
   "en": {
@@ -69,6 +325,262 @@
       "body": "Our experts are available for a free consultation. We'll analyze your needs and help you choose the best solution for your company.",
       "ctaPrimary": "Book a Free Call",
       "ctaSecondary": "See Packages"
+    },
+    "generali": {
+      "items": [
+        {
+          "question": "What's the difference between All You Can Leads and a regular lead generation agency?",
+          "answer": "Traditional agencies sell lists or campaigns that produce clicks and forms: cold data, often unverified, that you have to transform into opportunities. Result: high costs, wasted time and few opportunities.\n\nAll You Can Leads flips the script:\n• We don't sell leads: we bring real appointments with decision makers in target.\n• No dependency on Google/Meta: we use verified proprietary databases, AI for updates and segmentation, and our internal software Sendura.\n• We don't dump work on you: we contact, filter and confirm interest, scheduling only calendarized meetings.\n\nIn summary: where others leave you a list to manage, AYCL makes you sit with those who really decide."
+        },
+        {
+          "question": "How does your B2B appointment generation system work?",
+          "answer": "• ICP definition: sector, revenue range, geographical area.\n• Contact selection in line from our multi-level database.\n• Interaction and screening to record interest and discard off-target.\n• Scheduling appointments with decision makers who respect parameters and have expressed real interest.\n\nSo your calendar fills with meetings with interlocutors who have passed multiple verification levels."
+        },
+        {
+          "question": "What does the All You Can Leads protocol consist of?",
+          "answer": "1. Initial call to verify collaboration and gather info.\n2. ICP definition on objective parameters (revenue, sector, location).\n3. Feasibility study and appointment quotation in line with ICP.\n4. Second call: analysis sharing and offer personalization.\n5. Operational plan with dedicated project manager.\n6. Launch, optimization and ramp-up to constant flow."
+        },
+        {
+          "question": "What's the difference between leads and qualified appointments?",
+          "answer": "A lead is raw contact (name, email, phone) and doesn't indicate real interest.\n\nA qualified appointment instead:\n• Is already scheduled on your agenda;\n• Respects ICP parameters;\n• The interlocutor knows why they're contacted and is interested in a meeting;\n• Validity is objective: if it doesn't respect ICP or no-show, it's not counted or replaced based on package."
+        },
+        {
+          "question": "What does B2B decision maker mean?",
+          "answer": "Figures with real role in purchasing processes: CEOs/Presidents in SMEs; directors/managers in structured companies or multinationals. Often the decision is shared (board/committees): we bring you to talk with those who can influence and guide the choice."
+        },
+        {
+          "question": "How do you identify my company's ICP?",
+          "answer": "The ICP is defined on three parameters: sector, revenue range, geographical area indicated by you. Followed by a feasibility study for channels and the best engagement strategy."
+        },
+        {
+          "question": "Can you reach only large companies or also SMEs?",
+          "answer": "We work with SMEs, medium and multinationals. Screening and target figures change, the logic remains the same: putting you in front of contacts with real decision-making role."
+        },
+        {
+          "question": "Do you bring me directly in contact with decision makers or do I risk irrelevant contacts?",
+          "answer": "Yes, but the level depends on needs and target structure:\n• In SMEs: usually CEO/owner.\n• In structured/multinational companies: department directors or local managers with budget and responsibilities.\n\nExample: for marketing solutions → in SME the entrepreneur; in multinational the Marketing Director of the Italian BU."
+        },
+        {
+          "question": "What technologies do you use for appointment generation?",
+          "answer": "Proprietary infrastructure and advanced multi-channel outreach tools. Each project is customized for sector and target."
+        },
+        {
+          "question": "Where do your data come from and how are they updated?",
+          "answer": "• Direct procurement: research, collection and periodic verification.\n• Certified providers: qualified datasets with verified executive contacts.\n• Proprietary enrichment: scoring and enrichment with AI."
+        },
+        {
+          "question": "Do you use artificial intelligence in your systems?",
+          "answer": "Yes. From segmentation to message personalization, to follow-up priority. AI enhances the human team, which maintains quality control."
+        },
+        {
+          "question": "Why is your method more effective than online advertising?",
+          "answer": "ADV are based on auctions where whoever spends more wins. With AYCL you pay for the result (the appointment), not the click or impression: the investment becomes real meetings with people who matter."
+        },
+        {
+          "question": "What problems does multi-channel outreach solve?",
+          "answer": "• ADV require increasing budgets and reduced margins;\n• Network/word-of-mouth are neither predictable nor scalable.\n\nBy multiplying contact points, response increases and the flow of opportunities stabilizes."
+        },
+        {
+          "question": "Why choose you instead of hiring an external agency or media buyer?",
+          "answer": "We're not intermediaries and don't depend on third-party platforms. We have proprietary infrastructure and take responsibility for results: no promises, but measurable appointments."
+        },
+        {
+          "question": "Differences from cold calling or generic email marketing campaigns?",
+          "answer": "Cold calling = cold contacts, long times, low conversions. Generic emails = unprofiled databases, random responses.\n\nAYCL contacts, screens and records interest before scheduling: when you sit down, the interlocutor is on target and predisposed."
+        },
+        {
+          "question": "Are qualified appointments guaranteed?",
+          "answer": "• Performance: you only pay for those completed and compliant with ICP.\n• Subscription: guaranteed monthly range.\n• Set-Up Fee: guarantee extended to economic return (revenue share)."
+        },
+        {
+          "question": "What happens if an appointment doesn't match the defined ICP?",
+          "answer": "• Performance: you don't pay for it.\n• Subscription: it's replaced.\n\nYou have 48 hours to report it: we verify immediately and, if off ICP, it's excluded without costs."
+        },
+        {
+          "question": "How can I monitor results and activities?",
+          "answer": "• Personal dashboard on Sendura in real time.\n• Bi-weekly reports and regular comparisons with the project manager."
+        },
+        {
+          "question": "Will I have a dedicated contact?",
+          "answer": "Yes: a dedicated project manager, direct contact point."
+        },
+        {
+          "question": "How long does it take to see the first results?",
+          "answer": "30-90 days of testing for data mass and optimizations. Appointments can already arrive in this phase; goal: stable and predictable regime."
+        }
+      ]
+    },
+    "performance": {
+      "items": [
+        {
+          "question": "What are the operational steps of the Performance Package?",
+          "answer": "1. Initial call and info gathering.\n2. ICP definition (revenue, sector, geographical area).\n3. Feasibility study and appointment quotation.\n4. Second call: analysis and offer personalization.\n5. Operational plan with dedicated PM.\n6. Activation, testing, optimization and ramp-up."
+        },
+        {
+          "question": "How is the appointment fee established?",
+          "answer": "• Target cluster size/complexity;\n• Contact difficulty and frequency;\n• Geographical location."
+        },
+        {
+          "question": "Why is the Performance Package valid only for the first year?",
+          "answer": "It's a starter pack to try the system directly, generate qualified appointments and prepare the transition to more scalable formulas."
+        },
+        {
+          "question": "Can I terminate the contract at any time?",
+          "answer": "Yes: with 28 days notice for orderly activity closure."
+        },
+        {
+          "question": "How is the ICP defined?",
+          "answer": "Sector, revenue range, geographical area + feasibility study."
+        },
+        {
+          "question": "How can I monitor results and activities?",
+          "answer": "• Sendura dashboard in real time;\n• Reports every two weeks + comparisons with PM."
+        },
+        {
+          "question": "Do you bring me directly to decision makers or do I risk talking to irrelevant figures?",
+          "answer": "Depends on needs and target company structure.\n• SMEs: often CEO/owner;\n• Multinationals: department directors or local managers with budget."
+        },
+        {
+          "question": "Can you reach only large companies or also SMEs?",
+          "answer": "Both: flexible system with unchanged logic on decision makers."
+        },
+        {
+          "question": "Where do your data come from and how are they updated?",
+          "answer": "• Direct procurement;\n• Certified providers;\n• Proprietary enrichment with AI."
+        },
+        {
+          "question": "What happens if an appointment doesn't match the defined ICP?",
+          "answer": "It's not valid: in Performance you don't pay for it.\nYou have 72 hours to report it: we verify and exclude if off ICP."
+        },
+        {
+          "question": "Do you use artificial intelligence?",
+          "answer": "Yes, integrated in segmentation, messages and follow-up priority."
+        },
+        {
+          "question": "Will I have a dedicated contact?",
+          "answer": "Yes, dedicated project manager."
+        },
+        {
+          "question": "How long for results?",
+          "answer": "30-90 days of testing to reach regime with constant flow."
+        },
+        {
+          "question": "When do I have to pay for appointments?",
+          "answer": "Every 14 days: you only pay for qualified appointments actually completed."
+        }
+      ]
+    },
+    "setupFee": {
+      "items": [
+        {
+          "question": "What are the operational steps of the Set-Up Fee + Revenue Share Package?",
+          "answer": "1. Initial call and revenue share compatibility assessment.\n2. ICP definition (sector, area, size).\n3. Operational and economic feasibility study (market potential, expected return, partnership KPIs).\n4. Second call: terms and revenue share criteria.\n5. Strategic/operational plan with dedicated PM and revenue-focused roadmap.\n6. Activation, testing, optimization and ramp-up."
+        },
+        {
+          "question": "What parameters do you apply for calculating initial fee and revenue share?",
+          "answer": "• Reference cluster (sector and market size);\n• Volumes and complexity (contacts/channels to activate);\n• Average negotiation ticket."
+        },
+        {
+          "question": "Is my company suitable for this partnership formula?",
+          "answer": "Ideal for structured companies with active growth investments (e.g. paid traffic), clear LTV and solid product/service portfolio. Not suitable for those who still need to test the market."
+        },
+        {
+          "question": "What advantages does permanent system access offer compared to time/package services?",
+          "answer": "• Technology, database and know-how always active for your company;\n• Long-term partnership with strategy continuity and optimizations;\n• Total alignment through revenue share: we grow if you grow."
+        },
+        {
+          "question": "How is the ICP defined?",
+          "answer": "Sector, revenue range, geographical area + feasibility study."
+        },
+        {
+          "question": "How can I monitor results and activities?",
+          "answer": "• Sendura real-time dashboard;\n• Reports every two weeks + comparisons with PM."
+        },
+        {
+          "question": "Do you bring me directly to decision makers or do I risk talking to contacts who decide nothing?",
+          "answer": "• SMEs: CEO/owner;\n• Multinationals: department directors/managers with budget.\n\nExample: for marketing, SME → entrepreneur; multinational → Marketing Director Italian BU."
+        },
+        {
+          "question": "Can you reach only large companies or also SMEs?",
+          "answer": "Both, same logic: meeting those with decision-making weight."
+        },
+        {
+          "question": "Where do your data come from and how are they updated?",
+          "answer": "• Direct procurement;\n• Certified providers;\n• Proprietary enrichment with AI."
+        },
+        {
+          "question": "Do you use artificial intelligence in your systems?",
+          "answer": "Yes: segmentation, personalization and follow-up priority management."
+        },
+        {
+          "question": "Will I have a dedicated contact during collaboration?",
+          "answer": "Yes, dedicated project manager."
+        },
+        {
+          "question": "How long does it take to see the first results?",
+          "answer": "30-90 days of testing → ramp-up with constant and predictable flow."
+        }
+      ]
+    },
+    "subscription": {
+      "items": [
+        {
+          "question": "What are the operational steps of the Subscription Package?",
+          "answer": "1. Initial call and info gathering.\n2. ICP definition (revenue, sector, area).\n3. Feasibility study: appointment fee and monthly range.\n4. Second call: analysis and offer personalization.\n5. Operational plan with dedicated PM.\n6. Activation, testing, optimization and full ramp-up."
+        },
+        {
+          "question": "How is the appointment fee established?",
+          "answer": "• Cluster size/complexity;\n• Contact difficulty and frequency;\n• Geographical location;\n• Distinct fees if multiple ICPs are defined."
+        },
+        {
+          "question": "How many monthly appointments are planned and how is the range established?",
+          "answer": "The range is defined on your capacity to handle negotiations. You indicate the desired number, we verify coherence with target. The minimum of the range becomes the guaranteed quota."
+        },
+        {
+          "question": "Can I terminate the contract at any time?",
+          "answer": "Yes: 28 days notice. We complete ongoing activities; already confirmed appointments remain due."
+        },
+        {
+          "question": "How is the ideal customer profile (ICP) defined?",
+          "answer": "Sector, revenue range, geographical area + feasibility study."
+        },
+        {
+          "question": "How can I monitor results and activities?",
+          "answer": "• Sendura real-time dashboard;\n• Bi-weekly reports + comparisons with PM."
+        },
+        {
+          "question": "Do you bring me directly to decision makers or do I risk talking to contacts who decide nothing?",
+          "answer": "• SMEs: CEO/owner;\n• Multinationals: directors/local managers with budget.\n\nExample: marketing → entrepreneur (SME) / Marketing Director Italian BU (multinational)."
+        },
+        {
+          "question": "Can you reach only large companies or also SMEs?",
+          "answer": "Both, same logic on decision makers."
+        },
+        {
+          "question": "Where do your data come from and how are they updated?",
+          "answer": "• Direct procurement;\n• Certified providers;\n• Proprietary enrichment with AI."
+        },
+        {
+          "question": "What happens if an appointment doesn't match the defined ICP?",
+          "answer": "It's not valid: in Performance you don't pay for it.\nYou have 72 hours to report it: we verify immediately and, if off ICP, it's excluded without additional costs."
+        },
+        {
+          "question": "Do you use artificial intelligence in your systems?",
+          "answer": "Yes: segmentation, personalization and follow-up priority."
+        },
+        {
+          "question": "Will I have a dedicated contact during collaboration?",
+          "answer": "Yes, dedicated project manager."
+        },
+        {
+          "question": "How long does it take to start seeing the first results?",
+          "answer": "30-90 days of testing → constant regime."
+        },
+        {
+          "question": "When do I have to pay for appointments?",
+          "answer": "Once a month, based on the expected range of qualified appointments and completed meetings."
+        }
+      ]
     }
   },
   "es": {
@@ -104,6 +616,262 @@
       "body": "Nuestros expertos están disponibles para una consulta gratuita. Analizamos tus necesidades y te ayudamos a elegir la mejor solución para tu empresa.",
       "ctaPrimary": "Reservar una Llamada Gratuita",
       "ctaSecondary": "Ver Paquetes"
+    },
+    "generali": {
+      "items": [
+        {
+          "question": "¿Cuál es la diferencia entre All You Can Leads y una agencia normal de generación de leads?",
+          "answer": "Las agencias clásicas venden listas o campañas que producen clicks y formularios: datos fríos, a menudo no verificados, que tienes que transformar en oportunidades. Resultado: costos altos, tiempo perdido y pocas oportunidades.\n\nAll You Can Leads cambia el guión:\n• No vendemos leads: llevamos citas reales con tomadores de decisiones en objetivo.\n• Sin dependencia de Google/Meta: usamos bases de datos propietarias verificadas, IA para actualizaciones y segmentación, y nuestro software interno Sendura.\n• No te descargamos el trabajo: contactamos, filtramos y confirmamos el interés, programando solo reuniones calendarizadas.\n\nEn resumen: donde otros te dejan una lista que gestionar, AYCL te hace sentar con quienes realmente deciden."
+        },
+        {
+          "question": "¿Cómo funciona vuestro sistema de generación de citas B2B?",
+          "answer": "• Definición del ICP: sector, rango de ingresos, área geográfica.\n• Selección de contactos en línea desde nuestra base de datos multinivel.\n• Interacción y cribado para registrar el interés y descartar los fuera de objetivo.\n• Programación de citas con tomadores de decisiones que respetan los parámetros y han expresado interés real.\n\nAsí tu calendario se llena de reuniones con interlocutores que han superado múltiples niveles de verificación."
+        },
+        {
+          "question": "¿En qué consiste el protocolo All You Can Leads?",
+          "answer": "1. Llamada inicial para verificar la colaboración y recopilar información.\n2. Definición del ICP en parámetros objetivos (ingresos, sector, ubicación).\n3. Estudio de viabilidad y cotización por cita en línea con el ICP.\n4. Segunda llamada: compartir análisis y personalizar oferta.\n5. Plan operativo con project manager dedicado.\n6. Lanzamiento, optimización y puesta en marcha hasta flujo constante."
+        },
+        {
+          "question": "¿Qué diferencia hay entre leads y citas cualificadas?",
+          "answer": "Un lead es un contacto crudo (nombre, email, teléfono) y no indica un interés real.\n\nUna cita cualificada en cambio:\n• Ya está programada en tu agenda;\n• Respeta los parámetros del ICP;\n• El interlocutor sabe por qué se le contacta y está interesado en una reunión;\n• La validez es objetiva: si no respeta el ICP o no se presenta, no se cuenta o se reemplaza según el paquete."
+        },
+        {
+          "question": "¿Qué significa tomador de decisiones B2B?",
+          "answer": "Figuras con rol real en los procesos de compra: CEOs/Presidentes en PYMEs; directores/gerentes en empresas estructuradas o multinacionales. A menudo la decisión es compartida (junta/comités): te llevamos a hablar con quienes pueden influir y orientar la elección."
+        },
+        {
+          "question": "¿Cómo identificáis el ICP de mi empresa?",
+          "answer": "El ICP se define en tres parámetros: sector, rango de ingresos, área geográfica indicados por ti. Sigue un estudio de viabilidad para los canales y la mejor estrategia de engagement."
+        },
+        {
+          "question": "¿Podéis alcanzar solo grandes empresas o también PYMEs?",
+          "answer": "Trabajamos con PYMEs, medianas y multinacionales. Cambian cribado y figuras objetivo, la lógica permanece igual: ponerte frente a contactos con rol real de toma de decisiones."
+        },
+        {
+          "question": "¿Me lleváis directamente en contacto con los decisores o arriesgo contactos poco relevantes?",
+          "answer": "Sí, pero el nivel depende de necesidades y estructura objetivo:\n• En PYMEs: normalmente CEO/propietario.\n• En empresas estructuradas/multinacionales: directores de departamento o gerentes locales con presupuesto y responsabilidades.\n\nEjemplo: para soluciones de marketing → en PYME el emprendedor; en multinacional el Director de Marketing de la BU italiana."
+        },
+        {
+          "question": "¿Qué tecnologías utilizáis para la generación de citas?",
+          "answer": "Infraestructura propietaria y herramientas avanzadas de outreach multicanal. Cada proyecto se personaliza para sector y objetivo."
+        },
+        {
+          "question": "¿De dónde provienen vuestros datos y cómo se actualizan?",
+          "answer": "• Aprovisionamiento directo: investigación, recolección y verificación periódica.\n• Proveedores certificados: datasets cualificados con contactos ejecutivos verificados.\n• Enriquecimiento propietario: scoring y enrichment con IA."
+        },
+        {
+          "question": "¿Utilizáis inteligencia artificial en vuestros sistemas?",
+          "answer": "Sí. Desde la segmentación hasta la personalización de mensajes, hasta el follow-up priority. La IA potencia el equipo humano, que mantiene el control de calidad."
+        },
+        {
+          "question": "¿Por qué vuestro método es más efectivo que la publicidad online?",
+          "answer": "Las ADV se basan en subastas donde gana quien gasta más. Con AYCL pagas el resultado (la cita), no el click o la impresión: la inversión se convierte en reuniones reales con personas que importan."
+        },
+        {
+          "question": "¿Qué problemas resuelve el outreach multicanal?",
+          "answer": "• Las ADV requieren presupuestos crecientes y márgenes reducidos;\n• Red/word-of-mouth no son predecibles ni escalables.\n\nMultiplicando los puntos de contacto, aumenta la respuesta y se estabiliza el flujo de oportunidades."
+        },
+        {
+          "question": "¿Por qué elegir vosotros en lugar de contratar una agencia externa o media buyer?",
+          "answer": "No somos intermediarios y no dependemos de plataformas terceras. Tenemos infraestructura propietaria y nos hacemos responsables del resultado: no promesas, sino citas medibles."
+        },
+        {
+          "question": "¿Diferencias respecto a cold calling o campañas genéricas de email marketing?",
+          "answer": "Cold calling = contactos fríos, tiempos largos, conversiones bajas. Emails genéricos = bases de datos no perfiladas, respuestas casuales.\n\nAYCL contacta, criba y registra el interés antes de programar: cuando te sientas, el interlocutor está en objetivo y predispuesto."
+        },
+        {
+          "question": "¿Están garantizadas las citas cualificadas?",
+          "answer": "• Performance: solo pagas las completadas y conformes al ICP.\n• Subscription: garantizado un rango mensual.\n• Set-Up Fee: garantía extendida al retorno económico (revenue share)."
+        },
+        {
+          "question": "¿Qué pasa si una cita no corresponde al ICP definido?",
+          "answer": "• Performance: no la pagas.\n• Subscription: se reemplaza.\n\nTienes 48 horas para reportarlo: verificamos inmediatamente y, si fuera de ICP, se excluye sin costos."
+        },
+        {
+          "question": "¿Cómo puedo monitorear resultados y actividades?",
+          "answer": "• Panel personal en Sendura en tiempo real.\n• Informes bisemanales y comparaciones regulares con el project manager."
+        },
+        {
+          "question": "¿Tendré un contacto dedicado?",
+          "answer": "Sí: un project manager dedicado, punto de contacto directo."
+        },
+        {
+          "question": "¿Cuánto tiempo se necesita para ver los primeros resultados?",
+          "answer": "30-90 días de testing para masa de datos y optimizaciones. Ya pueden llegar citas en esta fase; objetivo: régimen estable y predecible."
+        }
+      ]
+    },
+    "performance": {
+      "items": [
+        {
+          "question": "¿Cuáles son los pasos operativos del Paquete Performance?",
+          "answer": "1. Llamada inicial y recopilación de información.\n2. Definición ICP (ingresos, sector, área geográfica).\n3. Estudio de viabilidad y cotización por cita.\n4. Segunda llamada: análisis y personalización de oferta.\n5. Plan operativo con PM dedicado.\n6. Activación, testing, optimización y puesta en marcha."
+        },
+        {
+          "question": "¿Cómo se establece la cuota por cita?",
+          "answer": "• Tamaño/complejidad del cluster objetivo;\n• Dificultad y frecuencia de contacto;\n• Localización geográfica."
+        },
+        {
+          "question": "¿Por qué el Paquete Performance es válido solo para el primer año?",
+          "answer": "Es un starter pack para probar el sistema directamente, generar citas cualificadas y preparar la transición a fórmulas más escalables."
+        },
+        {
+          "question": "¿Puedo rescindir el contrato en cualquier momento?",
+          "answer": "Sí: con 28 días de preaviso para cierre ordenado de actividades."
+        },
+        {
+          "question": "¿Cómo se define el ICP?",
+          "answer": "Sector, rango de ingresos, área geográfica + estudio de viabilidad."
+        },
+        {
+          "question": "¿Cómo puedo monitorear resultados y actividades?",
+          "answer": "• Panel Sendura en tiempo real;\n• Informes cada dos semanas + comparaciones con PM."
+        },
+        {
+          "question": "¿Me lleváis directamente a los decisores o arriesgo hablar con figuras no relevantes?",
+          "answer": "Depende de necesidades y estructura de empresas objetivo.\n• PYMEs: a menudo CEO/propietario;\n• Multinacionales: directores de departamento o gerentes locales con presupuesto."
+        },
+        {
+          "question": "¿Podéis alcanzar solo grandes empresas o también PYMEs?",
+          "answer": "Ambas: sistema flexible con lógica invariable en decisores."
+        },
+        {
+          "question": "¿De dónde provienen vuestros datos y cómo se actualizan?",
+          "answer": "• Aprovisionamiento directo;\n• Proveedores certificados;\n• Enriquecimiento propietario con IA."
+        },
+        {
+          "question": "¿Qué pasa si una cita no corresponde al ICP definido?",
+          "answer": "No es válida: en Performance no la pagas.\nTienes 72 horas para reportarlo: verificamos y excluimos si fuera de ICP."
+        },
+        {
+          "question": "¿Utilizáis inteligencia artificial?",
+          "answer": "Sí, integrada en segmentación, mensajes y prioridad de follow-up."
+        },
+        {
+          "question": "¿Tendré un contacto dedicado?",
+          "answer": "Sí, project manager dedicado."
+        },
+        {
+          "question": "¿Cuánto tiempo para los resultados?",
+          "answer": "30-90 días de testing para llegar a régimen con flujo constante."
+        },
+        {
+          "question": "¿Cuándo debo pagar las citas?",
+          "answer": "Cada 14 días: solo pagas las citas cualificadas efectivamente completadas."
+        }
+      ]
+    },
+    "setupFee": {
+      "items": [
+        {
+          "question": "¿Cuáles son los pasos operativos del Paquete Set-Up Fee + Revenue Share?",
+          "answer": "1. Llamada inicial y evaluación de compatibilidad con revenue share.\n2. Definición ICP (sector, área, dimensión).\n3. Estudio de viabilidad operativo y económico (potencial de mercado, retorno esperado, KPIs de la asociación).\n4. Segunda llamada: términos y criterios de revenue share.\n5. Plan estratégico/operativo con PM dedicado y hoja de ruta orientada a ingresos.\n6. Activación, testing, optimización y puesta en marcha."
+        },
+        {
+          "question": "¿Qué parámetros aplicáis para el cálculo de la cuota inicial y la revenue share?",
+          "answer": "• Cluster de referencia (sector y dimensión del mercado);\n• Volúmenes y complejidad (contactos/canales a activar);\n• Ticket medio de las negociaciones."
+        },
+        {
+          "question": "¿Mi empresa es adecuada para esta fórmula de asociación?",
+          "answer": "Ideal para empresas estructuradas con inversiones ya activas en crecimiento (ej. tráfico de pago), LTV clara y portafolio de productos/servicios sólido. No adecuada para quienes aún necesitan probar el mercado."
+        },
+        {
+          "question": "¿Qué ventajas ofrece el acceso permanente al sistema respecto a servicios por tiempo/paquete?",
+          "answer": "• Tecnología, base de datos y know-how siempre activos para tu empresa;\n• Asociación de largo plazo con continuidad de estrategia y optimizaciones;\n• Alineación total a través de revenue share: crecemos si creces."
+        },
+        {
+          "question": "¿Cómo se define el ICP?",
+          "answer": "Sector, rango de ingresos, área geográfica + estudio de viabilidad."
+        },
+        {
+          "question": "¿Cómo puedo monitorear resultados y actividades?",
+          "answer": "• Panel Sendura en tiempo real;\n• Informes cada dos semanas + comparaciones con PM."
+        },
+        {
+          "question": "¿Me lleváis directamente a los decisores o arriesgo hablar con contactos que no deciden nada?",
+          "answer": "• PYMEs: CEO/propietario;\n• Multinacionales: directores de departamento/gerentes con presupuesto.\n\nEjemplo: para marketing, PYME → emprendedor; multinacional → Director de Marketing BU Italia."
+        },
+        {
+          "question": "¿Podéis alcanzar solo grandes empresas o también PYMEs?",
+          "answer": "Ambas, misma lógica: encontrar a quienes tienen peso en la toma de decisiones."
+        },
+        {
+          "question": "¿De dónde provienen vuestros datos y cómo se actualizan?",
+          "answer": "• Aprovisionamiento directo;\n• Proveedores certificados;\n• Enriquecimiento propietario con IA."
+        },
+        {
+          "question": "¿Utilizáis inteligencia artificial en vuestros sistemas?",
+          "answer": "Sí: segmentación, personalización y gestión de prioridades de follow-up."
+        },
+        {
+          "question": "¿Tendré un contacto dedicado durante la colaboración?",
+          "answer": "Sí, project manager dedicado."
+        },
+        {
+          "question": "¿Cuánto tiempo se necesita para ver los primeros resultados?",
+          "answer": "30-90 días de testing → puesta en marcha con flujo constante y predecible."
+        }
+      ]
+    },
+    "subscription": {
+      "items": [
+        {
+          "question": "¿Cuáles son los pasos operativos del Paquete Subscription?",
+          "answer": "1. Llamada inicial y recopilación de información.\n2. Definición ICP (ingresos, sector, área).\n3. Estudio de viabilidad: cuota por cita y rango mensual.\n4. Segunda llamada: análisis y personalización de oferta.\n5. Plan operativo con PM dedicado.\n6. Activación, testing, optimización y puesta en marcha completa."
+        },
+        {
+          "question": "¿Cómo se establece la cuota por cita?",
+          "answer": "• Tamaño/complejidad del cluster;\n• Dificultad y frecuencia de contacto;\n• Localización geográfica;\n• Cuotas distintas si se definen múltiples ICP."
+        },
+        {
+          "question": "¿Cuántas citas mensuales están previstas y cómo se establece el rango?",
+          "answer": "El rango se define en tu capacidad de gestionar negociaciones. Tú indicas el número deseado, nosotros verificamos la coherencia con el objetivo. El mínimo del rango se convierte en la cuota garantizada."
+        },
+        {
+          "question": "¿Puedo rescindir el contrato en cualquier momento?",
+          "answer": "Sí: preaviso de 28 días. Completamos las actividades en curso; las citas ya confirmadas siguen siendo debidas."
+        },
+        {
+          "question": "¿Cómo se define el perfil del cliente ideal (ICP)?",
+          "answer": "Sector, rango de ingresos, área geográfica + estudio de viabilidad."
+        },
+        {
+          "question": "¿Cómo puedo monitorear resultados y actividades?",
+          "answer": "• Panel Sendura en tiempo real;\n• Informes bisemanales + comparaciones con PM."
+        },
+        {
+          "question": "¿Me lleváis directamente a los decisores o arriesgo hablar con contactos que no deciden nada?",
+          "answer": "• PYMEs: CEO/propietario;\n• Multinacionales: directores/gerentes locales con presupuesto.\n\nEjemplo: marketing → emprendedor (PYME) / Director de Marketing BU Italia (multinacional)."
+        },
+        {
+          "question": "¿Podéis alcanzar solo grandes empresas o también PYMEs?",
+          "answer": "Ambas, misma lógica en decisores."
+        },
+        {
+          "question": "¿De dónde provienen vuestros datos y cómo se actualizan?",
+          "answer": "• Aprovisionamiento directo;\n• Proveedores certificados;\n• Enriquecimiento propietario con IA."
+        },
+        {
+          "question": "¿Qué pasa si una cita no corresponde al ICP definido?",
+          "answer": "No es válida: en Performance no la pagas.\nTienes 72 horas para reportarlo: verificamos inmediatamente y, si fuera de ICP, se excluye sin costos adicionales."
+        },
+        {
+          "question": "¿Utilizáis inteligencia artificial en vuestros sistemas?",
+          "answer": "Sí: segmentación, personalización y follow-up priority."
+        },
+        {
+          "question": "¿Tendré un contacto dedicado durante la colaboración?",
+          "answer": "Sí, project manager dedicado."
+        },
+        {
+          "question": "¿Cuánto tiempo se necesita para empezar a ver los primeros resultados?",
+          "answer": "30-90 días de testing → régimen constante."
+        },
+        {
+          "question": "¿Cuándo debo pagar las citas?",
+          "answer": "Una vez al mes, en base al rango esperado de citas cualificadas y a las reuniones completadas."
+        }
+      ]
     }
   }
 }

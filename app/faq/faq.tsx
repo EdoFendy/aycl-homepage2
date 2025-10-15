@@ -72,709 +72,109 @@ const slug = (s: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)+/g, "")
 
-// DATA — built from the user's content
-const chapters: Chapter[] = [
+// Helper function to parse answer text into JSX
+const parseAnswer = (text: string) => {
+  const lines = text.split('\n')
+  const elements: React.ReactNode[] = []
+  let currentList: string[] = []
+  let listType: 'ul' | 'ol' | null = null
+
+  const flushList = () => {
+    if (currentList.length > 0 && listType) {
+      const ListComponent = listType === 'ul' ? 'ul' : 'ol'
+      const listClassName = listType === 'ul' ? 'list-disc pl-5 space-y-2' : 'list-decimal pl-5 space-y-2'
+      elements.push(
+        <ListComponent key={elements.length} className={listClassName}>
+          {currentList.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ListComponent>
+      )
+      currentList = []
+      listType = null
+    }
+  }
+
+  lines.forEach((line, index) => {
+    const trimmedLine = line.trim()
+    if (!trimmedLine) return
+
+    if (trimmedLine.startsWith('•')) {
+      if (listType !== 'ul') {
+        flushList()
+        listType = 'ul'
+      }
+      currentList.push(trimmedLine.substring(1).trim())
+    } else if (trimmedLine.match(/^\d+\./)) {
+      if (listType !== 'ol') {
+        flushList()
+        listType = 'ol'
+      }
+      currentList.push(trimmedLine.substring(trimmedLine.indexOf('.') + 1).trim())
+    } else {
+      flushList()
+      elements.push(
+        <p key={index} className="mb-2 text-gray-700">
+          {trimmedLine}
+        </p>
+      )
+    }
+  })
+
+  flushList()
+  return <div className="space-y-2">{elements}</div>
+}
+
+// DATA — built from translations
+const getChapters = (t: any): Chapter[] => [
   {
     id: "generali",
-    title: "Generali",
+    title: t("chapters.generali"),
     emoji: "📚",
     icon: HelpCircle,
     customIcon: "/iconaMessaggio.png",
-    items: [
-      {
-        id: "diff-agenzia-aycl",
-        question:
-          "Qual è la differenza tra All You Can Leads e una normale agenzia di lead generation?",
-        answer: (
-          <div className="space-y-3 text-gray-700">
-            <p>
-              Le agenzie classiche vendono liste o campagne che producono click e form: dati freddi, spesso non
-              verificati, che devi trasformare tu in opportunità. Risultato: costi alti, tempo perso e poche occasioni.
-            </p>
-            <p>
-              All You Can Leads ribalta lo schema:
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                Non vendiamo lead: portiamo appuntamenti reali con figure decisionali in target.
-              </li>
-              <li>
-                Niente dipendenza da Google/Meta: usiamo database proprietari verificati, AI per aggiornamento e
-                segmentazione, e il nostro software interno <span className="font-semibold text-navy">Sendura</span>.
-              </li>
-              <li>
-                Non scarichiamo su di te il lavoro: contattiamo, filtriamo e confermiamo l'interesse, fissando solo
-                incontri calendarizzati.
-              </li>
-            </ul>
-            <p>
-              In sintesi: dove gli altri ti lasciano un elenco da gestire, AYCL ti fa sedere con chi decide davvero.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "come-funziona-sistema-b2b",
-        question: "Come funziona il vostro sistema di generazione appuntamenti B2B?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                Definizione dell’ICP: settore, fascia di fatturato, area geografica.
-              </li>
-              <li>
-                Selezione contatti in linea dal nostro database multilivello.
-              </li>
-              <li>
-                Interazione e scrematura per registrare l’interesse e scartare i fuori target.
-              </li>
-              <li>
-                Calendarizzazione di appuntamenti con decision maker che rispettano i parametri e hanno espresso
-                interesse reale.
-              </li>
-            </ul>
-            <p>
-              Così il tuo calendario si riempie di incontri con interlocutori che hanno superato più livelli di verifica.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "protocollo-aycl",
-        question: "In cosa consiste il protocollo All You Can Leads?",
-        answer: (
-          <ol className="list-decimal pl-5 space-y-2 text-gray-700">
-            <li>Call iniziale per verificare la collaborazione e raccogliere info.</li>
-            <li>
-              Definizione dell’ICP su parametri oggettivi (fatturato, settore, luogo).
-            </li>
-            <li>Studio di fattibilità e quotazione per appuntamento in linea con l’ICP.</li>
-            <li>Seconda call: condivisione analisi e personalizzazione offerta.</li>
-            <li>Piano operativo con project manager dedicato.</li>
-            <li>Lancio, ottimizzazione e messa a regime fino a flusso costante.</li>
-          </ol>
-        ),
-      },
-      {
-        id: "lead-vs-appuntamenti",
-        question: "Che differenza c’è tra lead e appuntamenti qualificati?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              Un <strong>lead</strong> è un contatto grezzo (nome, email, telefono) e non indica un reale interesse.
-            </p>
-            <p>
-              Un <strong>appuntamento qualificato</strong> invece:
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>È già calendarizzato sulla tua agenda;</li>
-              <li>Rispetta i parametri dell’ICP;</li>
-              <li>L’interlocutore sa perché viene contattato ed è interessato a un confronto;</li>
-              <li>
-                La validità è oggettiva: se non rispetta l’ICP o no‑show, non viene conteggiato o viene sostituito in
-                base al pacchetto.
-              </li>
-            </ul>
-          </div>
-        ),
-      },
-      {
-        id: "decision-maker-b2b",
-        question: "Cosa significa decision maker B2B?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              Figure con ruolo reale nei processi di acquisto: CEO/Presidenti nelle PMI; direttori/manager nelle
-              aziende strutturate o multinazionali. Spesso la decisione è condivisa (board/comitati): ti portiamo a
-              parlare con chi può influenzare e orientare la scelta.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "definizione-icp",
-        question: "Come identificate l’ICP della mia azienda?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              L’ICP è definito su tre parametri: <strong>settore</strong>, <strong>fascia di fatturato</strong>,
-              <strong> area geografica</strong> indicati da te. Segue uno studio di fattibilità per i canali e la
-              migliore strategia d’ingaggio.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "pmi-o-grandi",
-        question: "Potete raggiungere solo grandi aziende o anche PMI?",
-        answer: (
-          <p className="text-gray-700">
-            Lavoriamo con PMI, medie e multinazionali. Cambiano scrematura e figure target, la logica resta la stessa:
-            metterti davanti a referenti con reale ruolo decisionale.
-          </p>
-        ),
-      },
-      {
-        id: "contatto-decisori",
-        question:
-          "Mi portate direttamente a contatto con i decisori o rischio referenti poco rilevanti?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              Sì, ma il livello dipende da necessità e struttura target:
-            </p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Nelle PMI: di norma CEO/titolare.</li>
-              <li>
-                In aziende strutturate/multinazionali: direttori di reparto o manager locali con budget e responsabilità.
-              </li>
-            </ul>
-            <p>
-              Esempio: per soluzioni marketing → in PMI l’imprenditore; in multinazionale il Direttore Marketing della BU
-              italiana.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "tecnologie-usate",
-        question: "Quali tecnologie utilizzate per la generazione degli appuntamenti?",
-        answer: (
-          <p className="text-gray-700">
-            Infrastrutture proprietarie e strumenti avanzati di outreach multicanale. Ogni progetto è personalizzato per
-            settore e target.
-          </p>
-        ),
-      },
-      {
-        id: "origine-dati",
-        question: "Da dove provengono i vostri dati e come vengono aggiornati?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Approvvigionamento diretto: ricerca, raccolta e verifica periodica.</li>
-            <li>Provider certificati: dataset qualificati con contatti executive verificati.</li>
-            <li>Arricchimento proprietario: scoring ed enrichment con AI.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "ai-sistemi",
-        question: "Utilizzate l’intelligenza artificiale nei vostri sistemi?",
-        answer: (
-          <p className="text-gray-700">
-            Sì. Dalla segmentazione alla personalizzazione dei messaggi, fino al follow‑up priority. L’AI potenzia il
-            team umano, che mantiene il controllo di qualità.
-          </p>
-        ),
-      },
-      {
-        id: "perche-piu-efficace-adv",
-        question: "Perché il vostro metodo è più efficace rispetto alla pubblicità online?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              Le ADV si basano su aste dove vince chi spende di più. Con AYCL paghi il <em>risultato</em> (l’appuntamento),
-              non il click o l’impression: l’investimento diventa meeting reali con persone che contano.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "problemi-outreach",
-        question: "Quali problemi risolve l’outreach multicanale?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Le ADV richiedono budget crescenti e margini ridotti;</li>
-              <li>Network/passaparola non sono prevedibili né scalabili.</li>
-            </ul>
-            <p>Moltiplicando i punti di contatto, aumenta la risposta e si stabilizza il flusso di opportunità.</p>
-          </div>
-        ),
-      },
-      {
-        id: "perche-non-agenzia",
-        question:
-          "Perché scegliere voi invece di assumere un’agenzia esterna o un media buyer?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              Non siamo intermediari e non dipendiamo da piattaforme terze. Abbiamo infrastrutture proprietarie e ci
-              assumiamo la responsabilità del risultato: non promesse, ma appuntamenti misurabili.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "diff-cold-calling",
-        question:
-          "Differenze rispetto a cold calling o campagne generiche di email marketing?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              Cold calling = contatti freddi, tempi lunghi, conversioni basse. Email generiche = database non profilati,
-              risposte casuali.
-            </p>
-            <p>
-              AYCL contatta, screma e registra l’interesse <em>prima</em> di fissare: quando ti siedi, l’interlocutore è in
-              target e predisposto.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "garanzia-appuntamenti",
-        question: "Gli appuntamenti qualificati sono garantiti?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Performance: paghi solo quelli svolti e conformi all’ICP.</li>
-            <li>Subscription: garantito un range mensile.</li>
-            <li>Set‑Up Fee: garanzia estesa al ritorno economico (revenue share).</li>
-          </ul>
-        ),
-      },
-      {
-        id: "app-non-icp",
-        question: "Cosa accade se un appuntamento non corrisponde all’ICP definito?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>Performance: non lo paghi.</li>
-              <li>Subscription: viene sostituito.</li>
-            </ul>
-            <p>
-              Hai 48 ore per segnalarlo: verifichiamo subito e, se fuori ICP, viene escluso senza costi.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "monitoraggio-risultati",
-        question: "Come posso monitorare risultati e attività?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Dashboard personale su <strong>Sendura</strong> in tempo reale.</li>
-            <li>Report bisettimanali e confronti regolari col project manager.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "referente-dedicato",
-        question: "Avrò un referente dedicato?",
-        answer: <p className="text-gray-700">Sì: un project manager dedicato, punto di contatto diretto.</p>,
-      },
-      {
-        id: "tempi-risultati",
-        question: "Quanto tempo serve per vedere i primi risultati?",
-        answer: (
-          <p className="text-gray-700">
-            30–90 giorni di testing per massa dati e ottimizzazioni. Possono arrivare appuntamenti già in questa fase;
-            obiettivo: regime stabile e prevedibile.
-          </p>
-        ),
-      },
-    ],
+    items: t.raw("generali.items").map((item: any, index: number) => ({
+      id: `generali-${index}`,
+      question: item.question,
+      answer: parseAnswer(item.answer)
+    }))
   },
   {
     id: "performance",
-    title: "Performance Pack",
+    title: t("chapters.performance"),
     emoji: "⚡",
     icon: Zap,
     customIcon: "/iconaPerformance.png",
-    items: [
-      {
-        id: "perf-step-operativi",
-        question: "Quali sono gli step operativi del Pacchetto Performance?",
-        answer: (
-          <ol className="list-decimal pl-5 space-y-2 text-gray-700">
-            <li>Call iniziale e raccolta info.</li>
-            <li>Definizione ICP (fatturato, settore, area geografica).</li>
-            <li>Studio di fattibilità e quotazione per appuntamento.</li>
-            <li>Seconda call: analisi e personalizzazione offerta.</li>
-            <li>Piano operativo con PM dedicato.</li>
-            <li>Attivazione, testing, ottimizzazione e messa a regime.</li>
-          </ol>
-        ),
-      },
-      {
-        id: "perf-quota-app",
-        question: "Come viene stabilita la quota per appuntamento?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Grandezza/complessità del cluster target;</li>
-            <li>Difficoltà e frequenza di contatto;</li>
-            <li>Localizzazione geografica.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "perf-primo-anno",
-        question: "Perché il Pacchetto Performance è valido solo per il primo anno?",
-        answer: (
-          <p className="text-gray-700">
-            È uno starter pack per provare il sistema in modo diretto, generare appuntamenti qualificati e preparare il
-            passaggio a formule più scalabili.
-          </p>
-        ),
-      },
-      {
-        id: "perf-recesso",
-        question: "Posso recedere dal contratto in qualsiasi momento?",
-        answer: (
-          <p className="text-gray-700">Sì: con preavviso di 28 giorni per chiusura ordinata delle attività.</p>
-        ),
-      },
-      {
-        id: "perf-def-icp",
-        question: "Come si definisce l’ICP?",
-        answer: (
-          <p className="text-gray-700">Settore, fascia di fatturato, area geografica + studio di fattibilità.</p>
-        ),
-      },
-      {
-        id: "perf-monitoraggio",
-        question: "Come posso monitorare risultati e attività?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Dashboard Sendura in tempo reale;</li>
-            <li>Report ogni due settimane + confronti col PM.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "perf-decisori",
-        question:
-          "Mi portate direttamente dai decisori o rischio di parlare con figure non rilevanti?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>Dipende da esigenze e struttura delle aziende target.</p>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>PMI: spesso CEO/titolare;</li>
-              <li>Multinazionali: direttori di reparto o manager locali con budget.</li>
-            </ul>
-          </div>
-        ),
-      },
-      {
-        id: "perf-pmi",
-        question: "Potete raggiungere solo grandi aziende o anche PMI?",
-        answer: (
-          <p className="text-gray-700">Entrambe: sistema flessibile con logica invariata sui decisori.</p>
-        ),
-      },
-      {
-        id: "perf-dati",
-        question: "Da dove provengono i vostri dati e come vengono aggiornati?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Approvvigionamento diretto;</li>
-            <li>Provider certificati;</li>
-            <li>Arricchimento proprietario con AI.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "perf-app-fuori-icp",
-        question: "Cosa accade se un appuntamento non corrisponde all’ICP definito?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>Non è valido: nel Performance non lo paghi.</p>
-            <p>Hai 72 ore per segnalarlo: verifichiamo ed escludiamo se fuori ICP.</p>
-          </div>
-        ),
-      },
-      {
-        id: "perf-ai",
-        question: "Utilizzate l’intelligenza artificiale?",
-        answer: (
-          <p className="text-gray-700">Sì, integrata in segmentazione, messaggi e priorità di follow‑up.</p>
-        ),
-      },
-      {
-        id: "perf-referente",
-        question: "Avrò un referente dedicato?",
-        answer: <p className="text-gray-700">Sì, project manager dedicato.</p>,
-      },
-      {
-        id: "perf-tempi",
-        question: "Quanto tempo per i risultati?",
-        answer: (
-          <p className="text-gray-700">30–90 giorni di testing per arrivare a regime con flusso costante.</p>
-        ),
-      },
-      {
-        id: "perf-saldo",
-        question: "Quando devo saldare gli appuntamenti?",
-        answer: (
-          <p className="text-gray-700">Ogni 14 giorni: paghi solo gli appuntamenti qualificati effettivamente svolti.</p>
-        ),
-      },
-    ],
+    items: t.raw("performance.items").map((item: any, index: number) => ({
+      id: `performance-${index}`,
+      question: item.question,
+      answer: parseAnswer(item.answer)
+    }))
   },
   {
     id: "setup-fee",
-    title: "Set‑Up Fee + Revenue Share",
+    title: t("chapters.setup-fee"),
     emoji: "🧭",
     icon: Compass,
     customIcon: "/iconaSetupfee.png",
-    items: [
-      {
-        id: "setup-step",
-        question: "Quali sono gli step operativi del Pacchetto Set‑Up Fee + Revenue Share?",
-        answer: (
-          <ol className="list-decimal pl-5 space-y-2 text-gray-700">
-            <li>Call iniziale e valutazione compatibilità con revenue share.</li>
-            <li>Definizione ICP (settore, area, dimensione).</li>
-            <li>
-              Studio di fattibilità operativo ed economico (potenziale mercato, ritorno atteso, KPI della partnership).
-            </li>
-            <li>Seconda call: termini e criteri di revenue share.</li>
-            <li>Piano strategico/operativo con PM dedicato e roadmap orientata al fatturato.</li>
-            <li>Attivazione, testing, ottimizzazione e messa a regime.</li>
-          </ol>
-        ),
-      },
-      {
-        id: "setup-parametri",
-        question:
-          "Quali parametri applicate per il calcolo della fee iniziale e della revenue share?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Cluster di riferimento (settore e dimensione del mercato);</li>
-            <li>Volumi e complessità (contatti/canali da attivare);</li>
-            <li>Ticket medio delle trattative.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "setup-azienda-adatta",
-        question: "La mia azienda è adatta a questa formula di partnership?",
-        answer: (
-          <p className="text-gray-700">
-            Ideale per imprese strutturate con investimenti già attivi in crescita (es. traffico a pagamento), LTV chiara
-            e portafoglio prodotti/servizi solido. Non adatta a chi deve ancora testare il mercato.
-          </p>
-        ),
-      },
-      {
-        id: "setup-vantaggi-accesso-permanente",
-        question:
-          "Che vantaggi offre l’accesso permanente al sistema rispetto a servizi a tempo/pacchetto?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Tecnologia, database e know‑how sempre attivi per la tua azienda;</li>
-            <li>Partnership di lungo periodo con continuità di strategia e ottimizzazioni;</li>
-            <li>Allineamento totale tramite revenue share: cresciamo se cresci.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "setup-def-icp",
-        question: "Come si definisce l’ICP?",
-        answer: (
-          <p className="text-gray-700">Settore, fascia di fatturato, area geografica + studio di fattibilità.</p>
-        ),
-      },
-      {
-        id: "setup-monitoraggio",
-        question: "Come posso monitorare risultati e attività?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Dashboard Sendura real‑time;</li>
-            <li>Report ogni due settimane + confronti col PM.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "setup-decisori",
-        question:
-          "Mi portate direttamente dai decisori o rischio di parlare con referenti che non decidono nulla?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>PMI: CEO/titolare;</li>
-              <li>Multinazionali: direttori di reparto/manager con budget.</li>
-            </ul>
-            <p>Esempio: per marketing, PMI → imprenditore; multinazionale → Direttore Marketing BU Italia.</p>
-          </div>
-        ),
-      },
-      {
-        id: "setup-pmi",
-        question: "Potete raggiungere solo grandi aziende o anche PMI?",
-        answer: (
-          <p className="text-gray-700">Entrambe, stessa logica: incontrare chi ha peso decisionale.</p>
-        ),
-      },
-      {
-        id: "setup-dati",
-        question: "Da dove provengono i vostri dati e come vengono aggiornati?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Approvvigionamento diretto;</li>
-            <li>Provider certificati;</li>
-            <li>Arricchimento proprietario con AI.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "setup-ai",
-        question: "Utilizzate l’intelligenza artificiale nei vostri sistemi?",
-        answer: (
-          <p className="text-gray-700">Sì: segmentazione, personalizzazione e gestione priorità di follow‑up.</p>
-        ),
-      },
-      {
-        id: "setup-referente",
-        question: "Avrò un referente dedicato durante la collaborazione?",
-        answer: <p className="text-gray-700">Sì, project manager dedicato.</p>,
-      },
-      {
-        id: "setup-tempi",
-        question: "Quanto tempo serve per vedere i primi risultati?",
-        answer: (
-          <p className="text-gray-700">30–90 giorni di testing → messa a regime con flusso costante e prevedibile.</p>
-        ),
-      },
-    ],
+    items: t.raw("setupFee.items").map((item: any, index: number) => ({
+      id: `setup-fee-${index}`,
+      question: item.question,
+      answer: parseAnswer(item.answer)
+    }))
   },
   {
     id: "subscription",
-    title: "Subscription Pack",
+    title: t("chapters.subscription"),
     emoji: "🧩",
     icon: Puzzle,
     customIcon: "/iconaSubscr.png",
-    items: [
-      {
-        id: "sub-step",
-        question: "Quali sono gli step operativi del Pacchetto Subscription?",
-        answer: (
-          <ol className="list-decimal pl-5 space-y-2 text-gray-700">
-            <li>Call iniziale e raccolta info.</li>
-            <li>Definizione ICP (fatturato, settore, area).</li>
-            <li>Studio di fattibilità: quota per appuntamento e range mensile.</li>
-            <li>Seconda call: analisi e personalizzazione offerta.</li>
-            <li>Piano operativo con PM dedicato.</li>
-            <li>Attivazione, testing, ottimizzazione e piena messa a regime.</li>
-          </ol>
-        ),
-      },
-      {
-        id: "sub-quota",
-        question: "Come viene stabilita la quota per appuntamento?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Grandezza/complessità del cluster;</li>
-            <li>Difficoltà e frequenza di contatto;</li>
-            <li>Localizzazione geografica;</li>
-            <li>Quote distinte se sono definiti più ICP.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "sub-range",
-        question: "Quanti appuntamenti mensili sono previsti e come si stabilisce il range?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>
-              Il range si definisce sulla tua capacità di gestire trattative. Tu indichi il numero desiderato, noi
-              verifichiamo la coerenza col target. Il minimo del range diventa la quota <strong>garantita</strong>.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "sub-recesso",
-        question: "Posso recedere dal contratto in qualsiasi momento?",
-        answer: (
-          <p className="text-gray-700">
-            Sì: preavviso di 28 giorni. Concludiamo le attività in corso; restano dovuti gli appuntamenti già confermati.
-          </p>
-        ),
-      },
-      {
-        id: "sub-def-icp",
-        question: "Come si definisce il profilo del cliente ideale (ICP)?",
-        answer: <p className="text-gray-700">Settore, fascia di fatturato, area geografica + studio di fattibilità.</p>,
-      },
-      {
-        id: "sub-monitoraggio",
-        question: "Come posso monitorare risultati e attività?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Dashboard Sendura real‑time;</li>
-            <li>Report bisettimanali + confronti col PM.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "sub-decisori",
-        question:
-          "Mi portate direttamente dai decisori o rischio di parlare con referenti che non decidono nulla?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>PMI: CEO/titolare;</li>
-              <li>Multinazionali: direttori/manager locali con budget.</li>
-            </ul>
-            <p>Esempio: marketing → imprenditore (PMI) / Direttore Marketing BU Italia (multinazionale).</p>
-          </div>
-        ),
-      },
-      {
-        id: "sub-pmi",
-        question: "Potete raggiungere solo grandi aziende o anche PMI?",
-        answer: <p className="text-gray-700">Entrambe, stessa logica sui decisori.</p>,
-      },
-      {
-        id: "sub-dati",
-        question: "Da dove provengono i vostri dati e come vengono aggiornati?",
-        answer: (
-          <ul className="list-disc pl-5 space-y-2 text-gray-700">
-            <li>Approvvigionamento diretto;</li>
-            <li>Provider certificati;</li>
-            <li>Arricchimento proprietario con AI.</li>
-          </ul>
-        ),
-      },
-      {
-        id: "sub-app-fuori-icp",
-        question: "Cosa accade se un appuntamento non corrisponde all’ICP definito?",
-        answer: (
-          <div className="space-y-2 text-gray-700">
-            <p>Non è valido: nel Performance non lo paghi.</p>
-            <p>
-              Hai 72 ore per segnalarlo: verifichiamo subito e, se fuori ICP, viene escluso senza costi aggiuntivi.
-            </p>
-          </div>
-        ),
-      },
-      {
-        id: "sub-ai",
-        question: "Utilizzate l’intelligenza artificiale nei vostri sistemi?",
-        answer: <p className="text-gray-700">Sì: segmentazione, personalizzazione e follow‑up priority.</p>,
-      },
-      {
-        id: "sub-referente",
-        question: "Avrò un referente dedicato durante la collaborazione?",
-        answer: <p className="text-gray-700">Sì, project manager dedicato.</p>,
-      },
-      {
-        id: "sub-tempi",
-        question: "Quanto tempo serve per iniziare a vedere i primi risultati?",
-        answer: <p className="text-gray-700">30–90 giorni di testing → regime costante.</p>,
-      },
-      {
-        id: "sub-saldo",
-        question: "Quando devo saldare gli appuntamenti?",
-        answer: (
-          <p className="text-gray-700">
-            Una volta al mese, in base al range di appuntamenti qualificati previsto e agli incontri svolti.
-          </p>
-        ),
-      },
-    ],
-  },
+    items: t.raw("subscription.items").map((item: any, index: number) => ({
+      id: `subscription-${index}`,
+      question: item.question,
+      answer: parseAnswer(item.answer)
+    }))
+  }
 ]
 
 export default function FAQMasterbookPage() {
@@ -788,6 +188,9 @@ export default function FAQMasterbookPage() {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const searchRef = useRef<HTMLInputElement | null>(null)
   const [progress, setProgress] = useState(0)
+
+  // Get chapters from translations
+  const chapters = getChapters(t)
 
   // Load bookmarks from localStorage
   useEffect(() => {

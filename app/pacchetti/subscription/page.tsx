@@ -574,78 +574,7 @@ export default function SubscriptionPage() {
 
           <FAQCards
             className="mt-12"
-            items={[
-              {
-                question: "Quali sono gli step operativi del Pacchetto Subscription?",
-                answer:
-                  "1. Call iniziale per verificare collaborazione e raccogliere informazioni.\n2. Definizione dell'ICP basato su parametri oggettivi.\n3. Studio di fattibilità per calcolare la quota appuntamento e stabilire il range mensile.\n4. Seconda call per condividere l'analisi e personalizzare l'offerta.\n5. Costruzione del piano operativo con il project manager dedicato.\n6. Attivazione delle campagne, fase di testing e messa a regime del sistema.",
-              },
-              {
-                question: "Come viene stabilita la quota per appuntamento?",
-                answer:
-                  "La quota si basa su grandezza e complessità del cluster target, difficoltà e frequenza di contatto e localizzazione geografica del mercato. Se vengono definiti più ICP, ciascuno avrà una quotazione distinta.",
-              },
-              {
-                question: "Quanti appuntamenti mensili sono previsti e come viene stabilito il range?",
-                answer:
-                  "Il range dipende dalla capacità della tua azienda di gestire le trattative. Tu indichi quanti appuntamenti vuoi avere ogni mese, noi verifichiamo che sia realistico rispetto al target e concordiamo la quota minima garantita.",
-              },
-              {
-                question: "Posso recedere dal contratto in qualsiasi momento?",
-                answer:
-                  "Sì, puoi recedere con un preavviso di 28 giorni. Durante questo periodo portiamo a termine le attività in corso e restano dovuti gli appuntamenti già organizzati e confermati.",
-              },
-              {
-                question: "Come si definisce il profilo del cliente ideale (ICP)?",
-                answer:
-                  "L'ICP viene definito su tre parametri: settore, fascia di fatturato e area geografica. Li determiniamo insieme per costruire il perimetro dei tuoi interlocutori ideali.",
-              },
-              {
-                question: "Come posso monitorare i risultati e le attività?",
-                answer:
-                  "Hai una dashboard personale su Sendura aggiornata in tempo reale e report completi ogni due settimane, oltre a confronti regolari con il project manager dedicato.",
-              },
-              {
-                question: "Mi mettete in contatto con decisori reali?",
-                answer:
-                  "Sì. Ti portiamo davanti a figure con potere decisionale, variando il livello dell'interlocutore in base alle tue necessità e alla struttura dell'azienda target.",
-              },
-              {
-                question: "Potete lavorare con PMI e grandi aziende?",
-                answer:
-                  "Il sistema è flessibile e lavora sia con PMI sia con multinazionali. Cambiano il livello di scrematura e i referenti, ma la logica resta la stessa: parlare con chi decide.",
-              },
-              {
-                question: "Da dove provengono i vostri dati e come li aggiornate?",
-                answer:
-                  "I dati arrivano da approvvigionamento diretto, integrazione da provider certificati e arricchimento proprietario con AI. Manteniamo ogni contatto aggiornato e segmentato.",
-              },
-              {
-                question: "Cosa succede se un appuntamento non rispetta l'ICP?",
-                answer:
-                  "Se un appuntamento non rispetta i criteri concordati, non viene considerato valido. Hai 72 ore per segnalarlo e, se non è in linea, viene escluso senza costi.",
-              },
-              {
-                question: "Utilizzate l'intelligenza artificiale nei vostri sistemi?",
-                answer:
-                  "Sì, l'AI è integrata nella segmentazione dei contatti, personalizzazione dei messaggi e gestione dei follow-up. L'obiettivo è aumentare efficienza e precisione mantenendo il controllo umano.",
-              },
-              {
-                question: "Avrò un referente dedicato durante la collaborazione?",
-                answer:
-                  "Ogni cliente ha un project manager dedicato che segue tutte le fasi e resta sempre disponibile come punto di contatto diretto.",
-              },
-              {
-                question: "Quanto tempo serve per vedere i primi risultati?",
-                answer:
-                  "I primi 30–90 giorni sono un periodo di testing fondamentale per raccogliere dati e ottimizzare. In questa fase possono già arrivare appuntamenti, ma l'obiettivo è mettere il sistema a regime.",
-              },
-              {
-                question: "Quando devo saldare gli appuntamenti?",
-                answer:
-                  "Il saldo avviene una volta al mese, in base al range di appuntamenti qualificati previsto. Ricevi un resoconto degli incontri svolti e rendicontiamo solo quelli confermati.",
-              },
-            ]}
+            items={t.raw("faq.items")}
           />
         </PageLayoutContainer>
       </section>

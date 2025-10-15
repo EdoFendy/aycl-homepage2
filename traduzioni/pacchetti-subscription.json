@@ -80,7 +80,67 @@
       "primary": "Prenota una Call",
       "secondary": "Scopri i Pacchetti"
     },
-    "faq": {"title": "FAQ"}
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "Quali sono gli step operativi del Pacchetto Subscription?",
+          "answer": "1. Call iniziale per verificare collaborazione e raccogliere informazioni.\n2. Definizione dell'ICP basato su parametri oggettivi.\n3. Studio di fattibilità per calcolare la quota appuntamento e stabilire il range mensile.\n4. Seconda call per condividere l'analisi e personalizzare l'offerta.\n5. Costruzione del piano operativo con il project manager dedicato.\n6. Attivazione delle campagne, fase di testing e messa a regime del sistema."
+        },
+        {
+          "question": "Come viene stabilita la quota per appuntamento?",
+          "answer": "La quota si basa su grandezza e complessità del cluster target, difficoltà e frequenza di contatto e localizzazione geografica del mercato. Se vengono definiti più ICP, ciascuno avrà una quotazione distinta."
+        },
+        {
+          "question": "Quanti appuntamenti mensili sono previsti e come viene stabilito il range?",
+          "answer": "Il range dipende dalla capacità della tua azienda di gestire le trattative. Tu indichi quanti appuntamenti vuoi avere ogni mese, noi verifichiamo che sia realistico rispetto al target e concordiamo la quota minima garantita."
+        },
+        {
+          "question": "Posso recedere dal contratto in qualsiasi momento?",
+          "answer": "Sì, puoi recedere con un preavviso di 28 giorni. Durante questo periodo portiamo a termine le attività in corso e restano dovuti gli appuntamenti già organizzati e confermati."
+        },
+        {
+          "question": "Come si definisce il profilo del cliente ideale (ICP)?",
+          "answer": "L'ICP viene definito su tre parametri: settore, fascia di fatturato e area geografica. Li determiniamo insieme per costruire il perimetro dei tuoi interlocutori ideali."
+        },
+        {
+          "question": "Come posso monitorare i risultati e le attività?",
+          "answer": "Hai una dashboard personale su Sendura aggiornata in tempo reale e report completi ogni due settimane, oltre a confronti regolari con il project manager dedicato."
+        },
+        {
+          "question": "Mi mettete in contatto con decisori reali?",
+          "answer": "Sì. Ti portiamo davanti a figure con potere decisionale, variando il livello dell'interlocutore in base alle tue necessità e alla struttura dell'azienda target."
+        },
+        {
+          "question": "Potete lavorare con PMI e grandi aziende?",
+          "answer": "Il sistema è flessibile e lavora sia con PMI sia con multinazionali. Cambiano il livello di scrematura e i referenti, ma la logica resta la stessa: parlare con chi decide."
+        },
+        {
+          "question": "Da dove provengono i vostri dati e come li aggiornate?",
+          "answer": "I dati arrivano da approvvigionamento diretto, integrazione da provider certificati e arricchimento proprietario con AI. Manteniamo ogni contatto aggiornato e segmentato."
+        },
+        {
+          "question": "Cosa succede se un appuntamento non rispetta l'ICP?",
+          "answer": "Se un appuntamento non rispetta i criteri concordati, non viene considerato valido. Hai 72 ore per segnalarlo e, se non è in linea, viene escluso senza costi."
+        },
+        {
+          "question": "Utilizzate l'intelligenza artificiale nei vostri sistemi?",
+          "answer": "Sì, l'AI è integrata nella segmentazione dei contatti, personalizzazione dei messaggi e gestione dei follow-up. L'obiettivo è aumentare efficienza e precisione mantenendo il controllo umano."
+        },
+        {
+          "question": "Avrò un referente dedicato durante la collaborazione?",
+          "answer": "Ogni cliente ha un project manager dedicato che segue tutte le fasi e resta sempre disponibile come punto di contatto diretto."
+        },
+        {
+          "question": "Quanto tempo serve per vedere i primi risultati?",
+          "answer": "I primi 30–90 giorni sono un periodo di testing fondamentale per raccogliere dati e ottimizzare. In questa fase possono già arrivare appuntamenti, ma l'obiettivo è mettere il sistema a regime."
+        },
+        {
+          "question": "Quando devo saldare gli appuntamenti?",
+          "answer": "Il saldo avviene una volta al mese, in base al range di appuntamenti qualificati previsto. Ricevi un resoconto degli incontri svolti e rendicontiamo solo quelli confermati."
+        }
+      ]
+    }
   },
   "en": {
     "hero": {
@@ -163,7 +223,67 @@
       "primary": "Book a Call", 
       "secondary": "See Packages"
     },
-    "faq": {"title": "FAQ"}
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "What are the operational steps of the Subscription Package?",
+          "answer": "1. Initial call to verify collaboration and gather information.\n2. ICP definition based on objective parameters.\n3. Feasibility study to calculate appointment fee and establish monthly range.\n4. Second call to share analysis and customize the offer.\n5. Building the operational plan with the dedicated project manager.\n6. Campaign activation, testing phase and system ramp-up."
+        },
+        {
+          "question": "How is the appointment fee established?",
+          "answer": "The fee is based on the size and complexity of the target cluster, difficulty and frequency of contact and geographical location of the market. If multiple ICPs are defined, each will have a distinct quotation."
+        },
+        {
+          "question": "How many monthly appointments are planned and how is the range established?",
+          "answer": "The range depends on your company's capacity to handle negotiations. You indicate how many appointments you want each month, we verify it's realistic relative to the target and agree on the minimum guaranteed quota."
+        },
+        {
+          "question": "Can I terminate the contract at any time?",
+          "answer": "Yes, you can terminate with 28 days notice. During this period we complete ongoing activities and already organized and confirmed appointments remain due."
+        },
+        {
+          "question": "How is the ideal customer profile (ICP) defined?",
+          "answer": "The ICP is defined on three parameters: sector, revenue range and geographical area. We determine them together to build the perimeter of your ideal interlocutors."
+        },
+        {
+          "question": "How can I monitor results and activities?",
+          "answer": "You have a personal dashboard on Sendura updated in real time and complete reports every two weeks, plus regular comparisons with the dedicated project manager."
+        },
+        {
+          "question": "Do you put me in contact with real decision makers?",
+          "answer": "Yes. We bring you in front of figures with decision-making power, varying the interlocutor level based on your needs and the target company structure."
+        },
+        {
+          "question": "Can you work with SMEs and large companies?",
+          "answer": "The system is flexible and works with both SMEs and multinationals. The screening level and contacts change, but the logic remains the same: talking to those who decide."
+        },
+        {
+          "question": "Where do your data come from and how do you update them?",
+          "answer": "Data comes from direct procurement, integration from certified providers and proprietary enrichment with AI. We keep every contact updated and segmented."
+        },
+        {
+          "question": "What happens if an appointment doesn't respect the ICP?",
+          "answer": "If an appointment doesn't respect the agreed criteria, it's not considered valid. You have 72 hours to report it and, if it's not in line, it's excluded without costs."
+        },
+        {
+          "question": "Do you use artificial intelligence in your systems?",
+          "answer": "Yes, AI is integrated in contact segmentation, message personalization and follow-up management. The goal is to increase efficiency and precision while maintaining human control."
+        },
+        {
+          "question": "Will I have a dedicated contact during collaboration?",
+          "answer": "Every client has a dedicated project manager who follows all phases and remains always available as a direct contact point."
+        },
+        {
+          "question": "How long does it take to see the first results?",
+          "answer": "The first 30-90 days are a fundamental testing period to collect data and optimize. Appointments can already arrive in this phase, but the goal is to bring the system to full operation."
+        },
+        {
+          "question": "When do I have to pay for appointments?",
+          "answer": "Payment occurs once a month, based on the expected range of qualified appointments. You receive a report of completed meetings and we only account for confirmed ones."
+        }
+      ]
+    }
   },
   "es": {
     "hero": {
@@ -246,7 +366,67 @@
       "primary": "Reservar una Llamada", 
       "secondary": "Ver Paquetes"
     },
-    "faq": {"title": "FAQ"}
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "¿Cuáles son los pasos operativos del Paquete Subscription?",
+          "answer": "1. Llamada inicial para verificar colaboración y recopilar información.\n2. Definición del ICP basado en parámetros objetivos.\n3. Estudio de viabilidad para calcular la cuota de cita y establecer el rango mensual.\n4. Segunda llamada para compartir el análisis y personalizar la oferta.\n5. Construcción del plan operativo con el project manager dedicado.\n6. Activación de campañas, fase de testing y puesta en marcha del sistema."
+        },
+        {
+          "question": "¿Cómo se establece la cuota por cita?",
+          "answer": "La cuota se basa en el tamaño y complejidad del cluster objetivo, dificultad y frecuencia de contacto y localización geográfica del mercado. Si se definen múltiples ICP, cada uno tendrá una cotización distinta."
+        },
+        {
+          "question": "¿Cuántas citas mensuales están previstas y cómo se establece el rango?",
+          "answer": "El rango depende de la capacidad de tu empresa para gestionar las negociaciones. Tú indicas cuántas citas quieres cada mes, nosotros verificamos que sea realista respecto al objetivo y acordamos la cuota mínima garantizada."
+        },
+        {
+          "question": "¿Puedo rescindir el contrato en cualquier momento?",
+          "answer": "Sí, puedes rescindir con 28 días de preaviso. Durante este período completamos las actividades en curso y las citas ya organizadas y confirmadas siguen siendo debidas."
+        },
+        {
+          "question": "¿Cómo se define el perfil del cliente ideal (ICP)?",
+          "answer": "El ICP se define en tres parámetros: sector, rango de ingresos y área geográfica. Los determinamos juntos para construir el perímetro de tus interlocutores ideales."
+        },
+        {
+          "question": "¿Cómo puedo monitorear resultados y actividades?",
+          "answer": "Tienes un panel personal en Sendura actualizado en tiempo real e informes completos cada dos semanas, además de comparaciones regulares con el project manager dedicado."
+        },
+        {
+          "question": "¿Me ponéis en contacto con decisores reales?",
+          "answer": "Sí. Te ponemos frente a figuras con poder de decisión, variando el nivel del interlocutor según tus necesidades y la estructura de la empresa objetivo."
+        },
+        {
+          "question": "¿Podéis trabajar con PYMEs y grandes empresas?",
+          "answer": "El sistema es flexible y trabaja tanto con PYMEs como con multinacionales. Cambian el nivel de cribado y los contactos, pero la lógica permanece igual: hablar con quienes deciden."
+        },
+        {
+          "question": "¿De dónde provienen vuestros datos y cómo los actualizáis?",
+          "answer": "Los datos provienen de aprovisionamiento directo, integración de proveedores certificados y enriquecimiento propietario con IA. Mantenemos cada contacto actualizado y segmentado."
+        },
+        {
+          "question": "¿Qué pasa si una cita no respeta el ICP?",
+          "answer": "Si una cita no respeta los criterios acordados, no se considera válida. Tienes 72 horas para reportarlo y, si no está en línea, se excluye sin costos."
+        },
+        {
+          "question": "¿Utilizáis inteligencia artificial en vuestros sistemas?",
+          "answer": "Sí, la IA está integrada en la segmentación de contactos, personalización de mensajes y gestión de seguimiento. El objetivo es aumentar eficiencia y precisión manteniendo el control humano."
+        },
+        {
+          "question": "¿Tendré un contacto dedicado durante la colaboración?",
+          "answer": "Cada cliente tiene un project manager dedicado que sigue todas las fases y permanece siempre disponible como punto de contacto directo."
+        },
+        {
+          "question": "¿Cuánto tiempo se necesita para ver los primeros resultados?",
+          "answer": "Los primeros 30-90 días son un período de testing fundamental para recopilar datos y optimizar. En esta fase ya pueden llegar citas, pero el objetivo es llevar el sistema a pleno funcionamiento."
+        },
+        {
+          "question": "¿Cuándo debo pagar las citas?",
+          "answer": "El pago ocurre una vez al mes, basado en el rango esperado de citas cualificadas. Recibes un informe de las reuniones completadas y solo contabilizamos las confirmadas."
+        }
+      ]
+    }
   }
 }
 

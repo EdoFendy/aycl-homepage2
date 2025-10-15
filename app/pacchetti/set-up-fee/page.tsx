@@ -24,6 +24,7 @@ import { PageLayoutContainer } from "@/components/page-layout-container"
 
 export default function SetUpFeePage() {
   const t = useTranslations("pacchettiSetUpFee")
+  const tFaq = useTranslations("faq")
   
   useEffect(() => {
     (async function () {
@@ -542,68 +543,7 @@ export default function SetUpFeePage() {
 
           <FAQCards
             className="mt-12"
-            items={[
-              {
-                question: "1) Quali sono gli step operativi del Pacchetto Set-Up Fee + Revenue Share?",
-                answer:
-                  "Il processo di attivazione mantiene alcuni elementi comuni a tutti i clienti, ma è costruito fin dall’inizio in ottica di partnership strategica.\n• Primo step: call iniziale per verificare la possibilità di collaborazione, raccogliere informazioni e valutare la compatibilità con il modello a revenue share.\n• Secondo step: definizione dell’ICP (profilo cliente ideale) con parametri oggettivi (settore, area geografica, dimensione aziendale).\n• Terzo step: studio di fattibilità operativo ed economico: valutiamo il potenziale di mercato, stimiamo il ritorno atteso e definiamo insieme i KPI.\n• Quarto step: seconda call di confronto per condividere l’analisi, definire i termini dell’accordo e stabilire i criteri di revenue share.\n• Quinto step: costruzione del piano strategico e operativo con il project manager dedicato, con roadmap orientata alla massimizzazione del fatturato.\n• Sesto step: attivazione delle campagne, fase di testing e progressiva messa a regime.",
-              },
-              {
-                question: "2) Quali parametri applicate per calcolare fee iniziale e revenue share?",
-                answer:
-                  "La Set-Up Fee è un versamento una tantum che garantisce l’accesso permanente al sistema. L’importo viene stabilito in base a: cluster di riferimento (settore e dimensione del mercato), volumi e complessità della strategia (numero di contatti e canali), ticket medio delle trattative. Alla fee iniziale si affianca la revenue share, percentuale concordata sul fatturato delle trattative concluse grazie alle attività AYCL.",
-              },
-              {
-                question: "3) La mia azienda è adatta a questa formula di partnership?",
-                answer:
-                  "È pensata per imprese già strutturate, con esperienze e investimenti concreti nella crescita. Tipicamente aziende che hanno già budget per traffico a pagamento, conoscono il valore di lungo periodo della clientela e hanno un portafoglio prodotti/servizi solido, capace di sostenere volumi di trattative più elevati.",
-              },
-              {
-                question: "4) Che vantaggi offre l’accesso permanente al sistema rispetto ai servizi a tempo?",
-                answer:
-                  "Con i servizi tradizionali, finito il contratto finiscono anche i risultati. Con l’accesso permanente, invece: tecnologia, database e know-how restano sempre al servizio della tua azienda; la collaborazione è una partnership a lungo termine; la revenue share assicura allineamento totale sugli obiettivi.",
-              },
-              {
-                question: "5) Come si definisce l’ICP (profilo cliente ideale)?",
-                answer:
-                  "L’ICP viene definito su tre parametri oggettivi: settore, fascia di fatturato e area geografica. Li indichi tu: su questa base effettuiamo uno studio di fattibilità per capire come intercettarli al meglio e con quali mezzi.",
-              },
-              {
-                question: "6) Come posso monitorare risultati e attività?",
-                answer:
-                  "Attraverso due strumenti: 1) dashboard personale su Sendura con dati in tempo reale; 2) report completi ogni due settimane e confronti regolari con il project manager dedicato.",
-              },
-              {
-                question: "7) Mi portate direttamente dai decisori?",
-                answer:
-                  "Puntiamo a figure con reale peso decisionale. Nelle PMI spesso il decisore è il CEO/titolare; nelle aziende strutturate il potere è distribuito, quindi ti mettiamo davanti a direttori di reparto o manager locali che gestiscono budget e scelte operative.",
-              },
-              {
-                question: "8) Potete raggiungere solo grandi aziende o anche PMI?",
-                answer:
-                  "Lavoriamo sia con PMI sia con aziende medio-grandi e multinazionali. Cambiano livello di scrematura e figure target, ma la logica rimane la stessa: parlare con chi può davvero decidere.",
-              },
-              {
-                question: "9) Da dove provengono i vostri dati e come li aggiornate?",
-                answer:
-                  "Tre fasi: 1) approvvigionamento diretto con sistemi interni di ricerca, raccolta e verifica; 2) integrazione da provider certificati per ampliare la copertura; 3) arricchimento proprietario (scoring + AI) per segmentare meglio e mantenere il database aggiornato.",
-              },
-              {
-                question: "10) Utilizzate l’intelligenza artificiale?",
-                answer:
-                  "Sì, nella segmentazione dei contatti, nella personalizzazione dei messaggi e nella gestione delle priorità di follow-up. L’AI aumenta efficienza e precisione; il team mantiene il controllo finale.",
-              },
-              {
-                question: "11) Avrò un referente dedicato?",
-                answer:
-                  "Sì. Ogni cliente ha un project manager dedicato che segue tutte le fasi della collaborazione ed è il tuo punto di contatto diretto.",
-              },
-              {
-                question: "12) Quanto tempo serve per vedere i primi risultati?",
-                answer:
-                  "I primi 30–90 giorni sono un periodo di testing per raggiungere massa dati statisticamente rilevante e impostare ottimizzazioni. In questa fase possono già arrivare appuntamenti, ma l’obiettivo è portare il sistema a regime per un flusso costante e prevedibile.",
-              },
-            ]}
+            items={tFaq.raw("setupFee.items")}
           />
 
           {/* CTA Finale */}
