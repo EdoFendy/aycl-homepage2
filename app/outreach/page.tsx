@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
-import { CheckCircle2, XCircle } from "lucide-react"
+import { CheckCircle2, XCircle, Check, X } from "lucide-react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
 
 type Quote = {
@@ -136,8 +136,8 @@ export default function OutreachPage() {
         <div className="absolute inset-0 -z-20 bg-gradient-to-br from-white via-sky-blue/10 to-orange/5" />
         <div className="absolute -top-32 right-[-8%] h-72 w-72 rounded-full bg-orange/20 blur-[120px]" />
         <div className="absolute bottom-[-16%] left-[-10%] h-80 w-80 rounded-full bg-sky-blue/20 blur-[140px]" />
-        <PageLayoutContainer className="px-4 sm:px-6">
-          <div className="grid gap-16 lg:grid-cols-[1.15fr_minmax(0,0.85fr)] xl:gap-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] xl:gap-20">
+          <PageLayoutContainer className="px-4 sm:px-6">
             <div className="space-y-8">
               <div className="inline-flex items-center gap-2 rounded-full border border-sky-blue/30 bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue shadow-sm backdrop-blur">
                 <span>{t("hero.eyebrow")}</span>
@@ -171,39 +171,59 @@ export default function OutreachPage() {
                   </Link>
                 </div>
                 {heroOutcomePrimary && (
-                  <div className="rounded-3xl border-l-4 border-orange/70 bg-gradient-to-r from-orange/10 via-white to-sky-blue/10 px-6 py-5 shadow-[0_24px_48px_-36px_rgba(255,165,0,0.45)]">
-                    <p className="text-sm font-semibold text-navy sm:text-base">{heroOutcomePrimary}</p>
+                  <div className="rounded-xl border border-orange/30 bg-orange/5 px-5 py-4">
+                    <p className="text-sm font-medium text-navy">{heroOutcomePrimary}</p>
                   </div>
                 )}
               </div>
             </div>
-            <div className="relative">
-              <div className="relative rounded-[3rem] p-6">
-                <Image
-                  src="/comefunziona_hero.png"
-                  alt="Dashboard Sendura"
-                  width={540}
-                  height={400}
-                  className="h-full w-full object-cover"
-                  priority
-                />
-                {heroOutcomeSecondary && (
-                  <div className="mt-6 rounded-2xl border border-orange/30 bg-gradient-to-br from-orange/10 via-white to-sky-blue/10 p-5 text-sm leading-relaxed text-gray-700 shadow-inner">
-                    {heroOutcomeSecondary}
-                  </div>
-                )}
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-sky-blue/30 bg-sky-blue/10 px-4 py-3 text-sm font-semibold text-navy text-center">
-                    <span>{t("ai.title")}</span>
-                  </div>
-                  <div className="rounded-2xl border border-orange/30 bg-orange/10 px-4 py-3 text-sm font-semibold text-navy text-center">
-                    <span>{t("principle.title")}</span>
-                  </div>
+          </PageLayoutContainer>
+          
+          {/* Image Section - Outside container for full width */}
+          <div className="flex items-center justify-center w-full">
+            <div className="relative w-full max-w-6xl lg:max-w-xl xl:max-w-2xl">
+              {/* Floating Message - Top Right */}
+              <div className="absolute -top-3 -right-1 sm:-top-6 sm:-right-4 z-10 max-w-[140px] sm:max-w-[240px]">
+                <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
+                  <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
+                    Oggi lo usiamo per generare appuntamenti qualificati per noi e per i nostri clienti.
+                  </p>
+                </div>
+              </div>
+
+              {/* Main Image - Full width outside container */}
+              <Image
+                src="/comefunziona_hero.png"
+                alt="Dashboard Sendura"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+                priority
+              />
+
+              {/* Floating Message - Center Left */}
+              <div className="absolute top-1/2 -left-1 sm:-left-4 transform -translate-y-1/2 z-10 max-w-[120px] sm:max-w-[220px]">
+                <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
+                  <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
+                    Multicanale e AI: la combinazione che cambia le regole
+                  </p>
+                </div>
+              </div>
+
+              {/* Floating Message - Bottom Right */}
+              <div className="absolute -bottom-3 -right-1 sm:-bottom-6 sm:-right-4 z-10 max-w-[110px] sm:max-w-[200px]">
+                <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
+                  <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
+                    Dal traffico al contatto reale
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </PageLayoutContainer>
+        </div>
       </section>
 
       {/* Principle Section */}
@@ -379,9 +399,8 @@ export default function OutreachPage() {
       </section>
 
       {/* Comparison Section */}
-      <section className="relative overflow-hidden py-20 sm:py-24">
+      <section className="relative overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 -z-20 bg-gradient-to-br from-white via-sky-blue/10 to-orange/10" />
-        <div className="absolute inset-y-0 right-[8%] -z-10 hidden w-[32%] rounded-full bg-orange/30 blur-[160px] lg:block" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
@@ -390,65 +409,45 @@ export default function OutreachPage() {
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("comparison.title")}</h2>
             <p className="mt-4 text-base text-gray-600 sm:text-lg">{t("comparison.subtitle")}</p>
           </div>
-           <div className="mt-10 mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-navy/15 bg-white shadow-[0_48px_120px_-64px_rgba(1,47,107,0.55)]">
-            <div className="grid grid-cols-1 divide-y divide-navy/10 sm:grid-cols-[1fr_1fr_1fr] sm:divide-y-0 sm:border-b sm:border-navy/10">
-              <div className="px-5 py-4 sm:px-6 sm:py-5 sm:border-r sm:border-navy/10">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-navy/60">
-                  {t("comparison.aspectLabel")}
-                </p>
-              </div>
-              <div className="px-5 py-4 sm:px-6 sm:py-5 sm:border-r sm:border-navy/10">
-                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-                  <XCircle className="h-3.5 w-3.5 text-gray-400" />
-                  {t("comparison.columns.traditional")}
-                </p>
-              </div>
-              <div className="px-5 py-4 sm:px-6 sm:py-5">
-                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-orange" />
-                  {t("comparison.columns.aycl")}
-                </p>
-              </div>
-            </div>
-            <div className="divide-y divide-navy/10">
-              {comparisonRows.map((row, index) => (
-                <div
-                  key={row.aspect}
-                  className="grid gap-4 px-5 py-6 sm:grid-cols-[1fr_1fr_1.1fr] sm:items-start sm:gap-6 sm:px-6 sm:py-5"
-                >
-                  <div className="flex items-start gap-4">
-               
-                    <div>
-                      <h3 className="text-sm font-semibold text-navy sm:text-base">{row.aspect}</h3>
-                    </div>
-                  </div>
-                  <div className="rounded-2xl border border-gray-200 bg-gray-50 p-4 sm:p-5">
-                    <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500">
-                      <XCircle className="h-4 w-4 text-gray-400" />
-                      <span>{t("comparison.columns.traditional")}</span>
-                    </div>
-                    <p className="mt-3 text-[13px] leading-snug text-gray-600 sm:text-sm">{row.traditional}</p>
-                  </div>
-                  <div className="relative">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange/40 via-orange/20 to-sky-blue/20 opacity-70 blur-2xl" aria-hidden />
-                    <div className="relative rounded-2xl border border-orange/50 bg-gradient-to-br from-orange/20 via-white to-sky-blue/10 p-4 sm:p-5 shadow-[0_36px_70px_-48px_rgba(255,165,0,0.55)]">
-                      <div className="flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange">
-                          <CheckCircle2 className="h-4 w-4" />
-                          <span>{t("comparison.columns.aycl")}</span>
-                        </div>
-                        <span className="rounded-full bg-orange/15 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-orange/90">
-                          PRO
-                        </span>
-                      </div>
-                      <p className="mt-3 text-[13px] leading-snug text-gray-800 sm:text-sm">{row.aycl}</p>
-                    </div>
-                  </div>
+          
+          {/* Minimal Comparison Table */}
+          <div className="mt-12 mx-auto max-w-4xl">
+            <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+              {/* Header */}
+              <div className="grid grid-cols-3 border-b border-gray-200 bg-gray-50">
+                <div className="px-6 py-4">
+                  <p className="text-sm font-semibold text-gray-900">{t("comparison.aspectLabel")}</p>
                 </div>
-              ))}
-            </div>
-            <div className="border-t border-navy/10 bg-gradient-to-r from-navy/5 via-white to-orange/10 px-6 py-6 text-center">
-              <p className="text-sm text-gray-600">{t("comparison.subtitle")}</p>
+                <div className="px-6 py-4 text-center">
+                  <p className="text-sm font-semibold text-gray-600">{t("comparison.columns.traditional")}</p>
+                </div>
+                <div className="px-6 py-4 text-center">
+                  <p className="text-sm font-semibold text-orange">{t("comparison.columns.aycl")}</p>
+                </div>
+              </div>
+              
+              {/* Rows */}
+              <div className="divide-y divide-gray-100">
+                {comparisonRows.map((row, index) => (
+                  <div key={row.aspect} className="grid grid-cols-3">
+                    <div className="px-6 py-4">
+                      <h3 className="text-sm font-medium text-gray-900">{row.aspect}</h3>
+                    </div>
+                    <div className="px-6 py-4 text-center">
+                      <div className="flex items-center justify-center gap-2">
+                        <X className="h-4 w-4 text-red-500" />
+                        <span className="text-sm text-gray-600">{row.traditional}</span>
+                      </div>
+                    </div>
+                    <div className="px-6 py-4 text-center">
+                      <div className="flex items-center justify-center gap-2">
+                        <Check className="h-4 w-4 text-green-500" />
+                        <span className="text-sm text-gray-900">{row.aycl}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </PageLayoutContainer>
@@ -465,42 +464,38 @@ export default function OutreachPage() {
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("sendura.title")}</h2>
             <p className="mt-4 text-base text-gray-600 sm:text-lg">{t("sendura.intro")}</p>
           </div>
-          <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_1.15fr] xl:gap-16">
-            <div>
+          <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_1.15fr] xl:gap-16">
+            {/* Image - Larger on mobile */}
+            <div className="order-2 lg:order-1">
               <Image
                 src="/data_to_leads.png"
                 alt="Schema data to leads"
                 width={600}
                 height={600}
-                className="w-full h-auto"
+                className="w-full h-auto max-w-md mx-auto lg:max-w-none"
                 priority
               />
             </div>
-            <div className="space-y-6">
-              <div className="grid gap-4 sm:grid-cols-2">
+            
+            {/* Content - Minimal and brand-aligned */}
+            <div className="order-1 lg:order-2 space-y-6">
+              <div className="grid gap-3 sm:grid-cols-2">
                 {senduraBullets.map((bullet, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-3 rounded-3xl border border-navy/10 bg-white/95 p-5 shadow-[0_24px_60px_-42px_rgba(1,47,107,0.35)]"
+                    className="flex items-start gap-3 rounded-xl border border-gray-200 bg-white p-4"
                   >
-                    <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-orange/15">
-                      <Image
-                        src={senduraBulletIcon.src}
-                        alt={senduraBulletIcon.alt}
-                        width={20}
-                        height={20}
-                        className="h-5 w-5 object-contain"
-                      />
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-orange/20 flex-shrink-0 mt-0.5">
+                      <Check className="h-3.5 w-3.5 text-orange" />
                     </div>
-                    <div>
-                   
-                      <p className="mt-2 text-sm leading-relaxed text-gray-700">{bullet}</p>
-                    </div>
+                    <p className="text-sm text-gray-700 leading-relaxed">{bullet}</p>
                   </div>
                 ))}
               </div>
-              <div className="rounded-3xl border-l-4 border-orange/70 bg-gradient-to-r from-orange/10 via-white to-sky-blue/10 px-6 py-5 shadow-[0_32px_70px_-50px_rgba(255,165,0,0.45)]">
-                <p className="text-sm font-semibold text-navy sm:text-base">{t("sendura.closing")}</p>
+              
+              {/* Minimal closing statement */}
+              <div className="rounded-xl border border-orange/30 bg-orange/5 px-5 py-4">
+                <p className="text-sm font-medium text-navy">{t("sendura.closing")}</p>
               </div>
             </div>
           </div>

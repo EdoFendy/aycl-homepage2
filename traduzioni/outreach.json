@@ -61,63 +61,72 @@
     "comparison": {
       "title": "Outreach tradizionale vs All You Can Leads",
       "subtitle": "Due approcci, due risultati: cosa cambia quando l'outreach diventa un sistema.",
-      "aspectLabel": "Aspetto",
+      "aspectLabel": " ",
       "columns": {
-        "traditional": "Outreach tradizionale",
-        "aycl": "All You Can Leads"
+        "traditional": "Tradizionale",
+        "aycl": "AYCL"
+      },
+      "style": {
+        "compact": true,
+        "bordered": true,
+        "rounded": true,
+        "accentColor": "sky-blue",
+        "reducePadding": true,
+        "shadow": true
       },
       "rows": [
         {
-          "aspect": "Canali utilizzati",
-          "traditional": "Basato su un solo canale (email o chiamate).",
-          "aycl": "Integrazione strutturata di email, LinkedIn, chiamate e messaggi."
+          "aspect": "Canali",
+          "traditional": "Un solo canale (email o chiamate)",
+          "aycl": "Multi-canale: email, LinkedIn, chiamate, messaggi"
         },
         {
-          "aspect": "Obiettivo principale",
-          "traditional": "Inviare messaggi in massa per ottenere risposte.",
-          "aycl": "Creare conversazioni mirate che generano appuntamenti qualificati."
+          "aspect": "Obiettivo",
+          "traditional": "Messaggi in massa, focus sulla quantità",
+          "aycl": "Conversazioni mirate, appuntamenti qualificati"
         },
         {
-          "aspect": "Gestione dei dati",
-          "traditional": "Database spesso statici o poco aggiornati.",
-          "aycl": "Database proprietari costantemente arricchiti e ottimizzati."
+          "aspect": "Dati",
+          "traditional": "Database statici o poco aggiornati",
+          "aycl": "Database proprietari e in continuo aggiornamento"
         },
         {
           "aspect": "Personalizzazione",
-          "traditional": "Limitata o assente; messaggi standardizzati.",
-          "aycl": "Personalizzazione profonda su tono, tempi e canali di contatto."
+          "traditional": "Messaggi standard, limitata o assente",
+          "aycl": "Personalizzazione profonda su tono, tempi e canali"
         },
         {
-          "aspect": "Uso della tecnologia",
-          "traditional": "Automazione semplice (invio massivo).",
-          "aycl": "AI integrata per ottimizzare tempi, risposte e targeting."
+          "aspect": "Tecnologia",
+          "traditional": "Automazione semplice (invio massivo)",
+          "aycl": "AI integrata: timing, risposte, targeting ottimizzati"
         },
         {
-          "aspect": "Apprendimento e miglioramento",
-          "traditional": "Poche metriche di ritorno e ottimizzazione lenta.",
-          "aycl": "Testing continuo e apprendimento progressivo basato sui dati."
+          "aspect": "Miglioramento",
+          "traditional": "Poche metriche, ottimizzazione lenta",
+          "aycl": "Testing e apprendimento continui, evoluzione costante"
         },
         {
           "aspect": "Tempestività",
-          "traditional": "Risposte lente o manuali, con rischio di perdita d'interesse.",
-          "aycl": "Risposte rapide grazie all'automazione intelligente e alla gestione in tempo reale."
+          "traditional": "Risposte lente o manuali",
+          "aycl": "Risposte rapide e smart, gestione in tempo reale"
         },
         {
-          "aspect": "Ruolo dell'essere umano",
-          "traditional": "Esecuzione ripetitiva e spesso non strategica.",
-          "aycl": "Supervisione, strategia e comunicazione empatica nei momenti chiave."
+          "aspect": "Fattore umano",
+          "traditional": "Esecuzione ripetitiva e non strategica",
+          "aycl": "Supervisione strategica e comunicazione empatica"
         },
         {
-          "aspect": "Risultato tipico",
-          "traditional": "Bassa efficienza e alto tasso di disinteresse.",
-          "aycl": "Aumento del tasso di risposta (+40%) e riduzione del costo per lead (-31%)."
+          "aspect": "Risultato",
+          "traditional": "Bassa efficienza, elevato disinteresse",
+          "aycl": "Tasso risposta +40%, costo lead -31%"
         },
         {
-          "aspect": "Visione complessiva",
-          "traditional": "Azione tattica, a breve termine.",
-          "aycl": "Ecosistema dinamico che cresce nel tempo, orientato al risultato."
+          "aspect": "Visione",
+          "traditional": "Azione tattica, breve termine",
+          "aycl": "Ecosistema dinamico e orientato al risultato"
         }
-      ]
+      ],
+      "note": "Tabella compatta e leggibile, pensata per essere visualizzata interamente su una pagina e in armonia con lo stile AYCL."
     },
     "application": {
       "title": "Come lo applichiamo noi",
