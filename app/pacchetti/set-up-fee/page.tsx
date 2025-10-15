@@ -333,70 +333,50 @@ export default function SetUpFeePage() {
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 rounded-full bg-orange/10 px-4 py-2 mb-4">
                   <Rocket className="h-5 w-5 text-orange" />
-                  <span className="text-sm font-semibold text-orange">Fase di Ricerca e Valore</span>
+                  <span className="text-sm font-semibold text-orange">{t("researchPhase.badge")}</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-navy mb-4">
-                  Investiamo insieme nella tua crescita
+                  {t("researchPhase.title")}
                 </h3>
                 <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
-                  La Set-Up Fee non è un costo, ma un investimento condiviso per costruire la tua infrastruttura di crescita permanente.
+                  {t("researchPhase.subtitle")}
                 </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-navy">Cosa costruiamo insieme</h4>
+                  <h4 className="text-lg font-semibold text-navy">{t("researchPhase.buildTogether")}</h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Analisi approfondita del tuo mercato e ICP</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Database personalizzato con i tuoi prospect ideali</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Strategie di outreach su misura per il tuo settore</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Team dedicato e formazione del tuo staff</span>
-                    </li>
+                    {t.raw("researchPhase.buildItems").map((item: string, index: number) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-sm sm:text-base text-gray-700">{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
                 <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-navy">Il valore che ottieni</h4>
+                  <h4 className="text-lg font-semibold text-navy">{t("researchPhase.valueYouGet")}</h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Accesso permanente alla nostra tecnologia</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Processi ottimizzati per la tua azienda</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Conoscenza approfondita del tuo mercato</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                      <span className="text-sm sm:text-base text-gray-700">Partnership strategica a lungo termine</span>
-                    </li>
+                    {t.raw("researchPhase.valueItems").map((item: string, index: number) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-sm sm:text-base text-gray-700">{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
 
               <div className="bg-white/50 rounded-2xl p-6 border border-orange/10">
                 <div className="text-center">
-                  <h4 className="text-lg font-semibold text-navy mb-2">Investimento Set-Up Fee</h4>
+                  <h4 className="text-lg font-semibold text-navy mb-2">{t("researchPhase.investmentTitle")}</h4>
                   <p className="text-sm text-gray-600 mb-4">
-                    Da 20.000€ a 200.000€ in base alla complessità del tuo mercato e agli obiettivi di crescita
+                    {t("researchPhase.investmentDesc")}
                   </p>
                   <div className="inline-flex items-center gap-2 bg-orange/10 rounded-full px-4 py-2">
-                    <span className="text-sm font-semibold text-orange">Un investimento, accesso permanente</span>
+                    <span className="text-sm font-semibold text-orange">{t("researchPhase.investmentTag")}</span>
                   </div>
                 </div>
               </div>
@@ -413,13 +393,12 @@ export default function SetUpFeePage() {
                     <TrendingUp className="h-5 w-5 text-sky-blue" />
                   </span>
                   <span className="text-sm font-semibold uppercase tracking-wide text-sky-blue">
-                    Fase Operativa
+                    {t("operationalPhase.badge")}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-navy">Revenue Share</h3>
+                <h3 className="text-lg font-semibold text-navy">{t("operationalPhase.title")}</h3>
                 <p className="text-sm text-gray-600">
-                  Percentuale concordata (circa 20%) sui deal chiusi generati da AYCL. 
-                  Siamo allineati ai tuoi risultati: guadagniamo solo se guadagni tu.
+                  {t("operationalPhase.desc")}
                 </p>
               </div>
             </Card>
@@ -432,13 +411,12 @@ export default function SetUpFeePage() {
                     <Shield className="h-5 w-5 text-green-600" />
                   </span>
                   <span className="text-sm font-semibold uppercase tracking-wide text-green-600">
-                    Garanzie
+                    {t("guarantees.badge")}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-navy">Rimborso 100%</h3>
+                <h3 className="text-lg font-semibold text-navy">{t("guarantees.title")}</h3>
                 <p className="text-sm text-gray-600">
-                  Se nel primo anno non generiamo almeno il doppio della Set-Up Fee, 
-                  rimborso completo. Il nostro successo è legato al tuo.
+                  {t("guarantees.desc")}
                 </p>
               </div>
             </Card>
@@ -533,11 +511,11 @@ export default function SetUpFeePage() {
         <PageLayoutContainer className="px-6">
           <div className="mx-auto mb-12 max-w-4xl space-y-4 text-center">
             <span className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
-              Domande frequenti
+              {t("faq.badge")}
             </span>
-            <h2 className="text-4xl font-bold text-navy">FAQ sul pacchetto Set-Up Fee + Revenue Share</h2>
+            <h2 className="text-4xl font-bold text-navy">{t("faq.title")}</h2>
             <p className="text-base text-gray-600">
-              Tutto quello che serve per capire come funziona la partnership più ambiziosa di AYCL.
+              {t("faq.subtitle")}
             </p>
           </div>
 
@@ -549,11 +527,11 @@ export default function SetUpFeePage() {
           {/* CTA Finale */}
           <div className="mt-16 flex flex-col items-center gap-6">
             <p className="text-center text-lg text-gray-700">
-              Pronto a trasformare AYCL in un alleato strategico di lungo periodo?
+              {t("faq.finalCtaText")}
             </p>
             <Link href="/contattaci">
               <Button size="lg" className="bg-orange hover:bg-orange/90 px-8 text-lg text-white">
-                Avvia la partnership
+                {t("faq.finalCtaBtn")}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

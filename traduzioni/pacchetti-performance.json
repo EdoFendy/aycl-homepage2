@@ -112,6 +112,58 @@
       "subtitle": "Prenota una call gratuita e scopriamo insieme se il Pacchetto Performance è la soluzione giusta per te",
       "primary": "Prenota una Call Gratuita",
       "secondary": "Vedi Altri Pacchetti"
+    },
+    "investment": {
+      "timeline": {
+        "desktop": [
+          {
+            "label": "SPESA QUOTIDIANA",
+            "amount": "€0",
+            "caption": "Nessun costo fisso"
+          },
+          {
+            "label": "1 mese",
+            "amount": "€2.500",
+            "caption": "Primi appuntamenti qualificati"
+          },
+          {
+            "label": "3 mesi",
+            "amount": "€7.500",
+            "caption": "Sistema a regime"
+          },
+          {
+            "label": "12 mesi",
+            "amount": "€30.000",
+            "caption": "Flusso costante garantito"
+          }
+        ]
+      }
+    },
+    "benefits": {
+      "payOnly": {
+        "title": "Paghi solo gli appuntamenti svolti",
+        "items": [
+          "Ogni 14 giorni saldi solo gli appuntamenti qualificati che hai effettivamente svolto.",
+          "Nessun costo nascosto, nessun canone fisso, nessun trucco.",
+          "Dividiamo con te il rischio iniziale e ci assumiamo la responsabilità dei tuoi risultati."
+        ]
+      },
+      "investment": {
+        "title": "Un investimento approvato in CDA",
+        "items": [
+          "Meno di 60€ a settimana, come una cena fuori.",
+          "Trasforma una delle trattative in cliente e avrai già moltiplicato l'investimento.",
+          "Hai la possibilità di rateizzare l'investimento iniziale in 3, 6 o 12 mesi."
+        ]
+      },
+      "collaboration": {
+        "title": "La collaborazione dell'anno",
+        "items": [
+          "Flusso costante e prevedibile di appuntamenti che rispettano il target di riferimento.",
+          "Assistenza completa via chat, appuntamento fisso con project manager dedicato e report dettagliato del lavoro svolto.",
+          "Access Pack valido per il primo anno di collaborazione: ci assumiamo parte del rischio per farti provare il nostro sistema."
+        ]
+      }
     }
   },
   "en": {
