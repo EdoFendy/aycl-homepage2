@@ -23,12 +23,12 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 
 export default function SubscriptionPage() {
   const router = useRouter()
@@ -64,15 +64,12 @@ export default function SubscriptionPage() {
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
               <p className="text-lg text-gray-600 leading-relaxed">{t("hero.subtitle")}</p>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                  <SlideArrowButton
-                    primaryColor="#ff9d3d"
-                    text={t("hero.cta")}
-                  />
-                  <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base">{t("hero.ctaSecondary")}</Link>
-                </div>
-
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <SlideArrowButton
+                  primaryColor="#ff9d3d"
+                  text={t("hero.cta")}
+                />
+                <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base flex items-center">{t("hero.ctaSecondary")}</Link>
               </div>
             </div>
 
@@ -308,7 +305,7 @@ export default function SubscriptionPage() {
       </section>
       <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
 
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-20 right-10 w-32 h-32 bg-orange/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-28 h-28 bg-sky-blue/5 rounded-full blur-3xl" />

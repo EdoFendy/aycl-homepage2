@@ -18,11 +18,11 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
-import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 
 export default function PerformancePage() {
   const t = useTranslations("pacchettiPerformance")
@@ -60,13 +60,14 @@ export default function PerformancePage() {
               <p className="text-lg text-gray-600 leading-relaxed">
                 {t("hero.subtitle")}
               </p>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <SlideArrowButton
                   primaryColor="#ff9d3d"
                   text={t("hero.cta")}
                 />
-                <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base">{t("hero.ctaSecondary")}</Link>
+                <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base flex items-center">{t("hero.ctaSecondary")}</Link>
               </div>
+
             </div>
 
             <div className="relative">
@@ -300,7 +301,7 @@ export default function PerformancePage() {
       </section>
 
         {/* Investimento */}
-        <section className="py-16 sm:py-24">
+        <section id="pricing" className="py-16 sm:py-24">
           <PageLayoutContainer className="px-4 sm:px-6">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">

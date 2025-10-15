@@ -4,7 +4,6 @@ import { getTranslations } from "next-intl/server";
 import { PaymentGateway } from "@/components/payment-gateway";
 import type { DriveTestOrder } from "@/lib/drive-test";
 import { PageLayoutContainer } from "@/components/page-layout-container";
-import SlideArrowButton from "@/components/animata/button/slide-arrow-button";
 
 type SearchParams = { [key: string]: string | string[] | undefined };
 
@@ -99,11 +98,11 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                     {t("order.cta.packages")}
                   </Button>
                 </Link>
-                <SlideArrowButton
-                  primaryColor="#ff9d3d"
-                  text={t("order.cta.calculator")}
-                  className="w-full sm:w-auto"
-                />
+                <Link href="/pacchetti#drive-test">
+                  <Button className="w-full sm:w-auto bg-orange text-white hover:bg-orange/90">
+                    {t("order.cta.calculator")}
+                  </Button>
+                </Link>
               </div>
             </div>
 
@@ -119,11 +118,11 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                   {t("order.cta.packages")}
                 </Button>
               </Link>
-              <SlideArrowButton
-                primaryColor="#ff9d3d"
-                text={t("order.cta.calculator")}
-                className="w-full sm:w-auto"
-              />
+              <Link href="/#pacchetti">
+                <Button className="w-full sm:w-auto bg-orange text-white hover:bg-orange/90">
+                  {t("order.cta.calculator")}
+                </Button>
+              </Link>
             </div>
           </div>
         )}

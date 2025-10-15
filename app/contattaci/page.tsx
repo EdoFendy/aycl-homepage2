@@ -9,7 +9,6 @@ import { useTranslations } from "next-intl"
 import Cal, { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
-import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 
 export default function ContattaciPage() {
   const t = useTranslations("contattaci")
@@ -186,10 +185,12 @@ export default function ContattaciPage() {
                   {t("faqPreview.ctaFaq")}
                 </Button>
               </Link>
-              <SlideArrowButton
-                primaryColor="#ff9d3d"
-                text={t("faqPreview.ctaCall")}
-              />
+              <Link href="/contattaci">
+                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
+                  {t("faqPreview.ctaCall")}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </PageLayoutContainer>
@@ -205,11 +206,12 @@ export default function ContattaciPage() {
             <h2 className="text-4xl lg:text-4xl font-bold text-balance">{t("cta.title")}</h2>
             <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <SlideArrowButton
-                primaryColor="#ff9d3d"
-                text={t("cta.button")}
-                className="w-full"
-              />
+              <Link href="/pacchetti">
+                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8 w-full">
+                  {t("cta.button")}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </PageLayoutContainer>

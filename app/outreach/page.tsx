@@ -8,7 +8,6 @@ import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
 import { CheckCircle2, XCircle, Check, X } from "lucide-react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
-import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 
 type Quote = {
   text: string
@@ -156,10 +155,11 @@ export default function OutreachPage() {
                </div>
               <div className="space-y-6">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <SlideArrowButton
-                    primaryColor="#ff9d3d"
-                    text={t("hero.cta.primary")}
-                  />
+                  <Link href="/contattaci">
+                     <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
+                       {t("hero.cta.primary")}
+                     </Button>
+                  </Link>
                   <Link href="/pacchetti">
                      <Button
                        size="lg"
@@ -728,10 +728,20 @@ export default function OutreachPage() {
             <h2 className="text-3xl font-bold sm:text-4xl">Pronto a trasformare il tuo outreach?</h2>
             <p className="text-base text-white/80 sm:text-lg">{t("microcopy")}</p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <SlideArrowButton
-                primaryColor="#ff9d3d"
-                text="Prenota una call"
-              />
+              <Link href="/contattaci">
+                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
+                  <span className="flex items-center gap-2">
+                    <Image
+                      src={heroCtaIcons[0].src}
+                      alt={heroCtaIcons[0].alt}
+                      width={20}
+                      height={20}
+                      className="h-5 w-5 object-contain"
+                    />
+                    <span>Prenota una call</span>
+                  </span>
+                </Button>
+              </Link>
               <Link href="/pacchetti">
                 <Button
                   size="lg"

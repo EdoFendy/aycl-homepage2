@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { PaymentGatewayProps } from "./types";
-import SlideArrowButton from "@/components/animata/button/slide-arrow-button";
 
 interface CreditCardResponse {
   paymentUrl?: string;
@@ -110,13 +109,9 @@ export default function CreditCardGateway({ order }: PaymentGatewayProps) {
 
       {error ? <p className="text-xs text-red-500">{error}</p> : null}
 
-      <SlideArrowButton
-        onClick={handleCheckout}
-        disabled={loading}
-        primaryColor="#ff9d3d"
-        text={loading ? t("payment.cta.loading") : t("payment.cta.creditCard")}
-        className="w-full"
-      />
+      <Button onClick={handleCheckout} disabled={loading} className="w-full bg-orange text-white hover:bg-orange/90">
+        {loading ? t("payment.cta.loading") : t("payment.cta.creditCard")}
+      </Button>
     </div>
   );
 }

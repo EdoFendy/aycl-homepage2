@@ -1,3 +1,4 @@
+
 {
   "it": {
     "hero": {
@@ -5,7 +6,7 @@
       "title": "Pacchetto <strong>Performance</strong>: metti alla prova il sistema",
       "kicker": "Accedi ora al sistema senza limiti e senza rischi.",
       "subtitle": "Trasformiamo la nostra struttura tecnologica e banche dati proprietarie in appuntamenti qualificati con figure decisionali nel tuo target di riferimento.",
-      "cta": "Richiedi Informazioni",
+      "cta": "Richiedi informazioni",
       "ctaSecondary": "Scopri prezzi e garanzie",
       "alt": "Performance Package"
     },
@@ -29,24 +30,24 @@
     "why": {
       "badge": "Perché Performance",
       "title": "La scelta per testare il sistema in sicurezza",
-      "subtitle": "Metti alla prova il potenziale reale del sistema All You Can Leads e paga solo i risultati che ottieni",
+      "subtitle": "Metti alla prova il potenziale reale del sistema All You Can Leads e paga solo i risultati che ottieni.",
       "benefits": [
         "Hai bisogno di generare appuntamenti qualificati per la tua azienda.",
         "Vuoi vedere da vicino come funziona All You Can Leads.",
         "Devi capire come sfruttare questa occasione al meglio.",
         "Sei pronto a gestire trattative reali con i potenziali clienti."
       ],
-      "footnote": "Accedi al metodo AYCL in modo trasparente e misurabile",
+      "footnote": "Accedi al metodo AYCL in modo trasparente e misurabile.",
       "problemsBadge": "✗ Problemi risolti",
-      "problemsTitle": "Grazie al pacchetto Performance non dovrai più…",
+      "problemsTitle": "Grazie al Pacchetto Performance non dovrai più…",
       "problems": [
         "Bruciare soldi in aste pubblicitarie dai ritorni incerti.",
         "Sprecare tempo con lead freddi, fuori target o senza potere decisionale.",
         "Inventare strategie per generare contatti in organico.",
         "Affidare il futuro della tua attività a numeri che non tornano."
       ],
-      "problemsFoot": "Dimentica sprechi, inefficienze e improvvisazione",
-      "badgeRow": "Decine di aziende hanno già iniziato da qui"
+      "problemsFoot": "Dimentica sprechi, inefficienze e improvvisazione.",
+      "badgeRow": "Decine di aziende hanno già iniziato da qui."
     },
     "system": {
       "title": "Accedi senza rischi ai pilastri del nostro sistema",
@@ -61,25 +62,25 @@
       }
     },
     "investment": {
-      "title": "Meno di 8€ al giorno per portare al tavolo chi decide",
-      "desc": "Un investimento minimo rispetto ai ritorni generati. Meno di quanto spendi al bar ogni mese, per avere un flusso di appuntamenti qualificati attivo per un intero anno.",
+      "title": "Meno di €8 al giorno per raggiungere i decisori",
+      "desc": "Un investimento minimo rispetto al ritorno che puoi generare. Meno di quanto spendi al bar ogni mese per mantenere attivo per un anno intero un flusso di appuntamenti qualificati.",
       "timeline": {
         "desktop": [
-          {"label": "Spesa quotidiana", "amount": "8€", "caption": "Colazione fuori / caffè e sigarette / panino e bibita."},
-          {"label": "Investimento mensile", "amount": "240€", "caption": "Testare le Meta ADS / due pieni di benzina / un cambio di stagione / un nuovo outfit."},
-          {"label": "Ticket medio potenziale", "amount": "1.440€", "caption": "Il valore che puoi generare con una sola trattativa chiusa."},
-          {"label": "Investimento annuale", "amount": "3.000€", "caption": "Calendario pieno di appuntamenti qualificati per un anno intero."}
+          { "label": "Spesa quotidiana", "amount": "€8", "caption": "Colazione fuori / caffè e sigarette / panino e bibita." },
+          { "label": "Investimento mensile", "amount": "€240", "caption": "Testing delle Meta Ads / due pieni di carburante / un cambio di guardaroba stagionale / un outfit nuovo." },
+          { "label": "Ticket medio potenziale", "amount": "€1.440", "caption": "Quello che puoi ottenere con una sola trattativa chiusa." },
+          { "label": "Investimento annuale", "amount": "€3.000", "caption": "Un anno intero di appuntamenti qualificati che riempiono il tuo calendario." }
         ],
         "mobile": [
-          {"label": "Spesa quotidiana", "amount": "8€", "caption": "Colazione fuori / caffè e sigarette / panino e bibita."},
-          {"label": "Investimento mensile", "amount": "240€", "caption": "Testare le Meta ADS / due pieni di benzina / un cambio di stagione / un nuovo outfit."},
-          {"label": "Ticket medio potenziale", "amount": "1.440€", "caption": "Il valore che puoi generare con una sola trattativa chiusa."},
-          {"label": "Investimento annuale", "amount": "3.000€", "caption": "Calendario pieno di appuntamenti qualificati per un anno intero."}
+          { "label": "Spesa quotidiana", "amount": "€8", "caption": "Colazione fuori / caffè e sigarette / panino e bibita." },
+          { "label": "Investimento mensile", "amount": "€240", "caption": "Testing delle Meta Ads / due pieni di carburante / un cambio di guardaroba stagionale / un outfit nuovo." },
+          { "label": "Ticket medio potenziale", "amount": "€1.440", "caption": "Quello che puoi ottenere con una sola trattativa chiusa." },
+          { "label": "Investimento annuale", "amount": "€3.000", "caption": "Un anno intero di appuntamenti qualificati che riempiono il tuo calendario." }
         ]
       }
     },
     "faq": {
-      "title": "Domande Frequenti",
+      "title": "Domande frequenti",
       "subtitle": "Tutto quello che devi sapere sul Pacchetto Performance",
       "items": [
         {
@@ -110,9 +111,9 @@
     },
     "cta": {
       "title": "Pronto a iniziare con Performance?",
-      "subtitle": "Prenota una call gratuita e scopriamo insieme se il Pacchetto Performance è la soluzione giusta per te",
-      "primary": "Prenota una Call Gratuita",
-      "secondary": "Vedi Altri Pacchetti"
+      "subtitle": "Prenota una call gratuita e scopriamo insieme se il Pacchetto Performance è la soluzione giusta per te.",
+      "primary": "Prenota una call gratuita",
+      "secondary": "Vedi altri pacchetti"
     },
     "benefits": {
       "payOnly": {
@@ -132,7 +133,7 @@
         ]
       },
       "collaboration": {
-        "title": "La collaborazione dell'anno",
+        "title": "La collaborazione dell’anno",
         "items": [
           "Flusso costante e prevedibile di appuntamenti che rispettano il target di riferimento.",
           "Assistenza completa via chat, appuntamento fisso con project manager dedicato e report dettagliato del lavoro svolto.",
@@ -141,6 +142,7 @@
       }
     }
   },
+
   "en": {
     "hero": {
       "badge": "PERFORMANCE PACKAGE",
@@ -148,49 +150,58 @@
       "kicker": "Get access now with no limits and no risk.",
       "subtitle": "We turn our proprietary tech stack and databases into qualified appointments with decision makers in your target.",
       "cta": "Request Information",
-      "ctaSecondary": "Discover prices and guarantees",
+      "ctaSecondary": "Discover Pricing and Guarantees",
       "alt": "Performance Package"
     },
     "how": {
       "title": "Performance Package: sit at the table with real decision makers",
       "steps": {
-        "1": {"title": "1. Your ideal profile", "desc": "We define your ICP and pricing for appointments in your target, then start onboarding with a dedicated PM."},
-        "2": {"title": "2. Tailored strategy", "desc": "We build the plan, select and segment contacts from our database and run your campaigns end‑to‑end."},
-        "3": {"title": "3. Monitoring & optimization", "desc": "Personal dashboard on Sendura with real‑time results, bi‑weekly reports and PM calls."}
+        "1": {
+          "title": "1. Your ideal profile",
+          "desc": "We define your ICP and pricing for appointments in your target, then start onboarding with a dedicated PM."
+        },
+        "2": {
+          "title": "2. Tailored strategy",
+          "desc": "We build the plan, select and segment contacts from our database and run your campaigns end-to-end."
+        },
+        "3": {
+          "title": "3. Monitoring & optimization",
+          "desc": "Personal dashboard on Sendura with real-time results, bi-weekly reports and PM calls."
+        }
       }
     },
     "why": {
       "badge": "Why Performance",
       "title": "The safe way to test the system",
-      "subtitle": "Experience the real potential of the All You Can Leads system and pay only for the results you achieve",
+      "subtitle": "Experience the real potential of the All You Can Leads system and pay only for the results you achieve.",
       "benefits": [
         "You need qualified appointments for your company.",
         "You want to see how AYCL works up close.",
         "You want to make the most of this opportunity.",
         "You're ready to handle real negotiations."
       ],
-      "footnote": "Access the AYCL method in a transparent, measurable way",
+      "footnote": "Access the AYCL method in a transparent, measurable way.",
       "problemsBadge": "✗ Solved problems",
       "problemsTitle": "With Performance you won't need to…",
       "problems": [
         "Burn money on ad auctions with uncertain returns.",
-        "Waste time with cold, off‑target leads without decision power.",
+        "Waste time with cold, off-target leads without decision power.",
         "Invent strategies to generate contacts organically.",
         "Rely on numbers that don't add up."
       ],
-      "problemsFoot": "Forget waste, inefficiency and guesswork",
-      "badgeRow": "Dozens of companies started here"
+      "problemsFoot": "Forget waste, inefficiency and guesswork.",
+      "badgeRow": "Dozens of companies started here."
     },
     "system": {
       "title": "Access our system pillars with no risk",
-      "subtitle": "AYCL is sales‑oriented, tech and data based. Advanced technologies, constantly updated databases and dedicated teams.",
+      "subtitle": "AYCL is sales-oriented, tech and data based. Advanced technologies, constantly updated databases and dedicated teams.",
       "cards": {
         "senduraTitle": "Sendura",
         "senduraDesc": "Our proprietary software app that manages and monitors outreach across all channels.",
         "dbTitle": "Database",
-        "dbDesc": "Global B2B contacts with AI‑driven verification processes.",
+        "dbDesc": "Global B2B contacts with AI-driven verification processes.",
         "supportTitle": "Support",
-        "supportDesc": "A dedicated project manager follows you end‑to‑end. Real value comes from tech plus people."
+        "supportDesc": "A dedicated project manager follows you end-to-end. Real value comes from tech plus people."
       }
     },
     "investment": {
@@ -198,21 +209,21 @@
       "desc": "A minimal investment compared to the upside you can generate. Less than what you spend at the bar each month to keep a flow of qualified meetings active for an entire year.",
       "timeline": {
         "desktop": [
-          {"label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink."},
-          {"label": "Monthly investment", "amount": "€240", "caption": "Testing Meta ADS / two tanks of fuel / a seasonal wardrobe refresh / a new outfit."},
-          {"label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal."},
-          {"label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar."}
+          { "label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink." },
+          { "label": "Monthly investment", "amount": "€240", "caption": "Testing Meta Ads / two tanks of fuel / a seasonal wardrobe refresh / a new outfit." },
+          { "label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal." },
+          { "label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar." }
         ],
         "mobile": [
-          {"label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink."},
-          {"label": "Monthly investment", "amount": "€240", "caption": "Testing Meta ADS / two tanks of fuel / a seasonal wardrobe refresh / a new outfit."},
-          {"label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal."},
-          {"label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar."}
+          { "label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink." },
+          { "label": "Monthly investment", "amount": "€240", "caption": "Testing Meta Ads / two tanks of fuel / a seasonal wardrobe refresh / a new outfit." },
+          { "label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal." },
+          { "label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar." }
         ]
       }
     },
     "faq": {
-      "title": "Frequently Asked Questions", 
+      "title": "Frequently Asked Questions",
       "subtitle": "Everything about the Performance Package",
       "items": [
         {
@@ -241,7 +252,12 @@
         }
       ]
     },
-    "cta": {"title": "Ready to start with Performance?", "subtitle": "Book a free call and see if Performance is right for you", "primary": "Book a Free Call", "secondary": "See Other Packages"},
+    "cta": {
+      "title": "Ready to start with Performance?",
+      "subtitle": "Book a free call and see if the Performance Package is right for you.",
+      "primary": "Book a free call",
+      "secondary": "See other packages"
+    },
     "benefits": {
       "payOnly": {
         "title": "Pay only for completed appointments",
@@ -252,173 +268,164 @@
         ]
       },
       "investment": {
-        "title": "A CDA-approved investment",
+        "title": "A Board-approved investment",
         "items": [
           "Less than €60 per week, like a dinner out.",
-          "Convert one of the negotiations into a client and you've already multiplied the investment.",
-          "You can spread the initial investment over 3, 6 or 12 months."
+          "Turn one negotiation into a client and you’ve already multiplied the investment.",
+          "You can split the initial investment over 3, 6 or 12 months."
         ]
       },
       "collaboration": {
         "title": "The collaboration of the year",
         "items": [
-          "Constant and predictable flow of appointments that respect the target reference.",
-          "Complete assistance via chat, fixed appointment with dedicated project manager and detailed report of work done.",
-          "Access Pack valid for the first year of collaboration: we take on part of the risk to let you try our system."
+          "Constant and predictable flow of appointments that match your target.",
+          "Full support via chat, regular meetings with a dedicated project manager and detailed work reports.",
+          "Access Pack valid for the first year of collaboration: we take on part of the risk so you can try our system."
         ]
       }
     }
   },
+
   "es": {
     "hero": {
       "badge": "PAQUETE PERFORMANCE",
       "title": "Paquete <strong>Performance</strong>: pon a prueba el sistema",
       "kicker": "Accede ahora sin límites y sin riesgos.",
-      "subtitle": "Convertimos nuestra infraestructura tecnológica y bases de datos propietarias en citas cualificadas con decisores de tu objetivo.",
-      "cta": "Solicitar Información",
-      "ctaSecondary": "Descubre precios y garantías",
+      "subtitle": "Convertimos nuestra infraestructura tecnológica y bases de datos propietarias en citas cualificadas con decisores de tu público objetivo.",
+      "cta": "Solicitar información",
+      "ctaSecondary": "Ver precios y garantías",
       "alt": "Paquete Performance"
     },
     "how": {
       "title": "Paquete Performance: siéntate con quien realmente decide",
       "steps": {
-        "1": {"title": "1. Tu perfil ideal", "desc": "Definimos tu ICP y la tarificación por cita en tu target; iniciamos el onboarding con un PM dedicado."},
-        "2": {"title": "2. Estrategia a medida", "desc": "Construimos el plan, seleccionamos y segmentamos contactos de nuestra base de datos y gestionamos las campañas end‑to‑end."},
-        "3": {"title": "3. Monitorización y optimización", "desc": "Panel personal en Sendura con resultados en tiempo real, informes quincenales y llamadas con el PM."}
+        "1": {
+          "title": "1. Tu perfil ideal",
+          "desc": "Definimos tu ICP y la tarificación por cita en tu target; iniciamos el onboarding con un PM dedicado."
+        },
+        "2": {
+          "title": "2. Estrategia a medida",
+          "desc": "Construimos el plan, seleccionamos y segmentamos contactos de nuestra base de datos y gestionamos las campañas end-to-end."
+        },
+        "3": {
+          "title": "3. Monitorización y optimización",
+          "desc": "Panel personal en Sendura con resultados en tiempo real, informes quincenales y llamadas con el PM."
+        }
       }
     },
     "why": {
       "badge": "Por qué Performance",
       "title": "La opción segura para probar el sistema",
-      "subtitle": "Pon a prueba el potencial real del sistema All You Can Leads y paga solo los resultados que obtienes",
+      "subtitle": "Pon a prueba el potencial real del sistema All You Can Leads y paga solo los resultados que obtienes.",
       "benefits": [
         "Necesitas citas cualificadas para tu empresa.",
         "Quieres ver de cerca cómo funciona AYCL.",
         "Quieres aprovechar al máximo esta oportunidad.",
         "Estás listo para gestionar negociaciones reales."
       ],
-      "footnote": "Accede al método AYCL de forma transparente y medible",
+      "footnote": "Accede al método AYCL de forma transparente y medible.",
       "problemsBadge": "✗ Problemas resueltos",
-      "problemsTitle": "Con Performance ya no tendrás que…",
+      "problemsTitle": "Con el Paquete Performance ya no tendrás que…",
       "problems": [
         "Quemar dinero en subastas publicitarias de retorno incierto.",
         "Perder tiempo con leads fríos, fuera de objetivo y sin poder de decisión.",
         "Inventar estrategias para generar contactos de forma orgánica.",
         "Confiar en números que no cuadran."
       ],
-      "problemsFoot": "Olvida el despilfarro, la ineficiencia y la improvisación",
-      "badgeRow": "Decenas de empresas empezaron aquí"
+      "problemsFoot": "Olvida el despilfarro, la ineficiencia y la improvisación.",
+      "badgeRow": "Decenas de empresas empezaron aquí."
     },
     "system": {
       "title": "Accede sin riesgos a los pilares de nuestro sistema",
-      "subtitle": "AYCL es sales‑oriented, basada en tecnología y datos. Tecnologías avanzadas, bases de datos actualizadas y equipos dedicados.",
+      "subtitle": "AYCL es sales-oriented, basada en tecnología y datos. Tecnologías avanzadas, bases de datos actualizadas y equipos dedicados.",
       "cards": {
         "senduraTitle": "Sendura",
         "senduraDesc": "Nuestra app de software propietaria que gestiona y monitoriza el outreach en todos los canales.",
         "dbTitle": "Base de datos",
         "dbDesc": "Contactos B2B globales con procesos de verificación impulsados por IA.",
         "supportTitle": "Soporte",
-        "supportDesc": "Un project manager dedicado te acompaña de principio a fin. El valor nace de la unión entre tecnología y personas."
+        "supportDesc": "Un project manager dedicado te acompaña de principio a fin. El valor real nace de la unión entre tecnología y personas."
       }
     },
     "investment": {
       "title": "Menos de 8€ al día para llegar a los decisores",
-      "desc": "Una inversión mínima frente al retorno que puedes generar. Menos de lo que gastas en el bar cada mes para mantener activo un flujo de citas cualificadas durante todo el año.",
+      "desc": "Una inversión mínima frente al retorno que puedes generar. Menos de lo que gastas en el bar cada mes para mantener activo durante todo el año un flujo de citas cualificadas.",
       "timeline": {
         "desktop": [
-          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
-          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo."},
-          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
-          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
+          { "label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida." },
+          { "label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta Ads / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo." },
+          { "label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes lograr con una sola negociación cerrada." },
+          { "label": "Inversión anual", "amount": "3.000€", "caption": "Un año entero de citas cualificadas llenando tu agenda." }
         ],
         "mobile": [
-          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
-          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo."},
-          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
-          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
+          { "label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida." },
+          { "label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta Ads / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo." },
+          { "label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes lograr con una sola negociación cerrada." },
+          { "label": "Inversión anual", "amount": "3.000€", "caption": "Un año entero de citas cualificadas llenando tu agenda." }
         ]
       }
     },
     "faq": {
-      "title": "Preguntas Frecuentes", 
+      "title": "Preguntas frecuentes",
       "subtitle": "Todo sobre el Paquete Performance",
       "items": [
         {
           "question": "¿Cuáles son los pasos operativos del Paquete Performance?",
-          "answer": "1. Llamada inicial para verificar la posibilidad de colaboración y recopilar la información necesaria.\n2. Definición del ICP basada en parámetros objetivos.\n3. Estudio de viabilidad para calcular la tarificación por cita.\n4. Segunda llamada de comparación para compartir el análisis y personalizar la oferta.\n5. Construcción del plan operativo junto al project manager dedicado.\n6. Activación de campañas y fase de testing para la optimización."
+          "answer": "1. Llamada inicial para verificar la posibilidad de colaboración y recopilar la información necesaria.\n2. Definición del ICP basada en parámetros objetivos.\n3. Estudio de viabilidad para calcular la tarificación por cita.\n4. Segunda llamada de contraste para compartir el análisis y personalizar la oferta.\n5. Construcción del plan operativo junto al project manager dedicado.\n6. Activación de campañas y fase de testing para la optimización."
         },
         {
           "question": "¿Cómo se establece la tarifa por cita?",
-          "answer": "La tarifa por cita se calcula sobre parámetros objetivos: tamaño y complejidad del cluster objetivo, dificultad y frecuencia de contacto, localización geográfica del mercado. Si se definen múltiples ICP, a cada uno corresponderá una tarificación distinta."
+          "answer": "La tarifa por cita se calcula con parámetros objetivos: tamaño y complejidad del clúster objetivo, dificultad y frecuencia de contacto, localización geográfica del mercado. Si se definen varios ICP, cada uno tendrá una tarificación distinta."
         },
         {
           "question": "¿Por qué el Paquete Performance es válido solo para el primer año?",
-          "answer": "Este paquete está concebido como starter pack, pensado para probar el sistema de forma simple y directa. Es la opción ideal para quien quiere empezar inmediatamente a generar citas cualificadas antes de pasar a una fórmula más estructurada y escalable."
+          "answer": "Este paquete está concebido como un starter pack, pensado para probar el sistema de forma simple y directa. Es la opción ideal para quien quiere empezar a generar citas cualificadas de inmediato antes de pasar a una fórmula más estructurada y escalable."
         },
         {
           "question": "¿Puedo rescindir el contrato en cualquier momento?",
-          "answer": "Sí. Siempre es posible rescindir la colaboración con un preaviso de 28 días. En este período completamos las actividades ya iniciadas, así el cierre ocurre de forma ordenada y sin interrupciones súbitas."
+          "answer": "Sí. Siempre es posible rescindir la colaboración con un preaviso de 28 días. Durante este período completamos las actividades ya iniciadas, de modo que el cierre se produzca ordenadamente y sin interrupciones súbitas."
         },
         {
           "question": "¿Cómo puedo monitorear los resultados y las actividades?",
-          "answer": "Tienes un panel personal en Sendura, actualizado en tiempo real con todos los datos de campaña, e informes completos cada dos semanas con comparaciones regulares con tu project manager dedicado."
+          "answer": "Dispones de un panel personal en Sendura, actualizado en tiempo real con todos los datos de campaña, e informes completos cada dos semanas con revisiones periódicas con tu project manager dedicado."
         },
         {
           "question": "¿Cuánto tiempo se necesita para ver los primeros resultados?",
-          "answer": "Los primeros 30-90 días son un período de testing: sirven para alcanzar una masa de datos estadísticamente relevantes sobre los que basar las optimizaciones. El objetivo es llevar el sistema a pleno funcionamiento para garantizar un flujo constante y predecible en el tiempo."
+          "answer": "Los primeros 30–90 días son un período de testing: sirven para alcanzar una masa de datos estadísticamente relevante sobre la que basar las optimizaciones. El objetivo es llevar el sistema a pleno rendimiento para garantizar un flujo constante y predecible en el tiempo."
         }
       ]
     },
-    "cta": {"title": "¿Listo para empezar con Performance?", "subtitle": "Reserva una llamada gratuita y verifica si Performance es para ti", "primary": "Reservar una Llamada Gratuita", "secondary": "Ver Otros Paquetes"},
-    "investment": {
-      "title": "Menos de 8€ al día para sentarte con quien decide",
-      "desc": "Una inversión mínima frente al retorno potencial. Menos de lo que gastas en el bar cada mes para mantener activo durante todo un año un flujo de citas cualificadas.",
-      "timeline": {
-        "desktop": [
-          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
-          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / cambio de temporada / outfit nuevo."},
-          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
-          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
-        ],
-        "mobile": [
-          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
-          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / cambio de temporada / outfit nuevo."},
-          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
-          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
-        ]
-      }
+    "cta": {
+      "title": "¿Listo para empezar con Performance?",
+      "subtitle": "Reserva una llamada gratuita y verifica si el Paquete Performance es la solución adecuada para ti.",
+      "primary": "Reservar una llamada gratuita",
+      "secondary": "Ver otros paquetes"
     },
     "benefits": {
       "payOnly": {
         "title": "Paga solo las citas realizadas",
         "items": [
-          "Cada 14 días pagas solo las citas cualificadas que realmente realizaste.",
+          "Cada 14 días pagas únicamente las citas cualificadas que hayas realizado.",
           "Sin costes ocultos, sin cuotas fijas, sin trucos.",
-          "Compartimos contigo el riesgo inicial y nos responsabilizamos de tus resultados."
+          "Compartimos contigo el riesgo inicial y asumimos la responsabilidad de tus resultados."
         ]
       },
       "investment": {
-        "title": "Una inversión aprobada en CDA",
+        "title": "Una inversión aprobada por el Consejo",
         "items": [
           "Menos de 60€ a la semana, como una cena fuera.",
-          "Convierte una de las negociaciones en cliente y ya habrás multiplicado la inversión.",
-          "Tienes la posibilidad de fraccionar la inversión inicial en 3, 6 o 12 meses."
+          "Convierte una negociación en cliente y ya habrás multiplicado la inversión.",
+          "Puedes fraccionar la inversión inicial en 3, 6 o 12 meses."
         ]
       },
       "collaboration": {
         "title": "La colaboración del año",
         "items": [
-          "Flujo constante y predecible de citas que respetan el target de referencia.",
-          "Asistencia completa vía chat, cita fija con project manager dedicado y reporte detallado del trabajo realizado.",
-          "Access Pack válido para el primer año de colaboración: nos hacemos cargo de parte del riesgo para que pruebes nuestro sistema."
+          "Flujo constante y predecible de citas que encajan con tu target.",
+          "Asistencia completa por chat, reuniones periódicas con un project manager dedicado e informes detallados del trabajo realizado.",
+          "Access Pack válido para el primer año de colaboración: asumimos parte del riesgo para que pruebes nuestro sistema."
         ]
       }
-    },
-    "cta": {
-      "title": "¿Listo para empezar con Performance?",
-      "subtitle": "Reserva una llamada gratuita y descubramos juntos si el Paquete Performance es la solución adecuada para ti",
-      "primary": "Reservar una Llamada Gratuita",
-      "secondary": "Ver Otros Paquetes"
     }
   }
 }
