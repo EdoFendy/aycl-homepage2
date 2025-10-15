@@ -664,8 +664,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Price Calculator Section */}
-      <LeadPriceCalculator />
+      {/* Price Calculator Section (temporarily disabled) */}
+      {false && (
+        <LeadPriceCalculator />
+      )}
 
       {/* FAQ Section */}
       <section id="faq" className="py-24 relative">

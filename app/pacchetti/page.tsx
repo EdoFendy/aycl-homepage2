@@ -251,7 +251,10 @@ export default function PacchettiPage() {
             </div>
           </Card>
 
-          <LeadPriceCalculator id="drive-test" variant="card" className="lg:col-span-12 cursor-default" />
+          {/* Lead Price Calculator (temporarily disabled) */}
+          {false && (
+            <LeadPriceCalculator id="drive-test" variant="card" className="lg:col-span-12 cursor-default" />
+          )}
           </div>
         </PageLayoutContainer>
 
