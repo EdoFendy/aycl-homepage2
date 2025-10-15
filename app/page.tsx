@@ -672,7 +672,32 @@ export default function HomePage() {
 
             <FAQCards
               className="mt-12"
-              items={t("faq.items")}
+              items={[
+                {
+                  question: t("faq.items.0.question"),
+                  answer: t("faq.items.0.answer")
+                },
+                {
+                  question: t("faq.items.1.question"),
+                  answer: t("faq.items.1.answer")
+                },
+                {
+                  question: t("faq.items.2.question"),
+                  answer: t("faq.items.2.answer")
+                },
+                {
+                  question: t("faq.items.3.question"),
+                  answer: t("faq.items.3.answer")
+                },
+                {
+                  question: t("faq.items.4.question"),
+                  answer: t("faq.items.4.answer")
+                },
+                {
+                  question: t("faq.items.5.question"),
+                  answer: t("faq.items.5.answer")
+                }
+              ]}
             />
           </LayoutWrapper>
         </div>

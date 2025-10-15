@@ -169,32 +169,32 @@
     "faq": {
       "title": "Domande Frequenti",
       "subtitle": "Tutto quello che devi sapere su All You Can Leads",
-      "items": [
-        {
+      "items": {
+        "0": {
           "question": "Qual è la differenza tra All You Can Leads e una normale agenzia di lead generation?",
           "answer": "La maggior parte delle agenzie di lead generation ti vende liste di contatti generici o campagne pubblicitarie. All You Can Leads ribalta lo schema: portiamo direttamente appuntamenti reali con figure decisionali in target grazie a database proprietari, intelligenza artificiale e al nostro software interno Sendura."
         },
-        {
+        "1": {
           "question": "Come funziona il vostro sistema di generazione appuntamenti B2B?",
           "answer": "Partiamo dalla definizione dell'ICP, selezioniamo i contatti dal nostro database, attiviamo un processo di interazione e scrematura, e solo a questo punto calendarizziamo appuntamenti con decision maker che hanno espresso interesse reale."
         },
-        {
+        "2": {
           "question": "Che differenza c'è tra lead e appuntamenti qualificati?",
           "answer": "Un lead è solo un contatto. Un appuntamento qualificato è calendarizzato, rispetta i parametri dell'ICP concordato e l'interlocutore ha già interagito con noi dimostrando interesse. Se non rispetta l'ICP o non si presenta, l'appuntamento non viene conteggiato."
         },
-        {
+        "3": {
           "question": "Gli appuntamenti qualificati sono garantiti?",
           "answer": "Sì. Nel pacchetto Performance paghi solo quelli svolti e conformi all'ICP. Nella Subscription è garantito un range mensile di appuntamenti. Nel Set-Up Fee la garanzia si estende al ritorno economico con modello revenue share."
         },
-        {
+        "4": {
           "question": "Quanto tempo serve per iniziare a vedere i primi risultati?",
           "answer": "I primi 30-90 giorni sono un periodo di testing per raggiungere una massa di dati statisticamente rilevanti. In questa fase possono già arrivare appuntamenti, ma l'obiettivo è portare il sistema a regime per garantire un flusso costante e prevedibile nel tempo."
         },
-        {
+        "5": {
           "question": "Utilizzate l'intelligenza artificiale nei vostri sistemi?",
           "answer": "Sì, l'AI è integrata in diversi punti del processo: segmentazione dei contatti, personalizzazione dei messaggi e gestione delle priorità di follow-up. L'obiettivo è aumentare efficienza e precisione senza sostituire le persone."
         }
-      ]
+      }
     },
     "cta": {
       "title": "Pronto a riempire il tuo calendario di opportunità reali?",
@@ -384,32 +384,32 @@
     "faq": {
       "title": "Frequently Asked Questions",
       "subtitle": "Everything you need to know about All You Can Leads",
-      "items": [
-        {
+      "items": {
+        "0": {
           "question": "What's the difference between All You Can Leads and a regular lead generation agency?",
           "answer": "Most lead generation agencies sell you generic contact lists or advertising campaigns. All You Can Leads flips the script: we bring you directly to real appointments with decision makers in your target thanks to proprietary databases, artificial intelligence and our internal software Sendura."
         },
-        {
+        "1": {
           "question": "How does your B2B appointment generation system work?",
           "answer": "We start with ICP definition, select contacts from our database, activate an interaction and screening process, and only then do we schedule appointments with decision makers who have expressed real interest."
         },
-        {
+        "2": {
           "question": "What's the difference between leads and qualified appointments?",
           "answer": "A lead is just a contact. A qualified appointment is scheduled, meets the agreed ICP parameters and the interlocutor has already interacted with us showing interest. If it doesn't meet the ICP or doesn't show up, the appointment isn't counted."
         },
-        {
+        "3": {
           "question": "Are qualified appointments guaranteed?",
           "answer": "Yes. In the Performance package you only pay for those completed and compliant with the ICP. In Subscription a monthly range of appointments is guaranteed. In Set-Up Fee the guarantee extends to economic return with revenue share model."
         },
-        {
+        "4": {
           "question": "How long does it take to start seeing the first results?",
           "answer": "The first 30-90 days are a testing period to reach a statistically relevant data mass. Appointments can already arrive in this phase, but the goal is to bring the system to full operation to ensure a constant and predictable flow over time."
         },
-        {
+        "5": {
           "question": "Do you use artificial intelligence in your systems?",
           "answer": "Yes, AI is integrated at various points in the process: contact segmentation, message personalization and follow-up priority management. The goal is to increase efficiency and precision without replacing people."
         }
-      ]
+      }
     },
     "cta": {
       "title": "Ready to fill your calendar with real opportunities?",
@@ -599,32 +599,32 @@
     "faq": {
       "title": "Preguntas Frecuentes",
       "subtitle": "Todo lo que necesitas saber sobre All You Can Leads",
-      "items": [
-        {
+      "items": {
+        "0": {
           "question": "¿Cuál es la diferencia entre All You Can Leads y una agencia normal de generación de leads?",
           "answer": "La mayoría de las agencias de generación de leads te venden listas de contactos genéricos o campañas publicitarias. All You Can Leads cambia el guión: te llevamos directamente a citas reales con tomadores de decisiones en tu objetivo gracias a bases de datos propietarias, inteligencia artificial y nuestro software interno Sendura."
         },
-        {
+        "1": {
           "question": "¿Cómo funciona vuestro sistema de generación de citas B2B?",
           "answer": "Empezamos con la definición del ICP, seleccionamos contactos de nuestra base de datos, activamos un proceso de interacción y cribado, y solo entonces programamos citas con tomadores de decisiones que han expresado interés real."
         },
-        {
+        "2": {
           "question": "¿Qué diferencia hay entre leads y citas cualificadas?",
           "answer": "Un lead es solo un contacto. Una cita cualificada está programada, cumple los parámetros del ICP acordado y el interlocutor ya ha interactuado con nosotros mostrando interés. Si no cumple el ICP o no se presenta, la cita no se cuenta."
         },
-        {
+        "3": {
           "question": "¿Están garantizadas las citas cualificadas?",
           "answer": "Sí. En el paquete Performance solo pagas las completadas y conformes al ICP. En Subscription se garantiza un rango mensual de citas. En Set-Up Fee la garantía se extiende al retorno económico con modelo de participación en ingresos."
         },
-        {
+        "4": {
           "question": "¿Cuánto tiempo se necesita para empezar a ver los primeros resultados?",
           "answer": "Los primeros 30-90 días son un período de testing para alcanzar una masa de datos estadísticamente relevante. En esta fase ya pueden llegar citas, pero el objetivo es llevar el sistema a pleno funcionamiento para garantizar un flujo constante y predecible en el tiempo."
         },
-        {
+        "5": {
           "question": "¿Utilizáis inteligencia artificial en vuestros sistemas?",
           "answer": "Sí, la IA está integrada en varios puntos del proceso: segmentación de contactos, personalización de mensajes y gestión de prioridades de seguimiento. El objetivo es aumentar eficiencia y precisión sin reemplazar a las personas."
         }
-      ]
+      }
     },
     "cta": {
       "title": "¿Listo para llenar tu calendario de oportunidades reales?",
