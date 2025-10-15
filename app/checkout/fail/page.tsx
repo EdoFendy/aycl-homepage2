@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 
 export default function CheckoutFailPage() {
   const t = useTranslations("checkout")
@@ -71,12 +72,11 @@ export default function CheckoutFailPage() {
                   <p className="text-sm text-gray-600">
                     Torna alla pagina di pagamento e riprova con gli stessi dati o con una carta diversa.
                   </p>
-                  <Link href="/pacchetti">
-                    <Button className="w-full bg-orange hover:bg-orange/90 text-white">
-                      Riprova Ora
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <SlideArrowButton
+                    primaryColor="#ff9d3d"
+                    text="Riprova Ora"
+                    className="w-full"
+                  />
                 </div>
               </Card>
 
@@ -121,12 +121,10 @@ export default function CheckoutFailPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Link href="/pacchetti">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
-                  Riprova il Pagamento
-                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </Button>
-              </Link>
+              <SlideArrowButton
+                primaryColor="#ff9d3d"
+                text="Riprova il Pagamento"
+              />
               <Link href="/">
                 <Button
                   size="lg"

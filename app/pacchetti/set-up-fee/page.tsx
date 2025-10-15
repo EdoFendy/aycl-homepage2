@@ -21,6 +21,7 @@ import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 
 export default function SetUpFeePage() {
   const t = useTranslations("pacchettiSetUpFee")
@@ -58,15 +59,10 @@ export default function SetUpFeePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-                <button 
-                  data-cal-namespace="aycl-discovery"
-                  data-cal-link="giovannilucchesini/aycl-discovery"
-                  data-cal-config='{"layout":"month_view"}'
-                  className="bg-orange hover:bg-orange/90 text-white font-medium px-6 py-2.5 rounded-md transition-colors duration-200 flex items-center gap-2 text-base sm:text-lg w-full sm:w-auto"
-                >
-                  {t("hero.ctaPrimary")}
-                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
-                </button>
+           <SlideArrowButton
+              primaryColor="#ff9d3d"
+              text={t("faq.finalCtaBtn")}
+            />
                 <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base">{t("hero.ctaSecondary")}</Link>
               </div>
             </div>
@@ -529,12 +525,10 @@ export default function SetUpFeePage() {
             <p className="text-center text-lg text-gray-700">
               {t("faq.finalCtaText")}
             </p>
-            <Link href="/contattaci">
-              <Button size="lg" className="bg-orange hover:bg-orange/90 px-8 text-lg text-white">
-                {t("faq.finalCtaBtn")}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <SlideArrowButton
+              primaryColor="#ff9d3d"
+              text={t("faq.finalCtaBtn")}
+            />
           </div>
         </PageLayoutContainer>
       </section>

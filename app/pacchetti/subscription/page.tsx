@@ -23,6 +23,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
@@ -64,22 +65,14 @@ export default function SubscriptionPage() {
               <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
               <p className="text-lg text-gray-600 leading-relaxed">{t("hero.subtitle")}</p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href="/contattaci">
-                  <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
-                    {t("hero.cta")}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/pagamento">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-orange text-orange hover:bg-orange/10"
-                  >
-                    {t("hero.payNow")}
-                    <CreditCard className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                  <SlideArrowButton
+                    primaryColor="#ff9d3d"
+                    text={t("hero.cta")}
+                  />
+                  <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base">{t("hero.ctaSecondary")}</Link>
+                </div>
+
               </div>
             </div>
 

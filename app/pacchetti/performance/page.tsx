@@ -18,6 +18,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { FAQCards } from "@/components/faq-cards"
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
@@ -59,12 +60,13 @@ export default function PerformancePage() {
               <p className="text-lg text-gray-600 leading-relaxed">
                 {t("hero.subtitle")}
               </p>
-              <Link href="/contattaci">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
-                  {t("hero.cta")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                <SlideArrowButton
+                  primaryColor="#ff9d3d"
+                  text={t("hero.cta")}
+                />
+                <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base">{t("hero.ctaSecondary")}</Link>
+              </div>
             </div>
 
             <div className="relative">

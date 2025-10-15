@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 
 export default function CheckoutSuccessPage() {
   const t = useTranslations("checkout")
@@ -87,12 +88,10 @@ export default function CheckoutSuccessPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Link href="/contattaci">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
-                  Contatta il Team
-                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </Button>
-              </Link>
+              <SlideArrowButton
+                primaryColor="#ff9d3d"
+                text="Contatta il Team"
+              />
               <Link href="/">
                 <Button
                   size="lg"

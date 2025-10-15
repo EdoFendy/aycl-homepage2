@@ -6,6 +6,7 @@
       "kicker": "Accedi ora al sistema senza limiti e senza rischi.",
       "subtitle": "Trasformiamo la nostra struttura tecnologica e banche dati proprietarie in appuntamenti qualificati con figure decisionali nel tuo target di riferimento.",
       "cta": "Richiedi Informazioni",
+      "ctaSecondary": "Scopri prezzi e garanzie",
       "alt": "Performance Package"
     },
     "how": {
@@ -113,35 +114,6 @@
       "primary": "Prenota una Call Gratuita",
       "secondary": "Vedi Altri Pacchetti"
     },
-    "investment": {
-      "timeline": {
-        "desktop": [
-          {
-            "label": "SPESA QUOTIDIANA",
-            "amount": "€0",
-            "caption": "Nessun costo fisso"
-          },
-          {
-            "label": "1 mese",
-            "amount": "€2.500",
-            "caption": "Primi appuntamenti qualificati"
-          },
-          {
-            "label": "3 mesi",
-            "amount": "€7.500",
-            "caption": "Sistema a regime"
-          },
-          {
-            "label": "12 mesi",
-            "amount": "€30.000",
-            "caption": "Flusso costante garantito"
-          }
-        ],
-        "mobile": {
-          "title": "Timeline di investimento"
-        }
-      }
-    },
     "benefits": {
       "payOnly": {
         "title": "Paghi solo gli appuntamenti svolti",
@@ -176,6 +148,7 @@
       "kicker": "Get access now with no limits and no risk.",
       "subtitle": "We turn our proprietary tech stack and databases into qualified appointments with decision makers in your target.",
       "cta": "Request Information",
+      "ctaSecondary": "Discover prices and guarantees",
       "alt": "Performance Package"
     },
     "how": {
@@ -269,13 +242,6 @@
       ]
     },
     "cta": {"title": "Ready to start with Performance?", "subtitle": "Book a free call and see if Performance is right for you", "primary": "Book a Free Call", "secondary": "See Other Packages"},
-    "investment": {
-      "timeline": {
-        "mobile": {
-          "title": "Investment timeline"
-        }
-      }
-    },
     "benefits": {
       "payOnly": {
         "title": "Pay only for completed appointments",
@@ -310,6 +276,7 @@
       "kicker": "Accede ahora sin límites y sin riesgos.",
       "subtitle": "Convertimos nuestra infraestructura tecnológica y bases de datos propietarias en citas cualificadas con decisores de tu objetivo.",
       "cta": "Solicitar Información",
+      "ctaSecondary": "Descubre precios y garantías",
       "alt": "Paquete Performance"
     },
     "how": {
@@ -404,10 +371,21 @@
     },
     "cta": {"title": "¿Listo para empezar con Performance?", "subtitle": "Reserva una llamada gratuita y verifica si Performance es para ti", "primary": "Reservar una Llamada Gratuita", "secondary": "Ver Otros Paquetes"},
     "investment": {
+      "title": "Menos de 8€ al día para sentarte con quien decide",
+      "desc": "Una inversión mínima frente al retorno potencial. Menos de lo que gastas en el bar cada mes para mantener activo durante todo un año un flujo de citas cualificadas.",
       "timeline": {
-        "mobile": {
-          "title": "Timeline de inversión"
-        }
+        "desktop": [
+          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
+          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / cambio de temporada / outfit nuevo."},
+          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
+          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
+        ],
+        "mobile": [
+          {"label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida."},
+          {"label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta ADS / dos depósitos de gasolina / cambio de temporada / outfit nuevo."},
+          {"label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes generar con una sola negociación cerrada."},
+          {"label": "Inversión anual", "amount": "3.000€", "caption": "Agenda llena de citas cualificadas durante todo un año."}
+        ]
       }
     },
     "benefits": {
@@ -435,6 +413,12 @@
           "Access Pack válido para el primer año de colaboración: nos hacemos cargo de parte del riesgo para que pruebes nuestro sistema."
         ]
       }
+    },
+    "cta": {
+      "title": "¿Listo para empezar con Performance?",
+      "subtitle": "Reserva una llamada gratuita y descubramos juntos si el Paquete Performance es la solución adecuada para ti",
+      "primary": "Reservar una Llamada Gratuita",
+      "secondary": "Ver Otros Paquetes"
     }
   }
 }
