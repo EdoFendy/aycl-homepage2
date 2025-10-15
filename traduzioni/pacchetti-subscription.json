@@ -76,6 +76,7 @@
     },
     "cta": {
       "title": "Pronto a iniziare?",
+      "subtitle": "Prenota una call gratuita e scopriamo insieme se il Pacchetto Subscription è la soluzione giusta per te",
       "primary": "Prenota una Call",
       "secondary": "Scopri i Pacchetti"
     },
@@ -156,7 +157,12 @@
         ]
       }
     },
-    "cta": {"title": "Ready to start?", "primary": "Book a Call", "secondary": "See Packages"},
+    "cta": {
+      "title": "Ready to start?", 
+      "subtitle": "Book a free call and discover together if the Subscription Package is the right solution for you",
+      "primary": "Book a Call", 
+      "secondary": "See Packages"
+    },
     "faq": {"title": "FAQ"}
   },
   "es": {
@@ -234,7 +240,12 @@
         ]
       }
     },
-    "cta": {"title": "¿Listo para empezar?", "primary": "Reservar una Llamada", "secondary": "Ver Paquetes"},
+    "cta": {
+      "title": "¿Listo para empezar?", 
+      "subtitle": "Reserva una llamada gratuita y descubramos juntos si el Paquete Subscription es la solución adecuada para ti",
+      "primary": "Reservar una Llamada", 
+      "secondary": "Ver Paquetes"
+    },
     "faq": {"title": "FAQ"}
   }
 }

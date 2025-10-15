@@ -323,7 +323,16 @@ export default function SubscriptionPage() {
         <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6"><Shield className="w-4 h-4 text-orange" /><span className="text-sm font-semibold text-orange">{t("guarantee.badge")}</span></div>
+              <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6">
+                <Image
+                  src="/Setupfee_icona_Garanzia.png"
+                  alt="Garanzia Icon"
+                  width={20}
+                  height={20}
+                  className="w-4 h-4"
+                />
+                <span className="text-sm font-semibold text-orange">{t("guarantee.badge")}</span>
+              </div>
               <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6 text-balance">
                 {t.rich("guarantee.title", {
                   strong: (chunks) => <span className="text-orange">{chunks}</span>,
@@ -349,8 +358,14 @@ export default function SubscriptionPage() {
                       </div>
                       <Card className="flex-1 p-8 bg-white border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                         <div className="flex items-start gap-6">
-                          <div className="w-16 h-16 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <LineChart className="h-8 w-8 text-orange" />
+                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                            <Image
+                              src="/Setupfee_icona_Activation.png"
+                              alt="Fase di attivazione"
+                              width={32}
+                              height={32}
+                              className="object-contain w-8 h-8"
+                            />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
@@ -380,8 +395,14 @@ export default function SubscriptionPage() {
                       </div>
                       <Card className="flex-1 p-8 bg-white border-sky-blue/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                         <div className="flex items-start gap-6">
-                          <div className="w-16 h-16 bg-sky-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <BarChart3 className="h-8 w-8 text-sky-blue" />
+                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                            <Image
+                              src="/Setupfee_icona_FaseOperativa.png"
+                              alt="Fase Operativa"
+                              width={32}
+                              height={32}
+                              className="object-contain w-8 h-8"
+                            />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
@@ -415,8 +436,14 @@ export default function SubscriptionPage() {
                       </div>
                       <Card className="flex-1 p-8 bg-white border-navy/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                         <div className="flex items-start gap-6">
-                          <div className="w-16 h-16 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <Shield className="h-8 w-8 text-navy" />
+                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                            <Image
+                              src="/Setupfee_icona_Garanzia.png"
+                              alt="Garanzia inclusa"
+                              width={32}
+                              height={32}
+                              className="object-contain w-8 h-8"
+                            />
                           </div>
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
@@ -438,9 +465,6 @@ export default function SubscriptionPage() {
               <div className="lg:col-span-4">
                 <div className="sticky top-8">
                   <Card className="p-8 bg-gradient-to-br from-sky-blue/5 via-white to-orange/5 border-2 border-sky-blue/20 relative overflow-hidden">
-                    <div className="absolute top-4 right-4 w-8 h-8 bg-sky-blue/10 rounded-full flex items-center justify-center">
-                      <span className="text-sky-blue font-bold text-sm">ℹ</span>
-                    </div>
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-2xl font-bold text-navy mb-2">{t("guarantee.notes.title")}</h3>
@@ -488,7 +512,16 @@ export default function SubscriptionPage() {
                       </div>
                       
                       <div className="pt-4 border-t border-gray-200">
-                        <div className="flex items-center gap-2 text-sm text-gray-600"><Shield className="w-4 h-4 text-orange" /><span className="font-medium">{t("guarantee.notes.title")}</span></div>
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <Image
+                            src="/Setupfee_icona_Info.png"
+                            alt="Info"
+                            width={18}
+                            height={18}
+                            className="object-contain w-5 h-5"
+                          />
+                          <span className="font-medium">{t("guarantee.notes.title")}</span>
+                        </div>
                       </div>
                     </div>
                   </Card>
@@ -500,31 +533,32 @@ export default function SubscriptionPage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-sky-blue/10">
+      <section className="py-16 bg-white">
         <PageLayoutContainer className="px-6">
-          <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center p-8 bg-white/80 rounded-2xl shadow-lg border border-sky-blue/10">
-            <div className="mb-6 flex items-center justify-center gap-3">
-              <span className="inline-flex items-center justify-center rounded-full bg-orange/10 text-orange text-lg w-12 h-12 font-bold shadow">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-navy leading-tight">{t("cta.title")}</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">{t("cta.title")}</h2>
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t("cta.subtitle")}</p>
             </div>
-            <div className="w-full mt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button 
                 data-cal-namespace="aycl-discovery"
                 data-cal-link="giovannilucchesini/aycl-discovery"
                 data-cal-config='{"layout":"month_view"}'
-                className="w-full sm:w-auto px-10 py-4 rounded-lg bg-orange hover:bg-orange/90 text-white font-semibold text-lg shadow-md transition duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-[240px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
               >
-                <svg className="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10m-13 7V7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
+                <img src="/iconaTelefono.png" alt="Telefono" className="w-5 h-5" />
                 {t("cta.primary")}
               </button>
+              
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-navy text-navy hover:bg-navy/5 px-10 py-4 rounded-lg shadow-sm font-semibold text-lg w-full sm:w-auto" 
+                className="border-navy text-navy hover:bg-navy hover:text-white px-8 py-4 rounded-lg font-semibold text-base w-full sm:w-[240px]" 
                 onClick={() => router.push('/pacchetti')}
               >
+                <img src="/iconaRegalo.png" alt="Regalo" className="w-5 h-5 mr-2" />
                 {t("cta.secondary")}
               </Button>
             </div>
