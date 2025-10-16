@@ -155,7 +155,6 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
                   name="productPrice"
                   type="text"
                   inputMode="decimal"
-                  pattern="\\d+([\\.,]\\d{1,2})?"
                   className="w-full rounded-xl border border-slate-800 bg-slate-950/80 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400"
                   placeholder="199.00"
                 />
@@ -183,7 +182,6 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
                 name="customPrice"
                 type="text"
                 inputMode="decimal"
-                pattern="\\d+([\\.,]\\d{1,2})?"
                 className="w-full rounded-xl border border-slate-800 bg-slate-950/80 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400"
                 placeholder="Inserisci solo se diverso dal prezzo base"
               />

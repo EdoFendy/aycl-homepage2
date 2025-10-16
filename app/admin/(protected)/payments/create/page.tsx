@@ -1,5 +1,6 @@
 import { listAdminProducts } from "@/lib/admin/products";
 import { CreatePaymentForm } from "@/app/admin/(protected)/payments/create/create-payment-form";
+import { tryNormalizePriceInput } from "@/lib/money";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,7 @@ export default function CreatePaymentPage() {
     .map((product) => ({
       wooId: Number(product.woo_id),
       name: product.name,
-      price: product.price ?? "0.00",
+      price: tryNormalizePriceInput(product.price) ?? "0.00",
       currency: product.currency ?? "EUR",
       sku: product.sku ?? undefined,
     }));

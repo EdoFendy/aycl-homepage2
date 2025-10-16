@@ -20,20 +20,20 @@ import {
   updateWooProduct,
 } from "@/lib/admin/woocommerce";
 import type { DriveTestOrder } from "@/lib/drive-test";
-import { formatPriceString } from "@/lib/drive-test";
+import { isValidPriceInput, normalizePriceInput } from "@/lib/money";
 import { encryptCheckoutOrder, resolveCheckoutBaseUrl } from "@/lib/checkout-encryption";
 import { normalizeFormData } from "@/lib/form-data";
-
-const moneyRegex = /^\d+([\.,]\d{1,2})?$/;
 
 const productDetailsSchema = z.object({
   name: z.string().min(2, "Inserisci il nome del prodotto."),
   sku: z.string().optional(),
   price: z
     .string()
-    .refine((value) => moneyRegex.test(value), {
-      message: "Il prezzo deve essere nel formato 0.00",
-    }),
+    .min(1, "Inserisci il prezzo base.")
+    .refine((value) => isValidPriceInput(value), {
+      message: "Inserisci un prezzo valido.",
+    })
+    .transform((value) => normalizePriceInput(value)),
   description: z.string().optional(),
   shortDescription: z.string().optional(),
 });
@@ -50,16 +50,19 @@ const existingProductSchema = z.object({
   productPrice: z
     .string()
     .optional()
-    .refine((value) => (value ? moneyRegex.test(value) : true), {
+    .transform((value) => (value && value.trim() !== "" ? value : undefined))
+    .refine((value) => (value ? isValidPriceInput(value) : true), {
       message: "Prezzo non valido.",
-    }),
+    })
+    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   customPrice: z
     .string()
     .optional()
-    .transform((value) => (value ? value : undefined))
-    .refine((value) => (value ? moneyRegex.test(value) : true), {
+    .transform((value) => (value && value.trim() !== "" ? value : undefined))
+    .refine((value) => (value ? isValidPriceInput(value) : true), {
       message: "Prezzo personalizzato non valido.",
-    }),
+    })
+    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   quantity: z
     .string()
     .optional()
@@ -75,16 +78,21 @@ const newProductSchema = z.object({
   productId: z.string().optional(),
   productName: z.string().min(2, "Inserisci il nome del prodotto."),
   productSku: z.string().optional(),
-  productPrice: z.string().refine((value) => moneyRegex.test(value), {
-    message: "Il prezzo deve essere nel formato 0.00 o 0,00",
-  }),
+  productPrice: z
+    .string()
+    .min(1, "Inserisci il prezzo base.")
+    .refine((value) => isValidPriceInput(value), {
+      message: "Inserisci un prezzo valido.",
+    })
+    .transform((value) => normalizePriceInput(value)),
   customPrice: z
     .string()
     .optional()
-    .transform((value) => (value ? value : undefined))
-    .refine((value) => (value ? moneyRegex.test(value) : true), {
+    .transform((value) => (value && value.trim() !== "" ? value : undefined))
+    .refine((value) => (value ? isValidPriceInput(value) : true), {
       message: "Prezzo personalizzato non valido.",
-    }),
+    })
+    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   quantity: z
     .string()
     .optional()
@@ -536,10 +544,5 @@ function assertAuthenticated() {
 }
 
 function normalizePrice(value: string) {
-  const normalized = value.replace(",", ".");
-  const numeric = Number.parseFloat(normalized);
-  if (Number.isNaN(numeric)) {
-    throw new Error("Prezzo non valido.");
-  }
-  return formatPriceString(numeric);
+  return normalizePriceInput(value);
 }
