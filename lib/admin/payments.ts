@@ -14,7 +14,7 @@ export type PaymentCreateInput = {
   productSku?: string | null;
   productPrice: string;
   currency?: string;
-  customPrice?: string | null;
+  discountFromPrice?: string | null;
   customerFirstName: string;
   customerLastName: string;
   customerEmail?: string | null;
@@ -73,7 +73,7 @@ export function recordPaymentLink(input: PaymentCreateInput) {
     product_sku: input.productSku ?? null,
     product_price: input.productPrice,
     currency: input.currency ?? "EUR",
-    custom_price: input.customPrice ?? null,
+    custom_price: input.discountFromPrice ?? null,
     customer_first_name: input.customerFirstName,
     customer_last_name: input.customerLastName,
     customer_email: input.customerEmail ?? null,

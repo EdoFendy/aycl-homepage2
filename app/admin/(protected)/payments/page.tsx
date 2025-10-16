@@ -168,7 +168,7 @@ function PaymentRow({ payment }: { payment: PaymentRecord }) {
   const createdAt = payment.created_at
     ? format(new Date(payment.created_at), "PPP p", { locale: it })
     : "-";
-  const amount = payment.custom_price ?? payment.product_price;
+  const amount = payment.product_price;
   const metadata = parseMetadata(payment.metadata);
   const wooPaymentUrl = typeof metadata?.wooPaymentUrl === "string" ? metadata.wooPaymentUrl : undefined;
 
@@ -189,8 +189,8 @@ function PaymentRow({ payment }: { payment: PaymentRecord }) {
           {amount} {payment.currency}
         </div>
         {payment.custom_price ? (
-          <div className="text-xs text-slate-500">
-            Prezzo base: {payment.product_price} {payment.currency}
+          <div className="mt-1 text-xs text-slate-500">
+            Prezzo scontato da: {payment.custom_price} {payment.currency}
           </div>
         ) : null}
       </td>

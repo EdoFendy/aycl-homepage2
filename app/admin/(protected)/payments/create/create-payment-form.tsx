@@ -54,6 +54,7 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
     products.forEach((product) => map.set(product.wooId, product));
     return map;
   }, [products]);
+  const selectedProduct = selectedProductId ? productMap.get(selectedProductId) ?? null : null;
 
   useEffect(() => {
     if (state.success && state.paymentUrl) {
@@ -134,6 +135,20 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
               name="productPrice"
               value={selectedProductId ? productMap.get(selectedProductId)?.price ?? "0.00" : "0.00"}
             />
+            <FormField
+              label="Prezzo WooCommerce"
+              description="Il prezzo effettivo applicato al pagamento."
+            >
+              <input
+                readOnly
+                value={
+                  selectedProduct
+                    ? `${selectedProduct.price}${selectedProduct.currency ? ` ${selectedProduct.currency}` : ""}`
+                    : "N/A"
+                }
+                className="w-full cursor-not-allowed rounded-xl border border-slate-800 bg-slate-950/40 px-3 py-2 text-sm text-slate-300"
+              />
+            </FormField>
           </div>
         )}
 
@@ -177,13 +192,16 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <FormField label="Prezzo personalizzato" description="Override per questo pagamento (opzionale).">
+            <FormField
+              label="Prezzo scontato da"
+              description="Mostra un prezzo originale barrato nel checkout (opzionale)."
+            >
               <input
-                name="customPrice"
+                name="discountFromPrice"
                 type="text"
                 inputMode="decimal"
                 className="w-full rounded-xl border border-slate-800 bg-slate-950/80 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400"
-                placeholder="Inserisci solo se diverso dal prezzo base"
+                placeholder="Esempio: 299.00"
               />
             </FormField>
 

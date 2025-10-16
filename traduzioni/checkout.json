@@ -17,7 +17,7 @@
         "title": "Specifiche prodotto",
         "productName": "Prodotto",
         "basePrice": "Prezzo di listino",
-        "customPrice": "Prezzo personalizzato",
+        "discountFromPrice": "Prezzo scontato da",
         "unitPrice": "Prezzo applicato",
         "quantity": "Quantità",
         "total": "Totale"
@@ -112,7 +112,7 @@
         "title": "Product details",
         "productName": "Product",
         "basePrice": "List price",
-        "customPrice": "Custom price",
+        "discountFromPrice": "Discounted from",
         "unitPrice": "Applied price",
         "quantity": "Quantity",
         "total": "Total"
@@ -207,7 +207,7 @@
         "title": "Detalles del producto",
         "productName": "Producto",
         "basePrice": "Precio de lista",
-        "customPrice": "Precio personalizado",
+        "discountFromPrice": "Precio rebajado desde",
         "unitPrice": "Precio aplicado",
         "quantity": "Cantidad",
         "total": "Total"

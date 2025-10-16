@@ -66,8 +66,13 @@ export default function AdminDashboardPage() {
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-semibold text-sky-300">
-                    {payment.custom_price ?? payment.product_price} {payment.currency}
+                    {payment.product_price} {payment.currency}
                   </p>
+                  {payment.custom_price ? (
+                    <p className="mt-1 text-xs text-slate-500">
+                      Prezzo scontato da: {payment.custom_price} {payment.currency}
+                    </p>
+                  ) : null}
                   <StatusBadge status={payment.status} />
                 </div>
               </div>

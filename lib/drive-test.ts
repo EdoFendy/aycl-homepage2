@@ -32,6 +32,7 @@ export interface DriveTestOrder {
     basePrice?: string;
     customPrice?: string;
     originalPrice?: string;
+    discountFromPrice?: string;
     customer?: {
       firstName: string;
       lastName: string;

@@ -71,6 +71,14 @@ const existingProductSchema = z.object({
       message: "Prezzo originale non valido.",
     })
     .transform((value) => (value ? normalizePriceInput(value) : undefined)),
+  discountFromPrice: z
+    .string()
+    .optional()
+    .transform((value) => (value && value.trim() !== "" ? value : undefined))
+    .refine((value) => (value ? isValidPriceInput(value) : true), {
+      message: "Prezzo scontato non valido.",
+    })
+    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   quantity: z
     .string()
     .optional()
@@ -107,6 +115,14 @@ const newProductSchema = z.object({
     .transform((value) => (value && value.trim() !== "" ? value : undefined))
     .refine((value) => (value ? isValidPriceInput(value) : true), {
       message: "Prezzo originale non valido.",
+    })
+    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
+  discountFromPrice: z
+    .string()
+    .optional()
+    .transform((value) => (value && value.trim() !== "" ? value : undefined))
+    .refine((value) => (value ? isValidPriceInput(value) : true), {
+      message: "Prezzo scontato non valido.",
     })
     .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   quantity: z
@@ -325,6 +341,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
     productPrice: values.productPrice,
     customPrice: values.customPrice,
     originalPrice: values.originalPrice,
+    discountFromPrice: values.discountFromPrice,
     quantity: values.quantity,
   });
 
@@ -406,18 +423,22 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
         email: "customer@aycl.com",
       },
       quantity: product.data.quantity,
-      priceOverride: product.data.customPrice,
     });
 
     const basePriceNormalized = normalizePrice(basePrice ?? "0.00");
-    const customPriceNormalized = product.data.customPrice
-      ? normalizePrice(product.data.customPrice)
+    const discountFromPriceNormalized = product.data.discountFromPrice
+      ? normalizePrice(product.data.discountFromPrice)
       : null;
 
-    const unitPriceString = customPriceNormalized ?? basePriceNormalized;
+    const unitPriceString = basePriceNormalized;
     const unitPrice = Number.parseFloat(unitPriceString);
-    const basePriceNumber = Number.parseFloat(basePriceNormalized);
-    const customPriceNumber = customPriceNormalized ? Number.parseFloat(customPriceNormalized) : null;
+    const discountFromPriceNumber = discountFromPriceNormalized
+      ? Number.parseFloat(discountFromPriceNormalized)
+      : null;
+    const effectiveDiscountFromPrice =
+      discountFromPriceNumber && discountFromPriceNumber > unitPrice
+        ? discountFromPriceNormalized
+        : null;
     const quantity = product.data.quantity;
 
     if (Number.isNaN(unitPrice)) {
@@ -437,8 +458,11 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
       quantity,
       total: unitPrice * quantity,
       priceRange: {
-        min: basePriceNumber,
-        max: customPriceNumber ?? basePriceNumber,
+        min: unitPrice,
+        max:
+          discountFromPriceNumber && discountFromPriceNumber > unitPrice
+            ? discountFromPriceNumber
+            : unitPrice,
       },
       selections: {
         revenueBand: {
@@ -461,8 +485,9 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
         wooProductId,
         productName,
         basePrice: basePriceNormalized,
-        customPrice: customPriceNormalized ?? undefined,
-        originalPrice: product.data.originalPrice,
+        customPrice: product.data.customPrice ?? undefined,
+        originalPrice: product.data.originalPrice ?? undefined,
+        discountFromPrice: effectiveDiscountFromPrice ?? undefined,
         customer: {
           firstName: customer.data.firstName,
           lastName: customer.data.lastName,
@@ -478,7 +503,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
       quantity,
       order,
       basePrice: basePriceNormalized,
-      customPrice: customPriceNormalized,
+      discountFromPrice: effectiveDiscountFromPrice,
       customer: customer.data,
       checkoutToken,
     } satisfies Record<string, unknown>;
@@ -491,7 +516,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
         storedProduct?.sku ?? (product.data.mode === "new" ? product.data.productSku ?? null : null),
       productPrice: basePriceNormalized,
       currency: "EUR",
-      customPrice: customPriceNormalized ?? undefined,
+      discountFromPrice: effectiveDiscountFromPrice ?? undefined,
       customerFirstName: customer.data.firstName,
       customerLastName: customer.data.lastName,
       customerEmail: "customer@aycl.com",

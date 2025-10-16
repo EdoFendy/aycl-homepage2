@@ -182,20 +182,20 @@ function buildProductDetails(
     });
   }
 
-  const basePrice = toCurrency(order.metadata?.basePrice, formatter);
-  if (basePrice) {
+  const discountFromPrice = toCurrency(order.metadata?.discountFromPrice, formatter);
+  if (discountFromPrice) {
     details.splice(1, 0, {
-      label: t("order.details.basePrice"),
-      value: basePrice,
+      label: t("order.details.discountFromPrice"),
+      value: discountFromPrice,
     });
-  }
 
-  const customPrice = toCurrency(order.metadata?.customPrice, formatter);
-  if (customPrice) {
-    details.splice(2, 0, {
-      label: t("order.details.customPrice"),
-      value: customPrice,
-    });
+    const basePrice = toCurrency(order.metadata?.basePrice, formatter);
+    if (basePrice) {
+      details.splice(2, 0, {
+        label: t("order.details.basePrice"),
+        value: basePrice,
+      });
+    }
   }
 
   return details;
