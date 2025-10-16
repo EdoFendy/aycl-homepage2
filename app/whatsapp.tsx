@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { useTranslations } from "next-intl"
 
 // ✅ Inserisci il tuo numero in formato internazionale senza +
-const WHATSAPP_NUMBER = "393331234567"
+const WHATSAPP_NUMBER = "+393516579882"
 
 export default function WhatsAppPopup() {
   const [open, setOpen] = useState(false)
