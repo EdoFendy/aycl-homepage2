@@ -63,6 +63,14 @@ const existingProductSchema = z.object({
       message: "Prezzo personalizzato non valido.",
     })
     .transform((value) => (value ? normalizePriceInput(value) : undefined)),
+  originalPrice: z
+    .string()
+    .optional()
+    .transform((value) => (value && value.trim() !== "" ? value : undefined))
+    .refine((value) => (value ? isValidPriceInput(value) : true), {
+      message: "Prezzo originale non valido.",
+    })
+    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   quantity: z
     .string()
     .optional()
@@ -93,6 +101,14 @@ const newProductSchema = z.object({
       message: "Prezzo personalizzato non valido.",
     })
     .transform((value) => (value ? normalizePriceInput(value) : undefined)),
+  originalPrice: z
+    .string()
+    .optional()
+    .transform((value) => (value && value.trim() !== "" ? value : undefined))
+    .refine((value) => (value ? isValidPriceInput(value) : true), {
+      message: "Prezzo originale non valido.",
+    })
+    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   quantity: z
     .string()
     .optional()
@@ -108,7 +124,6 @@ const productSchema = z.discriminatedUnion("mode", [existingProductSchema, newPr
 const customerSchema = z.object({
   firstName: z.string().min(1, "Il nome è obbligatorio."),
   lastName: z.string().min(1, "Il cognome è obbligatorio."),
-  email: z.string().email("Email non valida."),
 });
 
 const statusSchema = z.object({
@@ -309,6 +324,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
     productSku: values.productSku,
     productPrice: values.productPrice,
     customPrice: values.customPrice,
+    originalPrice: values.originalPrice,
     quantity: values.quantity,
   });
 
@@ -322,7 +338,6 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
   const customer = customerSchema.safeParse({
     firstName: values.firstName,
     lastName: values.lastName,
-    email: values.email,
   });
 
   if (!customer.success) {
@@ -388,7 +403,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
       customer: {
         firstName: customer.data.firstName,
         lastName: customer.data.lastName,
-        email: customer.data.email,
+        email: "customer@aycl.com",
       },
       quantity: product.data.quantity,
       priceOverride: product.data.customPrice,
@@ -447,6 +462,11 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
         productName,
         basePrice: basePriceNormalized,
         customPrice: customPriceNormalized ?? undefined,
+        originalPrice: product.data.originalPrice,
+        customer: {
+          firstName: customer.data.firstName,
+          lastName: customer.data.lastName,
+        },
       },
     };
 
@@ -474,7 +494,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
       customPrice: customPriceNormalized ?? undefined,
       customerFirstName: customer.data.firstName,
       customerLastName: customer.data.lastName,
-      customerEmail: customer.data.email,
+      customerEmail: "customer@aycl.com",
       paymentUrl: checkoutUrl,
       metadata: metadataPayload,
     });

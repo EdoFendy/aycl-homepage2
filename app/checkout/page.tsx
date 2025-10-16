@@ -24,7 +24,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
   const metrics = order
     ? [
         {
-          label: t("order.metrics.total"),
+          label: order.metadata?.originalPrice ? "Prezzo scontato" : t("order.metrics.total"),
           value: currencyFormatter.format(order.total),
         },
       ]
@@ -88,18 +88,6 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                 <DetailCard title={t("order.details.title")} items={productDetails} />
               </div>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <Link href="/pacchetti">
-                  <Button variant="outline" className="w-full sm:w-auto">
-                    {t("order.cta.packages")}
-                  </Button>
-                </Link>
-                <Link href="/pacchetti#drive-test">
-                  <Button className="w-full sm:w-auto bg-orange text-white hover:bg-orange/90">
-                    {t("order.cta.calculator")}
-                  </Button>
-                </Link>
-              </div>
             </div>
 
             <PaymentGateway order={order} />
@@ -174,11 +162,25 @@ function buildProductDetails(
       label: t("order.details.productName"),
       value: order.metadata?.productName ?? order.package,
     },
-    {
+  ];
+
+  // Se c'è un prezzo originale, mostra il prezzo scontato
+  const originalPrice = toCurrency(order.metadata?.originalPrice, formatter);
+  if (originalPrice) {
+    details.push({
+      label: "Prezzo originale",
+      value: originalPrice,
+    });
+    details.push({
+      label: "Prezzo scontato",
+      value: formatter.format(order.total),
+    });
+  } else {
+    details.push({
       label: t("order.details.total"),
       value: formatter.format(order.total),
-    },
-  ];
+    });
+  }
 
   const basePrice = toCurrency(order.metadata?.basePrice, formatter);
   if (basePrice) {

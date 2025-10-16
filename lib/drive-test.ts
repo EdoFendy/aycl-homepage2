@@ -31,6 +31,11 @@ export interface DriveTestOrder {
     productName?: string;
     basePrice?: string;
     customPrice?: string;
+    originalPrice?: string;
+    customer?: {
+      firstName: string;
+      lastName: string;
+    };
   };
 }
 

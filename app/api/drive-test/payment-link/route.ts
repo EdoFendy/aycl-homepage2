@@ -107,7 +107,7 @@ async function createPaymentLink(productId: number, customer: DriveTestCustomer)
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        gateway: "stripe",
+        gateway: "Redsys",
         customer: {
           first_name: customer.firstName,
           last_name: customer.lastName,

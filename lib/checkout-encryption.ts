@@ -35,6 +35,11 @@ const orderSchema = z.object({
     productName: z.string().optional(),
     basePrice: z.string().optional(),
     customPrice: z.string().optional(),
+    originalPrice: z.string().optional(),
+    customer: z.object({
+      firstName: z.string(),
+      lastName: z.string(),
+    }).optional(),
   }),
 });
 

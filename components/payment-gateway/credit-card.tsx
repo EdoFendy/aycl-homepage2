@@ -14,8 +14,12 @@ interface CreditCardResponse {
 
 export default function CreditCardGateway({ order }: PaymentGatewayProps) {
   const t = useTranslations("checkout");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  
+  // Pre-compila i campi con i dati dall'admin se disponibili
+  const adminCustomer = order?.metadata?.customer as { firstName?: string; lastName?: string } | undefined;
+  
+  const [firstName, setFirstName] = useState(adminCustomer?.firstName || "");
+  const [lastName, setLastName] = useState(adminCustomer?.lastName || "");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

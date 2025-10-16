@@ -197,6 +197,16 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
                 className="w-full rounded-xl border border-slate-800 bg-slate-950/80 px-3 py-2 text-sm text-white focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400"
               />
             </FormField>
+
+            <FormField label="Prezzo originale" description="Prezzo prima dello sconto (opzionale)">
+              <input
+                name="originalPrice"
+                type="text"
+                inputMode="decimal"
+                className="w-full rounded-xl border border-slate-800 bg-slate-950/80 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400"
+                placeholder="Es. 599.00"
+              />
+            </FormField>
           </div>
         </div>
 
@@ -222,15 +232,6 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
               />
             </FormField>
           </div>
-          <FormField label="Email" required>
-            <input
-              name="email"
-              type="email"
-              required
-              className="w-full rounded-xl border border-slate-800 bg-slate-950/80 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              placeholder="mario.rossi@example.com"
-            />
-          </FormField>
         </div>
 
         {state.message && !state.success ? (
