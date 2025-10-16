@@ -13,6 +13,22 @@
         "total": "Totale",
         "range": "Forchetta stimata"
       },
+      "details": {
+        "title": "Specifiche prodotto",
+        "productName": "Prodotto",
+        "basePrice": "Prezzo di listino",
+        "customPrice": "Prezzo personalizzato",
+        "unitPrice": "Prezzo applicato",
+        "quantity": "Quantità",
+        "total": "Totale"
+      },
+      "selections": {
+        "title": "Parametri Drive Test",
+        "sector": "Settore",
+        "revenueBand": "Fascia di fatturato",
+        "geography": "Mercato",
+        "riskProfile": "Profilo di rischio"
+      },
       "jsonLabel": "Ordine in formato JSON",
       "generatedAt": "Generato il {date}",
       "empty": {
@@ -92,6 +108,22 @@
         "total": "Total",
         "range": "Estimated range"
       },
+      "details": {
+        "title": "Product details",
+        "productName": "Product",
+        "basePrice": "List price",
+        "customPrice": "Custom price",
+        "unitPrice": "Applied price",
+        "quantity": "Quantity",
+        "total": "Total"
+      },
+      "selections": {
+        "title": "Drive Test parameters",
+        "sector": "Sector",
+        "revenueBand": "Revenue band",
+        "geography": "Market",
+        "riskProfile": "Risk profile"
+      },
       "jsonLabel": "Order as JSON",
       "generatedAt": "Generated on {date}",
       "empty": {
@@ -170,6 +202,22 @@
         "quantity": "Citas",
         "total": "Total",
         "range": "Rango estimado"
+      },
+      "details": {
+        "title": "Detalles del producto",
+        "productName": "Producto",
+        "basePrice": "Precio de lista",
+        "customPrice": "Precio personalizado",
+        "unitPrice": "Precio aplicado",
+        "quantity": "Cantidad",
+        "total": "Total"
+      },
+      "selections": {
+        "title": "Parámetros del Drive Test",
+        "sector": "Sector",
+        "revenueBand": "Franja de facturación",
+        "geography": "Mercado",
+        "riskProfile": "Perfil de riesgo"
       },
       "jsonLabel": "Pedido en formato JSON",
       "generatedAt": "Generado el {date}",

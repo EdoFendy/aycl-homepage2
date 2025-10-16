@@ -44,6 +44,14 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
       ]
     : [];
 
+  const productDetails = order
+    ? buildProductDetails(order, currencyFormatter, t)
+    : [];
+
+  const selectionDetails = order
+    ? buildSelectionDetails(order, t)
+    : [];
+
   const generatedAt = order?.metadata?.generatedAt ? new Date(order.metadata.generatedAt) : null;
   const generatedLabel =
     order && generatedAt
@@ -79,8 +87,9 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                   {generatedLabel ? <p className="text-xs text-gray-500 mt-1">{generatedLabel}</p> : null}
                 </div>
                 <div className="text-right">
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-400">{order.package}</p>
-                  <p className="text-lg font-semibold text-navy">{currencyFormatter.format(order.total)}</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-400">{t("order.details.productName")}</p>
+                  <p className="text-lg font-semibold text-navy">{order.metadata?.productName ?? order.package}</p>
+                  <p className="text-sm text-gray-500 mt-1">{currencyFormatter.format(order.total)}</p>
                 </div>
               </div>
 
@@ -91,6 +100,14 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                     <p className="mt-2 text-lg font-semibold text-navy">{metric.value}</p>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                <DetailCard title={t("order.details.title")} items={productDetails} />
+
+                {selectionDetails.length > 0 ? (
+                  <DetailCard title={t("order.selections.title")} items={selectionDetails} />
+                ) : null}
               </div>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -164,23 +181,118 @@ function parseOrder(param: string | string[] | undefined): DriveTestOrder | null
   }
 }
 
-function buildOrderedOrder(order: DriveTestOrder) {
-  return {
-    package: order.package,
-    currency: order.currency,
-    unitPrice: order.unitPrice,
-    quantity: order.quantity,
-    total: order.total,
-    priceRange: {
-      min: order.priceRange.min,
-      max: order.priceRange.max,
+type DetailItem = {
+  label: string;
+  value: string;
+};
+
+function buildProductDetails(
+  order: DriveTestOrder,
+  formatter: Intl.NumberFormat,
+  t: (key: string) => string
+): DetailItem[] {
+  const details: DetailItem[] = [
+    {
+      label: t("order.details.productName"),
+      value: order.metadata?.productName ?? order.package,
     },
-    selections: {
-      revenueBand: order.selections.revenueBand,
-      geography: order.selections.geography,
-      sector: order.selections.sector,
-      riskProfile: order.selections.riskProfile,
+    {
+      label: t("order.details.unitPrice"),
+      value: formatter.format(order.unitPrice),
     },
-    metadata: order.metadata,
-  };
+    {
+      label: t("order.details.quantity"),
+      value: order.quantity.toString(),
+    },
+    {
+      label: t("order.details.total"),
+      value: formatter.format(order.total),
+    },
+  ];
+
+  const basePrice = toCurrency(order.metadata?.basePrice, formatter);
+  if (basePrice) {
+    details.splice(1, 0, {
+      label: t("order.details.basePrice"),
+      value: basePrice,
+    });
+  }
+
+  const customPrice = toCurrency(order.metadata?.customPrice, formatter);
+  if (customPrice) {
+    details.splice(2, 0, {
+      label: t("order.details.customPrice"),
+      value: customPrice,
+    });
+  }
+
+  return details;
+}
+
+function buildSelectionDetails(order: DriveTestOrder, t: (key: string) => string): DetailItem[] {
+  const selections = order.selections;
+  const items: DetailItem[] = [];
+
+  if (selections?.sector?.label) {
+    items.push({
+      label: t("order.selections.sector"),
+      value: selections.sector.label,
+    });
+  }
+
+  if (selections?.revenueBand?.label) {
+    items.push({
+      label: t("order.selections.revenueBand"),
+      value: selections.revenueBand.label,
+    });
+  }
+
+  if (selections?.geography?.label) {
+    items.push({
+      label: t("order.selections.geography"),
+      value: selections.geography.label,
+    });
+  }
+
+  if (typeof selections?.riskProfile === "number") {
+    items.push({
+      label: t("order.selections.riskProfile"),
+      value: selections.riskProfile.toString(),
+    });
+  }
+
+  return items;
+}
+
+function toCurrency(value: string | number | null | undefined, formatter: Intl.NumberFormat) {
+  if (value === null || value === undefined) {
+    return null;
+  }
+
+  const numeric = typeof value === "string" ? Number.parseFloat(value) : value;
+  if (Number.isNaN(numeric)) {
+    return null;
+  }
+
+  return formatter.format(numeric);
+}
+
+function DetailCard({ title, items }: { title: string; items: DetailItem[] }) {
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+      <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">{title}</h3>
+      <dl className="mt-4 space-y-3 text-sm text-navy">
+        {items.map((item) => (
+          <div key={item.label} className="flex items-start justify-between gap-3">
+            <dt className="text-gray-500">{item.label}</dt>
+            <dd className="text-right font-medium text-navy">{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
 }
