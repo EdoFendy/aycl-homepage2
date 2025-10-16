@@ -56,7 +56,6 @@ export function CreateProductForm() {
               name="price"
               required
               inputMode="decimal"
-              pattern="\\d+(\\.\\d{1,2})?"
               placeholder="199.00"
               className="w-full rounded-xl border border-slate-800 bg-slate-950/80 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-400"
             />
