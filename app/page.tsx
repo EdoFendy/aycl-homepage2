@@ -656,10 +656,7 @@ export default function HomePage() {
               </Card>
             </div>
 
-            {/* Trust indicator */}
-            <div className="mt-16 text-center">
-              <p className="text-sm text-gray-500">{t("packages.trust")}</p>
-            </div>
+
           </LayoutWrapper>
         </div>
       </section>
