@@ -9,6 +9,7 @@ interface RequestPayload {
 
 const ADMIN_API_BASE = process.env.ADMIN_API_BASE;
 const ADMIN_API_TOKEN = process.env.ADMIN_API_TOKEN;
+const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "stripe";
 
 export async function POST(request: Request) {
   if (!ADMIN_API_BASE || !ADMIN_API_TOKEN) {
@@ -38,7 +39,7 @@ export async function POST(request: Request) {
 
   try {
     const product = await createDriveTestProduct(order);
-    const paymentLink = await createPaymentLink(product.id, customer);
+    const paymentLink = await createPaymentLink(order, product.id, customer);
 
     return NextResponse.json({ paymentUrl: paymentLink.payment_url }, { status: 200 });
   } catch (error) {
@@ -98,7 +99,13 @@ async function createDriveTestProduct(order: DriveTestOrder) {
   return response.json() as Promise<{ id: number }>;
 }
 
-async function createPaymentLink(productId: number, customer: DriveTestCustomer) {
+async function createPaymentLink(
+  order: DriveTestOrder,
+  productId: number,
+  customer: DriveTestCustomer
+) {
+  const quantity = Number.isInteger(order.quantity) && order.quantity > 0 ? order.quantity : 1;
+
   const response = await fetch(
     `${ADMIN_API_BASE}/payment-links?token=${ADMIN_API_TOKEN}`,
     {
@@ -107,7 +114,7 @@ async function createPaymentLink(productId: number, customer: DriveTestCustomer)
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        gateway: "Redsys",
+        gateway: ADMIN_PAYMENT_GATEWAY_ID,
         customer: {
           first_name: customer.firstName,
           last_name: customer.lastName,
@@ -116,7 +123,7 @@ async function createPaymentLink(productId: number, customer: DriveTestCustomer)
         items: [
           {
             product_id: productId,
-            quantity: 1,
+            quantity,
           },
         ],
       }),
