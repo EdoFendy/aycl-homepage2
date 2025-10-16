@@ -51,6 +51,10 @@ export async function POST(request: Request) {
 }
 
 async function createDriveTestProduct(order: DriveTestOrder) {
+  if (order.metadata?.wooProductId) {
+    return { id: order.metadata.wooProductId };
+  }
+
   const sku = `drive-test-${Date.now()}`;
   const quantityLabel = order.quantity === 1 ? "appuntamento" : "appuntamenti";
   const price = formatPriceString(order.total);

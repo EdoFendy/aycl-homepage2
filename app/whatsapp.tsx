@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { useTranslations } from "next-intl"
 
 // ✅ Inserisci il tuo numero in formato internazionale senza +
@@ -8,7 +9,12 @@ const WHATSAPP_NUMBER = "393331234567"
 
 export default function WhatsAppPopup() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
   const t = useTranslations("whatsapp")
+
+  if (pathname?.startsWith("/admin")) {
+    return null
+  }
 
   useEffect(() => {
     if (sessionStorage.getItem("whatsappPopupClosed") === "1") return

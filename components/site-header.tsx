@@ -27,6 +27,10 @@ export function SiteHeader() {
   const panelRef = useRef<HTMLDivElement | null>(null)
   const t = useTranslations("siteHeader")
 
+  if (pathname?.startsWith("/admin")) {
+    return null
+  }
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href)
 

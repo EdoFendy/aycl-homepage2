@@ -26,6 +26,11 @@ export interface DriveTestOrder {
   metadata: {
     locale: string;
     generatedAt: string;
+    wooProductId?: number;
+    adminPaymentId?: number;
+    productName?: string;
+    basePrice?: string;
+    customPrice?: string;
   };
 }
 
