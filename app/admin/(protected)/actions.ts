@@ -350,12 +350,12 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
       storedProduct = existing;
       basePrice = existing.price ?? product.data.productPrice ?? "0.00";
     } else {
-      const name = product.data.productName;
-      const sku = product.data.productSku || undefined;
+      // TypeScript should know this is newProductSchema at this point
+      const newProductData = product.data as Extract<typeof product.data, { mode: "new" }>;
       const created = await ensureWooProduct({
-        name,
-        sku,
-        price: product.data.productPrice,
+        name: newProductData.productName,
+        sku: newProductData.productSku,
+        price: newProductData.productPrice,
         currency: "EUR",
         description: `Prodotto creato dal pannello AYCL per ${customer.data.firstName} ${customer.data.lastName}.`,
         short_description: "Generato automaticamente dalla piattaforma AYCL.",
