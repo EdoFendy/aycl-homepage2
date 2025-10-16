@@ -52,7 +52,25 @@ async function requestWoo<T>(path: string, init: RequestInit = {}): Promise<T> {
     throw new Error(message);
   }
 
-  return response.json() as Promise<T>;
+  if (response.status === 204) {
+    return undefined as T;
+  }
+
+  const contentType = response.headers.get("content-type") ?? "";
+  if (contentType.includes("application/json")) {
+    return (await response.json()) as T;
+  }
+
+  const text = await response.text();
+  if (!text) {
+    return undefined as T;
+  }
+
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    return undefined as T;
+  }
 }
 
 export async function fetchWooProducts(): Promise<WooProduct[]> {
@@ -76,7 +94,20 @@ export async function ensureWooProduct(payload: {
     return matched;
   }
 
-  const product = await requestWoo<WooProduct>("/products", {
+  const product = await createWooProduct(payload);
+
+  return product;
+}
+
+export async function createWooProduct(payload: {
+  name: string;
+  sku?: string;
+  description?: string;
+  short_description?: string;
+  price: string;
+  currency?: string;
+}) {
+  return requestWoo<WooProduct>("/products", {
     method: "POST",
     body: JSON.stringify({
       name: payload.name,
@@ -95,8 +126,41 @@ export async function ensureWooProduct(payload: {
       ],
     }),
   });
+}
 
-  return product;
+export async function updateWooProduct(
+  productId: number,
+  payload: {
+    name: string;
+    sku?: string;
+    description?: string;
+    short_description?: string;
+    price: string;
+    currency?: string;
+  }
+) {
+  return requestWoo<WooProduct>(`/products/${productId}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      name: payload.name,
+      sku: payload.sku,
+      regular_price: payload.price,
+      description: payload.description,
+      short_description: payload.short_description,
+      meta_data: [
+        {
+          key: "_currency",
+          value: payload.currency ?? "EUR",
+        },
+      ],
+    }),
+  });
+}
+
+export async function deleteWooProduct(productId: number) {
+  await requestWoo(`/products/${productId}`, {
+    method: "DELETE",
+  });
 }
 
 export async function createWooPaymentLink(payload: {

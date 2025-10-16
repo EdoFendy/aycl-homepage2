@@ -3,20 +3,44 @@
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { getCurrentAdmin } from "@/lib/admin/session";
-import { getProductByWooId, removeStaleProducts, upsertAdminProduct } from "@/lib/admin/products";
+import {
+  deleteAdminProduct,
+  getProductByWooId,
+  removeStaleProducts,
+  upsertAdminProduct,
+} from "@/lib/admin/products";
 import { recordPaymentLink, updatePaymentMetadata, updatePaymentStatus } from "@/lib/admin/payments";
 import {
   createWooPaymentLink,
+  createWooProduct,
+  deleteWooProduct,
   ensureWooProduct,
   fetchWooOrders,
   fetchWooProducts,
+  updateWooProduct,
 } from "@/lib/admin/woocommerce";
 import type { DriveTestOrder } from "@/lib/drive-test";
 import { formatPriceString } from "@/lib/drive-test";
 import { encryptCheckoutOrder, resolveCheckoutBaseUrl } from "@/lib/checkout-encryption";
 import { normalizeFormData } from "@/lib/form-data";
 
-const moneyRegex = /^\d+(\.\d{1,2})?$/;
+const moneyRegex = /^\d+([\.,]\d{1,2})?$/;
+
+const productDetailsSchema = z.object({
+  name: z.string().min(2, "Inserisci il nome del prodotto."),
+  sku: z.string().optional(),
+  price: z
+    .string()
+    .refine((value) => moneyRegex.test(value), {
+      message: "Il prezzo deve essere nel formato 0.00",
+    }),
+  description: z.string().optional(),
+  shortDescription: z.string().optional(),
+});
+
+const productUpdateSchema = productDetailsSchema.extend({
+  productId: z.string().min(1, "Prodotto non valido."),
+});
 
 const existingProductSchema = z.object({
   mode: z.literal("existing"),
@@ -52,7 +76,7 @@ const newProductSchema = z.object({
   productName: z.string().min(2, "Inserisci il nome del prodotto."),
   productSku: z.string().optional(),
   productPrice: z.string().refine((value) => moneyRegex.test(value), {
-    message: "Il prezzo deve essere nel formato 0.00",
+    message: "Il prezzo deve essere nel formato 0.00 o 0,00",
   }),
   customPrice: z
     .string()
@@ -112,6 +136,157 @@ export async function syncProductsAction() {
   removeStaleProducts(wooIds);
   revalidatePath("/admin/products");
   return { success: true, count: wooIds.length };
+}
+
+export async function createProductAction(_: unknown, formData: FormData) {
+  assertAuthenticated();
+
+  const values = normalizeFormData(formData);
+  const payload = productDetailsSchema.safeParse({
+    name: values.name,
+    sku: values.sku,
+    price: values.price,
+    description: values.description,
+    shortDescription: values.shortDescription,
+  });
+
+  if (!payload.success) {
+    return {
+      success: false,
+      message: payload.error.issues[0]?.message ?? "Dati prodotto non validi.",
+    };
+  }
+
+  const currencyInput = typeof values.currency === "string" ? values.currency.trim() : "";
+  const currency = currencyInput ? currencyInput.toUpperCase() : "EUR";
+
+  if (!/^[A-Z]{3}$/.test(currency)) {
+    return { success: false, message: "La valuta deve essere composta da 3 lettere." };
+  }
+
+  try {
+    const normalizedPrice = normalizePrice(payload.data.price);
+    const product = await createWooProduct({
+      name: payload.data.name,
+      sku: payload.data.sku || undefined,
+      price: normalizedPrice,
+      currency,
+      description: payload.data.description || undefined,
+      short_description: payload.data.shortDescription || undefined,
+    });
+
+    const stored = upsertAdminProduct({
+      wooId: product.id,
+      name: product.name,
+      sku: typeof product.sku === "string" ? product.sku : payload.data.sku ?? null,
+      price:
+        typeof product.price === "string"
+          ? product.price
+          : typeof product.regular_price === "string"
+          ? product.regular_price
+          : normalizedPrice,
+      currency,
+      raw: product,
+    });
+
+    revalidatePath("/admin/products");
+    return { success: true, product: stored };
+  } catch (error) {
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : "Impossibile creare il prodotto.",
+    };
+  }
+}
+
+export async function updateProductAction(_: unknown, formData: FormData) {
+  assertAuthenticated();
+
+  const values = normalizeFormData(formData);
+  const payload = productUpdateSchema.safeParse({
+    productId: values.productId,
+    name: values.name,
+    sku: values.sku,
+    price: values.price,
+    description: values.description,
+    shortDescription: values.shortDescription,
+  });
+
+  if (!payload.success) {
+    return {
+      success: false,
+      message: payload.error.issues[0]?.message ?? "Dati prodotto non validi.",
+    };
+  }
+
+  const currencyInput = typeof values.currency === "string" ? values.currency.trim() : "";
+  const currency = currencyInput ? currencyInput.toUpperCase() : "EUR";
+
+  if (!/^[A-Z]{3}$/.test(currency)) {
+    return { success: false, message: "La valuta deve essere composta da 3 lettere." };
+  }
+
+  const productId = Number(payload.data.productId);
+  if (!Number.isFinite(productId)) {
+    return { success: false, message: "ID prodotto non valido." };
+  }
+
+  try {
+    const normalizedPrice = normalizePrice(payload.data.price);
+    const product = await updateWooProduct(productId, {
+      name: payload.data.name,
+      sku: payload.data.sku || undefined,
+      price: normalizedPrice,
+      currency,
+      description: payload.data.description || undefined,
+      short_description: payload.data.shortDescription || undefined,
+    });
+
+    const stored = upsertAdminProduct({
+      wooId: productId,
+      name: product.name ?? payload.data.name,
+      sku: typeof product.sku === "string" ? product.sku : payload.data.sku ?? null,
+      price:
+        typeof product.price === "string"
+          ? product.price
+          : typeof product.regular_price === "string"
+          ? product.regular_price
+          : normalizedPrice,
+      currency,
+      raw: product,
+    });
+
+    revalidatePath("/admin/products");
+    return { success: true, product: stored };
+  } catch (error) {
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : "Impossibile aggiornare il prodotto.",
+    };
+  }
+}
+
+export async function deleteProductAction(wooId: number) {
+  assertAuthenticated();
+
+  if (!Number.isInteger(wooId) || wooId <= 0) {
+    return { success: false, message: "ID prodotto non valido." };
+  }
+
+  try {
+    await deleteWooProduct(wooId);
+  } catch (error) {
+    if (!(error instanceof Error) || !error.message.includes("404")) {
+      return {
+        success: false,
+        message: error instanceof Error ? error.message : "Impossibile eliminare il prodotto.",
+      };
+    }
+  }
+
+  deleteAdminProduct(wooId);
+  revalidatePath("/admin/products");
+  return { success: true };
 }
 
 export async function createPaymentLinkAction(_: unknown, formData: FormData) {

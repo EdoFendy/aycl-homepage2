@@ -99,3 +99,8 @@ export function removeStaleProducts(wooIds: number[]) {
     `
   ).run(...wooIds);
 }
+
+export function deleteAdminProduct(wooId: number) {
+  const db = getDb();
+  db.prepare("DELETE FROM admin_products WHERE woo_id = ?").run(wooId);
+}

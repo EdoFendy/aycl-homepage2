@@ -1,8 +1,7 @@
-import { format } from "date-fns";
-import { it } from "date-fns/locale";
 import { listAdminProducts } from "@/lib/admin/products";
-import type { AdminProductRecord } from "@/lib/db";
 import { SyncProductsButton } from "@/app/admin/(protected)/products/sync-button";
+import { CreateProductForm } from "@/app/admin/(protected)/products/create-product-form";
+import { ProductRow } from "@/app/admin/(protected)/products/product-row";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +20,8 @@ export default function AdminProductsPage() {
         <SyncProductsButton />
       </div>
 
+      <CreateProductForm />
+
       <div className="rounded-3xl border border-slate-800/70 bg-slate-950/50">
         <table className="min-w-full divide-y divide-slate-800/60 text-sm">
           <thead className="bg-slate-900/70 text-xs uppercase tracking-[0.25em] text-slate-400">
@@ -29,6 +30,7 @@ export default function AdminProductsPage() {
               <th className="px-4 py-3 text-left">Prezzo</th>
               <th className="px-4 py-3 text-left">SKU</th>
               <th className="px-4 py-3 text-left">Aggiornato</th>
+              <th className="px-4 py-3 text-right">Azioni</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800/40">
@@ -39,7 +41,7 @@ export default function AdminProductsPage() {
             {products.length === 0 ? (
               <tr>
                 <td
-                  colSpan={4}
+                  colSpan={5}
                   className="px-4 py-6 text-center text-sm text-slate-400"
                 >
                   Nessun prodotto salvato. Effettua una sincronizzazione per importare i dati da WooCommerce.
@@ -50,25 +52,5 @@ export default function AdminProductsPage() {
         </table>
       </div>
     </div>
-  );
-}
-
-function ProductRow({ product }: { product: AdminProductRecord }) {
-  const lastUpdate = product.updated_at
-    ? format(new Date(product.updated_at), "PPPp", { locale: it })
-    : "-";
-
-  return (
-    <tr className="text-slate-200">
-      <td className="px-4 py-4">
-        <div className="font-medium text-white">{product.name}</div>
-        <div className="text-xs text-slate-400">WooCommerce ID: {product.woo_id ?? "N/D"}</div>
-      </td>
-      <td className="px-4 py-4">
-        {product.price ? `${product.price} ${product.currency ?? "EUR"}` : "-"}
-      </td>
-      <td className="px-4 py-4">{product.sku ?? "-"}</td>
-      <td className="px-4 py-4 text-xs text-slate-400">{lastUpdate}</td>
-    </tr>
   );
 }
