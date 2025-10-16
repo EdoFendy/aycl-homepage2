@@ -105,7 +105,7 @@ export function resolveCheckoutBaseUrl() {
     process.env.CHECKOUT_BASE_URL ||
     process.env.NEXT_PUBLIC_APP_URL ||
     process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    "http://localhost:3000";
+    "https://allyoucanleads.com";
 
   const trimmed = rawBase.endsWith("/") ? rawBase.slice(0, -1) : rawBase;
   if (!trimmed.startsWith("http")) {
