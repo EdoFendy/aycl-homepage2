@@ -80,7 +80,7 @@ export default function CheckoutSuccessPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-gray-600" />
-                  <span className="text-sm text-gray-700">+39 340 123 4567</span>
+                  <span className="text-sm text-gray-700">+39 351 657 9882</span>
                 </div>
               </div>
             </div>
