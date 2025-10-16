@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { PaymentGateway } from "@/components/payment-gateway";
 import type { DriveTestOrder } from "@/lib/drive-test";
 import { PageLayoutContainer } from "@/components/page-layout-container";
+import { decryptCheckoutOrder } from "@/lib/checkout-encryption";
 
 type SearchParams = { [key: string]: string | string[] | undefined };
 
@@ -144,6 +145,11 @@ function parseOrder(param: string | string[] | undefined): DriveTestOrder | null
   if (!param) return null;
   const raw = Array.isArray(param) ? param[0] : param;
   if (!raw) return null;
+
+  const decrypted = decryptCheckoutOrder(raw);
+  if (decrypted) {
+    return decrypted;
+  }
 
   try {
     const decoded = decodeURIComponent(raw);

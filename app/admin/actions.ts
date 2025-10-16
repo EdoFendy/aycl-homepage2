@@ -8,6 +8,7 @@ import {
   verifyCredentials,
 } from "@/lib/admin/auth";
 import { clearSessionCookie, setSessionCookie } from "@/lib/admin/session";
+import { normalizeFormData } from "@/lib/form-data";
 
 const credentialsSchema = z.object({
   email: z.string().email("Inserisci un'email valida."),
@@ -15,9 +16,10 @@ const credentialsSchema = z.object({
 });
 
 export async function loginAction(_: unknown, formData: FormData) {
+  const values = normalizeFormData(formData);
   const credentials = credentialsSchema.safeParse({
-    email: formData.get("email"),
-    password: formData.get("password"),
+    email: values.email,
+    password: values.password,
   });
 
   if (!credentials.success) {
@@ -49,9 +51,10 @@ export async function createFirstAdminAction(_: unknown, formData: FormData) {
     };
   }
 
+  const values = normalizeFormData(formData);
   const credentials = credentialsSchema.safeParse({
-    email: formData.get("email"),
-    password: formData.get("password"),
+    email: values.email,
+    password: values.password,
   });
 
   if (!credentials.success) {

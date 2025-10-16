@@ -163,7 +163,6 @@ body.admin-layout {
   background-color: #0b1120;
 }
 
-body.admin-layout nav,
 body.admin-layout footer {
   display: none !important;
 }

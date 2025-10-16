@@ -67,6 +67,7 @@ export default function LeadPriceCalculator({
   const [sett, setSett] = useState(coeffSett[0]?.id || "");
   const [qty, setQty] = useState(MIN_APPOINTMENTS);
   const [risk, setRisk] = useState(50); // 0 = MIN, 100 = MAX
+  const [generatingLink, setGeneratingLink] = useState(false);
 
   const format = useMemo(
     () => (v: number) => new Intl.NumberFormat(locale, { style: "currency", currency }).format(v),
@@ -103,7 +104,7 @@ export default function LeadPriceCalculator({
     navigator.clipboard?.writeText(text);
   }
 
-  function handleCheckout() {
+  async function handleCheckout() {
     const order: DriveTestOrder = {
       package: "Drive Test",
       currency,
@@ -137,9 +138,38 @@ export default function LeadPriceCalculator({
 
     const handled = onCheckout?.(order);
 
-    if (handled !== true) {
-      const encoded = encodeURIComponent(JSON.stringify(order));
-      router.push(`/checkout?order=${encoded}`);
+    if (handled === true) {
+      return;
+    }
+
+    if (generatingLink) {
+      return;
+    }
+
+    try {
+      setGeneratingLink(true);
+      const response = await fetch("/api/checkout/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ order }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to generate checkout token: ${response.status}`);
+      }
+
+      const data = (await response.json()) as { success?: boolean; token?: string };
+      if (!data?.success || !data.token) {
+        throw new Error("Invalid response from checkout API");
+      }
+
+      router.push(`/checkout?order=${data.token}`);
+    } catch (error) {
+      console.error("Unable to generate checkout link", error);
+    } finally {
+      setGeneratingLink(false);
     }
   }
 
@@ -315,10 +345,15 @@ export default function LeadPriceCalculator({
 
           <div className="mt-auto flex flex-col gap-3">
             <button
+              type="button"
               onClick={handleCheckout}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange px-5 py-3 text-white font-semibold shadow-lg transition-all duration-300 hover:translate-y-[-2px] hover:shadow-orange/30"
+              disabled={generatingLink}
+              className={cn(
+                "inline-flex items-center justify-center gap-2 rounded-xl bg-orange px-5 py-3 text-white font-semibold shadow-lg transition-all duration-300",
+                generatingLink ? "opacity-70" : "hover:translate-y-[-2px] hover:shadow-orange/30"
+              )}
             >
-              {t("ctaCheckout")} <ArrowRight className="h-4 w-4" />
+              {generatingLink ? `${t("ctaCheckout")}…` : t("ctaCheckout")} <ArrowRight className="h-4 w-4" />
             </button>
             <button
               onClick={handleCopy}

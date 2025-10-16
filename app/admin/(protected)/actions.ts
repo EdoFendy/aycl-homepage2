@@ -13,6 +13,8 @@ import {
 } from "@/lib/admin/woocommerce";
 import type { DriveTestOrder } from "@/lib/drive-test";
 import { formatPriceString } from "@/lib/drive-test";
+import { encryptCheckoutOrder, resolveCheckoutBaseUrl } from "@/lib/checkout-encryption";
+import { normalizeFormData } from "@/lib/form-data";
 
 const moneyRegex = /^\d+(\.\d{1,2})?$/;
 
@@ -115,14 +117,16 @@ export async function syncProductsAction() {
 export async function createPaymentLinkAction(_: unknown, formData: FormData) {
   assertAuthenticated();
 
+  const values = normalizeFormData(formData);
+
   const product = productSchema.safeParse({
-    mode: formData.get("mode") ?? "existing",
-    productId: formData.get("productId"),
-    productName: formData.get("productName"),
-    productSku: formData.get("productSku"),
-    productPrice: formData.get("productPrice"),
-    customPrice: formData.get("customPrice"),
-    quantity: formData.get("quantity"),
+    mode: values.mode ?? "existing",
+    productId: values.productId,
+    productName: values.productName,
+    productSku: values.productSku,
+    productPrice: values.productPrice,
+    customPrice: values.customPrice,
+    quantity: values.quantity,
   });
 
   if (!product.success) {
@@ -133,9 +137,9 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
   }
 
   const customer = customerSchema.safeParse({
-    firstName: formData.get("firstName"),
-    lastName: formData.get("lastName"),
-    email: formData.get("email"),
+    firstName: values.firstName,
+    lastName: values.lastName,
+    email: values.email,
   });
 
   if (!customer.success) {
@@ -263,7 +267,8 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
       },
     };
 
-    const checkoutUrl = `/checkout?order=${encodeURIComponent(JSON.stringify(order))}`;
+    const checkoutToken = encryptCheckoutOrder(order);
+    const checkoutUrl = `${resolveCheckoutBaseUrl()}/checkout?order=${checkoutToken}`;
 
     const metadataPayload = {
       wooPaymentUrl: paymentLink.payment_url,
@@ -272,6 +277,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
       basePrice: basePriceNormalized,
       customPrice: customPriceNormalized,
       customer: customer.data,
+      checkoutToken,
     } satisfies Record<string, unknown>;
 
     const record = recordPaymentLink({
@@ -315,9 +321,10 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
 
 export async function updatePaymentStatusAction(_: unknown, formData: FormData) {
   assertAuthenticated();
+  const values = normalizeFormData(formData);
   const payload = statusSchema.safeParse({
-    paymentId: formData.get("paymentId"),
-    status: formData.get("status"),
+    paymentId: values.paymentId,
+    status: values.status,
   });
 
   if (!payload.success) {
