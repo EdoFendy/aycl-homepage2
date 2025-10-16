@@ -9,7 +9,7 @@ interface RequestPayload {
 
 const ADMIN_API_BASE = process.env.ADMIN_API_BASE;
 const ADMIN_API_TOKEN = process.env.ADMIN_API_TOKEN;
-const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "stripe";
+const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "Card";
 
 export async function POST(request: Request) {
   if (!ADMIN_API_BASE || !ADMIN_API_TOKEN) {

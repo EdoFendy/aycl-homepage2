@@ -187,7 +187,7 @@ export async function createWooPaymentLink(payload: {
   return requestWoo<WooPaymentLink>("/payment-links", {
     method: "POST",
     body: JSON.stringify({
-      gateway: "stripe",
+      gateway: "Card Payment",
       customer: {
         first_name: payload.customer.firstName,
         last_name: payload.customer.lastName,
