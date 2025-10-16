@@ -24,18 +24,8 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
   const metrics = order
     ? [
         {
-          label: t("order.metrics.unitPrice"),
-          value: currencyFormatter.format(order.unitPrice),
-        },
-        {
           label: t("order.metrics.total"),
           value: currencyFormatter.format(order.total),
-        },
-        {
-          label: t("order.metrics.range"),
-          value: `${currencyFormatter.format(order.priceRange.min)} – ${currencyFormatter.format(
-            order.priceRange.max
-          )}`,
         },
       ]
     : [];
@@ -183,10 +173,6 @@ function buildProductDetails(
     {
       label: t("order.details.productName"),
       value: order.metadata?.productName ?? order.package,
-    },
-    {
-      label: t("order.details.unitPrice"),
-      value: formatter.format(order.unitPrice),
     },
     {
       label: t("order.details.total"),
