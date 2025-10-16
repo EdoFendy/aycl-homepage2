@@ -22,6 +22,10 @@
         "quantity": "Quantità",
         "total": "Totale"
       },
+      "calculation": {
+        "title": "Calcolo del totale",
+        "formula": "{unitPrice} × {quantity} = {total}"
+      },
       "selections": {
         "title": "Parametri Drive Test",
         "sector": "Settore",
@@ -117,6 +121,10 @@
         "quantity": "Quantity",
         "total": "Total"
       },
+      "calculation": {
+        "title": "Total calculation",
+        "formula": "{unitPrice} × {quantity} = {total}"
+      },
       "selections": {
         "title": "Drive Test parameters",
         "sector": "Sector",
@@ -211,6 +219,10 @@
         "unitPrice": "Precio aplicado",
         "quantity": "Cantidad",
         "total": "Total"
+      },
+      "calculation": {
+        "title": "Cálculo del total",
+        "formula": "{unitPrice} × {quantity} = {total}"
       },
       "selections": {
         "title": "Parámetros del Drive Test",

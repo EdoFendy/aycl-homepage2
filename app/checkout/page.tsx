@@ -24,6 +24,14 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
   const metrics = order
     ? [
         {
+          label: t("order.metrics.unitPrice"),
+          value: currencyFormatter.format(order.unitPrice),
+        },
+        {
+          label: t("order.metrics.quantity"),
+          value: order.quantity.toString(),
+        },
+        {
           label: t("order.metrics.total"),
           value: currencyFormatter.format(order.total),
         },
@@ -75,7 +83,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                 </div>
               </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {metrics.map((metric) => (
                   <div key={metric.label} className="rounded-xl border border-gray-200 bg-gray-50 p-4">
                     <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{metric.label}</p>
@@ -83,6 +91,26 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                   </div>
                 ))}
               </div>
+
+              {order && order.quantity > 1 && (
+                <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-blue-900">{t("order.calculation.title")}</p>
+                      <p className="text-xs text-blue-700">
+                        {t("order.calculation.formula", {
+                          unitPrice: currencyFormatter.format(order.unitPrice),
+                          quantity: order.quantity,
+                          total: currencyFormatter.format(order.total)
+                        })}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-lg font-semibold text-blue-900">{currencyFormatter.format(order.total)}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <div className="mt-6">
                 <DetailCard title={t("order.details.title")} items={productDetails} />
@@ -164,26 +192,38 @@ function buildProductDetails(
     },
   ];
 
+  // Aggiungi sempre quantità e prezzo unitario
+  details.push({
+    label: t("order.details.quantity"),
+    value: order.quantity.toString(),
+  });
+
+  details.push({
+    label: t("order.details.unitPrice"),
+    value: formatter.format(order.unitPrice),
+  });
+
   const discountFromPrice = toCurrency(order.metadata?.discountFromPrice, formatter);
   if (discountFromPrice) {
-    details.splice(1, 0, {
+    details.push({
       label: t("order.details.discountFromPrice"),
       value: discountFromPrice,
     });
 
     const basePrice = toCurrency(order.metadata?.basePrice, formatter);
     if (basePrice) {
-      details.splice(2, 0, {
+      details.push({
         label: t("order.details.basePrice"),
         value: basePrice,
       });
     }
-  } else {
-    details.push({
-      label: t("order.details.total"),
-      value: formatter.format(order.total),
-    });
   }
+
+  // Aggiungi sempre il totale
+  details.push({
+    label: t("order.details.total"),
+    value: formatter.format(order.total),
+  });
 
   return details;
 }
