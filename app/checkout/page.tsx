@@ -28,10 +28,6 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
           value: currencyFormatter.format(order.unitPrice),
         },
         {
-          label: t("order.metrics.quantity"),
-          value: order.quantity.toString(),
-        },
-        {
           label: t("order.metrics.total"),
           value: currencyFormatter.format(order.total),
         },
@@ -46,10 +42,6 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
 
   const productDetails = order
     ? buildProductDetails(order, currencyFormatter, t)
-    : [];
-
-  const selectionDetails = order
-    ? buildSelectionDetails(order, t)
     : [];
 
   const generatedAt = order?.metadata?.generatedAt ? new Date(order.metadata.generatedAt) : null;
@@ -102,12 +94,8 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                 ))}
               </div>
 
-              <div className="mt-6 grid gap-4 lg:grid-cols-2">
+              <div className="mt-6">
                 <DetailCard title={t("order.details.title")} items={productDetails} />
-
-                {selectionDetails.length > 0 ? (
-                  <DetailCard title={t("order.selections.title")} items={selectionDetails} />
-                ) : null}
               </div>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -201,10 +189,6 @@ function buildProductDetails(
       value: formatter.format(order.unitPrice),
     },
     {
-      label: t("order.details.quantity"),
-      value: order.quantity.toString(),
-    },
-    {
       label: t("order.details.total"),
       value: formatter.format(order.total),
     },
@@ -229,40 +213,6 @@ function buildProductDetails(
   return details;
 }
 
-function buildSelectionDetails(order: DriveTestOrder, t: (key: string) => string): DetailItem[] {
-  const selections = order.selections;
-  const items: DetailItem[] = [];
-
-  if (selections?.sector?.label) {
-    items.push({
-      label: t("order.selections.sector"),
-      value: selections.sector.label,
-    });
-  }
-
-  if (selections?.revenueBand?.label) {
-    items.push({
-      label: t("order.selections.revenueBand"),
-      value: selections.revenueBand.label,
-    });
-  }
-
-  if (selections?.geography?.label) {
-    items.push({
-      label: t("order.selections.geography"),
-      value: selections.geography.label,
-    });
-  }
-
-  if (typeof selections?.riskProfile === "number") {
-    items.push({
-      label: t("order.selections.riskProfile"),
-      value: selections.riskProfile.toString(),
-    });
-  }
-
-  return items;
-}
 
 function toCurrency(value: string | number | null | undefined, formatter: Intl.NumberFormat) {
   if (value === null || value === undefined) {
