@@ -24,7 +24,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
   const metrics = order
     ? [
         {
-          label: order.metadata?.originalPrice ? "Prezzo scontato" : t("order.metrics.total"),
+          label: t("order.metrics.total"),
           value: currencyFormatter.format(order.total),
         },
       ]
@@ -164,24 +164,6 @@ function buildProductDetails(
     },
   ];
 
-  // Se c'è un prezzo originale, mostra il prezzo scontato
-  const originalPrice = toCurrency(order.metadata?.originalPrice, formatter);
-  if (originalPrice) {
-    details.push({
-      label: "Prezzo originale",
-      value: originalPrice,
-    });
-    details.push({
-      label: "Prezzo scontato",
-      value: formatter.format(order.total),
-    });
-  } else {
-    details.push({
-      label: t("order.details.total"),
-      value: formatter.format(order.total),
-    });
-  }
-
   const discountFromPrice = toCurrency(order.metadata?.discountFromPrice, formatter);
   if (discountFromPrice) {
     details.splice(1, 0, {
@@ -196,6 +178,11 @@ function buildProductDetails(
         value: basePrice,
       });
     }
+  } else {
+    details.push({
+      label: t("order.details.total"),
+      value: formatter.format(order.total),
+    });
   }
 
   return details;

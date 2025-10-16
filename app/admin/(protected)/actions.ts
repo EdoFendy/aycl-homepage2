@@ -55,22 +55,6 @@ const existingProductSchema = z.object({
       message: "Prezzo non valido.",
     })
     .transform((value) => (value ? normalizePriceInput(value) : undefined)),
-  customPrice: z
-    .string()
-    .optional()
-    .transform((value) => (value && value.trim() !== "" ? value : undefined))
-    .refine((value) => (value ? isValidPriceInput(value) : true), {
-      message: "Prezzo personalizzato non valido.",
-    })
-    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
-  originalPrice: z
-    .string()
-    .optional()
-    .transform((value) => (value && value.trim() !== "" ? value : undefined))
-    .refine((value) => (value ? isValidPriceInput(value) : true), {
-      message: "Prezzo originale non valido.",
-    })
-    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   discountFromPrice: z
     .string()
     .optional()
@@ -101,22 +85,6 @@ const newProductSchema = z.object({
       message: "Inserisci un prezzo valido.",
     })
     .transform((value) => normalizePriceInput(value)),
-  customPrice: z
-    .string()
-    .optional()
-    .transform((value) => (value && value.trim() !== "" ? value : undefined))
-    .refine((value) => (value ? isValidPriceInput(value) : true), {
-      message: "Prezzo personalizzato non valido.",
-    })
-    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
-  originalPrice: z
-    .string()
-    .optional()
-    .transform((value) => (value && value.trim() !== "" ? value : undefined))
-    .refine((value) => (value ? isValidPriceInput(value) : true), {
-      message: "Prezzo originale non valido.",
-    })
-    .transform((value) => (value ? normalizePriceInput(value) : undefined)),
   discountFromPrice: z
     .string()
     .optional()
@@ -339,8 +307,6 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
     productName: values.productName,
     productSku: values.productSku,
     productPrice: values.productPrice,
-    customPrice: values.customPrice,
-    originalPrice: values.originalPrice,
     discountFromPrice: values.discountFromPrice,
     quantity: values.quantity,
   });
@@ -485,13 +451,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
         wooProductId,
         productName,
         basePrice: basePriceNormalized,
-        customPrice: product.data.customPrice ?? undefined,
-        originalPrice: product.data.originalPrice ?? undefined,
         discountFromPrice: effectiveDiscountFromPrice ?? undefined,
-        customer: {
-          firstName: customer.data.firstName,
-          lastName: customer.data.lastName,
-        },
       },
     };
 
