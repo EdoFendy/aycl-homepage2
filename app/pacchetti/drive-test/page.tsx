@@ -631,22 +631,59 @@ export default function DriveTestPage() {
         </PageLayoutContainer>
       </section>
 
-      {/* HOW (invariato) */}
-      <section className="py-20 bg-white">
-        <PageLayoutContainer className="px-4 sm:px-6">
-          <h3 className="text-2xl font-bold text-navy text-center">{t("how.subheadline")}</h3>
-          <ol className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 7 }).map((_, i) => (
-              <Card key={i} className="p-6 bg-white border-navy/10 relative overflow-hidden">
-                <div className="absolute -top-6 -right-6 h-16 w-16 rounded-full bg-navy/5" />
-                <div className="relative">
-                  <div className="text-orange font-bold text-lg">{i + 1}.</div>
-                  <p className="mt-2 text-gray-700">{t(`how.steps.${i}`)}</p>
-                </div>
-              </Card>
-            ))}
-          </ol>
-        </PageLayoutContainer>
+      {/* HOW IT WORKS - Enhanced Timeline */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <PageLayoutContainer>
+            <div className="text-center mb-16">
+              <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 mb-4">
+                Processo Drive Test
+              </span>
+              <h2 className="text-4xl font-bold text-navy mb-6">{t("how.subheadline")}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Scopri come funziona il nostro sistema in 7 semplici passaggi
+              </p>
+            </div>
+
+            {/* Enhanced timeline for desktop */}
+            <div className="relative">
+              <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange via-sky-blue to-navy rounded-full" />
+              
+              {/* Process steps */}
+              <div className="space-y-8">
+                {Array.from({ length: 7 }).map((_, i) => (
+                  <div key={i} className="relative flex items-start gap-8">
+                    <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange to-sky-blue rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                      <span className="text-white font-bold text-lg">{i + 1}</span>
+                    </div>
+                    <Card className="flex-1 p-8 bg-white/90 backdrop-blur-sm border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex items-start gap-6">
+                        <div className="w-16 h-16 flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-orange/10 to-sky-blue/10 rounded-2xl">
+                          <div className="w-8 h-8 bg-gradient-to-br from-orange to-sky-blue rounded-full flex items-center justify-center">
+                            <span className="text-white font-bold text-sm">{i + 1}</span>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-3">
+                            <h3 className="text-xl font-bold text-navy">Passo {i + 1}</h3>
+                            <span className="px-3 py-1 bg-orange/10 text-orange text-sm font-semibold rounded-full">
+                              {i < 2 ? "Preparazione" : i < 5 ? "Attivazione" : "Completamento"}
+                            </span>
+                          </div>
+                          <p className="text-gray-600 leading-relaxed">{t(`how.steps.${i}`)}</p>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </PageLayoutContainer>
+        </div>
       </section>
 
       {/* FAQ Section */}
