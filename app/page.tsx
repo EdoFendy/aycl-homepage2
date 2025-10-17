@@ -373,64 +373,70 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mt-14 flex flex-col gap-6 lg:flex-row lg:justify-between">
-              {[
-                {
-                  step: "01",
-                  label: t("process.steps.icp.label"),
-                  title: t("process.steps.icp.title"),
-                  copy: t("process.steps.icp.desc"),
-                  image: {
-                    src: "/ICT.png",
-                    alt: t("alt.definizioneIcp"),
-                  },
-                },
-                {
-                  step: "02",
-                  label: t("process.steps.strategy.label"),
-                  title: t("process.steps.strategy.title"),
-                  copy: t("process.steps.strategy.desc"),
-                  image: {
-                    src: "/lucchettoorizzontale.png",
-                    alt: t("alt.pianoStrategico"),
-                  },
-                },
-                {
-                  step: "03",
-                  label: t("process.steps.quality.label"),
-                  title: t("process.steps.quality.title"),
-                  copy: t("process.steps.quality.desc"),
-                  image: {
-                    src: "/lentegraf.png",
-                    alt: t("alt.controlloQualita"),
-                  },
-                },
-              ].map((item) => (
-                <Card
-                  key={item.step}
-                  className="group flex flex-1 flex-col gap-5 rounded-2xl border border-gray-200 bg-white/80 px-6 py-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
-                >
-                  <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">
-                    <span>{item.label}</span>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-gray-500">
-                      {item.step}
-                    </span>
+            {/* Process Flow - Layout verticale alternato */}
+            <div className="mt-14 space-y-12 md:space-y-16">
+              {/* Step 1: ICP - Immagine | Margine | Testo */}
+              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <Image
+                    src="/ICP_Card.png"
+                    alt={t("alt.definizioneIcp")}
+                    width={500}
+                    height={400}
+                    className="w-full max-w-md h-auto object-contain"
+                  />
+                </div>
+                
+                <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
+                  <div className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold text-orange mb-2">
+                    {t("process.steps.icp.label")}
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-navy">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-600">{item.copy}</p>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("process.steps.icp.title")}</h3>
+                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">{t("process.steps.icp.desc")}</p>
+                </div>
+              </div>
+
+              {/* Step 2: Percorso - Testo | Margine | Immagine */}
+              <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 lg:gap-16">
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <Image
+                    src="/Percorso.png"
+                    alt={t("alt.pianoStrategico")}
+                    width={500}
+                    height={400}
+                    className="w-full max-w-md h-auto object-contain"
+                  />
+                </div>
+                
+                <div className="w-full md:w-1/2 text-center md:text-right space-y-4">
+                  <div className="inline-flex items-center rounded-full bg-sky-blue/10 px-3 py-1 text-xs font-semibold text-sky-blue mb-2">
+                    {t("process.steps.strategy.label")}
                   </div>
-                  <div className="overflow-hidden rounded-xl bg-gray-100">
-                    <Image
-                      src={item.image.src}
-                      alt={item.image.alt}
-                      width={360}
-                      height={200}
-                      className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("process.steps.strategy.title")}</h3>
+                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">{t("process.steps.strategy.desc")}</p>
+                </div>
+              </div>
+
+              {/* Step 3: Regime - Immagine | Margine | Testo */}
+              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <Image
+                    src="/Regime.png"
+                    alt={t("alt.controlloQualita")}
+                    width={500}
+                    height={400}
+                    className="w-full max-w-md h-auto object-contain"
+                  />
+                </div>
+                
+                <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
+                  <div className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy mb-2">
+                    {t("process.steps.quality.label")}
                   </div>
-                </Card>
-              ))}
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("process.steps.quality.title")}</h3>
+                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">{t("process.steps.quality.desc")}</p>
+                </div>
+              </div>
             </div>
           </LayoutWrapper>
         </div>
