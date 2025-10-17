@@ -53,166 +53,215 @@ const COEFF_GEO: Coeff[] = [
   { id: "geo_asia",      label: "Asia (SG/HK/JP)",                    min: 1.4,  max: 1.6 },
   { id: "geo_oceania",   label: "Oceania (AU/NZ)",                    min: 1.4,  max: 1.5 }
 ]
-const HIGHEST = 1.58
+type SectorGroupConfig = {
+  id: string
+  label: string
+  linkedIn: number
+  apollo: number
+  difficulty: 2 | 3 | 4
+  options: Array<Omit<SectorOption, "coefficient">>
+}
 
-const SECTOR_GROUPS: SectorGroup[] = [
+const DIFFICULTY_ADDER: Record<SectorGroupConfig["difficulty"], number> = {
+  2: 0,
+  3: 0.1,
+  4: 0.2
+}
+
+const RAW_SECTOR_GROUPS: SectorGroupConfig[] = [
   {
     id: "macro_saas",
     label: "SaaS / Tech B2B",
+    linkedIn: 1.0826,
+    apollo: 1.58,
+    difficulty: 2,
     options: [
-      { id: "saas_macro", label: "SaaS / Tech B2B", coefficient: HIGHEST, level: "macro" },
-      { id: "saas_horizontal", label: "SaaS orizzontale (CRM/ERP)", coefficient: HIGHEST, level: "granular" },
-      { id: "saas_vertical", label: "SaaS verticale (PropTech/LegalTech/HRTech)", coefficient: HIGHEST, level: "granular" },
-      { id: "saas_cyber", label: "Cybersecurity", coefficient: HIGHEST, level: "granular" },
-      { id: "saas_data_ai", label: "Data & Analytics / AI", coefficient: HIGHEST, level: "granular" },
-      { id: "saas_cloud", label: "Cloud & DevOps", coefficient: HIGHEST, level: "granular" },
-      { id: "saas_it_services", label: "IT Services & System Integration", coefficient: HIGHEST, level: "granular" },
-      { id: "saas_elearning", label: "E-learning B2B", coefficient: HIGHEST, level: "granular" }
+      { id: "saas_macro", label: "SaaS / Tech B2B", level: "macro" },
+      { id: "saas_horizontal", label: "SaaS orizzontale (CRM/ERP)", level: "granular" },
+      { id: "saas_vertical", label: "SaaS verticale (PropTech/LegalTech/HRTech)", level: "granular" },
+      { id: "saas_cyber", label: "Cybersecurity", level: "granular" },
+      { id: "saas_data_ai", label: "Data & Analytics / AI", level: "granular" },
+      { id: "saas_cloud", label: "Cloud & DevOps", level: "granular" },
+      { id: "saas_it_services", label: "IT Services & System Integration", level: "granular" },
+      { id: "saas_elearning", label: "E-learning B2B", level: "granular" }
     ]
   },
   {
     id: "macro_services",
     label: "Servizi Professionali (Marketing/HR/Consulenza)",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 2,
     options: [
-      {
-        id: "services_macro",
-        label: "Servizi Professionali (Marketing/HR/Consulenza)",
-        coefficient: HIGHEST,
-        level: "macro"
-      },
-      { id: "services_agencies", label: "Agenzie Marketing & Adv", coefficient: HIGHEST, level: "granular" },
-      { id: "services_recruiting", label: "Recruiting & HR Services", coefficient: HIGHEST, level: "granular" },
-      {
-        id: "services_consulting",
-        label: "Consulenza gestionale / strategica",
-        coefficient: HIGHEST,
-        level: "granular"
-      },
-      { id: "services_legal", label: "Servizi legali B2B", coefficient: HIGHEST, level: "granular" },
-      { id: "services_accounting", label: "Contabilità & Tax", coefficient: HIGHEST, level: "granular" }
+      { id: "services_macro", label: "Servizi Professionali (Marketing/HR/Consulenza)", level: "macro" },
+      { id: "services_agencies", label: "Agenzie Marketing & Adv", level: "granular" },
+      { id: "services_recruiting", label: "Recruiting & HR Services", level: "granular" },
+      { id: "services_consulting", label: "Consulenza gestionale / strategica", level: "granular" },
+      { id: "services_legal", label: "Servizi legali B2B", level: "granular" },
+      { id: "services_accounting", label: "Contabilità & Tax", level: "granular" }
     ]
   },
   {
     id: "macro_industry",
     label: "Manifatturiero / Industria",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 3,
     options: [
-      { id: "industry_macro", label: "Manifatturiero / Industria", coefficient: HIGHEST, level: "macro" },
-      { id: "industry_machinery", label: "Macchinari industriali", coefficient: HIGHEST, level: "granular" },
-      { id: "industry_electronics", label: "Elettronica/EMS", coefficient: HIGHEST, level: "granular" },
-      { id: "industry_chemistry", label: "Chimica & Materiali", coefficient: HIGHEST, level: "granular" },
-      { id: "industry_food", label: "Food & Beverage Industry", coefficient: HIGHEST, level: "granular" },
-      { id: "industry_aerospace", label: "Aerospace & Defense (civile)", coefficient: HIGHEST, level: "granular" }
+      { id: "industry_macro", label: "Manifatturiero / Industria", level: "macro" },
+      { id: "industry_machinery", label: "Macchinari industriali", level: "granular" },
+      { id: "industry_electronics", label: "Elettronica/EMS", level: "granular" },
+      { id: "industry_chemistry", label: "Chimica & Materiali", level: "granular" },
+      { id: "industry_food", label: "Food & Beverage Industry", level: "granular" },
+      { id: "industry_aerospace", label: "Aerospace & Defense (civile)", level: "granular" }
     ]
   },
   {
     id: "macro_automotive",
     label: "Automotive",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 3,
     options: [
-      { id: "automotive_macro", label: "Automotive", coefficient: HIGHEST, level: "macro" },
-      { id: "automotive_oem", label: "Automotive OEM", coefficient: HIGHEST, level: "granular" },
-      { id: "automotive_tier", label: "Automotive Tier1/Tier2", coefficient: HIGHEST, level: "granular" },
-      { id: "automotive_mobility", label: "Mobilità & Componentistica", coefficient: HIGHEST, level: "granular" }
+      { id: "automotive_macro", label: "Automotive", level: "macro" },
+      { id: "automotive_oem", label: "Automotive OEM", level: "granular" },
+      { id: "automotive_tier", label: "Automotive Tier1/Tier2", level: "granular" },
+      { id: "automotive_mobility", label: "Mobilità & Componentistica", level: "granular" }
     ]
   },
   {
     id: "macro_banking",
     label: "Banking",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 4,
     options: [
-      { id: "banking_macro", label: "Banking", coefficient: HIGHEST, level: "macro" },
-      { id: "banking_retail", label: "Banche Retail", coefficient: HIGHEST, level: "granular" },
-      { id: "banking_corporate", label: "Banche Corporate/IB", coefficient: HIGHEST, level: "granular" },
-      { id: "banking_bpo", label: "Servizi BPO bancari", coefficient: HIGHEST, level: "granular" }
+      { id: "banking_macro", label: "Banking", level: "macro" },
+      { id: "banking_retail", label: "Banche Retail", level: "granular" },
+      { id: "banking_corporate", label: "Banche Corporate/IB", level: "granular" },
+      { id: "banking_bpo", label: "Servizi BPO bancari", level: "granular" }
     ]
   },
   {
     id: "macro_insurance",
     label: "Insurance",
+    linkedIn: 1.0826,
+    apollo: 1.58,
+    difficulty: 4,
     options: [
-      { id: "insurance_macro", label: "Insurance", coefficient: HIGHEST, level: "macro" },
-      { id: "insurance_traditional", label: "Assicurazioni Danni/Vita", coefficient: HIGHEST, level: "granular" },
-      { id: "insurance_insurtech", label: "Insurtech", coefficient: HIGHEST, level: "granular" }
+      { id: "insurance_macro", label: "Insurance", level: "macro" },
+      { id: "insurance_traditional", label: "Assicurazioni Danni/Vita", level: "granular" },
+      { id: "insurance_insurtech", label: "Insurtech", level: "granular" }
     ]
   },
   {
     id: "macro_fintech",
     label: "Fintech",
+    linkedIn: 1.0826,
+    apollo: 1.58,
+    difficulty: 3,
     options: [
-      { id: "fintech_macro", label: "Fintech", coefficient: HIGHEST, level: "macro" },
-      { id: "fintech_payments", label: "Pagamenti", coefficient: HIGHEST, level: "granular" },
-      { id: "fintech_lending", label: "Lending/P2P", coefficient: HIGHEST, level: "granular" },
-      { id: "fintech_open_banking", label: "Open Banking/RegTech", coefficient: HIGHEST, level: "granular" }
+      { id: "fintech_macro", label: "Fintech", level: "macro" },
+      { id: "fintech_payments", label: "Pagamenti", level: "granular" },
+      { id: "fintech_lending", label: "Lending/P2P", level: "granular" },
+      { id: "fintech_open_banking", label: "Open Banking/RegTech", level: "granular" }
     ]
   },
   {
     id: "macro_asset_management",
     label: "Asset Management / SGR",
+    linkedIn: 1.0826,
+    apollo: 1.58,
+    difficulty: 4,
     options: [
-      { id: "asset_macro", label: "Asset Management / SGR", coefficient: HIGHEST, level: "macro" },
-      { id: "asset_management", label: "Asset Management", coefficient: HIGHEST, level: "granular" },
-      { id: "asset_private_banking", label: "Private Banking/Wealth", coefficient: HIGHEST, level: "granular" }
+      { id: "asset_macro", label: "Asset Management / SGR", level: "macro" },
+      { id: "asset_management", label: "Asset Management", level: "granular" },
+      { id: "asset_private_banking", label: "Private Banking/Wealth", level: "granular" }
     ]
   },
   {
     id: "macro_healthcare",
     label: "Healthcare / Pharma / MedTech",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 4,
     options: [
-      { id: "healthcare_macro", label: "Healthcare / Pharma / MedTech", coefficient: HIGHEST, level: "macro" },
-      { id: "healthcare_pharma", label: "Pharma", coefficient: HIGHEST, level: "granular" },
-      { id: "healthcare_biotech", label: "Biotech", coefficient: HIGHEST, level: "granular" },
-      { id: "healthcare_medtech", label: "MedTech / Dispositivi", coefficient: HIGHEST, level: "granular" },
-      { id: "healthcare_hospitals", label: "Ospedali & Cliniche", coefficient: HIGHEST, level: "granular" },
-      { id: "healthcare_diagnostics", label: "Diagnostica & Lab", coefficient: HIGHEST, level: "granular" }
+      { id: "healthcare_macro", label: "Healthcare / Pharma / MedTech", level: "macro" },
+      { id: "healthcare_pharma", label: "Pharma", level: "granular" },
+      { id: "healthcare_biotech", label: "Biotech", level: "granular" },
+      { id: "healthcare_medtech", label: "MedTech / Dispositivi", level: "granular" },
+      { id: "healthcare_hospitals", label: "Ospedali & Cliniche", level: "granular" },
+      { id: "healthcare_diagnostics", label: "Diagnostica & Lab", level: "granular" }
     ]
   },
   {
     id: "macro_real_estate",
     label: "Real Estate / Costruzioni / Facility",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 3,
     options: [
-      {
-        id: "real_estate_macro",
-        label: "Real Estate / Costruzioni / Facility",
-        coefficient: HIGHEST,
-        level: "macro"
-      },
-      { id: "real_estate_development", label: "Sviluppo immobiliare", coefficient: HIGHEST, level: "granular" },
-      { id: "real_estate_contractor", label: "General Contractor", coefficient: HIGHEST, level: "granular" },
-      { id: "real_estate_facility", label: "Facility Management", coefficient: HIGHEST, level: "granular" },
-      { id: "real_estate_proptech", label: "PropTech", coefficient: HIGHEST, level: "granular" }
+      { id: "real_estate_macro", label: "Real Estate / Costruzioni / Facility", level: "macro" },
+      { id: "real_estate_development", label: "Sviluppo immobiliare", level: "granular" },
+      { id: "real_estate_contractor", label: "General Contractor", level: "granular" },
+      { id: "real_estate_facility", label: "Facility Management", level: "granular" },
+      { id: "real_estate_proptech", label: "PropTech", level: "granular" }
     ]
   },
   {
     id: "macro_retail",
     label: "Retail (negozi fisici)",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 3,
     options: [
-      { id: "retail_macro", label: "Retail (negozi fisici)", coefficient: HIGHEST, level: "macro" },
-      { id: "retail_gdo", label: "GDO", coefficient: HIGHEST, level: "granular" },
-      { id: "retail_specialized", label: "Catene retail specializzate", coefficient: HIGHEST, level: "granular" },
-      { id: "retail_franchising", label: "Retail franchising", coefficient: HIGHEST, level: "granular" }
+      { id: "retail_macro", label: "Retail (negozi fisici)", level: "macro" },
+      { id: "retail_gdo", label: "GDO", level: "granular" },
+      { id: "retail_specialized", label: "Catene retail specializzate", level: "granular" },
+      { id: "retail_franchising", label: "Retail franchising", level: "granular" }
     ]
   },
   {
     id: "macro_ecommerce",
     label: "E-commerce (pure player/marketplace)",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 2,
     options: [
-      { id: "ecommerce_macro", label: "E-commerce (pure player/marketplace)", coefficient: HIGHEST, level: "macro" },
-      { id: "ecommerce_pure", label: "E-commerce pure player", coefficient: HIGHEST, level: "granular" },
-      { id: "ecommerce_marketplace", label: "Marketplace", coefficient: HIGHEST, level: "granular" },
-      { id: "ecommerce_dnvb", label: "DNVB / D2C digitale", coefficient: HIGHEST, level: "granular" }
+      { id: "ecommerce_macro", label: "E-commerce (pure player/marketplace)", level: "macro" },
+      { id: "ecommerce_pure", label: "E-commerce pure player", level: "granular" },
+      { id: "ecommerce_marketplace", label: "Marketplace", level: "granular" },
+      { id: "ecommerce_dnvb", label: "DNVB / D2C digitale", level: "granular" }
     ]
   },
   {
     id: "macro_energy",
     label: "Energy & Utilities",
+    linkedIn: 1.58,
+    apollo: 1.58,
+    difficulty: 4,
     options: [
-      { id: "energy_macro", label: "Energy & Utilities", coefficient: HIGHEST, level: "macro" },
-      { id: "energy_utility", label: "Utility (energia/acqua/gas)", coefficient: HIGHEST, level: "granular" },
-      { id: "energy_renewables", label: "Rinnovabili (PV/Wind/Storage)", coefficient: HIGHEST, level: "granular" }
+      { id: "energy_macro", label: "Energy & Utilities", level: "macro" },
+      { id: "energy_utility", label: "Utility (energia/acqua/gas)", level: "granular" },
+      { id: "energy_renewables", label: "Rinnovabili (PV/Wind/Storage)", level: "granular" }
     ]
   }
 ]
 
-const DEFAULT_SECTOR_GROUP = SECTOR_GROUPS[0]
-const DEFAULT_SECTOR_OPTION = DEFAULT_SECTOR_GROUP.options[0]
+const SECTOR_GROUPS: SectorGroup[] = RAW_SECTOR_GROUPS.map(group => {
+  const base = Math.max(group.linkedIn, group.apollo)
+  const bonus = DIFFICULTY_ADDER[group.difficulty] ?? 0
+  const coefficient = parseFloat((base + bonus).toFixed(2))
+
+  return {
+    id: group.id,
+    label: group.label,
+    options: group.options.map(option => ({
+      ...option,
+      coefficient
+    }))
+  }
+})
 
 // Regola: ≥ €10M non permette Drive Test
 const HIGH_REVENUE_IDS = new Set(["band_10m_20m", "band_20m_50m", "band_50m_plus"])
@@ -239,29 +288,39 @@ export default function DriveTestPage() {
   // =====================
   const [band, setBand] = useState<string>(BASE_ITALIA[0].id)
   const [geo, setGeo] = useState<string>(COEFF_GEO[0].id)
-  const [sectorGroup, setSectorGroup] = useState<string>(DEFAULT_SECTOR_GROUP.id)
-  const [sectorOption, setSectorOption] = useState<string>(DEFAULT_SECTOR_OPTION.id)
+  const [sectorGroup, setSectorGroup] = useState<string>("")
+  const [sectorOption, setSectorOption] = useState<string>("")
   const [qty, setQty] = useState<number>(10)
+
+  const selectedSectorGroup = useMemo(
+    () => SECTOR_GROUPS.find(x => x.id === sectorGroup),
+    [sectorGroup]
+  )
+
+  const selectedSectorOption = useMemo(() => {
+    if (!selectedSectorGroup) {
+      return undefined
+    }
+
+    if (!sectorOption) {
+      return selectedSectorGroup.options[0]
+    }
+
+    return (
+      selectedSectorGroup.options.find(x => x.id === sectorOption) ??
+      selectedSectorGroup.options[0]
+    )
+  }, [selectedSectorGroup, sectorOption])
 
   // Prezzo unitario = media(min,max) di ogni coefficiente; arrotondato a 5
   const unitPrice = useMemo(() => {
     const b = BASE_ITALIA.find(x => x.id === band) ?? BASE_ITALIA[0]
     const g = COEFF_GEO.find(x => x.id === geo) ?? COEFF_GEO[0]
-    const sg = SECTOR_GROUPS.find(x => x.id === sectorGroup) ?? DEFAULT_SECTOR_GROUP
-    const so = sg.options.find(x => x.id === sectorOption) ?? sg.options[0]
     const baseAvg = (b.min + b.max) / 2
     const geoAvg  = (g.min + g.max) / 2
-    return round5(baseAvg * geoAvg * so.coefficient)
-  }, [band, geo, sectorGroup, sectorOption])
-
-  const selectedSectorGroup = useMemo(
-    () => SECTOR_GROUPS.find(x => x.id === sectorGroup) ?? DEFAULT_SECTOR_GROUP,
-    [sectorGroup]
-  )
-  const selectedSectorOption = useMemo(
-    () => selectedSectorGroup.options.find(x => x.id === sectorOption) ?? selectedSectorGroup.options[0],
-    [selectedSectorGroup, sectorOption]
-  )
+    const sectorCoeff = selectedSectorOption?.coefficient ?? 1
+    return round5(baseAvg * geoAvg * sectorCoeff)
+  }, [band, geo, selectedSectorOption])
 
   const total = useMemo(() => unitPrice * qty, [unitPrice, qty])
   const isHighRevenue = HIGH_REVENUE_IDS.has(band)
@@ -278,10 +337,10 @@ export default function DriveTestPage() {
         max: unitPrice,
       },
       selections: {
-        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label ?? "",
-        geography:   COEFF_GEO.find(x => x.id === geo)?.label ?? "",
-        macroSector: selectedSectorGroup.label,
-        sector:      selectedSectorOption.label
+        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label,
+        geography:   COEFF_GEO.find(x => x.id === geo)?.label,
+        macroSector: selectedSectorGroup?.label,
+        sector:      selectedSectorOption?.label
       },
       metadata: {
         locale,
@@ -445,14 +504,17 @@ export default function DriveTestPage() {
                             onChange={(e) => {
                               const nextGroup = e.target.value
                               setSectorGroup(nextGroup)
-                              const group = SECTOR_GROUPS.find(x => x.id === nextGroup)
-                              if (group) {
-                                setSectorOption(group.options[0].id)
-                              } else {
-                                setSectorOption(DEFAULT_SECTOR_OPTION.id)
+
+                              if (!nextGroup) {
+                                setSectorOption("")
+                                return
                               }
+
+                              const group = SECTOR_GROUPS.find(x => x.id === nextGroup)
+                              setSectorOption(group?.options[0]?.id ?? "")
                             }}
                           >
+                            <option value="">Seleziona una macro area</option>
                             {SECTOR_GROUPS.map(group => (
                               <option key={group.id} value={group.id}>
                                 {group.label}
@@ -467,8 +529,12 @@ export default function DriveTestPage() {
                             className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
                             value={sectorOption}
                             onChange={(e) => setSectorOption(e.target.value)}
+                            disabled={!selectedSectorGroup}
                           >
-                            {selectedSectorGroup.options.map(option => (
+                            {!selectedSectorGroup ? (
+                              <option value="">Seleziona una macro area</option>
+                            ) : null}
+                            {selectedSectorGroup?.options.map(option => (
                               <option key={option.id} value={option.id}>
                                 {option.level === "macro" ? `${option.label} (Macro)` : option.label}
                               </option>
