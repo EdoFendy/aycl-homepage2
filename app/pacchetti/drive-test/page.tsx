@@ -330,8 +330,8 @@ export default function DriveTestPage() {
     try {
       setIsSubmitting(true)
       const response = await fetch("/api/checkout/order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ order }),
       })
 
@@ -346,7 +346,7 @@ export default function DriveTestPage() {
         | null
 
       if (data?.success && data.token) {
-        router.push(`/checkout?order=${data.token}`)
+      router.push(`/checkout?order=${data.token}`)
       } else {
         console.error("Checkout API returned an invalid response", data)
       }
@@ -447,24 +447,24 @@ export default function DriveTestPage() {
                       </div>
                     </div>
 
-                      <div className="space-y-3">
+                    <div className="space-y-3">
                         <div className="flex items-center justify-between text-sm font-medium text-navy/80">
-                          <span>{t("form.qty")}</span>
-                          <span className="text-2xl font-extrabold text-orange">{qty}</span>
-                        </div>
-                        <input
-                          type="range"
-                          min={MIN_QTY}
-                          max={MAX_QTY}
-                          value={qty}
-                          onChange={(e) => setQty(parseInt(e.target.value))}
-                          className="h-2 w-full cursor-pointer appearance-none rounded-full bg-navy/20 accent-orange"
-                        />
-                        <div className="flex items-center justify-between text-xs text-navy/60">
-                          <span>{MIN_QTY}</span>
-                          <span>{MAX_QTY}</span>
-                        </div>
+                        <span>{t("form.qty")}</span>
+                        <span className="text-2xl font-extrabold text-orange">{qty}</span>
                       </div>
+                      <input
+                        type="range"
+                        min={MIN_QTY}
+                        max={MAX_QTY}
+                        value={qty}
+                        onChange={(e) => setQty(parseInt(e.target.value))}
+                          className="h-2 w-full cursor-pointer appearance-none rounded-full bg-navy/20 accent-orange"
+                      />
+                        <div className="flex items-center justify-between text-xs text-navy/60">
+                        <span>{MIN_QTY}</span>
+                        <span>{MAX_QTY}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -631,34 +631,45 @@ export default function DriveTestPage() {
               </p>
             </div>
 
-            <div className="max-w-6xl mx-auto">
-              <div className="grid gap-8 lg:grid-cols-2">
-                {/* Prima parte - Testo principale */}
-                <div className="bg-white rounded-2xl p-8 shadow-lg border border-navy/10">
+            <div className="grid gap-8 lg:grid-cols-2">
+              {/* Main content with unified text */}
+              <div>
+                <Card className="p-8 bg-white border-navy/10 shadow-sm">
                   <div className="prose prose-lg max-w-none">
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      {t("savings.microcopy.0")}
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      {t("savings.microcopy.1")}
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      {t("savings.microcopy.2")}
+                    </p>
                     <p className="text-gray-700 leading-relaxed">
-                      {t("savings.microcopy.0")} {t("savings.microcopy.1")} {t("savings.microcopy.2")} {t("savings.microcopy.3")}
+                      {t("savings.microcopy.3")}
                     </p>
                   </div>
-                </div>
+                </Card>
+              </div>
 
-                {/* Seconda parte - Specchietto verde */}
-                <div className="bg-green-50 rounded-2xl p-8 shadow-lg border border-green-200">
+              {/* Clean highlight card */}
+              <div>
+                <Card className="p-6 bg-white border-orange/20 shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center">
                       <span className="text-white font-bold text-sm">💡</span>
                     </div>
-                    <h3 className="text-lg font-bold text-green-800">{t("savings.noteTitle")}</h3>
+                    <h3 className="text-lg font-bold text-navy">{t("savings.noteTitle")}</h3>
                   </div>
-                  <p className="text-green-700 leading-relaxed mb-4">{t("savings.noteBody")}</p>
+                  <p className="text-gray-700 leading-relaxed mb-4">{t("savings.noteBody")}</p>
                   
-                  <div className="p-4 bg-green-100 rounded-lg border border-green-300">
-                    <div className="text-sm font-semibold text-green-800 mb-1">🎯 Vantaggio Esclusivo</div>
-                    <div className="text-sm text-green-600">
+                  <div className="p-4 bg-orange/5 rounded-lg border border-orange/20">
+                    <div className="text-sm font-semibold text-orange mb-1">🎯 Vantaggio Esclusivo</div>
+                    <div className="text-sm text-gray-600">
                       Solo per chi non ha mai provato il sistema AYCL
                     </div>
                   </div>
-                </div>
+                </Card>
               </div>
             </div>
 
@@ -668,8 +679,8 @@ export default function DriveTestPage() {
                 <div className="w-3 h-3 bg-orange rounded-full animate-pulse"></div>
                 <span className="text-navy font-semibold">Non perdere questa opportunità unica</span>
               </div>
-            </div>
-          </PageLayoutContainer>
+          </div>
+        </PageLayoutContainer>
         </div>
       </section>
 
@@ -697,7 +708,7 @@ export default function DriveTestPage() {
               
               {/* Process steps */}
               <div className="space-y-8">
-                {Array.from({ length: 7 }).map((_, i) => (
+            {Array.from({ length: 7 }).map((_, i) => (
                   <div key={i} className="relative flex items-start gap-8">
                     <div className="hidden lg:flex items-center justify-center bg-white w-16 h-16 rounded-full border-4 border-navy/10 shadow-lg relative z-10 flex-shrink-0">
                       <span className="text-navy font-bold text-lg">{i + 1}</span>
@@ -714,13 +725,13 @@ export default function DriveTestPage() {
                           </div>
                           <p className="text-gray-600 leading-relaxed">{t(`how.steps.${i}`)}</p>
                         </div>
-                      </div>
-                    </Card>
+                </div>
+              </Card>
                   </div>
-                ))}
+            ))}
               </div>
             </div>
-          </PageLayoutContainer>
+        </PageLayoutContainer>
         </div>
       </section>
 
@@ -730,7 +741,7 @@ export default function DriveTestPage() {
           <PageLayoutContainer>
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("faq.title")}</h2>
-            </div>
+          </div>
 
             <FAQCards
               className="mt-12"
@@ -739,7 +750,7 @@ export default function DriveTestPage() {
                 answer: t(`faq.items.${i}.a`)
               }))}
             />
-          </PageLayoutContainer>
+        </PageLayoutContainer>
         </div>
       </section>
     </div>
