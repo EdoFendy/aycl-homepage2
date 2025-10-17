@@ -631,20 +631,16 @@ export default function DriveTestPage() {
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-2">
-              {/* Main content with clean styling */}
-              <div className="space-y-6">
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <Card key={i} className="p-6 bg-white border-navy/10 shadow-sm hover:shadow-md transition-shadow">
-                    <p className="text-gray-700 leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
-                  </Card>
-                ))}
-              </div>
-
-              {/* Clean highlight card */}
-              <div>
-                <Card className="p-6 bg-white border-orange/20 shadow-lg">
-                  <div className="flex items-center gap-3 mb-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-navy/10">
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {t("savings.microcopy.0")} {t("savings.microcopy.1")} {t("savings.microcopy.2")} {t("savings.microcopy.3")}
+                  </p>
+                </div>
+                
+                <div className="mt-8 p-6 bg-orange/5 rounded-xl border border-orange/20">
+                  <div className="flex items-center gap-3 mb-3">
                     <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center">
                       <span className="text-white font-bold text-sm">💡</span>
                     </div>
@@ -652,13 +648,13 @@ export default function DriveTestPage() {
                   </div>
                   <p className="text-gray-700 leading-relaxed mb-4">{t("savings.noteBody")}</p>
                   
-                  <div className="p-4 bg-orange/5 rounded-lg border border-orange/20">
+                  <div className="p-4 bg-orange/10 rounded-lg border border-orange/30">
                     <div className="text-sm font-semibold text-orange mb-1">🎯 Vantaggio Esclusivo</div>
                     <div className="text-sm text-gray-600">
                       Solo per chi non ha mai provato il sistema AYCL
                     </div>
                   </div>
-                </Card>
+                </div>
               </div>
             </div>
 
