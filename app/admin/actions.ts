@@ -38,7 +38,7 @@ export async function loginAction(_: unknown, formData: FormData) {
   }
 
   const token = createAdminSession(user.id);
-  setSessionCookie(token);
+  await setSessionCookie(token);
 
   return { success: true };
 }
@@ -67,7 +67,7 @@ export async function createFirstAdminAction(_: unknown, formData: FormData) {
   try {
     const user = createAdminUser(credentials.data.email, credentials.data.password);
     const token = createAdminSession(user.id);
-    setSessionCookie(token);
+    await setSessionCookie(token);
     return { success: true };
   } catch (error) {
     return {
@@ -78,6 +78,6 @@ export async function createFirstAdminAction(_: unknown, formData: FormData) {
 }
 
 export async function logoutAction() {
-  clearSessionCookie();
+  await clearSessionCookie();
   return { success: true };
 }

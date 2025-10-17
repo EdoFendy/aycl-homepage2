@@ -5,8 +5,8 @@ import { LoginPanel } from "@/app/admin/login-panel";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminLoginPage() {
-  const admin = getCurrentAdmin();
+export default async function AdminLoginPage() {
+  const admin = await getCurrentAdmin();
   if (admin) {
     redirect("/admin/dashboard");
   }

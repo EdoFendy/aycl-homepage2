@@ -116,7 +116,7 @@ const statusSchema = z.object({
 });
 
 export async function syncProductsAction() {
-  assertAuthenticated();
+  await assertAuthenticated();
 
   const wooProducts = await fetchWooProducts();
   const wooIds: number[] = [];
@@ -146,7 +146,7 @@ export async function syncProductsAction() {
 }
 
 export async function createProductAction(_: unknown, formData: FormData) {
-  assertAuthenticated();
+  await assertAuthenticated();
 
   const values = normalizeFormData(formData);
   const payload = productDetailsSchema.safeParse({
@@ -207,7 +207,7 @@ export async function createProductAction(_: unknown, formData: FormData) {
 }
 
 export async function updateProductAction(_: unknown, formData: FormData) {
-  assertAuthenticated();
+  await assertAuthenticated();
 
   const values = normalizeFormData(formData);
   const payload = productUpdateSchema.safeParse({
@@ -274,7 +274,7 @@ export async function updateProductAction(_: unknown, formData: FormData) {
 }
 
 export async function deleteProductAction(wooId: number) {
-  assertAuthenticated();
+  await assertAuthenticated();
 
   if (!Number.isInteger(wooId) || wooId <= 0) {
     return { success: false, message: "ID prodotto non valido." };
@@ -297,7 +297,7 @@ export async function deleteProductAction(wooId: number) {
 }
 
 export async function createPaymentLinkAction(_: unknown, formData: FormData) {
-  assertAuthenticated();
+  await assertAuthenticated();
 
   const values = normalizeFormData(formData);
 
@@ -508,7 +508,7 @@ export async function createPaymentLinkAction(_: unknown, formData: FormData) {
 }
 
 export async function updatePaymentStatusAction(_: unknown, formData: FormData) {
-  assertAuthenticated();
+  await assertAuthenticated();
   const values = normalizeFormData(formData);
   const payload = statusSchema.safeParse({
     paymentId: values.paymentId,
@@ -529,7 +529,7 @@ export async function updatePaymentStatusAction(_: unknown, formData: FormData) 
 }
 
 export async function refreshTransactionsAction() {
-  assertAuthenticated();
+  await assertAuthenticated();
   try {
     const orders = await fetchWooOrders({ per_page: 50 });
     return { success: true, orders };
@@ -541,8 +541,8 @@ export async function refreshTransactionsAction() {
   }
 }
 
-function assertAuthenticated() {
-  const user = getCurrentAdmin();
+async function assertAuthenticated() {
+  const user = await getCurrentAdmin();
   if (!user) {
     throw new Error("Non autorizzato.");
   }

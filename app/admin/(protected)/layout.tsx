@@ -29,8 +29,8 @@ const navigation = [
   },
 ];
 
-export default function AdminProtectedLayout({ children }: { children: ReactNode }) {
-  const admin = getCurrentAdmin();
+export default async function AdminProtectedLayout({ children }: { children: ReactNode }) {
+  const admin = await getCurrentAdmin();
   if (!admin) {
     redirect("/admin");
   }

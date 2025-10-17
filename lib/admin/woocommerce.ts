@@ -44,10 +44,12 @@ async function requestWoo<T>(path: string, init: RequestInit = {}): Promise<T> {
     let errorDetails: any = null;
     
     try {
-      const errorData = (await response.json()) as { message?: string; errors?: any; data?: any };
+      const errorData = (await response.json()) as { message?: string; errors?: any; data?: any; error?: string; details?: any };
       errorDetails = errorData;
       if (errorData?.message) {
         message = errorData.message;
+      } else if (errorData?.error && errorData?.details) {
+        message = `WooCommerce validation error: ${errorData.error} - ${JSON.stringify(errorData.details)}`;
       } else if (errorData?.errors) {
         message = `WooCommerce API errors: ${JSON.stringify(errorData.errors)}`;
       } else if (errorData?.data) {
@@ -205,7 +207,7 @@ export async function createWooPaymentLink(payload: {
   }
 
   const requestBody = {
-    gateway: "card-payment",
+    gateway: "stripe",
     customer: {
       first_name: payload.customer.firstName,
       last_name: payload.customer.lastName,

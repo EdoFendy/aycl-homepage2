@@ -3,17 +3,19 @@ import { destroySession, getAdminBySessionToken, getSessionByToken } from "@/lib
 
 const COOKIE_NAME = process.env.ADMIN_SESSION_COOKIE || "admin_session";
 
-export function getSessionTokenFromCookie() {
-  return cookies().get(COOKIE_NAME)?.value ?? null;
+export async function getSessionTokenFromCookie() {
+  const cookieStore = await cookies();
+  return cookieStore.get(COOKIE_NAME)?.value ?? null;
 }
 
-export function setSessionCookie(token: string) {
+export async function setSessionCookie(token: string) {
   const session = getSessionByToken(token);
   if (!session) {
     throw new Error("Sessione non trovata.");
   }
 
-  cookies().set({
+  const cookieStore = await cookies();
+  cookieStore.set({
     name: COOKIE_NAME,
     value: token,
     httpOnly: true,
@@ -24,8 +26,8 @@ export function setSessionCookie(token: string) {
   });
 }
 
-export function clearSessionCookie() {
-  const cookieJar = cookies();
+export async function clearSessionCookie() {
+  const cookieJar = await cookies();
   const token = cookieJar.get(COOKIE_NAME)?.value;
   if (token) {
     destroySession(token);
@@ -33,8 +35,8 @@ export function clearSessionCookie() {
   cookieJar.delete(COOKIE_NAME);
 }
 
-export function getCurrentAdmin() {
-  const token = getSessionTokenFromCookie();
+export async function getCurrentAdmin() {
+  const token = await getSessionTokenFromCookie();
   if (!token) {
     return null;
   }
