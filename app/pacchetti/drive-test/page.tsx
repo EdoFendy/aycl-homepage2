@@ -652,24 +652,27 @@ export default function DriveTestPage() {
 
             {/* Highlighted note card */}
             <div className="lg:col-span-1">
-              <Card className="p-8 bg-gradient-to-br from-orange to-sky-blue text-white shadow-2xl border-0 relative overflow-hidden">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+              <Card className="p-8 bg-white border-2 border-orange/20 shadow-xl relative overflow-hidden">
+                {/* Subtle decorative elements */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-orange/5 rounded-full -translate-y-10 translate-x-10"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-sky-blue/5 rounded-full translate-y-8 -translate-x-8"></div>
                 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">⚠️</span>
+                    <div className="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center border border-orange/20">
+                      <span className="text-xl">ℹ️</span>
                     </div>
-                    <div className="text-lg font-bold">{t("savings.noteTitle")}</div>
+                    <div className="text-lg font-bold text-navy">{t("savings.noteTitle")}</div>
                   </div>
-                  <p className="text-white/90 leading-relaxed">{t("savings.noteBody")}</p>
+                  <p className="text-gray-700 leading-relaxed mb-6">{t("savings.noteBody")}</p>
                   
                   {/* Call to action */}
-                  <div className="mt-6 p-4 bg-white/10 rounded-xl border border-white/20">
-                    <div className="text-sm font-semibold mb-2">🎯 Offerta limitata</div>
-                    <div className="text-xs text-white/80">Disponibile solo per nuovi clienti</div>
+                  <div className="p-4 bg-gradient-to-r from-orange/5 to-sky-blue/5 rounded-xl border border-orange/10">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lg">🎯</span>
+                      <div className="text-sm font-semibold text-navy">Offerta limitata</div>
+                    </div>
+                    <div className="text-xs text-gray-600">Disponibile solo per nuovi clienti</div>
                   </div>
                 </div>
               </Card>
