@@ -647,8 +647,8 @@ export default function DriveTestPage() {
                     ]
                     return (
                       <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
-                        <div className="flex-shrink-0 w-8 h-8 bg-orange rounded-full flex items-center justify-center">
-                          <Image src={icons[i]} alt={`Punto ${i + 1}`} width={16} height={16} />
+                        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
+                          <Image src={icons[i]} alt={`Punto ${i + 1}`} width={24} height={24} />
                         </div>
                         <p className="text-gray-700 text-lg leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
                       </div>
@@ -667,8 +667,8 @@ export default function DriveTestPage() {
                 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center border border-orange/20">
-                      <Image src="/Setupfee_icona_Info.png" alt="Informazioni" width={20} height={20} />
+                    <div className="w-10 h-10 flex items-center justify-center">
+                      <Image src="/Setupfee_icona_Info.png" alt="Informazioni" width={24} height={24} />
                     </div>
                     <div className="text-lg font-bold text-navy">{t("savings.noteTitle")}</div>
                   </div>
