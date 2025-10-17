@@ -631,52 +631,49 @@ export default function DriveTestPage() {
               </p>
             </div>
 
-            {/* Featured highlight card - CENTERED AND EMPHASIZED */}
+            {/* Main content - EMPHASIZED AND CENTERED */}
             <div className="max-w-4xl mx-auto mb-12">
-              <Card className="p-10 bg-gradient-to-br from-orange to-sky-blue text-white shadow-2xl border-0 relative overflow-hidden">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-16 -translate-x-16"></div>
-                
-                <div className="relative z-10 text-center">
-                  <div className="flex items-center justify-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">💡</span>
-                    </div>
-                    <h3 className="text-3xl font-bold">{t("savings.noteTitle")}</h3>
-                  </div>
-                  
-                  <p className="text-xl text-white/90 leading-relaxed mb-8 max-w-3xl mx-auto">
-                    {t("savings.noteBody")}
+              <Card className="p-10 bg-white border-navy/10 shadow-xl">
+                <div className="prose prose-xl max-w-none text-center">
+                  <h3 className="text-3xl font-bold text-navy mb-8">Risparmia sulla collaborazione</h3>
+                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+                    {t("savings.microcopy.0")}
                   </p>
-                  
-                  <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                    <div className="text-lg font-semibold">🎯 Vantaggio Esclusivo</div>
-                    <div className="text-white/80">
-                      Solo per chi non ha mai provato il sistema AYCL
-                    </div>
-                  </div>
+                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+                    {t("savings.microcopy.1")}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+                    {t("savings.microcopy.2")}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    {t("savings.microcopy.3")}
+                  </p>
                 </div>
               </Card>
             </div>
 
-            {/* Main content below - unified text */}
-            <div className="max-w-4xl mx-auto">
-              <Card className="p-8 bg-white border-navy/10 shadow-sm">
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {t("savings.microcopy.0")}
+            {/* Clean highlight card below */}
+            <div className="max-w-2xl mx-auto">
+              <Card className="p-8 bg-orange/5 border-orange/20 shadow-lg">
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-orange rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">💡</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-navy">{t("savings.noteTitle")}</h3>
+                  </div>
+                  
+                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+                    {t("savings.noteBody")}
                   </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {t("savings.microcopy.1")}
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {t("savings.microcopy.2")}
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    {t("savings.microcopy.3")}
-                  </p>
+                  
+                  <div className="inline-flex items-center gap-3 bg-orange/10 px-6 py-3 rounded-xl border border-orange/20">
+                    <div className="w-2 h-2 bg-orange rounded-full"></div>
+                    <div className="text-orange font-semibold">🎯 Vantaggio Esclusivo</div>
+                    <div className="text-gray-600">
+                      Solo per chi non ha mai provato il sistema AYCL
+                    </div>
+                  </div>
                 </div>
               </Card>
             </div>
