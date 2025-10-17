@@ -16,6 +16,17 @@ import type { DriveTestOrder } from "@/lib/drive-test"
 // =====================
 type Band = { id: string; label: string; min: number; max: number }
 type Coeff = { id: string; label: string; min: number; max: number }
+type SectorOption = {
+  id: string
+  label: string
+  coefficient: number
+  level: "macro" | "granular"
+}
+type SectorGroup = {
+  id: string
+  label: string
+  options: SectorOption[]
+}
 
 const BASE_ITALIA: Band[] = [
   { id: "band_100k",       label: "< €100K",             min: 80,  max: 80  },
@@ -42,20 +53,166 @@ const COEFF_GEO: Coeff[] = [
   { id: "geo_asia",      label: "Asia (SG/HK/JP)",                    min: 1.4,  max: 1.6 },
   { id: "geo_oceania",   label: "Oceania (AU/NZ)",                    min: 1.4,  max: 1.5 }
 ]
-const COEFF_SETT: Coeff[] = [
-  { id: "sett_default",  label: "Standard",                          min: 1.0,  max: 1.0 },
-  { id: "sett_saas",     label: "SaaS / Tech B2B",                    min: 1.0,  max: 1.1 },
-  { id: "sett_mkt",      label: "Marketing / HR / Servizi prof.",     min: 1.1,  max: 1.2 },
-  { id: "sett_ind",      label: "Manifatturiero / Industria / Auto",  min: 1.2,  max: 1.3 },
-  { id: "sett_fin",      label: "Finanza / Banking / Investment",     min: 1.4,  max: 1.6 },
-  { id: "sett_health",   label: "Sanità / Medicale / Pharma",         min: 1.3,  max: 1.5 },
-  { id: "sett_re",       label: "Real Estate / Construction",         min: 1.2,  max: 1.4 },
-  { id: "sett_retail",   label: "Retail / E-commerce",                min: 1.1,  max: 1.3 },
-  { id: "sett_energy",   label: "Energia / Oil & Gas / Utility",      min: 1.5,  max: 1.8 },
-  { id: "sett_pa",       label: "Pubblica Amm. / Istituzioni",        min: 1.6,  max: 1.9 },
-  { id: "sett_clevel",   label: "C-level targeting high-ticket",      min: 1.8,  max: 2.0 },
-  { id: "sett_vc",       label: "Venture Capital / PE / M&A",         min: 1.7,  max: 2.0 }
+  const HIGHEST = 1.58
+
+  const SECTOR_GROUPS: SectorGroup[] = [
+    {
+      id: "macro_saas",
+      label: "SaaS / Tech B2B",
+      options: [
+        { id: "saas_macro", label: "SaaS / Tech B2B", coefficient: HIGHEST, level: "macro" },
+        { id: "saas_horizontal", label: "SaaS orizzontale (CRM/ERP)", coefficient: HIGHEST, level: "granular" },
+        { id: "saas_vertical", label: "SaaS verticale (PropTech/LegalTech/HRTech)", coefficient: HIGHEST, level: "granular" },
+        { id: "saas_cyber", label: "Cybersecurity", coefficient: HIGHEST, level: "granular" },
+        { id: "saas_data_ai", label: "Data & Analytics / AI", coefficient: HIGHEST, level: "granular" },
+        { id: "saas_cloud", label: "Cloud & DevOps", coefficient: HIGHEST, level: "granular" },
+        { id: "saas_it_services", label: "IT Services & System Integration", coefficient: HIGHEST, level: "granular" },
+        { id: "saas_elearning", label: "E-learning B2B", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_services",
+      label: "Servizi Professionali (Marketing/HR/Consulenza)",
+      options: [
+        {
+          id: "services_macro",
+          label: "Servizi Professionali (Marketing/HR/Consulenza)",
+          coefficient: HIGHEST,
+          level: "macro"
+        },
+        { id: "services_agencies", label: "Agenzie Marketing & Adv", coefficient: HIGHEST, level: "granular" },
+        { id: "services_recruiting", label: "Recruiting & HR Services", coefficient: HIGHEST, level: "granular" },
+        {
+          id: "services_consulting",
+          label: "Consulenza gestionale / strategica",
+          coefficient: HIGHEST,
+          level: "granular"
+        },
+        { id: "services_legal", label: "Servizi legali B2B", coefficient: HIGHEST, level: "granular" },
+        { id: "services_accounting", label: "Contabilità & Tax", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_industry",
+      label: "Manifatturiero / Industria",
+      options: [
+        { id: "industry_macro", label: "Manifatturiero / Industria", coefficient: HIGHEST, level: "macro" },
+        { id: "industry_machinery", label: "Macchinari industriali", coefficient: HIGHEST, level: "granular" },
+        { id: "industry_electronics", label: "Elettronica/EMS", coefficient: HIGHEST, level: "granular" },
+        { id: "industry_chemistry", label: "Chimica & Materiali", coefficient: HIGHEST, level: "granular" },
+        { id: "industry_food", label: "Food & Beverage Industry", coefficient: HIGHEST, level: "granular" },
+        { id: "industry_aerospace", label: "Aerospace & Defense (civile)", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_automotive",
+      label: "Automotive",
+      options: [
+        { id: "automotive_macro", label: "Automotive", coefficient: HIGHEST, level: "macro" },
+        { id: "automotive_oem", label: "Automotive OEM", coefficient: HIGHEST, level: "granular" },
+        { id: "automotive_tier", label: "Automotive Tier1/Tier2", coefficient: HIGHEST, level: "granular" },
+        { id: "automotive_mobility", label: "Mobilità & Componentistica", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_banking",
+      label: "Banking",
+      options: [
+        { id: "banking_macro", label: "Banking", coefficient: HIGHEST, level: "macro" },
+        { id: "banking_retail", label: "Banche Retail", coefficient: HIGHEST, level: "granular" },
+        { id: "banking_corporate", label: "Banche Corporate/IB", coefficient: HIGHEST, level: "granular" },
+        { id: "banking_bpo", label: "Servizi BPO bancari", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_insurance",
+      label: "Insurance",
+      options: [
+        { id: "insurance_macro", label: "Insurance", coefficient: HIGHEST, level: "macro" },
+        { id: "insurance_traditional", label: "Assicurazioni Danni/Vita", coefficient: HIGHEST, level: "granular" },
+        { id: "insurance_insurtech", label: "Insurtech", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_fintech",
+      label: "Fintech",
+      options: [
+        { id: "fintech_macro", label: "Fintech", coefficient: HIGHEST, level: "macro" },
+        { id: "fintech_payments", label: "Pagamenti", coefficient: HIGHEST, level: "granular" },
+        { id: "fintech_lending", label: "Lending/P2P", coefficient: HIGHEST, level: "granular" },
+        { id: "fintech_open_banking", label: "Open Banking/RegTech", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_asset_management",
+      label: "Asset Management / SGR",
+      options: [
+        { id: "asset_macro", label: "Asset Management / SGR", coefficient: HIGHEST, level: "macro" },
+        { id: "asset_management", label: "Asset Management", coefficient: HIGHEST, level: "granular" },
+        { id: "asset_private_banking", label: "Private Banking/Wealth", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_healthcare",
+      label: "Healthcare / Pharma / MedTech",
+      options: [
+        { id: "healthcare_macro", label: "Healthcare / Pharma / MedTech", coefficient: HIGHEST, level: "macro" },
+        { id: "healthcare_pharma", label: "Pharma", coefficient: HIGHEST, level: "granular" },
+        { id: "healthcare_biotech", label: "Biotech", coefficient: HIGHEST, level: "granular" },
+        { id: "healthcare_medtech", label: "MedTech / Dispositivi", coefficient: HIGHEST, level: "granular" },
+        { id: "healthcare_hospitals", label: "Ospedali & Cliniche", coefficient: HIGHEST, level: "granular" },
+        { id: "healthcare_diagnostics", label: "Diagnostica & Lab", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_real_estate",
+      label: "Real Estate / Costruzioni / Facility",
+      options: [
+        {
+          id: "real_estate_macro",
+          label: "Real Estate / Costruzioni / Facility",
+          coefficient: HIGHEST,
+          level: "macro"
+        },
+        { id: "real_estate_development", label: "Sviluppo immobiliare", coefficient: HIGHEST, level: "granular" },
+        { id: "real_estate_contractor", label: "General Contractor", coefficient: HIGHEST, level: "granular" },
+        { id: "real_estate_facility", label: "Facility Management", coefficient: HIGHEST, level: "granular" },
+        { id: "real_estate_proptech", label: "PropTech", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_retail",
+      label: "Retail (negozi fisici)",
+      options: [
+        { id: "retail_macro", label: "Retail (negozi fisici)", coefficient: HIGHEST, level: "macro" },
+        { id: "retail_gdo", label: "GDO", coefficient: HIGHEST, level: "granular" },
+        { id: "retail_specialized", label: "Catene retail specializzate", coefficient: HIGHEST, level: "granular" },
+        { id: "retail_franchising", label: "Retail franchising", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_ecommerce",
+      label: "E-commerce (pure player/marketplace)",
+      options: [
+        { id: "ecommerce_macro", label: "E-commerce (pure player/marketplace)", coefficient: HIGHEST, level: "macro" },
+        { id: "ecommerce_pure", label: "E-commerce pure player", coefficient: HIGHEST, level: "granular" },
+        { id: "ecommerce_marketplace", label: "Marketplace", coefficient: HIGHEST, level: "granular" },
+        { id: "ecommerce_dnvb", label: "DNVB / D2C digitale", coefficient: HIGHEST, level: "granular" }
+      ]
+    },
+    {
+      id: "macro_energy",
+      label: "Energy & Utilities",
+      options: [
+        { id: "energy_macro", label: "Energy & Utilities", coefficient: HIGHEST, level: "macro" },
+        { id: "energy_utility", label: "Utility (energia/acqua/gas)", coefficient: HIGHEST, level: "granular" },
+        { id: "energy_renewables", label: "Rinnovabili (PV/Wind/Storage)", coefficient: HIGHEST, level: "granular" }
+      ]
+    }
 ]
+
+const DEFAULT_SECTOR_GROUP = SECTOR_GROUPS[0]
+const DEFAULT_SECTOR_OPTION = DEFAULT_SECTOR_GROUP.options[0]
 
 // Regola: ≥ €10M non permette Drive Test
 const HIGH_REVENUE_IDS = new Set(["band_10m_20m", "band_20m_50m", "band_50m_plus"])
@@ -82,35 +239,30 @@ export default function DriveTestPage() {
   // =====================
   const [band, setBand] = useState<string>(BASE_ITALIA[0].id)
   const [geo, setGeo] = useState<string>(COEFF_GEO[0].id)
-  const [sector, setSector] = useState<string>(COEFF_SETT[0].id)
+  const [sectorGroup, setSectorGroup] = useState<string>(DEFAULT_SECTOR_GROUP.id)
+  const [sectorOption, setSectorOption] = useState<string>(DEFAULT_SECTOR_OPTION.id)
   const [qty, setQty] = useState<number>(10)
 
-  const calculation = useMemo(() => {
-    const selectedBand = BASE_ITALIA.find(x => x.id === band) ?? BASE_ITALIA[0]
-    const selectedGeo = COEFF_GEO.find(x => x.id === geo) ?? COEFF_GEO[0]
-    const selectedSector = COEFF_SETT.find(x => x.id === sector) ?? COEFF_SETT[0]
+  // Prezzo unitario = media(min,max) di ogni coefficiente; arrotondato a 5
+  const unitPrice = useMemo(() => {
+    const b = BASE_ITALIA.find(x => x.id === band) ?? BASE_ITALIA[0]
+    const g = COEFF_GEO.find(x => x.id === geo) ?? COEFF_GEO[0]
+    const sg = SECTOR_GROUPS.find(x => x.id === sectorGroup) ?? DEFAULT_SECTOR_GROUP
+    const so = sg.options.find(x => x.id === sectorOption) ?? sg.options[0]
+    const baseAvg = (b.min + b.max) / 2
+    const geoAvg  = (g.min + g.max) / 2
+    return round5(baseAvg * geoAvg * so.coefficient)
+  }, [band, geo, sectorGroup, sectorOption])
 
-    const riskRatio = DEFAULT_RISK_PROFILE / 100
+  const selectedSectorGroup = useMemo(
+    () => SECTOR_GROUPS.find(x => x.id === sectorGroup) ?? DEFAULT_SECTOR_GROUP,
+    [sectorGroup]
+  )
+  const selectedSectorOption = useMemo(
+    () => selectedSectorGroup.options.find(x => x.id === sectorOption) ?? selectedSectorGroup.options[0],
+    [selectedSectorGroup, sectorOption]
+  )
 
-    const unitMin = round5(selectedBand.min * selectedGeo.min * selectedSector.min)
-    const unitMax = round5(selectedBand.max * selectedGeo.max * selectedSector.max)
-
-    const suggestedBase = lerp(selectedBand.min, selectedBand.max, riskRatio)
-    const suggestedGeo = lerp(selectedGeo.min, selectedGeo.max, riskRatio)
-    const suggestedSector = lerp(selectedSector.min, selectedSector.max, riskRatio)
-    const suggestedUnit = round5(suggestedBase * suggestedGeo * suggestedSector)
-
-    return {
-      selectedBand,
-      selectedGeo,
-      selectedSector,
-      unitMin,
-      unitMax,
-      suggestedUnit,
-    }
-  }, [band, geo, sector])
-
-  const unitPrice = calculation.suggestedUnit
   const total = useMemo(() => unitPrice * qty, [unitPrice, qty])
   const isHighRevenue = HIGH_REVENUE_IDS.has(band)
 
@@ -122,23 +274,14 @@ export default function DriveTestPage() {
       quantity: qty,
       total,
       priceRange: {
-        min: calculation.unitMin,
-        max: calculation.unitMax,
+        min: unitPrice,
+        max: unitPrice,
       },
       selections: {
-        revenueBand: {
-          id: calculation.selectedBand.id,
-          label: calculation.selectedBand.label,
-        },
-        geography: {
-          id: calculation.selectedGeo.id,
-          label: calculation.selectedGeo.label,
-        },
-        sector: {
-          id: calculation.selectedSector.id,
-          label: calculation.selectedSector.label,
-        },
-        riskProfile: DEFAULT_RISK_PROFILE,
+        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label ?? BASE_ITALIA[0].label,
+        geography:   COEFF_GEO.find(x => x.id === geo)?.label ?? COEFF_GEO[0].label,
+        macroSector: selectedSectorGroup.label,
+        sector:      selectedSectorOption.label
       },
       metadata: {
         locale,
@@ -229,10 +372,10 @@ export default function DriveTestPage() {
                       <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80">
                         Drive Test Premium
                       </span>
-                      <div>
-                        <h3 className="text-3xl font-bold leading-tight sm:text-4xl">{t("form.title")}</h3>
-                        <p className="mt-3 text-sm text-white/80 sm:text-base">{t("hero.microcopy")}</p>
-                      </div>
+                        <div>
+                          <h3 className="text-3xl font-bold leading-tight sm:text-4xl">{t("form.title")}</h3>
+                          <p className="mt-3 text-sm text-white/80 sm:text-base">{t("hero.microcopy")}</p>
+                        </div>
                     </div>
 
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -295,15 +438,39 @@ export default function DriveTestPage() {
                         </label>
 
                         <label className="block space-y-2">
+                          <span className="text-sm font-semibold text-navy">Macro settore</span>
+                          <select
+                            className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
+                            value={sectorGroup}
+                            onChange={(e) => {
+                              const nextGroup = e.target.value
+                              setSectorGroup(nextGroup)
+                              const group = SECTOR_GROUPS.find(x => x.id === nextGroup)
+                              if (group) {
+                                setSectorOption(group.options[0].id)
+                              } else {
+                                setSectorOption(DEFAULT_SECTOR_OPTION.id)
+                              }
+                            }}
+                          >
+                            {SECTOR_GROUPS.map(group => (
+                              <option key={group.id} value={group.id}>
+                                {group.label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+
+                        <label className="block space-y-2">
                           <span className="text-sm font-semibold text-navy">{t("form.sector")}</span>
                           <select
                             className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
-                            value={sector}
-                            onChange={(e) => setSector(e.target.value)}
+                            value={sectorOption}
+                            onChange={(e) => setSectorOption(e.target.value)}
                           >
-                            {COEFF_SETT.map(s => (
-                              <option key={s.id} value={s.id}>
-                                {s.label}
+                            {selectedSectorGroup.options.map(option => (
+                              <option key={option.id} value={option.id}>
+                                {option.level === "macro" ? `${option.label} (Macro)` : option.label}
                               </option>
                             ))}
                           </select>
