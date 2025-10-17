@@ -337,10 +337,10 @@ export default function DriveTestPage() {
         max: unitPrice,
       },
       selections: {
-        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label,
-        geography:   COEFF_GEO.find(x => x.id === geo)?.label,
-        macroSector: selectedSectorGroup?.label,
-        sector:      selectedSectorOption?.label
+        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label ?? "",
+        geography:   COEFF_GEO.find(x => x.id === geo)?.label ?? "",
+        macroSector: selectedSectorGroup?.label ?? "",
+        sector:      selectedSectorOption?.label ?? ""
       },
       metadata: {
         locale,
