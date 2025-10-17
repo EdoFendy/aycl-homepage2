@@ -21,16 +21,28 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
   const currency = order?.currency || "EUR";
   const currencyFormatter = new Intl.NumberFormat(locale, { style: "currency", currency });
 
+  // Determina se è un Drive Test basandosi sul nome del prodotto
+  const isDriveTest = order && (
+    order.package.toLowerCase().includes('drive test') ||
+    order.package.toLowerCase().includes('drive-test') ||
+    order.package.toLowerCase().includes('drivetest') ||
+    (order.metadata?.productName && (
+      order.metadata.productName.toLowerCase().includes('drive test') ||
+      order.metadata.productName.toLowerCase().includes('drive-test') ||
+      order.metadata.productName.toLowerCase().includes('drivetest')
+    ))
+  );
+
   const metrics = order
     ? [
         {
           label: t("order.metrics.unitPrice"),
           value: currencyFormatter.format(order.unitPrice),
         },
-        {
+        ...(isDriveTest ? [{
           label: t("order.metrics.quantity"),
           value: order.quantity.toString(),
-        },
+        }] : []),
         {
           label: t("order.metrics.total"),
           value: currencyFormatter.format(order.total),
@@ -83,7 +95,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                 </div>
               </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <div className={`mt-6 grid gap-4 ${isDriveTest ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
                 {metrics.map((metric) => (
                   <div key={metric.label} className="rounded-xl border border-gray-200 bg-gray-50 p-4">
                     <p className="text-xs uppercase tracking-[0.25em] text-gray-400">{metric.label}</p>
@@ -92,7 +104,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
                 ))}
               </div>
 
-              {order && order.quantity > 1 && (
+              {order && isDriveTest && order.quantity > 1 && (
                 <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-4">
                   <div className="flex items-center justify-between">
                     <div>
@@ -192,11 +204,23 @@ function buildProductDetails(
     },
   ];
 
-  // Aggiungi sempre quantità e prezzo unitario
-  details.push({
-    label: t("order.details.quantity"),
-    value: order.quantity.toString(),
-  });
+  // Determina se è un Drive Test
+  const isDriveTest = order.package.toLowerCase().includes('drive test') ||
+    order.package.toLowerCase().includes('drive-test') ||
+    order.package.toLowerCase().includes('drivetest') ||
+    (order.metadata?.productName && (
+      order.metadata.productName.toLowerCase().includes('drive test') ||
+      order.metadata.productName.toLowerCase().includes('drive-test') ||
+      order.metadata.productName.toLowerCase().includes('drivetest')
+    ));
+
+  // Aggiungi quantità solo per Drive Test
+  if (isDriveTest) {
+    details.push({
+      label: t("order.details.quantity"),
+      value: order.quantity.toString(),
+    });
+  }
 
   details.push({
     label: t("order.details.unitPrice"),
