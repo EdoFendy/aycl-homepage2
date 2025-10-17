@@ -89,7 +89,7 @@ export default async function RootLayout({
   const locale = await getLocale()
   const messages = await getMessages()
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -98,7 +98,7 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-worksans antialiased">
+      <body className="font-worksans antialiased" suppressHydrationWarning>
         <NextIntlClientProvider key={locale} messages={messages} locale={locale}>
           <SiteHeader />
           <div className="flex min-h-screen flex-col">

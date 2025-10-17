@@ -27,6 +27,11 @@ const navigation = [
     label: "Crea pagamento",
     icon: "Link2",
   },
+  {
+    href: "/admin/documents",
+    label: "Documenti",
+    icon: "FileText",
+  },
 ];
 
 export default async function AdminProtectedLayout({ children }: { children: ReactNode }) {

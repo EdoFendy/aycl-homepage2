@@ -8,6 +8,7 @@ import {
   Package,
   CreditCard,
   Link2,
+  FileText,
 } from "lucide-react";
 
 type AdminNavLinkProps = {
@@ -21,6 +22,7 @@ const iconMap = {
   Package,
   CreditCard,
   Link2,
+  FileText,
 };
 
 export function AdminNavLink({ href, label, icon }: AdminNavLinkProps) {
