@@ -420,51 +420,51 @@ export default function DriveTestPage() {
 
             <Card className="relative mx-auto max-w-5xl overflow-hidden border-none bg-transparent p-0 shadow-xl">
               <div className="grid gap-0 lg:grid-cols-[1.15fr_1fr]">
-                <div className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-sky-blue px-6 py-8 sm:px-10 sm:py-12 text-white">
+                <div className="relative overflow-hidden bg-gradient-to-br from-white via-orange/5 to-sky-blue/10 px-6 py-8 sm:px-10 sm:py-12 text-navy">
                   <div className="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
                   <div className="pointer-events-none absolute -bottom-12 left-1/3 h-32 w-32 rounded-full bg-orange/20 blur-2xl" />
                   <div className="relative flex h-full flex-col justify-between gap-10">
                     <div className="space-y-4">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-navy/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-navy/80">
                         Drive Test Premium
                       </span>
                       <div>
                         <h3 className="text-3xl font-bold leading-tight sm:text-4xl">Configura il tuo Drive Test</h3>
-                        <p className="mt-3 text-sm text-white/80 sm:text-base">{t("hero.microcopy")}</p>
+                        <p className="mt-3 text-sm text-gray-600 sm:text-base">{t("hero.microcopy")}</p>
                       </div>
                     </div>
 
                     <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="rounded-3xl border border-white/20 bg-white/10 p-6 shadow-lg">
-                        <div className="text-xs font-medium uppercase tracking-wider text-white/70">{t("form.unit")}</div>
-                        <div className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">€ {unitPrice.toLocaleString()}</div>
-                        <div className="mt-2 text-xs text-white/70">+ IVA</div>
+                      <div className="rounded-3xl border border-navy/10 bg-white/80 p-6 shadow-lg">
+                        <div className="text-xs font-medium uppercase tracking-wider text-navy/70">{t("form.unit")}</div>
+                        <div className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl text-navy">€ {unitPrice.toLocaleString()}</div>
+                        <div className="mt-2 text-xs text-navy/70">+ IVA</div>
                       </div>
-                      <div className="rounded-3xl border border-white/20 bg-white p-6 text-navy shadow-lg">
+                      <div className="rounded-3xl border border-navy/10 bg-white p-6 text-navy shadow-lg">
                         <div className="text-xs font-semibold uppercase tracking-wider text-navy/60">{t("form.total")}</div>
                         <div className="mt-3 text-4xl font-extrabold tracking-tight text-orange sm:text-5xl">€ {total.toLocaleString()}</div>
                         <div className="mt-2 text-xs font-medium text-navy/60">{t("form.qty")}: <span className="font-bold text-navy">{qty}</span></div>
                       </div>
                     </div>
 
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between text-sm font-medium text-white/80">
-                        <span>{t("form.qty")}</span>
-                        <span className="text-2xl font-extrabold text-orange">{qty}</span>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between text-sm font-medium text-navy/80">
+                          <span>{t("form.qty")}</span>
+                          <span className="text-2xl font-extrabold text-orange">{qty}</span>
+                        </div>
+                        <input
+                          type="range"
+                          min={MIN_QTY}
+                          max={MAX_QTY}
+                          value={qty}
+                          onChange={(e) => setQty(parseInt(e.target.value))}
+                          className="h-2 w-full cursor-pointer appearance-none rounded-full bg-navy/20 accent-orange"
+                        />
+                        <div className="flex items-center justify-between text-xs text-navy/60">
+                          <span>{MIN_QTY}</span>
+                          <span>{MAX_QTY}</span>
+                        </div>
                       </div>
-                      <input
-                        type="range"
-                        min={MIN_QTY}
-                        max={MAX_QTY}
-                        value={qty}
-                        onChange={(e) => setQty(parseInt(e.target.value))}
-                        className="h-2 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-orange"
-                      />
-                      <div className="flex items-center justify-between text-xs text-white/60">
-                        <span>{MIN_QTY}</span>
-                        <span>{MAX_QTY}</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -657,16 +657,12 @@ export default function DriveTestPage() {
               <div className="space-y-8">
                 {Array.from({ length: 7 }).map((_, i) => (
                   <div key={i} className="relative flex items-start gap-8">
-                    <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange to-sky-blue rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
-                      <span className="text-white font-bold text-lg">{i + 1}</span>
+                    <div className="hidden lg:flex items-center justify-center bg-white/9 w-16 h-16 rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                      <span className="text-navy font-bold text-lg">{i + 1}</span>
                     </div>
                     <Card className="flex-1 p-8 bg-white/90 backdrop-blur-sm border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                       <div className="flex items-start gap-6">
-                        <div className="w-16 h-16 flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-orange/10 to-sky-blue/10 rounded-2xl">
-                          <div className="w-8 h-8 bg-gradient-to-br from-orange to-sky-blue rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">{i + 1}</span>
-                          </div>
-                        </div>
+                  
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-3">
                             <h3 className="text-xl font-bold text-navy">Passo {i + 1}</h3>
