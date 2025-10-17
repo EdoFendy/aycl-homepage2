@@ -631,43 +631,31 @@ export default function DriveTestPage() {
               </p>
             </div>
 
-            <div className="grid gap-12 lg:grid-cols-3">
-              {/* Main content with enhanced styling */}
-              <div className="lg:col-span-2">
-                <div className="space-y-8">
-                  {Array.from({ length: 4 }).map((_, i) => (
-                    <Card key={i} className="p-8 bg-white/90 backdrop-blur-sm border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-orange to-sky-blue rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">{i + 1}</span>
-                        </div>
-                        <p className="text-gray-700 text-lg leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
+            <div className="grid gap-8 lg:grid-cols-2">
+              {/* Main content with clean styling */}
+              <div className="space-y-6">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <Card key={i} className="p-6 bg-white border-navy/10 shadow-sm hover:shadow-md transition-shadow">
+                    <p className="text-gray-700 leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
+                  </Card>
+                ))}
               </div>
 
-              {/* Enhanced highlight card */}
-              <div className="lg:col-span-1">
-                <Card className="p-8 bg-gradient-to-br from-orange to-sky-blue text-white shadow-2xl border-0 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-2xl">💡</span>
-                      </div>
-                      <h3 className="text-xl font-bold">{t("savings.noteTitle")}</h3>
+              {/* Clean highlight card */}
+              <div>
+                <Card className="p-6 bg-white border-orange/20 shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">💡</span>
                     </div>
-                    <p className="text-white/90 leading-relaxed">{t("savings.noteBody")}</p>
-                    
-                    <div className="mt-6 p-4 bg-white/10 rounded-xl border border-white/20">
-                      <div className="text-sm font-semibold mb-2">🎯 Vantaggio Esclusivo</div>
-                      <div className="text-sm text-white/80">
-                        Solo per chi non ha mai provato il sistema AYCL
-                      </div>
+                    <h3 className="text-lg font-bold text-navy">{t("savings.noteTitle")}</h3>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed mb-4">{t("savings.noteBody")}</p>
+                  
+                  <div className="p-4 bg-orange/5 rounded-lg border border-orange/20">
+                    <div className="text-sm font-semibold text-orange mb-1">🎯 Vantaggio Esclusivo</div>
+                    <div className="text-sm text-gray-600">
+                      Solo per chi non ha mai provato il sistema AYCL
                     </div>
                   </div>
                 </Card>
