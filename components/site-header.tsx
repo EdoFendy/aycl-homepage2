@@ -16,6 +16,7 @@ import {
   Layers,
   CreditCard,
   HelpCircle,
+  Gauge,
 } from "lucide-react"
 
 const BORDER_DARK = "border-[#0B1D3A]" // blu più scuro per i bordi
@@ -164,31 +165,48 @@ export function SiteHeader() {
 
                     {/* Set-Up Fee */}
                     <Link
-                        href="/pacchetti/set-up-fee"
-                        onClick={() => setOpen(false)}
-                        className={cn(
-                          "flex items-start gap-2 rounded-lg bg-white/85 p-3 transition hover:-translate-y-0.5 hover:shadow-lg sm:col-span-2 sm:min-w-0 sm:gap-3 sm:rounded-xl sm:p-4",
-                          BORDER_DARK,
-                        )}
-                      >
-                        <div className="flex items-start justify-start h-12 w-12 rounded-lg flex-shrink-0 sm:h-16 sm:w-16">
-                          <Image
-                            src="/iconaSetupfee.png"
-                            alt={t("alt.setup")}
-                            width={48}
-                            height={48}
-                            className="h-8 w-8 align-top object-contain sm:h-12 sm:w-12"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-sm font-semibold text-navy sm:text-base">{t("mega.card.setup.title")}</p>
-                          <p className="text-xs text-gray-600 sm:text-sm">{t("mega.card.setup.desc")}</p>
-                        </div>
-                      </Link>
+                      href="/pacchetti/set-up-fee"
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex items-start gap-2 rounded-lg bg-white/85 p-3 transition hover:-translate-y-0.5 hover:shadow-lg sm:col-span-2 sm:min-w-0 sm:gap-3 sm:rounded-xl sm:p-4",
+                        BORDER_DARK,
+                      )}
+                    >
+                      <div className="flex items-start justify-start h-12 w-12 rounded-lg flex-shrink-0 sm:h-16 sm:w-16">
+                        <Image
+                          src="/iconaSetupfee.png"
+                          alt={t("alt.setup")}
+                          width={48}
+                          height={48}
+                          className="h-8 w-8 align-top object-contain sm:h-12 sm:w-12"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-navy sm:text-base">{t("mega.card.setup.title")}</p>
+                        <p className="text-xs text-gray-600 sm:text-sm">{t("mega.card.setup.desc")}</p>
+                      </div>
+                    </Link>
 
-                      
-                                    {/* Subscription */}
-                                    <Link
+                    {/* Drive Test */}
+                    <Link
+                      href="/pacchetti/drive-test"
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex items-start gap-2 rounded-lg bg-white/85 p-3 transition hover:-translate-y-0.5 hover:shadow-lg sm:min-w-0 sm:gap-3 sm:rounded-xl sm:p-4",
+                        BORDER_DARK,
+                      )}
+                    >
+                      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-orange/10 text-orange flex-shrink-0 sm:h-16 sm:w-16">
+                        <Gauge className="h-6 w-6" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-navy sm:text-base">{t("mega.card.driveTest.title")}</p>
+                        <p className="text-xs text-gray-600 sm:text-sm">{t("mega.card.driveTest.desc")}</p>
+                      </div>
+                    </Link>
+
+                    {/* Subscription */}
+                    <Link
                         href="/pacchetti/subscription"
                         onClick={() => setOpen(false)}
                         className={cn(
