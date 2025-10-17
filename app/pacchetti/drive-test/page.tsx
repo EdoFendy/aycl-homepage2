@@ -421,7 +421,7 @@ export default function DriveTestPage() {
             <Card className="relative mx-auto max-w-5xl overflow-hidden border-none bg-transparent p-0 shadow-xl">
               <div className="grid gap-0 lg:grid-cols-[1.15fr_1fr]">
                 <div className="relative overflow-hidden bg-gradient-to-br from-white via-orange/5 to-sky-blue/10 px-6 py-8 sm:px-10 sm:py-12 text-navy">
-                  <div className="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+                  <div className="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-orange/10 blur-3xl" />
                   <div className="pointer-events-none absolute -bottom-12 left-1/3 h-32 w-32 rounded-full bg-orange/20 blur-2xl" />
                   <div className="relative flex h-full flex-col justify-between gap-10">
                     <div className="space-y-4">
@@ -657,7 +657,7 @@ export default function DriveTestPage() {
               <div className="space-y-8">
                 {Array.from({ length: 7 }).map((_, i) => (
                   <div key={i} className="relative flex items-start gap-8">
-                    <div className="hidden lg:flex items-center justify-center bg-white/9 w-16 h-16 rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                    <div className="hidden lg:flex items-center justify-center bg-white w-16 h-16 rounded-full border-4 border-navy/10 shadow-lg relative z-10 flex-shrink-0">
                       <span className="text-navy font-bold text-lg">{i + 1}</span>
                     </div>
                     <Card className="flex-1 p-8 bg-white/90 backdrop-blur-sm border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
