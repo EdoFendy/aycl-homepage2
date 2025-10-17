@@ -616,77 +616,76 @@ export default function DriveTestPage() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
-          <PageLayoutContainer>
-            {/* Header with badge */}
-            <div className="text-center mb-16">
-              <span className="inline-flex items-center justify-center rounded-full bg-orange px-6 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white mb-6">
-                💰 Risparmio Garantito
-              </span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
-                {t("savings.subheadline")}
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                La formula Drive Test ti permette di testare il sistema senza rischi e senza sprecare un solo euro
-              </p>
+        <PageLayoutContainer className="px-4 sm:px-6 relative z-10">
+          {/* Header with badge */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 rounded-full bg-orange px-4 py-2 text-sm font-semibold text-white mb-6">
+              <span className="text-lg">💰</span>
+              <span>RISPARMIO GARANTITO</span>
             </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
+              {t.rich("savings.subheadline", { 
+                strong: (c) => <span className="text-orange bg-orange/10 px-2 py-1 rounded-lg">{c}</span> 
+              })}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              La formula Drive Test ti permette di <strong>risparmiare completamente</strong> sui tuoi primi appuntamenti
+            </p>
+          </div>
 
-            {/* Main content - EMPHASIZED AND CENTERED */}
-            <div className="max-w-4xl mx-auto mb-12">
-              <Card className="p-10 bg-white border-navy/10 shadow-xl">
-                <div className="prose prose-xl max-w-none text-center">
-                  <h3 className="text-3xl font-bold text-navy mb-8">Risparmia sulla collaborazione</h3>
-                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                    {t("savings.microcopy.0")}
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                    {t("savings.microcopy.1")}
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                    {t("savings.microcopy.2")}
-                  </p>
-                  <p className="text-gray-700 leading-relaxed text-lg">
-                    {t("savings.microcopy.3")}
-                  </p>
-                </div>
-              </Card>
-            </div>
-
-            {/* Clean highlight card below */}
-            <div className="max-w-2xl mx-auto">
-              <Card className="p-8 bg-orange/5 border-orange/20 shadow-lg">
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-orange rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">💡</span>
+          <div className="grid gap-12 lg:grid-cols-3">
+            {/* Main content - Enhanced */}
+            <div className="lg:col-span-2">
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-orange/20">
+                <div className="space-y-6">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
+                      <div className="flex-shrink-0 w-8 h-8 bg-orange rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold text-sm">{i + 1}</span>
+                      </div>
+                      <p className="text-gray-700 text-lg leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
                     </div>
-                    <h3 className="text-2xl font-bold text-navy">{t("savings.noteTitle")}</h3>
-                  </div>
-                  
-                  <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-                    {t("savings.noteBody")}
-                  </p>
-                  
-                  <div className="inline-flex items-center gap-3 bg-orange/10 px-6 py-3 rounded-xl border border-orange/20">
-                    <div className="w-2 h-2 bg-orange rounded-full"></div>
-                    <div className="text-orange font-semibold">🎯 Vantaggio Esclusivo</div>
-                    <div className="text-gray-600">
-                      Solo per chi non ha mai provato il sistema AYCL
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              </Card>
-            </div>
-
-            {/* Call to action */}
-            <div className="mt-16 text-center">
-              <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-2xl shadow-lg border border-orange/20">
-                <div className="w-3 h-3 bg-orange rounded-full animate-pulse"></div>
-                <span className="text-navy font-semibold">Non perdere questa opportunità unica</span>
               </div>
+            </div>
+
+            {/* Highlighted note card */}
+            <div className="lg:col-span-1">
+              <Card className="p-8 bg-gradient-to-br from-orange to-sky-blue text-white shadow-2xl border-0 relative overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">⚠️</span>
+                    </div>
+                    <div className="text-lg font-bold">{t("savings.noteTitle")}</div>
+                  </div>
+                  <p className="text-white/90 leading-relaxed">{t("savings.noteBody")}</p>
+                  
+                  {/* Call to action */}
+                  <div className="mt-6 p-4 bg-white/10 rounded-xl border border-white/20">
+                    <div className="text-sm font-semibold mb-2">🎯 Offerta limitata</div>
+                    <div className="text-xs text-white/80">Disponibile solo per nuovi clienti</div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-sm px-8 py-4 rounded-2xl shadow-lg border border-orange/20">
+              <span className="text-2xl">🚀</span>
+              <span className="text-lg font-semibold text-navy">
+                Inizia subito e risparmia sul tuo primo pacchetto!
+              </span>
+            </div>
           </div>
         </PageLayoutContainer>
-        </div>
       </section>
 
       {/* HOW IT WORKS - Enhanced Timeline */}
