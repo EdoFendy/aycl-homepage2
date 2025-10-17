@@ -631,26 +631,30 @@ export default function DriveTestPage() {
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-navy/10">
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {t("savings.microcopy.0")} {t("savings.microcopy.1")} {t("savings.microcopy.2")} {t("savings.microcopy.3")}
-                  </p>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid gap-8 lg:grid-cols-2">
+                {/* Prima parte - Testo principale */}
+                <div className="bg-white rounded-2xl p-8 shadow-lg border border-navy/10">
+                  <div className="prose prose-lg max-w-none">
+                    <p className="text-gray-700 leading-relaxed">
+                      {t("savings.microcopy.0")} {t("savings.microcopy.1")} {t("savings.microcopy.2")} {t("savings.microcopy.3")}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="mt-8 p-6 bg-orange/5 rounded-xl border border-orange/20">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center">
+
+                {/* Seconda parte - Specchietto verde */}
+                <div className="bg-green-50 rounded-2xl p-8 shadow-lg border border-green-200">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold text-sm">💡</span>
                     </div>
-                    <h3 className="text-lg font-bold text-navy">{t("savings.noteTitle")}</h3>
+                    <h3 className="text-lg font-bold text-green-800">{t("savings.noteTitle")}</h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed mb-4">{t("savings.noteBody")}</p>
+                  <p className="text-green-700 leading-relaxed mb-4">{t("savings.noteBody")}</p>
                   
-                  <div className="p-4 bg-orange/10 rounded-lg border border-orange/30">
-                    <div className="text-sm font-semibold text-orange mb-1">🎯 Vantaggio Esclusivo</div>
-                    <div className="text-sm text-gray-600">
+                  <div className="p-4 bg-green-100 rounded-lg border border-green-300">
+                    <div className="text-sm font-semibold text-green-800 mb-1">🎯 Vantaggio Esclusivo</div>
+                    <div className="text-sm text-green-600">
                       Solo per chi non ha mai provato il sistema AYCL
                     </div>
                   </div>
