@@ -57,9 +57,9 @@ async function createDriveTestProduct(order: DriveTestOrder) {
   }
 
   const sku = `drive-test-${Date.now()}`;
-  const quantityLabel = order.quantity === 1 ? "appuntamento" : "appuntamenti";
-  const price = formatPriceString(order.total);
+  const quantityLabel = getQuantityLabel(order.metadata?.locale, order.quantity);
   const unitPrice = formatPriceString(order.unitPrice);
+  const totalPrice = formatPriceString(order.total);
   const rangeMin = formatPriceString(order.priceRange.min);
   const rangeMax = formatPriceString(order.priceRange.max);
 
@@ -67,6 +67,7 @@ async function createDriveTestProduct(order: DriveTestOrder) {
     `<p><strong>Pacchetto:</strong> ${order.package}</p>`,
     `<p><strong>Quantità:</strong> ${order.quantity} ${quantityLabel}</p>`,
     `<p><strong>Prezzo unitario:</strong> ${unitPrice} ${order.currency}</p>`,
+    `<p><strong>Totale:</strong> ${totalPrice} ${order.currency}</p>`,
     `<p><strong>Range stimato:</strong> ${rangeMin} - ${rangeMax} ${order.currency}</p>`,
   ].join("");
 
@@ -82,7 +83,7 @@ async function createDriveTestProduct(order: DriveTestOrder) {
         type: "simple",
         status: "publish",
         sku,
-        regular_price: price,
+        regular_price: unitPrice,
         virtual: true,
         description,
         short_description: `${order.package} (${order.quantity} ${quantityLabel})`,
@@ -144,5 +145,19 @@ async function safeParseJSON(response: Response) {
     return await response.json();
   } catch {
     return null;
+  }
+}
+
+function getQuantityLabel(locale: string | undefined, quantity: number) {
+  const normalized = locale?.split("-")[0];
+  const isSingular = quantity === 1;
+
+  switch (normalized) {
+    case "en":
+      return isSingular ? "appointment" : "appointments";
+    case "es":
+      return isSingular ? "cita" : "citas";
+    default:
+      return isSingular ? "appuntamento" : "appuntamenti";
   }
 }

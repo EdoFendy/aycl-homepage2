@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
@@ -9,6 +9,7 @@ import { PageLayoutContainer } from "@/components/page-layout-container"
 import { Card } from "@/components/ui/card"
 import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 import { Calculator, CheckCircle2 } from "lucide-react"
+import type { DriveTestOrder } from "@/lib/drive-test"
 
 // =====================
 //  DATI COEFFICIENTI
@@ -59,9 +60,14 @@ const HIGH_REVENUE_IDS = new Set(["band_10m_20m", "band_20m_50m", "band_50m_plus
 const MIN_QTY = 5
 const MAX_QTY = 20
 const round5 = (v: number) => Math.round(v / 5) * 5
+const lerp = (min: number, max: number, t: number) => min + (max - min) * t
+
+const DEFAULT_RISK_PROFILE = 50
+const CURRENCY = "EUR"
 
 export default function DriveTestPage() {
   const t = useTranslations("driveTest")
+  const locale = useLocale()
   const router = useRouter()
 
   // =====================
@@ -77,33 +83,66 @@ export default function DriveTestPage() {
   const [sector, setSector] = useState<string>(COEFF_SETT[0].id)
   const [qty, setQty] = useState<number>(10)
 
-  // Prezzo unitario = media(min,max) di ogni coefficiente; arrotondato a 5
-  const unitPrice = useMemo(() => {
-    const b = BASE_ITALIA.find(x => x.id === band) ?? BASE_ITALIA[0]
-    const g = COEFF_GEO.find(x => x.id === geo) ?? COEFF_GEO[0]
-    const s = COEFF_SETT.find(x => x.id === sector) ?? COEFF_SETT[0]
-    const baseAvg = (b.min + b.max) / 2
-    const geoAvg  = (g.min + g.max) / 2
-    const setAvg  = (s.min + s.max) / 2
-    return round5(baseAvg * geoAvg * setAvg)
+  const calculation = useMemo(() => {
+    const selectedBand = BASE_ITALIA.find(x => x.id === band) ?? BASE_ITALIA[0]
+    const selectedGeo = COEFF_GEO.find(x => x.id === geo) ?? COEFF_GEO[0]
+    const selectedSector = COEFF_SETT.find(x => x.id === sector) ?? COEFF_SETT[0]
+
+    const riskRatio = DEFAULT_RISK_PROFILE / 100
+
+    const unitMin = round5(selectedBand.min * selectedGeo.min * selectedSector.min)
+    const unitMax = round5(selectedBand.max * selectedGeo.max * selectedSector.max)
+
+    const suggestedBase = lerp(selectedBand.min, selectedBand.max, riskRatio)
+    const suggestedGeo = lerp(selectedGeo.min, selectedGeo.max, riskRatio)
+    const suggestedSector = lerp(selectedSector.min, selectedSector.max, riskRatio)
+    const suggestedUnit = round5(suggestedBase * suggestedGeo * suggestedSector)
+
+    return {
+      selectedBand,
+      selectedGeo,
+      selectedSector,
+      unitMin,
+      unitMax,
+      suggestedUnit,
+    }
   }, [band, geo, sector])
 
+  const unitPrice = calculation.suggestedUnit
   const total = useMemo(() => unitPrice * qty, [unitPrice, qty])
   const isHighRevenue = HIGH_REVENUE_IDS.has(band)
 
   async function handleCheckout() {
-    const order = {
+    const order: DriveTestOrder = {
       package: "Drive Test",
-      currency: "EUR",
+      currency: CURRENCY,
       unitPrice,
       quantity: qty,
       total,
-      selections: {
-        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label,
-        geography:   COEFF_GEO.find(x => x.id === geo)?.label,
-        sector:      COEFF_SETT.find(x => x.id === sector)?.label
+      priceRange: {
+        min: calculation.unitMin,
+        max: calculation.unitMax,
       },
-      metadata: { generatedAt: new Date().toISOString() }
+      selections: {
+        revenueBand: {
+          id: calculation.selectedBand.id,
+          label: calculation.selectedBand.label,
+        },
+        geography: {
+          id: calculation.selectedGeo.id,
+          label: calculation.selectedGeo.label,
+        },
+        sector: {
+          id: calculation.selectedSector.id,
+          label: calculation.selectedSector.label,
+        },
+        riskProfile: DEFAULT_RISK_PROFILE,
+      },
+      metadata: {
+        locale,
+        generatedAt: new Date().toISOString(),
+        productName: t("hero.badge"),
+      },
     }
 
     const res = await fetch("/api/checkout/order", {
@@ -174,7 +213,7 @@ export default function DriveTestPage() {
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/5">
                 <Calculator className="h-6 w-6 text-navy" />
               </div>
-              <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-navy">Drive Test</h2>
+              <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-navy">{t("form.title")}</h2>
               <p className="text-gray-600 mt-2">{t("hero.microcopy")}</p>
             </div>
 
@@ -219,7 +258,7 @@ export default function DriveTestPage() {
               {isHighRevenue ? (
                 <div className="mt-8 flex flex-col items-center gap-3">
                   <p className="text-gray-700 text-center">
-                    Le aziende con fatturato superiore a €10M vengono seguite con una configurazione dedicata.
+                    {t("form.highRevenueNotice")}
                   </p>
                   {/* Collega questo CTA alla tua route o a Cal.com */}
                   <SlideArrowButton primaryColor="#ff9d3d" text={t("form.ctaConsult")} />
