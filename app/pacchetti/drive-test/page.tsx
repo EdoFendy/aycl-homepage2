@@ -28,6 +28,7 @@ const BASE_ITALIA: Band[] = [
   { id: "band_50m_plus",   label: "€50M+",               min: 220, max: 300 }
 ]
 const COEFF_GEO: Coeff[] = [
+  { id: "geo_default",   label: "Predefinito",                        min: 1.0,  max: 1.0 },
   { id: "geo_italia",    label: "Italia",                            min: 1.0,  max: 1.0 },
   { id: "geo_sp_po",     label: "Spagna / Portogallo",               min: 1.1,  max: 1.1 },
   { id: "geo_fr_de_be",  label: "Francia / Germania / Benelux",      min: 1.2,  max: 1.3 },
@@ -42,6 +43,7 @@ const COEFF_GEO: Coeff[] = [
   { id: "geo_oceania",   label: "Oceania (AU/NZ)",                    min: 1.4,  max: 1.5 }
 ]
 const COEFF_SETT: Coeff[] = [
+  { id: "sett_default",  label: "Standard",                          min: 1.0,  max: 1.0 },
   { id: "sett_saas",     label: "SaaS / Tech B2B",                    min: 1.0,  max: 1.1 },
   { id: "sett_mkt",      label: "Marketing / HR / Servizi prof.",     min: 1.1,  max: 1.2 },
   { id: "sett_ind",      label: "Manifatturiero / Industria / Auto",  min: 1.2,  max: 1.3 },
@@ -217,93 +219,137 @@ export default function DriveTestPage() {
               <p className="text-gray-600 mt-2">{t("hero.microcopy")}</p>
             </div>
 
-            <Card className="p-6 sm:p-8 bg-white border-navy/10 shadow-sm hover:shadow-md transition-shadow max-w-4xl mx-auto">
-              {/* 3 SELECT MINIMAL */}
-              <div className="grid gap-4 sm:grid-cols-3">
-                <label className="space-y-1">
-                  <div className="text-sm font-medium text-navy">{t("form.geo")}</div>
-                  <select
-                    className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
-                    value={geo}
-                    onChange={(e) => setGeo(e.target.value)}
-                  >
-                    {COEFF_GEO.map(g => <option key={g.id} value={g.id}>{g.label}</option>)}
-                  </select>
-                </label>
-
-                <label className="space-y-1">
-                  <div className="text-sm font-medium text-navy">{t("form.sector")}</div>
-                  <select
-                    className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
-                    value={sector}
-                    onChange={(e) => setSector(e.target.value)}
-                  >
-                    {COEFF_SETT.map(s => <option key={s.id} value={s.id}>{s.label}</option>)}
-                  </select>
-                </label>
-
-                <label className="space-y-1">
-                  <div className="text-sm font-medium text-navy">{t("form.revenue")}</div>
-                  <select
-                    className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-sky-blue"
-                    value={band}
-                    onChange={(e) => setBand(e.target.value)}
-                  >
-                    {BASE_ITALIA.map(b => <option key={b.id} value={b.id}>{b.label}</option>)}
-                  </select>
-                </label>
-              </div>
-
-              {/* LOGICA: ≥10M → SOLO CONSULENTE */}
-              {isHighRevenue ? (
-                <div className="mt-8 flex flex-col items-center gap-3">
-                  <p className="text-gray-700 text-center">
-                    {t("form.highRevenueNotice")}
-                  </p>
-                  {/* Collega questo CTA alla tua route o a Cal.com */}
-                  <SlideArrowButton primaryColor="#ff9d3d" text={t("form.ctaConsult")} />
-                </div>
-              ) : (
-                <>
-                  {/* Output + Slider qty */}
-                  <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                    <div className="rounded-2xl border border-navy/10 bg-gray-50 p-4">
-                      <div className="text-xs text-gray-600">{t("form.unit")}</div>
-                      <div className="text-2xl font-bold text-navy mt-1">€ {unitPrice.toLocaleString()}</div>
-                    </div>
-                    <div className="rounded-2xl border border-navy/10 bg-gray-50 p-4">
-                      <div className="text-xs text-gray-600">{t("form.qty")}</div>
-                      <div className="flex items-center gap-3 mt-1">
-                        <input
-                          type="range"
-                          min={MIN_QTY}
-                          max={MAX_QTY}
-                          value={qty}
-                          onChange={(e) => setQty(parseInt(e.target.value))}
-                          className="w-full accent-orange"
-                        />
-                        <div className="w-10 text-right font-bold text-navy">{qty}</div>
+            <Card className="relative mx-auto max-w-5xl overflow-hidden border-none bg-transparent p-0 shadow-xl">
+              <div className="grid gap-0 lg:grid-cols-[1.15fr_1fr]">
+                <div className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-sky-blue px-6 py-8 sm:px-10 sm:py-12 text-white">
+                  <div className="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+                  <div className="pointer-events-none absolute -bottom-12 left-1/3 h-32 w-32 rounded-full bg-orange/20 blur-2xl" />
+                  <div className="relative flex h-full flex-col justify-between gap-10">
+                    <div className="space-y-4">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80">
+                        Drive Test Premium
+                      </span>
+                      <div>
+                        <h3 className="text-3xl font-bold leading-tight sm:text-4xl">{t("form.title")}</h3>
+                        <p className="mt-3 text-sm text-white/80 sm:text-base">{t("hero.microcopy")}</p>
                       </div>
                     </div>
-                    <div className="rounded-2xl border border-navy/10 bg-white p-4 shadow-sm">
-                      <div className="text-xs text-gray-600">{t("form.total")}</div>
-                      <div className="text-2xl font-bold text-orange mt-1">€ {total.toLocaleString()}</div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="rounded-3xl border border-white/20 bg-white/10 p-6 shadow-lg">
+                        <div className="text-xs font-medium uppercase tracking-wider text-white/70">{t("form.unit")}</div>
+                        <div className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">€ {unitPrice.toLocaleString()}</div>
+                        <div className="mt-2 text-xs text-white/70">+ IVA</div>
+                      </div>
+                      <div className="rounded-3xl border border-white/20 bg-white p-6 text-navy shadow-lg">
+                        <div className="text-xs font-semibold uppercase tracking-wider text-navy/60">{t("form.total")}</div>
+                        <div className="mt-3 text-4xl font-extrabold tracking-tight text-orange sm:text-5xl">€ {total.toLocaleString()}</div>
+                        <div className="mt-2 text-xs font-medium text-navy/60">{t("form.qty")}: <span className="font-bold text-navy">{qty}</span></div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between text-sm font-medium text-white/80">
+                        <span>{t("form.qty")}</span>
+                        <span className="text-2xl font-extrabold text-orange">{qty}</span>
+                      </div>
+                      <input
+                        type="range"
+                        min={MIN_QTY}
+                        max={MAX_QTY}
+                        value={qty}
+                        onChange={(e) => setQty(parseInt(e.target.value))}
+                        className="h-2 w-full cursor-pointer appearance-none rounded-full bg-white/20 accent-orange"
+                      />
+                      <div className="flex items-center justify-between text-xs text-white/60">
+                        <span>{MIN_QTY}</span>
+                        <span>{MAX_QTY}</span>
+                      </div>
                     </div>
                   </div>
+                </div>
 
-                  <p className="mt-3 text-xs text-gray-600">{t("form.note")}</p>
+                <div className="relative bg-white px-6 py-8 sm:px-10 sm:py-12">
+                  <div className="flex h-full flex-col justify-between gap-8">
+                    <div className="space-y-6">
+                      <div>
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">Drive Test Calculator</p>
+                        <h4 className="mt-2 text-2xl font-bold text-navy">Personalizza le tue variabili</h4>
+                        <p className="mt-2 text-sm text-gray-600">{t("hero.subheadline")}</p>
+                      </div>
 
-                  <div className="mt-6">
-                    <button
-                      type="button"
-                      onClick={handleCheckout}
-                      className="inline-flex items-center justify-center rounded-xl bg-orange px-5 py-3 text-white font-semibold shadow-md transition hover:shadow-lg"
-                    >
-                      {t("form.ctaCheckout")}
-                    </button>
+                      <div className="space-y-4">
+                        <label className="block space-y-2">
+                          <span className="text-sm font-semibold text-navy">{t("form.geo")}</span>
+                          <select
+                            className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
+                            value={geo}
+                            onChange={(e) => setGeo(e.target.value)}
+                          >
+                            {COEFF_GEO.map(g => (
+                              <option key={g.id} value={g.id}>
+                                {g.label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+
+                        <label className="block space-y-2">
+                          <span className="text-sm font-semibold text-navy">{t("form.sector")}</span>
+                          <select
+                            className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
+                            value={sector}
+                            onChange={(e) => setSector(e.target.value)}
+                          >
+                            {COEFF_SETT.map(s => (
+                              <option key={s.id} value={s.id}>
+                                {s.label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+
+                        <label className="block space-y-2">
+                          <span className="text-sm font-semibold text-navy">{t("form.revenue")}</span>
+                          <select
+                            className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
+                            value={band}
+                            onChange={(e) => setBand(e.target.value)}
+                          >
+                            {BASE_ITALIA.map(b => (
+                              <option key={b.id} value={b.id}>
+                                {b.label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+
+                    {isHighRevenue ? (
+                      <div className="rounded-2xl border border-orange/20 bg-orange/5 p-6 text-center">
+                        <p className="text-sm text-gray-700">
+                          Le aziende con fatturato superiore a €10M vengono seguite con una configurazione dedicata.
+                        </p>
+                        <div className="mt-4 flex justify-center">
+                          <SlideArrowButton primaryColor="#ff9d3d" text={t("form.ctaConsult")} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="space-y-4">
+                        <button
+                          type="button"
+                          onClick={handleCheckout}
+                          className="flex w-full items-center justify-center rounded-2xl bg-orange px-6 py-4 text-base font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+                        >
+                          {t("form.ctaCheckout")}
+                        </button>
+                        <p className="text-xs text-gray-500">{t("form.note")}</p>
+                      </div>
+                    )}
                   </div>
-                </>
-              )}
+                </div>
+              </div>
             </Card>
           </div>
         </PageLayoutContainer>
