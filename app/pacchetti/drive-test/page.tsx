@@ -55,11 +55,19 @@ const COEFF_GEO: Coeff[] = [
   { id: "geo_asia",      label: "Asia (SG/HK/JP)",                    min: 1.4,  max: 1.6 },
   { id: "geo_oceania",   label: "Oceania (AU/NZ)",                    min: 1.4,  max: 1.5 }
 ]
-const COEFF_SAAS = { min: 1.0826, max: 1.58 }
-const COEFF_INSURANCE = { min: 1.0826, max: 1.58 }
-const COEFF_FINTECH = { min: 1.0826, max: 1.58 }
-const COEFF_ASSET_MANAGEMENT = { min: 1.0826, max: 1.58 }
-const COEFF_STANDARD = { min: 1.58, max: 1.58 }
+const COEFF_SAAS = { min: 1.0826, max: 1.115078 }
+const COEFF_SERVICES = { min: 1.093426, max: 1.223338 }
+const COEFF_MANUFACTURING = { min: 1.277468, max: 1.429032 }
+const COEFF_AUTOMOTIVE = { min: 1.288294, max: 1.439858 }
+const COEFF_BANKING = { min: 1.602248, max: 2.208504 }
+const COEFF_INSURANCE = { min: 1.6239, max: 2.230156 }
+const COEFF_FINTECH = { min: 1.51564, max: 1.667204 }
+const COEFF_ASSET_MANAGEMENT = { min: 1.6239, max: 2.230156 }
+const COEFF_HEALTHCARE = { min: 1.504814, max: 1.67803 }
+const COEFF_REAL_ESTATE = { min: 1.331598, max: 1.483162 }
+const COEFF_RETAIL = { min: 1.212512, max: 1.364076 }
+const COEFF_ECOMMERCE = { min: 1.13673, max: 1.266642 }
+const COEFF_ENERGY = { min: 2.230156, max: 2.403372 }
 
 const SECTOR_GROUPS: SectorGroup[] = [
   {
@@ -80,44 +88,44 @@ const SECTOR_GROUPS: SectorGroup[] = [
     id: "macro_services",
     label: "Servizi Professionali (Marketing/HR/Consulenza)",
     options: [
-      { id: "services_macro", label: "Servizi Professionali (Marketing/HR/Consulenza)", level: "macro", ...COEFF_STANDARD },
-      { id: "services_agencies", label: "Agenzie Marketing & Adv", level: "granular", ...COEFF_STANDARD },
-      { id: "services_recruiting", label: "Recruiting & HR Services", level: "granular", ...COEFF_STANDARD },
-      { id: "services_consulting", label: "Consulenza gestionale / strategica", level: "granular", ...COEFF_STANDARD },
-      { id: "services_legal", label: "Servizi legali B2B", level: "granular", ...COEFF_STANDARD },
-      { id: "services_accounting", label: "Contabilità & Tax", level: "granular", ...COEFF_STANDARD }
+      { id: "services_macro", label: "Servizi Professionali (Marketing/HR/Consulenza)", level: "macro", ...COEFF_SERVICES },
+      { id: "services_agencies", label: "Agenzie Marketing & Adv", level: "granular", ...COEFF_SERVICES },
+      { id: "services_recruiting", label: "Recruiting & HR Services", level: "granular", ...COEFF_SERVICES },
+      { id: "services_consulting", label: "Consulenza gestionale / strategica", level: "granular", ...COEFF_SERVICES },
+      { id: "services_legal", label: "Servizi legali B2B", level: "granular", ...COEFF_SERVICES },
+      { id: "services_accounting", label: "Contabilità & Tax", level: "granular", ...COEFF_SERVICES }
     ]
   },
   {
     id: "macro_industry",
     label: "Manifatturiero / Industria",
     options: [
-      { id: "industry_macro", label: "Manifatturiero / Industria", level: "macro", ...COEFF_STANDARD },
-      { id: "industry_machinery", label: "Macchinari industriali", level: "granular", ...COEFF_STANDARD },
-      { id: "industry_electronics", label: "Elettronica/EMS", level: "granular", ...COEFF_STANDARD },
-      { id: "industry_chemistry", label: "Chimica & Materiali", level: "granular", ...COEFF_STANDARD },
-      { id: "industry_food", label: "Food & Beverage Industry", level: "granular", ...COEFF_STANDARD },
-      { id: "industry_aerospace", label: "Aerospace & Defense (civile)", level: "granular", ...COEFF_STANDARD }
+      { id: "industry_macro", label: "Manifatturiero / Industria", level: "macro", ...COEFF_MANUFACTURING },
+      { id: "industry_machinery", label: "Macchinari industriali", level: "granular", ...COEFF_MANUFACTURING },
+      { id: "industry_electronics", label: "Elettronica/EMS", level: "granular", ...COEFF_MANUFACTURING },
+      { id: "industry_chemistry", label: "Chimica & Materiali", level: "granular", ...COEFF_MANUFACTURING },
+      { id: "industry_food", label: "Food & Beverage Industry", level: "granular", ...COEFF_MANUFACTURING },
+      { id: "industry_aerospace", label: "Aerospace & Defense (civile)", level: "granular", ...COEFF_MANUFACTURING }
     ]
   },
   {
     id: "macro_automotive",
     label: "Automotive",
     options: [
-      { id: "automotive_macro", label: "Automotive", level: "macro", ...COEFF_STANDARD },
-      { id: "automotive_oem", label: "Automotive OEM", level: "granular", ...COEFF_STANDARD },
-      { id: "automotive_tier", label: "Automotive Tier1/Tier2", level: "granular", ...COEFF_STANDARD },
-      { id: "automotive_mobility", label: "Mobilità & Componentistica", level: "granular", ...COEFF_STANDARD }
+      { id: "automotive_macro", label: "Automotive", level: "macro", ...COEFF_AUTOMOTIVE },
+      { id: "automotive_oem", label: "Automotive OEM", level: "granular", ...COEFF_AUTOMOTIVE },
+      { id: "automotive_tier", label: "Automotive Tier1/Tier2", level: "granular", ...COEFF_AUTOMOTIVE },
+      { id: "automotive_mobility", label: "Mobilità & Componentistica", level: "granular", ...COEFF_AUTOMOTIVE }
     ]
   },
   {
     id: "macro_banking",
     label: "Banking",
     options: [
-      { id: "banking_macro", label: "Banking", level: "macro", ...COEFF_STANDARD },
-      { id: "banking_retail", label: "Banche Retail", level: "granular", ...COEFF_STANDARD },
-      { id: "banking_corporate", label: "Banche Corporate/IB", level: "granular", ...COEFF_STANDARD },
-      { id: "banking_bpo", label: "Servizi BPO bancari", level: "granular", ...COEFF_STANDARD }
+      { id: "banking_macro", label: "Banking", level: "macro", ...COEFF_BANKING },
+      { id: "banking_retail", label: "Banche Retail", level: "granular", ...COEFF_BANKING },
+      { id: "banking_corporate", label: "Banche Corporate/IB", level: "granular", ...COEFF_BANKING },
+      { id: "banking_bpo", label: "Servizi BPO bancari", level: "granular", ...COEFF_BANKING }
     ]
   },
   {
@@ -152,52 +160,52 @@ const SECTOR_GROUPS: SectorGroup[] = [
     id: "macro_healthcare",
     label: "Healthcare / Pharma / MedTech",
     options: [
-      { id: "healthcare_macro", label: "Healthcare / Pharma / MedTech", level: "macro", ...COEFF_STANDARD },
-      { id: "healthcare_pharma", label: "Pharma", level: "granular", ...COEFF_STANDARD },
-      { id: "healthcare_biotech", label: "Biotech", level: "granular", ...COEFF_STANDARD },
-      { id: "healthcare_medtech", label: "MedTech / Dispositivi", level: "granular", ...COEFF_STANDARD },
-      { id: "healthcare_hospitals", label: "Ospedali & Cliniche", level: "granular", ...COEFF_STANDARD },
-      { id: "healthcare_diagnostics", label: "Diagnostica & Lab", level: "granular", ...COEFF_STANDARD }
+      { id: "healthcare_macro", label: "Healthcare / Pharma / MedTech", level: "macro", ...COEFF_HEALTHCARE },
+      { id: "healthcare_pharma", label: "Pharma", level: "granular", ...COEFF_HEALTHCARE },
+      { id: "healthcare_biotech", label: "Biotech", level: "granular", ...COEFF_HEALTHCARE },
+      { id: "healthcare_medtech", label: "MedTech / Dispositivi", level: "granular", ...COEFF_HEALTHCARE },
+      { id: "healthcare_hospitals", label: "Ospedali & Cliniche", level: "granular", ...COEFF_HEALTHCARE },
+      { id: "healthcare_diagnostics", label: "Diagnostica & Lab", level: "granular", ...COEFF_HEALTHCARE }
     ]
   },
   {
     id: "macro_real_estate",
     label: "Real Estate / Costruzioni / Facility",
     options: [
-      { id: "real_estate_macro", label: "Real Estate / Costruzioni / Facility", level: "macro", ...COEFF_STANDARD },
-      { id: "real_estate_development", label: "Sviluppo immobiliare", level: "granular", ...COEFF_STANDARD },
-      { id: "real_estate_contractor", label: "General Contractor", level: "granular", ...COEFF_STANDARD },
-      { id: "real_estate_facility", label: "Facility Management", level: "granular", ...COEFF_STANDARD },
-      { id: "real_estate_proptech", label: "PropTech", level: "granular", ...COEFF_STANDARD }
+      { id: "real_estate_macro", label: "Real Estate / Costruzioni / Facility", level: "macro", ...COEFF_REAL_ESTATE },
+      { id: "real_estate_development", label: "Sviluppo immobiliare", level: "granular", ...COEFF_REAL_ESTATE },
+      { id: "real_estate_contractor", label: "General Contractor", level: "granular", ...COEFF_REAL_ESTATE },
+      { id: "real_estate_facility", label: "Facility Management", level: "granular", ...COEFF_REAL_ESTATE },
+      { id: "real_estate_proptech", label: "PropTech", level: "granular", ...COEFF_REAL_ESTATE }
     ]
   },
   {
     id: "macro_retail",
     label: "Retail (negozi fisici)",
     options: [
-      { id: "retail_macro", label: "Retail (negozi fisici)", level: "macro", ...COEFF_STANDARD },
-      { id: "retail_gdo", label: "GDO", level: "granular", ...COEFF_STANDARD },
-      { id: "retail_specialized", label: "Catene retail specializzate", level: "granular", ...COEFF_STANDARD },
-      { id: "retail_franchising", label: "Retail franchising", level: "granular", ...COEFF_STANDARD }
+      { id: "retail_macro", label: "Retail (negozi fisici)", level: "macro", ...COEFF_RETAIL },
+      { id: "retail_gdo", label: "GDO", level: "granular", ...COEFF_RETAIL },
+      { id: "retail_specialized", label: "Catene retail specializzate", level: "granular", ...COEFF_RETAIL },
+      { id: "retail_franchising", label: "Retail franchising", level: "granular", ...COEFF_RETAIL }
     ]
   },
   {
     id: "macro_ecommerce",
     label: "E-commerce (pure player/marketplace)",
     options: [
-      { id: "ecommerce_macro", label: "E-commerce (pure player/marketplace)", level: "macro", ...COEFF_STANDARD },
-      { id: "ecommerce_pure", label: "E-commerce pure player", level: "granular", ...COEFF_STANDARD },
-      { id: "ecommerce_marketplace", label: "Marketplace", level: "granular", ...COEFF_STANDARD },
-      { id: "ecommerce_dnvb", label: "DNVB / D2C digitale", level: "granular", ...COEFF_STANDARD }
+      { id: "ecommerce_macro", label: "E-commerce (pure player/marketplace)", level: "macro", ...COEFF_ECOMMERCE },
+      { id: "ecommerce_pure", label: "E-commerce pure player", level: "granular", ...COEFF_ECOMMERCE },
+      { id: "ecommerce_marketplace", label: "Marketplace", level: "granular", ...COEFF_ECOMMERCE },
+      { id: "ecommerce_dnvb", label: "DNVB / D2C digitale", level: "granular", ...COEFF_ECOMMERCE }
     ]
   },
   {
     id: "macro_energy",
     label: "Energy & Utilities",
     options: [
-      { id: "energy_macro", label: "Energy & Utilities", level: "macro", ...COEFF_STANDARD },
-      { id: "energy_utility", label: "Utility (energia/acqua/gas)", level: "granular", ...COEFF_STANDARD },
-      { id: "energy_renewables", label: "Rinnovabili (PV/Wind/Storage)", level: "granular", ...COEFF_STANDARD }
+      { id: "energy_macro", label: "Energy & Utilities", level: "macro", ...COEFF_ENERGY },
+      { id: "energy_utility", label: "Utility (energia/acqua/gas)", level: "granular", ...COEFF_ENERGY },
+      { id: "energy_renewables", label: "Rinnovabili (PV/Wind/Storage)", level: "granular", ...COEFF_ENERGY }
     ]
   }
 ]
