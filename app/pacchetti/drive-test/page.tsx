@@ -631,46 +631,54 @@ export default function DriveTestPage() {
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-2">
-              {/* Main content with unified text */}
-              <div>
-                <Card className="p-8 bg-white border-navy/10 shadow-sm">
-                  <div className="prose prose-lg max-w-none">
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      {t("savings.microcopy.0")}
-                    </p>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      {t("savings.microcopy.1")}
-                    </p>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      {t("savings.microcopy.2")}
-                    </p>
-                    <p className="text-gray-700 leading-relaxed">
-                      {t("savings.microcopy.3")}
-                    </p>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Clean highlight card */}
-              <div>
-                <Card className="p-6 bg-white border-orange/20 shadow-lg">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-orange rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">💡</span>
+            {/* Featured highlight card - CENTERED AND EMPHASIZED */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <Card className="p-10 bg-gradient-to-br from-orange to-sky-blue text-white shadow-2xl border-0 relative overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-16 -translate-x-16"></div>
+                
+                <div className="relative z-10 text-center">
+                  <div className="flex items-center justify-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                      <span className="text-2xl">💡</span>
                     </div>
-                    <h3 className="text-lg font-bold text-navy">{t("savings.noteTitle")}</h3>
+                    <h3 className="text-3xl font-bold">{t("savings.noteTitle")}</h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed mb-4">{t("savings.noteBody")}</p>
                   
-                  <div className="p-4 bg-orange/5 rounded-lg border border-orange/20">
-                    <div className="text-sm font-semibold text-orange mb-1">🎯 Vantaggio Esclusivo</div>
-                    <div className="text-sm text-gray-600">
+                  <p className="text-xl text-white/90 leading-relaxed mb-8 max-w-3xl mx-auto">
+                    {t("savings.noteBody")}
+                  </p>
+                  
+                  <div className="inline-flex items-center gap-3 bg-white/20 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30">
+                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                    <div className="text-lg font-semibold">🎯 Vantaggio Esclusivo</div>
+                    <div className="text-white/80">
                       Solo per chi non ha mai provato il sistema AYCL
                     </div>
                   </div>
-                </Card>
-              </div>
+                </div>
+              </Card>
+            </div>
+
+            {/* Main content below - unified text */}
+            <div className="max-w-4xl mx-auto">
+              <Card className="p-8 bg-white border-navy/10 shadow-sm">
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {t("savings.microcopy.0")}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {t("savings.microcopy.1")}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {t("savings.microcopy.2")}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    {t("savings.microcopy.3")}
+                  </p>
+                </div>
+              </Card>
             </div>
 
             {/* Call to action */}
