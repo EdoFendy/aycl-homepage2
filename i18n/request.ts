@@ -20,6 +20,7 @@ export default getRequestConfig(async () => {
   const outreach = (await import("../traduzioni/outreach.json")).default as Record<string, any>
   const calcolatore = (await import("../traduzioni/calcolatore.json")).default as Record<string, any>
   const checkout = (await import("../traduzioni/checkout.json")).default as Record<string, any>
+  const driveTest = (await import("../traduzioni/driveTest.json")).default as Record<string, any>
 
   return {
     locale,
@@ -38,6 +39,7 @@ export default getRequestConfig(async () => {
       outreach: outreach[locale] ?? outreach.it,
       calcolatore: calcolatore[locale] ?? calcolatore.it,
       checkout: checkout[locale] ?? checkout.it,
+      driveTest: driveTest[locale] ?? driveTest.it,
     },
   }
 })

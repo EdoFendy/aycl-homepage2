@@ -1,0 +1,282 @@
+{
+    "it": {
+        "hero": {
+          "badge": "Drive Test",
+          "headline": "Calcola la tua {strong}Quotazione Personalizzata{/strong}",
+          "subheadline": "Acquista da qui i primi appuntamenti qualificati per la tua azienda",
+          "microcopy": "Utilizza questa tabella per calcolare la quotazione per appuntamento. I parametri richiesti servono a valutare la complessità di raggiungimento del target. Questi fattori sono anche alla base della definizione del tuo ICP."
+        },
+        "form": {
+          "geo": "Area geografica",
+          "sector": "Settore",
+          "revenue": "Fatturato",
+          "qty": "Quantità appuntamenti",
+          "unit": "Prezzo per appuntamento",
+          "total": "Totale",
+          "note": "La stima si basa sui coefficienti del listino e verrà validata in onboarding.",
+          "ctaCheckout": "Procedi al checkout",
+          "ctaConsult": "Parla con un nostro consulente"
+        },
+        "offer": {
+          "headline": "Parti subito con la formula {strong}Drive Test{/strong}",
+          "subheadline": "Prova ora All You Can Leads: richiedi tra i 5 e i 20 appuntamenti qualificati",
+          "microcopy": {
+            "0": "La formula Drive Test è nata per dare subito una prova tangibile del funzionamento del sistema.",
+            "1": "Permette di richiedere in modo autonomo e immediato un numero limitato di appuntamenti con il proprio target di riferimento.",
+            "2": "Entro le 48 ore successive alla richiesta vieni contattato dal tuo project manager dedicato per iniziare la fase di onboarding.",
+            "3": "Raccogliamo maggiori informazioni, studiamo la tua richiesta e il mercato interessato.",
+            "4": "Attuiamo uno studio di fattibilità e torniamo da te per definire la strategia.",
+            "5": "Attiviamo le campagne multicanale e iniziamo a generare i tuoi primi appuntamenti qualificati.",
+            "6": "Saranno parte del conteggio solo gli appuntamenti che rispettano i parametri prestabiliti e che vengono effettivamente svolti.",
+            "7": "Fino al completamento dell'erogazione rimaniamo al tuo fianco, con supporto e aggiornamento regolari e completi."
+          }
+        },
+        "savings": {
+          "subheadline": "Risparmia sulla collaborazione",
+          "microcopy": {
+            "0": "Il Drive Test è solo una prova per confermare l'efficacia del nostro sistema.",
+            "1": "Per questo abbiamo deciso di detrarre completamente il costo degli appuntamenti acquistati dal tuo futuro pacchetto personalizzato.",
+            "2": "Se oggi acquisti i tuoi primi appuntamenti, riceverai uno sconto pari alla cifra spesa sul tuo prossimo pacchetto.",
+            "3": "Così hai a tutti gli effetti la possibilità di provare il sistema senza l'impegno di una collaborazione già strutturata, ma senza dover ricominciare da zero nel caso volessi affrontarne una."
+          },
+          "noteTitle": "Specchietto",
+          "noteBody": "Questa formula è riservata alle aziende che non hanno ancora provato il sistema. Una volta completato il tuo primo acquisto con queste condizioni, non sarà più disponibile."
+        },
+        "how": {
+          "subheadline": "Come funziona il Drive Test",
+          "steps": {
+            "0": "Compila la tabella in autonomia o con l'aiuto di un nostro consulente.",
+            "1": "Ottieni la quotazione per la tua azienda e scegli la quantità di appuntamenti.",
+            "2": "Vieni contattato dal tuo project manager entro le 48 ore successive all'acquisto.",
+            "3": "Partecipi all'onboarding e all'allineamento strategico pre-lancio.",
+            "4": "Inizi a ricevere gli appuntamenti generati sulla base del tuo ICP.",
+            "5": "Svolgi il numero richiesto di appuntamenti realmente qualificati.",
+            "6": "Ricevi uno sconto pari alla cifra già spesa sul tuo pacchetto personalizzato."
+          }
+        },
+        "faq": {
+          "title": "Domande frequenti",
+          "items": {
+            "0": {
+              "q": "Come si calcola la quota per ogni appuntamento nel Drive Test?",
+              "a": "La quota viene determinata secondo parametri oggettivi come dimensione e complessità del target, difficoltà di contatto e localizzazione geografica. Questi fattori sono anche la base per la definizione del tuo ICP (Ideal Customer Profile), assicurando che ogni appuntamento risponda esattamente ai tuoi criteri di interesse."
+            },
+            "1": {
+              "q": "Quali appuntamenti vengono conteggiati e garantiti nel Drive Test?",
+              "a": "Sono conteggiati esclusivamente gli appuntamenti che rispettano i parametri concordati (ICP) e che vengono effettivamente svolti. Eventuali appuntamenti che non corrispondono ai criteri stabiliti possono essere esclusi dal conteggio, previa verifica, senza costi aggiuntivi."
+            },
+            "2": {
+              "q": "Posso richiedere il Drive Test anche se ho già acquistato altri pacchetti?",
+              "a": "No, la formula Drive Test è riservata esclusivamente alle aziende che non hanno ancora usufruito del sistema All You Can Leads. Una volta completato il primo acquisto Drive Test, la formula non sarà più disponibile per acquisti successivi."
+            },
+            "3": {
+              "q": "Che vantaggi offre il Drive Test rispetto agli altri pacchetti?",
+              "a": "Il Drive Test permette di provare il funzionamento del sistema con un piccolo investimento e senza impegno continuativo. La cifra spesa viene detratta dal prezzo di un eventuale pacchetto personalizzato acquistato in seguito, offrendoti un vero test senza il rischio di dover ripartire da zero."
+            },
+            "4": {
+              "q": "Qual è il ruolo del project manager nel processo Drive Test?",
+              "a": "Avrai un referente dedicato che ti accompagnerà in tutte le fasi: dall'analisi iniziale, allo studio di fattibilità, dall'impostazione strategica all'attivazione delle campagne, garantendo supporto e aggiornamenti costanti fino al completamento degli appuntamenti richiesti."
+            },
+            "5": {
+              "q": "Utilizzate l'intelligenza artificiale nel processo di generazione appuntamenti?",
+              "a": "Sì, il sistema integra AI in vari punti: dalla segmentazione dei contatti alla personalizzazione dei messaggi e alla gestione delle campagne, con l'obiettivo di aumentare efficienza, precisione e qualità degli appuntamenti."
+            },
+            "6": {
+              "q": "Posso interrompere la collaborazione dopo il Drive Test?",
+              "a": "Assolutamente sì: la formula Drive Test non prevede alcun vincolo continuativo. Se decidi di non proseguire, nessun ulteriore impegno sarà richiesto dopo l'erogazione degli appuntamenti acquistati."
+            },
+            "7": {
+              "q": "Su quali dati vengono costruiti i vostri database di contatti?",
+              "a": "I dati utilizzati sono sottoposti a verifiche costanti, arricchimenti tramite AI e provengono sia da ricerca interna che da provider qualificati, assicurando la massima precisione nell'individuare decisori aziendali nel tuo settore."
+            }
+          }
+        }
+    },
+    "en": {
+        "hero": {
+          "badge": "Drive Test",
+          "headline": "Calculate your {strong}Personalized Quote{/strong}",
+          "subheadline": "Buy your first qualified appointments for your company",
+          "microcopy": "Use this table to estimate the price per appointment. The required parameters help assess the complexity of reaching your target. These factors also underpin your ICP definition."
+        },
+        "form": {
+          "geo": "Geographic area",
+          "sector": "Sector",
+          "revenue": "Revenue",
+          "qty": "Appointment quantity",
+          "unit": "Price per appointment",
+          "total": "Total",
+          "note": "Estimate is based on price coefficients and will be validated during onboarding.",
+          "ctaCheckout": "Go to checkout",
+          "ctaConsult": "Talk to a consultant"
+        },
+        "offer": {
+          "headline": "Get started now with the {strong}Drive Test{/strong} plan",
+          "subheadline": "Try All You Can Leads: request between 5 and 20 qualified appointments",
+          "microcopy": {
+            "0": "The Drive Test gives you a tangible, immediate proof of how the system works.",
+            "1": "It lets you autonomously request a limited number of appointments with your target audience.",
+            "2": "Within 48 hours of your request, your dedicated project manager will contact you to start onboarding.",
+            "3": "We collect further info, analyze your request and the market involved.",
+            "4": "We run a feasibility study and get back to you to define the strategy.",
+            "5": "We activate multi-channel campaigns and start generating your first qualified appointments.",
+            "6": "Only appointments that meet the agreed parameters and actually take place are counted.",
+            "7": "We stay by your side until delivery is complete, with regular, comprehensive updates."
+          }
+        },
+        "savings": {
+          "subheadline": "Save on the collaboration",
+          "microcopy": {
+            "0": "The Drive Test is a trial to confirm our system's effectiveness.",
+            "1": "We therefore deduct the cost of the purchased appointments from your future custom package.",
+            "2": "If you buy your first appointments today, you'll receive a discount equal to the amount spent on your next package.",
+            "3": "This gives you a real chance to test the system without a long-term commitment, and without starting from scratch if you decide to move forward."
+          },
+          "noteTitle": "Note",
+          "noteBody": "This plan is reserved for companies that have not yet tried the system. After your first purchase under these conditions, it will no longer be available."
+        },
+        "how": {
+          "subheadline": "How the Drive Test works",
+          "steps": {
+            "0": "Fill in the table on your own or with one of our consultants.",
+            "1": "Get your quote and choose the number of appointments.",
+            "2": "Your project manager contacts you within 48 hours of purchase.",
+            "3": "Join onboarding and the pre-launch strategic alignment.",
+            "4": "Start receiving appointments generated based on your ICP.",
+            "5": "Complete the requested number of truly qualified appointments.",
+            "6": "Receive a discount equal to the amount already spent on your custom package."
+          }
+        },
+        "faq": {
+          "title": "Frequently asked questions",
+          "items": {
+            "0": {
+              "q": "How is the fee per appointment calculated in the Drive Test?",
+              "a": "The fee is determined by objective parameters such as target size and complexity, contact difficulty and geographic scope. These factors also form the basis of your ICP to ensure each appointment matches your criteria."
+            },
+            "1": {
+              "q": "Which appointments are counted and guaranteed in the Drive Test?",
+              "a": "Only appointments that meet the agreed parameters (ICP) and actually take place are counted. Any appointments not matching the criteria may be excluded after verification, at no extra cost."
+            },
+            "2": {
+              "q": "Can I request the Drive Test if I've already purchased other packages?",
+              "a": "No. The Drive Test is exclusively for companies that have not yet used All You Can Leads. Once your first Drive Test purchase is completed, the plan will no longer be available for future purchases."
+            },
+            "3": {
+              "q": "What advantages does the Drive Test offer over other packages?",
+              "a": "It lets you test the system with a small investment and no ongoing commitment. The amount spent is deducted from any custom package you buy later—so you can test without having to start over."
+            },
+            "4": {
+              "q": "What is the role of the project manager?",
+              "a": "You'll have a dedicated contact guiding you through every phase: initial analysis, feasibility study, strategic setup, and campaign activation—with constant support and updates until completion."
+            },
+            "5": {
+              "q": "Do you use AI in the appointment-generation process?",
+              "a": "Yes. We use AI for contact segmentation, message personalization and campaign management to increase efficiency, precision and appointment quality."
+            },
+            "6": {
+              "q": "Can I stop after the Drive Test?",
+              "a": "Absolutely. The Drive Test has no ongoing commitment. If you choose not to continue, there's no further obligation after delivery."
+            },
+            "7": {
+              "q": "What data are your contact databases built on?",
+              "a": "We continuously verify and enrich data with AI, sourcing from in-house research and qualified providers to precisely identify decision-makers in your sector."
+            }
+          }
+        }
+    },
+    "es": {
+        "hero": {
+          "badge": "Drive Test",
+          "headline": "Calcula tu {strong}Cotización Personalizada{/strong}",
+          "subheadline": "Compra aquí tus primeras citas cualificadas",
+          "microcopy": "Usa esta tabla para estimar el precio por cita. Los parámetros solicitados evalúan la complejidad de alcanzar tu público objetivo. Estos factores también sustentan la definición de tu ICP."
+        },
+        "form": {
+          "geo": "Área geográfica",
+          "sector": "Sector",
+          "revenue": "Facturación",
+          "qty": "Cantidad de citas",
+          "unit": "Precio por cita",
+          "total": "Total",
+          "note": "La estimación se basa en coeficientes de tarifa y se validará en el onboarding.",
+          "ctaCheckout": "Ir al checkout",
+          "ctaConsult": "Habla con un consultor"
+        },
+        "offer": {
+          "headline": "Empieza ahora con la fórmula {strong}Drive Test{/strong}",
+          "subheadline": "Prueba All You Can Leads: solicita entre 5 y 20 citas cualificadas",
+          "microcopy": {
+            "0": "El Drive Test te ofrece una prueba tangible e inmediata del funcionamiento del sistema.",
+            "1": "Permite solicitar de forma autónoma un número limitado de citas con tu público objetivo.",
+            "2": "En las 48 horas siguientes a la solicitud, tu project manager te contactará para iniciar el onboarding.",
+            "3": "Recogemos más información, analizamos tu solicitud y el mercado objetivo.",
+            "4": "Realizamos un estudio de viabilidad y volvemos contigo para definir la estrategia.",
+            "5": "Activamos campañas multicanal y empezamos a generar tus primeras citas cualificadas.",
+            "6": "Solo se contabilizan las citas que cumplen los parámetros acordados y que efectivamente se realizan.",
+            "7": "Permanecemos a tu lado hasta completar la entrega, con soporte y actualizaciones regulares."
+          }
+        },
+        "savings": {
+          "subheadline": "Ahorra en la colaboración",
+          "microcopy": {
+            "0": "El Drive Test es una prueba para confirmar la eficacia de nuestro sistema.",
+            "1": "Por eso descontamos el coste de las citas compradas de tu futuro paquete personalizado.",
+            "2": "Si compras hoy tus primeras citas, recibirás un descuento igual al importe gastado en tu próximo paquete.",
+            "3": "Así puedes probar el sistema sin compromiso a largo plazo y sin tener que empezar de cero si decides avanzar."
+          },
+          "noteTitle": "Aviso",
+          "noteBody": "Esta fórmula está reservada para empresas que aún no han probado el sistema. Tras tu primera compra con estas condiciones, ya no estará disponible."
+        },
+        "how": {
+          "subheadline": "Cómo funciona el Drive Test",
+          "steps": {
+            "0": "Rellena la tabla por tu cuenta o con ayuda de un consultor.",
+            "1": "Obtén la cotización y elige la cantidad de citas.",
+            "2": "Tu project manager te contacta dentro de las 48 horas posteriores a la compra.",
+            "3": "Participa en el onboarding y la alineación estratégica previa al lanzamiento.",
+            "4": "Empiezas a recibir citas generadas según tu ICP.",
+            "5": "Realizas el número requerido de citas realmente cualificadas.",
+            "6": "Recibes un descuento igual al importe ya gastado en tu paquete personalizado."
+          }
+        },
+        "faq": {
+          "title": "Preguntas frecuentes",
+          "items": {
+            "0": {
+              "q": "¿Cómo se calcula la cuota por cita en el Drive Test?",
+              "a": "La cuota se determina por parámetros objetivos como tamaño y complejidad del target, dificultad de contacto y ámbito geográfico. Estos factores también forman la base de tu ICP para garantizar citas alineadas con tus criterios."
+            },
+            "1": {
+              "q": "¿Qué citas se contabilizan y garantizan en el Drive Test?",
+              "a": "Solo se contabilizan las citas que cumplen los parámetros acordados (ICP) y que efectivamente se realizan. Las citas no conformes pueden excluirse tras verificación, sin coste adicional."
+            },
+            "2": {
+              "q": "¿Puedo solicitar el Drive Test si ya he comprado otros paquetes?",
+              "a": "No. El Drive Test es exclusivo para empresas que aún no han utilizado All You Can Leads. Tras completar tu primera compra Drive Test, la fórmula no estará disponible para futuras compras."
+            },
+            "3": {
+              "q": "¿Qué ventajas ofrece el Drive Test frente a otros paquetes?",
+              "a": "Permite probar el sistema con una inversión pequeña y sin compromiso continuo. El importe gastado se descuenta de un paquete personalizado futuro; una prueba real sin empezar de cero."
+            },
+            "4": {
+              "q": "¿Cuál es el papel del project manager?",
+              "a": "Tendrás un referente dedicado que te guía en todas las fases: análisis inicial, estudio de viabilidad, configuración estratégica y activación de campañas, con soporte continuo hasta la entrega."
+            },
+            "5": {
+              "q": "¿Usáis inteligencia artificial en la generación de citas?",
+              "a": "Sí. Integramos IA en segmentación de contactos, personalización de mensajes y gestión de campañas para aumentar eficiencia, precisión y calidad de las citas."
+            },
+            "6": {
+              "q": "¿Puedo interrumpir la colaboración tras el Drive Test?",
+              "a": "Por supuesto. El Drive Test no conlleva compromiso continuado. Si decides no seguir, no habrá obligación adicional tras la entrega."
+            },
+            "7": {
+              "q": "¿Sobre qué datos construís vuestras bases de contactos?",
+              "a": "Los datos se verifican de forma constante y se enriquecen con IA; proceden de investigación interna y proveedores cualificados para identificar decisores en tu sector."
+            }
+          }
+        }
+    }
+  }
+  
