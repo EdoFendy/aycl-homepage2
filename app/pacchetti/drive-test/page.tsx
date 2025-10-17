@@ -610,25 +610,79 @@ export default function DriveTestPage() {
         </PageLayoutContainer>
       </section>
 
-      {/* SAVINGS (invariato) */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <PageLayoutContainer className="px-4 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-3">
-            <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold text-navy">{t("savings.subheadline")}</h3>
-              <div className="mt-6 space-y-4">
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <p key={i} className="text-gray-700">{t(`savings.microcopy.${i}`)}</p>
-                ))}
+      {/* SAVINGS - HIGHLIGHTED SECTION */}
+      <section className="py-24 bg-gradient-to-br from-orange/5 via-sky-blue/5 to-navy/5 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <PageLayoutContainer>
+            {/* Header with badge */}
+            <div className="text-center mb-16">
+              <span className="inline-flex items-center justify-center rounded-full bg-orange px-6 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-white mb-6">
+                💰 Risparmio Garantito
+              </span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
+                {t("savings.subheadline")}
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                La formula Drive Test ti permette di testare il sistema senza rischi e senza sprecare un solo euro
+              </p>
+            </div>
+
+            <div className="grid gap-12 lg:grid-cols-3">
+              {/* Main content with enhanced styling */}
+              <div className="lg:col-span-2">
+                <div className="space-y-8">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <Card key={i} className="p-8 bg-white/90 backdrop-blur-sm border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-orange to-sky-blue rounded-full flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">{i + 1}</span>
+                        </div>
+                        <p className="text-gray-700 text-lg leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* Enhanced highlight card */}
+              <div className="lg:col-span-1">
+                <Card className="p-8 bg-gradient-to-br from-orange to-sky-blue text-white shadow-2xl border-0 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12"></div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-2xl">💡</span>
+                      </div>
+                      <h3 className="text-xl font-bold">{t("savings.noteTitle")}</h3>
+                    </div>
+                    <p className="text-white/90 leading-relaxed">{t("savings.noteBody")}</p>
+                    
+                    <div className="mt-6 p-4 bg-white/10 rounded-xl border border-white/20">
+                      <div className="text-sm font-semibold mb-2">🎯 Vantaggio Esclusivo</div>
+                      <div className="text-sm text-white/80">
+                        Solo per chi non ha mai provato il sistema AYCL
+                      </div>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
 
-            <Card className="p-6 bg-white border-navy/10">
-              <div className="text-sm font-semibold text-navy">{t("savings.noteTitle")}</div>
-              <p className="mt-2 text-gray-700">{t("savings.noteBody")}</p>
-            </Card>
-          </div>
-        </PageLayoutContainer>
+            {/* Call to action */}
+            <div className="mt-16 text-center">
+              <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm px-8 py-4 rounded-2xl shadow-lg border border-orange/20">
+                <div className="w-3 h-3 bg-orange rounded-full animate-pulse"></div>
+                <span className="text-navy font-semibold">Non perdere questa opportunità unica</span>
+              </div>
+            </div>
+          </PageLayoutContainer>
+        </div>
       </section>
 
       {/* HOW IT WORKS - Enhanced Timeline */}
