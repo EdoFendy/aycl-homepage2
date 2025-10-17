@@ -620,7 +620,7 @@ export default function DriveTestPage() {
           {/* Header with badge */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 rounded-full bg-orange px-4 py-2 text-sm font-semibold text-white mb-6">
-              <span className="text-lg">💰</span>
+              <Image src="/iconaRegalo.png" alt="Risparmio" width={20} height={20} />
               <span>RISPARMIO GARANTITO</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
@@ -638,14 +638,22 @@ export default function DriveTestPage() {
             <div className="lg:col-span-2">
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-orange/20">
                 <div className="space-y-6">
-                  {Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
-                      <div className="flex-shrink-0 w-8 h-8 bg-orange rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">{i + 1}</span>
+                  {Array.from({ length: 4 }).map((_, i) => {
+                    const icons = [
+                      "/iconaRegalo.png", // Per il primo punto sul regalo/sconto
+                      "/iconaPayment.svg", // Per il secondo punto sul pagamento
+                      "/iconaSetupfee.png", // Per il terzo punto sul setup
+                      "/iconaPerformance.png" // Per il quarto punto sui risultati
+                    ]
+                    return (
+                      <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
+                        <div className="flex-shrink-0 w-8 h-8 bg-orange rounded-full flex items-center justify-center">
+                          <Image src={icons[i]} alt={`Punto ${i + 1}`} width={16} height={16} />
+                        </div>
+                        <p className="text-gray-700 text-lg leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
                       </div>
-                      <p className="text-gray-700 text-lg leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -660,7 +668,7 @@ export default function DriveTestPage() {
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-orange/10 rounded-full flex items-center justify-center border border-orange/20">
-                      <span className="text-xl">ℹ️</span>
+                      <Image src="/Setupfee_icona_Info.png" alt="Informazioni" width={20} height={20} />
                     </div>
                     <div className="text-lg font-bold text-navy">{t("savings.noteTitle")}</div>
                   </div>
@@ -669,7 +677,7 @@ export default function DriveTestPage() {
                   {/* Call to action */}
                   <div className="p-4 bg-gradient-to-r from-orange/5 to-sky-blue/5 rounded-xl border border-orange/10">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-lg">🎯</span>
+                      <Image src="/iconaPerformance.png" alt="Offerta" width={16} height={16} />
                       <div className="text-sm font-semibold text-navy">Offerta limitata</div>
                     </div>
                     <div className="text-xs text-gray-600">Disponibile solo per nuovi clienti</div>
@@ -682,7 +690,7 @@ export default function DriveTestPage() {
           {/* Bottom CTA */}
           <div className="mt-16 text-center">
             <div className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-sm px-8 py-4 rounded-2xl shadow-lg border border-orange/20">
-              <span className="text-2xl">🚀</span>
+              <Image src="/iconaPerformance.png" alt="Inizia ora" width={24} height={24} />
               <span className="text-lg font-semibold text-navy">
                 Inizia subito e risparmia sul tuo primo pacchetto!
               </span>
