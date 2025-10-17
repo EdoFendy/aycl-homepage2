@@ -29,6 +29,12 @@ export default function AdminDashboardPage() {
             Crea link di pagamento
           </Link>
           <Link
+            href="/admin/documents"
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-emerald-400"
+          >
+            Genera preventivo
+          </Link>
+          <Link
             href="/admin/products"
             className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 hover:bg-slate-800/60"
           >
