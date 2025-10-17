@@ -41,14 +41,30 @@ async function requestWoo<T>(path: string, init: RequestInit = {}): Promise<T> {
 
   if (!response.ok) {
     let message = `WooCommerce request to ${path} failed with status ${response.status}`;
+    let errorDetails: any = null;
+    
     try {
-      const errorData = (await response.json()) as { message?: string };
+      const errorData = (await response.json()) as { message?: string; errors?: any; data?: any };
+      errorDetails = errorData;
       if (errorData?.message) {
         message = errorData.message;
+      } else if (errorData?.errors) {
+        message = `WooCommerce API errors: ${JSON.stringify(errorData.errors)}`;
+      } else if (errorData?.data) {
+        message = `WooCommerce API error: ${JSON.stringify(errorData.data)}`;
       }
     } catch {
       // ignore json parse errors
     }
+    
+    console.error(`WooCommerce API Error [${response.status}]:`, {
+      path,
+      status: response.status,
+      statusText: response.statusText,
+      errorDetails,
+      requestBody: init.body
+    });
+    
     throw new Error(message);
   }
 
@@ -173,7 +189,11 @@ export async function createWooPaymentLink(payload: {
   quantity?: number;
   priceOverride?: string;
 }) {
-  const items = [
+  const items: Array<{
+    product_id: number;
+    quantity: number;
+    amount?: string;
+  }> = [
     {
       product_id: payload.productId,
       quantity: payload.quantity ?? 1,
@@ -184,17 +204,27 @@ export async function createWooPaymentLink(payload: {
     items[0] = { ...items[0], amount: payload.priceOverride };
   }
 
+  const requestBody = {
+    gateway: "card-payment",
+    customer: {
+      first_name: payload.customer.firstName,
+      last_name: payload.customer.lastName,
+      email: payload.customer.email,
+    },
+    items,
+  };
+
+  console.log("Creating WooCommerce payment link with payload:", {
+    productId: payload.productId,
+    quantity: payload.quantity,
+    priceOverride: payload.priceOverride,
+    customer: payload.customer,
+    requestBody
+  });
+
   return requestWoo<WooPaymentLink>("/payment-links", {
     method: "POST",
-    body: JSON.stringify({
-      gateway: "Card Payment",
-      customer: {
-        first_name: payload.customer.firstName,
-        last_name: payload.customer.lastName,
-        email: payload.customer.email,
-      },
-      items,
-    }),
+    body: JSON.stringify(requestBody),
   });
 }
 
