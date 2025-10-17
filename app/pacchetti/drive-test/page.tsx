@@ -53,162 +53,162 @@ const COEFF_GEO: Coeff[] = [
   { id: "geo_asia",      label: "Asia (SG/HK/JP)",                    min: 1.4,  max: 1.6 },
   { id: "geo_oceania",   label: "Oceania (AU/NZ)",                    min: 1.4,  max: 1.5 }
 ]
-  const HIGHEST = 1.58
+const HIGHEST = 1.58
 
-  const SECTOR_GROUPS: SectorGroup[] = [
-    {
-      id: "macro_saas",
-      label: "SaaS / Tech B2B",
-      options: [
-        { id: "saas_macro", label: "SaaS / Tech B2B", coefficient: HIGHEST, level: "macro" },
-        { id: "saas_horizontal", label: "SaaS orizzontale (CRM/ERP)", coefficient: HIGHEST, level: "granular" },
-        { id: "saas_vertical", label: "SaaS verticale (PropTech/LegalTech/HRTech)", coefficient: HIGHEST, level: "granular" },
-        { id: "saas_cyber", label: "Cybersecurity", coefficient: HIGHEST, level: "granular" },
-        { id: "saas_data_ai", label: "Data & Analytics / AI", coefficient: HIGHEST, level: "granular" },
-        { id: "saas_cloud", label: "Cloud & DevOps", coefficient: HIGHEST, level: "granular" },
-        { id: "saas_it_services", label: "IT Services & System Integration", coefficient: HIGHEST, level: "granular" },
-        { id: "saas_elearning", label: "E-learning B2B", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_services",
-      label: "Servizi Professionali (Marketing/HR/Consulenza)",
-      options: [
-        {
-          id: "services_macro",
-          label: "Servizi Professionali (Marketing/HR/Consulenza)",
-          coefficient: HIGHEST,
-          level: "macro"
-        },
-        { id: "services_agencies", label: "Agenzie Marketing & Adv", coefficient: HIGHEST, level: "granular" },
-        { id: "services_recruiting", label: "Recruiting & HR Services", coefficient: HIGHEST, level: "granular" },
-        {
-          id: "services_consulting",
-          label: "Consulenza gestionale / strategica",
-          coefficient: HIGHEST,
-          level: "granular"
-        },
-        { id: "services_legal", label: "Servizi legali B2B", coefficient: HIGHEST, level: "granular" },
-        { id: "services_accounting", label: "Contabilità & Tax", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_industry",
-      label: "Manifatturiero / Industria",
-      options: [
-        { id: "industry_macro", label: "Manifatturiero / Industria", coefficient: HIGHEST, level: "macro" },
-        { id: "industry_machinery", label: "Macchinari industriali", coefficient: HIGHEST, level: "granular" },
-        { id: "industry_electronics", label: "Elettronica/EMS", coefficient: HIGHEST, level: "granular" },
-        { id: "industry_chemistry", label: "Chimica & Materiali", coefficient: HIGHEST, level: "granular" },
-        { id: "industry_food", label: "Food & Beverage Industry", coefficient: HIGHEST, level: "granular" },
-        { id: "industry_aerospace", label: "Aerospace & Defense (civile)", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_automotive",
-      label: "Automotive",
-      options: [
-        { id: "automotive_macro", label: "Automotive", coefficient: HIGHEST, level: "macro" },
-        { id: "automotive_oem", label: "Automotive OEM", coefficient: HIGHEST, level: "granular" },
-        { id: "automotive_tier", label: "Automotive Tier1/Tier2", coefficient: HIGHEST, level: "granular" },
-        { id: "automotive_mobility", label: "Mobilità & Componentistica", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_banking",
-      label: "Banking",
-      options: [
-        { id: "banking_macro", label: "Banking", coefficient: HIGHEST, level: "macro" },
-        { id: "banking_retail", label: "Banche Retail", coefficient: HIGHEST, level: "granular" },
-        { id: "banking_corporate", label: "Banche Corporate/IB", coefficient: HIGHEST, level: "granular" },
-        { id: "banking_bpo", label: "Servizi BPO bancari", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_insurance",
-      label: "Insurance",
-      options: [
-        { id: "insurance_macro", label: "Insurance", coefficient: HIGHEST, level: "macro" },
-        { id: "insurance_traditional", label: "Assicurazioni Danni/Vita", coefficient: HIGHEST, level: "granular" },
-        { id: "insurance_insurtech", label: "Insurtech", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_fintech",
-      label: "Fintech",
-      options: [
-        { id: "fintech_macro", label: "Fintech", coefficient: HIGHEST, level: "macro" },
-        { id: "fintech_payments", label: "Pagamenti", coefficient: HIGHEST, level: "granular" },
-        { id: "fintech_lending", label: "Lending/P2P", coefficient: HIGHEST, level: "granular" },
-        { id: "fintech_open_banking", label: "Open Banking/RegTech", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_asset_management",
-      label: "Asset Management / SGR",
-      options: [
-        { id: "asset_macro", label: "Asset Management / SGR", coefficient: HIGHEST, level: "macro" },
-        { id: "asset_management", label: "Asset Management", coefficient: HIGHEST, level: "granular" },
-        { id: "asset_private_banking", label: "Private Banking/Wealth", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_healthcare",
-      label: "Healthcare / Pharma / MedTech",
-      options: [
-        { id: "healthcare_macro", label: "Healthcare / Pharma / MedTech", coefficient: HIGHEST, level: "macro" },
-        { id: "healthcare_pharma", label: "Pharma", coefficient: HIGHEST, level: "granular" },
-        { id: "healthcare_biotech", label: "Biotech", coefficient: HIGHEST, level: "granular" },
-        { id: "healthcare_medtech", label: "MedTech / Dispositivi", coefficient: HIGHEST, level: "granular" },
-        { id: "healthcare_hospitals", label: "Ospedali & Cliniche", coefficient: HIGHEST, level: "granular" },
-        { id: "healthcare_diagnostics", label: "Diagnostica & Lab", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_real_estate",
-      label: "Real Estate / Costruzioni / Facility",
-      options: [
-        {
-          id: "real_estate_macro",
-          label: "Real Estate / Costruzioni / Facility",
-          coefficient: HIGHEST,
-          level: "macro"
-        },
-        { id: "real_estate_development", label: "Sviluppo immobiliare", coefficient: HIGHEST, level: "granular" },
-        { id: "real_estate_contractor", label: "General Contractor", coefficient: HIGHEST, level: "granular" },
-        { id: "real_estate_facility", label: "Facility Management", coefficient: HIGHEST, level: "granular" },
-        { id: "real_estate_proptech", label: "PropTech", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_retail",
-      label: "Retail (negozi fisici)",
-      options: [
-        { id: "retail_macro", label: "Retail (negozi fisici)", coefficient: HIGHEST, level: "macro" },
-        { id: "retail_gdo", label: "GDO", coefficient: HIGHEST, level: "granular" },
-        { id: "retail_specialized", label: "Catene retail specializzate", coefficient: HIGHEST, level: "granular" },
-        { id: "retail_franchising", label: "Retail franchising", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_ecommerce",
-      label: "E-commerce (pure player/marketplace)",
-      options: [
-        { id: "ecommerce_macro", label: "E-commerce (pure player/marketplace)", coefficient: HIGHEST, level: "macro" },
-        { id: "ecommerce_pure", label: "E-commerce pure player", coefficient: HIGHEST, level: "granular" },
-        { id: "ecommerce_marketplace", label: "Marketplace", coefficient: HIGHEST, level: "granular" },
-        { id: "ecommerce_dnvb", label: "DNVB / D2C digitale", coefficient: HIGHEST, level: "granular" }
-      ]
-    },
-    {
-      id: "macro_energy",
-      label: "Energy & Utilities",
-      options: [
-        { id: "energy_macro", label: "Energy & Utilities", coefficient: HIGHEST, level: "macro" },
-        { id: "energy_utility", label: "Utility (energia/acqua/gas)", coefficient: HIGHEST, level: "granular" },
-        { id: "energy_renewables", label: "Rinnovabili (PV/Wind/Storage)", coefficient: HIGHEST, level: "granular" }
-      ]
-    }
+const SECTOR_GROUPS: SectorGroup[] = [
+  {
+    id: "macro_saas",
+    label: "SaaS / Tech B2B",
+    options: [
+      { id: "saas_macro", label: "SaaS / Tech B2B", coefficient: HIGHEST, level: "macro" },
+      { id: "saas_horizontal", label: "SaaS orizzontale (CRM/ERP)", coefficient: HIGHEST, level: "granular" },
+      { id: "saas_vertical", label: "SaaS verticale (PropTech/LegalTech/HRTech)", coefficient: HIGHEST, level: "granular" },
+      { id: "saas_cyber", label: "Cybersecurity", coefficient: HIGHEST, level: "granular" },
+      { id: "saas_data_ai", label: "Data & Analytics / AI", coefficient: HIGHEST, level: "granular" },
+      { id: "saas_cloud", label: "Cloud & DevOps", coefficient: HIGHEST, level: "granular" },
+      { id: "saas_it_services", label: "IT Services & System Integration", coefficient: HIGHEST, level: "granular" },
+      { id: "saas_elearning", label: "E-learning B2B", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_services",
+    label: "Servizi Professionali (Marketing/HR/Consulenza)",
+    options: [
+      {
+        id: "services_macro",
+        label: "Servizi Professionali (Marketing/HR/Consulenza)",
+        coefficient: HIGHEST,
+        level: "macro"
+      },
+      { id: "services_agencies", label: "Agenzie Marketing & Adv", coefficient: HIGHEST, level: "granular" },
+      { id: "services_recruiting", label: "Recruiting & HR Services", coefficient: HIGHEST, level: "granular" },
+      {
+        id: "services_consulting",
+        label: "Consulenza gestionale / strategica",
+        coefficient: HIGHEST,
+        level: "granular"
+      },
+      { id: "services_legal", label: "Servizi legali B2B", coefficient: HIGHEST, level: "granular" },
+      { id: "services_accounting", label: "Contabilità & Tax", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_industry",
+    label: "Manifatturiero / Industria",
+    options: [
+      { id: "industry_macro", label: "Manifatturiero / Industria", coefficient: HIGHEST, level: "macro" },
+      { id: "industry_machinery", label: "Macchinari industriali", coefficient: HIGHEST, level: "granular" },
+      { id: "industry_electronics", label: "Elettronica/EMS", coefficient: HIGHEST, level: "granular" },
+      { id: "industry_chemistry", label: "Chimica & Materiali", coefficient: HIGHEST, level: "granular" },
+      { id: "industry_food", label: "Food & Beverage Industry", coefficient: HIGHEST, level: "granular" },
+      { id: "industry_aerospace", label: "Aerospace & Defense (civile)", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_automotive",
+    label: "Automotive",
+    options: [
+      { id: "automotive_macro", label: "Automotive", coefficient: HIGHEST, level: "macro" },
+      { id: "automotive_oem", label: "Automotive OEM", coefficient: HIGHEST, level: "granular" },
+      { id: "automotive_tier", label: "Automotive Tier1/Tier2", coefficient: HIGHEST, level: "granular" },
+      { id: "automotive_mobility", label: "Mobilità & Componentistica", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_banking",
+    label: "Banking",
+    options: [
+      { id: "banking_macro", label: "Banking", coefficient: HIGHEST, level: "macro" },
+      { id: "banking_retail", label: "Banche Retail", coefficient: HIGHEST, level: "granular" },
+      { id: "banking_corporate", label: "Banche Corporate/IB", coefficient: HIGHEST, level: "granular" },
+      { id: "banking_bpo", label: "Servizi BPO bancari", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_insurance",
+    label: "Insurance",
+    options: [
+      { id: "insurance_macro", label: "Insurance", coefficient: HIGHEST, level: "macro" },
+      { id: "insurance_traditional", label: "Assicurazioni Danni/Vita", coefficient: HIGHEST, level: "granular" },
+      { id: "insurance_insurtech", label: "Insurtech", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_fintech",
+    label: "Fintech",
+    options: [
+      { id: "fintech_macro", label: "Fintech", coefficient: HIGHEST, level: "macro" },
+      { id: "fintech_payments", label: "Pagamenti", coefficient: HIGHEST, level: "granular" },
+      { id: "fintech_lending", label: "Lending/P2P", coefficient: HIGHEST, level: "granular" },
+      { id: "fintech_open_banking", label: "Open Banking/RegTech", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_asset_management",
+    label: "Asset Management / SGR",
+    options: [
+      { id: "asset_macro", label: "Asset Management / SGR", coefficient: HIGHEST, level: "macro" },
+      { id: "asset_management", label: "Asset Management", coefficient: HIGHEST, level: "granular" },
+      { id: "asset_private_banking", label: "Private Banking/Wealth", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_healthcare",
+    label: "Healthcare / Pharma / MedTech",
+    options: [
+      { id: "healthcare_macro", label: "Healthcare / Pharma / MedTech", coefficient: HIGHEST, level: "macro" },
+      { id: "healthcare_pharma", label: "Pharma", coefficient: HIGHEST, level: "granular" },
+      { id: "healthcare_biotech", label: "Biotech", coefficient: HIGHEST, level: "granular" },
+      { id: "healthcare_medtech", label: "MedTech / Dispositivi", coefficient: HIGHEST, level: "granular" },
+      { id: "healthcare_hospitals", label: "Ospedali & Cliniche", coefficient: HIGHEST, level: "granular" },
+      { id: "healthcare_diagnostics", label: "Diagnostica & Lab", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_real_estate",
+    label: "Real Estate / Costruzioni / Facility",
+    options: [
+      {
+        id: "real_estate_macro",
+        label: "Real Estate / Costruzioni / Facility",
+        coefficient: HIGHEST,
+        level: "macro"
+      },
+      { id: "real_estate_development", label: "Sviluppo immobiliare", coefficient: HIGHEST, level: "granular" },
+      { id: "real_estate_contractor", label: "General Contractor", coefficient: HIGHEST, level: "granular" },
+      { id: "real_estate_facility", label: "Facility Management", coefficient: HIGHEST, level: "granular" },
+      { id: "real_estate_proptech", label: "PropTech", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_retail",
+    label: "Retail (negozi fisici)",
+    options: [
+      { id: "retail_macro", label: "Retail (negozi fisici)", coefficient: HIGHEST, level: "macro" },
+      { id: "retail_gdo", label: "GDO", coefficient: HIGHEST, level: "granular" },
+      { id: "retail_specialized", label: "Catene retail specializzate", coefficient: HIGHEST, level: "granular" },
+      { id: "retail_franchising", label: "Retail franchising", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_ecommerce",
+    label: "E-commerce (pure player/marketplace)",
+    options: [
+      { id: "ecommerce_macro", label: "E-commerce (pure player/marketplace)", coefficient: HIGHEST, level: "macro" },
+      { id: "ecommerce_pure", label: "E-commerce pure player", coefficient: HIGHEST, level: "granular" },
+      { id: "ecommerce_marketplace", label: "Marketplace", coefficient: HIGHEST, level: "granular" },
+      { id: "ecommerce_dnvb", label: "DNVB / D2C digitale", coefficient: HIGHEST, level: "granular" }
+    ]
+  },
+  {
+    id: "macro_energy",
+    label: "Energy & Utilities",
+    options: [
+      { id: "energy_macro", label: "Energy & Utilities", coefficient: HIGHEST, level: "macro" },
+      { id: "energy_utility", label: "Utility (energia/acqua/gas)", coefficient: HIGHEST, level: "granular" },
+      { id: "energy_renewables", label: "Rinnovabili (PV/Wind/Storage)", coefficient: HIGHEST, level: "granular" }
+    ]
+  }
 ]
 
 const DEFAULT_SECTOR_GROUP = SECTOR_GROUPS[0]
@@ -278,8 +278,8 @@ export default function DriveTestPage() {
         max: unitPrice,
       },
       selections: {
-        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label ?? BASE_ITALIA[0].label,
-        geography:   COEFF_GEO.find(x => x.id === geo)?.label ?? COEFF_GEO[0].label,
+        revenueBand: BASE_ITALIA.find(x => x.id === band)?.label ?? "",
+        geography:   COEFF_GEO.find(x => x.id === geo)?.label ?? "",
         macroSector: selectedSectorGroup.label,
         sector:      selectedSectorOption.label
       },
@@ -372,10 +372,10 @@ export default function DriveTestPage() {
                       <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80">
                         Drive Test Premium
                       </span>
-                        <div>
-                          <h3 className="text-3xl font-bold leading-tight sm:text-4xl">{t("form.title")}</h3>
-                          <p className="mt-3 text-sm text-white/80 sm:text-base">{t("hero.microcopy")}</p>
-                        </div>
+                      <div>
+                        <h3 className="text-3xl font-bold leading-tight sm:text-4xl">Configura il tuo Drive Test</h3>
+                        <p className="mt-3 text-sm text-white/80 sm:text-base">{t("hero.microcopy")}</p>
+                      </div>
                     </div>
 
                     <div className="grid gap-4 sm:grid-cols-2">
