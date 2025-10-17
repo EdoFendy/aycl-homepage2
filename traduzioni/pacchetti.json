@@ -127,11 +127,11 @@
       "partnership": "Partnership & Results",
       "features": {
         "customStrategy": "Single upfront fee, zero fixed costs",
-        "dedicatedTeam": "Guaranteed revenue generation",
-        "automation": "Our upside depends on yours",
+        "dedicatedTeam": "Guaranteed revenue generated",
+        "automation": "Our earnings depend on yours",
         "revenueShare": "Unlimited campaigns and ICPs",
         "priorityAccess": "Shared strategic roadmap",
-        "advisoryBoard": "Full customisation"
+        "advisoryBoard": "Full customization"
       },
       "cta": "Contact us now",
       "ideal": "💼 Ideal for B2B companies with ACV > €10k"
@@ -140,15 +140,15 @@
       "badge": "Kickstart",
       "setup": "⚡ Setup in 7 days",
       "title": "Performance",
-      "desc": "Built to generate qualified meetings fast and pay only the ones you attend.",
+      "desc": "Generate qualified meetings fast and pay only for the ones you attend.",
       "pricing": {
         "label": "Pricing model",
         "desc": "💰 You only pay for concrete results: no fixed costs, only qualified appointments held"
       },
       "features": {
-        "onboarding": "Access Pack only",
-        "payPerResult": "Per-appointment pricing",
-        "reporting": "Campaign live straight away",
+        "onboarding": "Available only as an Access Pack",
+        "payPerResult": "Per-appointment fee",
+        "reporting": "Campaign goes live immediately",
         "testing": "One-year collaboration"
       },
       "cta": "Contact us now"
@@ -161,7 +161,7 @@
       "features": {
         "guaranteed": "Growth subscription for your company",
         "manager": "Guaranteed appointment range every month",
-        "meetings": "Cancel whenever you need",
+        "meetings": "Cancel whenever you want",
         "refund": "Full refund guarantee (90 days)"
       },
       "cta": "Contact us now"
@@ -241,7 +241,7 @@
       "features": {
         "customStrategy": "Pago único, cero costes fijos",
         "dedicatedTeam": "Garantía de facturación generada",
-        "automation": "Nuestra ganancia depende de la vuestra",
+        "automation": "Nuestros ingresos dependen de los vuestros",
         "revenueShare": "Campañas e ICP ilimitados",
         "priorityAccess": "Hoja de ruta estratégica compartida",
         "advisoryBoard": "Personalización total"
@@ -253,15 +253,15 @@
       "badge": "Kickstart",
       "setup": "⚡ Configuración en 7 días",
       "title": "Rendimiento",
-      "desc": "Para generar citas cualificadas de inmediato y pagar solo las que realizas.",
+      "desc": "Genera citas cualificadas de inmediato y paga solo las que realizas.",
       "pricing": {
         "label": "Modelo de precios",
         "desc": "💰 Solo pagas por resultados concretos: sin costos fijos, solo citas cualificadas realizadas"
       },
       "features": {
-        "onboarding": "Válido solo como Access Pack",
+        "onboarding": "Disponible solo como Access Pack",
         "payPerResult": "Cuota por cita",
-        "reporting": "Arranque inmediato de la campaña",
+        "reporting": "Activación inmediata de la campaña",
         "testing": "Un año de colaboración"
       },
       "cta": "Contáctanos ahora"

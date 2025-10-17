@@ -9,10 +9,19 @@ export interface DriveTestOrder {
     max: number;
   };
   selections: {
-    revenueBand: string;
-    geography: string;
-    macroSector: string;
-    sector: string;
+    revenueBand: {
+      id: string;
+      label: string;
+    };
+    geography: {
+      id: string;
+      label: string;
+    };
+    sector: {
+      id: string;
+      label: string;
+    };
+    riskProfile: number;
   };
   metadata: {
     locale: string;

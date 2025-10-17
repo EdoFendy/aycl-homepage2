@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { PageLayoutContainer } from "@/components/page-layout-container"
 import { Card } from "@/components/ui/card"
+import { FAQCards } from "@/components/faq-cards"
 import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 import { Calculator, CheckCircle2 } from "lucide-react"
 import type { DriveTestOrder } from "@/lib/drive-test"
@@ -648,21 +649,23 @@ export default function DriveTestPage() {
         </PageLayoutContainer>
       </section>
 
-      {/* FAQ (invariato) */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <PageLayoutContainer className="px-4 sm:px-6">
-          <h3 className="text-2xl font-bold text-navy text-center">{t("faq.title")}</h3>
-          <div className="mt-10 max-w-3xl mx-auto space-y-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <details key={i} className="group rounded-2xl border border-navy/10 bg-white p-5 open:shadow-md transition">
-                <summary className="cursor-pointer list-none font-semibold text-navy">
-                  {t(`faq.items.${i}.q`)}
-                </summary>
-                <p className="mt-2 text-gray-700">{t(`faq.items.${i}.a`)}</p>
-              </details>
-            ))}
-          </div>
-        </PageLayoutContainer>
+      {/* FAQ Section */}
+      <section className="py-24 relative">
+        <div className="container mx-auto px-6">
+          <PageLayoutContainer>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("faq.title")}</h2>
+            </div>
+
+            <FAQCards
+              className="mt-12"
+              items={Array.from({ length: 8 }).map((_, i) => ({
+                question: t(`faq.items.${i}.q`),
+                answer: t(`faq.items.${i}.a`)
+              }))}
+            />
+          </PageLayoutContainer>
+        </div>
       </section>
     </div>
   )
