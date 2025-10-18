@@ -323,99 +323,73 @@ export default function SetUpFeePage() {
             <p className="text-base sm:text-lg md:text-xl text-gray-600">{t("economics.desc")}</p>
           </div>
 
-          {/* FASE DI RICERCA E VALORE - NUOVA SEZIONE PRINCIPALE */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 rounded-3xl border border-orange/20 p-6 sm:p-8 md:p-12">
-              <div className="text-center mb-8">
+
+          {/* MODELLO ECONOMICO - LAYOUT COMPATTO CON IMMAGINE */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* BOX SINISTRA - COMPATTO */}
+            <div className="bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 rounded-3xl border border-orange/20 p-6 sm:p-8">
+              <div className="text-center mb-6">
                 <div className="inline-flex items-center gap-2 rounded-full bg-orange/10 px-4 py-2 mb-4">
                   <Rocket className="h-5 w-5 text-orange" />
                   <span className="text-sm font-semibold text-orange">{t("researchPhase.badge")}</span>
                 </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-navy mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-navy mb-4">
                   {t("researchPhase.title")}
                 </h3>
-                <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+                <p className="text-base text-gray-600">
                   {t("researchPhase.subtitle")}
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-navy">{t("researchPhase.buildTogether")}</h4>
-                  <ul className="space-y-3">
+              <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-3">
+                  <h4 className="text-base font-semibold text-navy">{t("researchPhase.buildTogether")}</h4>
+                  <ul className="space-y-2">
                     {t.raw("researchPhase.buildItems").map((item: string, index: number) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                        <span className="text-sm sm:text-base text-gray-700">{item}</span>
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-gray-700">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-navy">{t("researchPhase.valueYouGet")}</h4>
-                  <ul className="space-y-3">
+                <div className="space-y-3">
+                  <h4 className="text-base font-semibold text-navy">{t("researchPhase.valueYouGet")}</h4>
+                  <ul className="space-y-2">
                     {t.raw("researchPhase.valueItems").map((item: string, index: number) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5" />
-                        <span className="text-sm sm:text-base text-gray-700">{item}</span>
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-gray-700">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="bg-white/50 rounded-2xl p-6 border border-orange/10">
+              <div className="bg-white/50 rounded-2xl p-4 border border-orange/10">
                 <div className="text-center">
-                  <h4 className="text-lg font-semibold text-navy mb-2">{t("researchPhase.investmentTitle")}</h4>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <h4 className="text-base font-semibold text-navy mb-2">{t("researchPhase.investmentTitle")}</h4>
+                  <p className="text-sm text-gray-600 mb-3">
                     {t("researchPhase.investmentDesc")}
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-orange/10 rounded-full px-4 py-2">
+                  <div className="inline-flex items-center gap-2 bg-orange/10 rounded-full px-3 py-1">
                     <span className="text-sm font-semibold text-orange">{t("researchPhase.investmentTag")}</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* FASE OPERATIVA E GARANZIE */}
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            <Card className="relative overflow-hidden border border-sky-blue/20 bg-white p-6 sm:p-8 shadow-lg">
-              <div className="absolute -top-6 -right-6 h-20 w-20 rounded-full bg-sky-blue/10 blur-2xl" />
-              <div className="relative z-10 space-y-4">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-blue/10">
-                    <TrendingUp className="h-5 w-5 text-sky-blue" />
-                  </span>
-                  <span className="text-sm font-semibold uppercase tracking-wide text-sky-blue">
-                    {t("operationalPhase.badge")}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-navy">{t("operationalPhase.title")}</h3>
-                <p className="text-sm text-gray-600">
-                  {t("operationalPhase.desc")}
-                </p>
-              </div>
-            </Card>
-
-            <Card className="relative overflow-hidden border border-green-200 bg-white p-6 sm:p-8 shadow-lg">
-              <div className="absolute -bottom-6 -left-6 h-20 w-20 rounded-full bg-green-100 blur-2xl" />
-              <div className="relative z-10 space-y-4">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
-                    <Shield className="h-5 w-5 text-green-600" />
-                  </span>
-                  <span className="text-sm font-semibold uppercase tracking-wide text-green-600">
-                    {t("guarantees.badge")}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-navy">{t("guarantees.title")}</h3>
-                <p className="text-sm text-gray-600">
-                  {t("guarantees.desc")}
-                </p>
-              </div>
-            </Card>
+            {/* IMMAGINE DESTRA - FLUTTUANTE E PIÙ GRANDE */}
+            <div className="flex items-center justify-center lg:justify-end">
+              <Image
+                src="/Drivetest_Razzo.png"
+                alt="Drive Test Razzo"
+                width={600}
+                height={600}
+                className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl object-contain"
+              />
+            </div>
           </div>
         </PageLayoutContainer>
       </section>
