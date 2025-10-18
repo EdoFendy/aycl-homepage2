@@ -438,7 +438,6 @@ export default function DriveTestPage() {
                       <div className="rounded-3xl border border-navy/10 bg-white/80 p-6 shadow-lg">
                         <div className="text-xs font-medium uppercase tracking-wider text-navy/70">{t("form.unit")}</div>
                         <div className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl text-navy">€ {unitPrice.toLocaleString()}</div>
-                        <div className="mt-2 text-xs text-navy/70">+ IVA</div>
                       </div>
                       <div className="rounded-3xl border border-navy/10 bg-white p-6 text-navy shadow-lg">
                         <div className="text-xs font-semibold uppercase tracking-wider text-navy/60">{t("form.total")}</div>
