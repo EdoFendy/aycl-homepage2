@@ -691,15 +691,7 @@ export default function DriveTestPage() {
             </div>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-3 bg-white/90 backdrop-blur-sm px-8 py-4 rounded-2xl shadow-lg border border-orange/20">
-              <Image src="/iconaPerformance.png" alt="Inizia ora" width={24} height={24} />
-              <span className="text-lg font-semibold text-navy">
-                Inizia subito e risparmia sul tuo primo pacchetto!
-              </span>
-            </div>
-          </div>
+          
         </PageLayoutContainer>
       </section>
 

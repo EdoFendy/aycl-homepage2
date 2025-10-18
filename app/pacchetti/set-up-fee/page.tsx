@@ -69,7 +69,7 @@ export default function SetUpFeePage() {
 
             <div className="relative flex items-center justify-center order-2 lg:order-1">
               <Image
-                src="/setupfee2.png"
+                src="/ManoStella.png"
                 alt={t("hero.alt")}
                 width={520}
                 height={480}

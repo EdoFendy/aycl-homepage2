@@ -196,8 +196,14 @@ export function SiteHeader() {
                         BORDER_DARK,
                       )}
                     >
-                      <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-orange/10 text-orange flex-shrink-0 sm:h-16 sm:w-16">
-                        <Gauge className="h-6 w-6" />
+                      <div className="flex items-start justify-start h-12 w-12 rounded-lg flex-shrink-0 sm:h-16 sm:w-16">
+                      <Image
+                          src="/DriveTest_icon.png"
+                          alt={t("alt.subscription")}
+                          width={32}
+                          height={32}
+                          className="h-6 w-6 align-top object-contain sm:h-10 sm:w-10"
+                        />
                       </div>
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-navy sm:text-base">{t("mega.card.driveTest.title")}</p>
