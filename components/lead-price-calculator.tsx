@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, Calculator, Info, Sparkles, ArrowRight, Copy } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -62,6 +62,28 @@ export default function LeadPriceCalculator({
   const router = useRouter();
   const isCardVariant = variant === "card";
 
+  const baseItaliaLabels = t.raw("options.baseItalia") as Record<string, string>;
+  const coeffGeoLabels = t.raw("options.coeffGeo") as Record<string, string>;
+  const coeffSettLabels = t.raw("options.coeffSett") as Record<string, string>;
+
+  const translateOptionLabel = useCallback(
+    (group: "baseItalia" | "coeffGeo" | "coeffSett", item?: BaseData | null) => {
+      if (!item) {
+        return "";
+      }
+
+      const map =
+        group === "baseItalia"
+          ? baseItaliaLabels
+          : group === "coeffGeo"
+            ? coeffGeoLabels
+            : coeffSettLabels;
+
+      return map?.[item.id] ?? item.label ?? "";
+    },
+    [baseItaliaLabels, coeffGeoLabels, coeffSettLabels]
+  );
+
   const [revenueBand, setRevenueBand] = useState(baseItalia[0]?.id || "");
   const [geo, setGeo] = useState(coeffGeo[0]?.id || "");
   const [sett, setSett] = useState(coeffSett[0]?.id || "");
@@ -118,15 +140,15 @@ export default function LeadPriceCalculator({
       selections: {
         revenueBand: {
           id: calc.b?.id ?? revenueBand,
-          label: calc.b?.label ?? "",
+          label: translateOptionLabel("baseItalia", calc.b || null),
         },
         geography: {
           id: calc.g?.id ?? geo,
-          label: calc.g?.label ?? "",
+          label: translateOptionLabel("coeffGeo", calc.g || null),
         },
         sector: {
           id: calc.s?.id ?? sett,
-          label: calc.s?.label ?? "",
+          label: translateOptionLabel("coeffSett", calc.s || null),
         },
         riskProfile: risk,
       },
@@ -229,7 +251,9 @@ export default function LeadPriceCalculator({
                 onChange={(e) => setRevenueBand(e.target.value)}
               >
                 {baseItalia.map((b) => (
-                  <option key={b.id} value={b.id}>{b.label}</option>
+                  <option key={b.id} value={b.id}>
+                    {translateOptionLabel("baseItalia", b)}
+                  </option>
                 ))}
               </select>
             </Field>
@@ -241,7 +265,9 @@ export default function LeadPriceCalculator({
                 onChange={(e) => setGeo(e.target.value)}
               >
                 {coeffGeo.map((g) => (
-                  <option key={g.id} value={g.id}>{g.label}</option>
+                  <option key={g.id} value={g.id}>
+                    {translateOptionLabel("coeffGeo", g)}
+                  </option>
                 ))}
               </select>
             </Field>
@@ -253,7 +279,9 @@ export default function LeadPriceCalculator({
                 onChange={(e) => setSett(e.target.value)}
               >
                 {coeffSett.map((s) => (
-                  <option key={s.id} value={s.id}>{s.label}</option>
+                  <option key={s.id} value={s.id}>
+                    {translateOptionLabel("coeffSett", s)}
+                  </option>
                 ))}
               </select>
             </Field>
@@ -299,7 +327,7 @@ export default function LeadPriceCalculator({
             </div>
             <p className="mt-3 text-center text-[12px] text-gray-500 flex items-center justify-center gap-1">
               <Info className="h-3.5 w-3.5" />
-              {t("footnote", { unit: calc.b?.label || "" })}
+              {t("footnote", { unit: translateOptionLabel("baseItalia", calc.b || baseItalia[0] || null) })}
             </p>
           </div>
         </div>
