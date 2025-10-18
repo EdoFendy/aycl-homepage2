@@ -393,7 +393,7 @@ export default function DriveTestPage() {
 
             <div className="relative flex justify-center">
               <Image
-                src="/data_to_leads.png"
+                src="/Calolatore.png"
                 alt="Drive Test"
                 width={520}
                 height={420}
@@ -638,22 +638,26 @@ export default function DriveTestPage() {
             <div className="lg:col-span-2">
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-orange/20">
                 <div className="space-y-6">
-                  {Array.from({ length: 4 }).map((_, i) => {
-                    const icons = [
-                      "/iconaRegalo.png", // Per il primo punto sul regalo/sconto
-                      "/iconaPayment.svg", // Per il secondo punto sul pagamento
-                      "/iconaSetupfee.png", // Per il terzo punto sul setup
-                      "/iconaPerformance.png" // Per il quarto punto sui risultati
-                    ]
-                    return (
-                      <div key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
-                        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
-                          <Image src={icons[i]} alt={`Punto ${i + 1}`} width={24} height={24} />
-                        </div>
-                        <p className="text-gray-700 text-lg leading-relaxed">{t(`savings.microcopy.${i}`)}</p>
-                      </div>
-                    )
-                  })}
+                  {/* Punto 1 - Senza icona */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
+                    <p className="text-gray-700 text-lg leading-relaxed">{t("savings.microcopy.0")}</p>
+                  </div>
+                  
+                  {/* Punto 2 - Senza icona */}
+                  <div className="p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
+                    <p className="text-gray-700 text-lg leading-relaxed">{t("savings.microcopy.1")}</p>
+                  </div>
+                  
+                  {/* Punto 3+4 - Riuniti con icona regalo */}
+                  <div className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
+                    <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
+                      <Image src="/iconaRegalo.png" alt="Regalo" width={24} height={24} />
+                    </div>
+                    <div className="space-y-4">
+                      <p className="text-gray-700 text-lg leading-relaxed">{t("savings.microcopy.2")}</p>
+                      <p className="text-gray-700 text-lg leading-relaxed">{t("savings.microcopy.3")}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
