@@ -52,6 +52,45 @@
       "helper": "Seleziona tra 5 e 20 appuntamenti qualificati per iniziare in sicurezza.",
       "current": "Selezionati",
       "appointments": "Appuntamenti"
+    },
+    "options": {
+      "baseItalia": {
+        "band_0": "< €100K",
+        "band_1": "€100K – €500K",
+        "band_2": "€500K – €1M",
+        "band_3": "€1M – €5M",
+        "band_4": "€5M – €10M",
+        "band_5": "€10M – €20M",
+        "band_6": "€20M – €50M",
+        "band_7": "€50M+"
+      },
+      "coeffGeo": {
+        "geo_0": "Italia",
+        "geo_1": "Spagna / Portogallo",
+        "geo_2": "Francia / Germania / Benelux",
+        "geo_3": "UK / Irlanda",
+        "geo_4": "Est Europa",
+        "geo_5": "Nordics (SE/NO/DK/FI)",
+        "geo_6": "USA / Canada",
+        "geo_7": "LATAM",
+        "geo_8": "Middle East",
+        "geo_9": "Africa",
+        "geo_10": "Asia (SG/HK/JP)",
+        "geo_11": "Oceania (AU/NZ)"
+      },
+      "coeffSett": {
+        "sett_0": "SaaS / Tech B2B",
+        "sett_1": "Marketing / HR / Servizi professionali",
+        "sett_2": "Manifatturiero / Industria / Automotive",
+        "sett_3": "Finanza / Banking / Investment",
+        "sett_4": "Sanità / Medicale / Pharma",
+        "sett_5": "Real Estate / Construction",
+        "sett_6": "Retail / E-commerce",
+        "sett_7": "Energia / Oil & Gas / Utility",
+        "sett_8": "Pubblica Amministrazione / Istituzioni",
+        "sett_9": "C-level targeting high-ticket",
+        "sett_10": "Venture Capital / PE / M&A"
+      }
     }
   },
   "en": {
@@ -107,6 +146,45 @@
       "helper": "Pick between 5 and 20 qualified appointments to get started safely.",
       "current": "Selected",
       "appointments": "Appointments"
+    },
+    "options": {
+      "baseItalia": {
+        "band_0": "< €100K",
+        "band_1": "€100K – €500K",
+        "band_2": "€500K – €1M",
+        "band_3": "€1M – €5M",
+        "band_4": "€5M – €10M",
+        "band_5": "€10M – €20M",
+        "band_6": "€20M – €50M",
+        "band_7": "€50M+"
+      },
+      "coeffGeo": {
+        "geo_0": "Italy",
+        "geo_1": "Spain / Portugal",
+        "geo_2": "France / Germany / Benelux",
+        "geo_3": "UK / Ireland",
+        "geo_4": "Eastern Europe",
+        "geo_5": "Nordics (SE/NO/DK/FI)",
+        "geo_6": "USA / Canada",
+        "geo_7": "LATAM",
+        "geo_8": "Middle East",
+        "geo_9": "Africa",
+        "geo_10": "Asia (SG/HK/JP)",
+        "geo_11": "Oceania (AU/NZ)"
+      },
+      "coeffSett": {
+        "sett_0": "SaaS / B2B Tech",
+        "sett_1": "Marketing / HR / Professional services",
+        "sett_2": "Manufacturing / Industrial / Automotive",
+        "sett_3": "Finance / Banking / Investment",
+        "sett_4": "Healthcare / Medical / Pharma",
+        "sett_5": "Real Estate / Construction",
+        "sett_6": "Retail / E-commerce",
+        "sett_7": "Energy / Oil & Gas / Utilities",
+        "sett_8": "Public Sector / Institutions",
+        "sett_9": "C-level targeting high-ticket",
+        "sett_10": "Venture Capital / PE / M&A"
+      }
     }
   },
   "es": {
@@ -162,6 +240,45 @@
       "helper": "Elige entre 5 y 20 citas cualificadas para empezar con seguridad.",
       "current": "Seleccionadas",
       "appointments": "Citas"
+    },
+    "options": {
+      "baseItalia": {
+        "band_0": "< €100K",
+        "band_1": "€100K – €500K",
+        "band_2": "€500K – €1M",
+        "band_3": "€1M – €5M",
+        "band_4": "€5M – €10M",
+        "band_5": "€10M – €20M",
+        "band_6": "€20M – €50M",
+        "band_7": "€50M+"
+      },
+      "coeffGeo": {
+        "geo_0": "Italia",
+        "geo_1": "España / Portugal",
+        "geo_2": "Francia / Alemania / Benelux",
+        "geo_3": "Reino Unido / Irlanda",
+        "geo_4": "Europa del Este",
+        "geo_5": "Países Nórdicos (SE/NO/DK/FI)",
+        "geo_6": "EE. UU. / Canadá",
+        "geo_7": "LATAM",
+        "geo_8": "Medio Oriente",
+        "geo_9": "África",
+        "geo_10": "Asia (SG/HK/JP)",
+        "geo_11": "Oceanía (AU/NZ)"
+      },
+      "coeffSett": {
+        "sett_0": "SaaS / Tecnología B2B",
+        "sett_1": "Marketing / RR. HH. / Servicios profesionales",
+        "sett_2": "Manufactura / Industria / Automotriz",
+        "sett_3": "Finanzas / Banca / Inversión",
+        "sett_4": "Salud / Médico / Pharma",
+        "sett_5": "Bienes raíces / Construcción",
+        "sett_6": "Retail / E-commerce",
+        "sett_7": "Energía / Oil & Gas / Utilities",
+        "sett_8": "Sector público / Instituciones",
+        "sett_9": "C-level con tickets altos",
+        "sett_10": "Venture Capital / PE / M&A"
+      }
     }
   }
 }

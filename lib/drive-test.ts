@@ -31,6 +31,9 @@ export interface DriveTestOrder {
     productName?: string;
     basePrice?: string;
     discountFromPrice?: string;
+    macroSectorId?: string;
+    macroSectorLabel?: string;
+    sectorLevel?: "macro" | "granular";
   };
 }
 

@@ -35,6 +35,9 @@ const orderSchema = z.object({
     productName: z.string().optional(),
     basePrice: z.string().optional(),
     discountFromPrice: z.string().optional(),
+    macroSectorId: z.string().optional(),
+    macroSectorLabel: z.string().optional(),
+    sectorLevel: z.enum(["macro", "granular"]).optional(),
   }),
 });
 

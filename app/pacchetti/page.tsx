@@ -2,7 +2,22 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ArrowRight, CheckCircle2, Zap, TrendingUp, Rocket, Crown, Sparkles, Star, Target, Users, CalendarCheck, BarChart3, Shield } from "lucide-react"
+import {
+  ArrowRight,
+  CheckCircle2,
+  Zap,
+  TrendingUp,
+  Rocket,
+  Crown,
+  Sparkles,
+  Star,
+  Target,
+  Users,
+  CalendarCheck,
+  BarChart3,
+  Shield,
+  Gauge,
+} from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
@@ -147,9 +162,68 @@ export default function PacchettiPage() {
             </div>
           </Card>
 
+          {/* Drive Test - NEW ENTRY */}
+            <Card
+              className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-orange/40 bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 p-3 sm:p-6 md:p-8 shadow-lg transition-all duration-500 hover:border-orange hover:shadow-xl hover:shadow-orange/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-4 overflow-hidden"
+              onClick={() => navigateTo("/pacchetti/drive-test")}
+              onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/drive-test")}
+              role="link"
+              tabIndex={0}
+            >
+            {/* Decorative effects for Drive Test */}
+            <div className="absolute top-0 right-0 w-24 h-24 bg-orange/10 rounded-full blur-2xl"></div>
+            <div className="absolute bottom-0 left-0 w-20 h-20 bg-sky-blue/10 rounded-full blur-xl"></div>
+
+            <div className="space-y-3 relative z-10">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center rounded-full bg-orange px-3 py-1 text-xs font-semibold text-white shadow-md">
+                  <Gauge className="w-3.5 h-3.5 mr-1" />
+                  {t("driveTest.badge")}
+                </span>
+                <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-orange border border-orange/30">
+                  {t("driveTest.highlight")}
+                </span>
+              </div>
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy">{t("driveTest.title")}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{t("driveTest.desc")}</p>
+            </div>
+
+            <div className="bg-white/80 rounded-xl p-4 border border-orange/20 relative z-10">
+              <p className="text-xs font-semibold text-orange uppercase tracking-wider mb-2">{t("driveTest.pricing.label")}</p>
+              <p className="text-sm text-gray-700">{t("driveTest.pricing.desc")}</p>
+            </div>
+
+            <ul className="space-y-3 text-sm text-gray-700 relative z-10">
+              <li className="flex items-start gap-3">
+                <CalendarCheck className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
+                <span>{t("driveTest.features.calendar")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Users className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
+                <span>{t("driveTest.features.target")}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BarChart3 className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
+                <span>{t("driveTest.features.credit")}</span>
+              </li>
+            </ul>
+
+            <div className="mt-auto pt-3 relative z-10">
+              <Button
+                className="w-full bg-orange hover:bg-orange/90 text-white shadow-md hover:shadow-lg transition-all duration-300"
+                onClick={(event) => {
+                  event.stopPropagation()
+                  navigateTo("/pacchetti/drive-test")
+                }}
+              >
+                {t("driveTest.cta")}
+              </Button>
+            </div>
+          </Card>
+
           {/* Performance - MEDIUM HIGHLIGHT */}
             <Card
-              className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 sm:p-6 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-8 overflow-hidden"
+              className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 sm:p-6 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-4 overflow-hidden"
               onClick={() => navigateTo("/pacchetti/performance")}
               onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
               role="link"
@@ -158,7 +232,7 @@ export default function PacchettiPage() {
             {/* Decorative effects for Performance */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-sky-blue/10 rounded-full blur-2xl"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl"></div>
-            
+
             <div className="space-y-3 relative z-10">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-sky-blue/20 px-3 py-1 text-xs font-semibold text-sky-blue border border-sky-blue/30">
@@ -203,7 +277,7 @@ export default function PacchettiPage() {
 
           {/* Subscription - MINIMAL HIGHLIGHT */}
             <Card
-              className="relative flex cursor-pointer flex-col gap-4 md:gap-5 rounded-xl md:rounded-2xl border border-gray-300 bg-white p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
+              className="relative flex cursor-pointer flex-col gap-4 md:gap-5 rounded-2xl md:rounded-3xl border border-gray-300 bg-white p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
               onClick={() => navigateTo("/pacchetti/subscription")}
               onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
               role="link"

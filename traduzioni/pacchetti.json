@@ -3,7 +3,7 @@
     "hero": {
       "badge": "I Nostri Pacchetti",
       "title": "Scegli il pacchetto giusto per la tua azienda",
-      "subtitle": "Tre modelli base di collaborazione, pensati per aziende con possibilità e scopi diversi. Ognuno con l’obiettivo di riempirti l’agenda di appuntamenti qualificati."
+      "subtitle": "Quattro modelli base di collaborazione, pensati per aziende con possibilità e scopi diversi. Ognuno con l’obiettivo di riempirti l’agenda di appuntamenti qualificati."
     },
     "setup": {
       "badge": "Partnership Elite",
@@ -22,6 +22,22 @@
       },
       "cta": "Contattaci ora",
       "ideal": "💼 Ideale per aziende B2B con ACV > €10k"
+    },
+    "driveTest": {
+      "badge": "Drive Test",
+      "highlight": "Starter Pack",
+      "title": "Drive Test",
+      "desc": "Metti alla prova il metodo AYCL con un numero limitato di appuntamenti qualificati garantiti.",
+      "pricing": {
+        "label": "Formula",
+        "desc": "🎯 Investimento una tantum deducibile dal primo pacchetto successivo"
+      },
+      "features": {
+        "calendar": "Attivazione rapida con calendario condiviso",
+        "target": "Solo decision maker in target",
+        "credit": "Credito 100% sul primo acquisto successivo"
+      },
+      "cta": "Configura il Drive Test"
     },
     "performance": {
       "badge": "Kickstart",
@@ -116,7 +132,7 @@
     "hero": {
       "badge": "Our Packages",
       "title": "Choose the right package for your company",
-      "subtitle": "Three core collaboration models for companies with different needs and goals. Each one is built to pack your calendar with qualified meetings."
+      "subtitle": "Four core collaboration models for companies with different needs and goals. Each one is built to pack your calendar with qualified meetings."
     },
     "setup": {
       "badge": "Elite Partnership",
@@ -127,28 +143,44 @@
       "partnership": "Partnership & Results",
       "features": {
         "customStrategy": "Single upfront fee, zero fixed costs",
-        "dedicatedTeam": "Guaranteed revenue generation",
-        "automation": "Our upside depends on yours",
+        "dedicatedTeam": "Guaranteed revenue generated",
+        "automation": "Our earnings depend on yours",
         "revenueShare": "Unlimited campaigns and ICPs",
         "priorityAccess": "Shared strategic roadmap",
-        "advisoryBoard": "Full customisation"
+        "advisoryBoard": "Full customization"
       },
       "cta": "Contact us now",
       "ideal": "💼 Ideal for B2B companies with ACV > €10k"
+    },
+    "driveTest": {
+      "badge": "Drive Test",
+      "highlight": "Starter Pack",
+      "title": "Drive Test",
+      "desc": "Experience the AYCL method with a limited bundle of guaranteed qualified meetings.",
+      "pricing": {
+        "label": "Formula",
+        "desc": "🎯 One-off investment credited toward your first full package"
+      },
+      "features": {
+        "calendar": "Quick activation with a shared calendar",
+        "target": "Only in-target decision makers",
+        "credit": "100% credit on your first subsequent purchase"
+      },
+      "cta": "Set up the Drive Test"
     },
     "performance": {
       "badge": "Kickstart",
       "setup": "⚡ Setup in 7 days",
       "title": "Performance",
-      "desc": "Built to generate qualified meetings fast and pay only the ones you attend.",
+      "desc": "Generate qualified meetings fast and pay only for the ones you attend.",
       "pricing": {
         "label": "Pricing model",
         "desc": "💰 You only pay for concrete results: no fixed costs, only qualified appointments held"
       },
       "features": {
-        "onboarding": "Access Pack only",
-        "payPerResult": "Per-appointment pricing",
-        "reporting": "Campaign live straight away",
+        "onboarding": "Available only as an Access Pack",
+        "payPerResult": "Per-appointment fee",
+        "reporting": "Campaign goes live immediately",
         "testing": "One-year collaboration"
       },
       "cta": "Contact us now"
@@ -161,7 +193,7 @@
       "features": {
         "guaranteed": "Growth subscription for your company",
         "manager": "Guaranteed appointment range every month",
-        "meetings": "Cancel whenever you need",
+        "meetings": "Cancel whenever you want",
         "refund": "Full refund guarantee (90 days)"
       },
       "cta": "Contact us now"
@@ -229,7 +261,7 @@
     "hero": {
       "badge": "Nuestros Paquetes",
       "title": "Elige el paquete adecuado para tu empresa",
-      "subtitle": "Tres modelos básicos de colaboración, pensados para empresas con necesidades y objetivos distintos. Todos con la meta de llenarte la agenda de citas cualificadas."
+      "subtitle": "Cuatro modelos básicos de colaboración, pensados para empresas con necesidades y objetivos distintos. Todos con la meta de llenarte la agenda de citas cualificadas."
     },
     "setup": {
       "badge": "Asociación Élite",
@@ -241,7 +273,7 @@
       "features": {
         "customStrategy": "Pago único, cero costes fijos",
         "dedicatedTeam": "Garantía de facturación generada",
-        "automation": "Nuestra ganancia depende de la vuestra",
+        "automation": "Nuestros ingresos dependen de los vuestros",
         "revenueShare": "Campañas e ICP ilimitados",
         "priorityAccess": "Hoja de ruta estratégica compartida",
         "advisoryBoard": "Personalización total"
@@ -249,19 +281,35 @@
       "cta": "Contáctanos ahora",
       "ideal": "💼 Ideal para empresas B2B con ACV > €10k"
     },
+    "driveTest": {
+      "badge": "Drive Test",
+      "highlight": "Pack Inicial",
+      "title": "Drive Test",
+      "desc": "Prueba el método AYCL con un paquete limitado de reuniones cualificadas garantizadas.",
+      "pricing": {
+        "label": "Fórmula",
+        "desc": "🎯 Inversión única acreditada en tu primer paquete completo"
+      },
+      "features": {
+        "calendar": "Activación rápida con calendario compartido",
+        "target": "Solo decisores en tu objetivo",
+        "credit": "Crédito del 100% en la primera compra posterior"
+      },
+      "cta": "Configura el Drive Test"
+    },
     "performance": {
       "badge": "Kickstart",
       "setup": "⚡ Configuración en 7 días",
       "title": "Rendimiento",
-      "desc": "Para generar citas cualificadas de inmediato y pagar solo las que realizas.",
+      "desc": "Genera citas cualificadas de inmediato y paga solo las que realizas.",
       "pricing": {
         "label": "Modelo de precios",
         "desc": "💰 Solo pagas por resultados concretos: sin costos fijos, solo citas cualificadas realizadas"
       },
       "features": {
-        "onboarding": "Válido solo como Access Pack",
+        "onboarding": "Disponible solo como Access Pack",
         "payPerResult": "Cuota por cita",
-        "reporting": "Arranque inmediato de la campaña",
+        "reporting": "Activación inmediata de la campaña",
         "testing": "Un año de colaboración"
       },
       "cta": "Contáctanos ahora"

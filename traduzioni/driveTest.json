@@ -2,23 +2,25 @@
     "it": {
         "hero": {
           "badge": "Drive Test",
-          "headline": "Calcola la tua {strong}Quotazione Personalizzata{/strong}",
+          "headline": "Calcola la tua <strong>Quotazione Personalizzata</strong>",
           "subheadline": "Acquista da qui i primi appuntamenti qualificati per la tua azienda",
           "microcopy": "Utilizza questa tabella per calcolare la quotazione per appuntamento. I parametri richiesti servono a valutare la complessità di raggiungimento del target. Questi fattori sono anche alla base della definizione del tuo ICP."
         },
         "form": {
+          "title": "Calcolatore Drive Test",
           "geo": "Area geografica",
           "sector": "Settore",
           "revenue": "Fatturato",
-          "qty": "Quantità appuntamenti",
+          "qty": "Configura il tuo Drive Test",
           "unit": "Prezzo per appuntamento",
           "total": "Totale",
           "note": "La stima si basa sui coefficienti del listino e verrà validata in onboarding.",
+          "highRevenueNotice": "Le aziende con fatturato superiore a €10M vengono seguite con una configurazione dedicata.",
           "ctaCheckout": "Procedi al checkout",
           "ctaConsult": "Parla con un nostro consulente"
         },
         "offer": {
-          "headline": "Parti subito con la formula {strong}Drive Test{/strong}",
+          "headline": "Parti subito con la formula <strong>Drive Test</strong>",
           "subheadline": "Prova ora All You Can Leads: richiedi tra i 5 e i 20 appuntamenti qualificati",
           "microcopy": {
             "0": "La formula Drive Test è nata per dare subito una prova tangibile del funzionamento del sistema.",
@@ -95,23 +97,25 @@
     "en": {
         "hero": {
           "badge": "Drive Test",
-          "headline": "Calculate your {strong}Personalized Quote{/strong}",
+          "headline": "Calculate your <strong>Personalized Quote</strong>",
           "subheadline": "Buy your first qualified appointments for your company",
           "microcopy": "Use this table to estimate the price per appointment. The required parameters help assess the complexity of reaching your target. These factors also underpin your ICP definition."
         },
         "form": {
+          "title": "Drive Test Calculator",
           "geo": "Geographic area",
           "sector": "Sector",
           "revenue": "Revenue",
-          "qty": "Appointment quantity",
+          "qty": "Set up your Drive Test",
           "unit": "Price per appointment",
           "total": "Total",
           "note": "Estimate is based on price coefficients and will be validated during onboarding.",
+          "highRevenueNotice": "Companies with revenue above €10M receive a tailored configuration.",
           "ctaCheckout": "Go to checkout",
           "ctaConsult": "Talk to a consultant"
         },
         "offer": {
-          "headline": "Get started now with the {strong}Drive Test{/strong} plan",
+          "headline": "Get started now with the <strong>Drive Test</strong> plan",
           "subheadline": "Try All You Can Leads: request between 5 and 20 qualified appointments",
           "microcopy": {
             "0": "The Drive Test gives you a tangible, immediate proof of how the system works.",
@@ -188,11 +192,12 @@
     "es": {
         "hero": {
           "badge": "Drive Test",
-          "headline": "Calcula tu {strong}Cotización Personalizada{/strong}",
+          "headline": "Calcula tu <strong>Cotización Personalizada</strong>",
           "subheadline": "Compra aquí tus primeras citas cualificadas",
           "microcopy": "Usa esta tabla para estimar el precio por cita. Los parámetros solicitados evalúan la complejidad de alcanzar tu público objetivo. Estos factores también sustentan la definición de tu ICP."
         },
         "form": {
+          "title": "Calculadora Drive Test",
           "geo": "Área geográfica",
           "sector": "Sector",
           "revenue": "Facturación",
@@ -200,11 +205,12 @@
           "unit": "Precio por cita",
           "total": "Total",
           "note": "La estimación se basa en coeficientes de tarifa y se validará en el onboarding.",
+          "highRevenueNotice": "Las empresas con facturación superior a 10 M€ reciben una configuración dedicada.",
           "ctaCheckout": "Ir al checkout",
           "ctaConsult": "Habla con un consultor"
         },
         "offer": {
-          "headline": "Empieza ahora con la fórmula {strong}Drive Test{/strong}",
+          "headline": "Empieza ahora con la fórmula <strong>Drive Test</strong>",
           "subheadline": "Prueba All You Can Leads: solicita entre 5 y 20 citas cualificadas",
           "microcopy": {
             "0": "El Drive Test te ofrece una prueba tangible e inmediata del funcionamiento del sistema.",

@@ -3,7 +3,7 @@
     "hero": {
       "badge": "AYCL Checkout",
       "title": "Rivedi e conferma l'ordine",
-      "subtitle": "Controlla il riepilogo del tuo Drive Test e scegli il metodo di pagamento preferito."
+      "subtitle": "Controlla il riepilogo del tuo ordine e scegli il metodo di pagamento preferito."
     },
     "order": {
       "title": "Dettagli ordine",
@@ -102,7 +102,7 @@
     "hero": {
       "badge": "AYCL Checkout",
       "title": "Review and confirm your order",
-      "subtitle": "Check the summary of your Drive Test and pick the payment method you prefer."
+      "subtitle": "Check the summary of your order and pick the payment method you prefer."
     },
     "order": {
       "title": "Order details",
@@ -201,7 +201,7 @@
     "hero": {
       "badge": "AYCL Checkout",
       "title": "Revisa y confirma tu pedido",
-      "subtitle": "Comprueba el resumen de tu Drive Test y elige el método de pago que prefieras."
+      "subtitle": "Comprueba el resumen de tu ordine y elige el método de pago que prefieras."
     },
     "order": {
       "title": "Detalles del pedido",
