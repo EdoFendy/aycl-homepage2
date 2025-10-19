@@ -139,6 +139,27 @@ export default function ContattaciPage() {
         </PageLayoutContainer>
       </section>
 
+      {/* Image Section */}
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <PageLayoutContainer className="px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="relative">
+              <div className="absolute -top-8 -left-8 w-24 h-24 bg-orange/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-sky-blue/20 rounded-full blur-xl"></div>
+              <Image
+                src="/newmedia/WhatsappEmail.png"
+                alt="WhatsApp e Email - Contattaci"
+                width={500}
+                height={350}
+                className="relative z-10 w-full max-w-lg mx-auto drop-shadow-lg"
+                priority
+                unoptimized
+              />
+            </div>
+          </div>
+        </PageLayoutContainer>
+      </section>
+
       {/* Calendar Section */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative">
         <div className="absolute  right-1/4 w-48 h-48 bg-orange/5 rounded-full blur-2xl" />

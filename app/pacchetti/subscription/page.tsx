@@ -75,7 +75,7 @@ export default function SubscriptionPage() {
 
             <div className="relative flex items-center justify-center">
               <Image
-                src="/calendario2.png"
+                src="/newmedia/Subscription_Hero.png"
                 alt={t("hero.alt")}
                 width={600}
                 height={500}
@@ -332,9 +332,9 @@ export default function SubscriptionPage() {
             </div>
 
             {/* Main content grid */}
-            <div className="grid lg:grid-cols-12 gap-8 items-start">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Timeline and process steps */}
-              <div className="lg:col-span-8">
+              <div className="space-y-8">
                 <div className="relative">
                   {/* Enhanced timeline for desktop */}
                   <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange via-sky-blue to-navy rounded-full" />
@@ -451,8 +451,23 @@ export default function SubscriptionPage() {
                 </div>
               </div>
 
-              {/* Sidebar with important notes */}
-              <div className="lg:col-span-4">
+              {/* Image section */}
+              <div className="text-center space-y-8">
+                <div className="relative">
+                  <div className="absolute -top-8 -left-8 w-24 h-24 bg-orange/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-sky-blue/20 rounded-full blur-xl"></div>
+                  <Image
+                    src="/newmedia/Subscription_Mensile.png"
+                    alt="Subscription Mensile - Garanzia Totale"
+                    width={500}
+                    height={500}
+                    className="relative z-10 w-full max-w-md mx-auto drop-shadow-2xl"
+                    priority
+                    unoptimized
+                  />
+                </div>
+                
+                {/* Sidebar with important notes */}
                 <div className="sticky top-8">
                   <Card className="p-8 bg-gradient-to-br from-sky-blue/5 via-white to-orange/5 border-2 border-sky-blue/20 relative overflow-hidden">
                     <div className="space-y-6">
@@ -525,32 +540,52 @@ export default function SubscriptionPage() {
       {/* Call to Action Section */}
       <section className="py-16 bg-white">
         <PageLayoutContainer className="px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">{t("cta.title")}</h2>
-              <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t("cta.subtitle")}</p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button 
-                data-cal-namespace="aycl-discovery"
-                data-cal-link="giovannilucchesini/aycl-discovery"
-                data-cal-config='{"layout":"month_view"}'
-                className="w-full sm:w-[240px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
-              >
-                <img src="/iconaTelefono.png" alt="Telefono" className="w-5 h-5" />
-                {t("cta.primary")}
-              </button>
-              
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-navy text-navy hover:bg-navy hover:text-white px-8 py-4 rounded-lg font-semibold text-base w-full sm:w-[240px]" 
-                onClick={() => router.push('/pacchetti')}
-              >
-                <img src="/iconaRegalo.png" alt="Regalo" className="w-5 h-5 mr-2" />
-                {t("cta.secondary")}
-              </Button>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Content section */}
+              <div className="text-center lg:text-left">
+                <div className="mb-12">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">{t("cta.title")}</h2>
+                  <p className="text-gray-600 text-lg max-w-2xl mx-auto lg:mx-0">{t("cta.subtitle")}</p>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button 
+                    data-cal-namespace="aycl-discovery"
+                    data-cal-link="giovannilucchesini/aycl-discovery"
+                    data-cal-config='{"layout":"month_view"}'
+                    className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
+                  >
+                    <img src="/iconaTelefono.png" alt="Telefono" className="w-5 h-5" />
+                    Call Gratuita
+                  </button>
+                  
+                  <button 
+                    className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
+                    onClick={() => router.push('/pacchetti')}
+                  >
+                    <img src="/iconaRegalo.png" alt="Regalo" className="w-5 h-5" />
+                    {t("cta.secondary")}
+                  </button>
+                </div>
+              </div>
+
+              {/* Image section */}
+              <div className="text-center lg:text-right">
+                <div className="relative">
+                  <div className="absolute -top-6 -left-6 w-20 h-20 bg-orange/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sky-blue/20 rounded-full blur-xl"></div>
+                  <Image
+                    src="/newmedia/FreeCall.png"
+                    alt="Call Gratuita - Subscription"
+                    width={400}
+                    height={400}
+                    className="relative z-10 w-full max-w-sm mx-auto lg:mx-0 drop-shadow-xl"
+                    priority
+                    unoptimized
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </PageLayoutContainer>

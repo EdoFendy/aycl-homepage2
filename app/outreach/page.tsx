@@ -8,6 +8,7 @@ import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
 import { CheckCircle2, XCircle, Check, X } from "lucide-react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import { LayoutWrapper } from "@/components/layout-wrapper"
 
 type Quote = {
   text: string
@@ -132,97 +133,107 @@ export default function OutreachPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* Hero Section */}
-      <section className="relative isolate overflow-hidden pb-24 pt-24 sm:pb-32 sm:pt-32">
-        <div className="absolute inset-0 -z-20 bg-gradient-to-br from-white via-sky-blue/10 to-orange/5" />
-        <div className="absolute -top-32 right-[-8%] h-72 w-72 rounded-full bg-orange/20 blur-[120px]" />
-        <div className="absolute bottom-[-16%] left-[-10%] h-80 w-80 rounded-full bg-sky-blue/20 blur-[140px]" />
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] xl:gap-20">
-          <PageLayoutContainer className="px-4 sm:px-6">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 rounded-full border border-sky-blue/30 bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue shadow-sm backdrop-blur">
-                <span>{t("hero.eyebrow")}</span>
-              </div>
-              <h1 className="text-2xl font-bold tracking-tight text-navy sm:text-3xl md:text-4xl lg:text-4xl">
-                {t("hero.title")}
-              </h1>
-              <p className="max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-                {heroLead}
-              </p>
-               <div className="space-y-4 text-sm leading-relaxed text-gray-700 sm:text-base">
-                 {heroContext.map((paragraph, index) => (
-                   <p key={index}>{paragraph}</p>
-                 ))}
-               </div>
-              <div className="space-y-6">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <section className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-20">
+        {/* Geometric decorations */}
+        <div className="absolute top-16 right-4 w-20 h-20 bg-sky-blue/10 rotate-12 rounded-lg sm:top-20 sm:right-10 sm:w-32 sm:h-32" />
+        <div className="absolute top-32 left-4 w-16 h-16 bg-orange/10 rounded-full sm:top-40 sm:left-10 sm:w-24 sm:h-24" />
+        <div className="absolute bottom-6 right-1/4 w-12 h-32 bg-navy/5 -rotate-45 sm:bottom-10 sm:w-16 sm:h-48" />
+
+        <div className="container mx-auto px-4 sm:px-6">
+          <LayoutWrapper>
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="inline-block px-3 py-1.5 rounded-full sm:px-4 sm:py-2">
+                  <span className="text-xs font-medium text-orange sm:text-sm">
+                    {t("hero.eyebrow")}
+                  </span>
+                </div>
+
+                <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+                  {t("hero.title")}
+                </h1>
+
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+                  {heroLead}
+                </p>
+
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+                  {heroContext.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link href="/contattaci">
-                     <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
-                       {t("hero.cta.primary")}
-                     </Button>
+                    <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
+                      {t("hero.cta.primary")}
+                    </Button>
                   </Link>
                   <Link href="/pacchetti">
-                     <Button
-                       size="lg"
-                       variant="outline"
-                       className="border-navy text-navy hover:bg-navy/5 text-base px-6 bg-transparent sm:text-lg sm:px-8"
-                     >
-                       {t("hero.cta.secondary")}
-                     </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-navy text-navy hover:bg-navy/5 text-base px-6 bg-transparent sm:text-lg sm:px-8"
+                    >
+                      {t("hero.cta.secondary")}
+                    </Button>
                   </Link>
                 </div>
+
                 {heroOutcomePrimary && (
                   <div className="rounded-xl border border-orange/30 bg-orange/5 px-5 py-4">
                     <p className="text-sm font-medium text-navy">{heroOutcomePrimary}</p>
                   </div>
                 )}
               </div>
+
+              <div className="relative hidden md:flex items-center justify-center">
+                <div className="absolute -top-10 -left-10 w-64 h-64 bg-sky-blue/20 rounded-full blur-3xl" />
+                <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
+                <div className="relative w-full max-w-6xl lg:max-w-xl xl:max-w-2xl">
+                  {/* Floating Message - Top Right */}
+                  <div className="absolute -top-3 -right-1 sm:-top-6 sm:-right-4 z-10 max-w-[140px] sm:max-w-[240px]">
+                    <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
+                      <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
+                        Oggi lo usiamo per generare appuntamenti qualificati per noi e per i nostri clienti.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Main Image */}
+                  <Image
+                    src="newmedia/comefunziona_hero.png"
+                    alt="Dashboard Sendura"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                    priority
+                  />
+
+                  {/* Floating Message - Center Left */}
+                  <div className="absolute top-1/2 -left-1 sm:-left-4 transform -translate-y-1/2 z-10 max-w-[120px] sm:max-w-[220px]">
+                    <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
+                      <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
+                        Multicanale e AI: la combinazione che cambia le regole
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Floating Message - Bottom Right */}
+                  <div className="absolute -bottom-3 -right-1 sm:-bottom-6 sm:-right-4 z-10 max-w-[110px] sm:max-w-[200px]">
+                    <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
+                      <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
+                        Dal traffico al contatto reale
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </PageLayoutContainer>
-          
-          {/* Image Section - Outside container for full width */}
-          <div className="flex items-center justify-center w-full">
-            <div className="relative w-full max-w-6xl lg:max-w-xl xl:max-w-2xl">
-              {/* Floating Message - Top Right */}
-              <div className="absolute -top-3 -right-1 sm:-top-6 sm:-right-4 z-10 max-w-[140px] sm:max-w-[240px]">
-                <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
-                  <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
-                    Oggi lo usiamo per generare appuntamenti qualificati per noi e per i nostri clienti.
-                  </p>
-                </div>
-              </div>
-
-              {/* Main Image - Full width outside container */}
-              <Image
-                src="/comefunziona_hero.png"
-                alt="Dashboard Sendura"
-                width={800}
-                height={600}
-                className="w-full h-auto"
-                priority
-              />
-
-              {/* Floating Message - Center Left */}
-              <div className="absolute top-1/2 -left-1 sm:-left-4 transform -translate-y-1/2 z-10 max-w-[120px] sm:max-w-[220px]">
-                <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
-                  <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
-                    Multicanale e AI: la combinazione che cambia le regole
-                  </p>
-                </div>
-              </div>
-
-              {/* Floating Message - Bottom Right */}
-              <div className="absolute -bottom-3 -right-1 sm:-bottom-6 sm:-right-4 z-10 max-w-[110px] sm:max-w-[200px]">
-                <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
-                  <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
-                    Dal traffico al contatto reale
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </LayoutWrapper>
         </div>
       </section>
 
@@ -310,7 +321,7 @@ export default function OutreachPage() {
             <div>
               <div>
                 <Image
-                  src="/comefunziona2.png"
+                  src="newmedia/ComeFunziona_EsperienzaStruttura.png"
                   alt="Analisi performance outreach"
                   width={540}
                   height={420}
@@ -468,7 +479,7 @@ export default function OutreachPage() {
             {/* Image - Larger on mobile */}
             <div className="order-2 lg:order-1">
               <Image
-                src="/data_to_leads.png"
+                src="newmedia/Sendura_ComeFunziona.png"
                 alt="Schema data to leads"
                 width={600}
                 height={600}
@@ -709,7 +720,7 @@ export default function OutreachPage() {
             </div>
             <div className="relative">
               <Image
-                src="/ComeFunziona_4.png"
+                src="newmedia/ecosistema_evoluzione.png"
                 alt="Outreach evolution"
                 width={540}
                 height={420}
