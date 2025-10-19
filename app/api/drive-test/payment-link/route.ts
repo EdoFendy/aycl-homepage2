@@ -9,7 +9,7 @@ interface RequestPayload {
 
 const ADMIN_API_BASE = process.env.ADMIN_API_BASE;
 const ADMIN_API_TOKEN = process.env.ADMIN_API_TOKEN;
-const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "Card";
+const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "stripe";
 
 export async function POST(request: Request) {
   if (!ADMIN_API_BASE || !ADMIN_API_TOKEN) {
@@ -31,10 +31,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Order and customer data are required" }, { status: 400 });
   }
 
-  const { order, customer } = payload;
+  const order = normalizeOrder(payload.order);
+  const customer = normalizeCustomer(payload.customer);
 
-  if (!customer.firstName || !customer.lastName || !customer.email) {
-    return NextResponse.json({ message: "Missing customer fields" }, { status: 400 });
+  const validationError = validatePayload(order, customer);
+  if (validationError) {
+    return NextResponse.json({ message: validationError }, { status: 400 });
   }
 
   try {
@@ -79,14 +81,18 @@ async function createDriveTestProduct(order: DriveTestOrder) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: `${order.package} - ${order.quantity} ${quantityLabel}`,
+        name:
+          order.metadata?.productName?.trim() ||
+          `${order.package} - ${order.quantity} ${quantityLabel}`,
         type: "simple",
         status: "publish",
         sku,
         regular_price: unitPrice,
         virtual: true,
         description,
-        short_description: `${order.package} (${order.quantity} ${quantityLabel})`,
+        short_description:
+          order.metadata?.productName?.trim() ||
+          `${order.package} (${order.quantity} ${quantityLabel})`,
       }),
       cache: "no-store",
     }
@@ -160,4 +166,94 @@ function getQuantityLabel(locale: string | undefined, quantity: number) {
     default:
       return isSingular ? "appuntamento" : "appuntamenti";
   }
+}
+
+function normalizeOrder(order: DriveTestOrder): DriveTestOrder {
+  const packageName = typeof order.package === "string" ? order.package : "";
+  const currency = typeof order.currency === "string" ? order.currency : "";
+
+  const rawQuantity = Number.isFinite(order.quantity) ? order.quantity : 0;
+  const quantity = rawQuantity > 0 ? Math.round(rawQuantity) : 1;
+
+  const rawUnitPrice = Number.isFinite(order.unitPrice) && order.unitPrice >= 0 ? order.unitPrice : 0;
+  const unitPrice = Number(rawUnitPrice.toFixed(2));
+
+  const computedTotal = Number((unitPrice * quantity).toFixed(2));
+  const rawTotalValue = Number.isFinite(order.total) ? order.total : computedTotal;
+  const rawTotal = Number(rawTotalValue.toFixed(2));
+  const total = Math.abs(rawTotal - computedTotal) <= 0.01 ? rawTotal : computedTotal;
+
+  const hasRangeMin = Number.isFinite(order.priceRange?.min);
+  const hasRangeMax = Number.isFinite(order.priceRange?.max);
+  const rawRangeMin = hasRangeMin ? (order.priceRange?.min as number) : unitPrice;
+  const rawRangeMax = hasRangeMax ? (order.priceRange?.max as number) : unitPrice;
+  const rangeMin = Number(Math.min(rawRangeMin, rawRangeMax, unitPrice).toFixed(2));
+  const rangeMax = Number(Math.max(rawRangeMin, rawRangeMax, unitPrice).toFixed(2));
+
+  return {
+    ...order,
+    package: packageName.trim(),
+    currency: currency.trim().toUpperCase(),
+    quantity,
+    unitPrice,
+    total,
+    priceRange: {
+      min: rangeMin,
+      max: rangeMax,
+    },
+  };
+}
+
+function normalizeCustomer(customer: DriveTestCustomer): DriveTestCustomer {
+  const firstName = typeof customer.firstName === "string" ? customer.firstName : "";
+  const lastName = typeof customer.lastName === "string" ? customer.lastName : "";
+  const email = typeof customer.email === "string" ? customer.email : "";
+
+  return {
+    firstName: firstName.trim(),
+    lastName: lastName.trim(),
+    email: email.trim().toLowerCase(),
+  };
+}
+
+function validatePayload(order: DriveTestOrder, customer: DriveTestCustomer) {
+  if (!order.package) {
+    return "Missing order package";
+  }
+
+  if (!order.currency || order.currency.length < 3) {
+    return "Missing or invalid currency";
+  }
+
+  if (!Number.isFinite(order.unitPrice) || order.unitPrice <= 0) {
+    return "Missing or invalid unit price";
+  }
+
+  if (!Number.isFinite(order.total) || order.total <= 0) {
+    return "Missing or invalid total price";
+  }
+
+  if (!Number.isFinite(order.quantity) || order.quantity <= 0) {
+    return "Missing or invalid quantity";
+  }
+
+  if (order.priceRange.min > order.priceRange.max) {
+    return "Invalid price range";
+  }
+
+  const expectedTotal = Number((order.unitPrice * order.quantity).toFixed(2));
+  if (Math.abs(order.total - expectedTotal) > 0.01) {
+    return "Order total does not match unit price and quantity";
+  }
+
+  if (!customer.firstName || !customer.lastName || !customer.email) {
+    return "Missing customer fields";
+  }
+
+  const emailPattern = /.+@.+\..+/;
+  if (!emailPattern.test(customer.email)) {
+    return "Invalid customer email";
+  }
+
+  return null;
 }
