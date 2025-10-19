@@ -103,7 +103,7 @@ export default function HomePage() {
                 <div className="absolute -top-10 -left-10 w-64 h-64 bg-sky-blue/20 rounded-full blur-3xl" />
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
                 <Image
-                  src="/logo.png"
+                  src="newmedia/AYCL_3d.png"
                   alt={t("alt.logo")}
                   width={500}
                   height={500}
@@ -124,7 +124,7 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
               <div className="relative order-2 lg:order-1">
                 <Image
-                  src="/tavolo.png"
+                  src="newmedia/tavolo.png"
                   alt={t("alt.businessChallenge")}
                   width={600}
                   height={500}
@@ -273,9 +273,9 @@ export default function HomePage() {
               <div className="relative">
                 <div className="absolute -top-8 -right-8 w-72 h-72 bg-orange/10 rounded-full blur-3xl" />
                 <Image
-                  src="/scaccomatto.png"
+                  src="newmedia/NostreRegole.png"
                   alt={t("alt.technologyPlatform")}
-                  width={550}
+                  width={550} 
                   height={450}
                   className="rounded-lg"
                 />
@@ -379,7 +379,7 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
                 <div className="w-full md:w-1/2 flex justify-center">
                   <Image
-                    src="/ICP_Card.png"
+                    src="newmedia/ICP_Card.png"
                     alt={t("alt.definizioneIcp")}
                     width={500}
                     height={400}
@@ -400,7 +400,7 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 lg:gap-16">
                 <div className="w-full md:w-1/2 flex justify-center">
                   <Image
-                    src="/Percorso.png"
+                    src="newmedia/Percorso.png"
                     alt={t("alt.pianoStrategico")}
                     width={500}
                     height={400}
@@ -421,7 +421,7 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
                 <div className="w-full md:w-1/2 flex justify-center">
                   <Image
-                    src="/Regime.png"
+                    src="newmedia/Regime.png"
                     alt={t("alt.controlloQualita")}
                     width={500}
                     height={400}
