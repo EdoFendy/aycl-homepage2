@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react"
 import { useLocale, useTranslations } from "next-intl"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { PageLayoutContainer } from "@/components/page-layout-container"
@@ -215,6 +215,7 @@ const SECTOR_GROUPS: SectorGroup[] = [
 const HIGH_REVENUE_IDS = new Set(["band_10m_20m", "band_20m_50m", "band_50m_plus"])
 const MIN_QTY = 5
 const MAX_QTY = 20
+const DEFAULT_QTY = 10
 const round5 = (v: number) => Math.round(v / 5) * 5
 const lerp = (min: number, max: number, t: number) => min + (max - min) * t
 
@@ -225,6 +226,7 @@ export default function DriveTestPage() {
   const t = useTranslations("driveTest")
   const locale = useLocale()
   const router = useRouter()
+  const searchParams = useSearchParams()
 
   // =====================
   //  HERO (invariato)
@@ -234,11 +236,47 @@ export default function DriveTestPage() {
   // =====================
   //  STATO CALCOLATORE MINIMAL
   // =====================
-  const [band, setBand] = useState<string>(BASE_ITALIA[0].id)
-  const [geo, setGeo] = useState<string>(COEFF_GEO[0].id)
-  const [sectorGroup, setSectorGroup] = useState<string>("")
-  const [sectorOption, setSectorOption] = useState<string>("")
-  const [qty, setQty] = useState<number>(10)
+  const [band, setBand] = useState<string>(() => {
+    const param = searchParams.get("band")
+    return param && BASE_ITALIA.some(item => item.id === param) ? param : BASE_ITALIA[0].id
+  })
+
+  const [geo, setGeo] = useState<string>(() => {
+    const param = searchParams.get("geo")
+    return param && COEFF_GEO.some(item => item.id === param) ? param : COEFF_GEO[0].id
+  })
+
+  const [sectorGroup, setSectorGroup] = useState<string>(() => {
+    const param = searchParams.get("sectorGroup")
+    return param && SECTOR_GROUPS.some(group => group.id === param) ? param : ""
+  })
+
+  const [sectorOption, setSectorOption] = useState<string>(() => {
+    const groupId = searchParams.get("sectorGroup")
+    const optionId = searchParams.get("sectorOption")
+    const group = SECTOR_GROUPS.find(item => item.id === groupId)
+
+    if (!group) {
+      return ""
+    }
+
+    if (optionId && group.options.some(option => option.id === optionId)) {
+      return optionId
+    }
+
+    return group.options[0]?.id ?? ""
+  })
+
+  const [qty, setQty] = useState<number>(() => {
+    const param = searchParams.get("qty")
+    const parsed = param ? Number.parseInt(param, 10) : Number.NaN
+
+    if (Number.isNaN(parsed)) {
+      return DEFAULT_QTY
+    }
+
+    return Math.min(Math.max(parsed, MIN_QTY), MAX_QTY)
+  })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const selectedBand = useMemo(() => {
@@ -415,11 +453,11 @@ export default function DriveTestPage() {
                 <Calculator className="h-6 w-6 text-navy" />
               </div>
               <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-navy">{t("form.title")}</h2>
-              <p className="text-gray-600 mt-2">{t("hero.microcopy")}</p>
+              <p className="text-gray-600 mt-2">{t("form.note")}</p>
             </div>
 
             <Card className="relative mx-auto max-w-5xl overflow-hidden border-none bg-transparent p-0 shadow-xl">
-              <div className="grid gap-0 lg:grid-cols-[1.15fr_1fr]">
+              <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
                 <div className="relative overflow-hidden bg-gradient-to-br from-white via-orange/5 to-sky-blue/10 px-6 py-8 sm:px-10 sm:py-12 text-navy">
                   <div className="pointer-events-none absolute -top-16 -right-10 h-48 w-48 rounded-full bg-orange/10 blur-3xl" />
                   <div className="pointer-events-none absolute -bottom-12 left-1/3 h-32 w-32 rounded-full bg-orange/20 blur-2xl" />
@@ -430,7 +468,7 @@ export default function DriveTestPage() {
                       </span>
                       <div>
                         <h3 className="text-3xl font-bold leading-tight sm:text-4xl">Configura il tuo Drive Test</h3>
-                        <p className="mt-3 text-sm text-gray-600 sm:text-base">{t("hero.microcopy")}</p>
+                        <p className="mt-3 text-sm text-gray-600 sm:text-base">{t("form.note")}</p>
                       </div>
                     </div>
 
@@ -446,8 +484,8 @@ export default function DriveTestPage() {
                       </div>
                     </div>
 
-                    <div className="space-y-3">
-                        <div className="flex items-center justify-between text-sm font-medium text-navy/80">
+                    <div className="space-y-4 rounded-3xl border border-navy/10 bg-white/85 p-5 shadow-sm">
+                      <div className="flex items-center justify-between text-sm font-medium text-navy/80">
                         <span>{t("form.qty")}</span>
                         <span className="text-2xl font-extrabold text-orange">{qty}</span>
                       </div>
@@ -456,10 +494,11 @@ export default function DriveTestPage() {
                         min={MIN_QTY}
                         max={MAX_QTY}
                         value={qty}
-                        onChange={(e) => setQty(parseInt(e.target.value))}
-                          className="h-2 w-full cursor-pointer appearance-none rounded-full bg-navy/20 accent-orange"
+                        onChange={(event) => setQty(parseInt(event.target.value))}
+                        aria-label={t("form.qty")}
+                        className="h-2 w-full cursor-pointer appearance-none rounded-full bg-navy/15 accent-orange focus:outline-none"
                       />
-                        <div className="flex items-center justify-between text-xs text-navy/60">
+                      <div className="flex items-center justify-between text-xs text-navy/60">
                         <span>{MIN_QTY}</span>
                         <span>{MAX_QTY}</span>
                       </div>
@@ -473,7 +512,7 @@ export default function DriveTestPage() {
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">Drive Test Calculator</p>
                         <h4 className="mt-2 text-2xl font-bold text-navy">Personalizza le tue variabili</h4>
-                        <p className="mt-2 text-sm text-gray-600">{t("hero.subheadline")}</p>
+                        <p className="mt-2 text-sm text-gray-600">{t("form.note")}</p>
                       </div>
 
                       <div className="space-y-4">

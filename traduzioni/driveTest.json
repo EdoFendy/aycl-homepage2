@@ -17,6 +17,7 @@
           "note": "La stima si basa sui coefficienti del listino e verrà validata in onboarding.",
           "highRevenueNotice": "Le aziende con fatturato superiore a €10M vengono seguite con una configurazione dedicata.",
           "ctaCheckout": "Procedi al checkout",
+          "ctaGoToDriveTest": "Vai Al Drivetest",
           "ctaConsult": "Parla con un nostro consulente"
         },
         "offer": {
@@ -112,6 +113,7 @@
           "note": "Estimate is based on price coefficients and will be validated during onboarding.",
           "highRevenueNotice": "Companies with revenue above €10M receive a tailored configuration.",
           "ctaCheckout": "Go to checkout",
+          "ctaGoToDriveTest": "Go to DriveTest",
           "ctaConsult": "Talk to a consultant"
         },
         "offer": {
@@ -207,6 +209,7 @@
           "note": "La estimación se basa en coeficientes de tarifa y se validará en el onboarding.",
           "highRevenueNotice": "Las empresas con facturación superior a 10 M€ reciben una configuración dedicada.",
           "ctaCheckout": "Ir al checkout",
+          "ctaGoToDriveTest": "Ir al DriveTest",
           "ctaConsult": "Habla con un consultor"
         },
         "offer": {
