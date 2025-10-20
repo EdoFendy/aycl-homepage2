@@ -136,7 +136,7 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
               <div className="relative order-2 lg:order-1">
                 <Image
-                  src="newmedia/tavolo.png"
+                  src="newmedia/Tavolo.png"
                   alt={t("alt.businessChallenge")}
                   width={600}
                   height={500}
