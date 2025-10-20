@@ -87,7 +87,11 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
         })
       );
 
-      console.log("🎨 Step 3: Rendering canvas with html2canvas...");
+      // Attendi che tutto sia caricato
+      console.log("⏳ Step 3: Waiting for complete load...");
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log("🎨 Step 4: Rendering canvas with html2canvas...");
       console.time("html2canvas render");
       
       const canvas = await html2canvas(elemento, {
@@ -95,13 +99,34 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
         useCORS: true,
         allowTaint: false,
         backgroundColor: "#ffffff",
-        logging: true,
+        logging: false, // Disabilita logging in produzione
         windowWidth: elemento.scrollWidth,
         windowHeight: elemento.scrollHeight,
-        imageTimeout: 0,
+        imageTimeout: 10000, // Timeout più lungo per VPS
+        removeContainer: true,
+        foreignObjectRendering: false, // Disabilita per compatibilità
+        ignoreElements: (element) => {
+          // Ignora elementi che potrebbero causare problemi
+          return element.classList?.contains('no-print') || false;
+        },
         onclone: (clonedDoc, clonedElement) => {
           console.log("🔄 onclone callback triggered");
           try {
+            // Forza il caricamento dei font di sistema
+            const style = clonedDoc.createElement('style');
+            style.textContent = `
+              * {
+                font-family: Arial, Helvetica, sans-serif !important;
+                box-sizing: border-box !important;
+              }
+              body {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+              }
+            `;
+            clonedDoc.head.appendChild(style);
+
             // Mantieni le immagini ma con fallback sicuro
             const images = clonedDoc.querySelectorAll('img');
             console.log(`🖼️ Found ${images.length} images, processing for CORS safety...`);
@@ -441,12 +466,10 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
                     paddingBottom: "20px",
                   }}
                 >
-                  <span style={{ color: "#6B7280", letterSpacing: "0.2px" }}>DATA:</span>
+                  <span style={{ color: "#6B7280", letterSpacing: "0.2px" }}>DATA DI EMISSIONE:</span>
                   <span style={{ marginLeft: 6, marginRight: 18 }}>{formatDate(formData.data)}</span>
                   <span style={{ color: "#6B7280", letterSpacing: "0.2px" }}>CLIENTE:</span>
                   <span style={{ marginLeft: 6, marginRight: 18 }}>{formData.cliente.nome || "[Nome Cliente]"}</span>
-                  <span style={{ color: "#6B7280", letterSpacing: "0.2px" }}>INDIRIZZO:</span>
-                  <span style={{ marginLeft: 6 }}>{formData.cliente.indirizzo || "[Indirizzo]"}</span>
                 </div>
               </div>
 
@@ -645,18 +668,7 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
                     <b>SUBTOTALE:</b>
                     <span>{formatCurrency(totali.subtotale)}</span>
                   </div>
-                  {formData.showIVA && (
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        margin: "12px 0",
-                        padding: "8px 0",
-                      }}
-                    >
-               
-                    </div>
-                  )}
+                  
                   <div
                     style={{
                       display: "flex",
@@ -692,12 +704,20 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
                 }}
               >
                 <div>
-                  <b style={{ color: "#0F2C59", marginRight: "8px", fontWeight: "700" }}>DATA:</b>
-                  {formatDate(formData.dataFirma)}
+                  <div style={{ fontWeight: "700", marginBottom: "5px" }}>
+                    AllYouCanLeads
+                  </div>
+                  <div style={{ fontSize: "9pt", color: "#6B7280" }}>
+                    Grazie per aver scelto i nostri servizi
+                  </div>
                 </div>
-                <div>
-                  <b style={{ color: "#0F2C59", marginRight: "8px", fontWeight: "700" }}>FIRMA:</b>
-                  _____________________
+                <div style={{ textAlign: "right" }}>
+                  <div style={{ fontSize: "9pt", color: "#6B7280" }}>
+                    Per informazioni contattaci
+                  </div>
+                  <div style={{ fontWeight: "700" }}>
+                    info@allyoucanleads.com
+                  </div>
                 </div>
               </div>
 

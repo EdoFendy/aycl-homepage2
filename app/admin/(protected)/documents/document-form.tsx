@@ -157,20 +157,6 @@ export function DocumentForm({ formData, setFormData, totali }: DocumentFormProp
             />
           </div>
 
-          <div className="space-y-2">
-            <label className="flex items-center gap-2 text-xs font-medium text-slate-400">
-              <MapPin className="h-3 w-3" />
-              Indirizzo Cliente
-            </label>
-            <input
-              type="text"
-              name="cliente.indirizzo"
-              value={formData.cliente.indirizzo}
-              onChange={handleInputChange}
-              placeholder="Via, Città, CAP"
-              className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-white placeholder-slate-500 transition focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20"
-            />
-          </div>
         </div>
 
         {/* Articoli */}
