@@ -334,6 +334,7 @@ export default function HomePage() {
                     {t("hero.cta.secondary")}
                   </Link>
                 </div>
+              </div>
 
               <div
                 className="order-1 relative mx-auto flex w-full max-w-[240px] sm:max-w-[520px] md:max-w-[720px] lg:max-w-[1100px] items-center justify-center lg:-mr-4 lg:order-2"
@@ -354,7 +355,6 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-              </div>
               </div>
             </div>
           </LayoutWrapper>
