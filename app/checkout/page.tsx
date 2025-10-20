@@ -33,11 +33,16 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
     ))
   );
 
+  // Usa discountFromPrice per il prezzo unitario se disponibile
+  const displayUnitPrice = order?.metadata?.discountFromPrice 
+    ? Number.parseFloat(order.metadata.discountFromPrice)
+    : order?.unitPrice ?? 0;
+
   const metrics = order
     ? [
         {
           label: t("order.metrics.unitPrice"),
-          value: currencyFormatter.format(order.unitPrice),
+          value: currencyFormatter.format(displayUnitPrice),
         },
         ...(isDriveTest ? [{
           label: t("order.metrics.quantity"),
@@ -222,26 +227,27 @@ function buildProductDetails(
     });
   }
 
-  details.push({
-    label: t("order.details.unitPrice"),
-    value: formatter.format(order.unitPrice),
-  });
-
+  // Prezzo di listino (basePrice) - mostrato solo se c'è uno sconto
+  const basePrice = toCurrency(order.metadata?.basePrice, formatter);
   const discountFromPrice = toCurrency(order.metadata?.discountFromPrice, formatter);
-  if (discountFromPrice) {
+  
+  if (basePrice && discountFromPrice) {
+    details.push({
+      label: t("order.details.basePrice"),
+      value: basePrice,
+    });
+    
     details.push({
       label: t("order.details.discountFromPrice"),
       value: discountFromPrice,
     });
-
-    const basePrice = toCurrency(order.metadata?.basePrice, formatter);
-    if (basePrice) {
-      details.push({
-        label: t("order.details.basePrice"),
-        value: basePrice,
-      });
-    }
   }
+
+  // Da pagare oggi (unitPrice)
+  details.push({
+    label: t("order.details.unitPrice"),
+    value: formatter.format(order.unitPrice),
+  });
 
   // Aggiungi sempre il totale
   details.push({

@@ -17,8 +17,8 @@
         "title": "Specifiche prodotto",
         "productName": "Prodotto",
         "basePrice": "Prezzo di listino",
-        "discountFromPrice": "Prezzo scontato da",
-        "unitPrice": "Prezzo applicato",
+        "discountFromPrice": "Prezzo scontato",
+        "unitPrice": "Da pagare oggi",
         "quantity": "Quantità",
         "total": "Totale"
       },
@@ -116,8 +116,8 @@
         "title": "Product details",
         "productName": "Product",
         "basePrice": "List price",
-        "discountFromPrice": "Discounted from",
-        "unitPrice": "Applied price",
+        "discountFromPrice": "Discounted price",
+        "unitPrice": "To pay today",
         "quantity": "Quantity",
         "total": "Total"
       },
@@ -215,8 +215,8 @@
         "title": "Detalles del producto",
         "productName": "Producto",
         "basePrice": "Precio de lista",
-        "discountFromPrice": "Precio rebajado desde",
-        "unitPrice": "Precio aplicado",
+        "discountFromPrice": "Precio rebajado",
+        "unitPrice": "A pagar hoy",
         "quantity": "Cantidad",
         "total": "Total"
       },

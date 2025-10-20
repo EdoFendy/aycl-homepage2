@@ -216,7 +216,7 @@ export function CreatePaymentForm({ products }: { products: ProductOption[] }) {
               />
             </FormField>
 
-            <FormField label="Prezzo originale" description="Prezzo prima dello sconto (opzionale)">
+            <FormField label="Prezzo originale" description="Prezzo di listino mostrato nel checkout (opzionale)">
               <input
                 name="originalPrice"
                 type="text"
