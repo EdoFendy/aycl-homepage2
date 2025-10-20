@@ -349,6 +349,12 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
                 color: "#0A0A0A",
                 fontFamily: "Arial, Helvetica, sans-serif",
                 boxShadow: "0 0 20px rgba(0,0,0,0.2)",
+                margin: "0",
+                padding: "0",
+                overflow: "visible",
+                lineHeight: "1.4",
+                fontSize: "12px",
+                fontWeight: "normal",
               }}
             >
               {/* Header fisso */}
