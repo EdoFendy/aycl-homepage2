@@ -1,827 +1,1143 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import {
-  ArrowRight,
-  CheckCircle2,
-  TrendingUp,
-  Users,
-  Target,
-  Sparkles,
-  Star,
-  Zap,
-  Gauge,
-  CalendarCheck,
-  BarChart3,
-} from "lucide-react"
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type MouseEvent,
+  type ReactNode,
+} from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import type { KeyboardEvent, MouseEvent } from "react"
-import { FAQCards } from "@/components/faq-cards"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
-import { useEffect } from "react"
-import LeadPriceCalculator from "@/components/lead-price-calculator"
-import { LayoutWrapper, FullWidthLayoutWrapper, CenteredLayoutWrapper } from "@/components/layout-wrapper"
+import {
+  ArrowRight,
+  BarChart3,
+  CalendarCheck,
+  CheckCircle2,
+  Gauge,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
+} from "lucide-react"
 
-import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
-  
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { FAQAccordion } from "@/components/faq-accordion"
+import DriveTestCalculator from "@/components/drive-test-calculator"
+import { LayoutWrapper } from "@/components/layout-wrapper"
+import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion"
 
+interface StatsCardConfig {
+  key: "cpc" | "budget" | "leads"
+  icon: typeof TrendingUp
+  accent: string
+}
 
+const statsCardConfig: StatsCardConfig[] = [
+  { key: "cpc", icon: TrendingUp, accent: "from-orange/30 via-orange/10 to-transparent" },
+  { key: "budget", icon: Target, accent: "from-sky-blue/30 via-sky-blue/10 to-transparent" },
+  { key: "leads", icon: Users, accent: "from-navy/20 via-navy/5 to-transparent" },
+]
+
+const benefitCardIcons = [Sparkles, Target, Users]
+
+interface ProcessStepConfig {
+  key: "icp" | "strategy" | "quality"
+  image: string
+  badgeColor: string
+}
+
+type FAQItem = {
+  question: string
+  answer: ReactNode
+}
+
+const processStepConfig: ProcessStepConfig[] = [
+  { key: "icp", image: "newmedia/ICP_Card.png", badgeColor: "bg-orange/10 text-orange" },
+  { key: "strategy", image: "newmedia/Percorso.png", badgeColor: "bg-sky-blue/10 text-sky-blue" },
+  { key: "quality", image: "newmedia/Regime.png", badgeColor: "bg-navy/10 text-navy" },
+]
+
+function parseNumericValue(value: string) {
+  const trimmed = value.trim()
+  const prefix = trimmed.startsWith("+") || trimmed.startsWith("-") ? trimmed.charAt(0) : ""
+  const withoutPrefix = prefix ? trimmed.slice(1) : trimmed
+  const suffixMatch = withoutPrefix.match(/([^0-9.,-]+)$/)
+  const suffix = suffixMatch ? suffixMatch[1] : ""
+  const numericPart = suffix ? withoutPrefix.slice(0, withoutPrefix.length - suffix.length) : withoutPrefix
+  const normalized = numericPart.replace(/,/g, ".")
+  const decimals = normalized.includes(".") ? Math.min(normalized.length - normalized.indexOf(".") - 1, 2) : 0
+  const target = parseFloat(normalized)
+
+  return { prefix, suffix, target: Number.isNaN(target) ? 0 : target, decimals }
+}
+
+function AnimatedCounter({
+  value,
+  inView,
+  prefersReducedMotion,
+  duration = 800,
+}: {
+  value: string
+  inView: boolean
+  prefersReducedMotion: boolean
+  duration?: number
+}) {
+  const { decimals, prefix, suffix, target } = useMemo(() => parseNumericValue(value), [value])
+  const [displayValue, setDisplayValue] = useState(() =>
+    prefersReducedMotion ? value : `${prefix}${(0).toFixed(decimals)}${suffix}`,
+  )
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setDisplayValue(value)
+      hasAnimated.current = true
+      return
+    }
+
+    setDisplayValue(`${prefix}${(0).toFixed(decimals)}${suffix}`)
+    hasAnimated.current = false
+  }, [prefersReducedMotion, value, prefix, suffix, decimals])
+
+  useEffect(() => {
+    if (!inView || prefersReducedMotion || hasAnimated.current) {
+      if (inView) {
+        setDisplayValue(value)
+      }
+      return
+    }
+
+    hasAnimated.current = true
+    let animationFrame = 0
+    let startTime: number | null = null
+
+    const animate = (timestamp: number) => {
+      if (startTime === null) {
+        startTime = timestamp
+      }
+
+      const progress = Math.min((timestamp - startTime) / duration, 1)
+      const current = target * progress
+      setDisplayValue(`${prefix}${current.toFixed(decimals)}${suffix}`)
+
+      if (progress < 1) {
+        animationFrame = window.requestAnimationFrame(animate)
+      } else {
+        setDisplayValue(value)
+      }
+    }
+
+    animationFrame = window.requestAnimationFrame(animate)
+
+    return () => window.cancelAnimationFrame(animationFrame)
+  }, [decimals, duration, inView, prefersReducedMotion, prefix, suffix, target, value])
+
+  return <span>{displayValue}</span>
+}
+
+function useInViewAnimation<T extends HTMLElement>(
+  prefersReducedMotion: boolean,
+  options?: IntersectionObserverInit,
+) {
+  const [hasEntered, setHasEntered] = useState(prefersReducedMotion)
+  const [node, setNode] = useState<T | null>(null)
+
+  const observerOptions = useMemo<IntersectionObserverInit>(
+    () => ({ threshold: 0.2, ...options }),
+    [options],
+  )
+
+  const ref = useCallback((element: T | null) => {
+    setNode(element)
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setHasEntered(true)
+      return
+    }
+
+    if (!node) return
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setHasEntered(true)
+          observer.disconnect()
+        }
+      })
+    }, observerOptions)
+
+    observer.observe(node)
+
+    return () => observer.disconnect()
+  }, [node, observerOptions, prefersReducedMotion])
+
+  return { ref, hasEntered }
+}
+function StarIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      className="h-5 w-5 text-orange"
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 3.25 14.653 8.7l5.847.851-4.22 4.112.996 5.814L12 16.916 6.724 19.477l.996-5.814-4.22-4.112 5.847-.851L12 3.25z"
+      />
+    </svg>
+  )
+}
 export default function HomePage() {
   const router = useRouter()
   const t = useTranslations("home")
-  
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const faqItems = useMemo<FAQItem[]>(() => {
+    const raw = t.raw("faq.items") as FAQItem[] | Record<string, FAQItem> | undefined
+    if (!raw) return []
+    return Array.isArray(raw) ? raw : Object.values(raw)
+  }, [t])
+
+  const [statsLoading, setStatsLoading] = useState(true)
   useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({"namespace":"aycl-discovery"});
-      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    })();
+    const timer = window.setTimeout(() => setStatsLoading(false), 600)
+    return () => window.clearTimeout(timer)
   }, [])
 
-  const navigateTo = (path: string) => {
-    router.push(path)
-  }
+  useEffect(() => {
+    ;(async function () {
+      const cal = await getCalApi({ namespace: "aycl-discovery" })
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" })
+    })()
+  }, [])
 
-  const handleCardKeyDown = (event: KeyboardEvent<HTMLDivElement>, path: string) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault()
-      navigateTo(path)
+  const { ref: statsRef, hasEntered: statsInView } = useInViewAnimation<HTMLDivElement>(prefersReducedMotion)
+  const { ref: solutionRef, hasEntered: solutionInView } = useInViewAnimation<HTMLDivElement>(prefersReducedMotion, {
+    threshold: 0.15,
+  })
+  const { ref: benefitsRef, hasEntered: benefitsInView } = useInViewAnimation<HTMLDivElement>(prefersReducedMotion)
+  const { ref: processRef, hasEntered: processInView } = useInViewAnimation<HTMLDivElement>(prefersReducedMotion, {
+    threshold: 0.1,
+  })
+
+  const [heroParallax, setHeroParallax] = useState(0)
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setHeroParallax(0)
+      return
     }
-  }
 
-  const handleContactClick = (event: MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation()
-    navigateTo("/contattaci")
-  }
+    const handleScroll = () => {
+      const offset = window.scrollY * 0.2
+      setHeroParallax(offset)
+    }
+
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [prefersReducedMotion])
+
+  const navigateTo = useCallback(
+    (path: string) => {
+      router.push(path)
+    },
+    [router],
+  )
+
+  const handleCardKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>, path: string) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault()
+        navigateTo(path)
+      }
+    },
+    [navigateTo],
+  )
+
+  const handleContactClick = useCallback(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      event.stopPropagation()
+      navigateTo("/contattaci")
+    },
+    [navigateTo],
+  )
+
+  const heroSubtitle = t("hero.subtitle")
+  const heroDescription = t("hero.description")
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-20">
-        {/* Geometric decorations */}
-        <div className="absolute top-16 right-4 w-20 h-20 bg-sky-blue/10 rotate-12 rounded-lg sm:top-20 sm:right-10 sm:w-32 sm:h-32" />
-        <div className="absolute top-32 left-4 w-16 h-16 bg-orange/10 rounded-full sm:top-40 sm:left-10 sm:w-24 sm:h-24" />
-        <div className="absolute bottom-6 right-1/4 w-12 h-32 bg-navy/5 -rotate-45 sm:bottom-10 sm:w-16 sm:h-48" />
+    <div className="min-h-screen bg-white text-navy">
+      <a
+        href="#homepage-main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-navy"
+      >
+        Salta al contenuto principale
+      </a>
 
-        <div className="container mx-auto px-4 sm:px-6">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f5f9ff]">
+        <div className="absolute inset-0 -z-10 opacity-60">
+          <div className="absolute -top-32 right-0 h-64 w-64 rounded-full bg-orange/20 blur-3xl" aria-hidden="true" />
+          <div className="absolute top-1/3 left-[-120px] h-72 w-72 rounded-full bg-sky-blue/15 blur-3xl" aria-hidden="true" />
+          <div className="absolute bottom-0 right-1/3 h-40 w-96 bg-gradient-to-r from-orange/10 via-transparent to-transparent blur-[120px]" />
+          <div className="absolute inset-0 bg-soft-grid" aria-hidden="true" />
+        </div>
+
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-12 px-5 pb-40 pt-32 sm:px-10 md:gap-16 md:pt-36 lg:gap-20 lg:pb-44">
           <LayoutWrapper>
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-              <div className="space-y-6 sm:space-y-8">
-                <div className="inline-block px-3 py-1.5  rounded-full sm:px-4 sm:py-2">
-                  <span className="text-xs font-medium text-orange sm:text-sm">
-                    {t("hero.badge")}
-                  </span>
+            <div className="grid items-center gap-12 lg:grid-cols-[0.38fr_0.62fr] lg:gap-16 xl:gap-20">
+              <div className="order-2 space-y-6 md:space-y-7 lg:order-1">
+                <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-orange">
+                  {t("hero.badge")}
+                </span>
 
-                  
-                </div>
-
-                <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
-                {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
+                <h1 className="max-w-[620px] text-4xl font-bold leading-tight text-navy sm:text-5xl sm:leading-[1.1] lg:text-[3.75rem]">
+                  {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
-                  {t("hero.subtitle")}
+                <p className="max-w-[540px] text-lg leading-relaxed text-gray-600 sm:text-xl" aria-label={heroSubtitle}>
+                  {heroSubtitle}
                 </p>
 
-                <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
-                  {t("hero.description")}
+                <p className="max-w-[540px] text-base leading-relaxed text-gray-600/85 sm:text-lg" aria-label={heroDescription}>
+                  {heroDescription}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <Link href="/contattaci">
-                      
-                      <SlideArrowButton
-                      primaryColor="#ff9d3d"
-                      text={t("hero.cta.primary")}
-                    />
-
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                  <Link
+                    href="/contattaci"
+                    className="arrow-slide-hover group inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.35)] transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-lg"
+                  >
+                    <span>{t("hero.cta.primary")}</span>
+                    <ArrowRight className="h-5 w-5 transition-transform duration-200 ease-out" aria-hidden="true" />
                   </Link>
-                  <Link href="/pacchetti">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-navy text-navy hover:bg-navy/5 text-base px-6 bg-transparent sm:text-lg sm:px-8"
-                    >
-                      {t("hero.cta.secondary")}
-                    </Button>
+                  <Link
+                    href="/pacchetti"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-8 py-4 text-base font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-lg"
+                  >
+                    {t("hero.cta.secondary")}
                   </Link>
                 </div>
-              </div>
 
-              <div className="relative hidden md:flex items-center justify-center">
-                <div className="absolute -top-10 -left-10 w-64 h-64 bg-sky-blue/20 rounded-full blur-3xl" />
-                <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
-                <Image
-                  src="newmedia/AYCL_3d.png"
-                  alt={t("alt.logo")}
-                  width={500}
-                  height={500}
-                  className="relative z-10"
-                  priority
-                />
-              </div>
-            </div>
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* Story Section - Problem */}
-      <section className="pt-16 pb-0 relative sm:py-24">
-
-        <div className="container mx-auto px-4 sm:px-6">
-          <LayoutWrapper>
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
-              <div className="relative order-2 lg:order-1">
-                <Image
-                  src="newmedia/Tavolo.png"
-                  alt={t("alt.businessChallenge")}
-                  width={600}
-                  height={500}
-                  className="rounded-lg"
-                />
-              </div>
-
-              <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy text-balance">
-                  {t("story.title")}
-                </h2>
-
-                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
-                  <p>
-                    {t("story.text1")}
-                  </p>
-                  <p>
-                    {t("story.text2")}
-                  </p>
-                </div>
-
-                <div className="pt-4">
-                  <div className="inline-flex items-center gap-2 text-orange font-semibold">
-                    <div className="w-12 h-1 bg-orange" />
-                    <span>{t("story.badge")}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-0 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <LayoutWrapper>
-            <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6">
-              <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 sm:px-4">
-                {t("stats.badge")}
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-navy leading-snug text-balance">
-                {t("stats.title")}
-              </h2>
-              <p className="text-sm sm:text-base text-gray-600">
-                {t("stats.subtitle")}
-              </p>
-            </div>
-
-            <div className="mt-12 sm:mt-16 grid gap-4 sm:gap-6 md:grid-cols-3 items-stretch">
-              <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-                <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
-                  <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.cpc.label")}</p>
-                  <div className="mt-4 sm:mt-6 text-3xl sm:text-4xl font-semibold text-navy">{t("stats.metrics.cpc.value")}</div>
-                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    {t("stats.metrics.cpc.desc")}
-                  </p>
-                  <p className="mt-auto pt-4 sm:pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.cpc.source")}</p>
-                </Card>
-              </div>
-
-              <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-                <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
-                  <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.budget.label")}</p>
-                  <div className="mt-4 sm:mt-6 text-3xl sm:text-4xl font-semibold text-navy">{t("stats.metrics.budget.value")}</div>
-                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    {t("stats.metrics.budget.desc")}
-                  </p>
-                  <p className="mt-auto pt-4 sm:pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.budget.source")}</p>
-                </Card>
-              </div>
-
-              <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-                <Card className="metric-card-inner h-full p-4 sm:p-8 text-center flex flex-col border-0 shadow-none">
-                  <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-400">{t("stats.metrics.leads.label")}</p>
-                  <div className="mt-4 sm:mt-6 text-3xl sm:text-4xl font-semibold text-navy">{t("stats.metrics.leads.value")}</div>
-                  <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    {t("stats.metrics.leads.desc")}
-                  </p>
-                  <p className="mt-auto pt-4 sm:pt-6 text-xs font-medium uppercase tracking-[0.3em] text-gray-400">{t("stats.metrics.leads.source")}</p>
-                </Card>
-              </div>
-            </div>
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* Solution Section */}
-      <section className="pt-16 pb-0 relative sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6">
-          <LayoutWrapper>
-            <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-block px-4 py-1.5 bg-sky-blue/10 rounded-full mb-4 sm:px-6 sm:py-2 sm:mb-6">
-                <span className="text-xs font-semibold text-sky-blue sm:text-sm">{t("solution.badge")}</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-navy mb-4 sm:mb-6 text-balance">
-                {t("solution.title")}
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                {t("solution.subtitle")}
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-0 sm:mb-20">
-              <div className="space-y-4 sm:space-y-6">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-navy">{t("solution.tech.title")}</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {t("solution.tech.text1")}
-                </p>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {t("solution.tech.text2")}
-                </p>
-
-                <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4 sm:pt-6">
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
-                    <div>
-                      <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.database.title")}</div>
-                      <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.database.desc")}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
-                    <div>
-                      <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.ai.title")}</div>
-                      <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.ai.desc")}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
-                    <div>
-                      <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.outreach.title")}</div>
-                      <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.outreach.desc")}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2 sm:gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-orange flex-shrink-0 mt-0.5 sm:mt-1 sm:h-6 sm:w-6" />
-                    <div>
-                      <div className="text-sm sm:text-base font-semibold text-navy">{t("solution.tech.features.control.title")}</div>
-                      <div className="text-xs sm:text-sm text-gray-600">{t("solution.tech.features.control.desc")}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative">
-                <div className="absolute -top-8 -right-8 w-72 h-72 bg-orange/10 rounded-full blur-3xl" />
-                <Image
-                  src="newmedia/NostreRegole.png"
-                  alt={t("alt.technologyPlatform")}
-                  width={550} 
-                  height={450}
-                  className="rounded-lg"
-                />
-              </div>
-            </div>
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section id="servizi" className="py-24 bg-gradient-to-b from-gray-50 to-white relative">
-        <div className="absolute top-20 left-10 w-32 h-32 border-4 border-navy/10 rotate-12" />
-        <div className="absolute bottom-20 right-10 w-24 h-24 bg-sky-blue/10 rounded-full" />
-
-        <div className="container mx-auto px-6">
-          <LayoutWrapper>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6 text-balance">
-                {t("benefits.title")}
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 items-stretch">
-              <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-                <div className="h-full min-h-[300px] rounded-[1rem] bg-white/95 backdrop-blur-sm p-8 flex flex-col">
-                  <div className="flex justify-center mb-6">
-                    <Image
-                      src="/icona1.png"
-                      alt={t("alt.icona1")}
-                      width={64}
-                      height={64}
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-navy mb-4">{t("benefits.cards.meetings.title")}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {t("benefits.cards.meetings.desc")}
-                  </p>
-                  <div className="mt-auto flex justify-center items-center"></div>
-                </div>
-              </div>
-
-              <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-                <div className="h-full min-h-[300px] rounded-[1rem] bg-white/95 backdrop-blur-sm p-8 flex flex-col">
-                  <div className="flex justify-center mb-6">
-                    <Image
-                      src="/icona2.png"
-                      alt={t("alt.icona2")}
-                      width={64}
-                      height={64}
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-navy mb-4">{t("benefits.cards.team.title")}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {t("benefits.cards.team.desc")}
-                  </p>
-                  <div className="mt-auto flex justify-center items-center"></div>
-                </div>
-              </div>
-
-              <div className="h-full rounded-2xl p-[2px] bg-[linear-gradient(90deg,var(--navy),var(--sky-blue),var(--orange))] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(1,47,107,0.4)]">
-                <div className="h-full min-h-[300px] rounded-[1rem] bg-white/95 backdrop-blur-sm p-8 flex flex-col">
-                  <div className="flex justify-center mb-6">
-                    <Image
-                      src="/icona3.png"
-                      alt={t("alt.icona3")}
-                      width={64}
-                      height={64}
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-navy mb-4">{t("benefits.cards.control.title")}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {t("benefits.cards.control.desc")}
-                  </p>
-                  <div className="mt-auto flex justify-center items-center"></div>
-                </div>
-              </div>
-            </div>
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section id="come-funziona" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <LayoutWrapper>
-            <div className="text-center max-w-3xl mx-auto space-y-3">
-              <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                {t("process.badge")}
-              </span>
-              <h2 className="text-4xl font-semibold text-navy leading-snug text-balance">
-                {t("process.title")}
-              </h2>
-              <p className="text-sm text-gray-600">
-                {t("process.subtitle")}
-              </p>
-            </div>
-
-            {/* Process Flow - Layout verticale alternato */}
-            <div className="mt-14 space-y-12 md:space-y-16">
-              {/* Step 1: ICP - Immagine | Margine | Testo */}
-              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-                <div className="w-full md:w-1/2 flex justify-center">
-                  <Image
-                    src="newmedia/ICP_Card.png"
-                    alt={t("alt.definizioneIcp")}
-                    width={500}
-                    height={400}
-                    className="w-full max-w-md h-auto object-contain"
-                  />
-                </div>
-                
-                <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
-                  <div className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold text-orange mb-2">
-                    {t("process.steps.icp.label")}
-                  </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("process.steps.icp.title")}</h3>
-                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">{t("process.steps.icp.desc")}</p>
-                </div>
-              </div>
-
-              {/* Step 2: Percorso - Testo | Margine | Immagine */}
-              <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 lg:gap-16">
-                <div className="w-full md:w-1/2 flex justify-center">
-                  <Image
-                    src="newmedia/Percorso.png"
-                    alt={t("alt.pianoStrategico")}
-                    width={500}
-                    height={400}
-                    className="w-full max-w-md h-auto object-contain"
-                  />
-                </div>
-                
-                <div className="w-full md:w-1/2 text-center md:text-right space-y-4">
-                  <div className="inline-flex items-center rounded-full bg-sky-blue/10 px-3 py-1 text-xs font-semibold text-sky-blue mb-2">
-                    {t("process.steps.strategy.label")}
-                  </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("process.steps.strategy.title")}</h3>
-                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">{t("process.steps.strategy.desc")}</p>
-                </div>
-              </div>
-
-              {/* Step 3: Regime - Immagine | Margine | Testo */}
-              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-                <div className="w-full md:w-1/2 flex justify-center">
-                  <Image
-                    src="newmedia/Regime.png"
-                    alt={t("alt.controlloQualita")}
-                    width={500}
-                    height={400}
-                    className="w-full max-w-md h-auto object-contain"
-                  />
-                </div>
-                
-                <div className="w-full md:w-1/2 text-center md:text-left space-y-4">
-                  <div className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy mb-2">
-                    {t("process.steps.quality.label")}
-                  </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("process.steps.quality.title")}</h3>
-                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">{t("process.steps.quality.desc")}</p>
-                </div>
-              </div>
-            </div>
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* Packages Section */}
-      <section id="pacchetti" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-blue/5 rounded-full blur-3xl"></div>
-        
-        <div className="container mx-auto px-2 sm:px-6 relative z-10">
-          <LayoutWrapper>
-            <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
-              <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                {t("packages.badge")}
-              </span>
-              <h2 className="text-4xl lg:text-4xl font-semibold text-navy leading-snug text-balance">
-                {t("packages.title")}
-              </h2>
-              <p className="text-base text-gray-600">
-                {t("packages.subtitle")}
-              </p>
-            </div>
-
-            <div className="grid gap-8 lg:grid-cols-12 max-w-7xl mx-auto">
-              {/* Set-Up Fee - PREMIUM HIGHLIGHT */}
-              <Card
-                className="relative flex cursor-pointer flex-col gap-8 rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-3 xs:p-4 sm:p-8 md:p-12 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
-                onClick={() => navigateTo("/pacchetti/set-up-fee")}
-                onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
-                role="link"
-                tabIndex={0}
+              <div
+                className="order-1 relative mx-auto flex w-full max-w-[240px] sm:max-w-[520px] md:max-w-[720px] lg:max-w-[1100px] items-center justify-center lg:-mr-4 lg:order-2"
+                style={{ transform: prefersReducedMotion ? undefined : `translateY(${-heroParallax * 0.25}px)` }}
               >
-                {/* Enhanced decorative effects */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange/20 to-transparent rounded-full blur-3xl"></div>
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-orange/10 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-orange/5 to-transparent rounded-full blur-2xl"></div>
-                
-                <div className="flex flex-col lg:flex-row items-start justify-between relative z-10">
-                  <div className="space-y-4 flex-1">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="inline-flex items-center rounded-full bg-orange px-4 py-1.5 text-sm font-bold text-white shadow-lg">
-                        <Star className="w-4 h-4 mr-2 fill-white" />
+                <div className="absolute -top-12 left-6 h-40 w-40 rounded-full bg-sky-blue/30 blur-3xl" aria-hidden="true" />
+                <div className="absolute -bottom-16 right-0 h-48 w-48 rounded-full bg-orange/25 blur-3xl" aria-hidden="true" />
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.4),transparent_60%)]" aria-hidden="true" />
+                <div className="relative w-full">
+                  <div className={prefersReducedMotion ? "" : "floating-illustration"}>
+                    <Image
+                      src="/newmedia/AYCL_3d.png"
+                      alt={t("hero.title")}
+                      width={1100}
+                      height={1100}
+                      priority
+                      className="h-auto w-full max-w-none object-contain drop-shadow-[0_32px_80px_rgba(15,40,85,0.25)]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </LayoutWrapper>
+        </div>
+      </section>
+      <main id="homepage-main" className="space-y-0">
+        <section className="relative bg-white py-28">
+          <div className="absolute inset-0 -z-10 opacity-70">
+            <div className="absolute top-10 left-5 h-20 w-20 rounded-full bg-orange/10" aria-hidden="true" />
+            <div className="absolute bottom-10 right-10 h-28 w-28 rounded-full bg-sky-blue/15" aria-hidden="true" />
+          </div>
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+                <div className="order-2 space-y-6 lg:order-1">
+                  <div className="inline-flex items-center gap-3 text-orange">
+                    <span className="h-px w-12 bg-orange" aria-hidden="true" />
+                    <span className="text-sm font-semibold uppercase tracking-[0.18em]">{t("story.badge")}</span>
+                  </div>
+                  <h2 className="text-3xl font-bold leading-tight text-navy sm:text-4xl">
+                    {t("story.title")}
+                  </h2>
+                  <div className="space-y-4 text-base leading-relaxed text-gray-600 sm:text-lg">
+                    <p>{t("story.text1")}</p>
+                    <p>{t("story.text2")}</p>
+                  </div>
+                </div>
+                <div className="order-1 flex justify-center lg:order-2">
+                  <div className="relative max-w-xl overflow-hidden rounded-3xl shadow-[0_24px_48px_rgba(9,30,66,0.12)]">
+                    <Image
+                      src="/newmedia/tavolo.png"
+                      alt={t("alt.businessChallenge")}
+                      width={640}
+                      height={520}
+                      className="h-auto w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+
+        <section ref={statsRef} className="relative overflow-hidden bg-[#f9fbff] py-28">
+          <div className="absolute inset-0 -z-10 bg-dotted-pattern" aria-hidden="true" />
+          <div className="absolute left-1/2 top-16 -z-10 h-32 w-32 -translate-x-1/2 rounded-full bg-white/70 blur-2xl" />
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div
+                className={`mx-auto max-w-3xl text-center transition duration-700 ${
+                  statsInView && !prefersReducedMotion ? "motion-safe:animate-[aycl-fade-up_0.7s_ease-out_forwards]" : ""
+                }`}
+              >
+                <span className="inline-flex items-center justify-center rounded-full border border-gray-200/60 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-gray-500">
+                  {t("stats.badge")}
+                </span>
+                <h2 className="mt-6 text-4xl font-bold leading-snug text-navy sm:text-[2.5rem]">
+                  {t("stats.title")}
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-gray-600">
+                  {t("stats.subtitle")}
+                </p>
+              </div>
+
+              <div className="mt-16 grid gap-8 md:grid-cols-3">
+                {statsLoading ? (
+                  Array.from({ length: 3 }).map((_, index) => (
+                    <div
+                      key={`skeleton-${index}`}
+                      className="h-full animate-pulse rounded-3xl border border-white/60 bg-white/80 p-8 shadow-sm backdrop-blur-sm"
+                    >
+                      <div className="h-12 w-12 rounded-full bg-sky-blue/10" />
+                      <div className="mt-6 h-10 w-32 rounded-full bg-gray-200" />
+                      <div className="mt-4 h-16 rounded-lg bg-gray-100" />
+                    </div>
+                  ))
+                ) : (
+                  statsCardConfig.map(({ key, icon: Icon, accent }, index) => {
+                    const metric = t(`stats.metrics.${key}.label`)
+                    const value = t(`stats.metrics.${key}.value`)
+                    const description = t(`stats.metrics.${key}.desc`)
+                    const source = t(`stats.metrics.${key}.source`)
+                    const isHighlighted = index === 0
+
+                    return (
+                      <article
+                        key={key}
+                        className={`relative flex h-full flex-col gap-5 rounded-3xl border border-white/70 bg-white p-8 text-center transition-all duration-500 ease-out ${
+                          statsInView || prefersReducedMotion ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                        } hover:-translate-y-2 hover:aycl-shadow-lg focus-within:-translate-y-2 focus-within:aycl-shadow-lg focus-within:border-orange/40 ${
+                          isHighlighted ? "ring-2 ring-orange/40" : ""
+                        }`}
+                        style={!prefersReducedMotion ? { transitionDelay: `${index * 0.1}s` } : undefined}
+                      >
+                        <div
+                          className={`pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br ${accent} opacity-60`}
+                          aria-hidden="true"
+                        />
+                        <div className="relative z-10 flex flex-col items-center gap-4">
+                          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-orange/10 text-orange">
+                            <Icon className="h-6 w-6" aria-hidden="true" />
+                          </span>
+                          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">{metric}</p>
+                          <p className="text-4xl font-bold text-navy">
+                            <AnimatedCounter value={value} inView={statsInView} prefersReducedMotion={prefersReducedMotion} />
+                          </p>
+                          <p className="text-sm leading-relaxed text-gray-600">{description}</p>
+                          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-400">{source}</p>
+                        </div>
+                      </article>
+                    )
+                  })
+                )}
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+        <section ref={solutionRef} className="relative overflow-hidden bg-white py-28">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white to-[#f6f9ff]" aria-hidden="true" />
+          <div className="absolute -right-32 top-10 -z-10 h-64 w-64 rounded-full bg-orange/10 blur-3xl" />
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="mb-16 text-center">
+                <span className="inline-flex items-center justify-center rounded-full border border-sky-blue/30 bg-sky-blue/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-blue">
+                  {t("solution.badge")}
+                </span>
+                <h2 className="mt-6 text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
+                  {t("solution.title")}
+                </h2>
+                <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-gray-600">
+                  {t("solution.subtitle")}
+                </p>
+              </div>
+
+              <div className="flex flex-col-reverse items-center gap-16 lg:flex-row lg:items-center lg:gap-20">
+                <div
+                  className={`w-full max-w-xl space-y-6 transition-all duration-700 ${
+                    solutionInView && !prefersReducedMotion
+                      ? "motion-safe:animate-[aycl-fade-up_0.7s_ease-out_forwards]"
+                      : ""
+                  }`}
+                >
+                  <h3 className="text-3xl font-bold leading-snug text-navy sm:text-[2.125rem]">
+                    {t("solution.tech.title")}
+                  </h3>
+                  <p className="text-lg leading-relaxed text-gray-600">{t("solution.tech.text1")}</p>
+                  <p className="text-lg leading-relaxed text-gray-600">{t("solution.tech.text2")}</p>
+
+                  <div className="space-y-3">
+                    {([
+                      "database",
+                      "ai",
+                      "outreach",
+                      "control",
+                    ] as const).map((featureKey) => (
+                      <div
+                        key={featureKey}
+                        className="flex items-start gap-3 rounded-2xl bg-[#f6f9ff] px-6 py-4 text-base font-medium text-gray-700"
+                      >
+                        <CheckCircle2 className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
+                        <div>
+                          <p className="font-semibold text-navy">{t(`solution.tech.features.${featureKey}.title`)}</p>
+                          <p className="text-sm font-normal text-gray-600">
+                            {t(`solution.tech.features.${featureKey}.desc`)}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="relative w-full max-w-xl"
+                  style={{ transform: solutionInView && !prefersReducedMotion ? "scale(1)" : "scale(0.97)" }}
+                >
+                  <div className="absolute -inset-6 rounded-3xl bg-orange/10 blur-3xl" aria-hidden="true" />
+                  <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-[0_24px_48px_rgba(9,30,66,0.12)]">
+                    <Image
+                      src="/newmedia/NostreRegole.png"
+                      alt={t("solution.title")}
+                      width={560}
+                      height={460}
+                      className="h-auto w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+              </div>
+
+              <div
+                className="order-1 relative mx-auto flex w-full max-w-[240px] sm:max-w-[520px] md:max-w-[720px] lg:max-w-[1100px] items-center justify-center lg:-mr-4 lg:order-2"
+                style={{ transform: prefersReducedMotion ? undefined : `translateY(${-heroParallax * 0.25}px)` }}
+              >
+                <div className="absolute -top-12 left-6 h-40 w-40 rounded-full bg-sky-blue/30 blur-3xl" aria-hidden="true" />
+                <div className="absolute -bottom-16 right-0 h-48 w-48 rounded-full bg-orange/25 blur-3xl" aria-hidden="true" />
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.4),transparent_60%)]" aria-hidden="true" />
+                <div className="relative w-full">
+                  <div className={prefersReducedMotion ? "" : "floating-illustration"}>
+                    <Image
+                      src="/newmedia/AYCL_3d.png"
+                      alt={t("hero.title")}
+                      width={1100}
+                      height={1100}
+                      priority
+                      className="h-auto w-full max-w-none object-contain drop-shadow-[0_32px_80px_rgba(15,40,85,0.25)]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </LayoutWrapper>
+        </div>
+      </section>
+      <main id="homepage-main" className="space-y-0">
+        <section className="relative bg-white py-28">
+          <div className="absolute inset-0 -z-10 opacity-70">
+            <div className="absolute top-10 left-5 h-20 w-20 rounded-full bg-orange/10" aria-hidden="true" />
+            <div className="absolute bottom-10 right-10 h-28 w-28 rounded-full bg-sky-blue/15" aria-hidden="true" />
+          </div>
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+                <div className="order-2 space-y-6 lg:order-1">
+                  <div className="inline-flex items-center gap-3 text-orange">
+                    <span className="h-px w-12 bg-orange" aria-hidden="true" />
+                    <span className="text-sm font-semibold uppercase tracking-[0.18em]">{t("story.badge")}</span>
+                  </div>
+                  <h2 className="text-3xl font-bold leading-tight text-navy sm:text-4xl">
+                    {t("story.title")}
+                  </h2>
+                  <div className="space-y-4 text-base leading-relaxed text-gray-600 sm:text-lg">
+                    <p>{t("story.text1")}</p>
+                    <p>{t("story.text2")}</p>
+                  </div>
+                </div>
+                <div className="order-1 flex justify-center lg:order-2">
+                  <div className="relative max-w-xl overflow-hidden rounded-3xl shadow-[0_24px_48px_rgba(9,30,66,0.12)]">
+                    <Image
+                      src="/newmedia/tavolo.png"
+                      alt={t("alt.businessChallenge")}
+                      width={640}
+                      height={520}
+                      className="h-auto w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+
+        <section ref={statsRef} className="relative overflow-hidden bg-[#f9fbff] py-28">
+          <div className="absolute inset-0 -z-10 bg-dotted-pattern" aria-hidden="true" />
+          <div className="absolute left-1/2 top-16 -z-10 h-32 w-32 -translate-x-1/2 rounded-full bg-white/70 blur-2xl" />
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div
+                className={`mx-auto max-w-3xl text-center transition duration-700 ${
+                  statsInView && !prefersReducedMotion ? "motion-safe:animate-[aycl-fade-up_0.7s_ease-out_forwards]" : ""
+                }`}
+              >
+                <span className="inline-flex items-center justify-center rounded-full border border-gray-200/60 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-gray-500">
+                  {t("stats.badge")}
+                </span>
+                <h2 className="mt-6 text-4xl font-bold leading-snug text-navy sm:text-[2.5rem]">
+                  {t("stats.title")}
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-gray-600">
+                  {t("stats.subtitle")}
+                </p>
+              </div>
+
+              <div className="mt-16 grid gap-8 md:grid-cols-3">
+                {statsLoading ? (
+                  Array.from({ length: 3 }).map((_, index) => (
+                    <div
+                      key={`skeleton-${index}`}
+                      className="h-full animate-pulse rounded-3xl border border-white/60 bg-white/80 p-8 shadow-sm backdrop-blur-sm"
+                    >
+                      <div className="h-12 w-12 rounded-full bg-sky-blue/10" />
+                      <div className="mt-6 h-10 w-32 rounded-full bg-gray-200" />
+                      <div className="mt-4 h-16 rounded-lg bg-gray-100" />
+                    </div>
+                  ))
+                ) : (
+                  statsCardConfig.map(({ key, icon: Icon, accent }, index) => {
+                    const metric = t(`stats.metrics.${key}.label`)
+                    const value = t(`stats.metrics.${key}.value`)
+                    const description = t(`stats.metrics.${key}.desc`)
+                    const source = t(`stats.metrics.${key}.source`)
+                    const isHighlighted = index === 0
+
+                    return (
+                      <article
+                        key={key}
+                        className={`relative flex h-full flex-col gap-5 rounded-3xl border border-white/70 bg-white p-8 text-center transition-all duration-500 ease-out ${
+                          statsInView || prefersReducedMotion ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                        } hover:-translate-y-2 hover:aycl-shadow-lg focus-within:-translate-y-2 focus-within:aycl-shadow-lg focus-within:border-orange/40 ${
+                          isHighlighted ? "ring-2 ring-orange/40" : ""
+                        }`}
+                        style={!prefersReducedMotion ? { transitionDelay: `${index * 0.1}s` } : undefined}
+                      >
+                        <div
+                          className={`pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br ${accent} opacity-60`}
+                          aria-hidden="true"
+                        />
+                        <div className="relative z-10 flex flex-col items-center gap-4">
+                          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-orange/10 text-orange">
+                            <Icon className="h-6 w-6" aria-hidden="true" />
+                          </span>
+                          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">{metric}</p>
+                          <p className="text-4xl font-bold text-navy">
+                            <AnimatedCounter value={value} inView={statsInView} prefersReducedMotion={prefersReducedMotion} />
+                          </p>
+                          <p className="text-sm leading-relaxed text-gray-600">{description}</p>
+                          <p className="text-xs font-medium uppercase tracking-[0.25em] text-gray-400">{source}</p>
+                        </div>
+                      </article>
+                    )
+                  })
+                )}
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+        <section ref={solutionRef} className="relative overflow-hidden bg-white py-28">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white to-[#f6f9ff]" aria-hidden="true" />
+          <div className="absolute -right-32 top-10 -z-10 h-64 w-64 rounded-full bg-orange/10 blur-3xl" />
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="mb-16 text-center">
+                <span className="inline-flex items-center justify-center rounded-full border border-sky-blue/30 bg-sky-blue/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-blue">
+                  {t("solution.badge")}
+                </span>
+                <h2 className="mt-6 text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
+                  {t("solution.title")}
+                </h2>
+                <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-gray-600">
+                  {t("solution.subtitle")}
+                </p>
+              </div>
+
+              <div className="flex flex-col-reverse items-center gap-16 lg:flex-row lg:items-center lg:gap-20">
+                <div
+                  className={`w-full max-w-xl space-y-6 transition-all duration-700 ${
+                    solutionInView && !prefersReducedMotion
+                      ? "motion-safe:animate-[aycl-fade-up_0.7s_ease-out_forwards]"
+                      : ""
+                  }`}
+                >
+                  <h3 className="text-3xl font-bold leading-snug text-navy sm:text-[2.125rem]">
+                    {t("solution.tech.title")}
+                  </h3>
+                  <p className="text-lg leading-relaxed text-gray-600">{t("solution.tech.text1")}</p>
+                  <p className="text-lg leading-relaxed text-gray-600">{t("solution.tech.text2")}</p>
+
+                  <div className="space-y-3">
+                    {([
+                      "database",
+                      "ai",
+                      "outreach",
+                      "control",
+                    ] as const).map((featureKey) => (
+                      <div
+                        key={featureKey}
+                        className="flex items-start gap-3 rounded-2xl bg-[#f6f9ff] px-6 py-4 text-base font-medium text-gray-700"
+                      >
+                        <CheckCircle2 className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
+                        <div>
+                          <p className="font-semibold text-navy">{t(`solution.tech.features.${featureKey}.title`)}</p>
+                          <p className="text-sm font-normal text-gray-600">
+                            {t(`solution.tech.features.${featureKey}.desc`)}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div
+                  className="relative w-full max-w-xl"
+                  style={{ transform: solutionInView && !prefersReducedMotion ? "scale(1)" : "scale(0.97)" }}
+                >
+                  <div className="absolute -inset-6 rounded-3xl bg-orange/10 blur-3xl" aria-hidden="true" />
+                  <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-[0_24px_48px_rgba(9,30,66,0.12)]">
+                    <Image
+                      src="/newmedia/NostreRegole.png"
+                      alt={t("solution.title")}
+                      width={560}
+                      height={460}
+                      className="h-auto w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+
+        <section ref={benefitsRef} className="relative bg-gradient-to-b from-[#f6f9ff] via-white to-white py-28">
+          <div className="absolute inset-0 -z-10" aria-hidden="true">
+            <div className="bg-dotted-pattern h-full w-full opacity-60" />
+          </div>
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="mx-auto mb-16 max-w-2xl text-center">
+                <h2 className="text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
+                  {t("benefits.title")}
+                </h2>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-3">
+                {([
+                  "meetings",
+                  "team",
+                  "control",
+                ] as const).map((benefitKey, index) => {
+                  const Icon = benefitCardIcons[index]
+                  return (
+                    <article
+                      key={benefitKey}
+                      className={`group flex h-full flex-col rounded-3xl border border-white/60 bg-white p-9 transition-all duration-500 ease-out ${
+                        benefitsInView || prefersReducedMotion ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                      } hover:-translate-y-2 hover:aycl-shadow-lg focus-within:-translate-y-2 focus-within:aycl-shadow-lg ${
+                        index === 0
+                          ? "border-t-[3px] border-t-orange"
+                          : index === 1
+                          ? "border-t-[3px] border-t-sky-blue"
+                          : "border-t-[3px] border-t-navy/70"
+                      }`}
+                      style={!prefersReducedMotion ? { transitionDelay: `${index * 0.12}s` } : undefined}
+                      tabIndex={0}
+                    >
+                      <div className="relative mb-6 flex items-center justify-center">
+                        <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-white via-[#f6f9ff] to-[#eef4ff] text-orange shadow-inner">
+                          <Icon className="h-10 w-10 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
+                        </div>
+                      </div>
+                      <h3 className="text-2xl font-bold leading-snug text-navy">
+                        {t(`benefits.cards.${benefitKey}.title`)}
+                      </h3>
+                      <p className="mt-4 text-[15px] leading-relaxed text-gray-600">
+                        {t(`benefits.cards.${benefitKey}.desc`)}
+                      </p>
+                    </article>
+                  )
+                })}
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+
+        <section ref={processRef} className="relative bg-white py-28">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-[#f6f9ff]" aria-hidden="true" />
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="mx-auto max-w-3xl text-center">
+                <span className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-gray-600">
+                  {t("process.badge")}
+                </span>
+                <h2 className="mt-6 text-4xl font-bold leading-snug text-navy sm:text-[2.5rem]">
+                  {t("process.title")}
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-gray-600">{t("process.subtitle")}</p>
+              </div>
+
+              <div className="relative mt-16 space-y-24">
+                <div
+                  className="pointer-events-none absolute left-1/2 top-0 hidden h-full -translate-x-1/2 border-l-2 border-dashed border-orange/40 md:block"
+                  aria-hidden="true"
+                />
+                {processStepConfig.map(({ key, image, badgeColor }, index) => {
+                  const isEven = index % 2 === 1
+                  const stepNumber = `0${index + 1}`
+
+                  return (
+                    <article
+                      key={key}
+                      className={`relative grid gap-12 md:grid-cols-2 md:items-center ${
+                        processInView && !prefersReducedMotion
+                          ? "motion-safe:animate-[aycl-fade-up_0.7s_ease-out_forwards]"
+                          : ""
+                      }`}
+                    >
+                      <div className={`order-2 md:order-1 ${isEven ? "md:order-2" : ""}`}>
+                        <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-[0_16px_40px_rgba(9,30,66,0.1)]">
+                          <Image
+                            src={`/${image}`}
+                            alt={t(`process.steps.${key}.title`)}
+                            width={560}
+                            height={420}
+                            className="h-auto w-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
+                      <div className={`order-1 space-y-4 md:order-2 ${isEven ? "md:order-1 md:text-right" : ""}`}>
+                        <div className="relative">
+                          <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold text-white ${
+                            key === "icp" ? "bg-orange" : key === "strategy" ? "bg-sky-blue" : "bg-navy"
+                          }`}>
+                            {index + 1}
+                          </span>
+                        </div>
+                        <span
+                          className={`inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] ${badgeColor}`}
+                        >
+                          {t(`process.steps.${key}.label`)}
+                        </span>
+                        <h3 className="text-3xl font-bold leading-snug text-navy sm:text-[2.25rem]">
+                          {t(`process.steps.${key}.title`)}
+                        </h3>
+                        <p className="max-w-xl text-lg leading-relaxed text-gray-600 md:ml-auto md:max-w-none">
+                          {t(`process.steps.${key}.desc`)}
+                        </p>
+                        <Link
+                          href="/pacchetti"
+                          className="group inline-flex items-center gap-2 text-sm font-semibold text-orange underline-offset-4 transition hover:underline"
+                        >
+                          Scopri di più
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                        </Link>
+                      </div>
+                      <div className="pointer-events-none absolute inset-y-1/2 -z-10 flex -translate-y-1/2 text-[6rem] font-bold tracking-tight text-orange/10 sm:text-[7rem] md:text-[8rem]">
+                        <span className={`${isEven ? "ml-auto" : ""}`}>{stepNumber}</span>
+                      </div>
+                    </article>
+                  )
+                })}
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+        <section className="relative bg-gradient-to-b from-white to-[#f5f9ff] py-28">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="mx-auto max-w-3xl text-center">
+                <span className="inline-flex items-center justify-center rounded-full border border-orange/40 bg-orange/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange">
+                  {t("packages.badge")}
+                </span>
+                <h2 className="mt-6 text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
+                  {t("packages.title")}
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-gray-600">{t("packages.subtitle")}</p>
+              </div>
+
+              <div className="mt-16 space-y-16">
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  <Card
+                    className="relative flex h-full flex-col gap-6 rounded-3xl border border-orange/30 bg-white p-8 shadow-[0_20px_60px_-40px_rgba(255,148,51,0.6)] transition-all duration-500 hover:-translate-y-2 hover:border-orange hover:shadow-[0_30px_80px_-30px_rgba(255,148,51,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                    onClick={() => navigateTo("/pacchetti/set-up-fee")}
+                    onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
+                    role="link"
+                    tabIndex={0}
+                  >
+                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-orange">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-orange px-3 py-1 text-white shadow-sm">
+                        <Target className="h-4 w-4" aria-hidden="true" />
                         {t("packages.setup.badge")}
                       </span>
-                      <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold text-orange border border-orange/30">
+                      <span className="rounded-full border border-orange/40 bg-orange/5 px-3 py-1 text-orange">
                         {t("packages.setup.revShare")}
                       </span>
                     </div>
-                    <h3 className="text-2xl xs:text-3xl md:text-4xl font-bold text-navy">{t("packages.setup.title")}</h3>
-                    <p className="text-base md:text-lg text-gray-700 max-w-full">
-                      {t("packages.setup.desc")}
-                    </p>
-                  </div>
-                  <div className="hidden lg:block">
-                    <Sparkles className="w-16 h-16 text-orange" />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6 relative z-10">
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
-                      <TrendingUp className="w-4 h-4" />
-                      {t("packages.setup.strategy")}
-                    </h4>
-                    <ul className="space-y-3 text-sm text-gray-700">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                        <span className="font-medium">{t("packages.setup.features.customStrategy")}</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                        <span className="font-medium">{t("packages.setup.features.dedicatedTeam")}</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                        <span className="font-medium">{t("packages.setup.features.automation")}</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
-                      <Zap className="w-4 h-4" />
-                      {t("packages.setup.partnership")}
-                    </h4>
-                    <ul className="space-y-3 text-sm text-gray-700">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                        <span className="font-medium">{t("packages.setup.features.revenueShare")}</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                        <span className="font-medium">{t("packages.setup.features.priorityAccess")}</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                        <span className="font-medium">{t("packages.setup.features.advisoryBoard")}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-center gap-4 sm:flex-row mt-4 relative z-10">
-                  <Button
-                    className="w-full sm:w-auto bg-orange hover:bg-orange/90 text-white shadow-xl hover:shadow-2xl hover:shadow-orange/30 px-8 py-4 text-lg"
-                    onClick={handleContactClick}
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold text-navy">{t("packages.setup.title")}</h3>
+                      <p className="text-sm leading-relaxed text-gray-600">{t("packages.setup.desc")}</p>
+                    </div>
+                    <div className="space-y-4 text-sm text-gray-700">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange">
+                          {t("packages.setup.strategy")}
+                        </p>
+                        <ul className="mt-3 space-y-3">
+                          {(["customStrategy", "dedicatedTeam", "automation"] as const).map((featureKey) => (
+                            <li key={featureKey} className="flex items-start gap-3">
+                              <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange" aria-hidden="true" />
+                              <span>{t(["packages", "setup", "features", featureKey].join("."))}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange">
+                          {t("packages.setup.partnership")}
+                        </p>
+                        <ul className="mt-3 space-y-3">
+                          {(["revenueShare", "priorityAccess", "advisoryBoard"] as const).map((featureKey) => (
+                            <li key={featureKey} className="flex items-start gap-3">
+                              <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange" aria-hidden="true" />
+                              <span>{t(["packages", "setup", "features", featureKey].join("."))}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    <Button
+                      className="w-full rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-orange/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange"
+                      onClick={handleContactClick}
+                    >
+                      {t("packages.setup.cta")}
+                    </Button>
+                  </Card>
+                  <Card
+                    className="relative flex h-full flex-col gap-6 rounded-3xl border border-sky-blue/30 bg-white p-8 shadow-[0_20px_60px_-40px_rgba(35,98,229,0.45)] transition-all duration-500 hover:-translate-y-2 hover:border-sky-blue hover:shadow-[0_30px_80px_-30px_rgba(35,98,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue"
+                    onClick={() => navigateTo("/pacchetti/performance")}
+                    onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
+                    role="link"
+                    tabIndex={0}
                   >
-                    {t("packages.setup.cta")}
-                  </Button>
-                  <span className="text-sm text-gray-600 font-medium">
-                    {t("packages.setup.ideal")}
-                  </span>
+                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-sky-blue">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-sky-blue px-3 py-1 text-white">
+                        <Zap className="h-4 w-4" aria-hidden="true" />
+                        {t("packages.performance.badge")}
+                      </span>
+                      <span className="rounded-full border border-sky-blue/40 bg-sky-blue/5 px-3 py-1 text-sky-blue">
+                        {t("packages.performance.setup")}
+                      </span>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold text-navy">{t("packages.performance.title")}</h3>
+                      <p className="text-sm leading-relaxed text-gray-600">{t("packages.performance.desc")}</p>
+                    </div>
+                    <div className="rounded-2xl border border-sky-blue/20 bg-white/80 p-5">
+                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-blue">
+                        {t("packages.performance.pricing.label")}
+                      </p>
+                      <p className="mt-2 text-sm text-gray-700">{t("packages.performance.pricing.desc")}</p>
+                    </div>
+                    <ul className="space-y-3 text-sm text-gray-700">
+                      {(["onboarding", "payPerResult", "reporting", "testing"] as const).map((featureKey) => (
+                        <li key={featureKey} className="flex items-start gap-3">
+                          <CheckCircle2 className="mt-0.5 h-5 w-5 text-sky-blue" aria-hidden="true" />
+                          <span>{t(["packages", "performance", "features", featureKey].join("."))}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      className="w-full rounded-full bg-sky-blue px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-sky-blue/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-sky-blue"
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        navigateTo("/pacchetti/performance")
+                      }}
+                    >
+                      {t("packages.performance.cta")}
+                    </Button>
+                  </Card>
+                  <Card
+                    className="relative flex h-full flex-col gap-6 rounded-3xl border border-navy/20 bg-white p-8 shadow-[0_20px_60px_-40px_rgba(11,29,74,0.4)] transition-all duration-500 hover:-translate-y-2 hover:border-navy hover:shadow-[0_30px_80px_-30px_rgba(11,29,74,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy"
+                    onClick={() => navigateTo("/pacchetti/subscription")}
+                    onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
+                    role="link"
+                    tabIndex={0}
+                  >
+                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-navy">
+                      <span className="inline-flex items-center gap-2 rounded-full bg-navy px-3 py-1 text-white">
+                        <Sparkles className="h-4 w-4" aria-hidden="true" />
+                        {t("packages.subscription.badge")}
+                      </span>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold text-navy">{t("packages.subscription.title")}</h3>
+                      <p className="text-sm leading-relaxed text-gray-600">{t("packages.subscription.desc")}</p>
+                    </div>
+                    <div className="rounded-2xl border border-navy/20 bg-white/80 p-5 text-sm text-gray-700">
+                      {t("packages.subscription.pricing")}
+                    </div>
+                    <ul className="space-y-3 text-sm text-gray-700">
+                      {(["guaranteed", "manager", "meetings", "refund"] as const).map((featureKey) => (
+                        <li key={featureKey} className="flex items-start gap-3">
+                          <CheckCircle2 className="mt-0.5 h-5 w-5 text-navy" aria-hidden="true" />
+                          <span>{t(["packages", "subscription", "features", featureKey].join("."))}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      className="w-full rounded-full bg-navy px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-navy/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-navy"
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        navigateTo("/pacchetti/subscription")
+                      }}
+                    >
+                      {t("packages.subscription.cta")}
+                    </Button>
+                  </Card>
                 </div>
-              </Card>
-
-              {/* Drive Test - NEW ENTRY */}
-              <Card
-                className="relative flex cursor-pointer flex-col gap-5 rounded-2xl border border-orange/40 bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 p-3 xs:p-4 sm:p-7 md:p-8 shadow-lg transition-all duration-500 hover:border-orange hover:shadow-xl hover:shadow-orange/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-4 overflow-hidden"
-                onClick={() => navigateTo("/pacchetti/drive-test")}
-                onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/drive-test")}
-                role="link"
-                tabIndex={0}
-              >
-                {/* Decorative effects for Drive Test */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-orange/10 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-sky-blue/10 rounded-full blur-xl"></div>
-
-                <div className="space-y-3 relative z-10">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center rounded-full bg-orange px-3 py-1 text-xs font-semibold text-white shadow-md">
-                      <Gauge className="w-3.5 h-3.5 mr-1" />
+                <Card
+                  className="relative mx-auto flex max-w-4xl flex-col gap-10 overflow-hidden rounded-[2.5rem] border border-orange/45 bg-[radial-gradient(circle_at_top,#fff5eb,rgba(255,255,255,0.97))] p-10 shadow-[0_32px_80px_-32px_rgba(255,148,51,0.45)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_44px_120px_-36px_rgba(255,148,51,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                  onClick={() => navigateTo("/pacchetti/drive-test")}
+                  onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/drive-test")}
+                  role="link"
+                  tabIndex={0}
+                >
+                  <span className="pointer-events-none absolute -top-6 right-10 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange to-orange/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-lg">
+                    <Sparkles className="h-4 w-4" aria-hidden="true" />
+                    {t("packages.driveTest.highlight")}
+                  </span>
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-orange">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-orange/10 px-4 py-2 text-orange">
+                      <Gauge className="h-4 w-4" aria-hidden="true" />
                       {t("packages.driveTest.badge")}
                     </span>
-                    <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-orange border border-orange/30">
-                      {t("packages.driveTest.highlight")}
+                    <span className="rounded-full border border-orange/25 bg-white/70 px-4 py-2 text-orange/80">
+                      {t("packages.badge")}
                     </span>
                   </div>
-                  <h3 className="text-xl xs:text-2xl font-bold text-navy">{t("packages.driveTest.title")}</h3>
-                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {t("packages.driveTest.desc")}
-                  </p>
-                </div>
-
-                <div className="bg-white/80 rounded-xl p-3 md:p-4 border border-orange/20 relative z-10">
-                  <p className="text-xs font-semibold text-orange uppercase tracking-wider mb-2">{t("packages.driveTest.pricing.label")}</p>
-                  <p className="text-sm text-gray-700">{t("packages.driveTest.pricing.desc")}</p>
-                </div>
-
-                <ul className="space-y-3 text-sm text-gray-700 relative z-10">
-                  <li className="flex items-start gap-3">
-                    <CalendarCheck className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
-                    <span>{t("packages.driveTest.features.calendar")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Users className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
-                    <span>{t("packages.driveTest.features.target")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BarChart3 className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
-                    <span>{t("packages.driveTest.features.credit")}</span>
-                  </li>
-                </ul>
-
-                <div className="mt-auto pt-4 relative z-10">
-                  <Button
-                    className="w-full bg-orange hover:bg-orange/90 text-white shadow-md hover:shadow-lg transition-all duration-300"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      navigateTo("/pacchetti/drive-test")
-                    }}
-                  >
-                    {t("packages.driveTest.cta")}
-                  </Button>
-                </div>
-              </Card>
-
-              {/* Performance - MEDIUM HIGHLIGHT */}
-              <Card
-                className="relative flex cursor-pointer flex-col gap-6 rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 xs:p-4 sm:p-7 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-4 overflow-hidden"
-                onClick={() => navigateTo("/pacchetti/performance")}
-                onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
-                role="link"
-                tabIndex={0}
-              >
-                {/* Decorative effects for Performance */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-blue/10 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl"></div>
-
-                <div className="space-y-3 relative z-10">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center rounded-full bg-sky-blue/20 px-3 py-1 text-xs font-semibold text-sky-blue border border-sky-blue/30">
-                      {t("packages.performance.badge")}
-                    </span>
-                    <span className="text-xs text-gray-500">{t("packages.performance.setup")}</span>
+                  <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-3xl font-bold text-navy sm:text-4xl">{t("packages.driveTest.title")}</h3>
+                        <p className="mt-4 text-base leading-relaxed text-gray-600 sm:text-lg">
+                          {t("packages.driveTest.desc")}
+                        </p>
+                      </div>
+                      <ul className="grid gap-4 sm:grid-cols-2">
+                        <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/80 p-4 shadow-sm backdrop-blur">
+                          <CalendarCheck className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
+                          <span className="text-sm text-gray-700">{t("packages.driveTest.features.calendar")}</span>
+                        </li>
+                        <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/80 p-4 shadow-sm backdrop-blur">
+                          <Users className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
+                          <span className="text-sm text-gray-700">{t("packages.driveTest.features.target")}</span>
+                        </li>
+                        <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/80 p-4 shadow-sm backdrop-blur sm:col-span-2">
+                          <BarChart3 className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
+                          <span className="text-sm text-gray-700">{t("packages.driveTest.features.credit")}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="flex h-full flex-col gap-6 rounded-3xl border border-orange/30 bg-white p-8 text-left shadow-xl backdrop-blur">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange/80">
+                          {t("packages.driveTest.pricing.label")}
+                        </p>
+                        <p className="mt-3 text-3xl font-bold leading-tight text-orange sm:text-4xl">
+                          {t("packages.driveTest.pricing.desc")}
+                        </p>
+                      </div>
+                      <Button
+                        className="w-full rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-orange/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange"
+                        onClick={(event) => {
+                          event.stopPropagation()
+                          navigateTo("/pacchetti/drive-test")
+                        }}
+                      >
+                        {t("packages.driveTest.cta")}
+                      </Button>
+                    </div>
                   </div>
-                  <h3 className="text-2xl xs:text-2xl md:text-3xl font-bold text-navy">{t("packages.performance.title")}</h3>
-                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {t("packages.performance.desc")}
-                  </p>
-                </div>
-
-                <div className="bg-sky-blue/5 rounded-xl p-3 md:p-4 border border-sky-blue/20 relative z-10">
-                  <p className="text-xs font-semibold text-sky-blue uppercase tracking-wider mb-2">{t("packages.performance.pricing.label")}</p>
-                  <p className="text-sm text-gray-700">{t("packages.performance.pricing.desc")}</p>
-                </div>
-
-                <ul className="space-y-3 text-sm text-gray-700 relative z-10">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                    <span>{t("packages.performance.features.onboarding")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                    <span>{t("packages.performance.features.payPerResult")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                    <span>{t("packages.performance.features.reporting")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
-                    <span>{t("packages.performance.features.testing")}</span>
-                  </li>
-                </ul>
-
-                <div className="mt-auto pt-4 relative z-10">
-                  <Button className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white shadow-md hover:shadow-lg transition-all duration-300" onClick={handleContactClick}>
-                    {t("packages.performance.cta")}
-                  </Button>
-                </div>
-              </Card>
-
-              {/* Subscription - MINIMAL HIGHLIGHT */}
-              <Card
-                className="relative flex cursor-pointer flex-col gap-5 rounded-2xl border border-gray-300 bg-white p-3 xs:p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
-                onClick={() => navigateTo("/pacchetti/subscription")}
-                onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
-                role="link"
-                tabIndex={0}
-              >
-                {/* Decorative effects for Subscription */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-navy/5 rounded-full blur-xl"></div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 bg-navy/3 rounded-full blur-lg"></div>
-          
-                <div className="space-y-2 relative z-10">
-                  <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">
-                    {t("packages.subscription.badge")}
-                  </span>
-                  <h3 className="text-xl xs:text-2xl font-bold text-navy">{t("packages.subscription.title")}</h3>
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
-                    {t("packages.subscription.desc")}
-                  </p>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-2 md:p-3 border border-gray-200 relative z-10">
-                  <p className="text-xs text-gray-600">{t("packages.subscription.pricing")}</p>
-                </div>
-
-                <ul className="space-y-2.5 text-xs text-gray-700 relative z-10">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                    <span>{t("packages.subscription.features.guaranteed")}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                    <span>{t("packages.subscription.features.manager")}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                    <span>{t("packages.subscription.features.meetings")}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
-                    <span>{t("packages.subscription.features.refund")}</span>
-                  </li>
-                </ul>
-
-                <div className="mt-auto pt-3 relative z-10">
-                  <Button className="w-full bg-navy hover:bg-navy/90 text-white text-sm py-2.5 transition-all duration-300" onClick={handleContactClick}>
-                    {t("packages.subscription.cta")}
-                  </Button>
-                </div>
-              </Card>
-            </div>
-
-
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* Price Calculator Section (temporarily disabled) */}
-      {false && (
-        <LeadPriceCalculator />
-      )}
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-24 relative">
-        <div className="container mx-auto px-6">
-          <LayoutWrapper>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("faq.title")}</h2>
-              <p className="text-xl text-gray-600">{t("faq.subtitle")}</p>
-            </div>
-
-            <FAQCards
-              className="mt-12"
-              items={[
-                {
-                  question: t("faq.items.0.question"),
-                  answer: t("faq.items.0.answer")
-                },
-                {
-                  question: t("faq.items.1.question"),
-                  answer: t("faq.items.1.answer")
-                },
-                {
-                  question: t("faq.items.2.question"),
-                  answer: t("faq.items.2.answer")
-                },
-                {
-                  question: t("faq.items.3.question"),
-                  answer: t("faq.items.3.answer")
-                },
-                {
-                  question: t("faq.items.4.question"),
-                  answer: t("faq.items.4.answer")
-                },
-                {
-                  question: t("faq.items.5.question"),
-                  answer: t("faq.items.5.answer")
-                }
-              ]}
-            />
-          </LayoutWrapper>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-navy via-navy to-sky-blue/20 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl" />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <LayoutWrapper>
-            <div className="max-w-4xl mx-auto text-center space-y-8">
-              <h2 className="text-4xl lg:text-4xl font-bold text-balance">
-                {t("cta.title")}
-              </h2>
-              <p className="text-xl text-gray-200">
-                {t("cta.subtitle")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <button 
-                  data-cal-namespace="aycl-discovery"
-                  data-cal-link="giovannilucchesini/aycl-discovery"
-                  data-cal-config='{"layout":"month_view"}'
-                  className="bg-orange hover:bg-orange/90 text-white font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg justify-center w-full sm:w-auto"
-                >
-                  {t("cta.button")}
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-                <Link href="/pacchetti">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 bg-transparent">
-                    {t("cta.secondary")}
-                  </Button>
-                </Link>
+                </Card>
               </div>
-            </div>
-          </LayoutWrapper>
-        </div>
-      </section>
 
+              <div className="mt-12 text-center text-sm text-gray-600">
+                {t("packages.trust")}
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+
+        <DriveTestCalculator />
+
+        <section className="relative bg-[#f6f9ff] py-28">
+          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+            <LayoutWrapper>
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
+                  {t("faq.title")}
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-gray-600">{t("faq.subtitle")}</p>
+              </div>
+              <div className="mt-12">
+                <FAQAccordion items={faqItems} />
+              </div>
+            </LayoutWrapper>
+          </div>
+        </section>
+      </main>
     </div>
   )
 }

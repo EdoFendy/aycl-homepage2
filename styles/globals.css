@@ -402,3 +402,37 @@
 .faq-card__answer {
   background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.86));
 }
+
+@keyframes aycl-floating {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes aycl-arrow-slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(6px); }
+}
+
+@keyframes aycl-fade-up {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  .aycl-shadow-sm { box-shadow: 0 2px 8px rgba(9, 30, 66, 0.08); }
+  .aycl-shadow-md { box-shadow: 0 8px 24px rgba(9, 30, 66, 0.1); }
+  .aycl-shadow-lg { box-shadow: 0 16px 40px rgba(9, 30, 66, 0.12); }
+  .aycl-shadow-xl { box-shadow: 0 24px 56px rgba(9, 30, 66, 0.15); }
+
+  .aycl-radius-sm { border-radius: 8px; }
+  .aycl-radius-md { border-radius: 12px; }
+  .aycl-radius-lg { border-radius: 16px; }
+  .aycl-radius-xl { border-radius: 24px; }
+  .aycl-radius-pill { border-radius: 9999px; }
+
+  .floating-illustration { animation: aycl-floating 6s ease-in-out infinite; }
+  .arrow-slide-hover:hover svg { animation: aycl-arrow-slide 0.25s forwards; }
+  .bg-soft-grid { background-image: radial-gradient(circle at center, rgba(14, 42, 71, 0.04) 0, rgba(14, 42, 71, 0.04) 1px, transparent 1px); background-size: 32px 32px; }
+  .bg-dotted-pattern { background-image: radial-gradient(rgba(1, 47, 107, 0.08) 1px, transparent 1px); background-size: 28px 28px; }
+}
