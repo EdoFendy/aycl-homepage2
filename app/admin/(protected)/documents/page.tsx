@@ -52,8 +52,7 @@ export default function AdminDocumentsPage() {
     articoli: [{ id: 1, descrizione: "", quantita: 1, prezzo: 0 }],
     aliquotaIVA: 22,
     showIVA: true,
-    termini:
-      "Il pagamento dovrà essere effettuato entro 30 giorni dalla data di emissione del preventivo. I prezzi indicati si intendono IVA esclusa. La validità del presente preventivo è di 30 giorni dalla data di emissione.",
+    termini: "",
     dataFirma: new Date().toISOString().split("T")[0],
   });
 

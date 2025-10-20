@@ -284,38 +284,7 @@ export function DocumentForm({ formData, setFormData, totali }: DocumentFormProp
           </div>
         </div>
 
-        {/* Aliquota IVA */}
-        <div className="space-y-4 rounded-2xl border border-slate-800/50 bg-slate-900/40 p-4">
-          <div className="flex items-center gap-3">
-            <input
-              type="checkbox"
-              id="showIVA"
-              name="showIVA"
-              checked={formData.showIVA}
-              onChange={(e) => setFormData((prev: DocumentFormData) => ({ ...prev, showIVA: e.target.checked }))}
-              className="h-4 w-4 rounded border-slate-600 bg-slate-800 text-sky-500 focus:ring-sky-500 focus:ring-offset-0"
-            />
-            <label htmlFor="showIVA" className="flex items-center gap-2 text-sm font-medium text-slate-300">
-              <Percent className="h-4 w-4 text-slate-400" />
-              Includi IVA nel preventivo
-            </label>
-          </div>
-          
-          {formData.showIVA && (
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-slate-400">Aliquota IVA (%)</label>
-              <input
-                type="number"
-                name="aliquotaIVA"
-                value={formData.aliquotaIVA}
-                onChange={handleInputChange}
-                min="0"
-                max="100"
-                className="w-full rounded-lg border border-slate-700 bg-slate-900/60 px-3 py-2 text-sm text-white transition focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20"
-              />
-            </div>
-          )}
-        </div>
+      
 
         {/* Totali Summary */}
         <div className="rounded-2xl border border-sky-800/30 bg-sky-950/20 p-6">
@@ -325,12 +294,7 @@ export function DocumentForm({ formData, setFormData, totali }: DocumentFormProp
               <span className="text-slate-400">Subtotale:</span>
               <span className="font-semibold text-white text-base">{formatCurrency(totali.subtotale)}</span>
             </div>
-            {formData.showIVA && (
-              <div className="flex justify-between items-center py-2">
-                <span className="text-slate-400">IVA ({formData.aliquotaIVA}%):</span>
-                <span className="font-semibold text-white text-base">{formatCurrency(totali.iva)}</span>
-              </div>
-            )}
+
             <div className="flex justify-between items-center border-t border-sky-800/30 pt-3 mt-3">
               <span className="font-semibold text-sky-300 text-base">Totale:</span>
               <span className="text-xl font-bold text-sky-300">{formatCurrency(totali.totale)}</span>
@@ -338,32 +302,20 @@ export function DocumentForm({ formData, setFormData, totali }: DocumentFormProp
           </div>
         </div>
 
-        {/* Termini e Condizioni */}
+        {/* Note */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-slate-300">Termini e Condizioni</label>
+          <label className="text-sm font-medium text-slate-300">Note</label>
           <textarea
             name="termini"
             value={formData.termini}
             onChange={handleInputChange}
+            placeholder="Inserisci qui qualsiasi nota o informazione aggiuntiva..."
             rows={4}
             className="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-3 text-sm text-white placeholder-slate-500 transition focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
           />
         </div>
 
-        {/* Data Firma */}
-        <div className="space-y-2">
-          <label className="flex items-center gap-2 text-sm font-medium text-slate-300">
-            <Calendar className="h-4 w-4 text-slate-400" />
-            Data Firma
-          </label>
-          <input
-            type="date"
-            name="dataFirma"
-            value={formData.dataFirma}
-            onChange={handleInputChange}
-            className="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm text-white transition focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
-          />
-        </div>
+       
       </div>
     </div>
   );

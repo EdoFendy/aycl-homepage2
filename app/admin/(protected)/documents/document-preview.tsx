@@ -273,10 +273,10 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
       console.groupEnd();
       
     } catch (error: any) {
-      console.error("❌ FATAL ERROR during PDF generation:");
-      console.error("Error name:", error?.name);
-      console.error("Error message:", error?.message);
-      console.error("Error stack:", error?.stack);
+      console.log("❌ FATAL ERROR during PDF generation:");
+      console.log("Error name:", error?.name);
+      console.log("Error message:", error?.message);
+      console.log("Error stack:", error?.stack);
       console.timeEnd("Total Export Time");
       console.groupEnd();
       
@@ -595,7 +595,7 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
                   alignItems: "flex-start",
                 }}
               >
-                {/* Termini e condizioni */}
+                {/* Note */}
                 <div
                   style={{
                     flex: "1 1 auto",
@@ -616,9 +616,11 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
                       fontFamily: "Arial, Helvetica, sans-serif",
                     }}
                   >
-                    TERMINI E CONDIZIONI:
+                    NOTE:
                   </b>
-                  {formData.termini}
+                  <div style={{ whiteSpace: "pre-wrap", wordWrap: "break-word" }}>
+                    {formData.termini || "Nessuna nota inserita"}
+                  </div>
                 </div>
 
                 {/* Totali */}
@@ -652,8 +654,7 @@ export function DocumentPreview({ formData, totali }: DocumentPreviewProps) {
                         padding: "8px 0",
                       }}
                     >
-                      <b>IVA ({formData.aliquotaIVA}%):</b>
-                      <span>{formatCurrency(totali.iva)}</span>
+               
                     </div>
                   )}
                   <div
