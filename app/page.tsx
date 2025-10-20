@@ -385,7 +385,7 @@ export default function HomePage() {
                 <div className="order-1 flex justify-center lg:order-2">
                   <div className="relative max-w-xl overflow-hidden rounded-3xl shadow-[0_24px_48px_rgba(9,30,66,0.12)]">
                     <Image
-                      src="/newmedia/tavolo.png"
+                      src="/newmedia/Tavolo.png"
                       alt={t("alt.businessChallenge")}
                       width={640}
                       height={520}
