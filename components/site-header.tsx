@@ -210,16 +210,16 @@ export function SiteHeader() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "group flex min-w-[120px] flex-1 items-center gap-3 rounded-xl border border-transparent bg-white/70 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-navy/15 hover:bg-[#f6f9ff] sm:flex-[1_1_18%] sm:px-3.5 sm:py-2",
+                      "group flex min-w-[90px] flex-1 items-center gap-2 rounded-xl border border-transparent bg-white/70 px-2 py-1.5 transition hover:-translate-y-0.5 hover:border-navy/15 hover:bg-[#f6f9ff] sm:min-w-[120px] sm:gap-3 sm:flex-[1_1_18%] sm:px-3.5 sm:py-2",
                       isActive(item.href) && "border-navy/20 bg-[#f6f9ff]",
                     )}
                   >
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-transparent sm:bg-navy/5 sm:h-10 sm:w-10">
+                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-transparent sm:h-10 sm:w-10 sm:bg-navy/5">
                       <Image src={item.icon} alt={item.alt} width={32} height={32} className="h-5 w-5 object-contain" />
                     </div>
                     <div className="flex min-w-0 flex-col items-center justify-center text-center">
                       <div className="flex w-full flex-col items-center justify-center text-center sm:min-h-[54px] sm:overflow-hidden">
-                        <p className="text-sm font-semibold text-navy sm:text-[15px] transition-transform duration-200 ease-out sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px] text-clamp-1">
+                        <p className="text-xs leading-tight font-semibold text-navy sm:text-[15px] transition-transform duration-200 ease-out sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px] line-clamp-2 sm:line-clamp-1">
                           {item.label}
                         </p>
                         <p className="hidden max-h-0 overflow-hidden text-[10px] uppercase tracking-[0.18em] text-gray-500 opacity-0 transition-all duration-200 ease-out sm:block sm:leading-[1.15] sm:group-hover:mt-0.5 sm:group-hover:max-h-9 sm:group-hover:opacity-70 sm:group-focus-visible:mt-0.5 sm:group-focus-visible:max-h-9 sm:group-focus-visible:opacity-70 text-clamp-2">
