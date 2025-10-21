@@ -157,7 +157,7 @@
     "hero": {
       "badge": "Set-Up Fee Package",
       "title": "<strong>Set-Up Fee</strong> Package: the partnership to scale without limits.",
-      "kicker": "Lifetime access to expand your company and share growth results.",
+      "kicker": "Built to expand your company and share the growth results.",
       "subtitle": "With Set-Up Fee you're not a client but a partner. Reserved for companies ready to scale with a long-term commitment.",
       "ctaPrimary": "Talk to us",
       "ctaSecondary": "See pricing and guarantees",
@@ -167,17 +167,17 @@
       "title": "<strong>Set-Up Fee</strong> Package: growth without limits.",
       "cards": {
         "planTitle": "We design the expansion",
-        "planDesc": "We define ICP and market clusters, estimate timelines and checkpoints.",
+        "planDesc": "We start by deeply understanding the journey ahead and the goals you've set. We define the ICP and target market clusters. We estimate timing and key checkpoints.",
         "activateTitle": "We start the engine",
-        "activateDesc": "We select segments from our proprietary database and choose the highest‑impact channels and messages.",
+        "activateDesc": "Once the strategic plan is set, we build the operational foundations. We select matching segments from our proprietary database. We identify the most effective contact channels and high-impact messaging.",
         "scaleTitle": "We kick off the scale",
-        "scaleDesc": "Personal dashboard, complete reports and a dedicated project manager."
+        "scaleDesc": "From activation onwards we stay by your side. Your personal dashboard lets you monitor results independently. Complete reports keep you constantly updated and you always have a dedicated project manager."
       }
     },
     "partnership": {
       "badge": "Partnership mode",
-      "title": "Set-Up Fee is the right choice if…",
-      "subtitle": "Win‑win, long‑term collaboration with shared goals and real accountability.",
+      "title": "A partnership built around your growth goals",
+      "subtitle": "We align vision, accountability and results inside a truly shared collaboration model.",
       "isForYouBadge": "✓ It's for you if",
       "isForYouTitle": "Set-Up Fee is perfect if…",
       "isForYou": [
@@ -195,27 +195,27 @@
         "Paying suppliers misaligned with your returns.",
         "Sacrificing long‑term vision for short‑term fixes."
       ],
-      "numbersBadge": "Partnership in numbers",
-      "numbersTitle": "Every euro of the Set-Up Fee builds shared assets: tech, data, processes, hybrid team.",
-      "numbersDesc": "Operational and commercial risk is shared: forecast, pipeline and results are handled together."
+      "numbersBadge": "",
+      "numbersTitle": "",
+      "numbersDesc": "Operational and commercial risk becomes shared: forecast, pipeline and results are managed together."
     },
     "infrastructure": {
       "kicker": "All You Can Leads",
       "title": "The structure that supports your expansion",
-      "desc": "With Set-Up Fee you join our infrastructure: tech, data and people become permanent levers for your expansion.",
+      "desc": "This partnership is a strategic alliance. We activate our ecosystem to reach success together.",
       "cards": {
         "senduraTitle": "Sendura",
-        "senduraDesc": "Proprietary app to manage and monitor outreach with real‑time dashboards.",
+        "senduraDesc": "Our technological backbone lives inside our proprietary software app, Sendura. It lets us manage and monitor campaigns across every outreach channel and gives you a personal dashboard with real-time results.",
         "dbTitle": "Database",
-        "dbDesc": "Global B2B contacts with continuous updates and AI enrichment.",
+        "dbDesc": "Our archive contains members of companies worldwide and covers every B2B sector. AI-driven tools constantly verify and enrich every single data point so we can precisely reach specific market clusters.",
         "supportTitle": "Support",
-        "supportDesc": "Dedicated PM and the blend of automation and human expertise."
+        "supportDesc": "Technology evolves quickly, but real value comes from combining automation with people. That's why every client is followed from start to finish by their dedicated project manager."
       }
     },
     "economics": {
       "badge": "Economic model",
-      "title": "Invest up front, earn forever",
-      "desc": "One‑time setup for permanent access + revenue share aligned with your revenue.",
+      "title": "Invest today, grow over time",
+      "desc": "One initial investment with a revenue share model aligned to your revenue.",
       "howTitle": "How it works",
       "bullets": [
         "One‑time Set-Up Fee to integrate tech, processes and team.",
@@ -223,19 +223,43 @@
         "Permanent access after activation."
       ],
       "pricing": {
-        "activation": {"badge": "Activation phase", "title": "The Set-Up Fee", "line": "One‑time payment between €20k and €200k depending on cluster, volume/complexity and average ticket.", "points": ["One‑time payment between €20k and €200k depending on cluster, volume/complexity and average ticket."]},
-        "operational": {"badge": "Operational phase", "title": "Revenue Share", "desc": "Agreed percentage (typically ~20%) on closed deals generated by AYCL."},
-        "guarantees": {"badge": "Included guarantees", "title": "100% refund", "desc": "If within the first year revenue is not at least double the set‑up fee, full refund."},
-        "notes": ["First 60–90 days are activation period.", "Minimum collaboration: 2 years."]
+        "activation": {
+          "badge": "Activation phase",
+          "title": "The Set-Up Fee",
+          "line": "One‑time payment between €20k and €200k depending on cluster, volume/complexity and average ticket.",
+          "points": [
+            "One‑time payment between €20k and €200k depending on cluster, volume/complexity and average ticket."
+          ]
+        },
+        "operational": {
+          "badge": "Operational phase",
+          "title": "Revenue Share",
+          "desc": "Agreed percentage (typically ~20%) on closed deals generated by AYCL."
+        },
+        "guarantees": {
+          "badge": "Included guarantees",
+          "title": "100% refund",
+          "desc": "If within the first year revenue is not at least double the set‑up fee, full refund."
+        },
+        "notes": [
+          "First 60–90 days are activation period.",
+          "Minimum collaboration: 2 years."
+        ]
       }
     },
     "whyWorks": {
       "title": "Why this partnership works",
       "desc": "Revenue share aligns us to your results: we invest only with companies truly ready to grow.",
-      "bullets": ["Quarterly roadmap with shared KPIs.", "Total accountability: if revenue doesn't come, we lose first."],
+      "bullets": [
+        "Quarterly roadmap with shared KPIs.",
+        "Total accountability: if revenue doesn't come, we lose first."
+      ],
       "opTitle": "Operational perspective",
       "opDesc": "Joint teams, vertical playbooks and localized assets. You keep control, we bring the machine.",
-      "opBullets": ["Alignment workshops and sales/marketing training.", "Continuous improvement on copy, channels and clusters."]
+      "opBullets": [
+        "Alignment workshops and sales/marketing training.",
+        "Continuous improvement on copy, channels and clusters."
+      ]
     },
     "cta": {
       "title": "Ready to start the Set-Up Fee partnership?",
@@ -253,24 +277,24 @@
     "researchPhase": {
       "badge": "Research and Value Phase",
       "title": "We invest together in your growth",
-      "subtitle": "The Set-Up Fee is not a cost, but a shared investment to build your permanent growth infrastructure.",
+      "subtitle": "We invest to lay the foundations of your strategic scale-up.",
       "buildTogether": "What we build together",
       "buildItems": [
-        "In-depth analysis of your market and ICP",
-        "Customized database with your ideal prospects",
-        "Tailored outreach strategies for your sector",
-        "Dedicated team and training for your staff"
+        "In-depth ICP and market analysis",
+        "Target contact selection and segmentation",
+        "Tailored go-to-market strategy",
+        "Channel mix definition"
       ],
       "valueYouGet": "The value you get",
       "valueItems": [
-        "Permanent access to our technology",
-        "Optimized processes for your company",
-        "Deep knowledge of your market",
-        "Long-term strategic partnership"
+        "Predictable flow of qualified meetings",
+        "Scalable without limits",
+        "Long-term win-win partnership",
+        "Continuous updates and monitoring"
       ],
       "investmentTitle": "Set-Up Fee Investment",
       "investmentDesc": "From €20,000 to €200,000 based on your market complexity and growth objectives",
-      "investmentTag": "One investment, permanent access"
+      "investmentTag": ""
     },
     "operationalPhase": {
       "badge": "Operational Phase",
@@ -287,7 +311,7 @@
     "hero": {
       "badge": "Paquete Set-Up Fee",
       "title": "Paquete <strong>Set-Up Fee</strong>: la asociación para escalar sin límites.",
-      "kicker": "Acceso de por vida para expandir tu empresa y compartir los resultados del crecimiento.",
+      "kicker": "Pensado para expandir tu empresa y compartir los resultados del crecimiento.",
       "subtitle": "Con Set-Up Fee no eres un cliente, sino un socio. Reservado a empresas listas para escalar con compromiso a largo plazo.",
       "ctaPrimary": "Habla con nosotros",
       "ctaSecondary": "Ver precios y garantías",
@@ -297,17 +321,17 @@
       "title": "Paquete <strong>Set-Up Fee</strong>: crecimiento sin límites.",
       "cards": {
         "planTitle": "Diseñamos la expansión",
-        "planDesc": "Definimos ICP y clusters, estimamos tiempos y hitos.",
+        "planDesc": "Comenzamos comprendiendo a fondo el camino a seguir y los objetivos definidos. Definimos el ICP y los clusters de mercado de referencia. Estimamos tiempos y checkpoints.",
         "activateTitle": "Ponemos en marcha la máquina",
-        "activateDesc": "Seleccionamos segmentos de nuestra base de datos y elegimos canales y mensajes de mayor impacto.",
+        "activateDesc": "Una vez definido el plan estratégico avanzamos con las bases operativas. Seleccionamos los segmentos coherentes de nuestra base de datos propietaria. Identificamos los canales de contacto más eficaces y los mensajes de mayor impacto.",
         "scaleTitle": "Iniciamos la escalada",
-        "scaleDesc": "Panel personal, informes completos y project manager dedicado."
+        "scaleDesc": "Desde la activación permanecemos a tu lado. Con tu dashboard personal puedes supervisar los resultados con autonomía. Con informes completos te mantenemos actualizado de forma constante y cuentas siempre con tu project manager de referencia."
       }
     },
     "partnership": {
       "badge": "Modo asociación",
-      "title": "El Set-Up Fee es la opción correcta si…",
-      "subtitle": "Colaboración win‑win a largo plazo con objetivos compartidos y responsabilidad real.",
+      "title": "Una partnership construida sobre tus objetivos de crecimiento",
+      "subtitle": "Alineamos visión, responsabilidad y resultados en un modelo de colaboración realmente compartido.",
       "isForYouBadge": "✓ Es para ti si",
       "isForYouTitle": "El Set-Up Fee es perfecto si…",
       "isForYou": [
@@ -325,27 +349,27 @@
         "Pagar a proveedores desalineados con tus retornos.",
         "Sacrificar la visión a largo plazo por soluciones cortoplacistas."
       ],
-      "numbersBadge": "Asociación en cifras",
-      "numbersTitle": "Cada euro del Set-Up Fee construye activos compartidos: tecnología, datos, procesos, equipo híbrido.",
-      "numbersDesc": "El riesgo operativo y comercial se comparte: forecast, pipeline y resultados se gestionan conjuntamente."
+      "numbersBadge": "",
+      "numbersTitle": "",
+      "numbersDesc": "El riesgo operativo y comercial pasa a ser compartido: forecast, pipeline y resultados se gestionan juntos."
     },
     "infrastructure": {
       "kicker": "All You Can Leads",
       "title": "La estructura que sostiene tu expansión",
-      "desc": "Con Set-Up Fee pasas a formar parte de nuestra infraestructura: tecnología, datos y personas como palancas permanentes.",
+      "desc": "Esta partnership es una alianza estratégica. Activamos nuestro ecosistema para alcanzar el éxito juntos.",
       "cards": {
         "senduraTitle": "Sendura",
-        "senduraDesc": "App propietaria para gestionar y monitorizar el outreach con paneles en tiempo real.",
+        "senduraDesc": "Nuestra estructura tecnológica se concentra en nuestra app propietaria, Sendura. Nos permite gestionar y monitorizar las campañas en todos los canales de outreach y ofrece un dashboard personal con resultados en tiempo real.",
         "dbTitle": "Base de datos",
-        "dbDesc": "Contactos B2B globales con actualización continua y enriquecimiento con IA.",
+        "dbDesc": "Nuestro archivo contiene contactos de miembros de empresas en todo el mundo y cubre todos los sectores B2B. Las herramientas de IA realizan un proceso continuo de verificación y enriquecimiento para llegar con precisión a cada cluster.",
         "supportTitle": "Soporte",
-        "supportDesc": "PM dedicado y combinación de automatización y experiencia humana."
+        "supportDesc": "La tecnología avanza rápido, pero el verdadero valor nace de la unión entre automatización y personas. Por eso cada cliente cuenta de principio a fin con su propio project manager de referencia."
       }
     },
     "economics": {
       "badge": "Modelo económico",
-      "title": "Invierte al principio, gana para siempre",
-      "desc": "Pago único de activación para acceso permanente + revenue share alineada al ingreso.",
+      "title": "Invierte hoy, crece en el tiempo",
+      "desc": "Una única inversión inicial con un modelo de revenue share alineado a tu facturación.",
       "howTitle": "Cómo funciona",
       "bullets": [
         "Pago único Set-Up Fee para integrar tecnología, procesos y equipo.",
@@ -353,19 +377,43 @@
         "Acceso permanente tras la activación."
       ],
       "pricing": {
-        "activation": {"badge": "Fase de activación", "title": "La Set-Up Fee", "line": "Pago único entre 20.000€ y 200.000€ según cluster, volumen/complejidad y ticket medio.", "points": ["Pago único entre 20.000€ y 200.000€ según cluster, volumen/complejidad y ticket medio."]},
-        "operational": {"badge": "Fase operativa", "title": "Revenue Share", "desc": "Porcentaje acordado (≈20%) sobre los deals cerrados generados por AYCL."},
-        "guarantees": {"badge": "Garantías incluidas", "title": "Reembolso 100%", "desc": "Si en el primer año no generamos al menos el doble de la set‑up fee, reembolso total."},
-        "notes": ["Primeros 60–90 días: fase de activación.", "Colaboración mínima: 2 años."]
+        "activation": {
+          "badge": "Fase de activación",
+          "title": "La Set-Up Fee",
+          "line": "Pago único entre 20.000€ y 200.000€ según cluster, volumen/complejidad y ticket medio.",
+          "points": [
+            "Pago único entre 20.000€ y 200.000€ según cluster, volumen/complejidad y ticket medio."
+          ]
+        },
+        "operational": {
+          "badge": "Fase operativa",
+          "title": "Revenue Share",
+          "desc": "Porcentaje acordado (≈20%) sobre los deals cerrados generados por AYCL."
+        },
+        "guarantees": {
+          "badge": "Garantías incluidas",
+          "title": "Reembolso 100%",
+          "desc": "Si en el primer año no generamos al menos el doble de la set‑up fee, reembolso total."
+        },
+        "notes": [
+          "Primeros 60–90 días: fase de activación.",
+          "Colaboración mínima: 2 años."
+        ]
       }
     },
     "whyWorks": {
       "title": "Por qué esta asociación funciona",
       "desc": "La revenue share nos alinea a tus resultados: invertimos solo con empresas listas para crecer de verdad.",
-      "bullets": ["Roadmap trimestral con KPI compartidos.", "Responsabilidad total: si no hay ingresos, perdemos primero."],
+      "bullets": [
+        "Roadmap trimestral con KPI compartidos.",
+        "Responsabilidad total: si no hay ingresos, perdemos primero."
+      ],
       "opTitle": "Perspectiva operativa",
       "opDesc": "Equipos conjuntos, playbooks verticales y activos localizados. Tú mantienes el control, nosotros llevamos la máquina.",
-      "opBullets": ["Workshops de alineación y formación.", "Mejora continua en copy, canales y clusters."]
+      "opBullets": [
+        "Workshops de alineación y formación.",
+        "Mejora continua en copy, canales y clusters."
+      ]
     },
     "cta": {
       "title": "¿Listo para empezar la asociación Set-Up Fee?",
@@ -383,24 +431,24 @@
     "researchPhase": {
       "badge": "Fase de Investigación y Valor",
       "title": "Invertimos juntos en tu crecimiento",
-      "subtitle": "La Set-Up Fee no es un costo, sino una inversión compartida para construir tu infraestructura de crecimiento permanente.",
+      "subtitle": "Invertimos para construir la base de tu escalada estratégica.",
       "buildTogether": "Lo que construimos juntos",
       "buildItems": [
-        "Análisis profundo de tu mercado e ICP",
-        "Base de datos personalizada con tus prospectos ideales",
-        "Estrategias de outreach a medida para tu sector",
-        "Equipo dedicado y formación de tu personal"
+        "Análisis profundo del ICP y del mercado objetivo",
+        "Selección y segmentación de contactos en target",
+        "Definición de la estrategia personalizada",
+        "Identificación de los canales de outreach"
       ],
       "valueYouGet": "El valor que obtienes",
       "valueItems": [
-        "Acceso permanente a nuestra tecnología",
-        "Procesos optimizados para tu empresa",
-        "Conocimiento profundo de tu mercado",
-        "Asociación estratégica a largo plazo"
+        "Flujo predecible de reuniones cualificadas",
+        "Posibilidad de escalar sin límites",
+        "Alianza win-win a largo plazo",
+        "Actualización y monitorización constantes"
       ],
       "investmentTitle": "Inversión Set-Up Fee",
       "investmentDesc": "De 20.000€ a 200.000€ según la complejidad de tu mercado y objetivos de crecimiento",
-      "investmentTag": "Una inversión, acceso permanente"
+      "investmentTag": ""
     },
     "operationalPhase": {
       "badge": "Fase Operativa",

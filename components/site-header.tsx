@@ -143,13 +143,13 @@ export function SiteHeader() {
               
               )}
             >
-              <Image
-                src="/menu_icon.png"
-                alt=""
-                width={20}
-                height={20}
-                className="h-5 w-5 object-contain transition group-hover:scale-[1.05] sm:h-6 sm:w-6"
-                aria-hidden="true"
+              {/* icona menu */}
+              <Image 
+                src="/newmedia/menu_icon.png" 
+                alt="Menu" 
+                width={20} 
+                height={20} 
+                className="h-4 w-4 sm:h-5 sm:w-5 transition group-hover:opacity-80"
               />
             </button>
           </div>
