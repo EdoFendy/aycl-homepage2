@@ -174,7 +174,6 @@ export default function PacchettiPage() {
                 </div>
               </Card>
 
-<<<<<<< HEAD
               {/* Drive Test */}
               <Card
                 className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-orange/40 bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 p-3 sm:p-6 md:p-8 shadow-lg transition-all duration-500 hover:border-orange hover:shadow-xl hover:shadow-orange/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-4 overflow-hidden"
@@ -277,35 +276,6 @@ export default function PacchettiPage() {
                     <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
                     <span>{t("performance.features.testing")}</span>
                   </li>
-=======
-            <div className="grid md:grid-cols-2 gap-6 relative z-10">
-              <div className="space-y-4">
-                <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4" />
-                  {t("setup.strategy")}
-                </h4>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  {setupResearchItems.map((item, idx) => (
-                    <li key={`${item}-${idx}`} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h4 className="text-sm font-bold text-orange uppercase tracking-wider flex items-center gap-2">
-                  <Zap className="w-4 h-4" />
-                  {t("setup.partnership")}
-                </h4>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  {setupValueItems.map((item, idx) => (
-                    <li key={`${item}-${idx}`} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                      <span className="font-medium">{item}</span>
-                    </li>
-                  ))}
->>>>>>> Vale
                 </ul>
 
                 <div className="mt-auto pt-4 relative z-10">
