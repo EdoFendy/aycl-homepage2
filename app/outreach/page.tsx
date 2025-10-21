@@ -320,7 +320,7 @@ export default function OutreachPage() {
               return (
                 <article
                   key={index}
-                  className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.6)] backdrop-blur-md"
+                  className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.25)] backdrop-blur-md"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
                     <Image
@@ -688,66 +688,58 @@ export default function OutreachPage() {
       </section>
 
       {/* Human + AI */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-[#0a1d3c] to-slate-900 py-24 text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,var(--sky-blue)/0.2,transparent_65%)]" />
+      <section className="relative overflow-hidden bg-navy py-24 text-white">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.2,transparent_60%)]" />
+        <div className="absolute -bottom-32 left-24 h-72 w-72 rounded-full bg-sky-blue/20 blur-[140px]" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">{t("humanAi.title")}</h2>
+            <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+              {t("humanAi.title")}
+            </span>
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{t("humanAi.title")}</h2>
             <p className="mt-4 text-base text-white/80 sm:text-lg">{t("humanAi.intro")}</p>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/20 bg-white/5 p-8 shadow-[0_48px_100px_-60px_rgba(255,255,255,0.45)] backdrop-blur">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-orange/20">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            <article className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.25)] backdrop-blur-md">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
                 <Image
                   src={humanAiIcons[0].src}
                   alt={humanAiIcons[0].alt}
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 object-contain"
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-white">{t("humanAi.aiLabel")}</h3>
-              <ul className="mt-6 space-y-3 text-white/85">
+              <h3 className="mt-5 text-lg font-semibold text-white">{t("humanAi.aiLabel")}</h3>
+              <ul className="mt-5 space-y-3 text-white">
                 {humanAiAiList.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm">
-                    <Image
-                      src={listBulletIcon.src}
-                      alt={listBulletIcon.alt}
-                      width={18}
-                      height={18}
-                      className="mt-1 h-4 w-4 object-contain"
-                    />
+                  <li key={index} className="flex items-start gap-3 text-sm leading-relaxed">
+                    <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white"></span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/20 bg-white/5 p-8 shadow-[0_48px_100px_-60px_rgba(255,255,255,0.45)] backdrop-blur">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-blue/20">
+            </article>
+            <article className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.25)] backdrop-blur-md">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
                 <Image
                   src={humanAiIcons[1].src}
                   alt={humanAiIcons[1].alt}
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 object-contain"
+                  width={32}
+                  height={32}
+                  className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-white">{t("humanAi.humanLabel")}</h3>
-              <ul className="mt-6 space-y-3 text-white/85">
+              <h3 className="mt-5 text-lg font-semibold text-white">{t("humanAi.humanLabel")}</h3>
+              <ul className="mt-5 space-y-3 text-white">
                 {humanAiHumanList.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-sm">
-                    <Image
-                      src={listBulletIcon.src}
-                      alt={listBulletIcon.alt}
-                      width={18}
-                      height={18}
-                      className="mt-1 h-4 w-4 object-contain"
-                    />
+                  <li key={index} className="flex items-start gap-3 text-sm leading-relaxed">
+                    <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white"></span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </article>
           </div>
           <div className="mt-10 text-center text-sm font-semibold text-orange">
             {t("humanAi.closing")}
