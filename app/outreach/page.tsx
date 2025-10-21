@@ -320,9 +320,9 @@ export default function OutreachPage() {
               return (
                 <article
                   key={index}
-                  className="relative overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.5)] backdrop-blur"
+                  className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.6)] backdrop-blur-md"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
                     <Image
                       src={iconAsset.src}
                       alt={iconAsset.alt}
@@ -331,7 +331,7 @@ export default function OutreachPage() {
                       className="h-8 w-8 object-contain"
                     />
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-white/85">{paragraph}</p>
+                  <p className="mt-5 text-sm leading-relaxed text-white">{paragraph}</p>
                 </article>
               )
             })}
