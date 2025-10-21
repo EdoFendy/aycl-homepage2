@@ -2,7 +2,7 @@
   "it": {
     "hero": {
       "eyebrow": "Come Funziona AYCL",
-      "title": "Outreach: da esigenza interna a metodo collaudato",
+      "title": "Outreach: da esigenza interna a <highlight>metodo collaudato</highlight>",
       "paragraphs": [
         "Come abbiamo raccontato, All You Can Leads nasce per rispondere a un'esigenza reale.",
         "Avevamo bisogno di entrare in contatto diretto con potenziali clienti B2B per le nostre attività.",
@@ -206,7 +206,7 @@
   "en": {
     "hero": {
       "eyebrow": "How AYCL Works",
-      "title": "Outreach: from internal need to proven method",
+      "title": "Outreach: from internal need to <highlight>proven method</highlight>",
       "paragraphs": [
         "As we have shared, All You Can Leads was born to respond to a real need.",
         "We needed direct conversations with potential B2B customers for our own ventures.",

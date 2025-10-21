@@ -143,17 +143,19 @@ export default function OutreachPage() {
           <LayoutWrapper>
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="space-y-6 sm:space-y-8">
-                <div className="inline-block px-3 py-1.5 rounded-full sm:px-4 sm:py-2">
-                  <span className="text-xs font-medium text-orange sm:text-sm">
+                <div className="inline-block px-4 py-2 rounded-full bg-orange/10 border border-orange/20">
+                  <span className="text-xs font-semibold text-orange uppercase tracking-wider sm:text-sm">
                     {t("hero.eyebrow")}
                   </span>
                 </div>
 
-                <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
-                  {t("hero.title")}
+                <h1 className="max-w-[620px] text-3xl font-bold leading-tight text-navy sm:text-5xl sm:leading-[1.1] lg:text-[3.75rem]">
+                  {t.rich("hero.title", {
+                    highlight: (chunks) => <span className="text-orange">{chunks}</span>,
+                  })}
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+                <p className="max-w-[540px] text-lg sm:text-xl text-gray-600 leading-relaxed">
                   {heroLead}
                 </p>
 
@@ -163,20 +165,18 @@ export default function OutreachPage() {
                   ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <Link href="/contattaci">
-                    <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">
-                      {t("hero.cta.primary")}
-                    </Button>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                  <Link
+                    href="/contattaci"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-lg"
+                  >
+                    {t("hero.cta.primary")}
                   </Link>
-                  <Link href="/pacchetti">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-navy text-navy hover:bg-navy/5 text-base px-6 bg-transparent sm:text-lg sm:px-8"
-                    >
-                      {t("hero.cta.secondary")}
-                    </Button>
+                  <Link
+                    href="/pacchetti"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-8 py-4 text-base font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-lg"
+                  >
+                    {t("hero.cta.secondary")}
                   </Link>
                 </div>
 
