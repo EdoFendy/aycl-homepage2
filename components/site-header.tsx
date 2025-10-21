@@ -270,14 +270,14 @@ export function SiteHeader() {
                     </div>
                   </div>
                 </div>
-                <div className="hidden sm:flex sm:min-w-0">
-                  <div className="flex h-full items-center justify-center">
+                <div className="hidden sm:flex sm:min-w-0 sm:items-center sm:justify-center">
+                  <div className="flex items-center justify-center w-full">
                     <Image 
                       src="/newmedia/Nav_Image.png" 
                       alt="All You Can Leads" 
                       width={330} 
                       height={330} 
-                      className="max-w-[330px] h-auto object-contain"
+                      className="max-w-[330px] h-auto object-contain mx-auto"
                     />
                   </div>
                 </div>
