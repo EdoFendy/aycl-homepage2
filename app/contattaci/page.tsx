@@ -35,27 +35,25 @@ export default function ContattaciPage() {
       <div className="pointer-events-none absolute bottom-0 right-12 h-64 w-16 -rotate-45 bg-navy/5" />
       <div className="relative z-10">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-36 pb-28 sm:pt-40 sm:pb-32">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Geometric decorations */}
         <div className="absolute top-20 right-20 w-64 h-64 bg-orange/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-20 w-48 h-48 bg-sky-blue/10 -rotate-45" />
         <div className="absolute top-1/2 left-1/4 w-32 h-32 border-4 border-navy/10 rotate-12" />
 
         <PageLayoutContainer className="px-6">
-          <div className="mx-auto max-w-3xl space-y-8 text-center">
-            <div className="inline-flex items-center justify-center rounded-full bg-orange/10 px-6 py-2">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-orange sm:text-xs">
-                {t("hero.badge")}
-              </span>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="inline-block px-6 py-2 bg-orange/10 rounded-full">
+              <span className="text-sm font-semibold text-orange">{t("hero.badge")}</span>
             </div>
 
-            <h1 className="text-balance text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
+            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
             {t.rich("hero.title", {
                 strong: (chunks) => <span className="text-orange">{chunks}</span>,
               })}
             </h1>
 
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               {t("hero.subtitle")}
             </p>
           </div>

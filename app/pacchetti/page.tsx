@@ -54,20 +54,22 @@ export default function PacchettiPage() {
         {/* Hero Section */}
       <section
         id="pacchetti"
-        className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white pt-36 pb-28 sm:pt-40 sm:pb-32"
+        className="relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f5f9ff] pt-36 pb-28 sm:pt-40 sm:pb-32"
       >
-        <div className="absolute top-20 right-10 w-48 h-48 bg-sky-blue/10 rounded-full blur-2xl" />
-        <div className="absolute bottom-10 left-10 w-64 h-64 bg-orange/10 rotate-12" />
+        <div className="absolute inset-0 -z-10 opacity-70" aria-hidden>
+          <div className="absolute top-20 right-10 w-48 h-48 bg-sky-blue/10 rounded-full blur-2xl" />
+          <div className="absolute bottom-10 left-10 w-64 h-64 bg-orange/10 rotate-12" />
+          <div className="absolute inset-0 bg-soft-grid" />
+        </div>
 
-        {/* Meno padding laterale su mobile */}
-        <PageLayoutContainer className="px-4 sm:px-4 md:px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center justify-center rounded-full bg-orange/10 px-6 py-2">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-orange sm:text-xs">
+        <PageLayoutContainer className="px-5 sm:px-10">
+          <div className="mx-auto max-w-4xl text-center space-y-6">
+            <div className="inline-flex items-center justify-center rounded-full border border-orange/30 bg-orange/10 px-6 py-2">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-orange sm:text-xs">
                 {t("hero.badge")}
               </span>
             </div>
-            <h1 className="text-balance text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-[3.75rem]">
               {t("hero.title")}
             </h1>
             <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600 sm:text-xl">

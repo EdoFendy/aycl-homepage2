@@ -1,5 +1,6 @@
 {
   "it": {
+    "cta": {"goToFaq": "Vai alle FAQ"},
     "header": {
       "badge": "Masterbook • FAQ Interattive",
       "title": "Tutto su <strong>All You Can Leads</strong>",
@@ -293,6 +294,7 @@
     }
   },
   "en": {
+    "cta": {"goToFaq": "Go to FAQ"},
     "header": {
       "badge": "Masterbook • Interactive FAQ",
       "title": "All about <strong>All You Can Leads</strong>",
@@ -584,6 +586,7 @@
     }
   },
   "es": {
+    "cta": {"goToFaq": "Ir a las FAQ"},
     "header": {
       "badge": "Masterbook • FAQ Interactivas",
       "title": "Todo sobre <strong>All You Can Leads</strong>",
@@ -875,5 +878,4 @@
     }
   }
 }
-
 

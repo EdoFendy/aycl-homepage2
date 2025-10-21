@@ -207,6 +207,7 @@ export default function HomePage() {
   const router = useRouter()
   const t = useTranslations("home")
   const prefersReducedMotion = usePrefersReducedMotion()
+  const tFaq = useTranslations("faq")
   const faqItems = useMemo<FAQItem[]>(() => {
     const raw = t.raw("faq.items") as FAQItem[] | Record<string, FAQItem> | undefined
     if (!raw) return []
@@ -390,7 +391,7 @@ export default function HomePage() {
                 <div className="order-1 flex justify-center lg:order-2">
                   <div className="relative max-w-xl overflow-hidden rounded-3xl shadow-[0_24px_48px_rgba(9,30,66,0.12)]">
                     <Image
-                      src="/newmedia/tavolo.png"
+                      src="/newmedia/Tavolo.png"
                       alt={t("alt.businessChallenge")}
                       width={640}
                       height={520}
@@ -701,37 +702,48 @@ export default function HomePage() {
               </div>
 
               <div className="mt-16 space-y-16">
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  <Card
-                    className="relative flex h-full flex-col gap-6 rounded-3xl border border-orange/30 bg-white p-8 shadow-[0_20px_60px_-40px_rgba(255,148,51,0.6)] transition-all duration-500 hover:-translate-y-2 hover:border-orange hover:shadow-[0_30px_80px_-30px_rgba(255,148,51,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
-                    onClick={() => navigateTo("/pacchetti/set-up-fee")}
-                    onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
-                    role="link"
-                    tabIndex={0}
-                  >
-                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-orange">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-orange px-3 py-1 text-white shadow-sm">
-                        <Target className="h-4 w-4" aria-hidden="true" />
-                        {t("packages.setup.badge")}
-                      </span>
-                      <span className="rounded-full border border-orange/40 bg-orange/5 px-3 py-1 text-orange">
-                        {t("packages.setup.revShare")}
-                      </span>
+                {/* Setupfee - occupa tutta la larghezza */}
+                <Card
+                  className="relative flex h-full flex-col gap-10 rounded-3xl border border-orange/30 bg-white p-12 shadow-[0_20px_60px_-40px_rgba(255,148,51,0.6)] transition-all duration-500 hover:-translate-y-2 hover:border-orange hover:shadow-[0_30px_80px_-30px_rgba(255,148,51,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                  onClick={() => navigateTo("/pacchetti/set-up-fee")}
+                  onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
+                  role="link"
+                  tabIndex={0}
+                >
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-orange">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-orange px-3 py-1 text-white shadow-sm">
+                      <Target className="h-4 w-4" aria-hidden="true" />
+                      {t("packages.setup.badge")}
+                    </span>
+                    <span className="rounded-full border border-orange/40 bg-orange/5 px-3 py-1 text-orange">
+                      {t("packages.setup.revShare")}
+                    </span>
+                  </div>
+                  <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+                    <div className="space-y-8">
+                      <div className="space-y-6">
+                        <h3 className="text-3xl font-bold text-navy sm:text-4xl lg:text-5xl">{t("packages.setup.title")}</h3>
+                        <p className="text-base leading-relaxed text-gray-600 sm:text-lg lg:text-xl">
+                          {t("packages.setup.desc")}
+                        </p>
+                      </div>
+                      <Button
+                        className="w-full rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-orange/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange"
+                        onClick={handleContactClick}
+                      >
+                        {t("packages.setup.cta")}
+                      </Button>
                     </div>
-                    <div className="space-y-4">
-                      <h3 className="text-2xl font-bold text-navy">{t("packages.setup.title")}</h3>
-                      <p className="text-sm leading-relaxed text-gray-600">{t("packages.setup.desc")}</p>
-                    </div>
-                    <div className="space-y-4 text-sm text-gray-700">
+                    <div className="space-y-8 text-sm text-gray-700">
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange">
                           {t("packages.setup.strategy")}
                         </p>
-                        <ul className="mt-3 space-y-3">
+                        <ul className="mt-4 space-y-4">
                           {(["customStrategy", "dedicatedTeam", "automation"] as const).map((featureKey) => (
                             <li key={featureKey} className="flex items-start gap-3">
                               <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange" aria-hidden="true" />
-                              <span>{t(["packages", "setup", "features", featureKey].join("."))}</span>
+                              <span className="font-medium">{t(["packages", "setup", "features", featureKey].join("."))}</span>
                             </li>
                           ))}
                         </ul>
@@ -740,23 +752,21 @@ export default function HomePage() {
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange">
                           {t("packages.setup.partnership")}
                         </p>
-                        <ul className="mt-3 space-y-3">
+                        <ul className="mt-4 space-y-4">
                           {(["revenueShare", "priorityAccess", "advisoryBoard"] as const).map((featureKey) => (
                             <li key={featureKey} className="flex items-start gap-3">
                               <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange" aria-hidden="true" />
-                              <span>{t(["packages", "setup", "features", featureKey].join("."))}</span>
+                              <span className="font-medium">{t(["packages", "setup", "features", featureKey].join("."))}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     </div>
-                    <Button
-                      className="w-full rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-orange/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange"
-                      onClick={handleContactClick}
-                    >
-                      {t("packages.setup.cta")}
-                    </Button>
-                  </Card>
+                  </div>
+                </Card>
+
+                {/* Performance e Subscription - affiancati */}
+                <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
                   <Card
                     className="relative flex h-full flex-col gap-6 rounded-3xl border border-sky-blue/30 bg-white p-8 shadow-[0_20px_60px_-40px_rgba(35,98,229,0.45)] transition-all duration-500 hover:-translate-y-2 hover:border-sky-blue hover:shadow-[0_30px_80px_-30px_rgba(35,98,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue"
                     onClick={() => navigateTo("/pacchetti/performance")}
@@ -840,70 +850,6 @@ export default function HomePage() {
                     </Button>
                   </Card>
                 </div>
-                <Card
-                  className="relative mx-auto flex max-w-4xl flex-col gap-10 overflow-hidden rounded-[2.5rem] border border-orange/45 bg-[radial-gradient(circle_at_top,#fff5eb,rgba(255,255,255,0.97))] p-10 shadow-[0_32px_80px_-32px_rgba(255,148,51,0.45)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_44px_120px_-36px_rgba(255,148,51,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
-                  onClick={() => navigateTo("/pacchetti/drive-test")}
-                  onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/drive-test")}
-                  role="link"
-                  tabIndex={0}
-                >
-                  <span className="pointer-events-none absolute -top-6 right-10 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange to-orange/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-lg">
-                    <Sparkles className="h-4 w-4" aria-hidden="true" />
-                    {t("packages.driveTest.highlight")}
-                  </span>
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-orange">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-orange/10 px-4 py-2 text-orange">
-                      <Gauge className="h-4 w-4" aria-hidden="true" />
-                      {t("packages.driveTest.badge")}
-                    </span>
-                    <span className="rounded-full border border-orange/25 bg-white/70 px-4 py-2 text-orange/80">
-                      {t("packages.badge")}
-                    </span>
-                  </div>
-                  <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-3xl font-bold text-navy sm:text-4xl">{t("packages.driveTest.title")}</h3>
-                        <p className="mt-4 text-base leading-relaxed text-gray-600 sm:text-lg">
-                          {t("packages.driveTest.desc")}
-                        </p>
-                      </div>
-                      <ul className="grid gap-4 sm:grid-cols-2">
-                        <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/80 p-4 shadow-sm backdrop-blur">
-                          <CalendarCheck className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
-                          <span className="text-sm text-gray-700">{t("packages.driveTest.features.calendar")}</span>
-                        </li>
-                        <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/80 p-4 shadow-sm backdrop-blur">
-                          <Users className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
-                          <span className="text-sm text-gray-700">{t("packages.driveTest.features.target")}</span>
-                        </li>
-                        <li className="flex items-start gap-3 rounded-2xl border border-white/50 bg-white/80 p-4 shadow-sm backdrop-blur sm:col-span-2">
-                          <BarChart3 className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
-                          <span className="text-sm text-gray-700">{t("packages.driveTest.features.credit")}</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="flex h-full flex-col gap-6 rounded-3xl border border-orange/30 bg-white p-8 text-left shadow-xl backdrop-blur">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange/80">
-                          {t("packages.driveTest.pricing.label")}
-                        </p>
-                        <p className="mt-3 text-3xl font-bold leading-tight text-orange sm:text-4xl">
-                          {t("packages.driveTest.pricing.desc")}
-                        </p>
-                      </div>
-                      <Button
-                        className="w-full rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-orange/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange"
-                        onClick={(event) => {
-                          event.stopPropagation()
-                          navigateTo("/pacchetti/drive-test")
-                        }}
-                      >
-                        {t("packages.driveTest.cta")}
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
               </div>
 
               <div className="mt-12 text-center text-sm text-gray-600">
@@ -926,6 +872,12 @@ export default function HomePage() {
               </div>
               <div className="mt-12">
                 <FAQAccordion items={faqItems} />
+                <div className="mt-12 flex justify-center">
+                  <Link href="/faq" className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-white font-semibold hover:bg-navy/90 transition">
+                    {tFaq("cta.goToFaq")}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+                  </Link>
+                </div>
               </div>
             </LayoutWrapper>
           </div>

@@ -16,7 +16,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FAQCards } from "@/components/faq-cards"
+import { FAQAccordion } from "@/components/faq-accordion"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
@@ -493,7 +493,7 @@ export default function SetUpFeePage() {
         </PageLayoutContainer>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ - standardized */}
       <section className="relative overflow-hidden py-24 bg-white">
         <div className="pointer-events-none absolute top-6 right-16 h-40 w-40 rounded-full bg-orange/15 blur-2xl" />
         <div className="pointer-events-none absolute bottom-8 left-12 h-52 w-52 rounded-full bg-sky-blue/10 blur-3xl" />
@@ -509,21 +509,15 @@ export default function SetUpFeePage() {
             </p>
           </div>
 
-          <FAQCards
+          <FAQAccordion
             className="mt-12"
             items={tFaq.raw("setupFee.items")}
           />
 
-          {/* CTA Finale */}
-          <div className="mt-16 flex flex-col items-center gap-6">
-            <p className="text-center text-lg text-gray-700">
-              {t("faq.finalCtaText")}
-            </p>
-            <Link href="/contattaci">
-              <Button size="lg" className="bg-orange hover:bg-orange/90 px-8 text-lg text-white">
-                {t("faq.finalCtaBtn")}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+          <div className="mt-12 flex justify-center">
+            <Link href="/faq" className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-white font-semibold hover:bg-navy/90 transition">
+              {tFaq("cta.goToFaq")}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
             </Link>
           </div>
         </PageLayoutContainer>

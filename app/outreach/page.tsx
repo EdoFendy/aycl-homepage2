@@ -133,7 +133,7 @@ export default function OutreachPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-36 pb-24 sm:pt-40 sm:pb-32">
+      <section className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-20">
         {/* Geometric decorations */}
         <div className="absolute top-16 right-4 w-20 h-20 bg-sky-blue/10 rotate-12 rounded-lg sm:top-20 sm:right-10 sm:w-32 sm:h-32" />
         <div className="absolute top-32 left-4 w-16 h-16 bg-orange/10 rounded-full sm:top-40 sm:left-10 sm:w-24 sm:h-24" />
@@ -143,17 +143,17 @@ export default function OutreachPage() {
           <LayoutWrapper>
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="space-y-6 sm:space-y-8">
-                <div className="inline-flex items-center justify-center rounded-full bg-orange/10 px-6 py-2">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-orange sm:text-xs">
+                <div className="inline-block px-3 py-1.5 rounded-full sm:px-4 sm:py-2">
+                  <span className="text-xs font-medium text-orange sm:text-sm">
                     {t("hero.eyebrow")}
                   </span>
                 </div>
 
-                <h1 className="text-balance text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
+                <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
                   {t("hero.title")}
                 </h1>
 
-                <p className="text-base leading-relaxed text-gray-600 sm:text-lg md:text-xl">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
                   {heroLead}
                 </p>
 
