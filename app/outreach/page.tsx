@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
-import { CheckCircle2, XCircle, Check, X } from "lucide-react"
+import { CheckCircle2, XCircle, Check, X, CheckCircle, Clock, Settings, ArrowRight, TrendingUp, Users, Database, Target, Cpu, Zap } from "lucide-react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
 import { LayoutWrapper } from "@/components/layout-wrapper"
 
@@ -168,13 +168,13 @@ export default function OutreachPage() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                   <Link
                     href="/contattaci"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-lg"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-lg whitespace-nowrap"
                   >
                     {t("hero.cta.primary")}
                   </Link>
                   <Link
                     href="/pacchetti"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-8 py-4 text-base font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-lg"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-8 py-4 text-base font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-lg whitespace-nowrap"
                   >
                     {t("hero.cta.secondary")}
                   </Link>
@@ -191,16 +191,6 @@ export default function OutreachPage() {
                 <div className="absolute -top-10 -left-10 w-64 h-64 bg-sky-blue/20 rounded-full blur-3xl" />
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
                 <div className="relative w-full max-w-6xl lg:max-w-xl xl:max-w-2xl">
-                  {/* Floating Message - Top Right */}
-                  <div className="absolute -top-3 -right-1 sm:-top-6 sm:-right-4 z-10 max-w-[140px] sm:max-w-[240px]">
-                    <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
-                      <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
-                        Oggi lo usiamo per generare appuntamenti qualificati per noi e per i nostri clienti.
-                      </p>
-                    </div>
-                  </div>
-
                   {/* Main Image */}
                   <Image
                     src="newmedia/comefunziona_hero.png"
@@ -210,26 +200,6 @@ export default function OutreachPage() {
                     className="w-full h-auto"
                     priority
                   />
-
-                  {/* Floating Message - Center Left */}
-                  <div className="absolute top-1/2 -left-1 sm:-left-4 transform -translate-y-1/2 z-10 max-w-[120px] sm:max-w-[220px]">
-                    <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
-                      <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
-                        Multicanale e AI: la combinazione che cambia le regole
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Floating Message - Bottom Right */}
-                  <div className="absolute -bottom-3 -right-1 sm:-bottom-6 sm:-right-4 z-10 max-w-[110px] sm:max-w-[200px]">
-                    <div className="relative rounded-2xl bg-white/85 backdrop-blur-sm border border-sky-blue/30 px-2 py-2 sm:px-4 sm:py-3 shadow-lg shadow-sky-blue/20">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/10 animate-pulse"></div>
-                      <p className="relative text-[10px] sm:text-xs font-medium text-gray-700 leading-tight sm:leading-relaxed">
-                        Dal traffico al contatto reale
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -410,54 +380,152 @@ export default function OutreachPage() {
       </section>
 
       {/* Comparison Section */}
-      <section className="relative overflow-hidden py-16 sm:py-20">
+      <section className="relative overflow-hidden py-20 sm:py-24 lg:py-32">
+        {/* Sfondo con gradient e texture */}
         <div className="absolute inset-0 -z-20 bg-gradient-to-br from-white via-sky-blue/10 to-orange/10" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <div
+          className="absolute inset-0 -z-10 opacity-30"
+          style={{
+            backgroundImage: "radial-gradient(circle at 20% 20%, rgba(255, 148, 51, 0.5) 0.5px, transparent 1px)",
+            backgroundSize: "50px 50px"
+          }}
+        />
+
+        <PageLayoutContainer className="px-4 sm:px-6 lg:px-8">
+          {/* Header Section */}
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+            <div className="inline-flex items-center justify-center rounded-full bg-orange/10 border border-orange/20 px-5 py-2">
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                {t("comparison.title")}
+              </span>
+            </div>
+            <h2 className="mt-5 text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
               {t("comparison.title")}
-            </span>
-            <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("comparison.title")}</h2>
-            <p className="mt-4 text-base text-gray-600 sm:text-lg">{t("comparison.subtitle")}</p>
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              {t("comparison.subtitle")}
+            </p>
           </div>
-          
-          {/* Minimal Comparison Table */}
-          <div className="mt-12 mx-auto max-w-4xl">
-            <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-              {/* Header */}
-              <div className="grid grid-cols-3 border-b border-gray-200 bg-gray-50">
-                <div className="px-6 py-4">
-                  <p className="text-sm font-semibold text-gray-900">{t("comparison.aspectLabel")}</p>
+
+          {/* Comparison Table */}
+          <div className="mt-12 mx-auto max-w-5xl">
+            <div className="rounded-2xl border-2 border-gray-200 bg-white shadow-xl">
+              {/* Table Header */}
+              <div className="grid grid-cols-3 gap-1 sm:gap-0">
+                <div className="px-2 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 bg-gray-50 border-b-2 border-gray-200">
+                  <h3 className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-900 uppercase tracking-wider leading-tight">
+                    ASPETTO
+                  </h3>
                 </div>
-                <div className="px-6 py-4 text-center">
-                  <p className="text-sm font-semibold text-gray-600">{t("comparison.columns.traditional")}</p>
+                <div className="px-2 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 bg-gray-50 border-b-2 border-r border-gray-200">
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-600 text-center leading-tight">
+                      {t("comparison.columns.traditional")}
+                    </span>
+                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-gray-300" />
+                  </div>
                 </div>
-                <div className="px-6 py-4 text-center">
-                  <p className="text-sm font-semibold text-orange">{t("comparison.columns.aycl")}</p>
+                <div className="px-2 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 bg-orange-50 border-b-2 border-gray-200">
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-orange text-center leading-tight">
+                      {t("comparison.columns.aycl")}
+                    </span>
+                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-orange" />
+                  </div>
                 </div>
               </div>
-              
-              {/* Rows */}
+
+              {/* Table Rows */}
               <div className="divide-y divide-gray-100">
-                {comparisonRows.map((row, index) => (
-                  <div key={row.aspect} className="grid grid-cols-3">
-                    <div className="px-6 py-4">
-                      <h3 className="text-sm font-medium text-gray-900">{row.aspect}</h3>
-                    </div>
-                    <div className="px-6 py-4 text-center">
-                      <div className="flex items-center justify-center gap-2">
-                        <X className="h-4 w-4 text-red-500" />
-                        <span className="text-sm text-gray-600">{row.traditional}</span>
+                {comparisonRows.map((row, index) => {
+                  // Mappa delle icone per ogni aspetto
+                  const iconMap: Record<string, React.ReactElement> = {
+                    "Canali": <Settings className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Obiettivo": <Target className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Dati": <Database className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Personalizzazione": <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Tecnologia": <Cpu className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Miglioramento": <TrendingUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Tempestività": <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Fattore umano": <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Risultato": <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
+                    "Visione": <Target className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />
+                  }
+                  
+                  // Badge speciali per alcune righe
+                  const badgeMap: Record<string, string> = {
+                    "Risultato": "Dato verificato",
+                    "Tecnologia": "AI Integrata"
+                  }
+
+                  return (
+                    <div
+                      key={row.aspect}
+                      className={`grid grid-cols-3 gap-1 sm:gap-0 transition-all duration-200 ${
+                        index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
+                      } hover:bg-sky-blue/5`}
+                    >
+                      {/* Colonna Aspetto */}
+                      <div className="px-1.5 sm:px-3 md:px-6 py-2.5 sm:py-3 md:py-5 border-b border-gray-100 border-r flex items-center">
+                        <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 w-full">
+                          <div className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0 items-center justify-center text-sky-blue">
+                            {iconMap[row.aspect]}
+                          </div>
+                          <h3 className="text-[10px] sm:text-xs md:text-sm font-medium text-gray-900 leading-tight break-words">
+                            {row.aspect}
+                          </h3>
+                        </div>
+                      </div>
+
+                      {/* Colonna Tradizionale */}
+                      <div className="px-1.5 sm:px-3 md:px-6 py-2.5 sm:py-3 md:py-5 border-b border-gray-100 border-r border-gray-200 flex items-center">
+                        <div className="flex items-start gap-1.5 sm:gap-2 md:gap-3 w-full">
+                          <div className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0 items-center justify-center mt-0.5">
+                            <XCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-red-500 stroke-2" />
+                          </div>
+                          <span className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium leading-tight break-words">
+                            {row.traditional}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Colonna AYCL */}
+                      <div className="px-1.5 sm:px-3 md:px-6 py-2.5 sm:py-3 md:py-5 border-b border-gray-100 flex items-center">
+                        <div className="flex flex-col gap-1.5 sm:gap-2 w-full">
+                          <div className="flex items-start gap-1.5 sm:gap-2 md:gap-3">
+                            <div className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0 items-center justify-center mt-0.5">
+                              <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-green-500 stroke-2" />
+                            </div>
+                            <span className="text-[10px] sm:text-xs md:text-sm text-gray-900 font-medium leading-tight break-words">
+                              {row.aycl}
+                            </span>
+                          </div>
+                          {badgeMap[row.aspect] && (
+                            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
+                              <div className="w-3.5 sm:w-4 md:w-5 flex-shrink-0"></div>
+                              <span className="inline-flex items-center rounded-full bg-orange/10 border border-orange/20 px-1.5 sm:px-2 md:px-2.5 py-0.5 text-[9px] sm:text-[10px] md:text-xs font-medium text-orange h-4 sm:h-5 md:h-6 whitespace-nowrap">
+                                {badgeMap[row.aspect]}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
-                    <div className="px-6 py-4 text-center">
-                      <div className="flex items-center justify-center gap-2">
-                        <Check className="h-4 w-4 text-green-500" />
-                        <span className="text-sm text-gray-900">{row.aycl}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  )
+                })}
+              </div>
+
+              {/* Footer CTA */}
+              <div className="px-4 sm:px-6 py-5 sm:py-6 bg-gradient-to-r from-gray-50 via-orange-50/30 to-gray-50 border-t-2 border-gray-200 text-center rounded-b-2xl">
+                <p className="text-xs sm:text-sm text-gray-700 font-medium mb-3 sm:mb-4">
+                  Pronto a passare alla soluzione migliore?
+                </p>
+                <Link href="/pacchetti">
+                  <button className="inline-flex items-center rounded-full bg-orange px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-orange/25 transition-all hover:bg-orange/90 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 active:scale-95">
+                    Scopri i nostri pacchetti
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
