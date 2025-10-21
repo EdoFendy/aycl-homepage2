@@ -192,11 +192,7 @@ export default function SubscriptionPage() {
               <ul className="space-y-5">
                 {t.raw("why.benefits").map((text: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group/item">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-8 h-8 rounded-lg bg-navy/10 flex items-center justify-center group-hover/item:bg-navy/20 transition-colors">
-                        <CheckCircle2 className="h-5 w-5 text-navy" />
-                      </div>
-                    </div>
+                    <span className="text-sky-blue font-bold mt-1">•</span>
                     <span className="text-gray-700 leading-relaxed font-medium">{text}</span>
                   </li>
                 ))}
@@ -231,11 +227,7 @@ export default function SubscriptionPage() {
               <ul className="space-y-5">
                 {t.raw("why.problems").map((item: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group/item">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center group-hover/item:bg-gray-200 transition-colors">
-                        <X className="h-5 w-5 text-gray-600" />
-                      </div>
-                    </div>
+                    <span className="text-gray-600 font-bold mt-1">•</span>
                     <span className="text-gray-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
@@ -366,11 +358,11 @@ export default function SubscriptionPage() {
                             <p className="text-gray-600 mb-4">{t("guarantee.steps.1.desc")}</p>
                             <ul className="space-y-3 text-gray-700">
                               <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                                <span className="text-navy font-bold mt-0.5">•</span>
                                 <span>{t("guarantee.steps.1.desc")}</span>
                               </li>
                               <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                                <span className="text-navy font-bold mt-0.5">•</span>
                                 <span>La prima rata viene versata all'inizio della collaborazione</span>
                               </li>
                             </ul>
@@ -403,15 +395,15 @@ export default function SubscriptionPage() {
                             <p className="text-gray-600 mb-4">{t("guarantee.steps.2.desc")}</p>
                             <ul className="space-y-3 text-gray-700">
                               <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                                <span className="text-sky-blue font-bold mt-0.5">•</span>
                                 <span>La seconda rata è prevista 28 giorni dopo il primo appuntamento qualificato svolto</span>
                               </li>
                               <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                                <span className="text-sky-blue font-bold mt-0.5">•</span>
                                 <span>Il pagamento prosegue con cadenza regolare ogni 28 giorni</span>
                               </li>
                               <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                                <span className="text-sky-blue font-bold mt-0.5">•</span>
                                 <span>Risparmi il 25% rispetto alla quotazione standard per appuntamento</span>
                               </li>
                             </ul>
@@ -442,7 +434,7 @@ export default function SubscriptionPage() {
                               <span className="px-3 py-1 bg-navy/10 text-navy text-sm font-semibold rounded-full">{t("guarantee.steps.3.label")}</span>
                             </div>
                             <ul className="space-y-3 text-gray-700">
-                              <li className="flex items-start gap-3"><CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" /><span>{t("guarantee.steps.3.desc")}</span></li>
+                              <li className="flex items-start gap-3"><span className="text-navy font-bold mt-0.5">•</span><span>{t("guarantee.steps.3.desc")}</span></li>
                             </ul>
                           </div>
                         </div>

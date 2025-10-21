@@ -139,7 +139,7 @@ export default function PacchettiPage() {
                     <ul className="space-y-3 text-sm text-gray-700">
                       {setupResearchItems.map((item, idx) => (
                         <li key={`${item}-${idx}`} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
+                          <span className="text-orange font-bold mt-0.5">•</span>
                           <span className="font-medium">{item}</span>
                         </li>
                       ))}
@@ -153,7 +153,7 @@ export default function PacchettiPage() {
                     <ul className="space-y-3 text-sm text-gray-700">
                       {setupValueItems.map((item, idx) => (
                         <li key={`${item}-${idx}`} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
+                          <span className="text-orange font-bold mt-0.5">•</span>
                           <span className="font-medium">{item}</span>
                         </li>
                       ))}
@@ -261,19 +261,19 @@ export default function PacchettiPage() {
 
                 <ul className="space-y-3 text-sm text-gray-700 relative z-10">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
+                    <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.onboarding")}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
+                    <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.payPerResult")}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
+                    <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.reporting")}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-sky-blue flex-shrink-0" />
+                    <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.testing")}</span>
                   </li>
                 </ul>
@@ -310,19 +310,19 @@ export default function PacchettiPage() {
 
                 <ul className="space-y-2.5 text-xs text-gray-700 relative z-10">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
+                    <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.guaranteed")}</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
+                    <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.manager")}</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
+                    <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.meetings")}</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 text-navy flex-shrink-0" />
+                    <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.refund")}</span>
                   </li>
                 </ul>
@@ -386,7 +386,7 @@ export default function PacchettiPage() {
                       <ul className="space-y-3">
                         {t.raw("guide.cards.performance.ideal").map((text: string, idx: number) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-sky-blue mt-0.5 flex-shrink-0" />
+                            <span className="text-sky-blue font-bold mt-0.5">•</span>
                             <span className="text-gray-700">{text}</span>
                           </li>
                         ))}
@@ -418,7 +418,7 @@ export default function PacchettiPage() {
                       <ul className="space-y-3">
                         {t.raw("guide.cards.subscription.ideal").map((text: string, idx: number) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
+                            <span className="text-orange font-bold mt-0.5">•</span>
                             <span className="text-gray-700">{text}</span>
                           </li>
                         ))}
@@ -450,7 +450,7 @@ export default function PacchettiPage() {
                       <ul className="space-y-3">
                         {t.raw("guide.cards.setup.ideal").map((text: string, idx: number) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-navy mt-0.5 flex-shrink-0" />
+                            <span className="text-navy font-bold mt-0.5">•</span>
                             <span className="text-gray-700">{text}</span>
                           </li>
                         ))}

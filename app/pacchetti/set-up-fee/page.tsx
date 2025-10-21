@@ -183,9 +183,7 @@ export default function SetUpFeePage() {
                 <ul className="space-y-4 text-gray-700">
                   {t.raw("partnership.isForYou").map((item: string) => (
                     <li key={item} className="flex items-start gap-4">
-                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-navy/10 transition-colors group-hover:bg-navy/20">
-                        <CheckCircle2 className="h-5 w-5 text-navy" />
-                      </div>
+                      <span className="text-sky-blue font-bold mt-1">•</span>
                       <span className="font-medium leading-relaxed">{item}</span>
                     </li>
                   ))}
@@ -213,9 +211,7 @@ export default function SetUpFeePage() {
                 <ul className="space-y-5 text-gray-700">
                   {t.raw("partnership.freeFrom").map((item: string) => (
                     <li key={item} className="flex items-start gap-4">
-                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gray-100 transition-colors group-hover:bg-gray-200">
-                        <X className="h-5 w-5 text-gray-600" />
-                      </div>
+                      <span className="text-gray-600 font-bold mt-1">•</span>
                       <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
@@ -340,7 +336,7 @@ export default function SetUpFeePage() {
                   <ul className="space-y-2">
                     {t.raw("researchPhase.buildItems").map((item: string, index: number) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-orange font-bold mt-0.5">•</span>
                         <span className="text-sm text-gray-700">{item}</span>
                       </li>
                     ))}
@@ -352,7 +348,7 @@ export default function SetUpFeePage() {
                   <ul className="space-y-2">
                     {t.raw("researchPhase.valueItems").map((item: string, index: number) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5" />
+                        <span className="text-orange font-bold mt-0.5">•</span>
                         <span className="text-sm text-gray-700">{item}</span>
                       </li>
                     ))}
@@ -406,7 +402,7 @@ export default function SetUpFeePage() {
                 <ul className="space-y-3 text-sm text-gray-700">
                   {t.raw("whyWorks.bullets").map((b: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-1 h-4 w-4 text-sky-blue" />
+                      <span className="text-sky-blue font-bold mt-1">•</span>
                       <span>{b}</span>
                     </li>
                   ))}
@@ -422,7 +418,7 @@ export default function SetUpFeePage() {
                 <ul className="space-y-3 text-sm text-gray-700">
                   {t.raw("whyWorks.opBullets").map((b: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-1 h-4 w-4 text-navy" />
+                      <span className="text-navy font-bold mt-1">•</span>
                       <span>{b}</span>
                     </li>
                   ))}

@@ -521,7 +521,7 @@ export default function HomePage() {
                         key={featureKey}
                         className="flex items-start gap-3 rounded-2xl bg-[#f6f9ff] px-6 py-4 text-base font-medium text-gray-700"
                       >
-                        <CheckCircle2 className="mt-1 h-5 w-5 text-orange" aria-hidden="true" />
+                        <span className="text-orange font-bold mt-1">•</span>
                         <div>
                           <p className="font-semibold text-navy">{t(`solution.tech.features.${featureKey}.title`)}</p>
                           <p className="text-sm font-normal text-gray-600">
@@ -742,7 +742,7 @@ export default function HomePage() {
                         <ul className="mt-4 space-y-4">
                           {(["customStrategy", "dedicatedTeam", "automation"] as const).map((featureKey) => (
                             <li key={featureKey} className="flex items-start gap-3">
-                              <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange" aria-hidden="true" />
+                              <span className="text-orange font-bold mt-0.5">•</span>
                               <span className="font-medium">{t(["packages", "setup", "features", featureKey].join("."))}</span>
                             </li>
                           ))}
@@ -755,7 +755,7 @@ export default function HomePage() {
                         <ul className="mt-4 space-y-4">
                           {(["revenueShare", "priorityAccess", "advisoryBoard"] as const).map((featureKey) => (
                             <li key={featureKey} className="flex items-start gap-3">
-                              <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange" aria-hidden="true" />
+                              <span className="text-orange font-bold mt-0.5">•</span>
                               <span className="font-medium">{t(["packages", "setup", "features", featureKey].join("."))}</span>
                             </li>
                           ))}
@@ -796,7 +796,7 @@ export default function HomePage() {
                     <ul className="space-y-3 text-sm text-gray-700">
                       {(["onboarding", "payPerResult", "reporting", "testing"] as const).map((featureKey) => (
                         <li key={featureKey} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 text-sky-blue" aria-hidden="true" />
+                          <span className="text-sky-blue font-bold mt-0.5">•</span>
                           <span>{t(["packages", "performance", "features", featureKey].join("."))}</span>
                         </li>
                       ))}
@@ -834,7 +834,7 @@ export default function HomePage() {
                     <ul className="space-y-3 text-sm text-gray-700">
                       {(["guaranteed", "manager", "meetings", "refund"] as const).map((featureKey) => (
                         <li key={featureKey} className="flex items-start gap-3">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 text-navy" aria-hidden="true" />
+                          <span className="text-navy font-bold mt-0.5">•</span>
                           <span>{t(["packages", "subscription", "features", featureKey].join("."))}</span>
                         </li>
                       ))}

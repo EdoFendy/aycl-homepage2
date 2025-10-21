@@ -184,11 +184,7 @@ export default function PerformancePage() {
                 <ul className="space-y-5">
                   {t.raw("why.benefits").map((item: string, index: number) => (
                     <li key={item} className="flex items-start gap-4 group/item">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="w-8 h-8 rounded-lg bg-sky-blue/10 flex items-center justify-center group-hover/item:bg-sky-blue/20 transition-colors">
-                          <CheckCircle2 className="h-5 w-5 text-sky-blue" />
-                        </div>
-                      </div>
+                      <span className="text-sky-blue font-bold mt-1">•</span>
                       <span className="text-gray-700 leading-relaxed font-medium">{item}</span>
                     </li>
                   ))}
@@ -222,11 +218,7 @@ export default function PerformancePage() {
                 <ul className="space-y-5">
                   {t.raw("why.problems").map((item: string) => (
                     <li key={item} className="flex items-start gap-4 group/item">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center group-hover/item:bg-gray-200 transition-colors">
-                          <X className="h-5 w-5 text-gray-600" />
-                        </div>
-                      </div>
+                      <span className="text-gray-600 font-bold mt-1">•</span>
                       <span className="text-gray-700 leading-relaxed">{item}</span>
                     </li>
                   ))}
@@ -418,7 +410,7 @@ export default function PerformancePage() {
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   {t.raw("benefits.payOnly.items").map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-sky-blue flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
+                      <span className="text-sky-blue font-bold mt-0.5">•</span>
                       {index + 1}. {item}
                     </li>
                   ))}
@@ -430,7 +422,7 @@ export default function PerformancePage() {
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   {t.raw("benefits.investment.items").map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-orange flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
+                      <span className="text-orange font-bold mt-0.5">•</span>
                       {index + 1}. {item}
                     </li>
                   ))}
@@ -442,7 +434,7 @@ export default function PerformancePage() {
                 <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed">
                   {t.raw("benefits.collaboration.items").map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-navy flex-shrink-0 mt-0.5 sm:h-5 sm:w-5" />
+                      <span className="text-navy font-bold mt-0.5">•</span>
                       {index + 1}. {item}
                     </li>
                   ))}

@@ -582,107 +582,75 @@ export default function OutreachPage() {
       </section>
 
       {/* Learning & Personalization */}
-      <section className="relative py-24">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-blue/10 to-white" />
+      <section className="relative py-24 bg-white">
         <PageLayoutContainer className="px-4 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_minmax(0,0.9fr)] xl:gap-16">
-            <div className="relative overflow-hidden rounded-[2.75rem] border border-navy/10 bg-white/95 p-8 shadow-[0_44px_90px_-60px_rgba(1,47,107,0.5)]">
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-blue/15">
-                  <Image
-                    src={learningLeadIcon.src}
-                    alt={learningLeadIcon.alt}
-                    width={30}
-                    height={30}
-                    className="h-7 w-7 object-contain"
-                  />
-                </div>
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
-                    Learning
-                  </span>
-                  <h3 className="mt-3 text-2xl font-semibold text-navy">{t("learning.title")}</h3>
-                </div>
-              </div>
-              <div className="mt-6 space-y-4">
+          {/* Contenuti affiancati */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+            {/* Learning */}
+            <div className="space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-sky-blue uppercase tracking-wide">
+                Learning
+              </h2>
+              <div className="w-full h-px bg-gradient-to-r from-sky-blue/30 via-sky-blue/10 to-transparent"></div>
+              
+              <h3 className="text-2xl font-semibold text-navy">{t("learning.title")}</h3>
+              
+              <div className="space-y-4">
                 {learningParagraphs.map((paragraph, index) => (
                   <p key={index} className="text-base leading-relaxed text-gray-700">
                     {paragraph}
                   </p>
                 ))}
               </div>
-              <ul className="mt-6 space-y-3">
+
+              <ul className="space-y-3 pt-4">
                 {learningBullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700">
-                    <Image
-                      src={listBulletIcon.src}
-                      alt={listBulletIcon.alt}
-                      width={18}
-                      height={18}
-                      className="mt-1 h-4 w-4 object-contain"
-                    />
+                    <span className="text-sky-blue font-bold mt-1">•</span>
                     <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 font-semibold text-navy">{t("learning.closing")}</p>
+
+              <p className="pt-4 text-base font-medium text-navy italic border-t border-sky-blue/20">
+                {t("learning.closing")}
+              </p>
             </div>
+
+            {/* Personalization */}
             <div className="space-y-6">
-              <article className="relative overflow-hidden rounded-[2.75rem] border border-navy/10 bg-white/95 p-8 shadow-[0_44px_90px_-60px_rgba(1,47,107,0.5)]">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange/15">
-                    <Image
-                      src={personalizationLeadIcon.src}
-                      alt={personalizationLeadIcon.alt}
-                      width={30}
-                      height={30}
-                      className="h-7 w-7 object-contain"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange">
-                      Personalization
-                    </span>
-                    <h3 className="mt-3 text-2xl font-semibold text-navy">{t("personalization.title")}</h3>
-                  </div>
-                </div>
-                <p className="mt-6 text-sm leading-relaxed text-gray-700">{t("personalization.intro")}</p>
-                <ul className="mt-6 space-y-3">
-                  {personalizationBullets.map((bullet, index) => (
-                    <li key={index} className="flex items-start gap-3 text-sm text-gray-700">
-                      <Image
-                        src={listBulletIcon.src}
-                        alt={listBulletIcon.alt}
-                        width={18}
-                        height={18}
-                        className="mt-1 h-4 w-4 object-contain"
-                      />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 font-semibold text-navy">{t("personalization.closing")}</p>
-              </article>
-              <article className="relative overflow-hidden rounded-[2.75rem] border border-navy/10 bg-white/95 p-8 shadow-[0_44px_90px_-60px_rgba(1,47,107,0.5)]">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/10">
-                    <Image
-                      src={methodLeadIcon.src}
-                      alt={methodLeadIcon.alt}
-                      width={30}
-                      height={30}
-                      className="h-7 w-7 object-contain"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-navy/70">
-                      {t("hero.eyebrow")}
-                    </span>
-                  </div>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-gray-700">{t("microcopy")}</p>
-              </article>
+              <h2 className="text-3xl sm:text-4xl font-bold text-orange uppercase tracking-wide">
+                Personalization
+              </h2>
+              <div className="w-full h-px bg-gradient-to-r from-orange/30 via-orange/10 to-transparent"></div>
+              
+              <h3 className="text-2xl font-semibold text-navy">{t("personalization.title")}</h3>
+              
+              <p className="text-base leading-relaxed text-gray-700">
+                {t("personalization.intro")}
+              </p>
+
+              <ul className="space-y-3 pt-4">
+                {personalizationBullets.map((bullet, index) => (
+                  <li key={index} className="flex items-start gap-3 text-sm text-gray-700">
+                    <span className="text-orange font-bold mt-1">•</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="pt-4 text-base font-medium text-navy italic border-t border-orange/20">
+                {t("personalization.closing")}
+              </p>
             </div>
+          </div>
+
+          {/* Footer statement */}
+          <div className="mt-16 max-w-4xl mx-auto text-center">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-navy/30 to-transparent mb-8"></div>
+            <p className="text-lg font-semibold text-navy leading-relaxed">
+              {t("microcopy")}
+            </p>
           </div>
         </PageLayoutContainer>
       </section>
@@ -765,13 +733,7 @@ export default function OutreachPage() {
               <ul className="space-y-3">
                 {ecosystemLevels.map((level, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700 sm:text-base">
-                    <Image
-                      src={listBulletIcon.src}
-                      alt={listBulletIcon.alt}
-                      width={20}
-                      height={20}
-                      className="mt-1 h-5 w-5 object-contain"
-                    />
+                    <span className="text-sky-blue font-bold mt-1">•</span>
                     <span>{level}</span>
                   </li>
                 ))}

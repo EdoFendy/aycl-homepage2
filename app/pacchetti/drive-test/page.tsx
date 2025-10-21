@@ -640,7 +640,7 @@ export default function DriveTestPage() {
             {Array.from({ length: 8 }).map((_, i) => (
               <Card key={i} className="p-6 bg-white border-navy/10 hover:shadow-md transition-shadow">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-orange mt-0.5" />
+                  <span className="text-orange font-bold mt-0.5">•</span>
                   <p className="text-gray-700">{t(`offer.microcopy.${i}`)}</p>
                 </div>
               </Card>
