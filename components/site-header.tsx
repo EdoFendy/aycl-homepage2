@@ -41,7 +41,7 @@ export function SiteHeader() {
       href: "/pacchetti",
       label: t("rightCol.packages"),
       caption: t("rightCol.packagesCta"),
-      icon: "/iconaRegalo.png",
+      icon: "/iconaPrice.png",
       alt: t("alt.packages"),
     },
     {
@@ -89,16 +89,14 @@ export function SiteHeader() {
       title: t("mega.card.performance.title"),
       desc: t("mega.card.performance.desc"),
     },
+    {
+      href: "/pacchetti/drive-test",
+      icon: "/DriveTest_icon.png",
+      alt: t("alt.driveTest"),
+      title: t("mega.card.driveTest.title"),
+      desc: t("mega.card.driveTest.desc"),
+    },
   ]
-
-  const driveTestCard = {
-    href: "/pacchetti/drive-test",
-    icon: "/DriveTest_icon.png",
-    alt: t("alt.driveTest"),
-    title: t("mega.card.driveTest.title"),
-    desc: t("mega.card.driveTest.desc"),
-    badge: t("mega.card.driveTest.badge"),
-  }
 
   if (pathname?.startsWith("/admin")) {
     return null
@@ -238,7 +236,7 @@ export function SiteHeader() {
                   <div className="rounded-2xl border border-navy/10 bg-white p-3 sm:p-4">
                     <p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.25em] text-gray-600 sm:mb-4">
                       <Image
-                        src="/iconaRegalo.png"
+                        src="/iconaPrice.png"
                         alt={t("alt.packages")}
                         width={28}
                         height={28}
@@ -254,53 +252,34 @@ export function SiteHeader() {
                           href={pack.href}
                           onClick={() => setOpen(false)}
                           aria-label={pack.title}
-                          className="group flex items-start gap-2.5 rounded-lg border border-navy/10 bg-white/75 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-navy/20 hover:bg-[#f6f9ff]"
+                          className="group flex items-center gap-2.5 rounded-lg border border-navy/10 bg-white/75 px-3 py-2 sm:py-2.5 transition hover:-translate-y-0.5 hover:border-navy/20 hover:bg-[#f6f9ff]"
                         >
-                          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy/5 sm:h-10 sm:w-10">
+                          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-navy/5 sm:h-10 sm:w-10">
                             <Image src={pack.icon} alt={pack.alt} width={48} height={48} className="h-6 w-6 object-contain sm:h-[26px] sm:w-[26px]" />
                           </div>
-                          <div className="flex min-w-0 flex-col items-center justify-center text-center transition-transform duration-200 ease-out sm:items-start sm:justify-start sm:text-left">
-                            <div className="flex w-full flex-col items-center justify-center text-center sm:min-h-[64px] sm:items-start sm:justify-start sm:overflow-hidden sm:text-left">
-                              <p className="text-sm font-semibold text-navy transition-transform duration-200 ease-out sm:text-[15px] sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px] text-clamp-1">
-                                {pack.title}
-                              </p>
-                              <p className="max-h-0 overflow-hidden text-xs text-gray-600 opacity-0 transition-all duration-200 ease-out sm:text-[14px] sm:leading-snug sm:group-hover:mt-0.5 sm:group-hover:max-h-[2.4rem] sm:group-hover:opacity-80 sm:group-focus-visible:mt-0.5 sm:group-focus-visible:max-h-[2.4rem] sm:group-focus-visible:opacity-80 text-clamp-2">
-                                {pack.desc}
-                              </p>
-                            </div>
+                          <div className="flex min-w-0 flex-col items-center justify-center text-center sm:items-start sm:text-left">
+                            <p className="text-sm font-semibold text-navy transition-all duration-200 ease-out sm:text-[15px] sm:leading-tight sm:group-hover:-translate-y-2 text-clamp-1">
+                              {pack.title}
+                            </p>
+                            <p className="max-h-0 overflow-hidden text-xs text-gray-600 opacity-0 transition-all duration-200 ease-out sm:text-[13px] sm:leading-snug sm:group-hover:mt-0.5 sm:group-hover:max-h-[2.4rem] sm:group-hover:opacity-70 text-clamp-2">
+                              {pack.desc}
+                            </p>
                           </div>
                         </Link>
                       ))}
                     </div>
                   </div>
                 </div>
-                <div className="sm:min-w-0">
-                  <Link
-                    href={driveTestCard.href}
-                    onClick={() => setOpen(false)}
-                    className="group flex h-full flex-col justify-between rounded-2xl border border-dashed border-orange/30 bg-white/80 p-3 transition hover:-translate-y-0.5 hover:border-orange/40 hover:bg-[#fff6ec]"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange/10">
-                        <Image src={driveTestCard.icon} alt={driveTestCard.alt} width={36} height={36} className="h-[26px] w-[26px] object-contain" />
-                      </div>
-                      <span className="rounded-full border border-orange/30 bg-orange/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-orange">
-                        {driveTestCard.badge}
-                      </span>
-                    </div>
-                    <div className="mt-2.5 flex flex-col items-center justify-center text-center transition-transform duration-200 ease-out">
-                      <p className="text-lg font-semibold text-navy sm:text-xl transition-transform duration-200 ease-out group-hover:-translate-y-1 group-focus-visible:-translate-y-1 text-clamp-2">
-                        {driveTestCard.title}
-                      </p>
-                      <p className="mt-1 text-sm text-gray-600 opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-80 group-focus-visible:translate-y-0 group-focus-visible:opacity-80 text-clamp-2">
-                        {driveTestCard.desc}
-                      </p>
-                    </div>
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-orange">
-                      {t("rightCol.open")}
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </span>
-                  </Link>
+                <div className="hidden sm:flex sm:min-w-0">
+                  <div className="flex h-full items-center justify-center">
+                    <Image 
+                      src="/newmedia/Nav_Image.png" 
+                      alt="All You Can Leads" 
+                      width={330} 
+                      height={330} 
+                      className="max-w-[330px] h-auto object-contain"
+                    />
+                  </div>
                 </div>
 
               </div>

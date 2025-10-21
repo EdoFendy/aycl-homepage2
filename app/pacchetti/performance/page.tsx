@@ -37,24 +37,24 @@ export default function PerformancePage() {
   
   return (
     <div className="relative min-h-screen overflow-hidden bg-white">
-      <div className="pointer-events-none absolute -top-28 right-20 h-80 w-80 rounded-full bg-sky-blue/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-32 -left-20 h-60 w-60 rounded-full bg-orange/10 blur-2xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-navy/5 blur-3xl" />
+      <div className="pointer-events-none absolute -top-28 right-20 h-80 w-80 rounded-full bg-sky-blue/15 blur-3xl" />
+      <div className="pointer-events-none absolute top-32 -left-20 h-60 w-60 rounded-full bg-sky-blue/10 blur-2xl" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-sky-blue/10 blur-3xl" />
       <div className="relative z-10">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-sky-blue/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-48 h-48 bg-orange/10 rotate-12" />
+        <div className="absolute top-20 right-10 w-64 h-64 bg-sky-blue/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-48 h-48 bg-sky-blue/10 rotate-12" />
 
         <PageLayoutContainer className="px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
-                <span className="text-sm font-bold text-orange">{t("hero.badge")}</span>
+              <div className="inline-block px-4 py-2 bg-sky-blue/10 rounded-lg">
+                <span className="text-sm font-bold text-sky-blue">{t("hero.badge")}</span>
               </div>
               <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
                 {t.rich("hero.title", {
-                  strong: (chunks) => <span className="text-orange">{chunks}</span>,
+                  strong: (chunks) => <span className="text-sky-blue">{chunks}</span>,
                 })}
               </h1>
               <p className="text-xl font-semibold text-gray-800">{t("hero.kicker")}</p>
@@ -63,7 +63,7 @@ export default function PerformancePage() {
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <SlideArrowButton
-                  primaryColor="#ff9d3d"
+                  primaryColor="#3eb5eb"
                   text={t("hero.cta")}
                 />
                 <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base flex items-center">{t("hero.ctaSecondary")}</Link>
@@ -152,13 +152,13 @@ export default function PerformancePage() {
 
         {/* È per te se */}
         <section className="py-32 relative overflow-hidden bg-gradient-to-b from-white via-gray-50/30 to-white">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-blue/5 via-transparent to-orange/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/5 rounded-full blur-3xl"></div>
 
         <PageLayoutContainer className="px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-sky-blue/20 rounded-full mb-6 shadow-sm">
               <Sparkles className="h-4 w-4 text-sky-blue" />
-              <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">{t("why.badge")}</span>
+              <span className="text-sm font-semibold text-sky-blue uppercase tracking-wider">{t("why.badge")}</span>
             </div>
             <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("why.title")}</h2>
             <p className="text-lg text-gray-600">{t("why.subtitle")}</p>
@@ -480,7 +480,7 @@ export default function PerformancePage() {
                     className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
                     onClick={() => window.location.href = '/pacchetti'}
                   >
-                    <img src="/iconaRegalo.png" alt="Regalo" className="w-5 h-5" />
+                    <img src="/iconaPrice.png" alt="Regalo" className="w-5 h-5" />
                     {t("cta.secondary")}
                   </button>
                 </div>
@@ -489,8 +489,8 @@ export default function PerformancePage() {
               {/* Image section */}
               <div className="text-center lg:text-right">
                 <div className="relative">
-                  <div className="absolute -top-6 -left-6 w-20 h-20 bg-orange/20 rounded-full blur-xl"></div>
-                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sky-blue/20 rounded-full blur-xl"></div>
+                  <div className="absolute -top-6 -left-6 w-20 h-20 bg-sky-blue/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sky-blue/15 rounded-full blur-xl"></div>
                   <Image
                     src="/newmedia/FreeCall.png"
                     alt="Call Gratuita - Performance"
@@ -530,9 +530,9 @@ export default function PerformancePage() {
       </section>
 
         {/* CTA */}
-        <section className="py-24 bg-gradient-to-br from-navy via-navy to-sky-blue/20 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl" />
+        <section className="py-24 bg-gradient-to-br from-sky-blue via-sky-blue to-navy/20 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-blue/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-blue/15 rounded-full blur-3xl" />
 
         <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -543,7 +543,7 @@ export default function PerformancePage() {
                 data-cal-namespace="aycl-discovery"
                 data-cal-link="giovannilucchesini/aycl-discovery"
                 data-cal-config='{"layout":"month_view"}'
-                className="bg-orange hover:bg-orange/90 text-white font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg justify-center w-full sm:w-auto"
+                className="bg-white hover:bg-white/90 text-sky-blue font-medium px-8 py-3 rounded-md transition-colors duration-200 flex items-center gap-2 text-lg justify-center w-full sm:w-auto"
               >
                 {t("cta.primary")}
                 <ArrowRight className="h-5 w-5" />

@@ -44,30 +44,30 @@ export default function SubscriptionPage() {
   
   return (
     <div className="relative min-h-screen overflow-hidden bg-white">
-      <div className="pointer-events-none absolute -top-28 right-16 h-80 w-80 rounded-full bg-orange/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-36 -left-16 h-60 w-60 rounded-full bg-sky-blue/10 blur-2xl" />
-      <div className="pointer-events-none absolute bottom-0 right-12 h-64 w-16 -rotate-45 bg-navy/5" />
+      <div className="pointer-events-none absolute -top-28 right-16 h-80 w-80 rounded-full bg-navy/10 blur-3xl" />
+      <div className="pointer-events-none absolute top-36 -left-16 h-60 w-60 rounded-full bg-navy/15 blur-2xl" />
+      <div className="pointer-events-none absolute bottom-0 right-12 h-64 w-16 -rotate-45 bg-navy/10" />
       <div className="relative z-10">
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-orange/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-10 w-40 h-40 bg-sky-blue/10 -rotate-12" />
+        <div className="absolute top-20 right-10 w-64 h-64 bg-navy/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-10 w-40 h-40 bg-navy/15 -rotate-12" />
 
         <PageLayoutContainer className="px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-orange/10 rounded-lg">
-                <span className="text-sm font-bold text-orange">{t("hero.badge")}</span>
+              <div className="inline-block px-4 py-2 bg-navy/10 rounded-lg">
+                <span className="text-sm font-bold text-navy">{t("hero.badge")}</span>
               </div>
               <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
                 {t.rich("hero.title", {
-                  strong: (chunks) => <span className="text-orange">{chunks}</span>,
+                  strong: (chunks) => <span className="text-navy">{chunks}</span>,
                 })}
               </h1>
               <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
               <p className="text-lg text-gray-600 leading-relaxed">{t("hero.subtitle")}</p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <SlideArrowButton
-                  primaryColor="#ff9d3d"
+                  primaryColor="#0B1D3A"
                   text={t("hero.cta")}
                 />
                 <Link href="#pricing" className="text-navy underline underline-offset-4 text-sm sm:text-base flex items-center">{t("hero.ctaSecondary")}</Link>
@@ -95,8 +95,8 @@ export default function SubscriptionPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="p-8 bg-white border-orange/20 hover:shadow-xl transition-shadow relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-orange/5 rounded-full blur-xl" />
+            <Card className="p-8 bg-white border-navy/20 hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-navy/5 rounded-full blur-xl" />
               <div className="relative space-y-4">
                 <div className="w-16 h-16 flex items-center justify-center">
                   <Image 
@@ -112,8 +112,8 @@ export default function SubscriptionPage() {
               </div>
             </Card>
 
-            <Card className="p-8 bg-white border-orange/20 hover:shadow-xl transition-shadow relative overflow-hidden">
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange/5 rounded-full blur-xl" />
+            <Card className="p-8 bg-white border-navy/20 hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-navy/5 rounded-full blur-xl" />
               <div className="relative space-y-4">
                 <div className="w-16 h-16 flex items-center justify-center">
                   <Image 
@@ -129,8 +129,8 @@ export default function SubscriptionPage() {
               </div>
             </Card>
 
-            <Card className="p-8 bg-white border-orange/20 hover:shadow-xl transition-shadow relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-24 h-24 bg-orange/5 rounded-full blur-xl" />
+            <Card className="p-8 bg-white border-navy/20 hover:shadow-xl transition-shadow relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-24 h-24 bg-navy/5 rounded-full blur-xl" />
               <div className="relative space-y-4">
                 <div className="w-16 h-16 flex items-center justify-center">
                   <Image 
@@ -151,13 +151,13 @@ export default function SubscriptionPage() {
 
       <section className="py-32 relative overflow-hidden bg-gradient-to-b from-white via-gray-50/30 to-white">
       {/* Subtle background decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-orange/5 via-transparent to-navy/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-navy/10 via-transparent to-navy/5 rounded-full blur-3xl"></div>
       
       <PageLayoutContainer className="px-6 relative z-10">
         {/* Section header */}
           <div className="text-center max-w-3xl mx-auto mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
-              <Sparkles className="h-4 w-4 text-orange" />
+              <Sparkles className="h-4 w-4 text-navy" />
               <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">{t("why.badge")}</span>
             </div>
             <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("why.title")}</h2>
@@ -167,21 +167,21 @@ export default function SubscriptionPage() {
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
           {/* POSITIVE CARD - Why it's right for you */}
-          <Card className="group relative bg-white border-2 border-orange/20 rounded-3xl overflow-hidden hover:border-orange/40 transition-all duration-500 hover:shadow-2xl hover:shadow-orange/10">
+          <Card className="group relative bg-white border-2 border-navy/20 rounded-3xl overflow-hidden hover:border-navy/40 transition-all duration-500 hover:shadow-2xl hover:shadow-navy/10">
             {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange/10 to-transparent rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 border-8 border-orange/5 rounded-full"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-navy/10 to-transparent rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 border-8 border-navy/5 rounded-full"></div>
             
             {/* Icon badge */}
-            <div className="absolute top-6 right-6 w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <Shield className="h-6 w-6 text-orange" />
+            <div className="absolute top-6 right-6 w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Shield className="h-6 w-6 text-navy" />
             </div>
 
             <div className="relative p-10">
               {/* Header */}
               <div className="mb-8">
-                <div className="inline-block px-3 py-1 bg-orange/10 rounded-full mb-4">
-                  <span className="text-xs font-bold text-orange uppercase tracking-wider">{t("why.benefitsBadge")}</span>
+                <div className="inline-block px-3 py-1 bg-navy/10 rounded-full mb-4">
+                  <span className="text-xs font-bold text-navy uppercase tracking-wider">{t("why.benefitsBadge")}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-navy leading-tight">
                   {t("why.benefitsTitle")}
@@ -193,8 +193,8 @@ export default function SubscriptionPage() {
                 {t.raw("why.benefits").map((text: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group/item">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-8 h-8 rounded-lg bg-orange/10 flex items-center justify-center group-hover/item:bg-orange/20 transition-colors">
-                        <CheckCircle2 className="h-5 w-5 text-orange" />
+                      <div className="w-8 h-8 rounded-lg bg-navy/10 flex items-center justify-center group-hover/item:bg-navy/20 transition-colors">
+                        <CheckCircle2 className="h-5 w-5 text-navy" />
                       </div>
                     </div>
                     <span className="text-gray-700 leading-relaxed font-medium">{text}</span>
@@ -203,8 +203,8 @@ export default function SubscriptionPage() {
               </ul>
 
               {/* Bottom accent */}
-              <div className="mt-10 pt-6 border-t border-orange/10">
-                <p className="text-sm text-gray-500 flex items-center gap-2"><span className="w-2 h-2 bg-orange rounded-full"></span>{t("why.footnote")}</p>
+              <div className="mt-10 pt-6 border-t border-navy/10">
+                <p className="text-sm text-gray-500 flex items-center gap-2"><span className="w-2 h-2 bg-navy rounded-full"></span>{t("why.footnote")}</p>
               </div>
             </div>
           </Card>
@@ -308,13 +308,13 @@ export default function SubscriptionPage() {
 
       <section id="pricing" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         {/* Decorative elements */}
-        <div className="absolute top-20 right-10 w-32 h-32 bg-orange/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-28 h-28 bg-sky-blue/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 w-32 h-32 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-28 h-28 bg-navy/10 rounded-full blur-3xl" />
         
         <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 bg-orange/10 px-4 py-2 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-navy/10 px-4 py-2 rounded-full mb-6">
                 <Image
                   src="/Setupfee_icona_Garanzia.png"
                   alt="Garanzia Icon"
@@ -322,11 +322,11 @@ export default function SubscriptionPage() {
                   height={20}
                   className="w-4 h-4"
                 />
-                <span className="text-sm font-semibold text-orange">{t("guarantee.badge")}</span>
+                <span className="text-sm font-semibold text-navy">{t("guarantee.badge")}</span>
               </div>
               <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6 text-balance">
                 {t.rich("guarantee.title", {
-                  strong: (chunks) => <span className="text-orange">{chunks}</span>,
+                  strong: (chunks) => <span className="text-navy">{chunks}</span>,
                 })}
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("guarantee.subtitle")}</p>
@@ -338,16 +338,16 @@ export default function SubscriptionPage() {
               <div className="space-y-8">
                 <div className="relative">
                   {/* Enhanced timeline for desktop */}
-                  <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange via-sky-blue to-navy rounded-full" />
+                  <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-navy via-navy to-navy rounded-full" />
                   
                   {/* Process steps */}
                   <div className="space-y-12">
                     {/* Step 1: Fase di attivazione */}
                     <div className="relative flex items-start gap-8">
-                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-orange rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-navy rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
                         <span className="text-white font-bold text-lg">1</span>
                       </div>
-                      <Card className="flex-1 p-8 bg-white border-orange/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <Card className="flex-1 p-8 bg-white border-navy/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                         <div className="flex items-start gap-6">
                           <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
                             <Image
@@ -361,16 +361,16 @@ export default function SubscriptionPage() {
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
                               <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.1.title")}</h3>
-                              <span className="px-3 py-1 bg-orange/10 text-orange text-sm font-semibold rounded-full">{t("guarantee.steps.1.label")}</span>
+                              <span className="px-3 py-1 bg-navy/10 text-navy text-sm font-semibold rounded-full">{t("guarantee.steps.1.label")}</span>
                             </div>
                             <p className="text-gray-600 mb-4">{t("guarantee.steps.1.desc")}</p>
                             <ul className="space-y-3 text-gray-700">
                               <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-orange mt-0.5 flex-shrink-0" />
+                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
                                 <span>{t("guarantee.steps.1.desc")}</span>
                               </li>
                               <li className="flex items-start gap-3">
-                                <CheckCircle2 className="h-5 w-5 text-orange mt-0.5 flex-shrink-0" />
+                                <CheckCircle2 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
                                 <span>La prima rata viene versata all'inizio della collaborazione</span>
                               </li>
                             </ul>
@@ -455,8 +455,8 @@ export default function SubscriptionPage() {
               {/* Image section */}
               <div className="text-center space-y-8">
                 <div className="relative">
-                  <div className="absolute -top-8 -left-8 w-24 h-24 bg-orange/20 rounded-full blur-xl"></div>
-                  <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-sky-blue/20 rounded-full blur-xl"></div>
+                  <div className="absolute -top-8 -left-8 w-24 h-24 bg-navy/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-navy/15 rounded-full blur-xl"></div>
                   <Image
                     src="/newmedia/Subscription_Mensile.png"
                     alt="Subscription Mensile - Garanzia Totale"
@@ -565,7 +565,7 @@ export default function SubscriptionPage() {
                     className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
                     onClick={() => router.push('/pacchetti')}
                   >
-                    <img src="/iconaRegalo.png" alt="Regalo" className="w-5 h-5" />
+                    <img src="/iconaPrice.png" alt="Regalo" className="w-5 h-5" />
                     {t("cta.secondary")}
                   </button>
                 </div>
@@ -574,8 +574,8 @@ export default function SubscriptionPage() {
               {/* Image section */}
               <div className="text-center lg:text-right">
                 <div className="relative">
-                  <div className="absolute -top-6 -left-6 w-20 h-20 bg-orange/20 rounded-full blur-xl"></div>
-                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sky-blue/20 rounded-full blur-xl"></div>
+                  <div className="absolute -top-6 -left-6 w-20 h-20 bg-navy/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-navy/15 rounded-full blur-xl"></div>
                   <Image
                     src="/newmedia/FreeCall.png"
                     alt="Call Gratuita - Subscription"

@@ -659,7 +659,7 @@ export default function DriveTestPage() {
           {/* Header with creative layout */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 rounded-full bg-orange px-4 py-2 text-sm font-semibold text-white mb-6">
-              <Image src="/iconaRegalo.png" alt="Risparmio" width={20} height={20} />
+              <Image src="/iconaPrice.png" alt="Risparmio" width={20} height={20} />
               <span>RISPARMIO GARANTITO</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-navy mb-6">
@@ -688,7 +688,7 @@ export default function DriveTestPage() {
                   {/* Punto 3+4 - Creative layout with icon */}
                   <div className="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-orange/5 to-sky-blue/5 border border-orange/10">
                     <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-orange/20 rounded-full">
-                      <Image src="/iconaRegalo.png" alt="Regalo" width={20} height={20} />
+                      <Image src="/iconaPrice.png" alt="Regalo" width={20} height={20} />
                     </div>
                     <div className="space-y-4">
                       <p className="text-gray-700 text-lg leading-relaxed">{t("savings.microcopy.2")}</p>

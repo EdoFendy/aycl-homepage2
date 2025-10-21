@@ -461,7 +461,7 @@ export default function SetUpFeePage() {
                     className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg bg-orange/20 text-orange border-0 font-semibold text-base hover:bg-orange/30 transition duration-200 flex items-center justify-center gap-3"
                     onClick={() => window.location.href = '/pacchetti'}
                   >
-                    <img src="/iconaRegalo.png" alt="Regalo" className="w-5 h-5" />
+                    <img src="/iconaPrice.png" alt="Regalo" className="w-5 h-5" />
                     {t("cta.secondary")}
                   </button>
                 </div>

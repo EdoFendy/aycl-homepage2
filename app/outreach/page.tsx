@@ -122,7 +122,7 @@ export default function OutreachPage() {
 
   const heroCtaIcons: [IconAsset, IconAsset] = [
     { src: "/iconaTelefono.png", alt: "Icona prenota una call" },
-    { src: "/iconaRegalo.png", alt: "Icona scopri i pacchetti" },
+    { src: "/iconaPrice.png", alt: "Icona scopri i pacchetti" },
   ]
 
   const aiStatsIcon: IconAsset = {
