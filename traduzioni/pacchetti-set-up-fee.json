@@ -3,7 +3,7 @@
     "hero": {
       "badge": "Pacchetto Set-Up Fee",
       "title": "Pacchetto <strong>Set-Up Fee</strong>: la partnership per scalare senza limiti.",
-      "kicker": "Accesso a vita per espandere la tua azienda e condividere i risultati della crescita.",
+      "kicker": "Per espandere la tua azienda e condividere i risultati della crescita.",
       "subtitle": "Con il pacchetto Set-Up Fee non sei un semplice cliente, ma un alleato. È riservato alle aziende pronte a scalare e a impegnarsi nel lungo periodo.",
       "ctaPrimary": "Parla con noi",
       "ctaSecondary": "Scopri prezzi e garanzie",
@@ -13,17 +13,17 @@
       "title": "Pacchetto <strong>Set-Up Fee</strong>: crescita senza limiti.",
       "cards": {
         "planTitle": "Progettiamo l’espansione",
-        "planDesc": "Comprendiamo percorso e obiettivi, definiamo ICP e cluster, stimiamo tempi e checkpoint.",
+        "planDesc": "Partiamo dal comprendere a fondo il percorso da intraprendere e gli obiettivi prefissati. Definiamo l'ICP e i cluster di mercato di riferimento. Stimiamo i tempi e i checkpoint da raggiungere.",
         "activateTitle": "Attiviamo la macchina",
-        "activateDesc": "Selezioniamo i segmenti dal nostro database proprietario, individuiamo canali e messaggi ad alto impatto.",
+        "activateDesc": "Messo a punto il piano strategico da seguire procediamo con le basi operative. Selezioniamo i segmenti congruenti dal nostro database proprietario. Individuiamo i canali di contatto più efficaci e i messaggi con il maggiore impatto.",
         "scaleTitle": "Diamo il via alla scalata",
-        "scaleDesc": "Dashboard personale, report completi e project manager dedicato per monitorare tutto."
+        "scaleDesc": "Dall'attivazione in poi restiamo al tuo fianco. Con la tua dashboard personale puoi monitorare i risultati in autonomia. Grazie a report completi del lavoro svolto ti teniamo aggiornato su ogni cosa in modo costante. Dall'inizio alla fine potrai rivolgerti al tuo project manager di riferimento."
       }
     },
     "partnership": {
       "badge": "Modalità partnership",
-      "title": "Il pacchetto Set-Up Fee è la scelta giusta per te se…",
-      "subtitle": "Collaborazione win-win a lungo termine con obiettivi condivisi e accountability reale.",
+      "title": "Una partnership costruita sui tuoi obiettivi di crescita",
+      "subtitle": "Allineiamo visione, responsabilità e risultati in un modello di collaborazione realmente condiviso.",
       "isForYouBadge": "✓ È per te se",
       "isForYouTitle": "Il pacchetto Set-Up Fee è perfetto se…",
       "isForYou": [
@@ -41,27 +41,27 @@
         "Regalare soldi a fornitori disallineati sui tuoi ritorni.",
         "Sacrificare la visione strategica per soluzioni di breve periodo."
       ],
-      "numbersBadge": "Partnership in cifre",
-      "numbersTitle": "Ogni euro del Set-Up Fee costruisce asset condivisi: tecnologia, dati, processi e team ibrido.",
-      "numbersDesc": "Il rischio operativo e commerciale non è più solo tuo: forecast, pipeline e risultati gestiti insieme."
+      "numbersBadge": "",
+      "numbersTitle": "",
+      "numbersDesc": "Il rischio operativo e commerciale diventa condiviso: forecast, pipeline e risultati vengono gestiti insieme."
     },
     "infrastructure": {
       "kicker": "All You Can Leads",
       "title": "La struttura che sostiene la tua espansione",
-      "desc": "Con il Set-Up Fee entri a far parte della nostra infrastruttura: tecnologia, dati e persone diventano leve permanenti al servizio della tua espansione.",
+      "desc": "Questa partnership è un'alleanza strategica. Attiviamo il nostro ecosistema per raggiungere il successo insieme.",
       "cards": {
         "senduraTitle": "Sendura",
-        "senduraDesc": "Software app proprietaria per gestire e monitorare l’outreach e offrire dashboard in tempo reale.",
+        "senduraDesc": "La struttura tecnologica è racchiusa in una software app di nostra proprietà, Sendura. Ci permette di gestire e monitorare le campagne su tutti i canali outreach che utilizziamo. Al suo interno si trova la dashboard personale per verificare i risultati in tempo reale.",
         "dbTitle": "Database",
-        "dbDesc": "Contatti globali B2B con aggiornamento continuo e arricchimento tramite AI.",
+        "dbDesc": "Il nostro archivio contiene contatti di membri di aziende in tutto il mondo e copre tutti i settori in ambito B2B. I nostri strumenti di intelligenza artificiale attuano un costante processo di verifica e arricchimento di ciascun dato. L'aggiornamento e la segmentazione ci permettono di raggiungere cluster di mercato specifici con precisione.",
         "supportTitle": "Supporto",
-        "supportDesc": "Project manager dedicato e unione tra automazione e contributo umano."
+        "supportDesc": "Oggi che la tecnologia avanza sempre più rapidamente crediamo che il vero valore nasca dall'unione tra automazione e contributo umano. Per questo tutti i nostri clienti vengono seguiti dall'inizio alla fine dal proprio project manager di riferimento."
       }
     },
     "economics": {
       "badge": "Modello economico",
-      "title": "Investi all’inizio, guadagni per sempre",
-      "desc": "Un investimento iniziale per accesso permanente + revenue share allineata al tuo fatturato.",
+      "title": "Investi oggi, cresci nel tempo",
+      "desc": "Un unico investimento iniziale con un modello di revenue share allineato al tuo fatturato.",
       "howTitle": "Come funziona in pratica",
       "bullets": [
         "Set-Up Fee una tantum per integrare tecnologia, processi e team.",
@@ -123,24 +123,24 @@
     "researchPhase": {
       "badge": "Fase di Ricerca e Valore",
       "title": "Investiamo insieme nella tua crescita",
-      "subtitle": "La Set-Up Fee non è un costo, ma un investimento condiviso per costruire la tua infrastruttura di crescita permanente.",
+      "subtitle": "Investiamo per costruire la base della tua scalata strategica",
       "buildTogether": "Cosa costruiamo insieme",
       "buildItems": [
-        "Analisi approfondita del tuo mercato e ICP",
-        "Database personalizzato con i tuoi prospect ideali",
-        "Strategie di outreach su misura per il tuo settore",
-        "Team dedicato e formazione del tuo staff"
+        "Analisi approfondita ICP e mercato di riferimento",
+        "Selezione e segmentazione dei contatti in target",
+        "Messa a punto della strategia personalizzata",
+        "Individuazione dei canali outreach"
       ],
       "valueYouGet": "Il valore che ottieni",
       "valueItems": [
-        "Accesso permanente alla nostra tecnologia",
-        "Processi ottimizzati per la tua azienda",
-        "Conoscenza approfondita del tuo mercato",
-        "Partnership strategica a lungo termine"
+        "Flusso di appuntamenti qualificati",
+        "Possibilità di scalare senza limiti",
+        "Partnership win-win a lungo termine",
+        "Aggiornamento e monitoraggio costanti"
       ],
       "investmentTitle": "Investimento Set-Up Fee",
       "investmentDesc": "Da 20.000€ a 200.000€ in base alla complessità del tuo mercato e agli obiettivi di crescita",
-      "investmentTag": "Un investimento, accesso permanente"
+      "investmentTag": ""
     },
     "operationalPhase": {
       "badge": "Fase Operativa",
@@ -414,5 +414,3 @@
     }
   }
 }
-
-

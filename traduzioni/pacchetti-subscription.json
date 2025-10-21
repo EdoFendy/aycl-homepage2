@@ -45,15 +45,15 @@
       "problemsFoot": "Dimentica sprechi, inefficienze e improvvisazione"
     },
     "system": {
-      "title": "Accedi senza rischi ai pilastri del nostro sistema",
-      "subtitle": "Sales oriented, tech e data based: tecnologie, banche dati e team dedicati.",
+      "title": "Numeri Certi, Risultati Reali: La Stabilità che Fa Crescere",
+      "subtitle": "Ciò che ci permette di garantire flussi costanti nel tempo è la solidità dei pilastri alla base di All You Can Leads. Ogni appuntamento è il risultato di un sistema che unisce tecnologia, dati e persone, garantendo un flusso stabile e numeri prevedibili su cui il tuo team può contare.",
       "cards": {
         "senduraTitle": "Sendura",
-        "senduraDesc": "App proprietaria per gestire e monitorare le campagne su tutti i canali.",
+        "senduraDesc": "La struttura tecnologica è racchiusa in una software app di nostra proprietà, Sendura. Ci permette di gestire e monitorare le campagne su tutti i canali outreach che utilizziamo. Al suo interno si trova la dashboard personale per verificare i risultati in tempo reale.",
         "dbTitle": "Database",
-        "dbDesc": "Contatti globali B2B con verifica continua via AI.",
+        "dbDesc": "Il nostro archivio contiene contatti di membri di aziende in tutto il mondo e copre tutti i settori in ambito B2B. I nostri strumenti di intelligenza artificiale attuano un costante processo di verifica e arricchimento di ciascun dato. L'aggiornamento e la segmentazione ci permettono di raggiungere cluster di mercato specifici con precisione.",
         "supportTitle": "Supporto",
-        "supportDesc": "Project manager dedicato e unione tra automazione e persone."
+        "supportDesc": "Oggi che la tecnologia avanza sempre più rapidamente crediamo che il vero valore nasca dall'unione tra automazione e contributo umano. Per questo tutti i nostri clienti vengono seguiti dall'inizio alla fine dal proprio project manager di riferimento."
       }
     },
     "guarantee": {
@@ -432,5 +432,4 @@
     }
   }
 }
-
 
