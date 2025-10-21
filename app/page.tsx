@@ -308,7 +308,7 @@ export default function HomePage() {
                   {t("hero.badge")}
                 </span>
 
-                <h1 className="max-w-[620px] text-4xl font-bold leading-tight text-navy sm:text-5xl sm:leading-[1.1] lg:text-[3.75rem]">
+                <h1 className="max-w-[620px] text-3xl font-bold leading-tight text-navy sm:text-5xl sm:leading-[1.1] lg:text-[3.75rem]">
                   {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
                 </h1>
 
@@ -343,7 +343,7 @@ export default function HomePage() {
               </div>
 
               <div
-                className="order-1 relative mx-auto flex w-full max-w-[240px] sm:max-w-[520px] md:max-w-[720px] lg:max-w-[1100px] items-center justify-center lg:-mr-4 lg:order-2"
+                className="order-1 relative mx-auto hidden lg:flex w-full max-w-[240px] sm:max-w-[520px] md:max-w-[720px] lg:max-w-[1100px] items-center justify-center lg:-mr-4 lg:order-2"
                 style={{ transform: prefersReducedMotion ? undefined : `translateY(${-heroParallax * 0.25}px)` }}
               >
                 <div className="absolute -top-12 left-6 h-40 w-40 rounded-full bg-sky-blue/30 blur-3xl" aria-hidden="true" />
@@ -372,7 +372,7 @@ export default function HomePage() {
             <div className="absolute top-10 left-5 h-20 w-20 rounded-full bg-orange/10" aria-hidden="true" />
             <div className="absolute bottom-10 right-10 h-28 w-28 rounded-full bg-sky-blue/15" aria-hidden="true" />
           </div>
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
                 <div className="order-2 space-y-6 lg:order-1">
@@ -408,7 +408,7 @@ export default function HomePage() {
         <section ref={statsRef} className="relative overflow-hidden bg-[#f9fbff] py-28">
           <div className="absolute inset-0 -z-10 bg-dotted-pattern" aria-hidden="true" />
           <div className="absolute left-1/2 top-16 -z-10 h-32 w-32 -translate-x-1/2 rounded-full bg-white/70 blur-2xl" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div
                 className={`mx-auto max-w-3xl text-center transition duration-700 ${
@@ -482,7 +482,7 @@ export default function HomePage() {
         <section ref={solutionRef} className="relative overflow-hidden bg-white py-28">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white to-[#f6f9ff]" aria-hidden="true" />
           <div className="absolute -right-32 top-10 -z-10 h-64 w-64 rounded-full bg-orange/10 blur-3xl" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="mb-16 text-center">
                 <span className="inline-flex items-center justify-center rounded-full border border-sky-blue/30 bg-sky-blue/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-blue">
@@ -558,7 +558,7 @@ export default function HomePage() {
           <div className="absolute inset-0 -z-10" aria-hidden="true">
             <div className="bg-dotted-pattern h-full w-full opacity-60" />
           </div>
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="mx-auto mb-16 max-w-2xl text-center">
                 <h2 className="text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
@@ -609,7 +609,7 @@ export default function HomePage() {
 
         <section ref={processRef} className="relative bg-white py-28">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-[#f6f9ff]" aria-hidden="true" />
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="mx-auto max-w-3xl text-center">
                 <span className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-gray-600">
@@ -689,7 +689,7 @@ export default function HomePage() {
           </div>
         </section>
         <section className="relative bg-gradient-to-b from-white to-[#f5f9ff] py-28">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="mx-auto max-w-3xl text-center">
                 <span className="inline-flex items-center justify-center rounded-full border border-orange/40 bg-orange/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange">
@@ -862,7 +862,7 @@ export default function HomePage() {
         <DriveTestCalculator />
 
         <section className="relative bg-[#f6f9ff] py-28">
-          <div className="mx-auto max-w-[1200px] px-5 sm:px-10">
+          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="mx-auto max-w-3xl text-center">
                 <h2 className="text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">

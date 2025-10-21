@@ -61,17 +61,38 @@
       "title": "Un abbonamento mensile, 100% senza rischi",
       "subtitle": "Range mensile garantito di appuntamenti qualificati, con tutele su risultati e recesso.",
       "steps": {
-        "1": {"title": "Fase di attivazione", "label": "Setup", "desc": "Pacchetto su misura; la prima rata all'inizio; rate in base al range mensile."},
-        "2": {"title": "Fase operativa", "label": "Risparmio 25%", "desc": "Seconda rata 28 giorni dopo il primo appuntamento qualificato; cadenza 28 giorni; -25% per appuntamento."},
-        "3": {"title": "Garanzie incluse", "label": "Sicurezza", "desc": "Rimborso se non ricevi appuntamenti in 60–90 giorni; recesso con 28 giorni; range coperto da garanzia."}
+        "1": {
+          "title": "Fase di attivazione",
+          "label": "Setup",
+          "desc": "Pacchetto su misura; la prima rata all'inizio; rate in base al range mensile."
+        },
+        "2": {
+          "title": "Fase operativa",
+          "label": "Risparmio 25%",
+          "desc": "Seconda rata 28 giorni dopo il primo appuntamento qualificato; cadenza 28 giorni; -25% per appuntamento."
+        },
+        "3": {
+          "title": "Garanzie incluse",
+          "label": "Sicurezza",
+          "desc": "Rimborso se non ricevi appuntamenti in 60–90 giorni; recesso con 28 giorni; range coperto da garanzia."
+        }
       },
       "notes": {
         "title": "Note importanti",
         "subtitle": "Informazioni chiave per il successo del tuo progetto",
         "items": [
-          {"title": "Periodo di attivazione", "desc": "I primi 60–90 giorni servono per impostare e calibrare il sistema."},
-          {"title": "Monitoraggio continuo", "desc": "Report regolari e dashboard per monitorare ogni attività."},
-          {"title": "Garanzia totale", "desc": "Range mensile coperto e tutele sul recesso."}
+          {
+            "title": "Periodo di attivazione",
+            "desc": "I primi 60–90 giorni servono per impostare e calibrare il sistema."
+          },
+          {
+            "title": "Monitoraggio continuo",
+            "desc": "Report regolari e dashboard per monitorare ogni attività."
+          },
+          {
+            "title": "Garanzia totale",
+            "desc": "Range mensile coperto e tutele sul recesso."
+          }
         ]
       }
     },
@@ -189,15 +210,15 @@
       "problemsFoot": "Forget waste, inefficiency and guesswork"
     },
     "system": {
-      "title": "Access our system pillars with no risk",
-      "subtitle": "Sales‑oriented, tech and data based: technologies, databases and dedicated teams.",
+      "title": "Certain Numbers, Real Results: Stability that Fuels Growth",
+      "subtitle": "What lets us guarantee steady flows over time is the solidity of All You Can Leads' pillars. Every meeting is the outcome of a system that blends technology, data and people, delivering a stable flow and predictable numbers your team can rely on.",
       "cards": {
         "senduraTitle": "Sendura",
-        "senduraDesc": "Proprietary app to manage and monitor campaigns across channels.",
+        "senduraDesc": "Our technological backbone lives in Sendura, our proprietary app. It manages and monitors campaigns across every outreach channel and includes a personal dashboard with real-time results.",
         "dbTitle": "Database",
-        "dbDesc": "Global B2B contacts with AI verification.",
+        "dbDesc": "Our archive contains contacts from companies all over the world and covers every B2B vertical. AI-powered tools are constantly validating and enriching each record so we can reach specific market clusters with precision.",
         "supportTitle": "Support",
-        "supportDesc": "Dedicated PM plus the blend of automation and people."
+        "supportDesc": "Technology keeps accelerating, but value comes from the union of automation and people. That's why every client is supported end-to-end by their dedicated project manager."
       }
     },
     "guarantee": {
@@ -205,24 +226,45 @@
       "title": "A monthly subscription, <strong>100% risk‑free</strong>",
       "subtitle": "Guaranteed monthly range of qualified appointments with protections on results and termination.",
       "steps": {
-        "1": {"title": "Activation phase", "label": "Setup", "desc": "Tailored package; first installment at start; installments based on monthly range."},
-        "2": {"title": "Operational phase", "label": "Save 25%", "desc": "Second installment 28 days after first qualified appointment; then every 28 days; -25% per appointment."},
-        "3": {"title": "Included guarantees", "label": "Safety", "desc": "Refund if no qualified appointments within 60–90 days; 28‑day termination; guaranteed range."}
+        "1": {
+          "title": "Activation phase",
+          "label": "Setup",
+          "desc": "Tailored package; first installment at start; installments based on monthly range."
+        },
+        "2": {
+          "title": "Operational phase",
+          "label": "Save 25%",
+          "desc": "Second installment 28 days after first qualified appointment; then every 28 days; -25% per appointment."
+        },
+        "3": {
+          "title": "Included guarantees",
+          "label": "Safety",
+          "desc": "Refund if no qualified appointments within 60–90 days; 28‑day termination; guaranteed range."
+        }
       },
       "notes": {
         "title": "Important notes",
         "subtitle": "Key information for project success",
         "items": [
-          {"title": "Activation period", "desc": "First 60–90 days to set up and calibrate the system."},
-          {"title": "Continuous monitoring", "desc": "Regular reports and dashboards to monitor every activity."},
-          {"title": "Total guarantee", "desc": "Guaranteed monthly range and protections on termination."}
+          {
+            "title": "Activation period",
+            "desc": "First 60–90 days to set up and calibrate the system."
+          },
+          {
+            "title": "Continuous monitoring",
+            "desc": "Regular reports and dashboards to monitor every activity."
+          },
+          {
+            "title": "Total guarantee",
+            "desc": "Guaranteed monthly range and protections on termination."
+          }
         ]
       }
     },
     "cta": {
-      "title": "Ready to start?", 
+      "title": "Ready to start?",
       "subtitle": "Book a free call and discover together if the Subscription Package is the right solution for you",
-      "primary": "Book a Call", 
+      "primary": "Book a Call",
       "secondary": "See Packages"
     },
     "faq": {
@@ -333,15 +375,15 @@
       "problemsFoot": "Olvida el despilfarro y la improvisación"
     },
     "system": {
-      "title": "Accede sin riesgos a los pilares de nuestro sistema",
-      "subtitle": "Orientado a ventas, tecnología y datos: tecnologías, bases de datos y equipos dedicados.",
+      "title": "Números Seguros, Resultados Reales: La Estabilidad que Impulsa el Crecimiento",
+      "subtitle": "Lo que nos permite garantizar flujos constantes en el tiempo es la solidez de los pilares de All You Can Leads. Cada reunión nace de un sistema que une tecnología, datos y personas, asegurando un flujo estable y números predecibles en los que tu equipo puede confiar.",
       "cards": {
         "senduraTitle": "Sendura",
-        "senduraDesc": "App propietaria para gestionar y monitorizar campañas en todos los canales.",
+        "senduraDesc": "Nuestra estructura tecnológica se concentra en Sendura, nuestra app propietaria. Gestiona y monitoriza las campañas en todos los canales de outreach e incluye un dashboard personal con resultados en tiempo real.",
         "dbTitle": "Base de datos",
-        "dbDesc": "Contactos B2B globales con verificación mediante IA.",
+        "dbDesc": "Nuestro archivo reúne contactos de empresas de todo el mundo y cubre todos los sectores B2B. Las herramientas de IA verifican y enriquecen cada dato de forma continua para alcanzar con precisión cada cluster de mercado.",
         "supportTitle": "Soporte",
-        "supportDesc": "PM dedicado y mezcla de automatización y personas."
+        "supportDesc": "La tecnología avanza rápido, pero el valor surge de combinar automatización y personas. Por eso cada cliente cuenta, de principio a fin, con su project manager de referencia."
       }
     },
     "guarantee": {
@@ -349,24 +391,45 @@
       "title": "Una suscripción mensual, <strong>100% sin riesgos</strong>",
       "subtitle": "Rango mensual garantizado de citas cualificadas con protecciones sobre resultados y rescisión.",
       "steps": {
-        "1": {"title": "Fase de activación", "label": "Setup", "desc": "Paquete a medida; primera cuota al inicio; cuotas según rango mensual."},
-        "2": {"title": "Fase operativa", "label": "Ahorro 25%", "desc": "Segunda cuota 28 días después de la primera cita cualificada; luego cada 28 días; -25% por cita."},
-        "3": {"title": "Garantías incluidas", "label": "Seguridad", "desc": "Reembolso si no recibes citas en 60–90 días; rescisión con 28 días; rango garantizado."}
+        "1": {
+          "title": "Fase de activación",
+          "label": "Setup",
+          "desc": "Paquete a medida; primera cuota al inicio; cuotas según rango mensual."
+        },
+        "2": {
+          "title": "Fase operativa",
+          "label": "Ahorro 25%",
+          "desc": "Segunda cuota 28 días después de la primera cita cualificada; luego cada 28 días; -25% por cita."
+        },
+        "3": {
+          "title": "Garantías incluidas",
+          "label": "Seguridad",
+          "desc": "Reembolso si no recibes citas en 60–90 días; rescisión con 28 días; rango garantizado."
+        }
       },
       "notes": {
         "title": "Notas importantes",
         "subtitle": "Información clave para el éxito del proyecto",
         "items": [
-          {"title": "Periodo de activación", "desc": "Primeros 60–90 días para configurar y calibrar."},
-          {"title": "Monitorización continua", "desc": "Informes regulares y panel para monitorizar todo."},
-          {"title": "Garantía total", "desc": "Rango mensual garantizado y protecciones de rescisión."}
+          {
+            "title": "Periodo de activación",
+            "desc": "Primeros 60–90 días para configurar y calibrar."
+          },
+          {
+            "title": "Monitorización continua",
+            "desc": "Informes regulares y panel para monitorizar todo."
+          },
+          {
+            "title": "Garantía total",
+            "desc": "Rango mensual garantizado y protecciones de rescisión."
+          }
         ]
       }
     },
     "cta": {
-      "title": "¿Listo para empezar?", 
+      "title": "¿Listo para empezar?",
       "subtitle": "Reserva una llamada gratuita y descubramos juntos si el Paquete Subscription es la solución adecuada para ti",
-      "primary": "Reservar una Llamada", 
+      "primary": "Reservar una Llamada",
       "secondary": "Ver Paquetes"
     },
     "faq": {
@@ -432,5 +495,3 @@
     }
   }
 }
-
-

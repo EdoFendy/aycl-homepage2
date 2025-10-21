@@ -29,6 +29,25 @@ export default function PacchettiPage() {
   const router = useRouter()
   const t = useTranslations("pacchetti")
 
+  const rawSetupResearch = t.raw("setup.researchItems") as unknown
+  const rawSetupValue = t.raw("setup.valueItems") as unknown
+  const setupResearchItems =
+    Array.isArray(rawSetupResearch) && rawSetupResearch.length > 0
+      ? (rawSetupResearch as string[])
+      : [
+          t("setup.features.customStrategy"),
+          t("setup.features.dedicatedTeam"),
+          t("setup.features.automation"),
+        ]
+  const setupValueItems =
+    Array.isArray(rawSetupValue) && rawSetupValue.length > 0
+      ? (rawSetupValue as string[])
+      : [
+          t("setup.features.revenueShare"),
+          t("setup.features.priorityAccess"),
+          t("setup.features.advisoryBoard"),
+        ]
+
   const navigateTo = (path: string) => {
     router.push(path)
   }
@@ -123,18 +142,12 @@ export default function PacchettiPage() {
                   {t("setup.strategy")}
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">{t("setup.features.customStrategy")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">{t("setup.features.dedicatedTeam")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">{t("setup.features.automation")}</span>
-                  </li>
+                  {setupResearchItems.map((item, idx) => (
+                    <li key={`${item}-${idx}`} className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="space-y-4">
@@ -143,18 +156,12 @@ export default function PacchettiPage() {
                   {t("setup.partnership")}
                 </h4>
                 <ul className="space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">{t("setup.features.revenueShare")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">{t("setup.features.priorityAccess")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
-                    <span className="font-medium">{t("setup.features.advisoryBoard")}</span>
-                  </li>
+                  {setupValueItems.map((item, idx) => (
+                    <li key={`${item}-${idx}`} className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 text-orange flex-shrink-0" />
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

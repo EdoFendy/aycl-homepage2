@@ -143,15 +143,14 @@ export function SiteHeader() {
               
               )}
             >
-              {/* icona 9 quadratini */}
-              <span aria-hidden className="grid h-4 w-4 grid-cols-3 grid-rows-3 gap-[1px] sm:h-5 sm:w-5 sm:gap-[2px]">
-                {Array.from({ length: 9 }).map((_, i) => (
-                  <span
-                    key={i}
-                    className="block rounded-[2px] bg-navy/80 transition group-hover:bg-navy "
-                  />
-                ))}
-              </span>
+              {/* icona menu */}
+              <Image 
+                src="/newmedia/menu_icon.png" 
+                alt="Menu" 
+                width={20} 
+                height={20} 
+                className="h-4 w-4 sm:h-5 sm:w-5 transition group-hover:opacity-80"
+              />
             </button>
           </div>
 

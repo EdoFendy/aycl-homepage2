@@ -9,19 +9,31 @@
       "badge": "Partnership Elite",
       "revShare": "Revenue Share",
       "title": "Set-Up Fee + Revenue Share",
-      "desc": "Per aziende pronte a scalare. La tua crescita è la nostra vittoria.",
-      "strategy": "Strategia & Execution",
-      "partnership": "Partnership & Risultati",
+      "desc": "Un unico investimento iniziale con una revenue share allineata al tuo fatturato. La tua crescita guida anche la nostra.",
+      "strategy": "Fase di Ricerca e Valore",
+      "partnership": "Il valore che ottieni",
       "features": {
-        "customStrategy": "Unico pagamento, zero costi fissi",
-        "dedicatedTeam": "Garanzia di fatturato generato",
-        "automation": "Il nostro guadagno dipende dal vostro",
-        "revenueShare": "Campagne e ICP senza limiti",
-        "priorityAccess": "Road-map strategica condivisa",
-        "advisoryBoard": "Personalizzazione completa"
+        "customStrategy": "Analisi approfondita ICP e mercato di riferimento",
+        "dedicatedTeam": "Selezione e segmentazione dei contatti in target",
+        "automation": "Messa a punto della strategia personalizzata",
+        "revenueShare": "Flusso di appuntamenti qualificati",
+        "priorityAccess": "Partnership win-win a lungo termine",
+        "advisoryBoard": "Aggiornamento e monitoraggio costanti"
       },
       "cta": "Contattaci ora",
-      "ideal": "💼 Ideale per aziende B2B con ACV > €10k"
+      "ideal": "💼 Ideale per aziende B2B con ACV > €10k",
+      "researchItems": [
+        "Analisi approfondita ICP e mercato di riferimento",
+        "Selezione e segmentazione dei contatti in target",
+        "Messa a punto della strategia personalizzata",
+        "Individuazione dei canali outreach"
+      ],
+      "valueItems": [
+        "Flusso di appuntamenti qualificati",
+        "Possibilità di scalare senza limiti",
+        "Partnership win-win a lungo termine",
+        "Aggiornamento e monitoraggio costanti"
+      ]
     },
     "driveTest": {
       "badge": "Drive Test",
@@ -138,19 +150,31 @@
       "badge": "Elite Partnership",
       "revShare": "Revenue Share",
       "title": "Set-Up Fee + Revenue Share",
-      "desc": "For companies ready to scale. Your growth is our win.",
-      "strategy": "Strategy & Execution",
-      "partnership": "Partnership & Results",
+      "desc": "Single upfront investment with a revenue share aligned to your revenue. Your growth drives ours.",
+      "strategy": "Research & Value Phase",
+      "partnership": "The value you get",
       "features": {
-        "customStrategy": "Single upfront fee, zero fixed costs",
-        "dedicatedTeam": "Guaranteed revenue generated",
-        "automation": "Our earnings depend on yours",
-        "revenueShare": "Unlimited campaigns and ICPs",
-        "priorityAccess": "Shared strategic roadmap",
-        "advisoryBoard": "Full customization"
+        "customStrategy": "In-depth ICP and market analysis",
+        "dedicatedTeam": "Target contact selection and segmentation",
+        "automation": "Tailored go-to-market strategy",
+        "revenueShare": "Predictable flow of qualified meetings",
+        "priorityAccess": "Long-term win-win partnership",
+        "advisoryBoard": "Continuous updates and monitoring"
       },
       "cta": "Contact us now",
-      "ideal": "💼 Ideal for B2B companies with ACV > €10k"
+      "ideal": "💼 Ideal for B2B companies with ACV > €10k",
+      "researchItems": [
+        "In-depth ICP and market analysis",
+        "Target contact selection and segmentation",
+        "Tailored go-to-market strategy",
+        "Channel mix definition"
+      ],
+      "valueItems": [
+        "Predictable flow of qualified meetings",
+        "Scalable without limits",
+        "Long-term win-win partnership",
+        "Continuous updates and monitoring"
+      ]
     },
     "driveTest": {
       "badge": "Drive Test",
@@ -267,19 +291,31 @@
       "badge": "Asociación Élite",
       "revShare": "Participación en Ingresos",
       "title": "Cuota de Configuración + Participación en Ingresos",
-      "desc": "Para empresas listas para escalar. Tu crecimiento es nuestra victoria.",
-      "strategy": "Estrategia y Ejecución",
-      "partnership": "Asociación y Resultados",
+      "desc": "Una única inversión inicial con un revenue share alineado a tu facturación. Tu crecimiento también impulsa el nuestro.",
+      "strategy": "Fase de Investigación y Valor",
+      "partnership": "El valor que obtienes",
       "features": {
-        "customStrategy": "Pago único, cero costes fijos",
-        "dedicatedTeam": "Garantía de facturación generada",
-        "automation": "Nuestros ingresos dependen de los vuestros",
-        "revenueShare": "Campañas e ICP ilimitados",
-        "priorityAccess": "Hoja de ruta estratégica compartida",
-        "advisoryBoard": "Personalización total"
+        "customStrategy": "Análisis profundo del ICP y del mercado objetivo",
+        "dedicatedTeam": "Selección y segmentación de contactos en target",
+        "automation": "Definición de la estrategia personalizada",
+        "revenueShare": "Flujo predecible de reuniones cualificadas",
+        "priorityAccess": "Alianza win-win a largo plazo",
+        "advisoryBoard": "Actualización y monitorización constantes"
       },
       "cta": "Contáctanos ahora",
-      "ideal": "💼 Ideal para empresas B2B con ACV > €10k"
+      "ideal": "💼 Ideal para empresas B2B con ACV > €10k",
+      "researchItems": [
+        "Análisis profundo del ICP y del mercado objetivo",
+        "Selección y segmentación de contactos en target",
+        "Definición de la estrategia personalizada",
+        "Identificación de los canales de outreach"
+      ],
+      "valueItems": [
+        "Flujo predecible de reuniones cualificadas",
+        "Posibilidad de escalar sin límites",
+        "Alianza win-win a largo plazo",
+        "Actualización y monitorización constantes"
+      ]
     },
     "driveTest": {
       "badge": "Drive Test",
