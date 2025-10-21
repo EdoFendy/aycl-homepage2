@@ -221,10 +221,10 @@ export function SiteHeader() {
                     </div>
                     <div className="flex min-w-0 flex-col items-center justify-center text-center">
                       <div className="flex w-full flex-col items-center justify-center text-center sm:min-h-[54px] sm:overflow-hidden">
-                        <p className="text-sm font-semibold text-navy sm:text-[15px] transition-transform duration-200 ease-out sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px]">
+                        <p className="text-sm font-semibold text-navy sm:text-[15px] transition-transform duration-200 ease-out sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px] text-clamp-1">
                           {item.label}
                         </p>
-                        <p className="hidden max-h-0 overflow-hidden text-[10px] uppercase tracking-[0.18em] text-gray-500 opacity-0 transition-all duration-200 ease-out sm:block sm:leading-[1.15] sm:group-hover:mt-0.5 sm:group-hover:max-h-9 sm:group-hover:opacity-70 sm:group-focus-visible:mt-0.5 sm:group-focus-visible:max-h-9 sm:group-focus-visible:opacity-70">
+                        <p className="hidden max-h-0 overflow-hidden text-[10px] uppercase tracking-[0.18em] text-gray-500 opacity-0 transition-all duration-200 ease-out sm:block sm:leading-[1.15] sm:group-hover:mt-0.5 sm:group-hover:max-h-9 sm:group-hover:opacity-70 sm:group-focus-visible:mt-0.5 sm:group-focus-visible:max-h-9 sm:group-focus-visible:opacity-70 text-clamp-2">
                           {item.caption}
                         </p>
                       </div>
@@ -261,10 +261,10 @@ export function SiteHeader() {
                           </div>
                           <div className="flex min-w-0 flex-col items-center justify-center text-center transition-transform duration-200 ease-out sm:items-start sm:justify-start sm:text-left">
                             <div className="flex w-full flex-col items-center justify-center text-center sm:min-h-[64px] sm:items-start sm:justify-start sm:overflow-hidden sm:text-left">
-                              <p className="text-sm font-semibold text-navy transition-transform duration-200 ease-out sm:text-[15px] sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px]">
+                              <p className="text-sm font-semibold text-navy transition-transform duration-200 ease-out sm:text-[15px] sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px] text-clamp-1">
                                 {pack.title}
                               </p>
-                              <p className="max-h-0 overflow-hidden text-xs text-gray-600 opacity-0 transition-all duration-200 ease-out sm:text-[14px] sm:leading-snug sm:group-hover:mt-0.5 sm:group-hover:max-h-[2.4rem] sm:group-hover:opacity-80 sm:group-focus-visible:mt-0.5 sm:group-focus-visible:max-h-[2.4rem] sm:group-focus-visible:opacity-80">
+                              <p className="max-h-0 overflow-hidden text-xs text-gray-600 opacity-0 transition-all duration-200 ease-out sm:text-[14px] sm:leading-snug sm:group-hover:mt-0.5 sm:group-hover:max-h-[2.4rem] sm:group-hover:opacity-80 sm:group-focus-visible:mt-0.5 sm:group-focus-visible:max-h-[2.4rem] sm:group-focus-visible:opacity-80 text-clamp-2">
                                 {pack.desc}
                               </p>
                             </div>
@@ -289,10 +289,10 @@ export function SiteHeader() {
                       </span>
                     </div>
                     <div className="mt-2.5 flex flex-col items-center justify-center text-center transition-transform duration-200 ease-out">
-                      <p className="text-lg font-semibold text-navy sm:text-xl transition-transform duration-200 ease-out group-hover:-translate-y-1 group-focus-visible:-translate-y-1">
+                      <p className="text-lg font-semibold text-navy sm:text-xl transition-transform duration-200 ease-out group-hover:-translate-y-1 group-focus-visible:-translate-y-1 text-clamp-2">
                         {driveTestCard.title}
                       </p>
-                      <p className="mt-1 text-sm text-gray-600 opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-80 group-focus-visible:translate-y-0 group-focus-visible:opacity-80">
+                      <p className="mt-1 text-sm text-gray-600 opacity-0 translate-y-1 transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-80 group-focus-visible:translate-y-0 group-focus-visible:opacity-80 text-clamp-2">
                         {driveTestCard.desc}
                       </p>
                     </div>

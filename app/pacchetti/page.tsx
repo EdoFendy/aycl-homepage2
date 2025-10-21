@@ -122,8 +122,8 @@ export default function PacchettiPage() {
                         {t("setup.revShare")}
                       </span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">{t("setup.title")}</h3>
-                    <p className="text-lg text-gray-700 max-w-full md:max-w-2xl">{t("setup.desc")}</p>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy text-clamp-2">{t("setup.title")}</h3>
+                    <p className="text-lg text-gray-700 max-w-full md:max-w-2xl text-clamp-3">{t("setup.desc")}</p>
                   </div>
                   <div className="hidden lg:block">
                     <Sparkles className="w-16 h-16 text-orange" />
@@ -195,8 +195,8 @@ export default function PacchettiPage() {
                       {t("driveTest.highlight")}
                     </span>
                   </div>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy">{t("driveTest.title")}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{t("driveTest.desc")}</p>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy text-clamp-2">{t("driveTest.title")}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed text-clamp-2">{t("driveTest.desc")}</p>
                 </div>
 
                 <div className="bg-white/80 rounded-xl p-4 border border-orange/20 relative z-10">
@@ -250,8 +250,8 @@ export default function PacchettiPage() {
                     </span>
                     <span className="text-xs text-gray-500">{t("performance.setup")}</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-navy">{t("performance.title")}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{t("performance.desc")}</p>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-navy text-clamp-2">{t("performance.title")}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed text-clamp-2">{t("performance.desc")}</p>
                 </div>
 
                 <div className="bg-sky-blue/5 rounded-xl p-4 border border-sky-blue/20 relative z-10">
@@ -300,8 +300,8 @@ export default function PacchettiPage() {
                   <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">
                     {t("subscription.badge")}
                   </span>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy">{t("subscription.title")}</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">{t("subscription.desc")}</p>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy text-clamp-2">{t("subscription.title")}</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed text-clamp-2">{t("subscription.desc")}</p>
                 </div>
 
                 <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 relative z-10">

@@ -185,3 +185,71 @@ body.admin-layout footer {
     max-width: 100%;
   }
 }
+
+/* Utility classes for stable multilingual layout */
+@layer utilities {
+  /* Text clamping for consistent heights across translations */
+  .text-clamp-1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .text-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .text-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .text-clamp-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Fixed aspect ratios for cards */
+  .card-min-h-sm {
+    min-height: 280px;
+  }
+
+  .card-min-h-md {
+    min-height: 360px;
+  }
+
+  .card-min-h-lg {
+    min-height: 480px;
+  }
+
+  /* Fixed widths for navigation items */
+  .nav-item-fixed {
+    min-width: 120px;
+    max-width: 180px;
+  }
+
+  /* Stable button widths */
+  .btn-fixed-sm {
+    min-width: 120px;
+  }
+
+  .btn-fixed-md {
+    min-width: 160px;
+  }
+
+  .btn-fixed-lg {
+    min-width: 200px;
+  }
+}
