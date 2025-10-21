@@ -22,7 +22,8 @@
         },
         "driveTest": {
           "title": "Drive Test",
-          "desc": "Prova rapida del metodo AYCL con appuntamenti garantiti."
+          "desc": "Prova rapida del metodo AYCL con appuntamenti garantiti.",
+          "badge": "Pacchetto test"
         }
       }
     },
@@ -31,7 +32,7 @@
       "home": "Home",
       "open": "Apri",
       "packages": "Pacchetti",
-      "packagesCta": "Scopri i nostri pacchetti ",
+      "packagesCta": "Scopri i nostri pacchetti",
       "outreach": "Come Funziona",
       "outreachCta": "Come funziona il metodo AYCL",
       "payNow": "Pagamento online",
@@ -50,6 +51,7 @@
       "subscription": "Subscription",
       "performance": "Performance",
       "setup": "Set-Up Fee",
+      "driveTest": "Drive Test",
       "outreach": "Come Funziona",
       "payment": "Pagamento",
       "home": "Home",
@@ -79,7 +81,8 @@
         },
         "driveTest": {
           "title": "Drive Test",
-          "desc": "Quick way to test AYCL with guaranteed appointments."
+          "desc": "Quick way to test AYCL with guaranteed appointments.",
+          "badge": "Test pack"
         }
       }
     },
@@ -88,7 +91,7 @@
       "home": "Home",
       "open": "Open",
       "packages": "Packages",
-      "packagesCta": "Discover our packages ",
+      "packagesCta": "Discover our packages",
       "outreach": "How It Works",
       "outreachCta": "How the AYCL method works",
       "payNow": "Online payment",
@@ -107,6 +110,7 @@
       "subscription": "Subscription",
       "performance": "Performance",
       "setup": "Set-Up Fee",
+      "driveTest": "Drive Test",
       "outreach": "How It Works",
       "payment": "Payment",
       "home": "Home",
@@ -136,7 +140,8 @@
         },
         "driveTest": {
           "title": "Drive Test",
-          "desc": "Prueba rápida del método AYCL con citas garantizadas."
+          "desc": "Prueba rápida del método AYCL con citas garantizadas.",
+          "badge": "Pack test"
         }
       }
     },
@@ -145,7 +150,7 @@
       "home": "Inicio",
       "open": "Abrir",
       "packages": "Paquetes",
-      "packagesCta": "Descubre nuestros paquetes ",
+      "packagesCta": "Descubre nuestros paquetes",
       "outreach": "Cómo Funciona",
       "outreachCta": "Cómo funciona el método AYCL",
       "payNow": "Pago en línea",
@@ -164,6 +169,7 @@
       "subscription": "Suscripción",
       "performance": "Rendimiento",
       "setup": "Cuota de configuración",
+      "driveTest": "Drive Test",
       "outreach": "Cómo Funciona",
       "payment": "Pago",
       "home": "Inicio",
@@ -171,4 +177,3 @@
     }
   }
 }
-

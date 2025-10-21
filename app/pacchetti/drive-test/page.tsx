@@ -7,7 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { PageLayoutContainer } from "@/components/page-layout-container"
 import { Card } from "@/components/ui/card"
-import { FAQCards } from "@/components/faq-cards"
+import { FAQAccordion } from "@/components/faq-accordion"
 import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 import { Calculator, CheckCircle2 } from "lucide-react"
 import type { DriveTestOrder } from "@/lib/drive-test"
@@ -224,6 +224,7 @@ const CURRENCY = "EUR"
 
 export default function DriveTestPage() {
   const t = useTranslations("driveTest")
+  const tFaq = useTranslations("faq")
   const locale = useLocale()
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -785,7 +786,7 @@ export default function DriveTestPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section - standardized */}
       <section className="py-24 relative">
         <div className="container mx-auto px-6">
           <PageLayoutContainer>
@@ -793,13 +794,20 @@ export default function DriveTestPage() {
               <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("faq.title")}</h2>
           </div>
 
-            <FAQCards
+            <FAQAccordion
               className="mt-12"
               items={Array.from({ length: 8 }).map((_, i) => ({
                 question: t(`faq.items.${i}.q`),
-                answer: t(`faq.items.${i}.a`)
+                answer: t(`faq.items.${i}.a`),
               }))}
             />
+
+            <div className="mt-12 flex justify-center">
+              <Link href="/faq" className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-white font-semibold hover:bg-navy/90 transition">
+                {tFaq("cta.goToFaq")}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+              </Link>
+            </div>
         </PageLayoutContainer>
         </div>
       </section>

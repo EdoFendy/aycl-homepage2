@@ -71,18 +71,19 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
       : null;
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 py-24">
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 pt-36 pb-32">
       <div className="pointer-events-none absolute top-10 left-16 h-40 w-40 rounded-full bg-sky-blue/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-24 right-10 h-48 w-48 rounded-full bg-orange/10 blur-3xl" />
 
       <PageLayoutContainer className="relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">
+        <div className="mx-auto max-w-3xl space-y-6 text-center">
+          <span className="inline-flex items-center justify-center rounded-full border border-gray-200 px-5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.32em] text-gray-500 sm:text-xs">
             {t("hero.badge")}
           </span>
-          <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
-          {t("hero.title")}</h1>
-          <p className="text-sm sm:text-base text-gray-600">{t("hero.subtitle")}</p>
+          <h1 className="text-balance text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl">
+            {t("hero.title")}
+          </h1>
+          <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t("hero.subtitle")}</p>
         </div>
 
         {order ? (

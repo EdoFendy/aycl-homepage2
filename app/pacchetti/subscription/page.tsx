@@ -23,7 +23,7 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { FAQCards } from "@/components/faq-cards"
+import { FAQAccordion } from "@/components/faq-accordion"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
@@ -33,6 +33,7 @@ import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 export default function SubscriptionPage() {
   const router = useRouter()
   const t = useTranslations("pacchettiSubscription")
+  const tFaq = useTranslations("faq")
   
   useEffect(() => {
     (async function () {
@@ -597,10 +598,17 @@ export default function SubscriptionPage() {
             <h2 className="text-4xl font-bold text-navy">FAQ</h2>
           </div>
 
-          <FAQCards
+          <FAQAccordion
             className="mt-12"
             items={t.raw("faq.items")}
           />
+
+          <div className="mt-12 flex justify-center">
+            <Link href="/faq" className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-white font-semibold hover:bg-navy/90 transition">
+              {tFaq("cta.goToFaq")}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </Link>
+          </div>
         </PageLayoutContainer>
       </section>
       </div>
