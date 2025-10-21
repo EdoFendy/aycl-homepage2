@@ -26,6 +26,7 @@ import SlideArrowButton from "@/components/animata/button/slide-arrow-button"
 export default function SetUpFeePage() {
   const t = useTranslations("pacchettiSetUpFee")
   const tFaq = useTranslations("faq")
+  const investmentTag = t("researchPhase.investmentTag")
   
   useEffect(() => {
     (async function () {
@@ -220,18 +221,10 @@ export default function SetUpFeePage() {
                   ))}
                 </ul>
 
-                 <div className="mt-10 border-t border-gray-200 pt-6 text-sm text-gray-500">{t("partnership.numbersDesc")}</div>
+                <div className="mt-10 border-t border-gray-200 pt-6 text-sm text-gray-500">{t("partnership.numbersDesc")}</div>
               </div>
             </Card>
           </div>
-
-            <div className="mt-16">
-              <div className="relative overflow-hidden rounded-3xl border border-sky-blue/20 bg-gradient-to-r from-sky-blue/10 via-white to-orange/10 px-10 py-12 text-center shadow-lg">
-                <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">{t("partnership.numbersBadge")}</span>
-                <p className="mt-4 text-3xl font-bold text-navy">{t("partnership.numbersTitle")}</p>
-                <p className="mt-4 text-base text-gray-600 sm:mx-auto sm:max-w-3xl">{t("partnership.numbersDesc")}</p>
-              </div>
-            </div>
         </PageLayoutContainer>
       </section>
 
@@ -373,9 +366,11 @@ export default function SetUpFeePage() {
                   <p className="text-sm text-gray-600 mb-3">
                     {t("researchPhase.investmentDesc")}
                   </p>
-                  <div className="inline-flex items-center gap-2 bg-orange/10 rounded-full px-3 py-1">
-                    <span className="text-sm font-semibold text-orange">{t("researchPhase.investmentTag")}</span>
-                  </div>
+                  {investmentTag.trim().length > 0 && (
+                    <div className="inline-flex items-center gap-2 bg-orange/10 rounded-full px-3 py-1">
+                      <span className="text-sm font-semibold text-orange">{investmentTag}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
