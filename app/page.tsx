@@ -32,6 +32,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { FAQAccordion } from "@/components/faq-accordion"
 import DriveTestCalculator from "@/components/drive-test-calculator"
+import LeadsComparisonTable from "@/components/leads-comparison-table"
 import { LayoutWrapper } from "@/components/layout-wrapper"
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion"
 import { renderHighlightedText } from "@/lib/highlighted-text"
@@ -865,6 +866,8 @@ export default function HomePage() {
         </section>
 
         <DriveTestCalculator />
+
+        <LeadsComparisonTable />
 
         <section className="relative bg-[#f6f9ff] py-28">
           <div className="mx-auto max-w-[1320px] px-5 sm:px-10">

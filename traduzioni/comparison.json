@@ -1,0 +1,315 @@
+{
+  "it": {
+    "badge": "Confronto Metodi",
+    "title": "Traffico a Pagamento vs Passaparola vs All You Can Leads",
+    "subtitle": "Analisi comparativa dei tre approcci per la generazione lead: quale si adatta meglio alle tue esigenze?",
+    "headers": {
+      "aspect": "Aspetto",
+      "paidTraffic": "Traffico a Pagamento",
+      "wordOfMouth": "Passaparola",
+      "aycl": "All You Can Leads"
+    },
+    "rows": {
+      "contact": {
+        "aspect": "Modalità di contatto",
+        "paidTraffic": "Attende l'utente, targeting su keyword/interessi",
+        "wordOfMouth": "Contatto diretto con raccomandazioni personali",
+        "wordOfMouthNote": "Lente e casuali",
+        "aycl": "Contatto diretto, mirato e strutturato",
+        "badge": "Strategico"
+      },
+      "objective": {
+        "aspect": "Obiettivo principale",
+        "paidTraffic": "Generare lead tramite clic o form su landing page",
+        "wordOfMouth": "Conversazioni B2B qualificate e appuntamenti reali",
+        "aycl": "Conversazioni qualificate, +40% tasso risposta",
+        "badge": "Alto Tasso"
+      },
+      "targeting": {
+        "aspect": "Targeting e precisione",
+        "paidTraffic": "Generico o segmentato, meno preciso",
+        "wordOfMouth": "Limitato al network personale",
+        "wordOfMouthNote": "Mirato ma non scalabile",
+        "aycl": "Mirato su ruolo, settore e decision maker",
+        "badge": "Precisione AI"
+      },
+      "quality": {
+        "aspect": "Qualità dei lead",
+        "paidTraffic": "Lead freddi, bassa conversione",
+        "wordOfMouth": "Lead profilati, alta probabilità di conversazione",
+        "wordOfMouthNote": "Dipende dal mittente",
+        "aycl": "Lead profilati, alta probabilità di conversazione",
+        "badge": "Qualità Premium"
+      },
+      "timing": {
+        "aspect": "Tempismo e controllo",
+        "paidTraffic": "Poco controllo, dipende dai click",
+        "wordOfMouth": "Lento e casuale",
+        "wordOfMouthNote": "Dipende dalla disponibilità",
+        "aycl": "Contatto diretto, gestione immediata con AI + supervisione umana",
+        "badge": "Real-Time"
+      },
+      "scalability": {
+        "aspect": "Scalabilità",
+        "paidTraffic": "Facile ma costosa, rischio saturazione",
+        "wordOfMouth": "Limitata, crescita lineare",
+        "wordOfMouthNote": "Dipende dal network",
+        "aycl": "Scalabile con tecnologia e approccio umano",
+        "badge": "Crescita Esponenziale"
+      },
+      "personalization": {
+        "aspect": "Personalizzazione",
+        "paidTraffic": "Limitata e standardizzata",
+        "wordOfMouth": "Profonda e adattata a target, settore e contesto",
+        "wordOfMouthNote": "Ma non scalabile",
+        "aycl": "Profonda e adattata a target, settore e decision maker",
+        "badge": "Iper-Personalizzata"
+      },
+      "measurability": {
+        "aspect": "Misurabilità / dati",
+        "paidTraffic": "Metriche base (clic, conversione), dati limitati",
+        "wordOfMouth": "Difficile tracciare ROI e performance",
+        "wordOfMouthNote": "Dati qualitativi",
+        "aycl": "Dashboard proprietaria (Sendura), dati real-time e ottimizzazione continua",
+        "badge": "Data-Driven"
+      },
+      "humanRole": {
+        "aspect": "Ruolo umano",
+        "paidTraffic": "Minimo, gestione campagne",
+        "wordOfMouth": "Massimo, relazioni personali",
+        "wordOfMouthNote": "Non scalabile",
+        "aycl": "Supervisione strategica + comunicazione empatica",
+        "badge": "Umano + AI"
+      },
+      "result": {
+        "aspect": "Risultato tipico",
+        "paidTraffic": "Molti lead ma poco qualificati, ROI variabile",
+        "wordOfMouth": "Opportunità sporadiche, non scalabile",
+        "wordOfMouthNote": "Dipende dal network",
+        "aycl": "Conversazioni qualificate, -31% costo per lead",
+        "badge": "ROI Ottimizzato"
+      },
+      "vision": {
+        "aspect": "Visione complessiva",
+        "paidTraffic": "Azione tattica, breve termine, dipendenza dai canali",
+        "wordOfMouth": "Totale ma casuale, non strategico",
+        "wordOfMouthNote": "Opportunità sporadiche",
+        "aycl": "Ecosistema dinamico, crescita continua, tecnologia + intelligenza umana",
+        "badge": "Strategia Olistica"
+      }
+    },
+    "cta": {
+      "text": "Pronto a rivoluzionare la tua generazione lead?",
+      "button": "Scopri All You Can Leads"
+    }
+  },
+  "en": {
+    "badge": "Method Comparison",
+    "title": "Paid Traffic vs Word of Mouth vs All You Can Leads",
+    "subtitle": "Comparative analysis of three lead generation approaches: which one best suits your needs?",
+    "headers": {
+      "aspect": "Aspect",
+      "paidTraffic": "Paid Traffic",
+      "wordOfMouth": "Word of Mouth",
+      "aycl": "All You Can Leads"
+    },
+    "rows": {
+      "contact": {
+        "aspect": "Contact method",
+        "paidTraffic": "Wait for users, targeting on keywords/interests",
+        "wordOfMouth": "Direct contact with personal recommendations",
+        "wordOfMouthNote": "Slow and random",
+        "aycl": "Direct, targeted and structured contact",
+        "badge": "Strategic"
+      },
+      "objective": {
+        "aspect": "Main objective",
+        "paidTraffic": "Generate leads through clicks or forms on landing pages",
+        "wordOfMouth": "Qualified B2B conversations and real appointments",
+        "aycl": "Qualified conversations, +40% response rate",
+        "badge": "High Rate"
+      },
+      "targeting": {
+        "aspect": "Targeting and precision",
+        "paidTraffic": "Generic or segmented, less precise",
+        "wordOfMouth": "Limited to personal network",
+        "wordOfMouthNote": "Targeted but not scalable",
+        "aycl": "Targeted by role, industry and decision maker",
+        "badge": "AI Precision"
+      },
+      "quality": {
+        "aspect": "Lead quality",
+        "paidTraffic": "Cold leads, low conversion",
+        "wordOfMouth": "Profiled leads, high conversation probability",
+        "wordOfMouthNote": "Depends on sender",
+        "aycl": "Profiled leads, high conversation probability",
+        "badge": "Premium Quality"
+      },
+      "timing": {
+        "aspect": "Timing and control",
+        "paidTraffic": "Little control, depends on clicks",
+        "wordOfMouth": "Slow and random",
+        "wordOfMouthNote": "Depends on availability",
+        "aycl": "Direct contact, immediate management with AI + human supervision",
+        "badge": "Real-Time"
+      },
+      "scalability": {
+        "aspect": "Scalability",
+        "paidTraffic": "Easy but expensive, saturation risk",
+        "wordOfMouth": "Limited, linear growth",
+        "wordOfMouthNote": "Depends on network",
+        "aycl": "Scalable with technology and human approach",
+        "badge": "Exponential Growth"
+      },
+      "personalization": {
+        "aspect": "Personalization",
+        "paidTraffic": "Limited and standardized",
+        "wordOfMouth": "Deep and adapted to target, industry and context",
+        "wordOfMouthNote": "But not scalable",
+        "aycl": "Deep and adapted to target, industry and decision maker",
+        "badge": "Hyper-Personalized"
+      },
+      "measurability": {
+        "aspect": "Measurability / data",
+        "paidTraffic": "Basic metrics (clicks, conversion), limited data",
+        "wordOfMouth": "Difficult to track ROI and performance",
+        "wordOfMouthNote": "Qualitative data",
+        "aycl": "Proprietary dashboard (Sendura), real-time data and continuous optimization",
+        "badge": "Data-Driven"
+      },
+      "humanRole": {
+        "aspect": "Human role",
+        "paidTraffic": "Minimal, campaign management",
+        "wordOfMouth": "Maximum, personal relationships",
+        "wordOfMouthNote": "Not scalable",
+        "aycl": "Strategic supervision + empathetic communication",
+        "badge": "Human + AI"
+      },
+      "result": {
+        "aspect": "Typical result",
+        "paidTraffic": "Many leads but poorly qualified, variable ROI",
+        "wordOfMouth": "Sporadic opportunities, not scalable",
+        "wordOfMouthNote": "Depends on network",
+        "aycl": "Qualified conversations, -31% cost per lead",
+        "badge": "Optimized ROI"
+      },
+      "vision": {
+        "aspect": "Overall vision",
+        "paidTraffic": "Tactical action, short term, channel dependency",
+        "wordOfMouth": "Complete but random, not strategic",
+        "wordOfMouthNote": "Sporadic opportunities",
+        "aycl": "Dynamic ecosystem, continuous growth, technology + human intelligence",
+        "badge": "Holistic Strategy"
+      }
+    },
+    "cta": {
+      "text": "Ready to revolutionize your lead generation?",
+      "button": "Discover All You Can Leads"
+    }
+  },
+  "es": {
+    "badge": "Comparación de Métodos",
+    "title": "Tráfico de Pago vs Boca a Boca vs All You Can Leads",
+    "subtitle": "Análisis comparativo de tres enfoques de generación de leads: ¿cuál se adapta mejor a tus necesidades?",
+    "headers": {
+      "aspect": "Aspecto",
+      "paidTraffic": "Tráfico de Pago",
+      "wordOfMouth": "Boca a Boca",
+      "aycl": "All You Can Leads"
+    },
+    "rows": {
+      "contact": {
+        "aspect": "Modalidad de contacto",
+        "paidTraffic": "Espera al usuario, targeting en keywords/intereses",
+        "wordOfMouth": "Contacto directo con recomendaciones personales",
+        "wordOfMouthNote": "Lentas y casuales",
+        "aycl": "Contacto directo, dirigido y estructurado",
+        "badge": "Estratégico"
+      },
+      "objective": {
+        "aspect": "Objetivo principal",
+        "paidTraffic": "Generar leads mediante clics o formularios en landing pages",
+        "wordOfMouth": "Conversaciones B2B cualificadas y citas reales",
+        "aycl": "Conversaciones cualificadas, +40% tasa de respuesta",
+        "badge": "Alta Tasa"
+      },
+      "targeting": {
+        "aspect": "Targeting y precisión",
+        "paidTraffic": "Genérico o segmentado, menos preciso",
+        "wordOfMouth": "Limitado a la red personal",
+        "wordOfMouthNote": "Dirigido pero no escalable",
+        "aycl": "Dirigido por rol, sector y decision maker",
+        "badge": "Precisión IA"
+      },
+      "quality": {
+        "aspect": "Calidad de los leads",
+        "paidTraffic": "Leads fríos, baja conversión",
+        "wordOfMouth": "Leads perfilados, alta probabilidad de conversación",
+        "wordOfMouthNote": "Depende del remitente",
+        "aycl": "Leads perfilados, alta probabilidad de conversación",
+        "badge": "Calidad Premium"
+      },
+      "timing": {
+        "aspect": "Timing y control",
+        "paidTraffic": "Poco control, depende de los clics",
+        "wordOfMouth": "Lento y casual",
+        "wordOfMouthNote": "Depende de la disponibilidad",
+        "aycl": "Contacto directo, gestión inmediata con IA + supervisión humana",
+        "badge": "Tiempo Real"
+      },
+      "scalability": {
+        "aspect": "Escalabilidad",
+        "paidTraffic": "Fácil pero costosa, riesgo de saturación",
+        "wordOfMouth": "Limitada, crecimiento lineal",
+        "wordOfMouthNote": "Depende de la red",
+        "aycl": "Escalable con tecnología y enfoque humano",
+        "badge": "Crecimiento Exponencial"
+      },
+      "personalization": {
+        "aspect": "Personalización",
+        "paidTraffic": "Limitada y estandarizada",
+        "wordOfMouth": "Profunda y adaptada a target, sector y contexto",
+        "wordOfMouthNote": "Pero no escalable",
+        "aycl": "Profunda y adaptada a target, sector y decision maker",
+        "badge": "Hiper-Personalizada"
+      },
+      "measurability": {
+        "aspect": "Medibilidad / datos",
+        "paidTraffic": "Métricas básicas (clics, conversión), datos limitados",
+        "wordOfMouth": "Difícil rastrear ROI y performance",
+        "wordOfMouthNote": "Datos cualitativos",
+        "aycl": "Dashboard propietario (Sendura), datos en tiempo real y optimización continua",
+        "badge": "Data-Driven"
+      },
+      "humanRole": {
+        "aspect": "Rol humano",
+        "paidTraffic": "Mínimo, gestión de campañas",
+        "wordOfMouth": "Máximo, relaciones personales",
+        "wordOfMouthNote": "No escalable",
+        "aycl": "Supervisión estratégica + comunicación empática",
+        "badge": "Humano + IA"
+      },
+      "result": {
+        "aspect": "Resultado típico",
+        "paidTraffic": "Muchos leads pero poco cualificados, ROI variable",
+        "wordOfMouth": "Oportunidades esporádicas, no escalable",
+        "wordOfMouthNote": "Depende de la red",
+        "aycl": "Conversaciones cualificadas, -31% coste por lead",
+        "badge": "ROI Optimizado"
+      },
+      "vision": {
+        "aspect": "Visión global",
+        "paidTraffic": "Acción táctica, corto plazo, dependencia de canales",
+        "wordOfMouth": "Total pero casual, no estratégico",
+        "wordOfMouthNote": "Oportunidades esporádicas",
+        "aycl": "Ecosistema dinámico, crecimiento continuo, tecnología + inteligencia humana",
+        "badge": "Estrategia Holística"
+      }
+    },
+    "cta": {
+      "text": "¿Listo para revolucionar tu generación de leads?",
+      "button": "Descubre All You Can Leads"
+    }
+  }
+}
+

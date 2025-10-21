@@ -21,6 +21,7 @@ export default getRequestConfig(async () => {
   const calcolatore = (await import("../traduzioni/calcolatore.json")).default as Record<string, any>
   const checkout = (await import("../traduzioni/checkout.json")).default as Record<string, any>
   const driveTest = (await import("../traduzioni/driveTest.json")).default as Record<string, any>
+  const comparison = (await import("../traduzioni/comparison.json")).default as Record<string, any>
 
   return {
     locale,
@@ -40,6 +41,7 @@ export default getRequestConfig(async () => {
       calcolatore: calcolatore[locale] ?? calcolatore.it,
       checkout: checkout[locale] ?? checkout.it,
       driveTest: driveTest[locale] ?? driveTest.it,
+      comparison: comparison[locale] ?? comparison.it,
     },
   }
 })
