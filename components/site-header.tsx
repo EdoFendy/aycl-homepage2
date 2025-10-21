@@ -214,7 +214,7 @@ export function SiteHeader() {
                       isActive(item.href) && "border-navy/20 bg-[#f6f9ff]",
                     )}
                   >
-                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-navy/5 sm:h-10 sm:w-10">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-transparent sm:bg-navy/5 sm:h-10 sm:w-10">
                       <Image src={item.icon} alt={item.alt} width={32} height={32} className="h-5 w-5 object-contain" />
                     </div>
                     <div className="flex min-w-0 flex-col items-center justify-center text-center">
@@ -254,7 +254,7 @@ export function SiteHeader() {
                           aria-label={pack.title}
                           className="group flex items-center gap-2.5 rounded-lg border border-navy/10 bg-white/75 px-3 py-2 sm:py-2.5 transition hover:-translate-y-0.5 hover:border-navy/20 hover:bg-[#f6f9ff]"
                         >
-                          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-navy/5 sm:h-10 sm:w-10">
+                          <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-transparent sm:bg-navy/5 sm:h-10 sm:w-10">
                             <Image src={pack.icon} alt={pack.alt} width={48} height={48} className="h-6 w-6 object-contain sm:h-[26px] sm:w-[26px]" />
                           </div>
                           <div className="flex min-w-0 flex-col items-center justify-center text-center sm:items-start sm:text-left">
