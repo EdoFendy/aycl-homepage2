@@ -167,6 +167,9 @@
     font-weight: 400;
     font-style: normal;
   }
+  strong {
+    @apply font-semibold text-orange;
+  }
 }
 
 @media (max-width: 768px) {

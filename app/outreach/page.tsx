@@ -9,6 +9,7 @@ import { useEffect } from "react"
 import { CheckCircle2, XCircle, Check, X, CheckCircle, Clock, Settings, ArrowRight, TrendingUp, Users, Database, Target, Cpu, Zap } from "lucide-react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
 import { LayoutWrapper } from "@/components/layout-wrapper"
+import { renderHighlightedText } from "@/lib/highlighted-text"
 
 type Quote = {
   text: string
@@ -55,9 +56,7 @@ export default function OutreachPage() {
 
   const heroLead = heroParagraphs.slice(0, 2).join(" ")
   const heroContext = heroParagraphs.slice(2, 4)
-  const heroOutcome = heroParagraphs.slice(4)
-  const heroOutcomePrimary = heroOutcome[0] ?? ""
-  const heroOutcomeSecondary = heroOutcome[1] ?? ""
+  const heroOutcomePrimary = heroParagraphs[4] ?? ""
   const heroContextIcons: IconAsset[] = [
     { src: "/iconaHome.png", alt: "Icona esigenza interna" },
     { src: "/iconaPerformance.png", alt: "Icona performance in calo" },
@@ -156,12 +155,12 @@ export default function OutreachPage() {
                 </h1>
 
                 <p className="max-w-[540px] text-lg sm:text-xl text-gray-600 leading-relaxed">
-                  {heroLead}
+                  {renderHighlightedText(heroLead)}
                 </p>
 
                 <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
                   {heroContext.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
+                    <p key={index}>{renderHighlightedText(paragraph)}</p>
                   ))}
                 </div>
 
@@ -182,7 +181,9 @@ export default function OutreachPage() {
 
                 {heroOutcomePrimary && (
                   <div className="rounded-xl border border-orange/30 bg-orange/5 px-5 py-4">
-                    <p className="text-sm font-medium text-navy">{heroOutcomePrimary}</p>
+                    <p className="text-sm font-medium text-navy">
+                      {renderHighlightedText(heroOutcomePrimary)}
+                    </p>
                   </div>
                 )}
               </div>
@@ -217,7 +218,9 @@ export default function OutreachPage() {
                 {t("principle.title")}
               </span>
               <h2 className="text-3xl font-bold text-navy sm:text-4xl">{t("principle.title")}</h2>
-              <p className="text-base leading-relaxed text-slate-600 sm:text-lg">{principleIntro}</p>
+              <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
+                {renderHighlightedText(principleIntro)}
+              </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {principleHighlights.map((paragraph, index) => {
@@ -239,7 +242,9 @@ export default function OutreachPage() {
                       </div>
                   
                     </div>
-                    <p className="mt-4 text-sm leading-relaxed text-gray-700">{paragraph}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-gray-700">
+                      {renderHighlightedText(paragraph)}
+                    </p>
                   </div>
                 )
               })}
@@ -247,7 +252,9 @@ export default function OutreachPage() {
           </div>
           {principleClosing.length > 0 && (
             <div className="mt-12 rounded-3xl border border-orange/20 bg-gradient-to-r from-orange/5 via-white to-sky-blue/10 px-8 py-10 shadow-[0_32px_60px_-40px_rgba(255,165,0,0.35)]">
-              <p className="text-base font-semibold text-navy sm:text-lg">{principleClosing.join(" ")}</p>
+              <p className="text-base font-semibold text-navy sm:text-lg">
+                {renderHighlightedText(principleClosing.join(" "))}
+              </p>
             </div>
           )}
         </PageLayoutContainer>
@@ -282,7 +289,9 @@ export default function OutreachPage() {
                           className="h-8 w-8 object-contain"
                         />
                       </div>
-                      <p className="text-sm leading-relaxed text-gray-700">{paragraph}</p>
+                      <p className="text-sm leading-relaxed text-gray-700">
+                        {renderHighlightedText(paragraph)}
+                      </p>
                     </div>
                   )
                 })}
@@ -331,7 +340,9 @@ export default function OutreachPage() {
                       className="h-8 w-8 object-contain"
                     />
                   </div>
-                  <p className="mt-5 text-sm leading-relaxed text-white">{paragraph}</p>
+                  <p className="mt-5 text-sm leading-relaxed text-white">
+                    {renderHighlightedText(paragraph)}
+                  </p>
                 </article>
               )
             })}
@@ -348,7 +359,9 @@ export default function OutreachPage() {
               {t("ai.title")}
             </span>
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("ai.title")}</h2>
-            <p className="mt-4 text-base text-gray-600 sm:text-lg">{architectureLead}</p>
+            <p className="mt-4 text-base text-gray-600 sm:text-lg">
+              {renderHighlightedText(architectureLead)}
+            </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {aiQuotes.map((quote, index) => (
@@ -484,7 +497,7 @@ export default function OutreachPage() {
                             <XCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-red-500 stroke-2" />
                           </div>
                           <span className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium leading-tight break-words">
-                            {row.traditional}
+                            {renderHighlightedText(row.traditional)}
                           </span>
                         </div>
                       </div>
@@ -497,7 +510,7 @@ export default function OutreachPage() {
                               <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-green-500 stroke-2" />
                             </div>
                             <span className="text-[10px] sm:text-xs md:text-sm text-gray-900 font-medium leading-tight break-words">
-                              {row.aycl}
+                              {renderHighlightedText(row.aycl)}
                             </span>
                           </div>
                           {badgeMap[row.aspect] && (
@@ -541,7 +554,9 @@ export default function OutreachPage() {
               {t("sendura.title")}
             </span>
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("sendura.title")}</h2>
-            <p className="mt-4 text-base text-gray-600 sm:text-lg">{t("sendura.intro")}</p>
+            <p className="mt-4 text-base text-gray-600 sm:text-lg">
+              {renderHighlightedText(t("sendura.intro"))}
+            </p>
           </div>
           <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_1.15fr] xl:gap-16">
             {/* Image - Larger on mobile */}
@@ -567,14 +582,18 @@ export default function OutreachPage() {
                     <div className="flex h-6 w-6 items-center justify-center rounded-full bg-orange/20 flex-shrink-0 mt-0.5">
                       <Check className="h-3.5 w-3.5 text-orange" />
                     </div>
-                    <p className="text-sm text-gray-700 leading-relaxed">{bullet}</p>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {renderHighlightedText(bullet)}
+                    </p>
                   </div>
                 ))}
               </div>
               
               {/* Minimal closing statement */}
               <div className="rounded-xl border border-orange/30 bg-orange/5 px-5 py-4">
-                <p className="text-sm font-medium text-navy">{t("sendura.closing")}</p>
+                <p className="text-sm font-medium text-navy">
+                  {renderHighlightedText(t("sendura.closing"))}
+                </p>
               </div>
             </div>
           </div>
@@ -598,7 +617,7 @@ export default function OutreachPage() {
               <div className="space-y-4">
                 {learningParagraphs.map((paragraph, index) => (
                   <p key={index} className="text-base leading-relaxed text-gray-700">
-                    {paragraph}
+                    {renderHighlightedText(paragraph)}
                   </p>
                 ))}
               </div>
@@ -607,13 +626,13 @@ export default function OutreachPage() {
                 {learningBullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700">
                     <span className="text-sky-blue font-bold mt-1">•</span>
-                    <span>{bullet}</span>
+                    <span>{renderHighlightedText(bullet)}</span>
                   </li>
                 ))}
               </ul>
 
               <p className="pt-4 text-base font-medium text-navy italic border-t border-sky-blue/20">
-                {t("learning.closing")}
+                {renderHighlightedText(t("learning.closing"))}
               </p>
             </div>
 
@@ -627,20 +646,20 @@ export default function OutreachPage() {
               <h3 className="text-2xl font-semibold text-navy">{t("personalization.title")}</h3>
               
               <p className="text-base leading-relaxed text-gray-700">
-                {t("personalization.intro")}
+                {renderHighlightedText(t("personalization.intro"))}
               </p>
 
               <ul className="space-y-3 pt-4">
                 {personalizationBullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700">
                     <span className="text-orange font-bold mt-1">•</span>
-                    <span>{bullet}</span>
+                    <span>{renderHighlightedText(bullet)}</span>
                   </li>
                 ))}
               </ul>
 
               <p className="pt-4 text-base font-medium text-navy italic border-t border-orange/20">
-                {t("personalization.closing")}
+                {renderHighlightedText(t("personalization.closing"))}
               </p>
             </div>
           </div>
@@ -649,7 +668,7 @@ export default function OutreachPage() {
           <div className="mt-16 max-w-4xl mx-auto text-center">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-navy/30 to-transparent mb-8"></div>
             <p className="text-lg font-semibold text-navy leading-relaxed">
-              {t("microcopy")}
+              {renderHighlightedText(t("microcopy"))}
             </p>
           </div>
         </PageLayoutContainer>
@@ -665,7 +684,9 @@ export default function OutreachPage() {
               {t("humanAi.title")}
             </span>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{t("humanAi.title")}</h2>
-            <p className="mt-4 text-base text-white/80 sm:text-lg">{t("humanAi.intro")}</p>
+            <p className="mt-4 text-base text-white/80 sm:text-lg">
+              {renderHighlightedText(t("humanAi.intro"))}
+            </p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             <article className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.25)] backdrop-blur-md">
@@ -683,7 +704,7 @@ export default function OutreachPage() {
                 {humanAiAiList.map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm leading-relaxed">
                     <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white"></span>
-                    <span>{item}</span>
+                    <span>{renderHighlightedText(item)}</span>
                   </li>
                 ))}
               </ul>
@@ -703,14 +724,14 @@ export default function OutreachPage() {
                 {humanAiHumanList.map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm leading-relaxed">
                     <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white"></span>
-                    <span>{item}</span>
+                    <span>{renderHighlightedText(item)}</span>
                   </li>
                 ))}
               </ul>
             </article>
           </div>
           <div className="mt-10 text-center text-sm font-semibold text-orange">
-            {t("humanAi.closing")}
+            {renderHighlightedText(t("humanAi.closing"))}
           </div>
         </PageLayoutContainer>
       </section>
@@ -727,18 +748,20 @@ export default function OutreachPage() {
               <h2 className="text-3xl font-bold text-navy sm:text-4xl">{t("ecosystem.title")}</h2>
               {ecosystemParagraphs.map((paragraph, index) => (
                 <p key={index} className="text-sm leading-relaxed text-gray-700 sm:text-base">
-                  {paragraph}
+                  {renderHighlightedText(paragraph)}
                 </p>
               ))}
               <ul className="space-y-3">
                 {ecosystemLevels.map((level, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700 sm:text-base">
                     <span className="text-sky-blue font-bold mt-1">•</span>
-                    <span>{level}</span>
+                    <span>{renderHighlightedText(level)}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-sm font-semibold text-navy sm:text-base">{t("ecosystem.closing")}</p>
+              <p className="text-sm font-semibold text-navy sm:text-base">
+                {renderHighlightedText(t("ecosystem.closing"))}
+              </p>
             </div>
             <div className="relative">
               <Image

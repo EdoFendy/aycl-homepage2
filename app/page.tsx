@@ -34,6 +34,7 @@ import { FAQAccordion } from "@/components/faq-accordion"
 import DriveTestCalculator from "@/components/drive-test-calculator"
 import { LayoutWrapper } from "@/components/layout-wrapper"
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion"
+import { renderHighlightedText } from "@/lib/highlighted-text"
 
 interface StatsCardConfig {
   key: "cpc" | "budget" | "leads"
@@ -313,11 +314,11 @@ export default function HomePage() {
                 </h1>
 
                 <p className="max-w-[540px] text-lg leading-relaxed text-gray-600 sm:text-xl" aria-label={heroSubtitle}>
-                  {heroSubtitle}
+                  {renderHighlightedText(heroSubtitle)}
                 </p>
 
                 <p className="max-w-[540px] text-base leading-relaxed text-gray-600/85 sm:text-lg" aria-label={heroDescription}>
-                  {heroDescription}
+                  {renderHighlightedText(heroDescription)}
                 </p>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -384,8 +385,8 @@ export default function HomePage() {
                     {t("story.title")}
                   </h2>
                   <div className="space-y-4 text-base leading-relaxed text-gray-600 sm:text-lg">
-                    <p>{t("story.text1")}</p>
-                    <p>{t("story.text2")}</p>
+                    <p>{renderHighlightedText(t("story.text1"))}</p>
+                    <p>{renderHighlightedText(t("story.text2"))}</p>
                   </div>
                 </div>
                 <div className="order-1 flex justify-center lg:order-2">
@@ -507,8 +508,12 @@ export default function HomePage() {
                   <h3 className="text-3xl font-bold leading-snug text-navy sm:text-[2.125rem]">
                     {t("solution.tech.title")}
                   </h3>
-                  <p className="text-lg leading-relaxed text-gray-600">{t("solution.tech.text1")}</p>
-                  <p className="text-lg leading-relaxed text-gray-600">{t("solution.tech.text2")}</p>
+                  <p className="text-lg leading-relaxed text-gray-600">
+                    {renderHighlightedText(t("solution.tech.text1"))}
+                  </p>
+                  <p className="text-lg leading-relaxed text-gray-600">
+                    {renderHighlightedText(t("solution.tech.text2"))}
+                  </p>
 
                   <div className="space-y-3">
                     {([
