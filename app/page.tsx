@@ -673,7 +673,7 @@ export default function HomePage() {
                           {t(`process.steps.${key}.title`)}
                         </h3>
                         <p className="max-w-xl text-lg leading-relaxed text-gray-600 md:ml-auto md:max-w-none">
-                          {t(`process.steps.${key}.desc`)}
+                          {renderHighlightedText(t(`process.steps.${key}.desc`))}
                         </p>
                         <Link
                           href="/pacchetti"

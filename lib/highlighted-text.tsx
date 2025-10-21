@@ -1,23 +1,28 @@
 import { Fragment, type ReactNode } from "react"
 
 export function renderHighlightedText(text: string): ReactNode {
-  if (!text.includes("**")) {
+  if (!text.includes("**") && !text.includes("##")) {
     return text
   }
 
-  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  // Split by both ** and ## patterns
+  const parts = text.split(/(\*\*[^*]+\*\*|##[^#]+##)/g)
 
   return parts.map((part, index) => {
-    const isHighlighted = part.startsWith("**") && part.endsWith("**")
+    const isOrange = part.startsWith("**") && part.endsWith("**")
+    const isSkyBlue = part.startsWith("##") && part.endsWith("##")
 
-    if (!isHighlighted) {
+    if (!isOrange && !isSkyBlue) {
       return <Fragment key={index}>{part}</Fragment>
     }
 
     const content = part.slice(2, -2)
 
     return (
-      <strong key={index} className="font-semibold text-orange">
+      <strong 
+        key={index} 
+        className={`font-semibold ${isOrange ? "text-orange" : "text-sky-blue"}`}
+      >
         {content}
       </strong>
     )

@@ -51,8 +51,8 @@
       "subtitle": "Sistema internazionale di generazione appuntamenti B2B qualificati",
       "tech": {
         "title": "Tecnologia e Dati di proprietà",
-        "text1": "Utilizziamo **strutture tecnologiche di nostra proprietà**, tra cui **Sendura** (la nostra software app). Integrate con **banche dati verificate** e arricchite costantemente, anche grazie a strumenti di **intelligenza artificiale**.",
-        "text2": "Questo ci permette di raggiungere **cluster di mercato specifici**, con **messaggi mirati**, e portarti direttamente al tavolo con figure che contano davvero.",
+        "text1": "Utilizziamo strutture tecnologiche di nostra proprietà, tra cui ##Sendura## (la nostra software app). Integrate con ##banche dati## verificate e arricchite costantemente, anche grazie a strumenti di ##intelligenza artificiale##.",
+        "text2": "Questo ci permette di raggiungere cluster di mercato specifici, con messaggi mirati, e portarti direttamente al tavolo con **figure che contano davvero**.",
         "features": {
           "database": {
             "title": "Database Proprietari",
@@ -98,17 +98,17 @@
         "icp": {
           "label": "Fondamenta",
           "title": "Definizione dell'ICP",
-          "desc": "Il primo passo è individuare il profilo del tuo cliente ideale, in base a fattori oggettivi e verificabili. In questo modo stabiliamo i parametri di qualifica dell’appuntamento. Solo se il lead corrisponde all’ICP l’appuntamento è considerato qualificato."
+          "desc": "Il primo passo è individuare il **profilo del tuo cliente ideale**, in base a fattori **oggettivi e verificabili**. In questo modo stabiliamo i **parametri di qualifica** dell'appuntamento. Solo se il lead corrisponde all'##ICP## l'appuntamento è considerato **qualificato**."
         },
         "strategy": {
           "label": "Attivazione",
           "title": "Piano strategico",
-          "desc": "Ci confrontiamo per mettere a punto una strategia personalizzata. Definiamo i canali e i messaggi, selezioniamo e segmentiamo i contatti in target direttamente dal nostro database. Avviamo, monitoriamo e ottimizziamo per raggiungere e mantenere la massima efficienza."
+          "desc": "Ci confrontiamo per mettere a punto una **strategia personalizzata**. Definiamo i canali e i messaggi, selezioniamo e segmentiamo i **contatti in target** direttamente dal nostro ##database##. Avviamo, monitoriamo e ottimizziamo per raggiungere e mantenere la **massima efficienza**."
         },
         "quality": {
           "label": "Regime",
           "title": "Messa a regime",
-          "desc": "Dopo un primo periodo di testing (massimo 90 giorni) raggiungiamo l’efficienza operativa. Generiamo per te il flusso di opportunità concordato e continuiamo a confrontarci per ottenere risultati sempre migliori nel tempo."
+          "desc": "Dopo un primo periodo di ##testing## (massimo 90 giorni) raggiungiamo l'**efficienza operativa**. Generiamo per te il **flusso di opportunità** concordato e continuiamo a confrontarci per ottenere **risultati sempre migliori** nel tempo."
         }
       }
     },
@@ -283,8 +283,8 @@
       "subtitle": "International system for generating qualified B2B appointments",
       "tech": {
         "title": "Proprietary Technology and Data",
-        "text1": "We use **proprietary technological structures**, including **Sendura** (our software app). Integrated with **verified and constantly enriched databases**, also thanks to **artificial intelligence** tools.",
-        "text2": "This allows us to reach **specific market clusters**, with **targeted messages**, and bring you directly to the table with figures that really matter.",
+        "text1": "We use proprietary technological structures, including ##Sendura## (our software app). Integrated with ##verified and constantly enriched databases##, also thanks to ##artificial intelligence## tools.",
+        "text2": "This allows us to reach specific market clusters, with targeted messages, and bring you directly to the table with **figures that really matter**.",
         "features": {
           "database": {
             "title": "Proprietary Databases",
@@ -330,17 +330,17 @@
         "icp": {
           "label": "Foundations",
           "title": "ICP Definition",
-          "desc": "We start by defining your ideal customer profile using objective, verifiable factors. This sets the qualification criteria for every meeting. Only when the lead matches the ICP do we consider the appointment qualified."
+          "desc": "We start by defining your **ideal customer profile** using **objective, verifiable factors**. This sets the **qualification criteria** for every meeting. Only when the lead matches the ##ICP## do we consider the appointment **qualified**."
         },
         "strategy": {
           "label": "Activation",
           "title": "Strategic plan",
-          "desc": "Together we build a tailored strategy. We define channels and messaging, select and segment contacts directly from our database, then launch, monitor and optimise to reach peak efficiency."
+          "desc": "Together we build a **tailored strategy**. We define channels and messaging, select and segment **in-target contacts** directly from our ##database##, then launch, monitor and optimise to reach **peak efficiency**."
         },
         "quality": {
           "label": "Regime",
           "title": "Operational ramp-up",
-          "desc": "After a testing window (max 90 days) we reach full operational efficiency. We deliver the agreed opportunity flow and keep iterating with you to unlock even better results over time."
+          "desc": "After a ##testing## window (max 90 days) we reach full **operational efficiency**. We deliver the agreed **opportunity flow** and keep iterating with you to unlock **even better results** over time."
         }
       }
     },
@@ -515,8 +515,8 @@
       "subtitle": "Sistema internacional de generación de citas B2B cualificadas",
       "tech": {
         "title": "Tecnología y Datos propietarios",
-        "text1": "Utilizamos **estructuras tecnológicas propietarias**, incluyendo **Sendura** (nuestra aplicación de software). Integradas con **bases de datos verificadas** y enriquecidas constantemente, también gracias a herramientas de **inteligencia artificial**.",
-        "text2": "Esto nos permite alcanzar **clusters de mercado específicos**, con **mensajes dirigidos**, y llevarte directamente a la mesa con figuras que realmente importan.",
+        "text1": "Utilizamos estructuras tecnológicas propietarias, incluyendo ##Sendura## (nuestra aplicación de software). Integradas con ##bases de datos## verificadas y enriquecidas constantemente, también gracias a herramientas de ##inteligencia artificial##.",
+        "text2": "Esto nos permite alcanzar clusters de mercado específicos, con mensajes dirigidos, y llevarte directamente a la mesa con **figuras que realmente importan**.",
         "features": {
           "database": {
             "title": "Bases de Datos Propietarias",
@@ -562,17 +562,17 @@
         "icp": {
           "label": "Fundamentos",
           "title": "Definición del ICP",
-          "desc": "El primer paso es identificar el perfil de tu cliente ideal, basándonos en factores objetivos y verificables. Así fijamos los parámetros para calificar una cita. Solo si el lead corresponde al ICP la cita se considera cualificada."
+          "desc": "El primer paso es identificar el **perfil de tu cliente ideal**, basándonos en factores **objetivos y verificables**. Así fijamos los **parámetros de calificación**. Solo si el lead corresponde al ##ICP## la cita se considera **cualificada**."
         },
         "strategy": {
           "label": "Activación",
           "title": "Plan estratégico",
-          "desc": "Nos alineamos contigo para diseñar una estrategia personalizada. Definimos canales y mensajes, seleccionamos y segmentamos los contactos en target directamente desde nuestra base de datos. Lanzamos, monitorizamos y optimizamos para mantener la máxima eficiencia."
+          "desc": "Nos alineamos contigo para diseñar una **estrategia personalizada**. Definimos canales y mensajes, seleccionamos y segmentamos los **contactos en target** directamente desde nuestra ##base de datos##. Lanzamos, monitorizamos y optimizamos para mantener la **máxima eficiencia**."
         },
         "quality": {
           "label": "Régimen",
           "title": "Puesta en régimen",
-          "desc": "Tras un periodo inicial de testing (máximo 90 días) alcanzamos la eficiencia operativa. Generamos el flujo de oportunidades acordado y seguimos iterando contigo para lograr resultados cada vez mejores."
+          "desc": "Tras un periodo inicial de ##testing## (máximo 90 días) alcanzamos la **eficiencia operativa**. Generamos el **flujo de oportunidades** acordado y seguimos iterando contigo para lograr **resultados cada vez mejores**."
         }
       }
     },

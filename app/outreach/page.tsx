@@ -154,11 +154,8 @@ export default function OutreachPage() {
                   })}
                 </h1>
 
-                <p className="max-w-[540px] text-lg sm:text-xl text-gray-600 leading-relaxed">
-                  {renderHighlightedText(heroLead)}
-                </p>
-
-                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed">
+                <div className="space-y-4 text-base sm:text-lg text-gray-600 leading-relaxed">
+                  <p>{renderHighlightedText(heroLead)}</p>
                   {heroContext.map((paragraph, index) => (
                     <p key={index}>{renderHighlightedText(paragraph)}</p>
                   ))}
@@ -181,7 +178,7 @@ export default function OutreachPage() {
 
                 {heroOutcomePrimary && (
                   <div className="rounded-xl border border-orange/30 bg-orange/5 px-5 py-4">
-                    <p className="text-sm font-medium text-navy">
+                    <p className="text-base sm:text-lg font-medium text-navy">
                       {renderHighlightedText(heroOutcomePrimary)}
                     </p>
                   </div>

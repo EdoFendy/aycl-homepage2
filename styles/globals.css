@@ -168,7 +168,7 @@
     font-style: normal;
   }
   strong {
-    @apply font-semibold text-orange;
+    @apply font-semibold;
   }
 }
 
