@@ -9,7 +9,7 @@ interface RequestPayload {
 
 const ADMIN_API_BASE = process.env.ADMIN_API_BASE;
 const ADMIN_API_TOKEN = process.env.ADMIN_API_TOKEN;
-const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "stripe";
+const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "redsys";
 
 export async function POST(request: Request) {
   if (!ADMIN_API_BASE || !ADMIN_API_TOKEN) {
@@ -34,6 +34,26 @@ export async function POST(request: Request) {
   const order = normalizeOrder(payload.order);
   const customer = normalizeCustomer(payload.customer);
 
+  console.log("[DriveTestPayment] Processing request:", {
+    order: {
+      package: order.package,
+      quantity: order.quantity,
+      unitPrice: order.unitPrice,
+      total: order.total,
+      currency: order.currency,
+    },
+    customer: {
+      firstName: customer.firstName,
+      lastName: customer.lastName,
+      email: customer.email,
+    },
+    env: {
+      apiBaseConfigured: !!ADMIN_API_BASE,
+      apiTokenConfigured: !!ADMIN_API_TOKEN,
+      gatewayId: ADMIN_PAYMENT_GATEWAY_ID,
+    }
+  });
+
   const validationError = validatePayload(order, customer);
   if (validationError) {
     return NextResponse.json({ message: validationError }, { status: 400 });
@@ -41,6 +61,7 @@ export async function POST(request: Request) {
 
   try {
     const product = await createDriveTestProduct(order);
+    console.log("[DriveTestPayment] Product created successfully:", { productId: product.id });
     const paymentLink = await createPaymentLink(order, product.id, customer);
 
     return NextResponse.json({ paymentUrl: paymentLink.payment_url }, { status: 200 });
@@ -100,7 +121,20 @@ async function createDriveTestProduct(order: DriveTestOrder) {
 
   if (!response.ok) {
     const errorPayload = await safeParseJSON(response);
-    throw new Error(errorPayload?.message || "Failed to create product");
+    const errorMessage = errorPayload?.message || "Failed to create product";
+    console.error("[DriveTestPayment] Product creation failed:", {
+      status: response.status,
+      statusText: response.statusText,
+      errorPayload,
+      requestBody: {
+        name: order.metadata?.productName?.trim() || `${order.package} - ${order.quantity}`,
+        type: "simple",
+        status: "publish",
+        sku: `drive-test-${Date.now()}`,
+        regular_price: formatPriceString(order.unitPrice),
+      }
+    });
+    throw new Error(errorMessage);
   }
 
   return response.json() as Promise<{ id: number }>;
@@ -140,7 +174,27 @@ async function createPaymentLink(
 
   if (!response.ok) {
     const errorPayload = await safeParseJSON(response);
-    throw new Error(errorPayload?.message || "Failed to create payment link");
+    const errorMessage = errorPayload?.message || "Failed to create payment link";
+    console.error("[DriveTestPayment] Payment link creation failed:", {
+      status: response.status,
+      statusText: response.statusText,
+      errorPayload: JSON.stringify(errorPayload, null, 2),
+      requestBody: {
+        gateway: ADMIN_PAYMENT_GATEWAY_ID,
+        customer: {
+          first_name: customer.firstName,
+          last_name: customer.lastName,
+          email: customer.email,
+        },
+        items: [
+          {
+            product_id: productId,
+            quantity,
+          },
+        ],
+      }
+    });
+    throw new Error(errorMessage);
   }
 
   return response.json() as Promise<{ payment_url: string }>;

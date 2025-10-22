@@ -207,7 +207,7 @@ export async function createWooPaymentLink(payload: {
   }
 
   const requestBody = {
-    gateway: "stripe",
+    gateway: "redsys",
     customer: {
       first_name: payload.customer.firstName,
       last_name: payload.customer.lastName,
