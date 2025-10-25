@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
@@ -445,100 +446,124 @@ export default function OutreachPage() {
                 </div>
               </div>
 
-              {/* Table Rows */}
-              <div className="divide-y divide-gray-100">
-                {comparisonRows.map((row, index) => {
-                  // Mappa delle icone per ogni aspetto
+   {/* Headings */}
+<div className="grid grid-cols-3 gap-4 sm:gap-6 mb-3 sm:mb-4">
+  {/* ADV */}
+  <div className="rounded-2xl border-2 border-[#0A2B6B] px-4 sm:px-6 py-3 sm:py-4 text-center">
+    <span className="text-[#0A2B6B] font-extrabold tracking-wide text-sm sm:text-base">
+      ADV
+    </span>
+  </div>
+
+  {/* PASSAPAROLA */}
+  <div className="rounded-2xl border-2 border-[#0A2B6B] px-4 sm:px-6 py-3 sm:py-4 text-center">
+    <span className="text-[#0A2B6B] font-extrabold tracking-wide text-sm sm:text-base">
+      PASSAPAROLA
+    </span>
+  </div>
+
+  {/* AYCL */}
+  <div className="rounded-2xl border-2 border-[#F4AD42] px-4 sm:px-6 py-3 sm:py-4 text-center">
+    <span className="font-extrabold tracking-wide text-sm sm:text-base text-[#F4AD42]">
+      AYCL
+    </span>
+  </div>
+</div>
+
+{/* Corpo tabella – Layout a due blocchi come nello screenshot */}
+<div className="grid md:grid-cols-[2fr_1fr] gap-4 sm:gap-6">
+  {/* Gruppo sinistro: ADV + Passaparola */}
+  <div className="rounded-2xl border-2 border-[#0A2B6B] overflow-hidden bg-white">
+    <div className="divide-y divide-[#0A2B6B]/20">
+      {comparisonRows.map((row, index) => (
+        <div
+          key={`left-${row.aspect}-${index}`}
+          className="grid grid-cols-2"
+        >
+          {/* Colonna ADV (Aspetto + icona) */}
+          <div className="px-3 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border-r border-[#0A2B6B]/15">
+            <div className="flex items-start gap-2 sm:gap-3">
+              <div className="flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 items-center justify-center text-[#0A2B6B]">
+                {(() => {
                   const iconMap: Record<string, React.ReactElement> = {
-                    "Canali": <Settings className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Obiettivo": <Target className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Dati": <Database className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Personalizzazione": <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Tecnologia": <Cpu className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Miglioramento": <TrendingUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Tempestività": <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Fattore umano": <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Risultato": <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />,
-                    "Visione": <Target className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0" />
+                    "Canali": <Settings className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Obiettivo": <Target className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Dati": <Database className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Personalizzazione": <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Tecnologia": <Cpu className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Miglioramento": <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Tempestività": <Clock className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Fattore umano": <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Risultato": <Zap className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+                    "Visione": <Target className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                   }
-                  
-                  // Badge speciali per alcune righe
-                  const badgeMap: Record<string, string> = {
-                    "Risultato": "Dato verificato",
-                    "Tecnologia": "AI Integrata"
-                  }
-
-                  return (
-                    <div
-                      key={row.aspect}
-                      className={`grid grid-cols-3 gap-1 sm:gap-0 transition-all duration-200 ${
-                        index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
-                      } hover:bg-sky-blue/5`}
-                    >
-                      {/* Colonna Aspetto */}
-                      <div className="px-1.5 sm:px-3 md:px-6 py-2.5 sm:py-3 md:py-5 border-b border-gray-100 border-r flex items-center">
-                        <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 w-full">
-                          <div className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0 items-center justify-center text-sky-blue">
-                            {iconMap[row.aspect]}
-                          </div>
-                          <h3 className="text-[10px] sm:text-xs md:text-sm font-medium text-gray-900 leading-tight break-words">
-                            {row.aspect}
-                          </h3>
-                        </div>
-                      </div>
-
-                      {/* Colonna Tradizionale */}
-                      <div className="px-1.5 sm:px-3 md:px-6 py-2.5 sm:py-3 md:py-5 border-b border-gray-100 border-r border-gray-200 flex items-center">
-                        <div className="flex items-start gap-1.5 sm:gap-2 md:gap-3 w-full">
-                          <div className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0 items-center justify-center mt-0.5">
-                            <XCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-red-500 stroke-2" />
-                          </div>
-                          <span className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium leading-tight break-words">
-                            {renderHighlightedText(row.traditional)}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Colonna AYCL */}
-                      <div className="px-1.5 sm:px-3 md:px-6 py-2.5 sm:py-3 md:py-5 border-b border-gray-100 flex items-center">
-                        <div className="flex flex-col gap-1.5 sm:gap-2 w-full">
-                          <div className="flex items-start gap-1.5 sm:gap-2 md:gap-3">
-                            <div className="flex h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 flex-shrink-0 items-center justify-center mt-0.5">
-                              <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-green-500 stroke-2" />
-                            </div>
-                            <span className="text-[10px] sm:text-xs md:text-sm text-gray-900 font-medium leading-tight break-words">
-                              {renderHighlightedText(row.aycl)}
-                            </span>
-                          </div>
-                          {badgeMap[row.aspect] && (
-                            <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
-                              <div className="w-3.5 sm:w-4 md:w-5 flex-shrink-0"></div>
-                              <span className="inline-flex items-center rounded-full bg-orange/10 border border-orange/20 px-1.5 sm:px-2 md:px-2.5 py-0.5 text-[9px] sm:text-[10px] md:text-xs font-medium text-orange h-4 sm:h-5 md:h-6 whitespace-nowrap">
-                                {badgeMap[row.aspect]}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
+                  return iconMap[row.aspect] || <Settings className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />;
+                })()}
               </div>
-
-              {/* Footer CTA */}
-              <div className="px-4 sm:px-6 py-5 sm:py-6 bg-gradient-to-r from-gray-50 via-orange-50/30 to-gray-50 border-t-2 border-gray-200 text-center rounded-b-2xl">
-                <p className="text-xs sm:text-sm text-gray-700 font-medium mb-3 sm:mb-4">
-                  Pronto a passare alla soluzione migliore?
+              <div className="flex-1">
+                <h3 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#0A2B6B] leading-tight">
+                  {row.aspect}
+                </h3>
+                <p className="mt-1 text-[11px] sm:text-xs md:text-sm text-[#0A2B6B] opacity-80 font-medium leading-snug">
+                  {renderHighlightedText(row.traditional)}
                 </p>
-                <Link href="/pacchetti">
-                  <button className="inline-flex items-center rounded-full bg-orange px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-orange/25 transition-all hover:bg-orange/90 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2 active:scale-95">
-                    Scopri i nostri pacchetti
-                    <ArrowRight className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </button>
-                </Link>
               </div>
             </div>
           </div>
+
+          {/* Colonna PASSAPAROLA (testo solo) */}
+          <div className="px-3 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5">
+            <div className="flex items-start gap-2 sm:gap-3">
+              <div className="flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 items-center justify-center mt-0.5 text-[#0A2B6B]">
+                <XCircle className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 stroke-[2.5] text-[#0A2B6B]" />
+              </div>
+              <p className="text-[11px] sm:text-xs md:text-sm text-[#0A2B6B] font-medium leading-snug opacity-80">
+                {/* riuso del campo 'traditional' per la seconda colonna se hai un secondo testo, altrimenti sostituisci con row.wordOfMouth */}
+                {renderHighlightedText(row.wordOfMouth ?? row.traditional)}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Colonna destra: AYCL */}
+  <div className="rounded-2xl border-2 border-[#F4AD42] overflow-hidden bg-[#FFF7EA]">
+    <div className="divide-y divide-[#F4AD42]/40">
+      {comparisonRows.map((row, index) => (
+        <div
+          key={`right-${row.aspect}-${index}`}
+          className="px-3 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5"
+        >
+          <div className="flex flex-col gap-1.5">
+            <p className="text-[11px] sm:text-xs md:text-sm font-extrabold text-[#F4AD42] tracking-wide">
+              {row.aspect}
+            </p>
+            <p className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#C77300] leading-snug">
+              {renderHighlightedText(row.aycl)}
+            </p>
+
+            {/* Badge opzionale come nel tuo codice */}
+            {((row: any) => {
+              const badgeMap: Record<string, string> = {
+                "Risultato": "Dato verificato",
+                "Tecnologia": "AI Integrata"
+              }
+              return badgeMap[row.aspect] ? (
+                <span className="inline-flex w-fit items-center rounded-full bg-[#F4AD42]/10 border border-[#F4AD42]/30 px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-[#C77300]">
+                  {badgeMap[row.aspect]}
+                </span>
+              ) : null
+            })(row)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+</div>
+</div>
         </PageLayoutContainer>
       </section>
 
