@@ -5,6 +5,8 @@ import { PaymentGateway } from "@/components/payment-gateway";
 import type { DriveTestOrder } from "@/lib/drive-test";
 import { PageLayoutContainer } from "@/components/page-layout-container";
 import { decryptCheckoutOrder } from "@/lib/checkout-encryption";
+import { DriveTestRequestForm } from "@/components/drive-test-request-form";
+import { CheckoutWithReferral } from "@/components/checkout-with-referral";
 
 type SearchParams = { [key: string]: string | string[] | undefined };
 
@@ -17,6 +19,7 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
   const resolvedSearchParams = await resolveSearchParams(searchParams);
 
   const order = parseOrder(resolvedSearchParams.order);
+  const referralCode = resolvedSearchParams.ref as string;
   const locale = order?.metadata?.locale || "it-IT";
   const currency = order?.currency || "EUR";
   const currencyFormatter = new Intl.NumberFormat(locale, { style: "currency", currency });
@@ -86,7 +89,9 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
           <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t("hero.subtitle")}</p>
         </div>
 
-        {order ? (
+        {referralCode ? (
+          <CheckoutWithReferral />
+        ) : order ? (
           <div className="mt-14 grid gap-6 lg:grid-cols-[2fr_1fr]">
             <div className="rounded-3xl border border-gray-200 bg-white/95 p-6 sm:p-8 shadow-xl backdrop-blur">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
