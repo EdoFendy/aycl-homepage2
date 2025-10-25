@@ -191,7 +191,7 @@ export default function OutreachPage() {
                 <div className="relative w-full max-w-6xl lg:max-w-xl xl:max-w-2xl">
                   {/* Main Image */}
                   <Image
-                    src="newmedia/comefunziona_hero.png"
+                    src="newmedia/ComeFunziona_Hero.png"
                     alt="Dashboard Sendura"
                     width={800}
                     height={600}
@@ -559,7 +559,7 @@ export default function OutreachPage() {
             {/* Image - Larger on mobile */}
             <div className="order-2 lg:order-1">
               <Image
-                src="newmedia/Sendura_ComeFunziona.png"
+                src="newmedia/Sendura_Comefunziona.png"
                 alt="Schema data to leads"
                 width={600}
                 height={600}
@@ -762,7 +762,7 @@ export default function OutreachPage() {
             </div>
             <div className="relative">
               <Image
-                src="newmedia/ecosistema_evoluzione.png"
+                src="newmedia/Ecosistema_Evoluzione.png"
                 alt="Outreach evolution"
                 width={540}
                 height={420}
