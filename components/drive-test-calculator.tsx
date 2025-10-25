@@ -28,14 +28,20 @@ type SectorGroup = {
 }
 
 const BASE_ITALIA: Band[] = [
-  { id: "band_100k",       label: "< €100K",             min: 80,  max: 80  },
-  { id: "band_100k_500k",  label: "€100K – €500K",       min: 90,  max: 95  },
-  { id: "band_500k_1m",    label: "€500K – €1M",         min: 100, max: 120 },
-  { id: "band_1m_5m",      label: "€1M – €5M",           min: 120, max: 140 },
-  { id: "band_5m_10m",     label: "€5M – €10M",          min: 140, max: 160 },
-  { id: "band_10m_20m",    label: "€10M – €20M",         min: 160, max: 180 },
-  { id: "band_20m_50m",    label: "€20M – €50M",         min: 180, max: 220 },
-  { id: "band_50m_plus",   label: "€50M+",               min: 220, max: 300 }
+  { id: "band_200k", label: "€200K", min: 115, max: 124 },
+  { id: "band_400k", label: "€400K", min: 116, max: 128 },
+  { id: "band_600k", label: "€600K", min: 118, max: 132 },
+  { id: "band_800k", label: "€800K", min: 119, max: 136 },
+  { id: "band_1m", label: "€1M", min: 120, max: 140 },
+  { id: "band_2m", label: "€2M", min: 121, max: 144 },
+  { id: "band_3m", label: "€3M", min: 122, max: 149 },
+  { id: "band_4m", label: "€4M", min: 124, max: 153 },
+  { id: "band_5m", label: "€5M", min: 125, max: 158 },
+  { id: "band_6m", label: "€6M", min: 126, max: 162 },
+  { id: "band_7m", label: "€7M", min: 127, max: 167 },
+  { id: "band_8m", label: "€8M", min: 129, max: 172 },
+  { id: "band_9m", label: "€9M", min: 130, max: 177 },
+  { id: "band_10m_plus", label: "€10M+", min: 131, max: 183 }
 ]
 
 const COEFF_GEO: Coeff[] = [
@@ -210,7 +216,7 @@ const SECTOR_GROUPS: SectorGroup[] = [
 ]
 
 // Regola: ≥ €10M non permette Drive Test
-const HIGH_REVENUE_IDS = new Set(["band_10m_20m", "band_20m_50m", "band_50m_plus"])
+const HIGH_REVENUE_IDS = new Set(["band_10m_plus"])
 const MIN_QTY = 5
 const MAX_QTY = 20
 
@@ -256,6 +262,14 @@ export default function DriveTestCalculator() {
       selectedSectorGroup.options[0]
     )
   }, [selectedSectorGroup, sectorOption])
+
+  const granularSectorOptions = useMemo(() => {
+    if (!selectedSectorGroup) {
+      return [] as SectorOption[]
+    }
+
+    return selectedSectorGroup.options.filter(option => option.level === "granular")
+  }, [selectedSectorGroup])
 
   const unitPrice = useMemo(() => {
     const baseAvg = (selectedBand.min + selectedBand.max) / 2
@@ -383,7 +397,7 @@ export default function DriveTestCalculator() {
                       </label>
 
                       <label className="block space-y-2">
-                        <span className="text-sm font-semibold text-navy">Macro settore</span>
+                        <span className="text-sm font-semibold text-navy">{t("form.sector")}</span>
                         <select
                           className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
                           value={sectorGroup}
@@ -397,10 +411,11 @@ export default function DriveTestCalculator() {
                             }
 
                             const group = SECTOR_GROUPS.find(x => x.id === nextGroup)
-                            setSectorOption(group?.options[0]?.id ?? "")
+                            const macroOption = group?.options.find(option => option.level === "macro") ?? group?.options[0]
+                            setSectorOption(macroOption?.id ?? "")
                           }}
                         >
-                          <option value="">Seleziona una macro area</option>
+                          <option value="">Seleziona un settore</option>
                           {SECTOR_GROUPS.map(group => (
                             <option key={group.id} value={group.id}>
                               {group.label}
@@ -409,24 +424,24 @@ export default function DriveTestCalculator() {
                         </select>
                       </label>
 
-                      <label className="block space-y-2">
-                        <span className="text-sm font-semibold text-navy">{t("form.sector")}</span>
-                        <select
-                          className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-800 transition focus:border-orange focus:outline-none focus:ring-4 focus:ring-orange/30"
-                          value={sectorOption}
-                          onChange={(e) => setSectorOption(e.target.value)}
-                          disabled={!selectedSectorGroup}
-                        >
-                          {!selectedSectorGroup ? (
-                            <option value="">Seleziona una macro area</option>
-                          ) : null}
-                          {selectedSectorGroup?.options.map(option => (
-                            <option key={option.id} value={option.id}>
-                              {option.level === "macro" ? `${option.label} (Macro)` : option.label}
-                            </option>
-                          ))}
-                        </select>
-                      </label>
+                      <div className="block space-y-2">
+                        <span className="text-sm font-semibold text-navy">Sotto-settori inclusi</span>
+                        <div className="w-full rounded-xl border border-navy/10 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+                          {selectedSectorGroup ? (
+                            granularSectorOptions.length > 0 ? (
+                              <ul className="list-disc space-y-1 pl-4">
+                                {granularSectorOptions.map(option => (
+                                  <li key={option.id}>{option.label}</li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="text-sm text-gray-500">Nessun sotto-settore aggiuntivo per questo settore.</p>
+                            )
+                          ) : (
+                            <p className="text-sm text-gray-500">Seleziona un settore per vedere i sotto-settori disponibili.</p>
+                          )}
+                        </div>
+                      </div>
 
                       <label className="block space-y-2">
                         <span className="text-sm font-semibold text-navy">{t("form.revenue")}</span>
