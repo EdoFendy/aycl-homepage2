@@ -40,7 +40,8 @@ export function BundleCheckout({ bundleToken }: BundleCheckoutProps) {
   useEffect(() => {
     async function fetchBundle() {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000'}/bundles/token/${bundleToken}`);
+        // Use internal API proxy to avoid ad-blocker issues
+        const response = await fetch(`/api/bundle/data?token=${bundleToken}`);
         
         if (!response.ok) {
           throw new Error('Bundle non trovato');
