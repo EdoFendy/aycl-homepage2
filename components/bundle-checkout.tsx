@@ -47,7 +47,24 @@ export function BundleCheckout({ bundleToken }: BundleCheckoutProps) {
         }
         
         const data = await response.json();
-        setBundle(data);
+        
+        // Convert string numbers to actual numbers
+        const normalizedData = {
+          ...data,
+          discount_value: parseFloat(data.discount_value) || 0,
+          subtotal: parseFloat(data.subtotal) || 0,
+          discount_amount: parseFloat(data.discount_amount) || 0,
+          total: parseFloat(data.total) || 0,
+          upsell_price: data.upsell_price ? parseFloat(data.upsell_price) : undefined,
+          products: data.products?.map((p: any) => ({
+            ...p,
+            quantity: parseInt(p.quantity) || 0,
+            unit_price: parseFloat(p.unit_price) || 0,
+            total_price: parseFloat(p.total_price) || 0,
+          })) || []
+        };
+        
+        setBundle(normalizedData);
       } catch (err) {
         console.error('Error fetching bundle:', err);
         setError(err instanceof Error ? err.message : 'Errore caricamento bundle');
