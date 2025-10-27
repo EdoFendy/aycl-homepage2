@@ -210,35 +210,37 @@ export default function OutreachPage() {
           <LayoutWrapper>
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="space-y-6 sm:space-y-8">
-                <div className="inline-block px-4 py-2 rounded-full bg-orange/10 border border-orange/20">
-                  <span className="text-xs font-semibold text-orange uppercase tracking-wider sm:text-sm">
+                <div className="inline-block rounded-full border border-orange/20 bg-orange/10 px-4 py-2">
+                  <span className="type-eyebrow text-orange">
                     {t("hero.eyebrow")}
                   </span>
                 </div>
 
-                <h1 className="max-w-[620px] text-3xl font-bold leading-tight text-navy sm:text-5xl sm:leading-[1.1] lg:text-[3.75rem]">
+                <h1 className="max-w-[620px] type-display text-navy">
                   {t.rich("hero.title", {
                     highlight: (chunks) => <span className="text-orange">{chunks}</span>,
                   })}
                 </h1>
 
-                <div className="space-y-4 text-base sm:text-lg text-gray-600 leading-relaxed">
-                  <p>{renderHighlightedText(heroLead)}</p>
+                <div className="space-y-4 text-gray-600">
+                  <p className="type-body">{renderHighlightedText(heroLead)}</p>
                   {heroContext.map((paragraph, index) => (
-                    <p key={index}>{renderHighlightedText(paragraph)}</p>
+                    <p key={index} className="type-body">
+                      {renderHighlightedText(paragraph)}
+                    </p>
                   ))}
                 </div>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                   <Link
                     href="/contattaci"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-lg whitespace-nowrap"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-6 py-4 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-base"
                   >
                     {t("hero.cta.primary")}
                   </Link>
                   <Link
                     href="/pacchetti"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-8 py-4 text-base font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-lg whitespace-nowrap"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-6 py-4 text-sm font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-base"
                   >
                     {t("hero.cta.secondary")}
                   </Link>
@@ -246,7 +248,7 @@ export default function OutreachPage() {
 
                 {heroOutcomePrimary && (
                   <div className="rounded-xl border border-orange/30 bg-orange/5 px-5 py-4">
-                    <p className="text-base sm:text-lg font-medium text-navy">
+                    <p className="type-body text-navy font-semibold">
                       {renderHighlightedText(heroOutcomePrimary)}
                     </p>
                   </div>
@@ -280,7 +282,7 @@ export default function OutreachPage() {
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] xl:gap-16">
             <div className="space-y-6">
               {principleBadge && (
-                <span className="inline-flex items-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                <span className="inline-flex items-center rounded-full bg-orange/10 px-4 py-1 type-eyebrow text-orange">
                   {principleBadge}
                 </span>
               )}
@@ -335,7 +337,7 @@ export default function OutreachPage() {
             <div className="space-y-8">
               <div className="max-w-2xl">
                 {architectureBadge && (
-                  <span className="inline-flex items-center rounded-full bg-sky-blue/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
+                  <span className="inline-flex items-center rounded-full bg-sky-blue/10 px-4 py-1 type-eyebrow text-sky-blue">
                     {architectureBadge}
                   </span>
                 )}
@@ -388,7 +390,7 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="max-w-3xl">
             {applicationBadge && (
-              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 type-eyebrow text-white/80">
                 {applicationBadge}
               </span>
             )}
@@ -427,7 +429,7 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="text-center">
             {aiBadge && (
-              <span className="inline-flex items-center justify-center rounded-full bg-sky-blue/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
+              <span className="inline-flex items-center justify-center rounded-full bg-sky-blue/10 px-4 py-1 type-eyebrow text-sky-blue">
                 {aiBadge}
               </span>
             )}
@@ -477,7 +479,7 @@ export default function OutreachPage() {
           <div className="mx-auto max-w-3xl text-center">
             {comparisonBadge && (
               <div className="inline-flex items-center justify-center rounded-full bg-orange/10 border border-orange/20 px-5 py-2">
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                <span className="type-eyebrow text-orange">
                   {comparisonBadge}
                 </span>
               </div>
@@ -586,7 +588,7 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="text-center">
             {senduraBadge && (
-              <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+              <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 type-eyebrow text-orange">
                 {senduraBadge}
               </span>
             )}
@@ -658,7 +660,7 @@ export default function OutreachPage() {
                   />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">Learning</span>
+                  <span className="type-eyebrow text-sky-blue">Learning</span>
                   <h3 className="mt-1 text-2xl font-semibold text-navy">{t("learning.title")}</h3>
                 </div>
               </div>
@@ -696,7 +698,7 @@ export default function OutreachPage() {
                   />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                  <span className="type-eyebrow text-orange">
                     Personalization
                   </span>
                   <h3 className="mt-1 text-2xl font-semibold text-navy">{t("personalization.title")}</h3>
@@ -738,7 +740,7 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
             {humanAiBadge && (
-              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 type-eyebrow text-white/80">
                 {humanAiBadge}
               </span>
             )}
@@ -801,8 +803,8 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_1.05fr] xl:gap-16">
             <div className="space-y-6">
-              {ecosystemBadge && (
-                <span className="inline-flex items-center justify-center rounded-full bg-navy/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-navy">
+          {ecosystemBadge && (
+            <span className="inline-flex items-center justify-center rounded-full bg-navy/10 px-4 py-1 type-eyebrow text-navy">
                   {ecosystemBadge}
                 </span>
               )}

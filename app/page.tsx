@@ -324,21 +324,21 @@ export default function HomePage() {
 
         <div className="mx-auto flex max-w-[1400px] flex-col gap-12 px-5 pb-40 pt-32 sm:px-10 md:gap-16 md:pt-36 lg:gap-20 lg:pb-44">
           <LayoutWrapper>
-            <div className="grid items-center gap-12 lg:grid-cols-[0.38fr_0.62fr] lg:gap-16 xl:gap-20">
+            <div className="grid items-center gap-12 lg:grid-cols-[0.45fr_0.55fr] lg:gap-16 xl:gap-20">
               <div className="order-2 space-y-6 md:space-y-7 lg:order-1">
-                <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-orange">
+                <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 type-eyebrow text-orange">
                   {t("hero.badge")}
                 </span>
 
-                <h1 className="max-w-[620px] text-3xl font-bold leading-tight text-navy sm:text-5xl sm:leading-[1.1] lg:text-[3.75rem]">
+                <h1 className="max-w-[620px] type-display text-navy">
                   {t("hero.title")} <span className="text-orange">{t("hero.titleHighlight")}</span>
                 </h1>
 
-                <p className="max-w-[540px] text-lg leading-relaxed text-gray-600 sm:text-xl" aria-label={heroSubtitle}>
+                <p className="max-w-[540px] type-body-lg text-gray-600" aria-label={heroSubtitle}>
                   {renderHighlightedText(heroSubtitle)}
                 </p>
 
-                <p className="max-w-[540px] text-base leading-relaxed text-gray-600/85 sm:text-lg" aria-label={heroDescription}>
+                <p className="max-w-[540px] type-body text-gray-600/85" aria-label={heroDescription}>
                   {renderHighlightedText(heroDescription)}
                 </p>
 
@@ -358,14 +358,14 @@ export default function HomePage() {
                   </Link>
                 </div>
 
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-gray-200/70 backdrop-blur">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 type-body-sm text-gray-700 shadow-sm ring-1 ring-gray-200/70 backdrop-blur">
                   <StarIcon />
                   <span>{t("trust.text")}</span>
                 </div>
               </div>
 
               <div
-                className="order-1 relative mx-auto hidden lg:flex w-full max-w-[240px] sm:max-w-[520px] md:max-w-[720px] lg:max-w-[1100px] items-center justify-center lg:-mr-4 lg:order-2"
+                className="order-1 relative mx-auto hidden lg:flex w-full max-w-[200px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] items-center justify-center lg:ml-8 lg:order-2"
                 style={{ transform: prefersReducedMotion ? undefined : `translateY(${-heroParallax * 0.25}px)` }}
               >
                 <div className="absolute -top-12 left-6 h-40 w-40 rounded-full bg-sky-blue/30 blur-3xl" aria-hidden="true" />
@@ -389,7 +389,7 @@ export default function HomePage() {
         </div>
       </section>
       <main id="homepage-main" className="space-y-0">
-        <section className="relative bg-white py-28">
+        <section className="relative bg-white section-y-lg">
           <div className="absolute inset-0 -z-10 opacity-70">
             <div className="absolute top-10 left-5 h-20 w-20 rounded-full bg-orange/10" aria-hidden="true" />
             <div className="absolute bottom-10 right-10 h-28 w-28 rounded-full bg-sky-blue/15" aria-hidden="true" />
@@ -400,14 +400,14 @@ export default function HomePage() {
                 <div className="order-2 space-y-6 lg:order-1">
                   <div className="inline-flex items-center gap-3 text-orange">
                     <span className="h-px w-12 bg-orange" aria-hidden="true" />
-                    <span className="text-sm font-semibold uppercase tracking-[0.18em]">{t("story.badge")}</span>
+                    <span className="type-eyebrow">{t("story.badge")}</span>
                   </div>
-                  <h2 className="text-3xl font-bold leading-tight text-navy sm:text-4xl">
+                  <h2 className="type-h1 text-navy">
                     {t("story.title")}
                   </h2>
-                  <div className="space-y-4 text-base leading-relaxed text-gray-600 sm:text-lg">
-                    <p>{renderHighlightedText(t("story.text1"))}</p>
-                    <p>{renderHighlightedText(t("story.text2"))}</p>
+                  <div className="space-y-4 text-gray-600">
+                    <p className="type-body">{renderHighlightedText(t("story.text1"))}</p>
+                    <p className="type-body">{renderHighlightedText(t("story.text2"))}</p>
                   </div>
                 </div>
                 <div className="order-1 flex justify-center lg:order-2">
@@ -498,19 +498,19 @@ export default function HomePage() {
             </LayoutWrapper>
           </div>
         </section>
-        <section ref={solutionRef} className="relative overflow-hidden bg-white py-28">
+        <section ref={solutionRef} className="relative overflow-hidden bg-white section-y-lg">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white to-[#f6f9ff]" aria-hidden="true" />
           <div className="absolute -right-32 top-10 -z-10 h-64 w-64 rounded-full bg-orange/10 blur-3xl" />
           <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="mb-16 text-center">
-                <span className="inline-flex items-center justify-center rounded-full border border-sky-blue/30 bg-sky-blue/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-blue">
+                <span className="inline-flex items-center justify-center rounded-full border border-sky-blue/30 bg-sky-blue/10 px-5 py-2 type-eyebrow text-sky-blue">
                   {t("solution.badge")}
                 </span>
-                <h2 className="mt-6 text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
+                <h2 className="mt-6 type-h1 text-navy">
                   {t("solution.title")}
                 </h2>
-                <p className="mx-auto mt-4 max-w-3xl text-lg leading-relaxed text-gray-600">
+                <p className="mx-auto mt-4 max-w-3xl type-body-lg text-gray-600">
                   {t("solution.subtitle")}
                 </p>
               </div>
@@ -523,13 +523,13 @@ export default function HomePage() {
                       : ""
                   }`}
                 >
-                  <h3 className="text-3xl font-bold leading-snug text-navy sm:text-[2.125rem]">
+                  <h3 className="type-h2 text-navy">
                     {t("solution.tech.title")}
                   </h3>
-                  <p className="text-lg leading-relaxed text-gray-600">
+                  <p className="type-body text-gray-600">
                     {renderHighlightedText(t("solution.tech.text1"))}
                   </p>
-                  <p className="text-lg leading-relaxed text-gray-600">
+                  <p className="type-body text-gray-600">
                     {renderHighlightedText(t("solution.tech.text2"))}
                   </p>
 
@@ -542,12 +542,12 @@ export default function HomePage() {
                     ] as const).map((featureKey) => (
                       <div
                         key={featureKey}
-                        className="flex items-start gap-3 rounded-2xl bg-[#f6f9ff] px-6 py-4 text-base font-medium text-gray-700"
+                        className="flex items-start gap-3 rounded-2xl bg-[#f6f9ff] px-6 py-4 type-body text-gray-700"
                       >
                         <span className="text-orange font-bold mt-1">•</span>
                         <div>
-                          <p className="font-semibold text-navy">{t(`solution.tech.features.${featureKey}.title`)}</p>
-                          <p className="text-sm font-normal text-gray-600">
+                          <p className="type-h4 text-navy">{t(`solution.tech.features.${featureKey}.title`)}</p>
+                          <p className="type-body-sm text-gray-600">
                             {t(`solution.tech.features.${featureKey}.desc`)}
                           </p>
                         </div>
