@@ -1,16 +1,18 @@
 "use client"
-
-import React from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { useTranslations } from "next-intl"
 import { getCalApi } from "@calcom/embed-react"
 import { useEffect } from "react"
-import { CheckCircle2, XCircle, Check, X, CheckCircle, Clock, Settings, ArrowRight, TrendingUp, Users, Database, Target, Cpu, Zap } from "lucide-react"
+import { Check, Clock, Settings, TrendingUp, Users, Database, Target, Cpu, Zap } from "lucide-react"
 import { PageLayoutContainer } from "@/components/page-layout-container"
 import { LayoutWrapper } from "@/components/layout-wrapper"
 import { renderHighlightedText } from "@/lib/highlighted-text"
+import {
+  MinimalComparisonTable,
+  type MinimalComparisonRow,
+} from "@/components/minimal-comparison-table"
 
 type Quote = {
   text: string
@@ -23,6 +25,7 @@ type ComparisonRow = {
   aspect: string
   traditional: string
   aycl: string
+  wordOfMouth?: string
 }
 
 type IconAsset = {
@@ -45,6 +48,52 @@ export default function OutreachPage() {
   const aiQuotes = t.raw("ai.quotes") as Quote[]
   const architectureParagraphs = t.raw("architecture.paragraphs") as string[]
   const comparisonRows = t.raw("comparison.rows") as ComparisonRow[]
+  const comparisonAspectLabel = t("comparison.aspectLabel").trim()
+  const comparisonIconMap: Record<string, typeof Settings> = {
+    Canali: Settings,
+    "Channels used": Settings,
+    Canales: Settings,
+    Obiettivo: Target,
+    "Primary goal": Target,
+    Objetivo: Target,
+    Dati: Database,
+    "Data management": Database,
+    Datos: Database,
+    Personalizzazione: Users,
+    Personalisation: Users,
+    "Personalización": Users,
+    Tecnologia: Cpu,
+    "Use of technology": Cpu,
+    Tecnología: Cpu,
+    Miglioramento: TrendingUp,
+    "Learning and improvement": TrendingUp,
+    Mejora: TrendingUp,
+    Tempestività: Clock,
+    Timeliness: Clock,
+    Rapidez: Clock,
+    "Fattore umano": Users,
+    "Role of people": Users,
+    "Rol humano": Users,
+    Risultato: Zap,
+    "Typical outcome": Zap,
+    "Resultado típico": Zap,
+    Visione: Target,
+    "Overall vision": Target,
+    "Visión global": Target,
+  }
+  const comparisonBadgeMap: Record<string, string> = {
+    Risultato: "Dato verificato",
+    Tecnologia: "AI Integrata",
+  }
+  const minimalComparisonRows: MinimalComparisonRow[] = comparisonRows.map((row) => ({
+    key: row.aspect,
+    icon: comparisonIconMap[row.aspect],
+    aspect: row.aspect,
+    traditional: row.traditional,
+    wordOfMouth: row.wordOfMouth ?? row.traditional,
+    aycl: row.aycl,
+    badge: comparisonBadgeMap[row.aspect],
+  }))
   const applicationParagraphs = t.raw("application.paragraphs") as string[]
   const senduraBullets = t.raw("sendura.bullets") as string[]
   const learningParagraphs = t.raw("learning.paragraphs") as string[]
@@ -419,151 +468,15 @@ export default function OutreachPage() {
           </div>
 
           {/* Comparison Table */}
-          <div className="mt-12 mx-auto max-w-5xl">
-            <div className="rounded-2xl border-2 border-gray-200 bg-white shadow-xl">
-              {/* Table Header */}
-              <div className="grid grid-cols-3 gap-1 sm:gap-0">
-                <div className="px-2 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 bg-gray-50 border-b-2 border-gray-200">
-                  <h3 className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-900 uppercase tracking-wider leading-tight">
-                    ASPETTO
-                  </h3>
-                </div>
-                <div className="px-2 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 bg-gray-50 border-b-2 border-r border-gray-200">
-                  <div className="flex flex-col items-center gap-1">
-                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-600 text-center leading-tight">
-                      {t("comparison.columns.traditional")}
-                    </span>
-                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-gray-300" />
-                  </div>
-                </div>
-                <div className="px-2 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 bg-orange-50 border-b-2 border-gray-200">
-                  <div className="flex flex-col items-center gap-1">
-                    <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-orange text-center leading-tight">
-                      {t("comparison.columns.aycl")}
-                    </span>
-                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-orange" />
-                  </div>
-                </div>
-              </div>
-
-   {/* Headings */}
-<div className="grid grid-cols-3 gap-4 sm:gap-6 mb-3 sm:mb-4">
-  {/* ADV */}
-  <div className="rounded-2xl border-2 border-[#0A2B6B] px-4 sm:px-6 py-3 sm:py-4 text-center">
-    <span className="text-[#0A2B6B] font-extrabold tracking-wide text-sm sm:text-base">
-      ADV
-    </span>
-  </div>
-
-  {/* PASSAPAROLA */}
-  <div className="rounded-2xl border-2 border-[#0A2B6B] px-4 sm:px-6 py-3 sm:py-4 text-center">
-    <span className="text-[#0A2B6B] font-extrabold tracking-wide text-sm sm:text-base">
-      PASSAPAROLA
-    </span>
-  </div>
-
-  {/* AYCL */}
-  <div className="rounded-2xl border-2 border-[#F4AD42] px-4 sm:px-6 py-3 sm:py-4 text-center">
-    <span className="font-extrabold tracking-wide text-sm sm:text-base text-[#F4AD42]">
-      AYCL
-    </span>
-  </div>
-</div>
-
-{/* Corpo tabella – Layout a due blocchi come nello screenshot */}
-<div className="grid md:grid-cols-[2fr_1fr] gap-4 sm:gap-6">
-  {/* Gruppo sinistro: ADV + Passaparola */}
-  <div className="rounded-2xl border-2 border-[#0A2B6B] overflow-hidden bg-white">
-    <div className="divide-y divide-[#0A2B6B]/20">
-      {comparisonRows.map((row, index) => (
-        <div
-          key={`left-${row.aspect}-${index}`}
-          className="grid grid-cols-2"
-        >
-          {/* Colonna ADV (Aspetto + icona) */}
-          <div className="px-3 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 border-r border-[#0A2B6B]/15">
-            <div className="flex items-start gap-2 sm:gap-3">
-              <div className="flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 items-center justify-center text-[#0A2B6B]">
-                {(() => {
-                  const iconMap: Record<string, React.ReactElement> = {
-                    "Canali": <Settings className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Obiettivo": <Target className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Dati": <Database className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Personalizzazione": <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Tecnologia": <Cpu className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Miglioramento": <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Tempestività": <Clock className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Fattore umano": <Users className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Risultato": <Zap className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-                    "Visione": <Target className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-                  }
-                  return iconMap[row.aspect] || <Settings className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />;
-                })()}
-              </div>
-              <div className="flex-1">
-                <h3 className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#0A2B6B] leading-tight">
-                  {row.aspect}
-                </h3>
-                <p className="mt-1 text-[11px] sm:text-xs md:text-sm text-[#0A2B6B] opacity-80 font-medium leading-snug">
-                  {renderHighlightedText(row.traditional)}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Colonna PASSAPAROLA (testo solo) */}
-          <div className="px-3 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5">
-            <div className="flex items-start gap-2 sm:gap-3">
-              <div className="flex h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 items-center justify-center mt-0.5 text-[#0A2B6B]">
-                <XCircle className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 stroke-[2.5] text-[#0A2B6B]" />
-              </div>
-              <p className="text-[11px] sm:text-xs md:text-sm text-[#0A2B6B] font-medium leading-snug opacity-80">
-                {/* riuso del campo 'traditional' per la seconda colonna se hai un secondo testo, altrimenti sostituisci con row.wordOfMouth */}
-                {renderHighlightedText(row.wordOfMouth ?? row.traditional)}
-              </p>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Colonna destra: AYCL */}
-  <div className="rounded-2xl border-2 border-[#F4AD42] overflow-hidden bg-[#FFF7EA]">
-    <div className="divide-y divide-[#F4AD42]/40">
-      {comparisonRows.map((row, index) => (
-        <div
-          key={`right-${row.aspect}-${index}`}
-          className="px-3 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5"
-        >
-          <div className="flex flex-col gap-1.5">
-            <p className="text-[11px] sm:text-xs md:text-sm font-extrabold text-[#F4AD42] tracking-wide">
-              {row.aspect}
-            </p>
-            <p className="text-[11px] sm:text-xs md:text-sm font-semibold text-[#C77300] leading-snug">
-              {renderHighlightedText(row.aycl)}
-            </p>
-
-            {/* Badge opzionale come nel tuo codice */}
-            {((row: any) => {
-              const badgeMap: Record<string, string> = {
-                "Risultato": "Dato verificato",
-                "Tecnologia": "AI Integrata"
-              }
-              return badgeMap[row.aspect] ? (
-                <span className="inline-flex w-fit items-center rounded-full bg-[#F4AD42]/10 border border-[#F4AD42]/30 px-2 py-0.5 text-[10px] sm:text-xs font-semibold text-[#C77300]">
-                  {badgeMap[row.aspect]}
-                </span>
-              ) : null
-            })(row)}
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
-</div>
-</div>
+          <MinimalComparisonTable
+            aspectLabel={comparisonAspectLabel.length > 0 ? comparisonAspectLabel : undefined}
+            headers={[
+              { label: "ADV" },
+              { label: "PASSAPAROLA" },
+              { label: "AYCL", variant: "highlight" },
+            ]}
+            rows={minimalComparisonRows}
+          />
         </PageLayoutContainer>
       </section>
 
