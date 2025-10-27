@@ -197,11 +197,6 @@ export default function OutreachPage() {
     { src: "/iconaPrice.png", alt: "Icona scopri i pacchetti" },
   ]
 
-  const aiStatsIcon: IconAsset = {
-    src: "/iconaPerformance.png",
-    alt: "Icona insight sulle performance",
-  }
-
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* Hero Section */}
@@ -448,16 +443,11 @@ export default function OutreachPage() {
                 className="group relative overflow-hidden rounded-3xl border border-navy/10 bg-white/95 p-8 shadow-[0_36px_80px_-52px_rgba(1,47,107,0.6)] transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.2,transparent_70%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange/15">
-                  <Image
-                    src={aiStatsIcon.src}
-                    alt={aiStatsIcon.alt}
-                    width={28}
-                    height={28}
-                    className="h-7 w-7 object-contain"
-                  />
+                <div className="flex w-full items-center justify-center">
+                  <span aria-hidden="true" className="text-5xl font-serif text-navy leading-none">
+                    “
+                  </span>
                 </div>
-          
                 <p className="mt-4 text-sm leading-relaxed text-gray-700">&ldquo;{quote.text}&rdquo;</p>
                 <div className="mt-6 space-y-1 text-xs text-gray-500">
                   <p className="font-semibold text-navy">{quote.author}</p>
@@ -648,75 +638,95 @@ export default function OutreachPage() {
       </section>
 
       {/* Learning & Personalization */}
-      <section className="relative py-24 bg-white">
+      <section className="relative overflow-hidden py-24">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-sky-blue/5 via-white to-orange/10" />
+        <div className="absolute -top-24 right-8 -z-10 h-48 w-48 rounded-full bg-orange/20 blur-[140px]" />
+        <div className="absolute -bottom-28 left-12 -z-10 h-56 w-56 rounded-full bg-sky-blue/20 blur-[160px]" />
         <PageLayoutContainer className="px-4 sm:px-6">
-          {/* Contenuti affiancati */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+          <div className="grid gap-10 lg:grid-cols-2">
             {/* Learning */}
-            <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-sky-blue uppercase tracking-wide">
-                Learning
-              </h2>
-              <div className="w-full h-px bg-gradient-to-r from-sky-blue/30 via-sky-blue/10 to-transparent"></div>
-              
-              <h3 className="text-2xl font-semibold text-navy">{t("learning.title")}</h3>
-              
-              <div className="space-y-4">
+            <article className="group relative overflow-hidden rounded-[2.5rem] border border-sky-blue/20 bg-white/90 p-8 shadow-[0_36px_90px_-60px_rgba(10,43,107,0.45)]">
+              <div className="pointer-events-none absolute -top-16 right-4 h-40 w-40 rounded-full bg-sky-blue/15 blur-3xl transition-all duration-300 group-hover:translate-x-4 group-hover:-translate-y-2" />
+              <div className="relative flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-sky-blue/30 bg-sky-blue/10">
+                  <Image
+                    src={learningLeadIcon.src}
+                    alt={learningLeadIcon.alt}
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">Learning</span>
+                  <h3 className="mt-1 text-2xl font-semibold text-navy">{t("learning.title")}</h3>
+                </div>
+              </div>
+              <div className="relative mt-6 space-y-4 text-sm leading-relaxed text-gray-700">
                 {learningParagraphs.map((paragraph, index) => (
-                  <p key={index} className="text-base leading-relaxed text-gray-700">
-                    {renderHighlightedText(paragraph)}
-                  </p>
+                  <p key={index}>{renderHighlightedText(paragraph)}</p>
                 ))}
               </div>
-
-              <ul className="space-y-3 pt-4">
+              <ul className="relative mt-6 space-y-3">
                 {learningBullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700">
-                    <span className="text-sky-blue font-bold mt-1">•</span>
+                    <span className="mt-1 inline-flex h-2.5 w-2.5 flex-shrink-0 rounded-full bg-sky-blue" />
                     <span>{renderHighlightedText(bullet)}</span>
                   </li>
                 ))}
               </ul>
-
-              <p className="pt-4 text-base font-medium text-navy italic border-t border-sky-blue/20">
-                {renderHighlightedText(t("learning.closing"))}
-              </p>
-            </div>
+              <div className="relative mt-6 rounded-2xl border border-sky-blue/20 bg-sky-blue/10 px-4 py-3">
+                <p className="text-sm font-semibold text-navy">
+                  {renderHighlightedText(t("learning.closing"))}
+                </p>
+              </div>
+            </article>
 
             {/* Personalization */}
-            <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-orange uppercase tracking-wide">
-                Personalization
-              </h2>
-              <div className="w-full h-px bg-gradient-to-r from-orange/30 via-orange/10 to-transparent"></div>
-              
-              <h3 className="text-2xl font-semibold text-navy">{t("personalization.title")}</h3>
-              
-              <p className="text-base leading-relaxed text-gray-700">
-                {renderHighlightedText(t("personalization.intro"))}
-              </p>
-
-              <ul className="space-y-3 pt-4">
+            <article className="group relative overflow-hidden rounded-[2.5rem] border border-orange/25 bg-white/90 p-8 shadow-[0_36px_90px_-60px_rgba(199,115,0,0.35)]">
+              <div className="pointer-events-none absolute -top-20 left-6 h-44 w-44 rounded-full bg-orange/20 blur-3xl transition-all duration-300 group-hover:-translate-y-2 group-hover:-translate-x-3" />
+              <div className="relative flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-orange/30 bg-orange/10">
+                  <Image
+                    src={personalizationLeadIcon.src}
+                    alt={personalizationLeadIcon.alt}
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 object-contain"
+                  />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                    Personalization
+                  </span>
+                  <h3 className="mt-1 text-2xl font-semibold text-navy">{t("personalization.title")}</h3>
+                </div>
+              </div>
+              <div className="relative mt-6 space-y-4 text-sm leading-relaxed text-gray-700">
+                <p>{renderHighlightedText(t("personalization.intro"))}</p>
+              </div>
+              <ul className="relative mt-6 space-y-3">
                 {personalizationBullets.map((bullet, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700">
-                    <span className="text-orange font-bold mt-1">•</span>
+                    <span className="mt-1 inline-flex h-2.5 w-2.5 flex-shrink-0 rounded-full bg-orange" />
                     <span>{renderHighlightedText(bullet)}</span>
                   </li>
                 ))}
               </ul>
-
-              <p className="pt-4 text-base font-medium text-navy italic border-t border-orange/20">
-                {renderHighlightedText(t("personalization.closing"))}
-              </p>
-            </div>
+              <div className="relative mt-6 rounded-2xl border border-orange/25 bg-orange/10 px-4 py-3">
+                <p className="text-sm font-semibold text-navy">
+                  {renderHighlightedText(t("personalization.closing"))}
+                </p>
+              </div>
+            </article>
           </div>
 
-          {/* Footer statement */}
-          <div className="mt-16 max-w-4xl mx-auto text-center">
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-navy/30 to-transparent mb-8"></div>
-            <p className="text-lg font-semibold text-navy leading-relaxed">
-              {renderHighlightedText(t("closingStatement"))}
-            </p>
+          <div className="mt-16 flex justify-center">
+            <div className="inline-flex max-w-3xl items-center rounded-full border border-navy/15 bg-white/80 px-6 py-4 text-center shadow-[0_24px_60px_-45px_rgba(15,37,64,0.45)]">
+              <p className="text-sm font-semibold text-navy sm:text-base">
+                {renderHighlightedText(t("closingStatement"))}
+              </p>
+            </div>
           </div>
         </PageLayoutContainer>
       </section>
