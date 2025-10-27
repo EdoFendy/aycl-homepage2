@@ -2,7 +2,20 @@
 
 import Link from "next/link"
 import { useTranslations } from "next-intl"
-import { ArrowRight, Target, Users, BarChart2, Zap, MessageSquare, TrendingUp, Settings, Clock, Database } from "lucide-react"
+import {
+  ArrowRight,
+  Target,
+  Users,
+  BarChart2,
+  Zap,
+  MessageSquare,
+  TrendingUp,
+  Settings,
+  Clock,
+  Database,
+  ShieldCheck,
+  PieChart,
+} from "lucide-react"
 
 import { LayoutWrapper } from "@/components/layout-wrapper"
 import { renderHighlightedText } from "@/lib/highlighted-text"
@@ -125,7 +138,6 @@ export default function LeadsComparisonTable() {
           </div>
 
           <MinimalComparisonTable
-            aspectLabel={t("headers.aspect")}
             headers={[
               { label: t("headers.paidTraffic") },
               { label: t("headers.wordOfMouth") },
@@ -152,4 +164,3 @@ export default function LeadsComparisonTable() {
     </section>
   )
 }
-
