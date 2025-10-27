@@ -2,11 +2,13 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { PaymentGateway } from "@/components/payment-gateway";
+import CartPaymentGateway from "@/components/payment-gateway/cart-payment-gateway";
 import type { DriveTestOrder } from "@/lib/drive-test";
 import { PageLayoutContainer } from "@/components/page-layout-container";
 import { decryptCheckoutOrder } from "@/lib/checkout-encryption";
 import { DriveTestRequestForm } from "@/components/drive-test-request-form";
 import { CheckoutWithReferral } from "@/components/checkout-with-referral";
+import { BundleCheckout } from "@/components/bundle-checkout";
 
 type SearchParams = { [key: string]: string | string[] | undefined };
 
@@ -20,9 +22,13 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
 
   const order = parseOrder(resolvedSearchParams.order);
   const referralCode = resolvedSearchParams.ref as string;
+  const bundleToken = resolvedSearchParams.bundle as string;
   const locale = order?.metadata?.locale || "it-IT";
   const currency = order?.currency || "EUR";
   const currencyFormatter = new Intl.NumberFormat(locale, { style: "currency", currency });
+  
+  // Determina se è un cart checkout (da pagine cart/)
+  const isCartCheckout = order?.metadata && 'cart_type' in order.metadata && order.metadata.cart_type;
 
   // Determina se è un Drive Test basandosi sul nome del prodotto
   const isDriveTest = order && (
@@ -89,7 +95,9 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
           <p className="text-base leading-relaxed text-gray-600 sm:text-lg">{t("hero.subtitle")}</p>
         </div>
 
-        {referralCode ? (
+        {bundleToken ? (
+          <BundleCheckout bundleToken={bundleToken} />
+        ) : referralCode ? (
           <CheckoutWithReferral />
         ) : order ? (
           <div className="mt-14 grid gap-6 lg:grid-cols-[2fr_1fr]">
@@ -141,7 +149,11 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
 
             </div>
 
-            <PaymentGateway order={order} />
+            {isCartCheckout ? (
+              <CartPaymentGateway order={order} />
+            ) : (
+              <PaymentGateway order={order} />
+            )}
           </div>
         ) : (
           <div className="mt-16 rounded-3xl border border-gray-200 bg-white/95 p-8 text-center shadow-xl backdrop-blur">

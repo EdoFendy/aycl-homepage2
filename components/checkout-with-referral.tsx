@@ -109,7 +109,7 @@ export function CheckoutWithReferral() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
-        <div className="flex items-center mb-4">
+          <div className="flex items-center mb-4">
           <div className="flex-shrink-0">
             <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
               <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
