@@ -318,7 +318,7 @@ export default function DriveTestCalculator() {
               <Calculator className="h-6 w-6 text-navy" />
             </div>
             <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-navy">{t("form.title")}</h2>
-            <p className="text-gray-600 mt-2">{t("form.note")}</p>
+            <p className="text-gray-600 mt-2">{t("form.subtitle1")}</p>
           </div>
 
           <Card className="relative mx-auto max-w-5xl overflow-hidden border-none bg-transparent p-0 shadow-xl">
@@ -328,13 +328,13 @@ export default function DriveTestCalculator() {
                 <div className="pointer-events-none absolute -bottom-12 left-1/3 h-32 w-32 rounded-full bg-orange/20 blur-2xl" />
                 <div className="relative flex h-full flex-col justify-between gap-10">
                   <div className="space-y-4">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-navy/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-navy/80">
-                      Drive Test Premium
-                    </span>
-                    <div>
-                      <h3 className="text-3xl font-bold leading-tight sm:text-4xl">Configura il tuo Drive Test</h3>
-                      <p className="mt-3 text-sm text-gray-600 sm:text-base">{t("form.note")}</p>
-                    </div>
+                      <span className="inline-flex items-center gap-2 rounded-full bg-navy/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-navy/80">
+                        {t("form.badge")}
+                      </span>
+                      <div>
+                        <h3 className="text-3xl font-bold leading-tight sm:text-4xl">Configura il tuo Drive Test</h3>
+                        <p className="mt-3 text-sm text-gray-600 sm:text-base">{t("form.subtitle2")}</p>
+                      </div>
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -377,7 +377,7 @@ export default function DriveTestCalculator() {
                     <div>
                       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange">Drive Test Calculator</p>
                       <h4 className="mt-2 text-2xl font-bold text-navy">Personalizza le tue variabili</h4>
-                      <p className="mt-2 text-sm text-gray-600">{t("form.note")}</p>
+                        <p className="mt-2 text-sm text-gray-600">{t("form.subtitle2")}</p>
                     </div>
 
                     <div className="space-y-4">
@@ -480,7 +480,7 @@ export default function DriveTestCalculator() {
                       >
                         {t("form.ctaGoToDriveTest")}
                       </button>
-                      <p className="text-xs text-gray-500">{t("form.note")}</p>
+                        <p className="text-xs text-gray-500">{t("form.subtitle3")}</p>
                     </div>
                   )}
                 </div>

@@ -113,12 +113,12 @@
       }
     },
     "packages": {
-      "badge": "Pacchetti su misura",
+      "badge": "",
       "title": "Scopri il pacchetto giusto per la tua azienda",
       "subtitle": "Quattro modelli base di collaborazione, pensati per aziende con possibilità e scopi diversi. Ognuno con l’obiettivo di riempirti l’agenda di appuntamenti qualificati.",
       "setup": {
-        "badge": "Partnership Elite",
-        "revShare": "Revenue Share",
+        "badge": "Partnership",
+        "revShare": "",
         "title": "Set-Up Fee + Revenue Share",
         "desc": "Per aziende pronte a scalare. La tua crescita è la nostra vittoria.",
         "strategy": "Strategia & Execution",
@@ -152,7 +152,7 @@
       },
       "performance": {
         "badge": "Kickstart",
-        "setup": "⚡ Setup in 7 giorni",
+        "setup": "",
         "title": "Performance",
         "desc": "Per generare subito appuntamenti qualificati e pagare solo quelli che svolgi.",
         "pricing": {
@@ -345,12 +345,12 @@
       }
     },
     "packages": {
-      "badge": "Custom packages",
+      "badge": "",
       "title": "Discover the right package for your company",
       "subtitle": "Four core collaboration models for companies with different ambitions and resources. Each one is built to fill your calendar with qualified meetings.",
       "setup": {
-        "badge": "Elite Partnership",
-        "revShare": "Revenue Share",
+        "badge": "Partnership",
+        "revShare": "",
         "title": "Set-Up Fee + Revenue Share",
         "desc": "For companies ready to scale. Your growth is our win.",
         "strategy": "Strategy & Execution",
@@ -384,7 +384,7 @@
       },
       "performance": {
         "badge": "Kickstart",
-        "setup": "⚡ Setup in 7 days",
+        "setup": "",
         "title": "Performance",
         "desc": "Designed to generate qualified meetings fast and pay only the ones you attend.",
         "pricing": {
@@ -577,12 +577,12 @@
       }
     },
     "packages": {
-      "badge": "Paquetes a medida",
+      "badge": "",
       "title": "Descubre el paquete adecuado para tu empresa",
       "subtitle": "Cuatro modelos básicos de colaboración, pensados para empresas con necesidades y objetivos distintos. Todos con la meta de llenarte la agenda de citas cualificadas.",
       "setup": {
-        "badge": "Asociación Elite",
-        "revShare": "Participación en Ingresos",
+        "badge": "Asociación",
+        "revShare": "",
         "title": "Cuota de Configuración + Participación en Ingresos",
         "desc": "Para empresas listas para escalar. Tu crecimiento es nuestra victoria.",
         "strategy": "Estrategia y Ejecución",
@@ -616,7 +616,7 @@
       },
       "performance": {
         "badge": "Kickstart",
-        "setup": "⚡ Configuración en 7 días",
+        "setup": "",
         "title": "Rendimiento",
         "desc": "Para generar citas cualificadas de inmediato y pagar solo las que realizas.",
         "pricing": {

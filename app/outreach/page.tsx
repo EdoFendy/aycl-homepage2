@@ -104,6 +104,24 @@ export default function OutreachPage() {
   const ecosystemParagraphs = t.raw("ecosystem.paragraphs") as string[]
   const ecosystemLevels = t.raw("ecosystem.levels") as string[]
 
+  const getBadge = (section: string) => {
+    try {
+      const value = t.raw(`${section}.badge`)
+      return typeof value === "string" ? value : undefined
+    } catch (error) {
+      return undefined
+    }
+  }
+
+  const principleBadge = getBadge("principle")
+  const architectureBadge = getBadge("architecture")
+  const applicationBadge = getBadge("application")
+  const aiBadge = getBadge("ai")
+  const comparisonBadge = getBadge("comparison")
+  const senduraBadge = getBadge("sendura")
+  const humanAiBadge = getBadge("humanAi")
+  const ecosystemBadge = getBadge("ecosystem")
+
   const heroLead = heroParagraphs.slice(0, 2).join(" ")
   const heroContext = heroParagraphs.slice(2, 4)
   const heroOutcomePrimary = heroParagraphs[4] ?? ""
@@ -261,9 +279,11 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] xl:gap-16">
             <div className="space-y-6">
-              <span className="inline-flex items-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
-                {t("principle.title")}
-              </span>
+              {principleBadge && (
+                <span className="inline-flex items-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                  {principleBadge}
+                </span>
+              )}
               <h2 className="text-3xl font-bold text-navy sm:text-4xl">{t("principle.title")}</h2>
               <p className="text-base leading-relaxed text-slate-600 sm:text-lg">
                 {renderHighlightedText(principleIntro)}
@@ -314,9 +334,11 @@ export default function OutreachPage() {
           <div className="grid gap-12 lg:grid-cols-[1.1fr_minmax(0,0.9fr)] xl:gap-16">
             <div className="space-y-8">
               <div className="max-w-2xl">
-                <span className="inline-flex items-center rounded-full bg-sky-blue/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
-                  {t("architecture.title")}
-                </span>
+                {architectureBadge && (
+                  <span className="inline-flex items-center rounded-full bg-sky-blue/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
+                    {architectureBadge}
+                  </span>
+                )}
                 <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("architecture.title")}</h2>
               </div>
               <div className="space-y-4">
@@ -365,9 +387,11 @@ export default function OutreachPage() {
         <div className="absolute -bottom-32 right-24 h-72 w-72 rounded-full bg-sky-blue/20 blur-[140px]" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
-              {t("application.title")}
-            </span>
+            {applicationBadge && (
+              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+                {applicationBadge}
+              </span>
+            )}
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{t("application.title")}</h2>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -402,9 +426,11 @@ export default function OutreachPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-sky-blue/15 to-white" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="text-center">
-            <span className="inline-flex items-center justify-center rounded-full bg-sky-blue/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
-              {t("ai.title")}
-            </span>
+            {aiBadge && (
+              <span className="inline-flex items-center justify-center rounded-full bg-sky-blue/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-sky-blue">
+                {aiBadge}
+              </span>
+            )}
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("ai.title")}</h2>
             <p className="mt-4 text-base text-gray-600 sm:text-lg">
               {renderHighlightedText(architectureLead)}
@@ -454,11 +480,13 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6 lg:px-8">
           {/* Header Section */}
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center justify-center rounded-full bg-orange/10 border border-orange/20 px-5 py-2">
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange">
-                {t("comparison.title")}
-              </span>
-            </div>
+            {comparisonBadge && (
+              <div className="inline-flex items-center justify-center rounded-full bg-orange/10 border border-orange/20 px-5 py-2">
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                  {comparisonBadge}
+                </span>
+              </div>
+            )}
             <h2 className="mt-5 text-3xl font-bold text-navy sm:text-4xl md:text-5xl">
               {t("comparison.title")}
             </h2>
@@ -485,9 +513,11 @@ export default function OutreachPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-blue/15 to-orange/10" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="text-center">
-            <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
-              {t("sendura.title")}
-            </span>
+            {senduraBadge && (
+              <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-orange">
+                {senduraBadge}
+              </span>
+            )}
             <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("sendura.title")}</h2>
             <p className="mt-4 text-base text-gray-600 sm:text-lg">
               {renderHighlightedText(t("sendura.intro"))}
@@ -615,9 +645,11 @@ export default function OutreachPage() {
         <div className="absolute -bottom-32 left-24 h-72 w-72 rounded-full bg-sky-blue/20 blur-[140px]" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
-              {t("humanAi.title")}
-            </span>
+            {humanAiBadge && (
+              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+                {humanAiBadge}
+              </span>
+            )}
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{t("humanAi.title")}</h2>
             <p className="mt-4 text-base text-white/80 sm:text-lg">
               {renderHighlightedText(t("humanAi.intro"))}
@@ -677,9 +709,11 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_1.05fr] xl:gap-16">
             <div className="space-y-6">
-              <span className="inline-flex items-center justify-center rounded-full bg-navy/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-navy">
-                {t("ecosystem.title")}
-              </span>
+              {ecosystemBadge && (
+                <span className="inline-flex items-center justify-center rounded-full bg-navy/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-navy">
+                  {ecosystemBadge}
+                </span>
+              )}
               <h2 className="text-3xl font-bold text-navy sm:text-4xl">{t("ecosystem.title")}</h2>
               {ecosystemParagraphs.map((paragraph, index) => (
                 <p key={index} className="text-sm leading-relaxed text-gray-700 sm:text-base">

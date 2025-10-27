@@ -698,9 +698,11 @@ export default function HomePage() {
           <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
             <LayoutWrapper>
               <div className="mx-auto max-w-3xl text-center">
-                <span className="inline-flex items-center justify-center rounded-full border border-orange/40 bg-orange/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange">
-                  {t("packages.badge")}
-                </span>
+                {t("packages.badge").trim().length > 0 && (
+                  <span className="inline-flex items-center justify-center rounded-full border border-orange/40 bg-orange/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-orange">
+                    {t("packages.badge")}
+                  </span>
+                )}
                 <h2 className="mt-6 text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
                   {t("packages.title")}
                 </h2>
@@ -720,9 +722,6 @@ export default function HomePage() {
                     <span className="inline-flex items-center gap-2 rounded-full bg-orange px-3 py-1 text-white shadow-sm">
                       <Target className="h-4 w-4" aria-hidden="true" />
                       {t("packages.setup.badge")}
-                    </span>
-                    <span className="rounded-full border border-orange/40 bg-orange/5 px-3 py-1 text-orange">
-                      {t("packages.setup.revShare")}
                     </span>
                   </div>
                   <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -784,9 +783,6 @@ export default function HomePage() {
                       <span className="inline-flex items-center gap-2 rounded-full bg-sky-blue px-3 py-1 text-white">
                         <Zap className="h-4 w-4" aria-hidden="true" />
                         {t("packages.performance.badge")}
-                      </span>
-                      <span className="rounded-full border border-sky-blue/40 bg-sky-blue/5 px-3 py-1 text-sky-blue">
-                        {t("packages.performance.setup")}
                       </span>
                     </div>
                     <div className="space-y-4">
@@ -858,9 +854,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-12 text-center text-sm text-gray-600">
-                {t("packages.trust")}
-              </div>
             </LayoutWrapper>
           </div>
         </section>

@@ -351,21 +351,11 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-3">
+                            <div className="mb-3">
                               <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.1.title")}</h3>
-                              <span className="px-3 py-1 bg-navy/10 text-navy text-sm font-semibold rounded-full">{t("guarantee.steps.1.label")}</span>
                             </div>
                             <p className="text-gray-600 mb-4">{t("guarantee.steps.1.desc")}</p>
-                            <ul className="space-y-3 text-gray-700">
-                              <li className="flex items-start gap-3">
-                                <span className="text-navy font-bold mt-0.5">•</span>
-                                <span>{t("guarantee.steps.1.desc")}</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-navy font-bold mt-0.5">•</span>
-                                <span>La prima rata viene versata all'inizio della collaborazione</span>
-                              </li>
-                            </ul>
+                            <p className="text-sm text-gray-600">La prima rata viene versata all’inizio della collaborazione.</p>
                           </div>
                         </div>
                       </Card>
@@ -388,9 +378,8 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-3">
+                            <div className="mb-3">
                               <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.2.title")}</h3>
-                              <span className="px-3 py-1 bg-sky-blue/10 text-sky-blue text-sm font-semibold rounded-full">{t("guarantee.steps.2.label")}</span>
                             </div>
                             <p className="text-gray-600 mb-4">{t("guarantee.steps.2.desc")}</p>
                             <ul className="space-y-3 text-gray-700">
@@ -429,13 +418,10 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-3">
+                            <div className="mb-3">
                               <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.3.title")}</h3>
-                              <span className="px-3 py-1 bg-navy/10 text-navy text-sm font-semibold rounded-full">{t("guarantee.steps.3.label")}</span>
                             </div>
-                            <ul className="space-y-3 text-gray-700">
-                              <li className="flex items-start gap-3"><span className="text-navy font-bold mt-0.5">•</span><span>{t("guarantee.steps.3.desc")}</span></li>
-                            </ul>
+                            <p className="text-gray-600">{t("guarantee.steps.3.desc")}</p>
                           </div>
                         </div>
                       </Card>

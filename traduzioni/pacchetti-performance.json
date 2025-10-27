@@ -1,4 +1,3 @@
-
 {
   "it": {
     "hero": {
@@ -63,19 +62,31 @@
     },
     "investment": {
       "title": "Meno di €8 al giorno per raggiungere i decisori",
-      "desc": "Un investimento minimo rispetto al ritorno che puoi generare. Meno di quanto spendi al bar ogni mese per mantenere attivo per un anno intero un flusso di appuntamenti qualificati.",
+      "desc": "Un investimento minimo rispetto al ritorno che puoi generare. Meno di quanto spendi al bar ogni mese, per mantenere attivo un flusso di appuntamenti qualificati per un anno intero.",
       "timeline": {
         "desktop": [
-          { "label": "Spesa quotidiana", "amount": "€8", "caption": "Colazione fuori / caffè e sigarette / panino e bibita." },
-          { "label": "Investimento mensile", "amount": "€240", "caption": "Testing delle Meta Ads / due pieni di carburante / un cambio di guardaroba stagionale / un outfit nuovo." },
-          { "label": "Ticket medio potenziale", "amount": "€1.440", "caption": "Quello che puoi ottenere con una sola trattativa chiusa." },
-          { "label": "Investimento annuale", "amount": "€3.000", "caption": "Un anno intero di appuntamenti qualificati che riempiono il tuo calendario." }
+          {
+            "label": "Spesa quotidiana",
+            "amount": "€8",
+            "caption": "Colazione fuori, caffè e snack."
+          },
+          {
+            "label": "Investimento annuale",
+            "amount": "€3.000",
+            "caption": "Un anno intero di appuntamenti qualificati garantiti."
+          }
         ],
         "mobile": [
-          { "label": "Spesa quotidiana", "amount": "€8", "caption": "Colazione fuori / caffè e sigarette / panino e bibita." },
-          { "label": "Investimento mensile", "amount": "€240", "caption": "Testing delle Meta Ads / due pieni di carburante / un cambio di guardaroba stagionale / un outfit nuovo." },
-          { "label": "Ticket medio potenziale", "amount": "€1.440", "caption": "Quello che puoi ottenere con una sola trattativa chiusa." },
-          { "label": "Investimento annuale", "amount": "€3.000", "caption": "Un anno intero di appuntamenti qualificati che riempiono il tuo calendario." }
+          {
+            "label": "Spesa quotidiana",
+            "amount": "€8",
+            "caption": "Colazione fuori, caffè e snack."
+          },
+          {
+            "label": "Investimento annuale",
+            "amount": "€3.000",
+            "caption": "Un anno intero di appuntamenti qualificati garantiti."
+          }
         ]
       }
     },
@@ -142,7 +153,6 @@
       }
     }
   },
-
   "en": {
     "hero": {
       "badge": "PERFORMANCE PACKAGE",
@@ -205,20 +215,32 @@
       }
     },
     "investment": {
-      "title": "Less than €8/day to reach decision makers",
-      "desc": "A minimal investment compared to the upside you can generate. Less than what you spend at the bar each month to keep a flow of qualified meetings active for an entire year.",
+      "title": "Less than €8 per day to reach decision makers",
+      "desc": "A minimal investment compared to the return you can generate. Less than what you spend at the café each month to keep a year-long flow of qualified meetings running.",
       "timeline": {
         "desktop": [
-          { "label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink." },
-          { "label": "Monthly investment", "amount": "€240", "caption": "Testing Meta Ads / two tanks of fuel / a seasonal wardrobe refresh / a new outfit." },
-          { "label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal." },
-          { "label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar." }
+          {
+            "label": "Daily spend",
+            "amount": "€8",
+            "caption": "Breakfast out, coffee and snacks."
+          },
+          {
+            "label": "Annual investment",
+            "amount": "€3,000",
+            "caption": "A full year of guaranteed qualified appointments."
+          }
         ],
         "mobile": [
-          { "label": "Daily spend", "amount": "€8", "caption": "Breakfast out / coffee and cigarettes / sandwich and drink." },
-          { "label": "Monthly investment", "amount": "€240", "caption": "Testing Meta Ads / two tanks of fuel / a seasonal wardrobe refresh / a new outfit." },
-          { "label": "Potential average ticket", "amount": "€1,440", "caption": "What you can unlock with a single closed deal." },
-          { "label": "Annual investment", "amount": "€3,000", "caption": "A full year of qualified meetings filling your calendar." }
+          {
+            "label": "Daily spend",
+            "amount": "€8",
+            "caption": "Breakfast out, coffee and snacks."
+          },
+          {
+            "label": "Annual investment",
+            "amount": "€3,000",
+            "caption": "A full year of guaranteed qualified appointments."
+          }
         ]
       }
     },
@@ -285,7 +307,6 @@
       }
     }
   },
-
   "es": {
     "hero": {
       "badge": "PAQUETE PERFORMANCE",
@@ -348,20 +369,32 @@
       }
     },
     "investment": {
-      "title": "Menos de 8€ al día para llegar a los decisores",
-      "desc": "Una inversión mínima frente al retorno que puedes generar. Menos de lo que gastas en el bar cada mes para mantener activo durante todo el año un flujo de citas cualificadas.",
+      "title": "Menos de 8 € al día para llegar a los decisores",
+      "desc": "Una inversión mínima frente al retorno que puedes generar. Menos de lo que gastas en el bar cada mes para mantener activo un flujo de citas cualificadas durante todo un año.",
       "timeline": {
         "desktop": [
-          { "label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida." },
-          { "label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta Ads / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo." },
-          { "label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes lograr con una sola negociación cerrada." },
-          { "label": "Inversión anual", "amount": "3.000€", "caption": "Un año entero de citas cualificadas llenando tu agenda." }
+          {
+            "label": "Gasto diario",
+            "amount": "8 €",
+            "caption": "Desayuno fuera, café y tentempiés."
+          },
+          {
+            "label": "Inversión anual",
+            "amount": "3.000 €",
+            "caption": "Un año completo de citas cualificadas garantizadas."
+          }
         ],
         "mobile": [
-          { "label": "Gasto diario", "amount": "8€", "caption": "Desayuno fuera / café y cigarrillos / bocadillo y bebida." },
-          { "label": "Inversión mensual", "amount": "240€", "caption": "Probar Meta Ads / dos depósitos de gasolina / un cambio de temporada / un outfit nuevo." },
-          { "label": "Ticket medio potencial", "amount": "1.440€", "caption": "Lo que puedes lograr con una sola negociación cerrada." },
-          { "label": "Inversión anual", "amount": "3.000€", "caption": "Un año entero de citas cualificadas llenando tu agenda." }
+          {
+            "label": "Gasto diario",
+            "amount": "8 €",
+            "caption": "Desayuno fuera, café y tentempiés."
+          },
+          {
+            "label": "Inversión anual",
+            "amount": "3.000 €",
+            "caption": "Un año completo de citas cualificadas garantizadas."
+          }
         ]
       }
     },

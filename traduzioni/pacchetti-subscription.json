@@ -14,11 +14,11 @@
       "title": "Pacchetto Subscription: trattative valide per il tuo team",
       "cards": {
         "targetTitle": "Il tuo target",
-        "targetDesc": "Individuiamo il cluster di mercato ideale e fissiamo insieme il range mensile garantito.",
+        "targetDesc": "Il primo passo è individuare il cluster di mercato che vuoi raggiungere. In questo modo chi gestisce le trattative ha già un profilo generico dei potenziali clienti. In secondo luogo si stabilisce il range di appuntamenti mensili garantiti.",
         "strategyTitle": "La tua strategia",
-        "strategyDesc": "Definiamo piano d'azione, canali e messaggi. Liste dedicate dal nostro database.",
+        "strategyDesc": "Insieme al project manager di riferimento si definisce un piano d’azione personalizzato. Si scelgono i canali e i messaggi più adeguati. Infine, si creano le liste di contatti dedicate, direttamente tramite il nostro database proprietario.",
         "collabTitle": "La collaborazione",
-        "collabDesc": "Lanciamo e gestiamo le campagne, analizziamo dati e ottimizziamo con report e call."
+        "collabDesc": "Procediamo a lanciare e gestire le campagne per te. Analizziamo e compariamo i dati per assicurarci la massima efficienza. Ci confrontiamo sull’andamento con report e chiamate regolari, in modo da rimanere allineati."
       }
     },
     "why": {
@@ -179,11 +179,11 @@
       "title": "Subscription: valid negotiations for your team",
       "cards": {
         "targetTitle": "Your target",
-        "targetDesc": "We identify the market cluster and agree on the guaranteed monthly range.",
+        "targetDesc": "First we identify the market cluster you want to reach. This gives your sales team a clear profile of potential customers. Then we agree on the guaranteed monthly range of appointments.",
         "strategyTitle": "Your strategy",
-        "strategyDesc": "We define the action plan, channels and messages. Dedicated lists from our database.",
+        "strategyDesc": "Together with your dedicated project manager we define a tailored action plan. We choose the most suitable channels and messages and build dedicated contact lists directly from our proprietary database.",
         "collabTitle": "Collaboration",
-        "collabDesc": "We run campaigns, analyze data and optimize with reports and calls."
+        "collabDesc": "We launch and manage the campaigns for you. We analyse and compare the data to ensure maximum efficiency, sharing reports and regular calls to stay fully aligned."
       }
     },
     "why": {
@@ -344,11 +344,11 @@
       "title": "Suscripción: negociaciones válidas para tu equipo",
       "cards": {
         "targetTitle": "Tu objetivo",
-        "targetDesc": "Identificamos el cluster y acordamos el rango mensual garantizado.",
+        "targetDesc": "El primer paso es identificar el cluster de mercado que quieres alcanzar. Así tu equipo comercial dispone de un perfil general de los potenciales clientes. Después fijamos el rango mensual garantizado de citas.",
         "strategyTitle": "Tu estrategia",
-        "strategyDesc": "Definimos el plan, canales y mensajes. Listas dedicadas desde nuestra base de datos.",
+        "strategyDesc": "Junto con el project manager de referencia definimos un plan de acción personalizado. Elegimos los canales y mensajes más adecuados y creamos listas de contactos dedicadas directamente desde nuestra base de datos propietaria.",
         "collabTitle": "Colaboración",
-        "collabDesc": "Lanzamos y gestionamos campañas, analizamos datos y optimizamos con informes y llamadas."
+        "collabDesc": "Nos encargamos de lanzar y gestionar las campañas por ti. Analizamos y comparamos los datos para asegurar la máxima eficiencia y nos mantenemos alineados con informes y llamadas periódicas."
       }
     },
     "why": {

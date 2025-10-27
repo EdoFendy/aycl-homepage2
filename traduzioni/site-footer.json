@@ -2,7 +2,7 @@
   "it": {
     "brand": {
       "name": "All You Can Leads",
-      "tagline": "Il sistema proprietario per generare appuntamenti B2B qualificati"
+      "tagline": "Costruiamo relazioni dirette con i decisori B2B in tutto il mondo."
     },
     "sections": {
       "packages": "Pacchetti",
@@ -25,7 +25,7 @@
   "en": {
     "brand": {
       "name": "All You Can Leads",
-      "tagline": "The proprietary system to generate qualified B2B appointments"
+      "tagline": "We build direct relationships with B2B decision makers worldwide."
     },
     "sections": {
       "packages": "Packages",
@@ -48,7 +48,7 @@
   "es": {
     "brand": {
       "name": "All You Can Leads",
-      "tagline": "El sistema propietario para generar citas B2B cualificadas"
+      "tagline": "Creamos relaciones directas con los decisores B2B en todo el mundo."
     },
     "sections": {
       "packages": "Paquetes",
@@ -69,5 +69,3 @@
     "copyright": "Todos los derechos reservados."
   }
 }
-
-

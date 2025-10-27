@@ -384,52 +384,6 @@ export default function SetUpFeePage() {
           </div>
         </PageLayoutContainer>
       </section>
-
-
-      {/* PERCHÉ FUNZIONA / OPERATIVO */}
-      <section className="relative overflow-hidden py-24 bg-gradient-to-b from-white via-gray-50/50 to-white">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange via-sky-blue to-navy" />
-        <div className="pointer-events-none absolute left-10 top-12 h-40 w-40 rounded-full bg-orange/10 blur-2xl" />
-        <div className="pointer-events-none absolute right-16 bottom-12 h-48 w-48 rounded-full bg-sky-blue/15 blur-3xl" />
-
-        <PageLayoutContainer className="relative z-10 px-6">
-          <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2">
-            <Card className="relative overflow-hidden border border-sky-blue/30 bg-white/95 p-10 shadow-lg backdrop-blur">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-blue/10 via-transparent to-orange/10" />
-              <div className="relative z-10 space-y-4">
-                <h3 className="text-2xl font-bold text-navy">{t("whyWorks.title")}</h3>
-                <p className="text-base text-gray-600 leading-relaxed">{t("whyWorks.desc")}</p>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  {t.raw("whyWorks.bullets").map((b: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-sky-blue font-bold mt-1">•</span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Card>
-
-            <Card className="relative overflow-hidden border border-navy/20 bg-white/95 p-10 shadow-lg backdrop-blur">
-              <div className="absolute inset-0 bg-gradient-to-br from-navy/10 via-transparent to-orange/10" />
-              <div className="relative z-10 space-y-4">
-                <h3 className="text-2xl font-bold text-navy">{t("whyWorks.opTitle")}</h3>
-                <p className="text-base text-gray-600 leading-relaxed">{t("whyWorks.opDesc")}</p>
-                <ul className="space-y-3 text-sm text-gray-700">
-                  {t.raw("whyWorks.opBullets").map((b: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-navy font-bold mt-1">•</span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Card>
-          </div>
-        </PageLayoutContainer>
-      </section>
-
-
       {/* Call to Action Section */}
       <section className="py-16 bg-white">
         <PageLayoutContainer className="px-6">

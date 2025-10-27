@@ -312,7 +312,6 @@ export default function PerformancePage() {
                       <span>{t("investment.timeline.desktop.3.label")}</span>
                     </div>
                     <div className="relative mt-8 py-8">
-                      {/* Barra orizzontale */}
                       <div
                         className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-2 rounded-full bg-gradient-to-r from-navy via-sky-blue to-orange"
                         style={{ zIndex: 0 }}
@@ -321,41 +320,23 @@ export default function PerformancePage() {
                         className="relative flex justify-between z-10"
                         style={{ minHeight: "140px" }}
                       >
-                        {t.raw("investment.timeline.desktop").map((item: any, index: number) => (
+                        {t.raw("investment.timeline.desktop").map((item: any) => (
                           <div
                             key={item.label}
-                            className="flex flex-col items-center w-1/4 min-w-[90px]"
-                            style={{ 
-                              position: "relative", 
-                              zIndex: 2
-                            }}
+                            className="flex flex-col items-center w-1/2 min-w-[140px]"
+                            style={{ position: "relative", zIndex: 2 }}
                           >
-                            {/* Titolo sopra (se presente) */}
-                            {item.label && item.label.includes('SPESA QUOTIDIANA') && (
-                              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500 mb-2" style={{ transform: 'translateY(30px)' }}>
+                            {item.label && (
+                              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500 mb-3">
                                 {item.label}
                               </span>
                             )}
-                            
-                            {/* Card circolare - sempre al centro della linea */}
-                            <div 
-                              className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-sm font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0"
-                              style={{ 
-                                transform: `translateY(${item.label.includes('1 mese') ? '21px' : '20px'})`
-                              }}
-                            >
+                            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-sm font-bold text-navy shadow-lg ring-2 ring-sky-blue/40 shrink-0">
                               {item.amount}
                             </div>
-                            
-                            {/* Titolo sotto (se presente) */}
-                            {item.label && !item.label.includes('SPESA QUOTIDIANA') && (
-                              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500 mt-2" style={{ transform: 'translateY(30px)' }}>
-                                {item.label}
-                              </span>
-                            )}
-                            
-                            {/* Descrizione sempre sotto */}
-                            <p className="text-xs text-gray-600 max-w-[140px] leading-snug mt-2 text-center" style={{ transform: 'translateY(30px)' }}>{item.caption}</p>
+                            <p className="mt-3 text-xs text-gray-600 max-w-[160px] leading-snug text-center">
+                              {item.caption}
+                            </p>
                           </div>
                         ))}
                       </div>

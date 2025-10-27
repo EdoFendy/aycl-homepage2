@@ -25,7 +25,8 @@
         "Per anni l'outreach tradizionale è stato uno dei pilastri delle vendite B2B.",
         "Ma il mercato si è saturato, i canali sono diventati più competitivi e gli approcci standard non bastano più.",
         "Per emergere serve una strategia capace di **integrare i canali**, **leggere i dati** e **adattarsi in tempo reale**."
-      ]
+      ],
+      "badge": "Il cambio di prospettiva"
     },
     "ai": {
       "title": "Multicanale e AI: la combinazione che cambia le regole",
@@ -48,7 +49,8 @@
           "author": "Desk365.io",
           "linkLabel": "desk365.io"
         }
-      ]
+      ],
+      "badge": "Insight e dati"
     },
     "architecture": {
       "title": "Dall'esperienza alla struttura",
@@ -56,8 +58,9 @@
         "Abbiamo capito che una ##comunicazione multicanale##, supportata dall'##AI##, porta risultati nettamente superiori.",
         "Su questa base abbiamo costruito la nostra ##infrastruttura tecnologica## proprietaria e sviluppato ##banche dati## uniche, in costante aggiornamento.",
         "Oggi ogni campagna che gestiamo si fonda su un principio semplice: raggiungere le **persone giuste**, nel **momento giusto**, con il **messaggio giusto**.",
-        "Da qui nasce il nostro ##sistema##: un ecosistema in cui ##tecnologia##, ##AI## e competenza umana si integrano per trasformare dati in conversazioni reali e conversazioni in opportunità."
-      ]
+        "Da qui nasce All You Can Leads: un ecosistema in cui ##tecnologia##, ##AI## e competenza umana si integrano per trasformare dati in conversazioni reali e conversazioni in opportunità."
+      ],
+      "badge": "Come nasce il sistema"
     },
     "comparison": {
       "title": "Outreach tradizionale vs All You Can Leads",
@@ -127,14 +130,16 @@
           "aycl": "Ecosistema dinamico e orientato al risultato"
         }
       ],
-      "note": "Tabella compatta e leggibile, pensata per essere visualizzata interamente su una pagina e in armonia con lo stile AYCL."
+      "note": "Tabella compatta e leggibile, pensata per essere visualizzata interamente su una pagina e in armonia con lo stile AYCL.",
+      "badge": "Confronto diretto"
     },
     "application": {
       "title": "Come lo applichiamo noi",
       "paragraphs": [
         "Abbiamo trasformato l'outreach in un sistema **strutturato, scalabile e tracciabile**.",
         "Non è un insieme di azioni isolate, ma un **ecosistema** che unisce **tecnologia**, **dati** e **intelligenza commerciale**."
-      ]
+      ],
+      "badge": "Metodo AYCL in pratica"
     },
     "sendura": {
       "title": "Sendura: la piattaforma che trasforma dati in appuntamenti qualificati",
@@ -145,7 +150,8 @@
         "Testare e ottimizzare costantemente approcci, messaggi e tempi di contatto.",
         "Tradurre i dati in insight utili per fissare **appuntamenti reali** con decision maker qualificati."
       ],
-      "closing": "In altre parole, ##Sendura## trasforma il ##database## in pipeline attiva, in modo misurabile, trasparente e scalabile."
+      "closing": "In altre parole, ##Sendura## trasforma il ##database## in pipeline attiva, in modo misurabile, trasparente e scalabile.",
+      "badge": "La nostra piattaforma"
     },
     "learning": {
       "title": "Testing continuo e apprendimento progressivo",
@@ -186,7 +192,8 @@
         "Gestione delle risposte complesse.",
         "Creazione di relazioni di valore."
       ],
-      "closing": "Il nostro metodo è **ibrido per scelta**: la ##tecnologia## accelera, l'esperienza guida."
+      "closing": "Il nostro metodo è **ibrido per scelta**: la ##tecnologia## accelera, l'esperienza guida.",
+      "badge": "AI + Team umano"
     },
     "ecosystem": {
       "title": "L'ecosistema AYCL in evoluzione continua",
@@ -199,7 +206,8 @@
         "Strategia, per adattare il modello a ogni settore e mercato.",
         "Esperienza umana, per dare senso e direzione ai dati."
       ],
-      "closing": "Questo equilibrio ci permette di garantire risultati misurabili oggi e miglioramenti costanti nel tempo."
+      "closing": "Questo equilibrio ci permette di garantire risultati misurabili oggi e miglioramenti costanti nel tempo.",
+      "badge": "Livelli del sistema"
     },
     "microcopy": "Il nostro obiettivo non è riempire le inbox dei prospect, ma **riempire le agende dei nostri clienti**. Ogni dato, messaggio e contatto costruisce **connessioni reali** che generano opportunità di business."
   },
@@ -229,7 +237,8 @@
         "For years, traditional outreach was one of the pillars of B2B sales.",
         "But the market became saturated, channels turned more competitive and standard approaches stopped working.",
         "To stand out you need a strategy that **integrates channels**, **reads data** and **adapts in real time**."
-      ]
+      ],
+      "badge": "A change in perspective"
     },
     "ai": {
       "title": "Multichannel and AI: the combination that changes the rules",
@@ -252,7 +261,8 @@
           "author": "Desk365.io",
           "linkLabel": "desk365.io"
         }
-      ]
+      ],
+      "badge": "Data-backed insights"
     },
     "architecture": {
       "title": "From experience to structure",
@@ -260,8 +270,9 @@
         "We learned that ##multichannel communication## supported by ##AI## delivers far better results.",
         "On that foundation we built our proprietary ##technology infrastructure## and developed unique ##databases## that are constantly updated.",
         "Today every campaign we manage follows one simple principle: reach the **right people**, at the **right moment**, with the **right message**.",
-        "This is where our ##system## comes from: an ecosystem where ##technology##, ##AI## and human expertise combine to turn data into real conversations and conversations into opportunities."
-      ]
+        "This is where All You Can Leads begins: an ecosystem where ##technology##, ##AI## and human expertise blend to turn data into real conversations and conversations into opportunities."
+      ],
+      "badge": "How the system was built"
     },
     "comparison": {
       "title": "Traditional outreach vs All You Can Leads",
@@ -322,14 +333,16 @@
           "traditional": "Tactical, short-term actions.",
           "aycl": "Dynamic ecosystem that compounds over time and stays outcome-driven."
         }
-      ]
+      ],
+      "badge": "Side-by-side comparison"
     },
     "application": {
       "title": "How we apply it",
       "paragraphs": [
         "We turned outreach into a **structured, scalable and trackable system**.",
         "It is not a set of isolated actions but an **ecosystem** that unites **technology**, **data** and **commercial intelligence**."
-      ]
+      ],
+      "badge": "AYCL in action"
     },
     "sendura": {
       "title": "Sendura: the platform that turns data into qualified appointments",
@@ -340,7 +353,8 @@
         "Continuously test and optimise approaches, messages and timing.",
         "Turn data into insights that secure **real meetings** with qualified decision makers."
       ],
-      "closing": "In other words, ##Sendura## activates the ##database## into a live pipeline that is measurable, transparent and scalable."
+      "closing": "In other words, ##Sendura## activates the ##database## into a live pipeline that is measurable, transparent and scalable.",
+      "badge": "Our platform"
     },
     "learning": {
       "title": "Continuous testing and progressive learning",
@@ -381,7 +395,8 @@
         "Manage complex replies.",
         "Build meaningful relationships."
       ],
-      "closing": "Our method is **hybrid by design**: ##technology## accelerates, experience leads."
+      "closing": "Our method is **hybrid by design**: ##technology## accelerates, experience leads.",
+      "badge": "AI + Human team"
     },
     "ecosystem": {
       "title": "The AYCL ecosystem, constantly evolving",
@@ -394,11 +409,11 @@
         "Strategy, to adapt the model to each industry and market.",
         "Human experience, to give data meaning and direction."
       ],
-      "closing": "This balance lets us guarantee measurable outcomes today and continuous improvements over time."
+      "closing": "This balance lets us guarantee measurable outcomes today and continuous improvements over time.",
+      "badge": "System layers"
     },
     "microcopy": "Our goal is not to flood prospect inboxes, but to **fill our clients' calendars**. Every data point, message and touchpoint is designed to build **real connections** that unlock business opportunities."
-  }
-  ,
+  },
   "es": {
     "hero": {
       "eyebrow": "Cómo Funciona AYCL",
@@ -425,7 +440,8 @@
         "Durante años, el outreach tradicional fue uno de los pilares de las ventas B2B.",
         "Pero el mercado se ha saturado, los canales son más competitivos y los enfoques estándar ya no bastan.",
         "Para destacar hace falta una estrategia capaz de **integrar canales**, **leer los datos** y **adaptarse en tiempo real**."
-      ]
+      ],
+      "badge": "Un cambio de perspectiva"
     },
     "ai": {
       "title": "Multicanal y IA: la combinación que cambia las reglas",
@@ -448,7 +464,8 @@
           "author": "Desk365.io",
           "linkLabel": "desk365.io"
         }
-      ]
+      ],
+      "badge": "Datos e insights"
     },
     "architecture": {
       "title": "De la experiencia a la estructura",
@@ -456,8 +473,9 @@
         "Entendimos que una ##comunicación multicanal##, apoyada por ##IA##, ofrece resultados claramente superiores.",
         "Sobre esta base construimos nuestra ##infraestructura tecnológica## propietaria y desarrollamos ##bases de datos## únicas y en actualización constante.",
         "Hoy cada campaña que gestionamos sigue un principio sencillo: llegar a las **personas adecuadas**, en el **momento adecuado**, con el **mensaje adecuado**.",
-        "De ahí nace nuestro ##sistema##: un ecosistema donde ##tecnología##, ##IA## y experiencia humana se integran para transformar datos en conversaciones reales y conversaciones en oportunidades."
-      ]
+        "Así nace All You Can Leads: un ecosistema donde la ##tecnología##, la ##IA## y la experiencia humana se integran para transformar datos en conversaciones reales y conversaciones en oportunidades."
+      ],
+      "badge": "Cómo nace el sistema"
     },
     "comparison": {
       "title": "Outreach tradicional vs All You Can Leads",
@@ -526,14 +544,16 @@
           "traditional": "Acciones tácticas y de corto plazo",
           "aycl": "Ecosistema dinámico que compone con el tiempo y se orienta a resultados"
         }
-      ]
+      ],
+      "badge": "Comparativa directa"
     },
     "application": {
       "title": "Cómo lo aplicamos",
       "paragraphs": [
         "Hemos convertido el outreach en un sistema **estructurado, escalable y trazable**.",
         "No es un conjunto de acciones aisladas, sino un **ecosistema** que une **tecnología**, **datos** e **inteligencia comercial**."
-      ]
+      ],
+      "badge": "AYCL en acción"
     },
     "sendura": {
       "title": "Sendura: la plataforma que convierte datos en citas cualificadas",
@@ -544,7 +564,8 @@
         "Probar y optimizar continuamente enfoques, mensajes y timing.",
         "Traducir los datos en insights útiles para fijar **citas reales** con decision makers cualificados."
       ],
-      "closing": "En otras palabras, ##Sendura## activa la ##base de datos## en un pipeline vivo, medible, transparente y escalable."
+      "closing": "En otras palabras, ##Sendura## activa la ##base de datos## en un pipeline vivo, medible, transparente y escalable.",
+      "badge": "Nuestra plataforma"
     },
     "learning": {
       "title": "Test continuo y aprendizaje progresivo",
@@ -585,7 +606,8 @@
         "Gestión de respuestas complejas.",
         "Creación de relaciones de valor."
       ],
-      "closing": "Nuestro método es **híbrido por elección**: la ##tecnología## acelera, la experiencia guía."
+      "closing": "Nuestro método es **híbrido por elección**: la ##tecnología## acelera, la experiencia guía.",
+      "badge": "IA + Equipo humano"
     },
     "ecosystem": {
       "title": "El ecosistema AYCL en evolución continua",
@@ -598,7 +620,8 @@
         "Estrategia, para adaptar el modelo a cada sector y mercado.",
         "Experiencia humana, para dar sentido y dirección a los datos."
       ],
-      "closing": "Este equilibrio nos permite garantizar resultados medibles hoy y mejoras continuas en el tiempo."
+      "closing": "Este equilibrio nos permite garantizar resultados medibles hoy y mejoras continuas en el tiempo.",
+      "badge": "Niveles del sistema"
     },
     "microcopy": "Nuestro objetivo no es llenar las bandejas de entrada de los prospectos, sino **llenar las agendas de nuestros clientes**. Cada dato, mensaje y contacto construye **conexiones reales** que generan oportunidades de negocio."
   }
