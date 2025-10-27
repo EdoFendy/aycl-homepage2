@@ -9,10 +9,7 @@ import { Check, Clock, Settings, TrendingUp, Users, Database, Target, Cpu, Zap }
 import { PageLayoutContainer } from "@/components/page-layout-container"
 import { LayoutWrapper } from "@/components/layout-wrapper"
 import { renderHighlightedText } from "@/lib/highlighted-text"
-import {
-  MinimalComparisonTable,
-  type MinimalComparisonRow,
-} from "@/components/minimal-comparison-table"
+import { cn } from "@/lib/utils"
 
 type Quote = {
   text: string
@@ -25,7 +22,11 @@ type ComparisonRow = {
   aspect: string
   traditional: string
   aycl: string
-  wordOfMouth?: string
+  badge?: string
+}
+
+type ComparisonDisplayRow = ComparisonRow & {
+  icon?: typeof Settings
 }
 
 type IconAsset = {
@@ -47,8 +48,12 @@ export default function OutreachPage() {
   const principleParagraphs = t.raw("principle.paragraphs") as string[]
   const aiQuotes = t.raw("ai.quotes") as Quote[]
   const architectureParagraphs = t.raw("architecture.paragraphs") as string[]
-  const comparisonRows = t.raw("comparison.rows") as ComparisonRow[]
+  const comparisonRowsRaw = t.raw("comparison.rows") as ComparisonRow[]
   const comparisonAspectLabel = t("comparison.aspectLabel").trim()
+  const comparisonColumns = t.raw("comparison.columns") as {
+    traditional: string
+    aycl: string
+  }
   const comparisonIconMap: Record<string, typeof Settings> = {
     Canali: Settings,
     "Channels used": Settings,
@@ -83,16 +88,16 @@ export default function OutreachPage() {
   }
   const comparisonBadgeMap: Record<string, string> = {
     Risultato: "Dato verificato",
+    "Typical outcome": "Verified data",
+    "Resultado típico": "Dato verificado",
     Tecnologia: "AI Integrata",
+    "Use of technology": "AI Powered",
+    Tecnología: "IA Integrada",
   }
-  const minimalComparisonRows: MinimalComparisonRow[] = comparisonRows.map((row) => ({
-    key: row.aspect,
+  const comparisonTableRows: ComparisonDisplayRow[] = comparisonRowsRaw.map((row) => ({
+    ...row,
     icon: comparisonIconMap[row.aspect],
-    aspect: row.aspect,
-    traditional: row.traditional,
-    wordOfMouth: row.wordOfMouth ?? row.traditional,
-    aycl: row.aycl,
-    badge: comparisonBadgeMap[row.aspect],
+    badge: row.badge ?? comparisonBadgeMap[row.aspect],
   }))
   const applicationParagraphs = t.raw("application.paragraphs") as string[]
   const senduraBullets = t.raw("sendura.bullets") as string[]
@@ -496,15 +501,92 @@ export default function OutreachPage() {
           </div>
 
           {/* Comparison Table */}
-          <MinimalComparisonTable
-            aspectLabel={comparisonAspectLabel.length > 0 ? comparisonAspectLabel : undefined}
-            headers={[
-              { label: "ADV" },
-              { label: "PASSAPAROLA" },
-              { label: "AYCL", variant: "highlight" },
-            ]}
-            rows={minimalComparisonRows}
-          />
+          <div className="mx-auto mt-10 w-full max-w-[1050px]">
+            <div className="overflow-hidden rounded-[28px] border border-[#0A2B6B]/10 bg-white/95 shadow-[0_18px_38px_rgba(10,43,107,0.08)]">
+              <div className="overflow-x-auto">
+                <div className="min-w-[640px]">
+                  <div className="px-4 pt-5 sm:px-5 sm:pt-6">
+                    <div className="grid grid-cols-[minmax(0,1.12fr)_repeat(2,minmax(0,1fr))] gap-2 sm:gap-2.5">
+                      <div
+                        className={cn(
+                          "py-2 pl-3 pr-2 text-left",
+                          comparisonAspectLabel.length > 0 ? "rounded-xl bg-[#F5F9FF] ring-1 ring-[#0A2B6B]/20" : ""
+                        )}
+                      >
+                        {comparisonAspectLabel.length > 0 ? (
+                          <span className="block text-xs font-semibold tracking-wide text-[#0A2B6B] sm:text-sm">
+                            {comparisonAspectLabel}
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="rounded-xl bg-[#F5F9FF] py-2 text-center ring-1 ring-[#0A2B6B]/20">
+                        <span className="text-xs font-semibold tracking-wide text-[#0A2B6B] sm:text-[13px]">
+                          {comparisonColumns.traditional}
+                        </span>
+                      </div>
+                      <div className="rounded-xl bg-[#FFF7EA] py-2 text-center ring-1 ring-[#F4AD42]">
+                        <span className="text-xs font-extrabold tracking-wide text-[#C77300] sm:text-[13px]">
+                          {comparisonColumns.aycl}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-6">
+                    <div className="mt-4 overflow-hidden rounded-2xl ring-1 ring-[#0A2B6B]/8">
+                      <div className="divide-y divide-slate-100 bg-white">
+                        {comparisonTableRows.map((row) => {
+                          const Icon = row.icon
+
+                          return (
+                            <div
+                              key={row.aspect}
+                              className="grid grid-cols-[minmax(0,1.12fr)_repeat(2,minmax(0,1fr))] bg-white"
+                            >
+                              <div className="border-r border-slate-100 bg-[#F5F9FF]/70 px-3 py-2.5 sm:px-4 sm:py-3.5">
+                                <div className="flex items-start gap-2 sm:gap-2.5">
+                                  {Icon ? (
+                                    <div className="mt-0.5 text-[#0A2B6B] opacity-90">
+                                      <Icon className="h-[18px] w-[18px]" />
+                                    </div>
+                                  ) : null}
+                                  <div>
+                                    {comparisonAspectLabel.length > 0 ? (
+                                      <span className="sr-only">{comparisonAspectLabel}</span>
+                                    ) : null}
+                                    <h3 className="text-[11px] font-semibold leading-snug text-[#0A2B6B] sm:text-[13px]">
+                                      {row.aspect}
+                                    </h3>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="border-r border-slate-100 px-3 py-2.5 sm:px-4 sm:py-3.5">
+                                <p className="text-[11px] leading-snug text-slate-700 sm:text-[13px]">
+                                  {renderHighlightedText(row.traditional)}
+                                </p>
+                              </div>
+
+                              <div className="bg-[#FFF7EA] px-3 py-2.5 sm:px-4 sm:py-3.5">
+                                <p className="text-[11px] font-semibold leading-snug text-[#0F2540] sm:text-[13px]">
+                                  {renderHighlightedText(row.aycl)}
+                                </p>
+                                {row.badge ? (
+                                  <span className="mt-1.5 inline-flex items-center rounded-full bg-[#F4AD42]/16 px-2 py-0.5 text-[10px] font-medium text-[#C77300] ring-1 ring-[#F4AD42]/30 sm:text-[11px]">
+                                    {row.badge}
+                                  </span>
+                                ) : null}
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </PageLayoutContainer>
       </section>
 
@@ -633,7 +715,7 @@ export default function OutreachPage() {
           <div className="mt-16 max-w-4xl mx-auto text-center">
             <div className="w-full h-px bg-gradient-to-r from-transparent via-navy/30 to-transparent mb-8"></div>
             <p className="text-lg font-semibold text-navy leading-relaxed">
-              {renderHighlightedText(t("microcopy"))}
+              {renderHighlightedText(t("closingStatement"))}
             </p>
           </div>
         </PageLayoutContainer>
@@ -751,7 +833,9 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl space-y-6 text-center">
             <h2 className="text-3xl font-bold sm:text-4xl">Pronto a trasformare il tuo outreach?</h2>
-            <p className="text-base text-white/80 sm:text-lg">{t("microcopy")}</p>
+            <p className="text-base text-white/80 sm:text-lg">
+              {renderHighlightedText(t("microcopy"))}
+            </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Link href="/contattaci">
                 <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-base px-6 sm:text-lg sm:px-8">

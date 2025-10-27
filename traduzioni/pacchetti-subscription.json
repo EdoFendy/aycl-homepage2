@@ -69,7 +69,7 @@
         "2": {
           "title": "Fase operativa",
           "label": "Risparmio 25%",
-          "desc": "Seconda rata 28 giorni dopo il primo appuntamento qualificato; cadenza 28 giorni; -25% per appuntamento."
+          "desc": ""
         },
         "3": {
           "title": "Garanzie incluse",
@@ -234,7 +234,7 @@
         "2": {
           "title": "Operational phase",
           "label": "Save 25%",
-          "desc": "Second installment 28 days after first qualified appointment; then every 28 days; -25% per appointment."
+          "desc": ""
         },
         "3": {
           "title": "Included guarantees",
@@ -399,7 +399,7 @@
         "2": {
           "title": "Fase operativa",
           "label": "Ahorro 25%",
-          "desc": "Segunda cuota 28 días después de la primera cita cualificada; luego cada 28 días; -25% por cita."
+          "desc": ""
         },
         "3": {
           "title": "Garantías incluidas",

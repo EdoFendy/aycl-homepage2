@@ -34,6 +34,12 @@ export default function SubscriptionPage() {
   const router = useRouter()
   const t = useTranslations("pacchettiSubscription")
   const tFaq = useTranslations("faq")
+  const guaranteeStep1Label = t("guarantee.steps.1.label").trim()
+  const guaranteeStep2Label = t("guarantee.steps.2.label").trim()
+  const guaranteeStep3Label = t("guarantee.steps.3.label").trim()
+  const guaranteeStep1Desc = t("guarantee.steps.1.desc").trim()
+  const guaranteeStep2Desc = t("guarantee.steps.2.desc").trim()
+  const guaranteeStep3Desc = t("guarantee.steps.3.desc").trim()
   
   useEffect(() => {
     (async function () {
@@ -351,10 +357,17 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="mb-3">
+                            <div className="mb-3 space-y-2">
+                              {guaranteeStep1Label.length > 0 && (
+                                <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-navy">
+                                  {guaranteeStep1Label}
+                                </span>
+                              )}
                               <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.1.title")}</h3>
                             </div>
-                            <p className="text-gray-600 mb-4">{t("guarantee.steps.1.desc")}</p>
+                            {guaranteeStep1Desc.length > 0 && (
+                              <p className="text-gray-600 mb-4">{guaranteeStep1Desc}</p>
+                            )}
                             <p className="text-sm text-gray-600">La prima rata viene versata all’inizio della collaborazione.</p>
                           </div>
                         </div>
@@ -378,10 +391,17 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="mb-3">
+                            <div className="mb-3 space-y-2">
+                              {guaranteeStep2Label.length > 0 && (
+                                <span className="inline-flex items-center rounded-full bg-sky-blue/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-blue">
+                                  {guaranteeStep2Label}
+                                </span>
+                              )}
                               <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.2.title")}</h3>
                             </div>
-                            <p className="text-gray-600 mb-4">{t("guarantee.steps.2.desc")}</p>
+                            {guaranteeStep2Desc.length > 0 && (
+                              <p className="text-gray-600 mb-4">{guaranteeStep2Desc}</p>
+                            )}
                             <ul className="space-y-3 text-gray-700">
                               <li className="flex items-start gap-3">
                                 <span className="text-sky-blue font-bold mt-0.5">•</span>
@@ -418,10 +438,17 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="mb-3">
+                            <div className="mb-3 space-y-2">
+                              {guaranteeStep3Label.length > 0 && (
+                                <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange">
+                                  {guaranteeStep3Label}
+                                </span>
+                              )}
                               <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.3.title")}</h3>
                             </div>
-                            <p className="text-gray-600">{t("guarantee.steps.3.desc")}</p>
+                            {guaranteeStep3Desc.length > 0 && (
+                              <p className="text-gray-600">{guaranteeStep3Desc}</p>
+                            )}
                           </div>
                         </div>
                       </Card>
@@ -522,13 +549,13 @@ export default function SubscriptionPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Content section */}
-              <div className="text-center lg:text-left">
+              <div className="text-center">
                 <div className="mb-12">
                   <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">{t("cta.title")}</h2>
-                  <p className="text-gray-600 text-lg max-w-2xl mx-auto lg:mx-0">{t("cta.subtitle")}</p>
+                  <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t("cta.subtitle")}</p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button 
                     data-cal-namespace="aycl-discovery"
                     data-cal-link="giovannilucchesini/aycl-discovery"
@@ -550,8 +577,8 @@ export default function SubscriptionPage() {
               </div>
 
               {/* Image section */}
-              <div className="text-center lg:text-right">
-                <div className="relative">
+              <div className="text-center">
+                <div className="relative mx-auto">
                   <div className="absolute -top-6 -left-6 w-20 h-20 bg-navy/20 rounded-full blur-xl"></div>
                   <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-navy/15 rounded-full blur-xl"></div>
                   <Image
@@ -559,7 +586,7 @@ export default function SubscriptionPage() {
                     alt="Call Gratuita - Subscription"
                     width={400}
                     height={400}
-                    className="relative z-10 w-full max-w-sm mx-auto lg:mx-0 drop-shadow-xl"
+                    className="relative z-10 w-full max-w-sm mx-auto drop-shadow-xl"
                     priority
                     unoptimized
                   />

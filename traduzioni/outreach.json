@@ -209,6 +209,7 @@
       "closing": "Questo equilibrio ci permette di garantire risultati misurabili oggi e miglioramenti costanti nel tempo.",
       "badge": "Livelli del sistema"
     },
+    "closingStatement": "Costruiamo un sistema che unisce **strategia, tecnologia e persone** per trasformare ogni conversazione in trattative misurabili.",
     "microcopy": "Il nostro obiettivo non è riempire le inbox dei prospect, ma **riempire le agende dei nostri clienti**. Ogni dato, messaggio e contatto costruisce **connessioni reali** che generano opportunità di business."
   },
   "en": {
@@ -412,6 +413,7 @@
       "closing": "This balance lets us guarantee measurable outcomes today and continuous improvements over time.",
       "badge": "System layers"
     },
+    "closingStatement": "We build a system that blends **strategy, technology and people** so every conversation turns into measurable deals.",
     "microcopy": "Our goal is not to flood prospect inboxes, but to **fill our clients' calendars**. Every data point, message and touchpoint is designed to build **real connections** that unlock business opportunities."
   },
   "es": {
@@ -623,6 +625,7 @@
       "closing": "Este equilibrio nos permite garantizar resultados medibles hoy y mejoras continuas en el tiempo.",
       "badge": "Niveles del sistema"
     },
+    "closingStatement": "Construimos un sistema que combina **estrategia, tecnología y personas** para convertir cada conversación en oportunidades medibles.",
     "microcopy": "Nuestro objetivo no es llenar las bandejas de entrada de los prospectos, sino **llenar las agendas de nuestros clientes**. Cada dato, mensaje y contacto construye **conexiones reales** que generan oportunidades de negocio."
   }
 }

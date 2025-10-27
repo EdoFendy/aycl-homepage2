@@ -41,12 +41,32 @@ interface StatsCardConfig {
   key: "cpc" | "budget" | "leads"
   icon: typeof TrendingUp
   accent: string
+  ringClass: string
+  iconClass: string
 }
 
 const statsCardConfig: StatsCardConfig[] = [
-  { key: "cpc", icon: TrendingUp, accent: "from-orange/30 via-orange/10 to-transparent" },
-  { key: "budget", icon: Target, accent: "from-sky-blue/30 via-sky-blue/10 to-transparent" },
-  { key: "leads", icon: Users, accent: "from-navy/20 via-navy/5 to-transparent" },
+  {
+    key: "cpc",
+    icon: TrendingUp,
+    accent: "from-orange/30 via-orange/10 to-transparent",
+    ringClass: "ring-2 ring-orange/40",
+    iconClass: "bg-orange/10 text-orange",
+  },
+  {
+    key: "budget",
+    icon: Target,
+    accent: "from-sky-blue/30 via-sky-blue/10 to-transparent",
+    ringClass: "ring-2 ring-sky-blue/40",
+    iconClass: "bg-sky-blue/10 text-sky-blue",
+  },
+  {
+    key: "leads",
+    icon: Users,
+    accent: "from-navy/20 via-navy/5 to-transparent",
+    ringClass: "ring-2 ring-navy/40",
+    iconClass: "bg-navy/10 text-navy",
+  },
 ]
 
 const benefitCardIcons = [Sparkles, Target, Users]
@@ -441,21 +461,18 @@ export default function HomePage() {
                     </div>
                   ))
                 ) : (
-                  statsCardConfig.map(({ key, icon: Icon, accent }, index) => {
+                  statsCardConfig.map(({ key, icon: Icon, accent, ringClass, iconClass }, index) => {
                     const metric = t(`stats.metrics.${key}.label`)
                     const value = t(`stats.metrics.${key}.value`)
                     const description = t(`stats.metrics.${key}.desc`)
                     const source = t(`stats.metrics.${key}.source`)
-                    const isHighlighted = index === 0
 
                     return (
                       <article
                         key={key}
                         className={`relative flex h-full flex-col gap-5 rounded-3xl border border-white/70 bg-white p-8 text-center transition-all duration-500 ease-out ${
                           statsInView || prefersReducedMotion ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                        } hover:-translate-y-2 hover:aycl-shadow-lg focus-within:-translate-y-2 focus-within:aycl-shadow-lg focus-within:border-orange/40 ${
-                          isHighlighted ? "ring-2 ring-orange/40" : ""
-                        }`}
+                        } hover:-translate-y-2 hover:aycl-shadow-lg focus-within:-translate-y-2 focus-within:aycl-shadow-lg focus-within:border-orange/40 ${ringClass}`}
                         style={!prefersReducedMotion ? { transitionDelay: `${index * 0.1}s` } : undefined}
                       >
                         <div
@@ -463,7 +480,7 @@ export default function HomePage() {
                           aria-hidden="true"
                         />
                         <div className="relative z-10 flex flex-col items-center gap-4">
-                          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-orange/10 text-orange">
+                          <span className={`flex h-14 w-14 items-center justify-center rounded-full ${iconClass}`}>
                             <Icon className="h-6 w-6" aria-hidden="true" />
                           </span>
                           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">{metric}</p>

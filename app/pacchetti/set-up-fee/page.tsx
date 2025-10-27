@@ -390,13 +390,13 @@ export default function SetUpFeePage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Content section */}
-              <div className="text-center lg:text-left">
+              <div className="text-center">
                 <div className="mb-12">
                   <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">{t("cta.title")}</h2>
-                  <p className="text-gray-600 text-lg max-w-2xl mx-auto lg:mx-0">{t("cta.subtitle")}</p>
+                  <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t("cta.subtitle")}</p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button 
                     data-cal-namespace="aycl-discovery"
                     data-cal-link="giovannilucchesini/aycl-discovery"
@@ -418,8 +418,8 @@ export default function SetUpFeePage() {
               </div>
 
               {/* Image section */}
-              <div className="text-center lg:text-right">
-                <div className="relative">
+              <div className="text-center">
+                <div className="relative mx-auto">
                   <div className="absolute -top-6 -left-6 w-20 h-20 bg-orange/20 rounded-full blur-xl"></div>
                   <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-sky-blue/20 rounded-full blur-xl"></div>
                   <Image
@@ -427,7 +427,7 @@ export default function SetUpFeePage() {
                     alt="Call Gratuita - Setup Fee"
                     width={400}
                     height={400}
-                    className="relative z-10 w-full max-w-sm mx-auto lg:mx-0 drop-shadow-xl"
+                    className="relative z-10 w-full max-w-sm mx-auto drop-shadow-xl"
                     priority
                     unoptimized
                   />

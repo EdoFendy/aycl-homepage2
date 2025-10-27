@@ -1,11 +1,11 @@
 {
   "it": {
     "badge": "Confronto Metodi",
-    "title": "Traffico a Pagamento vs Passaparola vs All You Can Leads",
+    "title": "ADV vs Passaparola vs All You Can Leads",
     "subtitle": "Analisi comparativa dei tre approcci per la generazione lead: quale si adatta meglio alle tue esigenze?",
     "headers": {
       "aspect": "Aspetto",
-      "paidTraffic": "Traffico a Pagamento",
+      "paidTraffic": "ADV",
       "wordOfMouth": "Passaparola",
       "aycl": "All You Can Leads"
     },
@@ -312,4 +312,3 @@
     }
   }
 }
-
