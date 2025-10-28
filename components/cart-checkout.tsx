@@ -82,7 +82,8 @@ export function CartCheckout({
 
   const calculateTotal = () => {
     const productsTotal = products.reduce((sum, product) => {
-      const price = Number(product.sale_price || product.regular_price);
+      // Use regular_price by default, sale_price is applied only if explicitly set in metadata
+      const price = Number(product.regular_price);
       return sum + (price * quantities[product.id]);
     }, 0);
 
@@ -98,32 +99,15 @@ export function CartCheckout({
   };
 
   const calculateSavings = () => {
-    // Risparmio sui prodotti
-    const productsSavings = products.reduce((sum, product) => {
-      if (product.sale_price) {
-        const savings = (Number(product.regular_price) - Number(product.sale_price)) * quantities[product.id];
-        return sum + savings;
-      }
-      return sum;
-    }, 0);
-
-    // Risparmio sugli upsell
-    const upsellsSavings = upsells
-      .filter(u => selectedUpsells.has(u.id))
-      .reduce((sum, u) => {
-        if (u.sale_price && u.regular_price && Number(u.sale_price) < Number(u.regular_price)) {
-          return sum + (Number(u.regular_price) - Number(u.sale_price));
-        }
-        return sum;
-      }, 0);
-
-    return productsSavings + upsellsSavings;
+    // Savings are only shown if explicitly configured in order metadata
+    // No automatic calculation from sale_price
+    return 0;
   };
 
   // Crea oggetto order per il payment gateway
   const order = useMemo(() => {
     const productsTotal = products.reduce((sum, p) => {
-      const price = Number(p.sale_price || p.regular_price);
+      const price = Number(p.regular_price);
       return sum + (price * quantities[p.id]);
     }, 0);
 
