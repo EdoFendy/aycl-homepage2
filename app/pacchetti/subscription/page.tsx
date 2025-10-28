@@ -61,16 +61,16 @@ export default function SubscriptionPage() {
         <PageLayoutContainer className="px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-navy/10 rounded-lg">
-                <span className="text-sm font-bold text-navy">{t("hero.badge")}</span>
+              <div className="inline-block rounded-lg bg-navy/10 px-4 py-2">
+                <span className="type-eyebrow text-navy">{t("hero.badge")}</span>
               </div>
-              <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+              <h1 className="type-display text-navy">
                 {t.rich("hero.title", {
                   strong: (chunks) => <span className="text-navy">{chunks}</span>,
                 })}
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-800">{t("hero.kicker")}</p>
-              <p className="text-lg text-gray-600 leading-relaxed">{t("hero.subtitle")}</p>
+              <p className="type-body-lg text-navy font-semibold">{t("hero.kicker")}</p>
+              <p className="type-body text-gray-600">{t("hero.subtitle")}</p>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <SlideArrowButton
                   primaryColor="#0B1D3A"
@@ -96,8 +96,8 @@ export default function SubscriptionPage() {
 
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <PageLayoutContainer className="px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">{t("how.title")}</h2>
+          <div className="mb-16 text-center">
+            <h2 className="section-title">{t("how.title")}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -130,8 +130,8 @@ export default function SubscriptionPage() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-navy">{t("how.cards.strategyTitle")}</h3>
-                <p className="text-gray-600 leading-relaxed">{t("how.cards.strategyDesc")}</p>
+                <h3 className="type-h4 text-navy">{t("how.cards.strategyTitle")}</h3>
+                <p className="section-subtitle text-left text-gray-600/90">{t("how.cards.strategyDesc")}</p>
               </div>
             </Card>
 
@@ -147,8 +147,8 @@ export default function SubscriptionPage() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-navy">{t("how.cards.collabTitle")}</h3>
-                <p className="text-gray-600 leading-relaxed">{t("how.cards.collabDesc")}</p>
+                <h3 className="type-h4 text-navy">{t("how.cards.collabTitle")}</h3>
+                <p className="section-subtitle text-left text-gray-600/90">{t("how.cards.collabDesc")}</p>
               </div>
             </Card>
           </div>
@@ -161,13 +161,13 @@ export default function SubscriptionPage() {
       
       <PageLayoutContainer className="px-6 relative z-10">
         {/* Section header */}
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
+          <div className="mx-auto mb-20 max-w-3xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm">
               <Sparkles className="h-4 w-4 text-navy" />
-              <span className="text-sm font-semibold text-gray-600 uppercase tracking-wider">{t("why.badge")}</span>
+              <span className="type-eyebrow text-gray-600">{t("why.badge")}</span>
             </div>
-            <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("why.title")}</h2>
-            <p className="text-lg text-gray-600">{t("why.subtitle")}</p>
+            <h2 className="section-title mb-6">{t("why.title")}</h2>
+            <p className="section-subtitle">{t("why.subtitle")}</p>
           </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -186,12 +186,10 @@ export default function SubscriptionPage() {
             <div className="relative p-10">
               {/* Header */}
               <div className="mb-8">
-                <div className="inline-block px-3 py-1 bg-navy/10 rounded-full mb-4">
-                  <span className="text-xs font-bold text-navy uppercase tracking-wider">{t("why.benefitsBadge")}</span>
+                <div className="mb-4 inline-block rounded-full bg-navy/10 px-3 py-1">
+                  <span className="type-eyebrow text-navy">{t("why.benefitsBadge")}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-navy leading-tight">
-                  {t("why.benefitsTitle")}
-                </h3>
+                <h3 className="type-h3 text-navy">{t("why.benefitsTitle")}</h3>
               </div>
 
               {/* Benefits list */}
@@ -199,14 +197,14 @@ export default function SubscriptionPage() {
                 {t.raw("why.benefits").map((text: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group/item">
                     <span className="text-sky-blue font-bold mt-1">•</span>
-                    <span className="text-gray-700 leading-relaxed font-medium">{text}</span>
-                  </li>
+                    <span className="type-body text-gray-700 font-medium">{text}</span>
+              </li>
                 ))}
               </ul>
 
               {/* Bottom accent */}
-              <div className="mt-10 pt-6 border-t border-navy/10">
-                <p className="text-sm text-gray-500 flex items-center gap-2"><span className="w-2 h-2 bg-navy rounded-full"></span>{t("why.footnote")}</p>
+              <div className="mt-10 border-t border-navy/10 pt-6">
+                <p className="flex items-center gap-2 text-gray-500 type-body-sm"><span className="h-2 w-2 rounded-full bg-navy"></span>{t("why.footnote")}</p>
               </div>
             </div>
           </Card>
@@ -225,8 +223,10 @@ export default function SubscriptionPage() {
             <div className="relative p-10">
               {/* Header */}
               <div className="mb-8">
-                <div className="inline-block px-3 py-1 bg-gray-100 rounded-full mb-4"><span className="text-xs font-bold text-gray-600 uppercase tracking-wider">{t("why.problemsBadge")}</span></div>
-                <h3 className="text-2xl font-bold text-navy leading-tight">{t("why.problemsTitle")}</h3>
+                <div className="mb-4 inline-block rounded-full bg-gray-100 px-3 py-1">
+                  <span className="type-eyebrow text-gray-600">{t("why.problemsBadge")}</span>
+                </div>
+                <h3 className="type-h3 text-navy">{t("why.problemsTitle")}</h3>
               </div>
 
               {/* Problems list */}
@@ -234,14 +234,14 @@ export default function SubscriptionPage() {
                 {t.raw("why.problems").map((item: string, index: number) => (
                   <li key={index} className="flex items-start gap-4 group/item">
                     <span className="text-gray-600 font-bold mt-1">•</span>
-                    <span className="text-gray-700 leading-relaxed">{item}</span>
-                  </li>
+                    <span className="type-body text-gray-700">{item}</span>
+              </li>
                 ))}
               </ul>
 
               {/* Bottom accent */}
-              <div className="mt-10 pt-6 border-t border-gray-200">
-                <p className="text-sm text-gray-500 flex items-center gap-2"><span className="w-2 h-2 bg-gray-400 rounded-full"></span>{t("why.problemsFoot")}</p>
+              <div className="mt-10 border-t border-gray-200 pt-6">
+                <p className="flex items-center gap-2 text-gray-500 type-body-sm"><span className="h-2 w-2 rounded-full bg-gray-400"></span>{t("why.problemsFoot")}</p>
               </div>
             </div>
           </Card>
@@ -252,14 +252,14 @@ export default function SubscriptionPage() {
     {/* All You Can Leads System */}
     <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <PageLayoutContainer className="px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">{t("system.title")}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("system.subtitle")}</p>
+          <div className="mb-16 text-center">
+            <h2 className="section-title mb-4">{t("system.title")}</h2>
+            <p className="section-subtitle mx-auto max-w-3xl">{t("system.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="p-8 bg-white border-sky-blue/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 flex items-center justify-center mb-5">
                 <Image 
                   src="/Subscription_icona_Sendura.png" 
                   alt={t("system.cards.senduraTitle")}
@@ -268,12 +268,12 @@ export default function SubscriptionPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
-              <p className="text-gray-600 leading-relaxed">{t("system.cards.senduraDesc")}</p>
+              <h3 className="type-h3 text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
+              <p className="type-body text-gray-600">{t("system.cards.senduraDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 flex items-center justify-center mb-5">
                 <Image 
                   src="/Subscription_icona_Database.png" 
                   alt={t("system.cards.dbTitle")}
@@ -282,12 +282,12 @@ export default function SubscriptionPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.dbTitle")}</h3>
-              <p className="text-gray-600 leading-relaxed">{t("system.cards.dbDesc")}</p>
+              <h3 className="type-h3 text-navy mb-4">{t("system.cards.dbTitle")}</h3>
+              <p className="type-body text-gray-600">{t("system.cards.dbDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 flex items-center justify-center mb-5">
                 <Image 
                   src="/Subscription_icona_Support.png" 
                   alt={t("system.cards.supportTitle")}
@@ -296,23 +296,23 @@ export default function SubscriptionPage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.supportTitle")}</h3>
-              <p className="text-gray-600 leading-relaxed">{t("system.cards.supportDesc")}</p>
+              <h3 className="type-h3 text-navy mb-4">{t("system.cards.supportTitle")}</h3>
+              <p className="type-body text-gray-600">{t("system.cards.supportDesc")}</p>
             </Card>
           </div>
         </PageLayoutContainer>
       </section>
       <div className="h-1 w-full bg-gradient-to-r from-navy via-sky-blue to-orange" aria-hidden="true" />
 
-      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <section id="pricing" className="py-16 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         {/* Decorative elements */}
-        <div className="absolute top-20 right-10 w-32 h-32 bg-navy/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-28 h-28 bg-navy/10 rounded-full blur-3xl" />
+        <div className="absolute top-16 right-10 w-28 h-28 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-16 left-10 w-24 h-24 bg-navy/10 rounded-full blur-3xl" />
         
         <PageLayoutContainer className="px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
-              <div className="inline-flex items-center gap-2 bg-navy/10 px-4 py-2 rounded-full mb-6">
+            <div className="text-center mb-12">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-navy/10 px-4 py-2">
                 <Image
                   src="/Setupfee_icona_Garanzia.png"
                   alt="Garanzia Icon"
@@ -320,34 +320,34 @@ export default function SubscriptionPage() {
                   height={20}
                   className="w-4 h-4"
                 />
-                <span className="text-sm font-semibold text-navy">{t("guarantee.badge")}</span>
+                <span className="type-eyebrow text-navy">{t("guarantee.badge")}</span>
               </div>
-              <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6 text-balance">
+              <h2 className="section-title mb-6 text-balance">
                 {t.rich("guarantee.title", {
                   strong: (chunks) => <span className="text-navy">{chunks}</span>,
                 })}
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">{t("guarantee.subtitle")}</p>
+              <p className="section-subtitle mx-auto max-w-4xl">{t("guarantee.subtitle")}</p>
             </div>
 
             {/* Main content grid */}
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid items-start gap-8 lg:grid-cols-2">
               {/* Timeline and process steps */}
-              <div className="space-y-8">
+              <div className="space-y-6">
                 <div className="relative">
                   {/* Enhanced timeline for desktop */}
                   <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-navy via-navy to-navy rounded-full" />
                   
                   {/* Process steps */}
-                  <div className="space-y-12">
+                  <div className="space-y-6">
                     {/* Step 1: Fase di attivazione */}
-                    <div className="relative flex items-start gap-8">
-                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-navy rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
-                        <span className="text-white font-bold text-lg">1</span>
+                    <div className="relative flex items-start gap-6">
+                      <div className="hidden lg:flex items-center justify-center w-14 h-14 bg-navy rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                        <span className="text-white font-bold text-base">1</span>
                       </div>
-                      <Card className="flex-1 p-8 bg-white border-navy/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                        <div className="flex items-start gap-6">
-                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                      <Card className="flex-1 p-6 bg-white border-navy/20 shadow-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                        <div className="flex items-start gap-5">
+                          <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
                             <Image
                               src="/Setupfee_icona_Activation.png"
                               alt="Fase di attivazione"
@@ -357,31 +357,31 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="mb-3 space-y-2">
+                            <div className="mb-3 space-y-1.5">
                               {guaranteeStep1Label.length > 0 && (
-                                <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-navy">
+                                <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 type-eyebrow text-navy">
                                   {guaranteeStep1Label}
                                 </span>
                               )}
-                              <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.1.title")}</h3>
+                              <h3 className="type-h3 text-navy">{t("guarantee.steps.1.title")}</h3>
                             </div>
                             {guaranteeStep1Desc.length > 0 && (
-                              <p className="text-gray-600 mb-4">{guaranteeStep1Desc}</p>
+                              <p className="type-body text-gray-600 mb-4">{guaranteeStep1Desc}</p>
                             )}
-                            <p className="text-sm text-gray-600">La prima rata viene versata all’inizio della collaborazione.</p>
+                            <p className="type-body-sm text-gray-600">La prima rata viene versata all’inizio della collaborazione.</p>
                           </div>
                         </div>
                       </Card>
                     </div>
 
                     {/* Step 2: Fase operativa */}
-                    <div className="relative flex items-start gap-8">
-                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-sky-blue rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
-                        <span className="text-white font-bold text-lg">2</span>
+                    <div className="relative flex items-start gap-6">
+                      <div className="hidden lg:flex items-center justify-center w-14 h-14 bg-sky-blue rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                        <span className="text-white font-bold text-base">2</span>
                       </div>
-                      <Card className="flex-1 p-8 bg-white border-sky-blue/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                        <div className="flex items-start gap-6">
-                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                      <Card className="flex-1 p-6 bg-white border-sky-blue/20 shadow-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                        <div className="flex items-start gap-5">
+                          <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
                             <Image
                               src="/Setupfee_icona_FaseOperativa.png"
                               alt="Fase Operativa"
@@ -391,27 +391,27 @@ export default function SubscriptionPage() {
                             />
                           </div>
                           <div className="flex-1">
-                            <div className="mb-3 space-y-2">
+                            <div className="mb-3 space-y-1.5">
                               {guaranteeStep2Label.length > 0 && (
-                                <span className="inline-flex items-center rounded-full bg-sky-blue/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-blue">
+                                <span className="inline-flex items-center rounded-full bg-sky-blue/10 px-3 py-1 type-eyebrow text-sky-blue">
                                   {guaranteeStep2Label}
                                 </span>
                               )}
-                              <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.2.title")}</h3>
+                              <h3 className="type-h3 text-navy">{t("guarantee.steps.2.title")}</h3>
                             </div>
                             {guaranteeStep2Desc.length > 0 && (
-                              <p className="text-gray-600 mb-4">{guaranteeStep2Desc}</p>
+                              <p className="type-body text-gray-600 mb-4">{guaranteeStep2Desc}</p>
                             )}
-                            <ul className="space-y-3 text-gray-700">
-                              <li className="flex items-start gap-3">
+                            <ul className="space-y-2.5 text-gray-700 type-body">
+                              <li className="flex items-start gap-2.5">
                                 <span className="text-sky-blue font-bold mt-0.5">•</span>
                                 <span>La seconda rata è prevista 28 giorni dopo il primo appuntamento qualificato svolto</span>
                               </li>
-                              <li className="flex items-start gap-3">
+                              <li className="flex items-start gap-2.5">
                                 <span className="text-sky-blue font-bold mt-0.5">•</span>
                                 <span>Il pagamento prosegue con cadenza regolare ogni 28 giorni</span>
                               </li>
-                              <li className="flex items-start gap-3">
+                              <li className="flex items-start gap-2.5">
                                 <span className="text-sky-blue font-bold mt-0.5">•</span>
                                 <span>Risparmi il 25% rispetto alla quotazione standard per appuntamento</span>
                               </li>
@@ -422,13 +422,13 @@ export default function SubscriptionPage() {
                     </div>
 
                     {/* Step 3: Garanzie incluse */}
-                    <div className="relative flex items-start gap-8">
-                      <div className="hidden lg:flex items-center justify-center w-16 h-16 bg-navy rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
-                        <span className="text-white font-bold text-lg">3</span>
+                    <div className="relative flex items-start gap-6">
+                      <div className="hidden lg:flex items-center justify-center w-14 h-14 bg-navy rounded-full border-4 border-white shadow-lg relative z-10 flex-shrink-0">
+                        <span className="text-white font-bold text-base">3</span>
                       </div>
-                      <Card className="flex-1 p-8 bg-white border-navy/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                        <div className="flex items-start gap-6">
-                          <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                      <Card className="flex-1 p-6 bg-white border-navy/20 shadow-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                        <div className="flex items-start gap-5">
+                          <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
                             <Image
                               src="/Setupfee_icona_Garanzia.png"
                               alt="Garanzia inclusa"
@@ -440,14 +440,14 @@ export default function SubscriptionPage() {
                           <div className="flex-1">
                             <div className="mb-3 space-y-2">
                               {guaranteeStep3Label.length > 0 && (
-                                <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange">
+                                <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 type-eyebrow text-orange">
                                   {guaranteeStep3Label}
                                 </span>
                               )}
-                              <h3 className="text-2xl font-bold text-navy">{t("guarantee.steps.3.title")}</h3>
+                              <h3 className="type-h3 text-navy">{t("guarantee.steps.3.title")}</h3>
                             </div>
                             {guaranteeStep3Desc.length > 0 && (
-                              <p className="text-gray-600">{guaranteeStep3Desc}</p>
+                              <p className="type-body text-gray-600">{guaranteeStep3Desc}</p>
                             )}
                           </div>
                         </div>
@@ -475,11 +475,11 @@ export default function SubscriptionPage() {
                 
                 {/* Sidebar with important notes */}
                 <div className="sticky top-8">
-                  <Card className="p-8 bg-gradient-to-br from-sky-blue/5 via-white to-orange/5 border-2 border-sky-blue/20 relative overflow-hidden">
+                  <Card className="p-6 bg-gradient-to-br from-sky-blue/5 via-white to-orange/5 border border-sky-blue/20 relative overflow-hidden">
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-2xl font-bold text-navy mb-2">{t("guarantee.notes.title")}</h3>
-                        <p className="text-gray-600 text-sm">{t("guarantee.notes.subtitle")}</p>
+                        <h3 className="type-h3 text-navy mb-2">{t("guarantee.notes.title")}</h3>
+                        <p className="type-body-sm text-gray-600">{t("guarantee.notes.subtitle")}</p>
                       </div>
                       
                       <div className="space-y-4">
@@ -490,21 +490,21 @@ export default function SubscriptionPage() {
                           ) => (
                             <div
                               key={index}
-                              className={`flex items-start gap-3 p-4 bg-white/50 rounded-lg border ${
+                              className={`flex items-start gap-2.5 rounded-lg border bg-white/60 p-3.5 ${
                                 index % 2 === 0
                                   ? "border-sky-blue/10"
                                   : "border-orange/10"
                               }`}
                             >
                               <div
-                                className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                                className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full ${
                                   index % 2 === 0
                                     ? "bg-sky-blue/10"
                                     : "bg-orange/10"
                                 }`}
                               >
                                 <span
-                                  className={`font-bold text-sm ${
+                                  className={`type-body-sm font-bold ${
                                     index % 2 === 0
                                       ? "text-sky-blue"
                                       : "text-orange"
@@ -514,8 +514,8 @@ export default function SubscriptionPage() {
                                 </span>
                               </div>
                               <div>
-                                <h4 className="font-semibold text-navy mb-1">{item.title}</h4>
-                                <p className="text-sm text-gray-700">{item.desc}</p>
+                                <h4 className="type-h4 text-navy mb-1">{item.title}</h4>
+                                <p className="type-body-sm text-gray-700">{item.desc}</p>
                               </div>
                             </div>
                           ),
@@ -523,7 +523,7 @@ export default function SubscriptionPage() {
                       </div>
                       
                       <div className="pt-4 border-t border-gray-200">
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="flex items-center gap-2 text-gray-600 type-body-sm">
                           <Image
                             src="/Setupfee_icona_Info.png"
                             alt="Info"
@@ -547,12 +547,12 @@ export default function SubscriptionPage() {
       <section className="py-16 bg-white">
         <PageLayoutContainer className="px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid items-center gap-10 lg:grid-cols-2">
               {/* Content section */}
               <div className="text-center">
                 <div className="mb-12">
-                  <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">{t("cta.title")}</h2>
-                  <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t("cta.subtitle")}</p>
+                  <h2 className="section-title mb-4">{t("cta.title")}</h2>
+                  <p className="section-subtitle mx-auto max-w-2xl">{t("cta.subtitle")}</p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -560,14 +560,14 @@ export default function SubscriptionPage() {
                     data-cal-namespace="aycl-discovery"
                     data-cal-link="giovannilucchesini/aycl-discovery"
                     data-cal-config='{"layout":"month_view"}'
-                    className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
+                    className="flex h-[56px] w-full items-center justify-center gap-3 rounded-lg border border-navy px-8 py-4 font-semibold text-base text-navy shadow-sm transition duration-200 hover:bg-navy hover:text-white sm:w-[240px]"
                   >
                     <img src="/iconaTelefono.png" alt="Telefono" className="w-5 h-5" />
                     Call Gratuita
                   </button>
                   
                   <button 
-                    className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
+                    className="flex h-[56px] w-full items-center justify-center gap-3 rounded-lg border border-navy px-8 py-4 font-semibold text-base text-navy shadow-sm transition duration-200 hover:bg-navy hover:text-white sm:w-[240px]"
                     onClick={() => router.push('/pacchetti')}
                   >
                     <img src="/iconaPrice.png" alt="Regalo" className="w-5 h-5" />
@@ -599,8 +599,8 @@ export default function SubscriptionPage() {
 
       <section className="py-24 bg-gray-50">
         <PageLayoutContainer className="px-6">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-bold text-navy">FAQ</h2>
+          <div className="mx-auto mb-12 max-w-4xl text-center">
+            <h2 className="section-title">FAQ</h2>
           </div>
 
           <FAQAccordion

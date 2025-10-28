@@ -322,9 +322,9 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-soft-grid" aria-hidden="true" />
         </div>
 
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-12 px-5 pb-40 pt-32 sm:px-10 md:gap-16 md:pt-36 lg:gap-20 lg:pb-44">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-5 pb-40 pt-32 sm:px-10 md:gap-16 md:pt-36 lg:gap-20 lg:pb-44">
           <LayoutWrapper>
-            <div className="grid items-center gap-12 lg:grid-cols-[0.45fr_0.55fr] lg:gap-16 xl:gap-20">
+            <div className="grid items-center gap-12 lg:grid-cols-[0.6fr_0.4fr] lg:gap-16 xl:gap-20">
               <div className="order-2 space-y-6 md:space-y-7 lg:order-1">
                 <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 type-eyebrow text-orange">
                   {t("hero.badge")}
@@ -365,23 +365,21 @@ export default function HomePage() {
               </div>
 
               <div
-                className="order-1 relative mx-auto hidden lg:flex w-full max-w-[200px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] items-center justify-center lg:ml-8 lg:order-2"
+                className="order-1 relative hidden w-full max-w-[520px] items-center justify-end lg:flex lg:order-2 lg:pl-6 xl:max-w-[600px]"
                 style={{ transform: prefersReducedMotion ? undefined : `translateY(${-heroParallax * 0.25}px)` }}
               >
-                <div className="absolute -top-12 left-6 h-40 w-40 rounded-full bg-sky-blue/30 blur-3xl" aria-hidden="true" />
-                <div className="absolute -bottom-16 right-0 h-48 w-48 rounded-full bg-orange/25 blur-3xl" aria-hidden="true" />
+                <div className="absolute -top-12 left-0 h-32 w-32 rounded-full bg-sky-blue/30 blur-3xl" aria-hidden="true" />
+                <div className="absolute -bottom-16 right-0 h-40 w-40 rounded-full bg-orange/25 blur-3xl" aria-hidden="true" />
                 <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.4),transparent_60%)]" aria-hidden="true" />
-                <div className="relative w-full">
-                  <div className={prefersReducedMotion ? "" : "floating-illustration"}>
-                    <Image
-                      src="/newmedia/AYCL_3d.png"
-                      alt={t("hero.title")}
-                      width={1100}
-                      height={1100}
-                      priority
-                      className="h-auto w-full max-w-none object-contain drop-shadow-[0_32px_80px_rgba(15,40,85,0.25)]"
-                    />
-                  </div>
+                <div className={prefersReducedMotion ? "" : "floating-illustration"}>
+                  <Image
+                    src="/newmedia/AYCL_3d.png"
+                    alt={t("hero.title")}
+                    width={900}
+                    height={900}
+                    priority
+                    className="h-auto w-full max-w-full object-contain drop-shadow-[0_32px_80px_rgba(15,40,85,0.25)]"
+                  />
                 </div>
               </div>
             </div>
@@ -546,7 +544,9 @@ export default function HomePage() {
                       >
                         <span className="text-orange font-bold mt-1">•</span>
                         <div>
-                          <p className="type-h4 text-navy">{t(`solution.tech.features.${featureKey}.title`)}</p>
+                          <p className="type-body font-semibold text-navy">
+                            {t(`solution.tech.features.${featureKey}.title`)}
+                          </p>
                           <p className="type-body-sm text-gray-600">
                             {t(`solution.tech.features.${featureKey}.desc`)}
                           </p>

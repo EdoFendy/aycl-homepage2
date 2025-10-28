@@ -234,13 +234,13 @@ export default function OutreachPage() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                   <Link
                     href="/contattaci"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-6 py-4 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-base"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:w-auto sm:text-lg whitespace-nowrap"
                   >
                     {t("hero.cta.primary")}
                   </Link>
                   <Link
                     href="/pacchetti"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-6 py-4 text-sm font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-base"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-navy/20 bg-white px-8 py-4 text-base font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:w-auto sm:text-lg whitespace-nowrap"
                   >
                     {t("hero.cta.secondary")}
                   </Link>
@@ -258,14 +258,14 @@ export default function OutreachPage() {
               <div className="relative hidden md:flex items-center justify-center">
                 <div className="absolute -top-10 -left-10 w-64 h-64 bg-sky-blue/20 rounded-full blur-3xl" />
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange/20 rounded-full blur-3xl" />
-                <div className="relative w-full max-w-6xl lg:max-w-xl xl:max-w-2xl">
+                <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
                   {/* Main Image */}
                   <Image
-                    src="newmedia/ComeFunziona_Hero.png"
+                    src="newmedia/ComeFunziona_NewHero.png"
                     alt="Dashboard Sendura"
                     width={800}
                     height={600}
-                    className="w-full h-auto"
+                    className="w-auto h-auto max-h-[600px]"
                     priority
                   />
                 </div>

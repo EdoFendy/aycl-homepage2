@@ -47,18 +47,18 @@ export default function PerformancePage() {
         <div className="absolute bottom-10 left-10 w-48 h-48 bg-sky-blue/10 rotate-12" />
 
         <PageLayoutContainer className="px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
             <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-sky-blue/10 rounded-lg">
-                <span className="text-sm font-bold text-sky-blue">{t("hero.badge")}</span>
+              <div className="inline-block rounded-lg bg-sky-blue/10 px-4 py-2">
+                <span className="type-eyebrow text-sky-blue">{t("hero.badge")}</span>
               </div>
-              <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
+              <h1 className="type-display text-navy">
                 {t.rich("hero.title", {
                   strong: (chunks) => <span className="text-sky-blue">{chunks}</span>,
                 })}
               </h1>
-              <p className="text-xl font-semibold text-gray-800">{t("hero.kicker")}</p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="type-body-lg text-navy font-semibold">{t("hero.kicker")}</p>
+              <p className="type-body text-gray-600">
                 {t("hero.subtitle")}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -91,8 +91,8 @@ export default function PerformancePage() {
         {/* Come Funziona */}
         <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <PageLayoutContainer className="px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">{t("how.title")}</h2>
+          <div className="mb-16 text-center">
+            <h2 className="section-title mb-4">{t("how.title")}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -108,8 +108,8 @@ export default function PerformancePage() {
                   className="mb-6 object-contain"
                   style={{ display: "block", background: "none", boxShadow: "none", border: "none", outline: "none" }}
                 />
-                <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.1.title")}</h3>
-                <p className="text-gray-600 leading-relaxed">{t("how.steps.1.desc")}</p>
+                <h3 className="type-h4 text-navy mb-4">{t("how.steps.1.title")}</h3>
+                <p className="type-body text-gray-600">{t("how.steps.1.desc")}</p>
               </div>
             </Card>
 
@@ -125,8 +125,8 @@ export default function PerformancePage() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.2.title")}</h3>
-                <p className="text-gray-600 leading-relaxed">{t("how.steps.2.desc")}</p>
+                <h3 className="type-h4 text-navy mb-4">{t("how.steps.2.title")}</h3>
+                <p className="type-body text-gray-600">{t("how.steps.2.desc")}</p>
               </div>
             </Card>
 
@@ -142,8 +142,8 @@ export default function PerformancePage() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-4">{t("how.steps.3.title")}</h3>
-                <p className="text-gray-600 leading-relaxed">{t("how.steps.3.desc")}</p>
+                <h3 className="type-h4 text-navy mb-4">{t("how.steps.3.title")}</h3>
+                <p className="type-body text-gray-600">{t("how.steps.3.desc")}</p>
               </div>
             </Card>
           </div>
@@ -155,13 +155,13 @@ export default function PerformancePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-blue/10 via-transparent to-sky-blue/5 rounded-full blur-3xl"></div>
 
         <PageLayoutContainer className="px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-sky-blue/20 rounded-full mb-6 shadow-sm">
+          <div className="mx-auto mb-20 max-w-3xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-blue/20 bg-white px-4 py-2 shadow-sm">
               <Sparkles className="h-4 w-4 text-sky-blue" />
-              <span className="text-sm font-semibold text-sky-blue uppercase tracking-wider">{t("why.badge")}</span>
+              <span className="type-eyebrow text-sky-blue">{t("why.badge")}</span>
             </div>
-            <h2 className="text-4xl lg:text-4xl font-bold text-navy mb-6">{t("why.title")}</h2>
-            <p className="text-lg text-gray-600">{t("why.subtitle")}</p>
+            <h2 className="section-title mb-6">{t("why.title")}</h2>
+            <p className="section-subtitle">{t("why.subtitle")}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -175,24 +175,24 @@ export default function PerformancePage() {
 
               <div className="relative p-10">
                 <div className="mb-8">
-                  <div className="inline-block px-3 py-1 bg-sky-blue/10 rounded-full mb-4">
-                    <span className="text-xs font-bold text-sky-blue uppercase tracking-wider">✓ Vantaggi</span>
+                  <div className="mb-4 inline-block rounded-full bg-sky-blue/10 px-3 py-1">
+                    <span className="type-eyebrow text-sky-blue">✓ Vantaggi</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-navy leading-tight">Il pacchetto Performance è la scelta giusta per te se…</h3>
+                  <h3 className="type-h3 text-navy">Il pacchetto Performance è la scelta giusta per te se…</h3>
                 </div>
 
                 <ul className="space-y-5">
                   {t.raw("why.benefits").map((item: string, index: number) => (
                     <li key={item} className="flex items-start gap-4 group/item">
                       <span className="text-sky-blue font-bold mt-1">•</span>
-                      <span className="text-gray-700 leading-relaxed font-medium">{item}</span>
+                      <span className="type-body text-gray-700 font-medium">{item}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-10 pt-6 border-t border-sky-blue/10">
-                  <p className="text-sm text-gray-500 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-sky-blue rounded-full"></span>
+                  <p className="flex items-center gap-2 text-gray-500 type-body-sm">
+                    <span className="h-2 w-2 rounded-full bg-sky-blue"></span>
                     {t("why.footnote")}
                   </p>
                 </div>
@@ -209,24 +209,24 @@ export default function PerformancePage() {
 
               <div className="relative p-10">
                 <div className="mb-8">
-                <div className="inline-block px-3 py-1 bg-gray-100 rounded-full mb-4">
-                  <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">{t("why.problemsBadge")}</span>
-                </div>
-                <h3 className="text-2xl font-bold text-navy leading-tight">{t("why.problemsTitle")}</h3>
+                  <div className="mb-4 inline-block rounded-full bg-gray-100 px-3 py-1">
+                    <span className="type-eyebrow text-gray-600">{t("why.problemsBadge")}</span>
+                  </div>
+                  <h3 className="type-h3 text-navy">{t("why.problemsTitle")}</h3>
                 </div>
 
                 <ul className="space-y-5">
                   {t.raw("why.problems").map((item: string) => (
                     <li key={item} className="flex items-start gap-4 group/item">
                       <span className="text-gray-600 font-bold mt-1">•</span>
-                      <span className="text-gray-700 leading-relaxed">{item}</span>
+                      <span className="type-body text-gray-700">{item}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-10 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-500 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
+                  <p className="flex items-center gap-2 text-gray-500 type-body-sm">
+                    <span className="h-2 w-2 rounded-full bg-gray-400"></span>
                     {t("why.problemsFoot")}
                   </p>
                 </div>
@@ -242,9 +242,9 @@ export default function PerformancePage() {
         {/* All You Can Leads System */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <PageLayoutContainer className="px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">{t("system.title")}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t("system.subtitle")}</p>
+          <div className="mb-16 text-center">
+            <h2 className="section-title mb-4">{t("system.title")}</h2>
+            <p className="section-subtitle mx-auto max-w-3xl">{t("system.subtitle")}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -258,8 +258,8 @@ export default function PerformancePage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
-              <p className="text-gray-600 leading-relaxed">{t("system.cards.senduraDesc")}</p>
+              <h3 className="type-h3 text-navy mb-4">{t("system.cards.senduraTitle")}</h3>
+              <p className="type-body text-gray-600">{t("system.cards.senduraDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-orange/30 hover:shadow-xl transition-shadow">
@@ -272,8 +272,8 @@ export default function PerformancePage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.dbTitle")}</h3>
-              <p className="text-gray-600 leading-relaxed">{t("system.cards.dbDesc")}</p>
+              <h3 className="type-h3 text-navy mb-4">{t("system.cards.dbTitle")}</h3>
+              <p className="type-body text-gray-600">{t("system.cards.dbDesc")}</p>
             </Card>
 
             <Card className="p-8 bg-white border-navy/30 hover:shadow-xl transition-shadow">
@@ -286,8 +286,8 @@ export default function PerformancePage() {
                   className="object-contain"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-navy mb-4">{t("system.cards.supportTitle")}</h3>
-              <p className="text-gray-600 leading-relaxed">{t("system.cards.supportDesc")}</p>
+              <h3 className="type-h3 text-navy mb-4">{t("system.cards.supportTitle")}</h3>
+              <p className="type-body text-gray-600">{t("system.cards.supportDesc")}</p>
             </Card>
           </div>
         </PageLayoutContainer>
@@ -296,10 +296,10 @@ export default function PerformancePage() {
         {/* Investimento */}
         <section id="pricing" className="py-16 sm:py-24">
           <PageLayoutContainer className="px-4 sm:px-6">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-navy">{t("investment.title")}</h2>
-                <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">{t("investment.desc")}</p>
+            <div className="mx-auto max-w-5xl">
+              <div className="space-y-4 text-center sm:mb-16 sm:space-y-6">
+                <h2 className="section-title">{t("investment.title")}</h2>
+                <p className="section-subtitle mx-auto max-w-3xl">{t("investment.desc")}</p>
               </div>
 
               <Card className="relative overflow-hidden p-4 sm:p-6 md:p-10 bg-white border border-sky-blue/20 shadow-xl">
@@ -429,28 +429,28 @@ export default function PerformancePage() {
       {/* Call to Action Section */}
       <section className="py-16 bg-white">
         <PageLayoutContainer className="px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid items-center gap-12 lg:grid-cols-2">
               {/* Content section */}
               <div className="text-center">
                 <div className="mb-12">
-                  <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4">{t("cta.title")}</h2>
-                  <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t("cta.subtitle")}</p>
+                  <h2 className="section-title mb-4">{t("cta.title")}</h2>
+                  <p className="section-subtitle mx-auto max-w-2xl">{t("cta.subtitle")}</p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col justify-center gap-4 sm:flex-row">
                   <button 
                     data-cal-namespace="aycl-discovery"
                     data-cal-link="giovannilucchesini/aycl-discovery"
                     data-cal-config='{"layout":"month_view"}'
-                    className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
+                    className="flex h-[56px] w-full items-center justify-center gap-3 rounded-lg border border-navy px-8 py-4 font-semibold text-base text-navy shadow-sm transition duration-200 hover:bg-navy hover:text-white sm:w-[240px]"
                   >
                     <img src="/iconaTelefono.png" alt="Telefono" className="w-5 h-5" />
                     Call Gratuita
                   </button>
                   
                   <button 
-                    className="w-full sm:w-[240px] h-[56px] px-8 py-4 rounded-lg border border-navy text-navy hover:bg-navy hover:text-white font-semibold text-base shadow-sm transition duration-200 flex items-center justify-center gap-3"
+                    className="flex h-[56px] w-full items-center justify-center gap-3 rounded-lg border border-navy px-8 py-4 font-semibold text-base text-navy shadow-sm transition duration-200 hover:bg-navy hover:text-white sm:w-[240px]"
                     onClick={() => window.location.href = '/pacchetti'}
                   >
                     <img src="/iconaPrice.png" alt="Regalo" className="w-5 h-5" />
@@ -483,9 +483,9 @@ export default function PerformancePage() {
         {/* FAQ - standardized */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <PageLayoutContainer className="px-6">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold text-navy mb-4">{t("faq.title")}</h2>
-            <p className="text-xl text-gray-600">{t("faq.subtitle")}</p>
+          <div className="mx-auto mb-16 max-w-4xl text-center">
+            <h2 className="section-title mb-4">{t("faq.title")}</h2>
+            <p className="section-subtitle">{t("faq.subtitle")}</p>
           </div>
 
           <FAQAccordion
@@ -508,10 +508,10 @@ export default function PerformancePage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-blue/15 rounded-full blur-3xl" />
 
         <PageLayoutContainer className="px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl lg:text-4xl font-bold text-balance">{t("cta.title")}</h2>
-            <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <div className="mx-auto max-w-4xl space-y-8 text-center">
+            <h2 className="type-h1 text-balance text-white">{t("cta.title")}</h2>
+            <p className="type-body-lg text-white/85">{t("cta.subtitle")}</p>
+            <div className="flex flex-col justify-center gap-4 pt-4 sm:flex-row">
               <button 
                 data-cal-namespace="aycl-discovery"
                 data-cal-link="giovannilucchesini/aycl-discovery"
