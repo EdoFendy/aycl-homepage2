@@ -28,15 +28,26 @@ export default function PerformanceCartPage() {
     if (!wooProductId) return;
     
     async function fetchProduct() {
+      console.log('🔍 [PERFORMANCE] Fetching WooCommerce product:', wooProductId);
+      console.log('🔍 [PERFORMANCE] Use sale price:', useSalePrice);
       setLoading(true);
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_CRM_API_URL || 'http://localhost:4000'}/woocommerce/products/${wooProductId}`);
         if (response.ok) {
           const data = await response.json();
+          console.log('✅ [PERFORMANCE] Product fetched:', {
+            id: data.id,
+            name: data.name,
+            regular_price: data.regular_price,
+            sale_price: data.sale_price,
+            price: data.price
+          });
           setWooProduct(data);
+        } else {
+          console.error('❌ [PERFORMANCE] Failed to fetch product, status:', response.status);
         }
       } catch (error) {
-        console.error('Error fetching WooCommerce product:', error);
+        console.error('❌ [PERFORMANCE] Error fetching WooCommerce product:', error);
       } finally {
         setLoading(false);
       }
@@ -120,18 +131,29 @@ export default function PerformanceCartPage() {
 
   const products = useMemo(() => {
     if (wooProduct) {
+      const regularPrice = parseFloat(wooProduct.regular_price || wooProduct.price);
+      const salePrice = useSalePrice && wooProduct.sale_price 
+        ? parseFloat(wooProduct.sale_price)
+        : regularPrice;
+      
+      console.log('💰 [PERFORMANCE] Product prices calculated:', {
+        regular_price: regularPrice,
+        sale_price: salePrice,
+        useSalePrice,
+        woo_sale_price: wooProduct.sale_price
+      });
+      
       return [{
         id: `performance-woo-${wooProduct.id}`,
         name: wooProduct.name,
         description: wooProduct.description || 'Prodotto selezionato dal seller',
-        regular_price: parseFloat(wooProduct.regular_price || wooProduct.price),
-        sale_price: useSalePrice && wooProduct.sale_price 
-          ? parseFloat(wooProduct.sale_price)
-          : parseFloat(wooProduct.regular_price || wooProduct.price),
+        regular_price: regularPrice,
+        sale_price: salePrice,
         features: []
       }];
     }
     if (dynamicProduct) {
+      console.log('📦 [PERFORMANCE] Using legacy dynamic product');
       return [{
         id: `performance-${dynamicProduct.id}`,
         name: dynamicProduct.name,
@@ -141,6 +163,7 @@ export default function PerformanceCartPage() {
         features: []
       }];
     }
+    console.log('⚠️ [PERFORMANCE] Using fallback products');
     return fallbackProducts;
   }, [wooProduct, dynamicProduct, useSalePrice]);
 
