@@ -2,13 +2,48 @@
 
 import { useSearchParams } from 'next/navigation';
 import { CartCheckout } from '@/components/cart-checkout';
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
+
+interface WooProduct {
+  id: number;
+  name: string;
+  description: string;
+  regular_price: string;
+  sale_price: string;
+  price: string;
+}
 
 export default function DriveTestCartPage() {
   const searchParams = useSearchParams();
   const ref = searchParams.get('ref');
   const upsellsParam = searchParams.get('upsells');
   const productParam = searchParams.get('product');
+  const wooProductId = searchParams.get('wooProductId');
+  const useSalePrice = searchParams.get('useSalePrice') === 'true';
+  
+  const [wooProduct, setWooProduct] = useState<WooProduct | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!wooProductId) return;
+    
+    async function fetchProduct() {
+      setLoading(true);
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_CRM_API_URL || 'http://localhost:4000'}/woocommerce/products/${wooProductId}`);
+        if (response.ok) {
+          const data = await response.json();
+          setWooProduct(data);
+        }
+      } catch (error) {
+        console.error('Error fetching WooCommerce product:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchProduct();
+  }, [wooProductId]);
 
   // Decodifica il prodotto dal parametro URL (se presente) - UTF-8 safe
   const dynamicProduct = useMemo(() => {
@@ -53,8 +88,19 @@ export default function DriveTestCartPage() {
     }
   ];
 
-  // Usa il prodotto dinamico se disponibile, altrimenti usa il fallback
   const products = useMemo(() => {
+    if (wooProduct) {
+      return [{
+        id: `drive-test-woo-${wooProduct.id}`,
+        name: wooProduct.name,
+        description: wooProduct.description || 'Prodotto selezionato dal seller',
+        regular_price: parseFloat(wooProduct.regular_price || wooProduct.price),
+        sale_price: useSalePrice && wooProduct.sale_price 
+          ? parseFloat(wooProduct.sale_price)
+          : parseFloat(wooProduct.regular_price || wooProduct.price),
+        features: []
+      }];
+    }
     if (dynamicProduct) {
       return [{
         id: `drive-test-${dynamicProduct.id}`,
@@ -66,7 +112,7 @@ export default function DriveTestCartPage() {
       }];
     }
     return fallbackProducts;
-  }, [dynamicProduct]);
+  }, [wooProduct, dynamicProduct, useSalePrice]);
 
   const upsells = [
     {
@@ -114,6 +160,17 @@ export default function DriveTestCartPage() {
     }
     return upsells;
   }, [dynamicUpsells]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Caricamento prodotto...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <CartCheckout

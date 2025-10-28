@@ -2,13 +2,50 @@
 
 import { useSearchParams } from 'next/navigation';
 import { CartCheckout } from '@/components/cart-checkout';
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
+
+interface WooProduct {
+  id: number;
+  name: string;
+  description: string;
+  regular_price: string;
+  sale_price: string;
+  price: string;
+}
 
 export default function SetupFeeCartPage() {
   const searchParams = useSearchParams();
   const ref = searchParams.get('ref');
   const upsellsParam = searchParams.get('upsells');
   const productParam = searchParams.get('product');
+  const wooProductId = searchParams.get('wooProductId');
+  const useSalePrice = searchParams.get('useSalePrice') === 'true';
+  
+  const [wooProduct, setWooProduct] = useState<WooProduct | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  // Fetch WooCommerce product if wooProductId is provided
+  useEffect(() => {
+    if (!wooProductId) return;
+    
+    async function fetchProduct() {
+      setLoading(true);
+      try {
+        // Use your CRM backend API to fetch the product
+        const response = await fetch(`${process.env.NEXT_PUBLIC_CRM_API_URL || 'http://localhost:4000'}/woocommerce/products/${wooProductId}`);
+        if (response.ok) {
+          const data = await response.json();
+          setWooProduct(data);
+        }
+      } catch (error) {
+        console.error('Error fetching WooCommerce product:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchProduct();
+  }, [wooProductId]);
 
   // Decodifica il prodotto dal parametro URL (se presente) - UTF-8 safe
   const dynamicProduct = useMemo(() => {
@@ -53,8 +90,24 @@ export default function SetupFeeCartPage() {
     }
   ];
 
-  // Usa il prodotto dinamico se disponibile, altrimenti usa il fallback
+  // Usa il prodotto WooCommerce fetchato, poi il prodotto dinamico, infine il fallback
   const products = useMemo(() => {
+    // Priority 1: WooCommerce product from seller (most reliable)
+    if (wooProduct) {
+      return [{
+        id: `setup-fee-woo-${wooProduct.id}`,
+        name: wooProduct.name,
+        description: wooProduct.description || 'Prodotto selezionato dal seller',
+        // Use sale_price ONLY if seller explicitly chose it
+        regular_price: parseFloat(wooProduct.regular_price || wooProduct.price),
+        sale_price: useSalePrice && wooProduct.sale_price 
+          ? parseFloat(wooProduct.sale_price)
+          : parseFloat(wooProduct.regular_price || wooProduct.price),
+        features: []
+      }];
+    }
+    
+    // Priority 2: Legacy dynamic product param
     if (dynamicProduct) {
       return [{
         id: `setup-fee-${dynamicProduct.id}`,
@@ -62,11 +115,13 @@ export default function SetupFeeCartPage() {
         description: dynamicProduct.description || 'Prodotto selezionato dal seller',
         regular_price: dynamicProduct.regular_price || dynamicProduct.price,
         sale_price: dynamicProduct.sale_price || dynamicProduct.price,
-        features: [] // WooCommerce non ha features strutturate, verranno dalla description
+        features: []
       }];
     }
+    
+    // Priority 3: Fallback products
     return fallbackProducts;
-  }, [dynamicProduct]);
+  }, [wooProduct, dynamicProduct, useSalePrice]);
 
   const upsells = [
     {
@@ -100,6 +155,17 @@ export default function SetupFeeCartPage() {
     }
     return upsells;
   }, [dynamicUpsells]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Caricamento prodotto...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <CartCheckout
