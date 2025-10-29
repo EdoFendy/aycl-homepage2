@@ -205,6 +205,65 @@ export async function createCheckoutWithProducts(
 }
 
 /**
+ * Recupera un singolo prodotto WooCommerce per ID
+ * 🔧 FIX: Aggiunta questa funzione per permettere al cart di recuperare i prodotti
+ */
+export async function getWooProduct(productId: number | string): Promise<WooProduct> {
+  const response = await fetch(
+    `${WC_URL}/wp-json/wc/v3/products/${productId}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${WC_AUTH}`,
+      },
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    throw new Error(`Failed to get WooCommerce product ${productId}: ${error.message || response.statusText}`);
+  }
+
+  return await response.json();
+}
+
+/**
+ * Recupera una lista di prodotti WooCommerce
+ */
+export async function getWooProducts(params?: {
+  per_page?: number;
+  page?: number;
+  status?: 'publish' | 'draft' | 'any';
+}): Promise<WooProduct[]> {
+  const queryParams = new URLSearchParams({
+    per_page: String(params?.per_page || 100),
+    page: String(params?.page || 1),
+    status: params?.status || 'publish',
+  });
+
+  const response = await fetch(
+    `${WC_URL}/wp-json/wc/v3/products?${queryParams}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${WC_AUTH}`,
+      },
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    throw new Error(`Failed to get WooCommerce products: ${error.message || response.statusText}`);
+  }
+
+  return await response.json();
+}
+
+/**
  * Formatta il prezzo per WooCommerce (sempre 2 decimali, stringa)
  */
 export function formatWooPrice(price: number): string {
