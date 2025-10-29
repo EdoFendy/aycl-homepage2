@@ -80,7 +80,8 @@ export default function PerformanceCartPage() {
     }
   }, [upsellsParam]);
 
-  // Prodotti di fallback (usati se non c'è un prodotto dinamico)
+  // 🚨 CRITICAL FIX: Solo UN prodotto fallback (non 3!)
+  // Il componente CartCheckout somma TUTTI i prodotti nell'array
   const fallbackProducts = [
     {
       id: 'performance-starter',
@@ -95,36 +96,6 @@ export default function PerformanceCartPage() {
         'Supporto dedicato',
         'Ottimizzazione continua',
         'Report mensili dettagliati'
-      ]
-    },
-    {
-      id: 'performance-pro',
-      name: 'Performance - Professional',
-      description: 'Piano avanzato per aziende in crescita',
-      regular_price: 2500,
-      sale_price: 1999,
-      features: [
-        'Fino a 1000 lead/mese',
-        'Account manager dedicato',
-        'A/B testing avanzato',
-        'Integrazioni premium',
-        'Supporto prioritario 24/7',
-        'Report settimanali + consulenza strategica'
-      ]
-    },
-    {
-      id: 'performance-enterprise',
-      name: 'Performance - Enterprise',
-      description: 'Soluzione su misura per grandi organizzazioni',
-      regular_price: 5000,
-      sale_price: 3999,
-      features: [
-        'Lead illimitati',
-        'Team dedicato',
-        'SLA garantito',
-        'Integrazioni custom illimitate',
-        'White label disponibile',
-        'Consulenza strategica mensile'
       ]
     }
   ];

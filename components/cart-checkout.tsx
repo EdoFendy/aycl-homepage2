@@ -54,6 +54,30 @@ export function CartCheckout({
   cartType,
   referralCode 
 }: CartCheckoutProps) {
+  // 🚨 CRITICAL DEBUG: Log what products are received
+  console.log('🚨 [CART-CHECKOUT] Component initialized with:', {
+    cartType,
+    productsCount: products.length,
+    products: products.map(p => ({
+      id: p.id,
+      name: p.name,
+      regular_price: p.regular_price,
+      sale_price: p.sale_price
+    })),
+    upsellsCount: upsells.length,
+    referralCode
+  });
+  
+  // 🚨 CRITICAL: Alert if multiple products received (should only be 1 for non-bundle carts)
+  if (cartType !== 'bundles' && products.length > 1) {
+    console.error('🚨🚨🚨 [CART-CHECKOUT] CRITICAL ERROR: Multiple products received for non-bundle cart!', {
+      cartType,
+      productsCount: products.length,
+      productIds: products.map(p => p.id),
+      productNames: products.map(p => p.name)
+    });
+  }
+  
   const t = useTranslations("checkout");
   const [quantities, setQuantities] = useState<Record<string, number>>(
     products.reduce((acc, p) => ({ ...acc, [p.id]: 1 }), {})
@@ -84,15 +108,18 @@ export function CartCheckout({
     console.log('💵 [CART-CHECKOUT] Calculating total for', products.length, 'products');
     
     const productsTotal = products.reduce((sum, product) => {
-      // Use regular_price by default, sale_price is applied only if explicitly set in metadata
-      const price = Number(product.regular_price);
+      // 🔧 FIX: Use sale_price if available and different from regular_price, otherwise use regular_price
+      // This matches the logic in the order summary display
+      const price = Number(product.sale_price || product.regular_price);
       const qty = quantities[product.id];
       const subtotal = price * qty;
       
       console.log('  📦 Product:', {
         id: product.id,
         name: product.name,
-        price,
+        regular_price: product.regular_price,
+        sale_price: product.sale_price,
+        price_used: price,
         quantity: qty,
         subtotal
       });
@@ -128,7 +155,8 @@ export function CartCheckout({
   // Crea oggetto order per il payment gateway
   const order = useMemo(() => {
     const productsTotal = products.reduce((sum, p) => {
-      const price = Number(p.regular_price);
+      // 🔧 FIX: Use sale_price if available, matching calculateTotal logic
+      const price = Number(p.sale_price || p.regular_price);
       return sum + (price * quantities[p.id]);
     }, 0);
 
