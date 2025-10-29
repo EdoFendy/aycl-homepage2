@@ -3,7 +3,6 @@
 import { useSearchParams } from 'next/navigation';
 import { CartCheckout } from '@/components/cart-checkout';
 import { useMemo, useEffect, useState } from 'react';
-import { getWooProduct } from '@/lib/woocommerce';
 
 interface WooProduct {
   id: number;
@@ -31,19 +30,25 @@ export default function DriveTestCartPage() {
     async function fetchProduct() {
       console.log('🔍 [DRIVE-TEST] Fetching WooCommerce product:', wooProductId);
       console.log('🔍 [DRIVE-TEST] Use sale price:', useSalePrice);
-      console.log('🔧 [DRIVE-TEST] Using INTERNAL WooCommerce client (not CRM backend)');
+      console.log('🔧 [DRIVE-TEST] Using PUBLIC backend endpoint (no auth required)');
       setLoading(true);
       try {
-        // 🔧 FIX: Use internal WooCommerce client instead of CRM backend
-        const data = await getWooProduct(wooProductId!); // Non-null assertion safe here because of check above
-        console.log('✅ [DRIVE-TEST] Product fetched from WooCommerce:', {
+        // 🔧 FIX: Use public backend endpoint (GET /products/:id is now public)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_CRM_API_URL || 'http://localhost:4000'}/woocommerce/products/${wooProductId}`);
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch product (status: ${response.status})`);
+        }
+        
+        const data = await response.json();
+        console.log('✅ [DRIVE-TEST] Product fetched from backend:', {
           id: data.id,
           name: data.name,
           regular_price: data.regular_price,
           sale_price: data.sale_price,
           price: data.price
         });
-        setWooProduct(data as any);
+        setWooProduct(data);
       } catch (error: any) {
         const errorMsg = error.message || `Error fetching product: ${error}`;
         console.error('❌ [DRIVE-TEST]', errorMsg);
