@@ -103,14 +103,16 @@ export default function SetupFeeCartPage() {
 
   // Usa il prodotto WooCommerce fetchato, poi il prodotto dinamico, infine il fallback
   const products = useMemo(() => {
-    // Priority 1: WooCommerce product from seller (most reliable)
+    // Priority 1: WooCommerce product (MUST be used if wooProductId was provided)
     if (wooProduct) {
       const regularPrice = parseFloat(wooProduct.regular_price || wooProduct.price);
       const salePrice = useSalePrice && wooProduct.sale_price 
         ? parseFloat(wooProduct.sale_price)
         : regularPrice;
       
-      console.log('💰 [SETUP-FEE] Product prices calculated:', {
+      console.log('✅ [SETUP-FEE] Using WooCommerce product:', {
+        id: wooProduct.id,
+        name: wooProduct.name,
         regular_price: regularPrice,
         sale_price: salePrice,
         useSalePrice,
@@ -121,7 +123,6 @@ export default function SetupFeeCartPage() {
         id: `setup-fee-woo-${wooProduct.id}`,
         name: wooProduct.name,
         description: wooProduct.description || 'Prodotto selezionato dal seller',
-        // Use sale_price ONLY if seller explicitly chose it
         regular_price: regularPrice,
         sale_price: salePrice,
         features: []
@@ -141,10 +142,16 @@ export default function SetupFeeCartPage() {
       }];
     }
     
-    // Priority 3: Fallback products
-    console.log('⚠️ [SETUP-FEE] Using fallback products');
+    // Priority 3: Fallback (should only happen if no wooProductId was provided)
+    if (wooProductId && !wooProduct && !loading) {
+      console.error('❌ [SETUP-FEE] CRITICAL: wooProductId was provided but product not found!', {
+        wooProductId,
+        loading
+      });
+    }
+    console.log('⚠️ [SETUP-FEE] Using fallback product (no WooCommerce product found)');
     return fallbackProducts;
-  }, [wooProduct, dynamicProduct, useSalePrice]);
+  }, [wooProduct, dynamicProduct, useSalePrice, wooProductId, loading]);
 
   const upsells = [
     {

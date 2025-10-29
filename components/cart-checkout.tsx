@@ -81,10 +81,23 @@ export function CartCheckout({
   };
 
   const calculateTotal = () => {
+    console.log('💵 [CART-CHECKOUT] Calculating total for', products.length, 'products');
+    
     const productsTotal = products.reduce((sum, product) => {
       // Use regular_price by default, sale_price is applied only if explicitly set in metadata
       const price = Number(product.regular_price);
-      return sum + (price * quantities[product.id]);
+      const qty = quantities[product.id];
+      const subtotal = price * qty;
+      
+      console.log('  📦 Product:', {
+        id: product.id,
+        name: product.name,
+        price,
+        quantity: qty,
+        subtotal
+      });
+      
+      return sum + subtotal;
     }, 0);
 
     const upsellsTotal = upsells
@@ -92,10 +105,18 @@ export function CartCheckout({
       .reduce((sum, u) => {
         // Usa sale_price se disponibile, altrimenti price o regular_price
         const price = Number(u.sale_price || u.price || u.regular_price || 0);
+        console.log('  🎁 Upsell:', { id: u.id, name: u.name, price });
         return sum + price;
       }, 0);
 
-    return productsTotal + upsellsTotal;
+    const total = productsTotal + upsellsTotal;
+    console.log('💰 [CART-CHECKOUT] Total calculated:', {
+      productsTotal,
+      upsellsTotal,
+      total
+    });
+
+    return total;
   };
 
   const calculateSavings = () => {

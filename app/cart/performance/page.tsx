@@ -130,13 +130,16 @@ export default function PerformanceCartPage() {
   ];
 
   const products = useMemo(() => {
+    // Priority 1: WooCommerce product (MUST be used if wooProductId was provided)
     if (wooProduct) {
       const regularPrice = parseFloat(wooProduct.regular_price || wooProduct.price);
       const salePrice = useSalePrice && wooProduct.sale_price 
         ? parseFloat(wooProduct.sale_price)
         : regularPrice;
       
-      console.log('💰 [PERFORMANCE] Product prices calculated:', {
+      console.log('✅ [PERFORMANCE] Using WooCommerce product:', {
+        id: wooProduct.id,
+        name: wooProduct.name,
         regular_price: regularPrice,
         sale_price: salePrice,
         useSalePrice,
@@ -152,6 +155,8 @@ export default function PerformanceCartPage() {
         features: []
       }];
     }
+    
+    // Priority 2: Legacy dynamic product param
     if (dynamicProduct) {
       console.log('📦 [PERFORMANCE] Using legacy dynamic product');
       return [{
@@ -163,9 +168,17 @@ export default function PerformanceCartPage() {
         features: []
       }];
     }
-    console.log('⚠️ [PERFORMANCE] Using fallback products');
+    
+    // Priority 3: Fallback (should only happen if no wooProductId was provided)
+    if (wooProductId && !wooProduct && !loading) {
+      console.error('❌ [PERFORMANCE] CRITICAL: wooProductId was provided but product not found!', {
+        wooProductId,
+        loading
+      });
+    }
+    console.log('⚠️ [PERFORMANCE] Using fallback product (no WooCommerce product found)');
     return fallbackProducts;
-  }, [wooProduct, dynamicProduct, useSalePrice]);
+  }, [wooProduct, dynamicProduct, useSalePrice, wooProductId, loading]);
 
   const upsells = [
     {
