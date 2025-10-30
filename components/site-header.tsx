@@ -98,10 +98,6 @@ export function SiteHeader() {
     },
   ]
 
-  if (pathname?.startsWith("/admin")) {
-    return null
-  }
-
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href)
 
@@ -122,6 +118,10 @@ export function SiteHeader() {
       document.removeEventListener("keydown", onEsc)
     }
   }, [open])
+
+  if (pathname?.startsWith("/admin")) {
+    return null
+  }
 
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-[#0B1D3A1A] bg-white/70 backdrop-blur-md">
@@ -203,23 +203,23 @@ export function SiteHeader() {
             )}
           >
             <div className="rounded-[calc(1.5rem-2px)] bg-gradient-to-br from-white via-sky-blue/10 to-white p-3 sm:p-4">
-              <div className="flex flex-wrap items-stretch justify-between gap-2 sm:gap-3">
+              <div className="grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:items-stretch sm:justify-between sm:gap-3">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      "group flex min-w-[90px] flex-1 items-center gap-2 rounded-xl border border-transparent bg-white/70 px-2 py-1.5 transition hover:-translate-y-0.5 hover:border-navy/15 hover:bg-[#f6f9ff] sm:min-w-[120px] sm:gap-3 sm:flex-[1_1_18%] sm:px-3.5 sm:py-2",
+                      "group flex w-full items-center gap-2 rounded-xl border border-transparent bg-white/80 px-3 py-2 transition hover:-translate-y-0.5 hover:border-navy/15 hover:bg-[#f6f9ff] sm:w-auto sm:min-w-[120px] sm:flex-[1_1_18%] sm:gap-3 sm:px-3.5 sm:py-2",
                       isActive(item.href) && "border-navy/20 bg-[#f6f9ff]",
                     )}
                   >
                     <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-transparent sm:h-10 sm:w-10 sm:bg-navy/5">
                       <Image src={item.icon} alt={item.alt} width={32} height={32} className="h-5 w-5 object-contain" />
                     </div>
-                    <div className="flex min-w-0 flex-col items-center justify-center text-center">
-                      <div className="flex w-full flex-col items-center justify-center text-center sm:min-h-[54px] sm:overflow-hidden">
-                        <p className="text-xs leading-tight font-semibold text-navy sm:text-[15px] transition-transform duration-200 ease-out sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px] line-clamp-2 sm:line-clamp-1">
+                    <div className="flex min-w-0 flex-col items-start text-left sm:items-center sm:text-center">
+                      <div className="flex w-full flex-col items-start text-left sm:min-h-[54px] sm:items-center sm:justify-center sm:overflow-hidden sm:text-center">
+                        <p className="text-xs leading-tight font-semibold text-navy sm:text-[15px] transition-transform duration-200 ease-out sm:leading-tight sm:group-hover:-translate-y-[3px] sm:group-focus-visible:-translate-y-[3px] line-clamp-2 break-words sm:line-clamp-1">
                           {item.label}
                         </p>
                         <p className="hidden max-h-0 overflow-hidden text-[10px] uppercase tracking-[0.18em] text-gray-500 opacity-0 transition-all duration-200 ease-out sm:block sm:leading-[1.15] sm:group-hover:mt-0.5 sm:group-hover:max-h-9 sm:group-hover:opacity-70 sm:group-focus-visible:mt-0.5 sm:group-focus-visible:max-h-9 sm:group-focus-visible:opacity-70 text-clamp-2">

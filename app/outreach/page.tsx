@@ -300,7 +300,7 @@ export default function OutreachPage() {
                     className="group relative overflow-hidden rounded-3xl border border-navy/10 bg-white/95 p-5 shadow-[0_28px_60px_-36px_rgba(1,47,107,0.65)] transition-transform duration-300 hover:-translate-y-1"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/10">
+                      <div className="flex h-12 w-12 items-center justify-center">
                         <Image
                           src={iconAsset.src}
                           alt={iconAsset.alt}
@@ -351,7 +351,7 @@ export default function OutreachPage() {
                       key={index}
                       className="flex gap-4 rounded-3xl border border-white/70 bg-white/95 p-6 shadow-[0_32px_60px_-42px_rgba(1,47,107,0.45)]"
                     >
-                      <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-2xl bg-navy/10">
+                      <div className="mt-1 flex h-12 w-12 items-center justify-center">
                         <Image
                           src={iconAsset.src}
                           alt={iconAsset.alt}
@@ -384,17 +384,17 @@ export default function OutreachPage() {
       </section>
 
       {/* Application Section */}
-      <section className="relative overflow-hidden bg-navy py-24 text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.2,transparent_60%)]" />
-        <div className="absolute -bottom-32 right-24 h-72 w-72 rounded-full bg-sky-blue/20 blur-[140px]" />
+      <section className="relative overflow-hidden bg-white py-24">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.12,transparent_60%)]" />
+        <div className="absolute -bottom-32 right-24 h-72 w-72 rounded-full bg-sky-blue/10 blur-[140px]" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="max-w-3xl">
             {applicationBadge && (
-              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 type-eyebrow text-white/80">
+              <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 type-eyebrow text-orange">
                 {applicationBadge}
               </span>
             )}
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{t("application.title")}</h2>
+            <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("application.title")}</h2>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {applicationParagraphs.map((paragraph, index) => {
@@ -402,9 +402,9 @@ export default function OutreachPage() {
               return (
                 <article
                   key={index}
-                  className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.25)] backdrop-blur-md"
+                  className="relative overflow-hidden rounded-3xl border border-navy/10 bg-white p-6 shadow-[0_28px_64px_-42px_rgba(15,37,64,0.18)]"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
+                  <div className="flex h-14 w-14 items-center justify-center">
                     <Image
                       src={iconAsset.src}
                       alt={iconAsset.alt}
@@ -413,7 +413,7 @@ export default function OutreachPage() {
                       className="h-8 w-8 object-contain"
                     />
                   </div>
-                  <p className="mt-5 text-sm leading-relaxed text-white">
+                  <p className="mt-5 text-sm leading-relaxed text-gray-700">
                     {renderHighlightedText(paragraph)}
                   </p>
                 </article>
@@ -650,7 +650,7 @@ export default function OutreachPage() {
             <article className="group relative overflow-hidden rounded-[2.5rem] border border-sky-blue/20 bg-white/90 p-8 shadow-[0_36px_90px_-60px_rgba(10,43,107,0.45)]">
               <div className="pointer-events-none absolute -top-16 right-4 h-40 w-40 rounded-full bg-sky-blue/15 blur-3xl transition-all duration-300 group-hover:translate-x-4 group-hover:-translate-y-2" />
               <div className="relative flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-sky-blue/30 bg-sky-blue/10">
+                <div className="flex h-14 w-14 items-center justify-center">
                   <Image
                     src={learningLeadIcon.src}
                     alt={learningLeadIcon.alt}
@@ -688,7 +688,7 @@ export default function OutreachPage() {
             <article className="group relative overflow-hidden rounded-[2.5rem] border border-orange/25 bg-white/90 p-8 shadow-[0_36px_90px_-60px_rgba(199,115,0,0.35)]">
               <div className="pointer-events-none absolute -top-20 left-6 h-44 w-44 rounded-full bg-orange/20 blur-3xl transition-all duration-300 group-hover:-translate-y-2 group-hover:-translate-x-3" />
               <div className="relative flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-orange/30 bg-orange/10">
+                <div className="flex h-14 w-14 items-center justify-center">
                   <Image
                     src={personalizationLeadIcon.src}
                     alt={personalizationLeadIcon.alt}
@@ -734,24 +734,24 @@ export default function OutreachPage() {
       </section>
 
       {/* Human + AI */}
-      <section className="relative overflow-hidden bg-navy py-24 text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.2,transparent_60%)]" />
-        <div className="absolute -bottom-32 left-24 h-72 w-72 rounded-full bg-sky-blue/20 blur-[140px]" />
+      <section className="relative overflow-hidden bg-white py-24">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.12,transparent_60%)]" />
+        <div className="absolute -bottom-32 left-24 h-72 w-72 rounded-full bg-sky-blue/10 blur-[140px]" />
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="mx-auto max-w-3xl text-center">
             {humanAiBadge && (
-              <span className="inline-flex items-center rounded-full border border-white/30 px-4 py-1 type-eyebrow text-white/80">
+              <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 type-eyebrow text-orange">
                 {humanAiBadge}
               </span>
             )}
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">{t("humanAi.title")}</h2>
-            <p className="mt-4 text-base text-white/80 sm:text-lg">
+            <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl">{t("humanAi.title")}</h2>
+            <p className="mt-4 text-base text-gray-600 sm:text-lg">
               {renderHighlightedText(t("humanAi.intro"))}
             </p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            <article className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.25)] backdrop-blur-md">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
+            <article className="relative overflow-hidden rounded-3xl border border-navy/10 bg-white p-6 shadow-[0_28px_64px_-42px_rgba(15,37,64,0.18)]">
+              <div className="flex h-14 w-14 items-center justify-center">
                 <Image
                   src={humanAiIcons[0].src}
                   alt={humanAiIcons[0].alt}
@@ -760,18 +760,18 @@ export default function OutreachPage() {
                   className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-5 text-lg font-semibold text-white">{t("humanAi.aiLabel")}</h3>
-              <ul className="mt-5 space-y-3 text-white">
+              <h3 className="mt-5 text-lg font-semibold text-navy">{t("humanAi.aiLabel")}</h3>
+              <ul className="mt-5 space-y-3 text-gray-700">
                 {humanAiAiList.map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm leading-relaxed">
-                    <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white"></span>
+                    <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-orange"></span>
                     <span>{renderHighlightedText(item)}</span>
                   </li>
                 ))}
               </ul>
             </article>
-            <article className="relative overflow-hidden rounded-3xl border border-white/30 bg-white/15 p-6 shadow-[0_36px_70px_-40px_rgba(255,255,255,0.25)] backdrop-blur-md">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg">
+            <article className="relative overflow-hidden rounded-3xl border border-navy/10 bg-white p-6 shadow-[0_28px_64px_-42px_rgba(15,37,64,0.18)]">
+              <div className="flex h-14 w-14 items-center justify-center">
                 <Image
                   src={humanAiIcons[1].src}
                   alt={humanAiIcons[1].alt}
@@ -780,11 +780,11 @@ export default function OutreachPage() {
                   className="h-8 w-8 object-contain"
                 />
               </div>
-              <h3 className="mt-5 text-lg font-semibold text-white">{t("humanAi.humanLabel")}</h3>
-              <ul className="mt-5 space-y-3 text-white">
+              <h3 className="mt-5 text-lg font-semibold text-navy">{t("humanAi.humanLabel")}</h3>
+              <ul className="mt-5 space-y-3 text-gray-700">
                 {humanAiHumanList.map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm leading-relaxed">
-                    <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white"></span>
+                    <span className="mt-1.5 flex h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-blue"></span>
                     <span>{renderHighlightedText(item)}</span>
                   </li>
                 ))}
@@ -803,8 +803,8 @@ export default function OutreachPage() {
         <PageLayoutContainer className="px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_1.05fr] xl:gap-16">
             <div className="space-y-6">
-          {ecosystemBadge && (
-            <span className="inline-flex items-center justify-center rounded-full bg-navy/10 px-4 py-1 type-eyebrow text-navy">
+              {ecosystemBadge && (
+                <span className="inline-flex items-center justify-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 type-eyebrow text-orange">
                   {ecosystemBadge}
                 </span>
               )}
@@ -840,12 +840,12 @@ export default function OutreachPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy/95 to-black py-24 text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.25,transparent_65%)]" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-sky-blue/10 to-orange/10 py-24">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.15,transparent_65%)]" />
         <PageLayoutContainer className="px-4 sm:px-6">
-          <div className="mx-auto max-w-3xl space-y-6 text-center">
+          <div className="mx-auto max-w-3xl space-y-6 text-center text-navy">
             <h2 className="text-3xl font-bold sm:text-4xl">Pronto a trasformare il tuo outreach?</h2>
-            <p className="text-base text-white/80 sm:text-lg">
+            <p className="text-base text-gray-600 sm:text-lg">
               {renderHighlightedText(t("microcopy"))}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
@@ -867,7 +867,7 @@ export default function OutreachPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 text-base px-6 bg-transparent sm:text-lg sm:px-8"
+                  className="border-navy/20 text-navy hover:bg-navy/5 text-base px-6 bg-transparent sm:text-lg sm:px-8"
                 >
                   <span className="flex items-center gap-2">
                     <Image
