@@ -29,31 +29,28 @@ export default function ContattaciPage() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-white">
-      <div className="pointer-events-none absolute -top-28 right-20 h-80 w-80 rounded-full bg-orange/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-32 -left-16 h-60 w-60 rounded-full bg-sky-blue/10 blur-2xl" />
-      <div className="pointer-events-none absolute bottom-0 right-12 h-64 w-16 -rotate-45 bg-navy/5" />
-      <div className="relative z-10">
+    <div className="min-h-screen bg-white text-navy">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Geometric decorations */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-orange/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-48 h-48 bg-sky-blue/10 -rotate-45" />
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 border-4 border-navy/10 rotate-12" />
+      <section className="hero-section relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f5f9ff]">
+        <div className="absolute inset-0 -z-10 opacity-60">
+          <div className="absolute -top-32 right-0 h-64 w-64 rounded-full bg-orange/20 blur-3xl" aria-hidden="true" />
+          <div className="absolute top-1/3 left-[-120px] h-72 w-72 rounded-full bg-sky-blue/15 blur-3xl" aria-hidden="true" />
+          <div className="absolute bottom-0 right-1/3 h-40 w-96 bg-gradient-to-r from-orange/10 via-transparent to-transparent blur-[120px]" />
+        </div>
 
-        <PageLayoutContainer className="px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-block rounded-full bg-orange/10 px-6 py-2">
+        <PageLayoutContainer>
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+            <div className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1">
               <span className="type-eyebrow text-orange">{t("hero.badge")}</span>
             </div>
 
-            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold leading-tight text-navy">
-            {t.rich("hero.title", {
+            <h1 className="type-h1 text-navy">
+              {t.rich("hero.title", {
                 strong: (chunks) => <span className="text-orange">{chunks}</span>,
               })}
             </h1>
 
-            <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="type-body text-gray-600 max-w-2xl mx-auto">
               {t("hero.subtitle")}
             </p>
           </div>
@@ -61,133 +58,128 @@ export default function ContattaciPage() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-24 relative">
-        <PageLayoutContainer className="px-6">
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Email Card */}
-            <Card
-              className="group relative p-12 bg-gradient-to-br from-sky-blue/5 to-white border-2 border-sky-blue/30 hover:border-sky-blue hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
-              onClick={handleEmailClick}
-            >
-              {/* Geometric decoration */}
-              <div className="absolute -top-8 -right-8 w-32 h-32 bg-sky-blue/10 rounded-full group-hover:scale-150 transition-transform duration-500" />
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-4 border-sky-blue/20 rotate-12 group-hover:rotate-45 transition-transform duration-500" />
+      <section className="relative py-24 bg-white">
+        <div className="absolute inset-0 -z-10 opacity-70">
+          <div className="absolute top-10 left-5 h-20 w-20 rounded-full bg-orange/10" aria-hidden="true" />
+          <div className="absolute bottom-10 right-10 h-28 w-28 rounded-full bg-sky-blue/15" aria-hidden="true" />
+        </div>
 
-              <div className="relative z-10 space-y-6">
-                <div className="w-20 h-20 bg-sky-blue/10 rounded-2xl flex items-center justify-center group-hover:bg-sky-blue/20 transition-colors">
+        <PageLayoutContainer>
+          <div className="mb-12 text-center">
+            <span className="inline-flex items-center justify-center rounded-full border border-sky-blue/30 bg-sky-blue/10 px-5 py-2 type-eyebrow text-sky-blue">
+              Metodi di contatto
+            </span>
+            <h2 className="mt-6 type-h2 text-navy">
+              Scegli come preferisci contattarci
+            </h2>
+            <p className="mt-4 type-body text-gray-600 max-w-2xl mx-auto">
+              Siamo disponibili via email e WhatsApp per rispondere a tutte le tue domande
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto">
+            {/* Email Card */}
+            <article
+              className="group relative overflow-hidden rounded-3xl border border-sky-blue/20 bg-white/95 p-8 shadow-[0_28px_60px_-36px_rgba(10,43,107,0.45)] transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              onClick={handleEmailClick}
+              role="link"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && handleEmailClick()}
+            >
+              <div className="flex items-start gap-6">
+                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-sky-blue/10 transition-colors group-hover:bg-sky-blue/20">
                   <Image
                     src="/iconaMessaggio.png"
                     alt={t("email.alt")}
-                    width={56}
-                    height={56}
-                    className="h-14 w-14"
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 object-contain"
                   />
                 </div>
 
-                <div>
-                  <h3 className="text-3xl font-bold text-navy mb-3">{t("email.title")}</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">{t("email.desc")}</p>
-                </div>
+                <div className="flex-1 space-y-3">
+                  <h3 className="text-xl font-bold text-navy sm:text-2xl">{t("email.title")}</h3>
+                  <p className="text-sm leading-relaxed text-gray-700">{t("email.desc")}</p>
 
-                <div className="flex items-center gap-3 text-sky-blue font-semibold group-hover:gap-5 transition-all">
-                  <span>{t("email.cta")}</span>
-                  <ArrowRight className="h-5 w-5" />
-                </div>
+                  <div className="flex items-center gap-2 text-sm font-semibold text-sky-blue group-hover:gap-3 transition-all">
+                    <span>{t("email.cta")}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
 
-                <div className="pt-4 border-t border-gray-200">
-                  <p className="text-sm text-gray-500">{t("email.address")}</p>
+                  <div className="pt-3 border-t border-gray-200/60">
+                    <p className="text-xs text-gray-500">{t("email.address")}</p>
+                  </div>
                 </div>
               </div>
-            </Card>
+            </article>
 
             {/* WhatsApp Card */}
-            <Card
-              className="group relative p-12 bg-gradient-to-br from-orange/5 to-white border-2 border-orange/30 hover:border-orange hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
+            <article
+              className="group relative overflow-hidden rounded-3xl border border-orange/20 bg-white/95 p-8 shadow-[0_28px_60px_-36px_rgba(199,115,0,0.35)] transition-all duration-300 hover:-translate-y-1 cursor-pointer"
               onClick={handleWhatsAppClick}
+              role="link"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && handleWhatsAppClick()}
             >
-              {/* Geometric decoration */}
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-orange/10 rotate-45 group-hover:scale-150 transition-transform duration-500" />
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-orange/10 rounded-full group-hover:scale-150 transition-transform duration-500" />
-
-              <div className="relative z-10 space-y-6">
-                <div className="w-20 h-20 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors">
+              <div className="flex items-start gap-6">
+                <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-orange/10 transition-colors group-hover:bg-orange/20">
                   <Image
                     src="/iconaWhatsapp.png"
                     alt={t("whatsapp.alt")}
-                    width={56}
-                    height={56}
-                    className="h-14 w-14"
+                    width={32}
+                    height={32}
+                    className="h-8 w-8 object-contain"
                   />
                 </div>
 
-                <div>
-                  <h3 className="text-3xl font-bold text-navy mb-3">{t("whatsapp.title")}</h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">{t("whatsapp.desc")}</p>
-                </div>
+                <div className="flex-1 space-y-3">
+                  <h3 className="text-xl font-bold text-navy sm:text-2xl">{t("whatsapp.title")}</h3>
+                  <p className="text-sm leading-relaxed text-gray-700">{t("whatsapp.desc")}</p>
 
-                <div className="flex items-center gap-3 text-orange font-semibold group-hover:gap-5 transition-all">
-                  <span>{t("whatsapp.cta")}</span>
-                  <ArrowRight className="h-5 w-5" />
-                </div>
+                  <div className="flex items-center gap-2 text-sm font-semibold text-orange group-hover:gap-3 transition-all">
+                    <span>{t("whatsapp.cta")}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
 
-                <div className="pt-4 border-t border-gray-200">
-                  <p className="text-sm text-gray-500">{t("whatsapp.phone")}</p>
+                  <div className="pt-3 border-t border-gray-200/60">
+                    <p className="text-xs text-gray-500">{t("whatsapp.phone")}</p>
+                  </div>
                 </div>
               </div>
-            </Card>
+            </article>
           </div>
         </PageLayoutContainer>
       </section>
 
-      {/* Image Section */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
-        <PageLayoutContainer className="px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="relative">
-              <div className="absolute -top-8 -left-8 w-24 h-24 bg-orange/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-sky-blue/20 rounded-full blur-xl"></div>
-              <Image
-                src="/newmedia/WhatsappEmail.png"
-                alt="WhatsApp e Email - Contattaci"
-                width={500}
-                height={350}
-                className="relative z-10 w-full max-w-lg mx-auto drop-shadow-lg"
-                priority
-                unoptimized
-              />
-            </div>
-          </div>
-        </PageLayoutContainer>
-      </section>
+      {/* Visual Section - rimossa per coerenza */}
 
       {/* Calendar Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative">
-        <div className="absolute  right-1/4 w-48 h-48 bg-orange/5 rounded-full blur-2xl" />
-        <div className="absolute  left-1/4 w-32 h-32 bg-sky-blue/5 rounded-full blur-xl" />
-        
-        <PageLayoutContainer className="px-6">
-          <div className="max-w-6xl mx-auto">
+      <section className="relative py-24 bg-[#f9fbff]">
+        <div className="absolute inset-0 -z-10 bg-dotted-pattern" aria-hidden="true" />
+        <div className="absolute left-1/2 top-16 -z-10 h-32 w-32 -translate-x-1/2 rounded-full bg-white/70 blur-2xl" />
 
-            <Card className="p-8 bg-white border-2 border-orange/20 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
-              <div className="absolute -top-8 -right-8 w-32 h-32 bg-orange/10 rounded-full blur-xl" />
-              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-sky-blue/10 rounded-full blur-xl" />
-              
-              <div className="relative z-10">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-navy mb-4">{t("calendar.cardTitle")}</h3>
-                  <p className="text-gray-600">{t("calendar.cardDesc")}</p>
-                </div>
-                
-                <div className="w-full h-[600px] rounded-lg overflow-hidden border border-gray-200">
-                  <Cal 
-                    namespace="aycl-discovery"
-                    calLink="giovannilucchesini/aycl-discovery"
-                    style={{width:"100%",height:"100%",overflow:"scroll"}}
-                    config={{"layout":"month_view"}}
-                  />
-                </div>
-              </div>
-            </Card>
+        <PageLayoutContainer>
+          <div className="mb-12 text-center">
+            <span className="inline-flex items-center justify-center rounded-full border border-orange/40 bg-orange/10 px-5 py-2 type-eyebrow text-orange">
+              Prenota una call
+            </span>
+            <h2 className="mt-6 type-h2 text-navy">
+              {t("calendar.cardTitle")}
+            </h2>
+            <p className="mt-4 type-body text-gray-600 max-w-2xl mx-auto">
+              {t("calendar.cardDesc")}
+            </p>
+          </div>
+
+          <div className="relative overflow-hidden rounded-3xl border border-orange/20 bg-white/95 p-6 shadow-[0_32px_80px_-48px_rgba(199,115,0,0.4)] sm:p-8">
+            <div className="w-full h-[600px] rounded-xl overflow-hidden border border-gray-200/60">
+              <Cal
+                namespace="aycl-discovery"
+                calLink="giovannilucchesini/aycl-discovery"
+                style={{width:"100%",height:"100%",overflow:"scroll"}}
+                config={{"layout":"month_view"}}
+              />
+            </div>
           </div>
         </PageLayoutContainer>
       </section>
@@ -195,21 +187,36 @@ export default function ContattaciPage() {
   
 
       {/* FAQ Preview */}
-      <section className="py-24 relative">
-        <PageLayoutContainer className="px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl font-bold text-navy">{t("faqPreview.title")}</h2>
-            <p className="text-xl text-gray-600">{t("faqPreview.subtitle")}</p>
+      <section className="relative py-24 bg-white">
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white to-[#f6f9ff]" aria-hidden="true" />
+        <div className="absolute -right-32 top-10 -z-10 h-64 w-64 rounded-full bg-orange/10 blur-3xl" />
+
+        <PageLayoutContainer>
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <span className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-2 type-eyebrow text-gray-600">
+              Hai altre domande?
+            </span>
+
+            <h2 className="type-h2 text-navy">{t("faqPreview.title")}</h2>
+            <p className="type-body text-gray-600 max-w-2xl mx-auto">{t("faqPreview.subtitle")}</p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link href="/">
-                <Button size="lg" variant="outline" className="border-navy text-navy hover:bg-navy/5 bg-transparent">
+              <Link href="/faq">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="inline-flex items-center gap-2 rounded-full border border-navy/20 bg-white px-8 py-4 text-base font-semibold text-navy transition duration-200 ease-out hover:bg-navy/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-navy sm:text-lg"
+                >
                   {t("faqPreview.ctaFaq")}
                 </Button>
               </Link>
-              <Link href="/contattaci">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white">
-                  {t("faqPreview.ctaCall")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/pacchetti">
+                <Button
+                  size="lg"
+                  className="inline-flex items-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.25)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:text-lg"
+                >
+                  Scopri i pacchetti
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -218,26 +225,31 @@ export default function ContattaciPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-navy via-navy to-sky-blue/20 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-blue/10 rounded-full blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy via-navy to-sky-blue/20 py-24 text-white">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-orange/10 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-sky-blue/10 blur-3xl" />
+        </div>
 
-        <PageLayoutContainer className="px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-4xl lg:text-4xl font-bold text-balance">{t("cta.title")}</h2>
-            <p className="text-xl text-gray-200">{t("cta.subtitle")}</p>
+        <PageLayoutContainer>
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <h2 className="type-h2 text-white">{t("cta.title")}</h2>
+            <p className="type-body text-gray-200 max-w-2xl mx-auto">{t("cta.subtitle")}</p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link href="/pacchetti">
-                <Button size="lg" className="bg-orange hover:bg-orange/90 text-white text-lg px-8 w-full">
+                <Button
+                  size="lg"
+                  className="inline-flex items-center gap-2 rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-[0_12px_24px_rgba(255,148,51,0.35)] transition duration-200 ease-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange sm:text-lg"
+                >
                   {t("cta.button")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
             </div>
           </div>
         </PageLayoutContainer>
       </section>
-      </div>
     </div>
   )
 }

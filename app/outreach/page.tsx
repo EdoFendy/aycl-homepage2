@@ -200,13 +200,13 @@ export default function OutreachPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-12 overflow-hidden sm:pt-32 sm:pb-20">
+      <section className="hero-section relative overflow-hidden">
         {/* Geometric decorations */}
         <div className="absolute top-16 right-4 w-20 h-20 bg-sky-blue/10 rotate-12 rounded-lg sm:top-20 sm:right-10 sm:w-32 sm:h-32" />
         <div className="absolute top-32 left-4 w-16 h-16 bg-orange/10 rounded-full sm:top-40 sm:left-10 sm:w-24 sm:h-24" />
         <div className="absolute bottom-6 right-1/4 w-12 h-32 bg-navy/5 -rotate-45 sm:bottom-10 sm:w-16 sm:h-48" />
 
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="hero-content">
           <LayoutWrapper>
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="space-y-6 sm:space-y-8">
@@ -278,7 +278,7 @@ export default function OutreachPage() {
       {/* Principle Section */}
       <section className="relative py-24">
         <div className="absolute inset-x-0 top-0 -z-10 h-1/2 bg-gradient-to-b from-navy/5 via-transparent to-transparent" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] xl:gap-16">
             <div className="space-y-6">
               {principleBadge && (
@@ -332,7 +332,7 @@ export default function OutreachPage() {
       {/* Architecture Section */}
       <section className="relative overflow-hidden bg-gray-50 py-24">
         <div className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-sky-blue/20 via-transparent to-transparent" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_minmax(0,0.9fr)] xl:gap-16">
             <div className="space-y-8">
               <div className="max-w-2xl">
@@ -387,7 +387,7 @@ export default function OutreachPage() {
       <section className="relative overflow-hidden bg-white py-24">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.12,transparent_60%)]" />
         <div className="absolute -bottom-32 right-24 h-72 w-72 rounded-full bg-sky-blue/10 blur-[140px]" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="max-w-3xl">
             {applicationBadge && (
               <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 type-eyebrow text-orange">
@@ -426,7 +426,7 @@ export default function OutreachPage() {
       {/* AI Stats Section */}
       <section className="relative py-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-sky-blue/15 to-white" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="text-center">
             {aiBadge && (
               <span className="inline-flex items-center justify-center rounded-full bg-sky-blue/10 px-4 py-1 type-eyebrow text-sky-blue">
@@ -474,7 +474,7 @@ export default function OutreachPage() {
           }}
         />
 
-        <PageLayoutContainer className="px-4 sm:px-6 lg:px-8">
+        <PageLayoutContainer>
           {/* Header Section */}
           <div className="mx-auto max-w-3xl text-center">
             {comparisonBadge && (
@@ -585,7 +585,7 @@ export default function OutreachPage() {
       {/* Sendura Section */}
       <section className="relative overflow-hidden bg-gray-50 py-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-blue/15 to-orange/10" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="text-center">
             {senduraBadge && (
               <span className="inline-flex items-center justify-center rounded-full bg-orange/10 px-4 py-1 type-eyebrow text-orange">
@@ -644,7 +644,7 @@ export default function OutreachPage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-sky-blue/5 via-white to-orange/10" />
         <div className="absolute -top-24 right-8 -z-10 h-48 w-48 rounded-full bg-orange/20 blur-[140px]" />
         <div className="absolute -bottom-28 left-12 -z-10 h-56 w-56 rounded-full bg-sky-blue/20 blur-[160px]" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="grid gap-10 lg:grid-cols-2">
             {/* Learning */}
             <article className="group relative overflow-hidden rounded-[2.5rem] border border-sky-blue/20 bg-white/90 p-8 shadow-[0_36px_90px_-60px_rgba(10,43,107,0.45)]">
@@ -737,7 +737,7 @@ export default function OutreachPage() {
       <section className="relative overflow-hidden bg-white py-24">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.12,transparent_60%)]" />
         <div className="absolute -bottom-32 left-24 h-72 w-72 rounded-full bg-sky-blue/10 blur-[140px]" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="mx-auto max-w-3xl text-center">
             {humanAiBadge && (
               <span className="inline-flex items-center rounded-full border border-orange/20 bg-orange/10 px-4 py-1 type-eyebrow text-orange">
@@ -800,7 +800,7 @@ export default function OutreachPage() {
       {/* Ecosystem */}
       <section className="relative py-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-sky-blue/10 to-orange/10" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_1.05fr] xl:gap-16">
             <div className="space-y-6">
               {ecosystemBadge && (
@@ -842,7 +842,7 @@ export default function OutreachPage() {
       {/* CTA */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-sky-blue/10 to-orange/10 py-24">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,var(--orange)/0.15,transparent_65%)]" />
-        <PageLayoutContainer className="px-4 sm:px-6">
+        <PageLayoutContainer>
           <div className="mx-auto max-w-3xl space-y-6 text-center text-navy">
             <h2 className="text-3xl font-bold sm:text-4xl">Pronto a trasformare il tuo outreach?</h2>
             <p className="text-base text-gray-600 sm:text-lg">

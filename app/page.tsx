@@ -314,7 +314,7 @@ export default function HomePage() {
         Salta al contenuto principale
       </a>
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f5f9ff]">
+      <section className="hero-section relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f5f9ff]">
         <div className="absolute inset-0 -z-10 opacity-60">
           <div className="absolute -top-32 right-0 h-64 w-64 rounded-full bg-orange/20 blur-3xl" aria-hidden="true" />
           <div className="absolute top-1/3 left-[-120px] h-72 w-72 rounded-full bg-sky-blue/15 blur-3xl" aria-hidden="true" />
@@ -322,7 +322,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-soft-grid" aria-hidden="true" />
         </div>
 
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-5 pb-40 pt-32 sm:px-10 md:gap-16 md:pt-36 lg:gap-20 lg:pb-44">
+        <div className="hero-content">
           <LayoutWrapper>
             <div className="grid items-center gap-12 lg:grid-cols-[0.6fr_0.4fr] lg:gap-16 xl:gap-20">
               <div className="order-2 space-y-6 md:space-y-7 lg:order-1">
@@ -392,7 +392,7 @@ export default function HomePage() {
             <div className="absolute top-10 left-5 h-20 w-20 rounded-full bg-orange/10" aria-hidden="true" />
             <div className="absolute bottom-10 right-10 h-28 w-28 rounded-full bg-sky-blue/15" aria-hidden="true" />
           </div>
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
+          <div className="section-container">
             <LayoutWrapper>
               <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
                 <div className="order-2 space-y-6 lg:order-1">
@@ -428,7 +428,7 @@ export default function HomePage() {
         <section ref={statsRef} className="relative overflow-hidden bg-[#f9fbff] py-28">
           <div className="absolute inset-0 -z-10 bg-dotted-pattern" aria-hidden="true" />
           <div className="absolute left-1/2 top-16 -z-10 h-32 w-32 -translate-x-1/2 rounded-full bg-white/70 blur-2xl" />
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
+          <div className="section-container">
             <LayoutWrapper>
               <div
                 className={`mx-auto max-w-3xl text-center transition duration-700 ${
@@ -499,7 +499,7 @@ export default function HomePage() {
         <section ref={solutionRef} className="relative overflow-hidden bg-white section-y-lg">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white to-[#f6f9ff]" aria-hidden="true" />
           <div className="absolute -right-32 top-10 -z-10 h-64 w-64 rounded-full bg-orange/10 blur-3xl" />
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
+          <div className="section-container">
             <LayoutWrapper>
               <div className="mb-16 text-center">
                 <span className="inline-flex items-center justify-center rounded-full border border-sky-blue/30 bg-sky-blue/10 px-5 py-2 type-eyebrow text-sky-blue">
@@ -581,7 +581,7 @@ export default function HomePage() {
           <div className="absolute inset-0 -z-10" aria-hidden="true">
             <div className="bg-dotted-pattern h-full w-full opacity-60" />
           </div>
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
+          <div className="section-container">
             <LayoutWrapper>
               <div className="mx-auto mb-16 max-w-2xl text-center">
                 <h2 className="text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">
@@ -632,7 +632,7 @@ export default function HomePage() {
 
         <section ref={processRef} className="relative bg-white py-28">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-[#f6f9ff]" aria-hidden="true" />
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
+          <div className="section-container">
             <LayoutWrapper>
               <div className="mx-auto max-w-3xl text-center">
                 <span className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-gray-600">
@@ -650,8 +650,8 @@ export default function HomePage() {
                   aria-hidden="true"
                 />
                 {processStepConfig.map(({ key, image, badgeColor }, index) => {
-                  const isEven = index % 2 === 1
                   const stepNumber = `0${index + 1}`
+                  const isEven = index % 2 === 1
 
                   return (
                     <article
@@ -662,19 +662,7 @@ export default function HomePage() {
                           : ""
                       }`}
                     >
-                      <div className={`order-2 md:order-1 ${isEven ? "md:order-2" : ""}`}>
-                        <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white shadow-[0_16px_40px_rgba(9,30,66,0.1)]">
-                          <Image
-                            src={`/${image}`}
-                            alt={t(`process.steps.${key}.title`)}
-                            width={560}
-                            height={420}
-                            className="h-auto w-full object-cover"
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
-                      <div className={`order-1 space-y-4 md:order-2 ${isEven ? "md:order-1 md:text-right" : ""}`}>
+                      <div className={`order-1 space-y-4 ${isEven ? "md:order-2" : "md:order-1"}`}>
                         <div className="relative">
                           <span className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold text-white ${
                             key === "icp" ? "bg-orange" : key === "strategy" ? "bg-sky-blue" : "bg-navy"
@@ -690,7 +678,7 @@ export default function HomePage() {
                         <h3 className="text-3xl font-bold leading-snug text-navy sm:text-[2.25rem]">
                           {t(`process.steps.${key}.title`)}
                         </h3>
-                        <p className="max-w-xl text-lg leading-relaxed text-gray-600 md:ml-auto md:max-w-none">
+                        <p className="max-w-xl text-lg leading-relaxed text-gray-600">
                           {renderHighlightedText(t(`process.steps.${key}.desc`))}
                         </p>
                         <Link
@@ -701,8 +689,20 @@ export default function HomePage() {
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                         </Link>
                       </div>
+                      <div className={`order-2 ${isEven ? "md:order-1" : "md:order-2"}`}>
+                        <div className="relative mx-auto w-4/5 md:w-full">
+                          <Image
+                            src={`/${image}`}
+                            alt={t(`process.steps.${key}.title`)}
+                            width={440}
+                            height={330}
+                            className="h-auto w-full object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                      </div>
                       <div className="pointer-events-none absolute inset-y-1/2 -z-10 flex -translate-y-1/2 text-[6rem] font-bold tracking-tight text-orange/10 sm:text-[7rem] md:text-[8rem]">
-                        <span className={`${isEven ? "ml-auto" : ""}`}>{stepNumber}</span>
+                        <span>{stepNumber}</span>
                       </div>
                     </article>
                   )
@@ -711,8 +711,9 @@ export default function HomePage() {
             </LayoutWrapper>
           </div>
         </section>
+
         <section className="relative bg-gradient-to-b from-white to-[#f5f9ff] py-28">
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
+          <div className="section-container">
             <LayoutWrapper>
               <div className="mx-auto max-w-3xl text-center">
                 {t("packages.badge").trim().length > 0 && (
@@ -726,147 +727,200 @@ export default function HomePage() {
                 <p className="mt-4 text-lg leading-relaxed text-gray-600">{t("packages.subtitle")}</p>
               </div>
 
-              <div className="mt-16 space-y-16">
-                {/* Setupfee - occupa tutta la larghezza */}
+              <div className="mt-16 space-y-10">
+                {/* Setup Fee - Premium tier con massimo impatto visivo */}
                 <Card
-                  className="relative flex h-full flex-col gap-10 rounded-3xl border border-orange/30 bg-white p-12 shadow-[0_20px_60px_-40px_rgba(255,148,51,0.6)] transition-all duration-500 hover:-translate-y-2 hover:border-orange hover:shadow-[0_30px_80px_-30px_rgba(255,148,51,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange"
+                  className="package-card-setup relative cursor-pointer overflow-hidden rounded-[1.75rem] border-orange bg-white p-8 sm:p-10 md:p-12 lg:p-14"
                   onClick={() => navigateTo("/pacchetti/set-up-fee")}
                   onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
                   role="link"
                   tabIndex={0}
                 >
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-orange">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-orange px-3 py-1 text-white shadow-sm">
-                      <Target className="h-4 w-4" aria-hidden="true" />
-                      {t("packages.setup.badge")}
-                    </span>
-                  </div>
-                  <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-                    <div className="space-y-8">
-                      <div className="space-y-6">
-                        <h3 className="text-3xl font-bold text-navy sm:text-4xl lg:text-5xl">{t("packages.setup.title")}</h3>
-                        <p className="text-base leading-relaxed text-gray-600 sm:text-lg lg:text-xl">
+                  {/* Decorative blobs - aggiungono profondità visiva senza distrarre */}
+                  <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-orange/10 blur-3xl" aria-hidden="true" />
+                  <div className="pointer-events-none absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-orange/5 blur-2xl" aria-hidden="true" />
+
+                  <div className="package-card-spacing relative z-10">
+                    {/* Header Section - Badge e posizionamento premium */}
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="package-badge-primary bg-orange text-white">
+                        <Target className="h-4 w-4" aria-hidden="true" />
+                        {t("packages.setup.badge")}
+                      </span>
+                      <span className="package-badge-secondary border-orange/40 bg-orange/10 text-orange">
+                        Revenue Share
+                      </span>
+                    </div>
+
+                    {/* Content Grid - Sidebar layout per migliore leggibilità */}
+                    <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12 xl:gap-16">
+                      {/* Left Column - Value Proposition & CTA */}
+                      <div className="package-card-header">
+                        <h3 className="package-card-title">{t("packages.setup.title")}</h3>
+                        <p className="package-card-description">
                           {t("packages.setup.desc")}
                         </p>
+
+                        {/* Primary CTA - posizionamento strategico dopo la value prop */}
+                        <div className="mt-6">
+                          <Button
+                            className="package-cta bg-orange text-white hover:bg-orange/95"
+                            onClick={handleContactClick}
+                          >
+                            {t("packages.setup.cta")}
+                          </Button>
+                        </div>
                       </div>
-                      <Button
-                        className="w-full rounded-full bg-orange px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-orange/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-orange"
-                        onClick={handleContactClick}
-                      >
-                        {t("packages.setup.cta")}
-                      </Button>
-                    </div>
-                    <div className="space-y-8 text-sm text-gray-700">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange">
-                          {t("packages.setup.strategy")}
-                        </p>
-                        <ul className="mt-4 space-y-4">
-                          {(["customStrategy", "dedicatedTeam", "automation"] as const).map((featureKey) => (
-                            <li key={featureKey} className="flex items-start gap-3">
-                              <span className="text-orange font-bold mt-0.5">•</span>
-                              <span className="font-medium">{t(["packages", "setup", "features", featureKey].join("."))}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-orange">
-                          {t("packages.setup.partnership")}
-                        </p>
-                        <ul className="mt-4 space-y-4">
-                          {(["revenueShare", "priorityAccess", "advisoryBoard"] as const).map((featureKey) => (
-                            <li key={featureKey} className="flex items-start gap-3">
-                              <span className="text-orange font-bold mt-0.5">•</span>
-                              <span className="font-medium">{t(["packages", "setup", "features", featureKey].join("."))}</span>
-                            </li>
-                          ))}
-                        </ul>
+
+                      {/* Right Column - Features in 2 colonne per maggiore scannability */}
+                      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                        <div className="space-y-4">
+                          <h4 className="package-section-header text-orange">
+                            <TrendingUp className="h-4 w-4" aria-hidden="true" />
+                            {t("packages.setup.strategy")}
+                          </h4>
+                          <ul className="package-features-list">
+                            {(["customStrategy", "dedicatedTeam", "automation"] as const).map((featureKey) => (
+                              <li key={featureKey} className="package-feature-item bg-orange/5">
+                                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-orange" aria-hidden="true" />
+                                <span className="package-feature-text">{t(["packages", "setup", "features", featureKey].join("."))}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="space-y-4">
+                          <h4 className="package-section-header text-orange">
+                            <Sparkles className="h-4 w-4" aria-hidden="true" />
+                            {t("packages.setup.partnership")}
+                          </h4>
+                          <ul className="package-features-list">
+                            {(["revenueShare", "priorityAccess", "advisoryBoard"] as const).map((featureKey) => (
+                              <li key={featureKey} className="package-feature-item bg-orange/5">
+                                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-orange" aria-hidden="true" />
+                                <span className="package-feature-text">{t(["packages", "setup", "features", featureKey].join("."))}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </Card>
 
-                {/* Performance e Subscription - affiancati */}
-                <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+                {/* Performance e Subscription - Layout affiancato per confronto diretto */}
+                <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] xl:gap-8">
+                  {/* Performance Card - Secondo tier di importanza */}
                   <Card
-                    className="relative flex h-full flex-col gap-6 rounded-3xl border border-sky-blue/30 bg-white p-8 shadow-[0_20px_60px_-40px_rgba(35,98,229,0.45)] transition-all duration-500 hover:-translate-y-2 hover:border-sky-blue hover:shadow-[0_30px_80px_-30px_rgba(35,98,229,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue"
+                    className="package-card-performance relative cursor-pointer overflow-hidden rounded-[1.5rem] border border-sky-blue/40 bg-white p-6 sm:p-7 md:p-9"
                     onClick={() => navigateTo("/pacchetti/performance")}
                     onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
                     role="link"
                     tabIndex={0}
                   >
-                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-sky-blue">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-sky-blue px-3 py-1 text-white">
-                        <Zap className="h-4 w-4" aria-hidden="true" />
-                        {t("packages.performance.badge")}
-                      </span>
+                    <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-sky-blue/8 blur-2xl" aria-hidden="true" />
+
+                    <div className="package-card-spacing relative z-10">
+                      {/* Badge */}
+                      <div className="package-card-header">
+                        <span className="package-badge-primary bg-sky-blue text-white">
+                          <Zap className="h-4 w-4" aria-hidden="true" />
+                          {t("packages.performance.badge")}
+                        </span>
+
+                        {/* Title & Description */}
+                        <h3 className="package-card-title">{t("packages.performance.title")}</h3>
+                        <p className="package-card-description">{t("packages.performance.desc")}</p>
+                      </div>
+
+                      {/* Pricing Info Box - elemento chiave per la conversione */}
+                      <div className="package-info-box border-sky-blue/30 bg-sky-blue/5">
+                        <span className="package-info-label text-sky-blue">
+                          {t("packages.performance.pricing.label")}
+                        </span>
+                        <p className="package-info-text text-gray-700">
+                          {t("packages.performance.pricing.desc")}
+                        </p>
+                      </div>
+
+                      {/* Features List */}
+                      <ul className="package-features-list">
+                        {(["onboarding", "payPerResult", "reporting", "testing"] as const).map((featureKey) => (
+                          <li key={featureKey} className="package-feature-item bg-sky-blue/5">
+                            <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-sky-blue" aria-hidden="true" />
+                            <span className="package-feature-text">{t(["packages", "performance", "features", featureKey].join("."))}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA */}
+                      <div className="mt-auto">
+                        <Button
+                          className="package-cta bg-sky-blue text-white hover:bg-sky-blue/95"
+                          onClick={(event) => {
+                            event.stopPropagation()
+                            navigateTo("/pacchetti/performance")
+                          }}
+                        >
+                          {t("packages.performance.cta")}
+                        </Button>
+                      </div>
                     </div>
-                    <div className="space-y-4">
-                      <h3 className="text-2xl font-bold text-navy">{t("packages.performance.title")}</h3>
-                      <p className="text-sm leading-relaxed text-gray-600">{t("packages.performance.desc")}</p>
-                    </div>
-                    <div className="rounded-2xl border border-sky-blue/20 bg-white/80 p-5">
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-blue">
-                        {t("packages.performance.pricing.label")}
-                      </p>
-                      <p className="mt-2 text-sm text-gray-700">{t("packages.performance.pricing.desc")}</p>
-                    </div>
-                    <ul className="space-y-3 text-sm text-gray-700">
-                      {(["onboarding", "payPerResult", "reporting", "testing"] as const).map((featureKey) => (
-                        <li key={featureKey} className="flex items-start gap-3">
-                          <span className="text-sky-blue font-bold mt-0.5">•</span>
-                          <span>{t(["packages", "performance", "features", featureKey].join("."))}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      className="w-full rounded-full bg-sky-blue px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-sky-blue/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-sky-blue"
-                      onClick={(event) => {
-                        event.stopPropagation()
-                        navigateTo("/pacchetti/performance")
-                      }}
-                    >
-                      {t("packages.performance.cta")}
-                    </Button>
                   </Card>
+
+                  {/* Subscription Card - Terzo tier, design più contenuto ma chiaro */}
                   <Card
-                    className="relative flex h-full flex-col gap-6 rounded-3xl border border-navy/20 bg-white p-8 shadow-[0_20px_60px_-40px_rgba(11,29,74,0.4)] transition-all duration-500 hover:-translate-y-2 hover:border-navy hover:shadow-[0_30px_80px_-30px_rgba(11,29,74,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy"
+                    className="package-card-subscription relative cursor-pointer overflow-hidden rounded-[1.5rem] border border-navy/30 bg-white p-6 sm:p-7 md:p-8"
                     onClick={() => navigateTo("/pacchetti/subscription")}
                     onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
                     role="link"
                     tabIndex={0}
                   >
-                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-navy">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-navy px-3 py-1 text-white">
-                        <Sparkles className="h-4 w-4" aria-hidden="true" />
-                        {t("packages.subscription.badge")}
-                      </span>
+                    <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-navy/5 blur-xl" aria-hidden="true" />
+
+                    <div className="package-card-spacing relative z-10">
+                      {/* Badge */}
+                      <div className="package-card-header">
+                        <span className="package-badge-primary bg-navy text-white">
+                          <CalendarCheck className="h-4 w-4" aria-hidden="true" />
+                          {t("packages.subscription.badge")}
+                        </span>
+
+                        {/* Title & Description */}
+                        <h3 className="package-card-title">{t("packages.subscription.title")}</h3>
+                        <p className="package-card-description">{t("packages.subscription.desc")}</p>
+                      </div>
+
+                      {/* Pricing Info Box */}
+                      <div className="package-info-box border-navy/20 bg-navy/5">
+                        <p className="package-info-text text-gray-700">
+                          {t("packages.subscription.pricing")}
+                        </p>
+                      </div>
+
+                      {/* Features List */}
+                      <ul className="package-features-list">
+                        {(["guaranteed", "manager", "meetings", "refund"] as const).map((featureKey) => (
+                          <li key={featureKey} className="package-feature-item bg-navy/5">
+                            <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-navy" aria-hidden="true" />
+                            <span className="package-feature-text">{t(["packages", "subscription", "features", featureKey].join("."))}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA */}
+                      <div className="mt-auto">
+                        <Button
+                          className="package-cta bg-navy text-white hover:bg-navy/95"
+                          onClick={(event) => {
+                            event.stopPropagation()
+                            navigateTo("/pacchetti/subscription")
+                          }}
+                        >
+                          {t("packages.subscription.cta")}
+                        </Button>
+                      </div>
                     </div>
-                    <div className="space-y-4">
-                      <h3 className="text-2xl font-bold text-navy">{t("packages.subscription.title")}</h3>
-                      <p className="text-sm leading-relaxed text-gray-600">{t("packages.subscription.desc")}</p>
-                    </div>
-                    <div className="rounded-2xl border border-navy/20 bg-white/80 p-5 text-sm text-gray-700">
-                      {t("packages.subscription.pricing")}
-                    </div>
-                    <ul className="space-y-3 text-sm text-gray-700">
-                      {(["guaranteed", "manager", "meetings", "refund"] as const).map((featureKey) => (
-                        <li key={featureKey} className="flex items-start gap-3">
-                          <span className="text-navy font-bold mt-0.5">•</span>
-                          <span>{t(["packages", "subscription", "features", featureKey].join("."))}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      className="w-full rounded-full bg-navy px-8 py-4 text-base font-semibold text-white shadow-md transition duration-200 hover:scale-[1.02] hover:bg-navy/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-navy"
-                      onClick={(event) => {
-                        event.stopPropagation()
-                        navigateTo("/pacchetti/subscription")
-                      }}
-                    >
-                      {t("packages.subscription.cta")}
-                    </Button>
                   </Card>
                 </div>
               </div>
@@ -880,7 +934,7 @@ export default function HomePage() {
         <LeadsComparisonTable />
 
         <section className="relative bg-[#f6f9ff] py-28">
-          <div className="mx-auto max-w-[1320px] px-5 sm:px-10">
+          <div className="section-container">
             <LayoutWrapper>
               <div className="mx-auto max-w-3xl text-center">
                 <h2 className="text-4xl font-bold leading-tight text-navy sm:text-[2.5rem]">

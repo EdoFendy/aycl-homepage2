@@ -128,7 +128,7 @@ export default function PacchettiPage() {
         {/* HERO */}
         <section
           id="pacchetti"
-          className="relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f5f9ff] pt-28 pb-16 sm:pt-36 sm:pb-20"
+          className="hero-section relative overflow-hidden bg-gradient-to-b from-white via-white to-[#f5f9ff]"
         >
           <div className="absolute inset-0 -z-10 opacity-70" aria-hidden>
             <div className="absolute top-20 right-10 w-48 h-48 bg-sky-blue/10 rounded-full blur-2xl" />
@@ -136,7 +136,7 @@ export default function PacchettiPage() {
             <div className="absolute inset-0 bg-soft-grid" />
           </div>
 
-          <PageLayoutContainer className="px-5 sm:px-10">
+          <PageLayoutContainer>
             <div className="mx-auto max-w-5xl text-center space-y-6">
               <div className="inline-flex items-center justify-center rounded-full border border-orange/30 bg-orange/10 px-6 py-2">
                 <span className="type-eyebrow text-orange">
@@ -153,252 +153,315 @@ export default function PacchettiPage() {
           </PageLayoutContainer>
 
 
-          {/* CARDS PACCHETTI */}
-          <PageLayoutContainer className="mt-12 px-4 sm:px-6 md:px-8">
-            <div className="mx-auto grid max-w-7xl gap-8 py-10 md:gap-10 lg:grid-cols-12 lg:py-12">
-              {/* Set-Up Fee */}
+          {/* CARDS PACCHETTI - Allineate alla struttura Home */}
+          <PageLayoutContainer className="mt-12">
+            <div className="mx-auto max-w-7xl space-y-10 py-10 lg:py-12">
+              {/* SEZIONE 1: Setup Fee - Premium Hero Card (ridimensionata) */}
               <Card
-                className="relative flex cursor-pointer flex-col gap-6 sm:gap-7 md:gap-8 rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-5 sm:p-7 md:p-12 shadow-xl md:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
+                className="package-card-setup relative cursor-pointer overflow-hidden rounded-[1.5rem] border-orange bg-white p-6 sm:p-8 md:p-10"
                 onClick={() => navigateTo("/pacchetti/set-up-fee")}
                 onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
                 role="link"
                 tabIndex={0}
               >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange/20 to-transparent rounded-full blur-3xl" />
-                <div className="absolute -top-4 -right-4 w-32 h-32 bg-orange/10 rounded-full blur-2xl" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-orange/5 to-transparent rounded-full blur-2xl" />
+                {/* Decorative elements */}
+                <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full bg-orange/8 blur-3xl" aria-hidden="true" />
+                <div className="pointer-events-none absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-orange/5 blur-2xl" aria-hidden="true" />
 
-                <div className="flex items-start justify-between relative z-10">
-                  <div className="space-y-4 flex-1">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex items-center rounded-full bg-orange px-4 py-1.5 text-sm font-bold text-white shadow-lg">
-                        <Star className="w-4 h-4 mr-2 fill-white" />
-                        {t("setup.badge")}
-                      </span>
-                      <span className="inline-flex items-center rounded-full bg-orange/10 px-3 py-1 text-xs font-semibold text-orange border border-orange/30">
-                        {t("setup.revShare")}
-                      </span>
+                <div className="package-card-spacing relative z-10">
+                  {/* Badges Row */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="package-badge-primary bg-orange text-white">
+                      <Star className="h-4 w-4 fill-current" aria-hidden="true" />
+                      {t("setup.badge")}
+                    </span>
+                    <span className="package-badge-secondary border-orange/40 bg-orange/10 text-orange">
+                      {t("setup.revShare")}
+                    </span>
+                    <div className="ml-auto hidden lg:block">
+                      <Sparkles className="h-12 w-12 text-orange opacity-15" aria-hidden="true" />
                     </div>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy text-clamp-2">{t("setup.title")}</h3>
-                    <p className="text-lg text-gray-700 max-w-full md:max-w-2xl text-clamp-3">{t("setup.desc")}</p>
                   </div>
-                  <div className="hidden lg:block">
-                    <Sparkles className="w-16 h-16 text-orange" />
-                  </div>
-                </div>
 
-                <div className="grid md:grid-cols-2 gap-6 relative z-10">
-                  <div className="space-y-4">
-                  <h4 className="flex items-center gap-2 type-eyebrow text-orange">
-                      <TrendingUp className="w-4 h-4" />
-                      {t("setup.strategy")}
-                    </h4>
-                    <ul className="space-y-3 text-sm text-gray-700">
-                      {setupResearchItems.map((item, idx) => (
-                        <li key={`${item}-${idx}`} className="flex items-start gap-3">
-                          <span className="text-orange font-bold mt-0.5">•</span>
-                          <span className="font-medium">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="space-y-4">
-                  <h4 className="flex items-center gap-2 type-eyebrow text-orange">
-                      <Zap className="w-4 h-4" />
-                      {t("setup.partnership")}
-                    </h4>
-                    <ul className="space-y-3 text-sm text-gray-700">
-                      {setupValueItems.map((item, idx) => (
-                        <li key={`${item}-${idx}`} className="flex items-start gap-3">
-                          <span className="text-orange font-bold mt-0.5">•</span>
-                          <span className="font-medium">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                  {/* Content Grid */}
+                  <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-10 xl:gap-12">
+                    {/* Left: Value Proposition & CTA */}
+                    <div className="package-card-header">
+                      <h3 className="package-card-title">{t("setup.title")}</h3>
+                      <p className="package-card-description">{t("setup.desc")}</p>
 
-                <div className="flex flex-col sm:flex-row gap-4 items-center mt-4 relative z-10">
-                  <Button
-                    className="w-full sm:w-auto bg-orange hover:bg-orange/90 text-white shadow-xl hover:shadow-2xl hover:shadow-orange/30 px-8 py-4 text-lg"
-                    onClick={handleContactClick}
-                  >
-                    {t("setup.cta")}
-                  </Button>
-                  <span className="text-sm text-gray-600 font-medium">
-                    {t("setup.ideal")}
-                  </span>
+                      <div className="mt-5 space-y-4">
+                        <Button
+                          className="package-cta bg-orange text-white hover:bg-orange/95"
+                          onClick={handleContactClick}
+                        >
+                          {t("setup.cta")}
+                        </Button>
+                        <div className="rounded-lg border border-gray-200 bg-gray-50/50 px-4 py-3">
+                          <p className="text-sm font-medium leading-relaxed text-gray-700">
+                            {t("setup.ideal")}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right: Features Grid */}
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                      <div className="space-y-3">
+                        <h4 className="package-section-header text-orange">
+                          <TrendingUp className="h-4 w-4" aria-hidden="true" />
+                          {t("setup.strategy")}
+                        </h4>
+                        <ul className="package-features-list">
+                          {setupResearchItems.map((item, idx) => (
+                            <li key={`research-${idx}`} className="package-feature-item bg-orange/5">
+                              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-orange" aria-hidden="true" />
+                              <span className="package-feature-text">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="space-y-3">
+                        <h4 className="package-section-header text-orange">
+                          <Zap className="h-4 w-4" aria-hidden="true" />
+                          {t("setup.partnership")}
+                        </h4>
+                        <ul className="package-features-list">
+                          {setupValueItems.map((item, idx) => (
+                            <li key={`value-${idx}`} className="package-feature-item bg-orange/5">
+                              <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-orange" aria-hidden="true" />
+                              <span className="package-feature-text">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </Card>
 
-              {/* Drive Test */}
+              {/* SEZIONE 2: Performance + Subscription (affiancati) */}
+              <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] xl:gap-8">
+                {/* Performance Card */}
+                <Card
+                  className="package-card-performance relative cursor-pointer overflow-hidden rounded-[1.5rem] border border-sky-blue/40 bg-white p-6 sm:p-7 md:p-8"
+                  onClick={() => navigateTo("/pacchetti/performance")}
+                  onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
+                  role="link"
+                  tabIndex={0}
+                >
+                  <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-sky-blue/8 blur-2xl" aria-hidden="true" />
+
+                  <div className="package-card-spacing relative z-10">
+                    {/* Badges */}
+                    <div className="package-card-header">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="package-badge-primary bg-sky-blue text-white">
+                          <Zap className="h-4 w-4" aria-hidden="true" />
+                          {t("performance.badge")}
+                        </span>
+                        <span className="text-xs text-gray-500">{t("performance.setup")}</span>
+                      </div>
+
+                      <h3 className="package-card-title">{t("performance.title")}</h3>
+                      <p className="package-card-description">{t("performance.desc")}</p>
+                    </div>
+
+                    {/* Pricing */}
+                    <div className="package-info-box border-sky-blue/30 bg-sky-blue/5">
+                      <span className="package-info-label text-sky-blue">
+                        {t("performance.pricing.label")}
+                      </span>
+                      <p className="package-info-text text-gray-700">
+                        {t("performance.pricing.desc")}
+                      </p>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="package-features-list">
+                      <li className="package-feature-item bg-sky-blue/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-sky-blue" aria-hidden="true" />
+                        <span className="package-feature-text">{t("performance.features.onboarding")}</span>
+                      </li>
+                      <li className="package-feature-item bg-sky-blue/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-sky-blue" aria-hidden="true" />
+                        <span className="package-feature-text">{t("performance.features.payPerResult")}</span>
+                      </li>
+                      <li className="package-feature-item bg-sky-blue/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-sky-blue" aria-hidden="true" />
+                        <span className="package-feature-text">{t("performance.features.reporting")}</span>
+                      </li>
+                      <li className="package-feature-item bg-sky-blue/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-sky-blue" aria-hidden="true" />
+                        <span className="package-feature-text">{t("performance.features.testing")}</span>
+                      </li>
+                    </ul>
+
+                    {/* CTA */}
+                    <div className="mt-auto">
+                      <Button
+                        className="package-cta bg-sky-blue text-white hover:bg-sky-blue/95"
+                        onClick={handleContactClick}
+                      >
+                        {t("performance.cta")}
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+
+                {/* Subscription Card */}
+                <Card
+                  className="package-card-subscription relative cursor-pointer overflow-hidden rounded-[1.5rem] border border-navy/30 bg-white p-6 sm:p-7 md:p-8"
+                  onClick={() => navigateTo("/pacchetti/subscription")}
+                  onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
+                  role="link"
+                  tabIndex={0}
+                >
+                  <div className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-navy/5 blur-xl" aria-hidden="true" />
+
+                  <div className="package-card-spacing relative z-10">
+                    {/* Badge */}
+                    <div className="package-card-header">
+                      <span className="package-badge-primary bg-navy text-white">
+                        <CalendarCheck className="h-4 w-4" aria-hidden="true" />
+                        {t("subscription.badge")}
+                      </span>
+
+                      <h3 className="package-card-title">{t("subscription.title")}</h3>
+                      <p className="package-card-description">{t("subscription.desc")}</p>
+                    </div>
+
+                    {/* Pricing */}
+                    <div className="package-info-box border-navy/20 bg-navy/5">
+                      <p className="package-info-text text-gray-700">
+                        {t("subscription.pricing")}
+                      </p>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="package-features-list">
+                      <li className="package-feature-item bg-navy/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-navy" aria-hidden="true" />
+                        <span className="package-feature-text">{t("subscription.features.guaranteed")}</span>
+                      </li>
+                      <li className="package-feature-item bg-navy/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-navy" aria-hidden="true" />
+                        <span className="package-feature-text">{t("subscription.features.manager")}</span>
+                      </li>
+                      <li className="package-feature-item bg-navy/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-navy" aria-hidden="true" />
+                        <span className="package-feature-text">{t("subscription.features.meetings")}</span>
+                      </li>
+                      <li className="package-feature-item bg-navy/5">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-navy" aria-hidden="true" />
+                        <span className="package-feature-text">{t("subscription.features.refund")}</span>
+                      </li>
+                    </ul>
+
+                    {/* CTA */}
+                    <div className="mt-auto">
+                      <Button
+                        className="package-cta bg-navy text-white hover:bg-navy/95"
+                        onClick={handleContactClick}
+                      >
+                        {t("subscription.cta")}
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+              {/* SEPARATORE VISIVO */}
+              <div className="relative py-8">
+                <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                  <div className="w-full border-t-2 border-dashed border-gray-200" />
+                </div>
+                <div className="relative flex justify-center">
+                  <span className="bg-white px-6 text-sm font-medium text-gray-500">
+                    Test il nostro servizio
+                  </span>
+                </div>
+              </div>
+
+              {/* SEZIONE 3: Drive Test (full width) */}
               <Card
-                className="relative flex cursor-pointer flex-col gap-5 sm:gap-6 md:gap-7 rounded-3xl border border-orange/40 bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 p-5 sm:p-6 md:p-8 shadow-lg transition-all duration-500 hover:border-orange hover:shadow-xl hover:shadow-orange/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-4 overflow-hidden"
+                className="package-card-drive-test relative cursor-pointer overflow-hidden rounded-[1.5rem] border border-orange/40 bg-white p-6 sm:p-8 md:p-10"
                 onClick={() => navigateTo("/pacchetti/drive-test")}
                 onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/drive-test")}
                 role="link"
                 tabIndex={0}
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-orange/10 rounded-full blur-2xl" />
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-sky-blue/10 rounded-full blur-xl" />
+                <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-orange/8 blur-2xl" aria-hidden="true" />
+                <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-sky-blue/6 blur-xl" aria-hidden="true" />
 
-                <div className="relative z-10 space-y-3">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center rounded-full bg-orange px-3 py-1 text-xs font-semibold text-white shadow-md">
-                      <Gauge className="w-3.5 h-3.5 mr-1" />
-                      {t("driveTest.badge")}
-                    </span>
-                    <span className="inline-flex items-center rounded-full border border-orange/30 bg-orange/10 px-3 py-1 type-eyebrow text-orange">
-                      {t("driveTest.highlight")}
-                    </span>
+                <div className="package-card-spacing relative z-10">
+                  <div className="grid gap-6 lg:grid-cols-[1fr_1.5fr] lg:gap-10 xl:gap-12">
+                    {/* Left: Header, Badges, Description */}
+                    <div className="package-card-header">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="package-badge-primary bg-orange text-white">
+                          <Gauge className="h-4 w-4" aria-hidden="true" />
+                          {t("driveTest.badge")}
+                        </span>
+                        <span className="package-badge-secondary border-orange/30 bg-orange/10 text-orange">
+                          {t("driveTest.highlight")}
+                        </span>
+                      </div>
+
+                      <h3 className="package-card-title">{t("driveTest.title")}</h3>
+                      <p className="package-card-description">{t("driveTest.desc")}</p>
+
+                      {/* Pricing */}
+                      <div className="package-info-box border-orange/30 bg-orange/5">
+                        <span className="package-info-label text-orange">
+                          {t("driveTest.pricing.label")}
+                        </span>
+                        <p className="package-info-text text-gray-700">
+                          {t("driveTest.pricing.desc")}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Right: Features + CTA */}
+                    <div className="flex flex-col gap-6">
+                      {/* Features */}
+                      <ul className="package-features-list">
+                        <li className="package-feature-item bg-orange/5">
+                          <CalendarCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-orange" aria-hidden="true" />
+                          <span className="package-feature-text">{t("driveTest.features.calendar")}</span>
+                        </li>
+                        <li className="package-feature-item bg-orange/5">
+                          <Users className="mt-0.5 h-5 w-5 flex-shrink-0 text-orange" aria-hidden="true" />
+                          <span className="package-feature-text">{t("driveTest.features.target")}</span>
+                        </li>
+                        <li className="package-feature-item bg-orange/5">
+                          <BarChart3 className="mt-0.5 h-5 w-5 flex-shrink-0 text-orange" aria-hidden="true" />
+                          <span className="package-feature-text">{t("driveTest.features.credit")}</span>
+                        </li>
+                      </ul>
+
+                      {/* CTA */}
+                      <div className="mt-auto">
+                        <Button
+                          className="package-cta bg-orange text-white hover:bg-orange/95"
+                          onClick={(event) => {
+                            event.stopPropagation()
+                            navigateTo("/pacchetti/drive-test")
+                          }}
+                        >
+                          {t("driveTest.cta")}
+                        </Button>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy text-clamp-2">{t("driveTest.title")}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed text-clamp-2">{t("driveTest.desc")}</p>
-                </div>
-
-                <div className="relative z-10 rounded-xl border border-orange/20 bg-white/80 p-4 sm:p-5">
-                  <p className="mb-2 type-eyebrow text-orange">{t("driveTest.pricing.label")}</p>
-                  <p className="text-sm text-gray-700">{t("driveTest.pricing.desc")}</p>
-                </div>
-
-                <ul className="relative z-10 space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-3 rounded-lg bg-white/70 p-2.5">
-                    <CalendarCheck className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
-                    <span>{t("driveTest.features.calendar")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-white/70 p-2.5">
-                    <Users className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
-                    <span>{t("driveTest.features.target")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-white/70 p-2.5">
-                    <BarChart3 className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
-                    <span>{t("driveTest.features.credit")}</span>
-                  </li>
-                </ul>
-
-                <div className="relative z-10 mt-auto pt-4">
-                  <Button
-                    className="w-full bg-orange text-white shadow-md transition-all duration-300 hover:bg-orange/90 hover:shadow-lg"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      navigateTo("/pacchetti/drive-test")
-                    }}
-                  >
-                    {t("driveTest.cta")}
-                  </Button>
                 </div>
               </Card>
-
-              {/* Performance */}
-              <Card
-                className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-sky-blue/60 bg-gradient-to-br from-sky-blue/5 to-white p-3 sm:p-6 md:p-9 shadow-lg transition-all duration-500 hover:border-sky-blue hover:shadow-xl hover:shadow-sky-blue/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-blue lg:col-span-4 overflow-hidden"
-                onClick={() => navigateTo("/pacchetti/performance")}
-                onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/performance")}
-                role="link"
-                tabIndex={0}
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-blue/10 rounded-full blur-2xl" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl" />
-
-                <div className="relative z-10 space-y-3">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center rounded-full border border-sky-blue/30 bg-sky-blue/20 px-3.5 py-1 text-xs font-semibold text-sky-blue">
-                      {t("performance.badge")}
-                    </span>
-                    <span className="text-xs text-gray-500">{t("performance.setup")}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-navy text-clamp-2 md:text-2xl lg:text-3xl">{t("performance.title")}</h3>
-                  <p className="text-sm leading-relaxed text-gray-600 text-clamp-2">{t("performance.desc")}</p>
-                </div>
-
-                <div className="relative z-10 rounded-xl border border-sky-blue/20 bg-sky-blue/5 p-4 sm:p-5">
-                  <p className="mb-2 type-eyebrow text-sky-blue">{t("performance.pricing.label")}</p>
-                  <p className="text-sm text-gray-700">{t("performance.pricing.desc")}</p>
-                </div>
-
-                <ul className="relative z-10 space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
-                    <span className="text-sky-blue font-bold mt-0.5">•</span>
-                    <span>{t("performance.features.onboarding")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
-                    <span className="text-sky-blue font-bold mt-0.5">•</span>
-                    <span>{t("performance.features.payPerResult")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
-                    <span className="text-sky-blue font-bold mt-0.5">•</span>
-                    <span>{t("performance.features.reporting")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
-                    <span className="text-sky-blue font-bold mt-0.5">•</span>
-                    <span>{t("performance.features.testing")}</span>
-                  </li>
-                </ul>
-
-                <div className="relative z-10 mt-auto pt-4">
-                  <Button className="w-full bg-sky-blue text-white shadow-md transition-all duration-300 hover:bg-sky-blue/90 hover:shadow-lg" onClick={handleContactClick}>
-                    {t("performance.cta")}
-                  </Button>
-                </div>
-              </Card>
-
-              {/* Subscription */}
-              <Card
-                className="relative flex cursor-pointer flex-col gap-5 sm:gap-6 md:gap-7 rounded-3xl border border-gray-200 bg-white p-5 sm:p-7 md:p-8 shadow-md transition-all duration-500 hover:scale-[1.02] hover:shadow-lg hover:shadow-navy/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
-                onClick={() => navigateTo("/pacchetti/subscription")}
-                onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
-                role="link"
-                tabIndex={0}
-              >
-                <div className="absolute top-0 right-0 w-20 h-20 bg-navy/5 rounded-full blur-xl" />
-                <div className="absolute bottom-0 left-0 w-16 h-16 bg-navy/3 rounded-full blur-lg" />
-
-                <div className="relative z-10 space-y-3">
-                  <span className="inline-flex items-center rounded-full bg-navy/10 px-3.5 py-1 text-xs font-semibold text-navy">
-                    {t("subscription.badge")}
-                  </span>
-                  <h3 className="text-lg font-bold text-navy text-clamp-2 md:text-xl lg:text-2xl">{t("subscription.title")}</h3>
-                  <p className="text-sm leading-relaxed text-gray-600 text-clamp-2">{t("subscription.desc")}</p>
-                </div>
-
-                <div className="relative z-10 rounded-lg border border-gray-200 bg-gray-50 p-4">
-                  <p className="text-sm text-gray-600">{t("subscription.pricing")}</p>
-                </div>
-
-                <ul className="relative z-10 space-y-3 text-sm text-gray-700">
-                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
-                    <span className="text-navy font-bold mt-0.5">•</span>
-                    <span>{t("subscription.features.guaranteed")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
-                    <span className="text-navy font-bold mt-0.5">•</span>
-                    <span>{t("subscription.features.manager")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
-                    <span className="text-navy font-bold mt-0.5">•</span>
-                    <span>{t("subscription.features.meetings")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
-                    <span className="text-navy font-bold mt-0.5">•</span>
-                    <span>{t("subscription.features.refund")}</span>
-                  </li>
-                </ul>
-
-                <div className="relative z-10 mt-auto pt-4">
-                  <Button className="w-full bg-navy py-3 text-sm text-white transition-all duration-300 hover:bg-navy/90 hover:shadow-lg" onClick={handleContactClick}>
-                    {t("subscription.cta")}
-                  </Button>
-                </div>
-              </Card>
-
-              {false && (
-                <LeadPriceCalculator id="drive-test" variant="card" className="lg:col-span-12 cursor-default" />
-              )}
             </div>
           </PageLayoutContainer>
 
           {/* trust indicator (già presente) */}
-          <PageLayoutContainer className="px-4 sm:px-6">
+          <PageLayoutContainer>
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-500">{t("trustIndicator")}</p>
             </div>
@@ -406,11 +469,11 @@ export default function PacchettiPage() {
         </section>
 
         {/* GUIDA / COMPARISON (solo contenuti da t) */}
-        <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-20">
           <div className="absolute top-20 right-10 w-32 h-32 bg-orange/5 rounded-full blur-3xl" />
           <div className="absolute bottom-20 left-10 w-28 h-28 bg-sky-blue/5 rounded-full blur-3xl" />
 
-          <PageLayoutContainer className="px-6 relative z-10">
+          <PageLayoutContainer className="relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <div className="inline-flex items-center gap-2 bg-navy/10 px-4 py-2 rounded-full mb-6">

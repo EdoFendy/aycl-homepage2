@@ -298,7 +298,7 @@ export default function FAQMasterbookPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <PageLayoutContainer className="space-y-18 px-4 pb-14 pt-24 sm:space-y-22 sm:px-6 sm:pb-16 sm:pt-28 md:pb-18 md:space-y-24 lg:space-y-24 lg:px-8 lg:pb-20 lg:pt-32">
+      <PageLayoutContainer className="hero-section space-y-18 sm:space-y-22 md:space-y-24 lg:space-y-24">
         <section className="mx-auto max-w-4xl space-y-8 text-center sm:space-y-10 motion-safe:animate-fade-in-up-soft">
           <div className="space-y-3 sm:space-y-4 md:space-y-5">
             <h1 className="text-3xl font-semibold text-navy tracking-tight sm:text-4xl">

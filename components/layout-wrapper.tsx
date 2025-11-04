@@ -1,53 +1,65 @@
 import { ReactNode } from "react"
+import { cn } from "@/lib/utils"
 
 interface LayoutWrapperProps {
   children: ReactNode
   className?: string
 }
 
+/**
+ * LayoutWrapper - Componente principale per il layout con sistema a griglia 8 colonne
+ * Contenuto posizionato tra colonne 2-7 (6 colonne centrali su 8 totali)
+ * Riferimento: desktop 1920px
+ */
 export function LayoutWrapper({ children, className = "" }: LayoutWrapperProps) {
   return (
-    <div className={`grid grid-cols-1 gap-y-6 md:grid-cols-12 md:gap-x-6 ${className}`}>
-      {/* Colonna vuota sinistra */}
-      <div className="hidden md:col-span-1 md:block" />
-
-      {/* Contenuto principale - 7 colonne centrali */}
-      <div className="col-span-1 md:col-span-10 lg:col-span-9 xl:col-span-10">
-        {children}
-      </div>
-
-      {/* Colonna vuota destra */}
-      <div className="hidden md:col-span-1 md:block" />
+    <div className={cn("grid-content", className)}>
+      {children}
     </div>
   )
 }
 
-// Variante per sezioni che devono occupare tutta la larghezza
+/**
+ * FullWidthLayoutWrapper - Per sezioni che necessitano di tutta la larghezza
+ * Usa comunque padding laterali per evitare che il contenuto tocchi i bordi
+ */
 export function FullWidthLayoutWrapper({ children, className = "" }: LayoutWrapperProps) {
   return (
-    <div className={`grid grid-cols-1 gap-y-6 md:grid-cols-12 md:gap-x-6 ${className}`}>
-      {/* Contenuto a tutta larghezza */}
-      <div className="col-span-1 md:col-span-12">
-        {children}
-      </div>
+    <div className={cn("grid-container", className)}>
+      {children}
     </div>
   )
 }
 
-// Variante per sezioni con contenuto centrato ma con elementi decorativi laterali
+/**
+ * HeroLayoutWrapper - Specifico per le hero sections
+ * Applica padding verticale e orizzontale consistenti
+ */
+export function HeroLayoutWrapper({ children, className = "" }: LayoutWrapperProps) {
+  return (
+    <div className={cn("hero-content", className)}>
+      {children}
+    </div>
+  )
+}
+
+/**
+ * SectionLayoutWrapper - Per sezioni standard del sito
+ * Mantiene la larghezza content-max con padding laterali
+ */
+export function SectionLayoutWrapper({ children, className = "" }: LayoutWrapperProps) {
+  return (
+    <div className={cn("section-container", className)}>
+      {children}
+    </div>
+  )
+}
+
+// Deprecato: manteniamo per retrocompatibilità
 export function CenteredLayoutWrapper({ children, className = "" }: LayoutWrapperProps) {
   return (
-    <div className={`grid grid-cols-1 gap-y-6 md:grid-cols-12 md:gap-x-6 ${className}`}>
-      {/* Colonna sinistra per elementi decorativi */}
-      <div className="hidden md:col-span-1 md:block" />
-
-      {/* Contenuto principale - 7 colonne centrali */}
-      <div className="col-span-1 md:col-span-10 lg:col-span-9 xl:col-span-10">
-        {children}
-      </div>
-
-      {/* Colonna destra per elementi decorativi */}
-      <div className="hidden md:col-span-1 md:block" />
+    <div className={cn("grid-content", className)}>
+      {children}
     </div>
   )
 }
