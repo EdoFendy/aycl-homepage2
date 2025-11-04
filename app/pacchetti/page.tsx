@@ -13,16 +13,16 @@ import {
   Users,
   CalendarCheck,
   BarChart3,
-  Shield,
   Gauge,
-  Crown,
 } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type { KeyboardEvent, MouseEvent } from "react"
 import { useTranslations } from "next-intl"
 import LeadPriceCalculator from "@/components/lead-price-calculator"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import { cn } from "@/lib/utils"
 
 export default function PacchettiPage() {
   const router = useRouter()
@@ -45,6 +45,63 @@ export default function PacchettiPage() {
           t("setup.features.priorityAccess"),
           t("setup.features.advisoryBoard"),
         ]
+
+  const idealBlocks = [
+    {
+      key: "setup",
+      image: "/ManoStella.png",
+      imageAlt: t("guide.cards.setup.title"),
+      title: t("guide.cards.setup.title"),
+      tag: t("guide.cards.setup.tag"),
+      idealTitle: t("guide.cards.setup.idealTitle"),
+      idealPoints: (t.raw("guide.cards.setup.ideal") as string[]) ?? [],
+      perfectLabel: t("guide.cards.setup.perfectForLabel"),
+      perfectText: t("guide.cards.setup.perfectFor"),
+      accent: {
+        tag: "border-navy/30 bg-navy/10 text-navy",
+        bullet: "text-navy",
+        calloutBorder: "border-navy/20",
+        calloutBg: "bg-navy/5",
+        blob: "bg-navy/15",
+      },
+    },
+    {
+      key: "performance",
+      image: "/newmedia/Performance_Hero.png",
+      imageAlt: t("guide.cards.performance.title"),
+      title: t("guide.cards.performance.title"),
+      tag: t("guide.cards.performance.tag"),
+      idealTitle: t("guide.cards.performance.idealTitle"),
+      idealPoints: (t.raw("guide.cards.performance.ideal") as string[]) ?? [],
+      perfectLabel: t("guide.cards.performance.perfectForLabel"),
+      perfectText: t("guide.cards.performance.perfectFor"),
+      accent: {
+        tag: "border-sky-blue/30 bg-sky-blue/10 text-sky-blue",
+        bullet: "text-sky-blue",
+        calloutBorder: "border-sky-blue/20",
+        calloutBg: "bg-sky-blue/5",
+        blob: "bg-sky-blue/20",
+      },
+    },
+    {
+      key: "subscription",
+      image: "/newmedia/Subscription_Hero.png",
+      imageAlt: t("guide.cards.subscription.title"),
+      title: t("guide.cards.subscription.title"),
+      tag: t("guide.cards.subscription.tag"),
+      idealTitle: t("guide.cards.subscription.idealTitle"),
+      idealPoints: (t.raw("guide.cards.subscription.ideal") as string[]) ?? [],
+      perfectLabel: t("guide.cards.subscription.perfectForLabel"),
+      perfectText: t("guide.cards.subscription.perfectFor"),
+      accent: {
+        tag: "border-orange/30 bg-orange/10 text-orange",
+        bullet: "text-orange",
+        calloutBorder: "border-orange/20",
+        calloutBg: "bg-orange/5",
+        blob: "bg-orange/20",
+      },
+    },
+  ]
 
   const navigateTo = (path: string) => {
     router.push(path)
@@ -97,11 +154,11 @@ export default function PacchettiPage() {
 
 
           {/* CARDS PACCHETTI */}
-          <PageLayoutContainer className="px-1 sm:px-4 md:px-6 mt-10">
-            <div className="grid gap-6 md:gap-8 lg:grid-cols-12 max-w-7xl mx-auto py-12 justify-center">
+          <PageLayoutContainer className="mt-12 px-4 sm:px-6 md:px-8">
+            <div className="mx-auto grid max-w-7xl gap-8 py-10 md:gap-10 lg:grid-cols-12 lg:py-12">
               {/* Set-Up Fee */}
               <Card
-                className="relative flex cursor-pointer flex-col gap-6 md:gap-8 rounded-2xl md:rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-3 sm:p-6 md:p-12 shadow-xl md:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
+                className="relative flex cursor-pointer flex-col gap-6 sm:gap-7 md:gap-8 rounded-3xl border-2 border-orange bg-gradient-to-br from-orange/5 via-white to-orange/10 p-5 sm:p-7 md:p-12 shadow-xl md:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:shadow-orange/30 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-12 overflow-hidden"
                 onClick={() => navigateTo("/pacchetti/set-up-fee")}
                 onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/set-up-fee")}
                 role="link"
@@ -176,7 +233,7 @@ export default function PacchettiPage() {
 
               {/* Drive Test */}
               <Card
-                className="relative flex cursor-pointer flex-col gap-4 md:gap-6 rounded-2xl md:rounded-3xl border border-orange/40 bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 p-3 sm:p-6 md:p-8 shadow-lg transition-all duration-500 hover:border-orange hover:shadow-xl hover:shadow-orange/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-4 overflow-hidden"
+                className="relative flex cursor-pointer flex-col gap-5 sm:gap-6 md:gap-7 rounded-3xl border border-orange/40 bg-gradient-to-br from-orange/5 via-white to-sky-blue/5 p-5 sm:p-6 md:p-8 shadow-lg transition-all duration-500 hover:border-orange hover:shadow-xl hover:shadow-orange/20 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange lg:col-span-4 overflow-hidden"
                 onClick={() => navigateTo("/pacchetti/drive-test")}
                 onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/drive-test")}
                 role="link"
@@ -185,8 +242,8 @@ export default function PacchettiPage() {
                 <div className="absolute top-0 right-0 w-24 h-24 bg-orange/10 rounded-full blur-2xl" />
                 <div className="absolute bottom-0 left-0 w-20 h-20 bg-sky-blue/10 rounded-full blur-xl" />
 
-                <div className="space-y-3 relative z-10">
-                  <div className="flex items-center gap-2">
+                <div className="relative z-10 space-y-3">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="inline-flex items-center rounded-full bg-orange px-3 py-1 text-xs font-semibold text-white shadow-md">
                       <Gauge className="w-3.5 h-3.5 mr-1" />
                       {t("driveTest.badge")}
@@ -199,29 +256,29 @@ export default function PacchettiPage() {
                   <p className="text-sm text-gray-600 leading-relaxed text-clamp-2">{t("driveTest.desc")}</p>
                 </div>
 
-                <div className="bg-white/80 rounded-xl p-4 border border-orange/20 relative z-10">
+                <div className="relative z-10 rounded-xl border border-orange/20 bg-white/80 p-4 sm:p-5">
                   <p className="mb-2 type-eyebrow text-orange">{t("driveTest.pricing.label")}</p>
                   <p className="text-sm text-gray-700">{t("driveTest.pricing.desc")}</p>
                 </div>
 
-                <ul className="space-y-3 text-sm text-gray-700 relative z-10">
-                  <li className="flex items-start gap-3">
+                <ul className="relative z-10 space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-3 rounded-lg bg-white/70 p-2.5">
                     <CalendarCheck className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
                     <span>{t("driveTest.features.calendar")}</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 rounded-lg bg-white/70 p-2.5">
                     <Users className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
                     <span>{t("driveTest.features.target")}</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 rounded-lg bg-white/70 p-2.5">
                     <BarChart3 className="mt-0.5 h-4 w-4 text-orange flex-shrink-0" />
                     <span>{t("driveTest.features.credit")}</span>
                   </li>
                 </ul>
 
-                <div className="mt-auto pt-3 relative z-10">
+                <div className="relative z-10 mt-auto pt-4">
                   <Button
-                    className="w-full bg-orange hover:bg-orange/90 text-white shadow-md hover:shadow-lg transition-all duration-300"
+                    className="w-full bg-orange text-white shadow-md transition-all duration-300 hover:bg-orange/90 hover:shadow-lg"
                     onClick={(event) => {
                       event.stopPropagation()
                       navigateTo("/pacchetti/drive-test")
@@ -243,43 +300,43 @@ export default function PacchettiPage() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-sky-blue/10 rounded-full blur-2xl" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-sky-blue/5 rounded-full blur-xl" />
 
-                <div className="space-y-3 relative z-10">
-                  <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center rounded-full bg-sky-blue/20 px-3 py-1 text-xs font-semibold text-sky-blue border border-sky-blue/30">
+                <div className="relative z-10 space-y-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center rounded-full border border-sky-blue/30 bg-sky-blue/20 px-3.5 py-1 text-xs font-semibold text-sky-blue">
                       {t("performance.badge")}
                     </span>
                     <span className="text-xs text-gray-500">{t("performance.setup")}</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-navy text-clamp-2">{t("performance.title")}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed text-clamp-2">{t("performance.desc")}</p>
+                  <h3 className="text-xl font-bold text-navy text-clamp-2 md:text-2xl lg:text-3xl">{t("performance.title")}</h3>
+                  <p className="text-sm leading-relaxed text-gray-600 text-clamp-2">{t("performance.desc")}</p>
                 </div>
 
-                <div className="bg-sky-blue/5 rounded-xl p-4 border border-sky-blue/20 relative z-10">
+                <div className="relative z-10 rounded-xl border border-sky-blue/20 bg-sky-blue/5 p-4 sm:p-5">
                   <p className="mb-2 type-eyebrow text-sky-blue">{t("performance.pricing.label")}</p>
                   <p className="text-sm text-gray-700">{t("performance.pricing.desc")}</p>
                 </div>
 
-                <ul className="space-y-3 text-sm text-gray-700 relative z-10">
-                  <li className="flex items-start gap-3">
+                <ul className="relative z-10 space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
                     <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.onboarding")}</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
                     <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.payPerResult")}</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
                     <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.reporting")}</span>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-3 rounded-lg bg-white/60 p-2.5">
                     <span className="text-sky-blue font-bold mt-0.5">•</span>
                     <span>{t("performance.features.testing")}</span>
                   </li>
                 </ul>
 
-                <div className="mt-auto pt-4 relative z-10">
-                  <Button className="w-full bg-sky-blue hover:bg-sky-blue/90 text-white shadow-md hover:shadow-lg transition-all duration-300" onClick={handleContactClick}>
+                <div className="relative z-10 mt-auto pt-4">
+                  <Button className="w-full bg-sky-blue text-white shadow-md transition-all duration-300 hover:bg-sky-blue/90 hover:shadow-lg" onClick={handleContactClick}>
                     {t("performance.cta")}
                   </Button>
                 </div>
@@ -287,7 +344,7 @@ export default function PacchettiPage() {
 
               {/* Subscription */}
               <Card
-                className="relative flex cursor-pointer flex-col gap-4 md:gap-5 rounded-2xl md:rounded-3xl border border-gray-300 bg-white p-4 sm:p-6 md:p-7 shadow-md transition-all duration-500 hover:shadow-lg hover:shadow-navy/10 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
+                className="relative flex cursor-pointer flex-col gap-5 sm:gap-6 md:gap-7 rounded-3xl border border-gray-200 bg-white p-5 sm:p-7 md:p-8 shadow-md transition-all duration-500 hover:scale-[1.02] hover:shadow-lg hover:shadow-navy/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy lg:col-span-4 overflow-hidden"
                 onClick={() => navigateTo("/pacchetti/subscription")}
                 onKeyDown={(event) => handleCardKeyDown(event, "/pacchetti/subscription")}
                 role="link"
@@ -296,39 +353,39 @@ export default function PacchettiPage() {
                 <div className="absolute top-0 right-0 w-20 h-20 bg-navy/5 rounded-full blur-xl" />
                 <div className="absolute bottom-0 left-0 w-16 h-16 bg-navy/3 rounded-full blur-lg" />
 
-                <div className="space-y-2 relative z-10">
-                  <span className="inline-flex items-center rounded-full bg-navy/10 px-3 py-1 text-xs font-semibold text-navy">
+                <div className="relative z-10 space-y-3">
+                  <span className="inline-flex items-center rounded-full bg-navy/10 px-3.5 py-1 text-xs font-semibold text-navy">
                     {t("subscription.badge")}
                   </span>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-navy text-clamp-2">{t("subscription.title")}</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed text-clamp-2">{t("subscription.desc")}</p>
+                  <h3 className="text-lg font-bold text-navy text-clamp-2 md:text-xl lg:text-2xl">{t("subscription.title")}</h3>
+                  <p className="text-sm leading-relaxed text-gray-600 text-clamp-2">{t("subscription.desc")}</p>
                 </div>
 
-                <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 relative z-10">
-                  <p className="text-xs text-gray-600">{t("subscription.pricing")}</p>
+                <div className="relative z-10 rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <p className="text-sm text-gray-600">{t("subscription.pricing")}</p>
                 </div>
 
-                <ul className="space-y-2.5 text-xs text-gray-700 relative z-10">
-                  <li className="flex items-start gap-2">
+                <ul className="relative z-10 space-y-3 text-sm text-gray-700">
+                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
                     <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.guaranteed")}</span>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
                     <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.manager")}</span>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
                     <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.meetings")}</span>
                   </li>
-                  <li className="flex items-start gap-2">
+                  <li className="flex items-start gap-3 rounded-lg bg-gray-50 p-2.5">
                     <span className="text-navy font-bold mt-0.5">•</span>
                     <span>{t("subscription.features.refund")}</span>
                   </li>
                 </ul>
 
-                <div className="mt-auto pt-3 relative z-10">
-                  <Button className="w-full bg-navy hover:bg-navy/90 text-white text-sm py-2.5 transition-all duration-300" onClick={handleContactClick}>
+                <div className="relative z-10 mt-auto pt-4">
+                  <Button className="w-full bg-navy py-3 text-sm text-white transition-all duration-300 hover:bg-navy/90 hover:shadow-lg" onClick={handleContactClick}>
                     {t("subscription.cta")}
                   </Button>
                 </div>
@@ -366,119 +423,59 @@ export default function PacchettiPage() {
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto">{t("guide.subtitle")}</p>
               </div>
 
-              <div className="grid lg:grid-cols-3 gap-8">
-                {/* Performance */}
-                <Card className="relative p-8 bg-gradient-to-br from-sky-blue/5 to-white border-2 border-sky-blue/30 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-sky-blue overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-sky-blue/10 rounded-full blur-2xl" />
-                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-sky-blue/5 rounded-full blur-xl" />
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-sky-blue/10 rounded-xl flex items-center justify-center">
-                        <Zap className="w-6 h-6 text-sky-blue" />
+              <div className="space-y-16 lg:space-y-24">
+                {idealBlocks.map((block, index) => {
+                  const isEven = index % 2 === 0
+                  return (
+                    <div
+                      key={block.key}
+                      className={cn(
+                        "flex flex-col items-center gap-8 lg:gap-14",
+                        isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                      )}
+                    >
+                      <div className="relative w-full max-w-[440px] flex-shrink-0">
+                        <div className={cn("pointer-events-none absolute -top-12 -left-10 h-28 w-28 rounded-full blur-3xl", block.accent.blob)} />
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-xl ring-1 ring-black/5">
+                          <Image
+                            src={block.image}
+                            alt={block.imageAlt}
+                            fill
+                            sizes="(min-width: 1024px) 440px, (min-width: 640px) 60vw, 90vw"
+                            className="object-cover"
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="text-lg md:text-xl font-bold text-navy">{t("guide.cards.performance.title")}</h4>
-                        <p className="text-sm text-sky-blue font-semibold">{t("guide.cards.performance.tag")}</p>
-                      </div>
-                    </div>
-                    <div className="mb-6">
-                      <h5 className="text-base md:text-lg font-bold text-navy mb-4">{t("guide.cards.performance.idealTitle")}</h5>
-                      <ul className="space-y-3">
-                        {t.raw("guide.cards.performance.ideal").map((text: string, idx: number) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <span className="text-sky-blue font-bold mt-0.5">•</span>
-                            <span className="text-gray-700">{text}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="bg-sky-blue/5 rounded-lg p-4 border border-sky-blue/20">
-                      <p className="text-sm font-semibold text-sky-blue mb-1">{t("guide.cards.performance.perfectForLabel")}</p>
-                      <p className="text-sm text-gray-700">{t("guide.cards.performance.perfectFor")}</p>
-                    </div>
-                  </div>
-                </Card>
-
-                {/* Subscription */}
-                <Card className="relative p-8 bg-gradient-to-br from-orange/5 to-white border-2 border-orange/30 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-orange overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-orange/10 rounded-full blur-2xl" />
-                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-orange/5 rounded-full blur-xl" />
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center">
-                        <CalendarCheck className="w-6 h-6 text-orange" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg md:text-xl font-bold text-navy">{t("guide.cards.subscription.title")}</h4>
-                        <p className="text-sm text-orange font-semibold">{t("guide.cards.subscription.tag")}</p>
-                      </div>
-                    </div>
-                    <div className="mb-6">
-                      <h5 className="text-base md:text-lg font-bold text-navy mb-4">{t("guide.cards.subscription.idealTitle")}</h5>
-                      <ul className="space-y-3">
-                        {t.raw("guide.cards.subscription.ideal").map((text: string, idx: number) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <span className="text-orange font-bold mt-0.5">•</span>
-                            <span className="text-gray-700">{text}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="bg-orange/5 rounded-lg p-4 border border-orange/20">
-                      <p className="text-sm font-semibold text-orange mb-1">{t("guide.cards.subscription.perfectForLabel")}</p>
-                      <p className="text-sm text-gray-700">{t("guide.cards.subscription.perfectFor")}</p>
-                    </div>
-                  </div>
-                </Card>
-
-                {/* Set-Up Fee */}
-                <Card className="relative p-8 bg-gradient-to-br from-navy/5 to-white border-2 border-navy/30 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-navy overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-navy/10 rounded-full blur-2xl" />
-                  <div className="absolute bottom-0 left-0 w-16 h-16 bg-navy/5 rounded-full blur-xl" />
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 bg-navy/10 rounded-xl flex items-center justify-center">
-                        <Crown className="w-6 h-6 text-navy" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg md:text-xl font-bold text-navy">{t("guide.cards.setup.title")}</h4>
-                        <p className="text-sm text-navy font-semibold">{t("guide.cards.setup.tag")}</p>
+                      <div className="w-full max-w-2xl space-y-6">
+                        <div className="space-y-3">
+                          <span className={cn("inline-flex items-center rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em]", block.accent.tag)}>
+                            {block.tag}
+                          </span>
+                          <h3 className="text-2xl font-bold text-navy sm:text-3xl">{block.title}</h3>
+                        </div>
+                        <div className="space-y-4">
+                          <h4 className="text-xs font-semibold uppercase tracking-[0.28em] text-gray-500">
+                            {block.idealTitle}
+                          </h4>
+                          <ul className="space-y-3 text-base leading-relaxed text-gray-700">
+                            {block.idealPoints.map((point, idx) => (
+                              <li key={`${block.key}-${idx}`} className="flex items-start gap-3">
+                                <span className={cn("mt-1 text-base font-bold", block.accent.bullet)}>•</span>
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className={cn("rounded-2xl border p-5 text-sm leading-relaxed sm:text-base", block.accent.calloutBg, block.accent.calloutBorder)}>
+                          <p className={cn("mb-2 text-xs font-semibold uppercase tracking-[0.2em]", block.accent.bullet)}>
+                            {block.perfectLabel}
+                          </p>
+                          <p className="text-gray-700">{block.perfectText}</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="mb-6">
-                      <h5 className="text-base md:text-lg font-bold text-navy mb-4">{t("guide.cards.setup.idealTitle")}</h5>
-                      <ul className="space-y-3">
-                        {t.raw("guide.cards.setup.ideal").map((text: string, idx: number) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <span className="text-navy font-bold mt-0.5">•</span>
-                            <span className="text-gray-700">{text}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="bg-navy/5 rounded-lg p-4 border border-navy/20">
-                      <p className="text-sm font-semibold text-navy mb-1">{t("guide.cards.setup.perfectForLabel")}</p>
-                      <p className="text-sm text-gray-700">{t("guide.cards.setup.perfectFor")}</p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-
-              <div className="mt-16 text-center">
-                <div className="bg-gradient-to-r from-navy/5 via-sky-blue/5 to-orange/5 rounded-2xl p-8 border border-gray-200">
-                  <div className="flex items-center justify-center gap-2 mb-4">
-                    <Shield className="w-6 h-6 text-navy" />
-                    <h3 className="text-xl font-bold text-navy">{t("guide.unsure.title")}</h3>
-                  </div>
-                  <p className="text-gray-700 mb-6 max-w-2xl mx-auto">{t("guide.unsure.desc")}</p>
-                  <Button
-                    className="bg-navy hover:bg-navy/90 text-white px-8 py-3"
-                    onClick={() => router.push("/contattaci")}
-                  >
-                    {t("guide.unsure.cta")}
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </div>
+                  )
+                })}
               </div>
             </div>
           </PageLayoutContainer>
