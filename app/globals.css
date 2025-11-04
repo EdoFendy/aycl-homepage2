@@ -392,6 +392,34 @@ body.admin-layout footer {
     line-height: var(--leading-loose) !important;
   }
 
+  @keyframes fade-in-soft {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-up-soft {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-soft {
+    animation: fade-in-soft 0.45s ease-out forwards;
+  }
+
+  .animate-fade-in-up-soft {
+    animation: fade-in-up-soft 0.5s ease-out forwards;
+  }
+
   @media (min-width: 640px) {
     .sm\:text-5xl {
       font-size: var(--type-display) !important;

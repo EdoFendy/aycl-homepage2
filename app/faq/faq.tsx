@@ -23,6 +23,8 @@ type FAQItem = {
   id: string
   question: string
   answer: React.ReactNode
+  plainAnswer: string
+  searchIndex: string
 }
 
 type Chapter = {
@@ -35,23 +37,35 @@ type Chapter = {
 }
 
 // Helper function to parse answer text into JSX
+const normalize = (value: string) =>
+  value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase()
+
 const parseAnswer = (text: string) => {
   const lines = text.split('\n')
   const elements: React.ReactNode[] = []
   let currentList: string[] = []
   let listType: 'ul' | 'ol' | null = null
+  const plainParts: string[] = []
+  let blockKey = 0
 
   const flushList = () => {
     if (currentList.length > 0 && listType) {
       const ListComponent = listType === 'ul' ? 'ul' : 'ol'
       const listClassName = listType === 'ul' ? 'list-disc pl-5 space-y-2' : 'list-decimal pl-5 space-y-2'
       elements.push(
-        <ListComponent key={elements.length} className={listClassName}>
+        <ListComponent key={`list-${blockKey++}`} className={listClassName}>
           {currentList.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li key={`item-${index}`}>{item}</li>
           ))}
         </ListComponent>
       )
+      plainParts.push(currentList.join(' '))
       currentList = []
       listType = null
     }
@@ -76,15 +90,19 @@ const parseAnswer = (text: string) => {
     } else {
       flushList()
       elements.push(
-        <p key={index} className="mb-2 text-gray-700">
+        <p key={`paragraph-${blockKey++}`} className="mb-2 text-gray-700">
           {trimmedLine}
         </p>
       )
+      plainParts.push(trimmedLine)
     }
   })
 
   flushList()
-  return <div className="space-y-2">{elements}</div>
+  return {
+    node: <div className="space-y-2">{elements}</div>,
+    plain: plainParts.join(' '),
+  }
 }
 
 // DATA — built from translations
@@ -95,11 +113,17 @@ const getChapters = (t: any): Chapter[] => [
     emoji: "📚",
     icon: HelpCircle,
     customIcon: "/iconaMessaggio.png",
-    items: t.raw("generali.items").map((item: any, index: number) => ({
-      id: `generali-${index}`,
-      question: item.question,
-      answer: parseAnswer(item.answer)
-    }))
+    items: t.raw("generali.items").map((item: any, index: number) => {
+      const parsed = parseAnswer(item.answer)
+      const searchSource = `${item.question} ${parsed.plain}`
+      return {
+        id: `generali-${index}`,
+        question: item.question,
+        answer: parsed.node,
+        plainAnswer: parsed.plain,
+        searchIndex: normalize(searchSource),
+      }
+    })
   },
   {
     id: "performance",
@@ -107,11 +131,17 @@ const getChapters = (t: any): Chapter[] => [
     emoji: "⚡",
     icon: Zap,
     customIcon: "/iconaPerformance.png",
-    items: t.raw("performance.items").map((item: any, index: number) => ({
-      id: `performance-${index}`,
-      question: item.question,
-      answer: parseAnswer(item.answer)
-    }))
+    items: t.raw("performance.items").map((item: any, index: number) => {
+      const parsed = parseAnswer(item.answer)
+      const searchSource = `${item.question} ${parsed.plain}`
+      return {
+        id: `performance-${index}`,
+        question: item.question,
+        answer: parsed.node,
+        plainAnswer: parsed.plain,
+        searchIndex: normalize(searchSource),
+      }
+    })
   },
   {
     id: "setup-fee",
@@ -119,11 +149,17 @@ const getChapters = (t: any): Chapter[] => [
     emoji: "🧭",
     icon: Compass,
     customIcon: "/iconaSetupfee.png",
-    items: t.raw("setupFee.items").map((item: any, index: number) => ({
-      id: `setup-fee-${index}`,
-      question: item.question,
-      answer: parseAnswer(item.answer)
-    }))
+    items: t.raw("setupFee.items").map((item: any, index: number) => {
+      const parsed = parseAnswer(item.answer)
+      const searchSource = `${item.question} ${parsed.plain}`
+      return {
+        id: `setup-fee-${index}`,
+        question: item.question,
+        answer: parsed.node,
+        plainAnswer: parsed.plain,
+        searchIndex: normalize(searchSource),
+      }
+    })
   },
   {
     id: "subscription",
@@ -131,11 +167,17 @@ const getChapters = (t: any): Chapter[] => [
     emoji: "🧩",
     icon: Puzzle,
     customIcon: "/iconaSubscr.png",
-    items: t.raw("subscription.items").map((item: any, index: number) => ({
-      id: `subscription-${index}`,
-      question: item.question,
-      answer: parseAnswer(item.answer)
-    }))
+    items: t.raw("subscription.items").map((item: any, index: number) => {
+      const parsed = parseAnswer(item.answer)
+      const searchSource = `${item.question} ${parsed.plain}`
+      return {
+        id: `subscription-${index}`,
+        question: item.question,
+        answer: parsed.node,
+        plainAnswer: parsed.plain,
+        searchIndex: normalize(searchSource),
+      }
+    })
   }
 ]
 
@@ -180,15 +222,12 @@ export default function FAQMasterbookPage() {
   )
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase()
+    const normalizedQuery = normalize(query)
     return allItems.filter((it) => {
       const inChapter = !activeChapter || activeChapter === (it as any).chapter
       if (!inChapter) return false
-      if (!q) return true
-      const text = `${it.question}`.toLowerCase()
-      const answerStr = (typeof it.answer === "string" ? it.answer : (it.answer as any)?.props?.children)
-      const str = `${text} ${JSON.stringify(answerStr)}`.toLowerCase()
-      return str.includes(q)
+      if (!normalizedQuery) return true
+      return it.searchIndex.includes(normalizedQuery)
     })
   }, [allItems, query, activeChapter])
 
@@ -258,13 +297,13 @@ export default function FAQMasterbookPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <PageLayoutContainer className="px-6 py-16 space-y-16">
-        <section className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="space-y-4">
-            <h1 className="text-4xl font-semibold text-navy tracking-tight">
+      <PageLayoutContainer className="space-y-16 px-4 pb-12 pt-24 sm:space-y-20 sm:px-6 sm:pb-14 sm:pt-28 md:pb-16 md:space-y-24 lg:space-y-24 lg:px-8 lg:pb-20 lg:pt-32">
+        <section className="mx-auto max-w-4xl space-y-7 text-center sm:space-y-9 motion-safe:animate-fade-in-up-soft">
+          <div className="space-y-3 sm:space-y-4 md:space-y-5">
+            <h1 className="text-3xl font-semibold text-navy tracking-tight sm:text-4xl">
               {t("header.title")}
             </h1>
-            <p className="text-base text-gray-600">
+            <p className="text-base text-gray-600 sm:text-lg">
               {t("header.subtitle")}
             </p>
           </div>
@@ -273,13 +312,20 @@ export default function FAQMasterbookPage() {
             <label className="sr-only" htmlFor="faq-search">
               {t("search.placeholder")}
             </label>
-            <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-sm focus-within:border-orange focus-within:ring-2 focus-within:ring-orange/20">
+            <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-sm focus-within:border-orange focus-within:ring-2 focus-within:ring-orange/20 sm:px-5 sm:py-4">
               <Search className="w-5 h-5 text-orange" />
               <input
                 id="faq-search"
                 ref={searchRef}
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value
+                  setQuery(value)
+                  if (value.trim()) {
+                    setActiveChapter(null)
+                    setExpanded({})
+                  }
+                }}
                 placeholder={t("search.placeholder")}
                 className="w-full border-0 bg-transparent text-base text-navy placeholder:text-gray-400 focus:outline-none"
               />
@@ -287,7 +333,7 @@ export default function FAQMasterbookPage() {
           </div>
 
           {popularTags.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
               {popularTags.map((tag) => (
                 <button
                   key={tag.id}
@@ -309,9 +355,9 @@ export default function FAQMasterbookPage() {
           )}
         </section>
 
-        <section className="space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-2">
+        <section className="space-y-7 md:space-y-8">
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-2 md:gap-4 md:pb-3 motion-safe:animate-fade-in-soft">
+            <div className="flex flex-wrap items-center gap-2.5">
               <button
                 onClick={() => setActiveChapter(null)}
                 className={`px-4 py-2 text-sm font-medium rounded-full border transition ${
@@ -324,7 +370,7 @@ export default function FAQMasterbookPage() {
               </button>
             </div>
 
-            <div className="flex items-center gap-2 text-sm text-gray-500">
+            <div className="flex items-center gap-2 text-sm text-gray-500 sm:gap-3 sm:pt-1">
               <Sparkles className="w-4 h-4 text-orange" />
               <span>
                 {filtered.length} {t("controls.results")}
@@ -332,57 +378,56 @@ export default function FAQMasterbookPage() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {chapters.map((chapter) => {
-              const Icon = chapter.icon
-              const isActive = activeChapter === chapter.id
-              return (
-                <button
-                  key={chapter.id}
-                  onClick={() => {
-                    setActiveChapter(chapter.id)
-                    setQuery("")
-                    setExpanded({})
-                  }}
-                  className={`group flex h-full flex-col items-start gap-3 rounded-2xl border bg-white p-6 text-left transition hover:border-orange/50 hover:shadow-sm ${
-                    isActive ? "border-orange shadow-sm" : "border-gray-200"
-                  }`}
-                >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange/10 text-orange">
-                    {chapter.customIcon ? (
-                      <img src={chapter.customIcon} alt={chapter.title} className="h-5 w-5" />
-                    ) : Icon ? (
-                      <Icon className="h-5 w-5" />
-                    ) : (
-                      <span className="text-lg">{chapter.emoji}</span>
-                    )}
-                  </span>
-                  <div className="space-y-2">
-                    <h2 className="text-lg font-semibold text-navy">{chapter.title}</h2>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {categoryDescriptions?.[chapter.id] ?? ""}
-                    </p>
-                  </div>
-                  <span className="mt-auto text-sm font-medium text-orange">
-                    {chapter.items.length} {t("controls.results")}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
+          {!query && !activeChapter && (
+            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4 xl:gap-6 motion-safe:animate-fade-in-up-soft">
+              {chapters.map((chapter) => {
+                const IconComponent = chapter.icon
+                return (
+                  <button
+                    key={chapter.id}
+                    onClick={() => {
+                      setActiveChapter(chapter.id)
+                      setQuery("")
+                      setExpanded({})
+                    }}
+                    className="group flex h-full flex-col items-start gap-3 rounded-2xl border border-gray-200 bg-white p-5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-orange/50 hover:shadow-sm sm:p-6 xl:p-7 motion-safe:focus-visible:translate-y-[-2px]"
+                  >
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-orange/10 text-orange sm:h-12 sm:w-12 motion-safe:transition-transform motion-safe:duration-200 motion-safe:group-hover:scale-105">
+                      {chapter.customIcon ? (
+                        <img src={chapter.customIcon} alt={chapter.title} className="h-5 w-5" />
+                      ) : IconComponent ? (
+                        <IconComponent className="h-5 w-5" />
+                      ) : (
+                        <span className="text-lg">{chapter.emoji}</span>
+                      )}
+                    </span>
+                    <div className="space-y-1.5 sm:space-y-2">
+                      <h2 className="text-lg font-semibold text-navy">{chapter.title}</h2>
+                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                        {categoryDescriptions?.[chapter.id] ?? ""}
+                      </p>
+                    </div>
+                    <span className="mt-auto text-sm font-medium text-orange">
+                      {chapter.items.length} {t("controls.results")}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          )}
         </section>
 
-        <section className="space-y-8">
+        <section className="space-y-8 md:space-y-10">
           {(query || activeChapter) && (
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                <div className="space-y-2">
-                  <h2 className="text-2xl font-semibold text-navy">
+            <div className="flex flex-col gap-5 md:gap-6 motion-safe:animate-fade-in-soft">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6 motion-safe:animate-fade-in-soft">
+                <div className="space-y-2.5 sm:space-y-3">
+                  <h2 className="text-2xl font-semibold text-navy md:text-3xl">
                     {activeChapter
                       ? chapters.find((c) => c.id === activeChapter)?.title
                       : t("results.heading")}
                   </h2>
-                  <p className="text-sm text-gray-600 max-w-2xl">
+                  <p className="max-w-2xl text-sm text-gray-600 sm:text-base">
                     {activeChapter
                       ? categoryDescriptions?.[activeChapter] ?? ""
                       : t("results.description")}
@@ -392,7 +437,7 @@ export default function FAQMasterbookPage() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2 text-sm">
+                <div className="flex flex-wrap items-center gap-3 text-sm">
                   <Button variant="outline" className="border-navy text-navy hover:bg-navy/5" onClick={() => toggleAll(true)}>
                     {t("controls.expand")}
                   </Button>
@@ -414,17 +459,17 @@ export default function FAQMasterbookPage() {
                   {t("noResultsChapter")}
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-4 sm:space-y-5 motion-safe:animate-fade-in-soft">
                   {Object.entries(grouped).map(([chapterId, items]) => (
-                    <div key={chapterId} className="space-y-3">
+                    <div key={chapterId} className="space-y-2.5 sm:space-y-3">
                       {!activeChapter && (
                         <div className="text-sm font-medium text-navy">
                           {chapters.find((c) => c.id === chapterId)?.title}
                         </div>
                       )}
-                      <div className="space-y-3">
+                      <div className="space-y-2.5 sm:space-y-3">
                         {items.map((item) => (
-                          <article key={item.id} id={item.id} className="rounded-2xl border border-gray-200 bg-white p-5">
+                          <article key={item.id} id={item.id} className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 md:p-6">
                             <header>
                               <button
                                 onClick={() => toggleOne(item.id)}
@@ -442,15 +487,15 @@ export default function FAQMasterbookPage() {
                             </header>
 
                             <div className={`overflow-hidden text-sm text-gray-700 transition-all ${
-                              isOpen(item.id) ? "mt-4 max-h-[2000px]" : "max-h-0"
+                              isOpen(item.id) ? "mt-3 max-h-[2000px] sm:mt-4" : "max-h-0"
                             }`}>
                               <div className="prose prose-sm max-w-none text-gray-700">
                                 {item.answer}
                               </div>
-                              <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+                              <div className="mt-4 flex flex-wrap items-center gap-2 text-xs sm:gap-2.5">
                                 <button
                                   onClick={() => toggleBookmark(item.id)}
-                                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1.5 text-gray-600 hover:border-orange/60"
+                                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1.5 text-gray-600 hover:border-orange/60 sm:px-3.5"
                                   aria-label={t("aria.save")}
                                 >
                                   {bookmarks[item.id] ? (
@@ -468,7 +513,7 @@ export default function FAQMasterbookPage() {
 
                                 <button
                                   onClick={() => copyLink(item.id)}
-                                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1.5 text-gray-600 hover:border-orange/60"
+                                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1.5 text-gray-600 hover:border-orange/60 sm:px-3.5"
                                   aria-label={t("aria.copyLink")}
                                 >
                                   <LinkIcon className="h-4 w-4" /> {t("copy.button")}
@@ -486,23 +531,25 @@ export default function FAQMasterbookPage() {
           )}
         </section>
 
-        <section className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="space-y-3">
-              <h3 className="text-2xl font-semibold text-navy">{t("consult.title")}</h3>
-              <p className="text-gray-600">{t("consult.subtitle")}</p>
+        <section className="mt-12 rounded-xl border border-gray-100 bg-white px-4 py-5 sm:mt-16 sm:px-5 sm:py-6 md:mt-20 md:px-6 md:py-7 lg:px-7 lg:py-8 motion-safe:animate-fade-in-soft">
+          <div className="flex flex-col gap-3.5 sm:gap-4 md:flex-row md:items-center md:justify-between md:gap-7">
+            <div className="space-y-2 sm:space-y-3">
+              <h3 className="text-lg font-semibold text-navy sm:text-xl md:text-[1.4rem]">{t("consult.title")}</h3>
+              <p className="text-sm text-gray-600 sm:text-base">{t("consult.subtitle")}</p>
               <p className="text-sm text-gray-600 leading-relaxed">
                 {t("consult.body")}
               </p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-2 sm:flex-row sm:gap-2.5">
               <Button
+                size="sm"
                 className="bg-orange text-white hover:bg-orange/90"
                 onClick={() => router.push('/contattaci')}
               >
                 {t("consult.ctaPrimary")}
               </Button>
               <Button
+                size="sm"
                 variant="outline"
                 className="border-navy text-navy hover:bg-navy/5"
                 onClick={() => router.push('/pacchetti')}
@@ -521,16 +568,7 @@ export default function FAQMasterbookPage() {
             mainEntity: chapters.flatMap(ch => ch.items).map(it => ({
               '@type': 'Question',
               name: it.question,
-              acceptedAnswer: { '@type': 'Answer', text: (() => {
-                const toText = (n: any): string => {
-                  if (n == null) return ''
-                  if (typeof n === 'string' || typeof n === 'number') return String(n)
-                  if (Array.isArray(n)) return n.map(toText).join(' ')
-                  if (typeof n === 'object' && 'props' in n) return toText((n as any).props?.children)
-                  return ''
-                }
-                return toText((it as any).answer)
-              })() }
+              acceptedAnswer: { '@type': 'Answer', text: it.plainAnswer }
             }))
           }) }}
         />
