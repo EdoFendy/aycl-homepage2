@@ -6,7 +6,6 @@ import CartPaymentGateway from "@/components/payment-gateway/cart-payment-gatewa
 import type { DriveTestOrder } from "@/lib/drive-test";
 import { PageLayoutContainer } from "@/components/page-layout-container";
 import { decryptCheckoutOrder } from "@/lib/checkout-encryption";
-import { DriveTestRequestForm } from "@/components/drive-test-request-form";
 import { CheckoutWithReferral } from "@/components/checkout-with-referral";
 import { BundleCheckout } from "@/components/bundle-checkout";
 
@@ -97,8 +96,6 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
 
         {bundleToken ? (
           <BundleCheckout bundleToken={bundleToken} />
-        ) : referralCode ? (
-          <CheckoutWithReferral />
         ) : order ? (
           <div className="mt-14 grid gap-6 lg:grid-cols-[2fr_1fr]">
             <div className="rounded-3xl border border-gray-200 bg-white/95 p-6 sm:p-8 shadow-xl backdrop-blur">
@@ -155,6 +152,8 @@ export default async function CheckoutPage({ searchParams }: PageProps) {
               <PaymentGateway order={order} />
             )}
           </div>
+        ) : referralCode ? (
+          <CheckoutWithReferral />
         ) : (
           <div className="mt-16 rounded-3xl border border-gray-200 bg-white/95 p-8 text-center shadow-xl backdrop-blur">
             <h2 className="text-2xl font-semibold text-navy">{t("order.empty.title")}</h2>
