@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageLayoutContainer } from "@/components/page-layout-container"
+import { cn } from "@/lib/utils"
 
 // Types
 type FAQItem = {
@@ -297,8 +298,8 @@ export default function FAQMasterbookPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <PageLayoutContainer className="space-y-16 px-4 pb-12 pt-24 sm:space-y-20 sm:px-6 sm:pb-14 sm:pt-28 md:pb-16 md:space-y-24 lg:space-y-24 lg:px-8 lg:pb-20 lg:pt-32">
-        <section className="mx-auto max-w-4xl space-y-7 text-center sm:space-y-9 motion-safe:animate-fade-in-up-soft">
+      <PageLayoutContainer className="space-y-18 px-4 pb-14 pt-24 sm:space-y-22 sm:px-6 sm:pb-16 sm:pt-28 md:pb-18 md:space-y-24 lg:space-y-24 lg:px-8 lg:pb-20 lg:pt-32">
+        <section className="mx-auto max-w-4xl space-y-8 text-center sm:space-y-10 motion-safe:animate-fade-in-up-soft">
           <div className="space-y-3 sm:space-y-4 md:space-y-5">
             <h1 className="text-3xl font-semibold text-navy tracking-tight sm:text-4xl">
               {t("header.title")}
@@ -333,7 +334,7 @@ export default function FAQMasterbookPage() {
           </div>
 
           {popularTags.length > 0 && (
-            <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
+            <div className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-10 sm:gap-3">
               {popularTags.map((tag) => (
                 <button
                   key={tag.id}
@@ -355,19 +356,18 @@ export default function FAQMasterbookPage() {
           )}
         </section>
 
-        <section className="space-y-7 md:space-y-8">
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-2 md:gap-4 md:pb-3 motion-safe:animate-fade-in-soft">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <button
-                onClick={() => setActiveChapter(null)}
-                className={`px-4 py-2 text-sm font-medium rounded-full border transition ${
-                  !activeChapter
-                    ? "border-orange bg-orange text-white"
-                    : "border-gray-200 text-navy hover:border-orange/60"
-                }`}
-              >
-                {t("tabs.all")}
-              </button>
+        <section className="space-y-8 sm:space-y-9 md:space-y-8">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pb-2 md:mt-0 md:flex-nowrap md:gap-5 md:pb-3 motion-safe:animate-fade-in-soft">
+            <div className="flex flex-wrap items-center gap-2.5 md:gap-3">
+              {!activeChapter && !query ? null : (
+                <button
+                  onClick={resetFilters}
+                  className="inline-flex items-center gap-2 rounded-full border border-orange/50 bg-orange/10 px-3.5 py-2 text-xs font-medium uppercase tracking-wide text-orange transition hover:bg-orange/15 sm:px-4 sm:text-sm"
+                >
+                  <Sparkles className="h-3.5 w-3.5" />
+                  <span>{t("tabs.all")}</span>
+                </button>
+              )}
             </div>
 
             <div className="flex items-center gap-2 text-sm text-gray-500 sm:gap-3 sm:pt-1">
