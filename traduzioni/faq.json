@@ -2,12 +2,17 @@
   "it": {
     "cta": {"goToFaq": "Vai alle FAQ"},
     "header": {
-      "badge": "Masterbook • FAQ Interattive",
-      "title": "Tutto su <strong>All You Can Leads</strong>",
-      "subtitle": "Cerca, filtra per capitolo, espandi tutto e salva i preferiti. Ogni risposta ha un link diretto."
+      "title": "Centro assistenza",
+      "subtitle": "Trova risposte rapide e guide per sfruttare All You Can Leads al massimo."
     },
     "search": {
-      "placeholder": "Cerca tra le FAQ (Generali, Performance, Set-Up, Subscription)"
+      "placeholder": "Cerca nelle FAQ di All You Can Leads",
+      "tags": [
+        {"id": "generali", "label": "Generali"},
+        {"id": "performance", "label": "Performance Pack"},
+        {"id": "setup-fee", "label": "Set-Up Fee + Revenue Share"},
+        {"id": "subscription", "label": "Subscription Pack"}
+      ]
     },
     "tabs": {"all": "Tutte"},
     "sidebar": {"chapters": "Capitoli", "saved": "Salvati"},
@@ -28,6 +33,16 @@
       "performance": "Performance Pack",
       "setup-fee": "Set-Up Fee + Revenue Share",
       "subscription": "Subscription Pack"
+    },
+    "categoryDescriptions": {
+      "generali": "Panoramica su metodo, tecnologia e differenze rispetto alle agenzie tradizionali.",
+      "performance": "Tutto sugli step operativi, la gestione degli appuntamenti e le condizioni del Performance Pack.",
+      "setup-fee": "Approfondimenti sulla formula Set-Up Fee + Revenue Share, requisiti e modello di partnership.",
+      "subscription": "Dettagli su funzionamento, metriche e gestione del Subscription Pack."
+    },
+    "results": {
+      "heading": "Risultati della ricerca",
+      "description": "Esplora le domande più rilevanti in base ai filtri o alla parola chiave inserita."
     },
     "consult": {
       "title": "Parla con un nostro consulente",
@@ -296,11 +311,18 @@
   "en": {
     "cta": {"goToFaq": "Go to FAQ"},
     "header": {
-      "badge": "Masterbook • Interactive FAQ",
-      "title": "All about <strong>All You Can Leads</strong>",
-      "subtitle": "Search, filter by chapter, expand all and save favorites. Every answer has a direct link."
+      "title": "Help center",
+      "subtitle": "Find quick answers and guides to get the most out of All You Can Leads."
     },
-    "search": {"placeholder": "Search FAQs (General, Performance, Set-Up, Subscription)"},
+    "search": {
+      "placeholder": "Search the All You Can Leads FAQ",
+      "tags": [
+        {"id": "generali", "label": "General"},
+        {"id": "performance", "label": "Performance Pack"},
+        {"id": "setup-fee", "label": "Set-Up Fee + Revenue Share"},
+        {"id": "subscription", "label": "Subscription Pack"}
+      ]
+    },
     "tabs": {"all": "All"},
     "sidebar": {"chapters": "Chapters", "saved": "Saved"},
     "controls": {
@@ -320,6 +342,16 @@
       "performance": "Performance Pack",
       "setup-fee": "Set-Up Fee + Revenue Share",
       "subscription": "Subscription Pack"
+    },
+    "categoryDescriptions": {
+      "generali": "Overview of the methodology, technology and how we differ from traditional agencies.",
+      "performance": "Step-by-step details on operations, appointment management and terms of the Performance Pack.",
+      "setup-fee": "Insights on the Set-Up Fee + Revenue Share formula, requirements and partnership model.",
+      "subscription": "How the Subscription Pack works, metrics to monitor and collaboration management."
+    },
+    "results": {
+      "heading": "Search results",
+      "description": "Browse the most relevant questions based on your filters or keywords."
     },
     "consult": {
       "title": "Talk to our consultant",
@@ -588,11 +620,18 @@
   "es": {
     "cta": {"goToFaq": "Ir a las FAQ"},
     "header": {
-      "badge": "Masterbook • FAQ Interactivas",
-      "title": "Todo sobre <strong>All You Can Leads</strong>",
-      "subtitle": "Busca, filtra por capítulo, expande todo y guarda favoritos. Cada respuesta tiene enlace directo."
+      "title": "Centro de ayuda",
+      "subtitle": "Encuentra respuestas rápidas y guías para sacar el máximo a All You Can Leads."
     },
-    "search": {"placeholder": "Busca en las FAQ (Generales, Performance, Set-Up, Subscription)"},
+    "search": {
+      "placeholder": "Busca en las FAQ de All You Can Leads",
+      "tags": [
+        {"id": "generali", "label": "Generales"},
+        {"id": "performance", "label": "Paquete Performance"},
+        {"id": "setup-fee", "label": "Set-Up Fee + Revenue Share"},
+        {"id": "subscription", "label": "Paquete Suscripción"}
+      ]
+    },
     "tabs": {"all": "Todas"},
     "sidebar": {"chapters": "Capítulos", "saved": "Guardados"},
     "controls": {
@@ -612,6 +651,16 @@
       "performance": "Paquete Performance",
       "setup-fee": "Set-Up Fee + Revenue Share",
       "subscription": "Paquete Suscripción"
+    },
+    "categoryDescriptions": {
+      "generali": "Resumen del método, la tecnología y las diferencias respecto a las agencias tradicionales.",
+      "performance": "Detalles de los pasos operativos, la gestión de citas y las condiciones del Paquete Performance.",
+      "setup-fee": "Información sobre la fórmula Set-Up Fee + Revenue Share, requisitos y modelo de partnership.",
+      "subscription": "Cómo funciona el Paquete Suscripción, métricas clave y gestión de la colaboración."
+    },
+    "results": {
+      "heading": "Resultados de la búsqueda",
+      "description": "Explora las preguntas más relevantes según tus filtros o palabras clave."
     },
     "consult": {
       "title": "Habla con nuestro consultor",
