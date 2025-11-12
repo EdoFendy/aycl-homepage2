@@ -1,24 +1,16 @@
 import { NextResponse } from "next/server";
 import type { DriveTestCustomer, DriveTestOrder } from "@/lib/drive-test";
 import { formatPriceString } from "@/lib/drive-test";
+import { createCheckoutWithProducts } from "@/lib/woocommerce";
 
 interface RequestPayload {
   order?: DriveTestOrder;
   customer?: DriveTestCustomer;
 }
 
-const ADMIN_API_BASE = process.env.ADMIN_API_BASE;
-const ADMIN_API_TOKEN = process.env.ADMIN_API_TOKEN;
 const ADMIN_PAYMENT_GATEWAY_ID = process.env.ADMIN_PAYMENT_GATEWAY_ID ?? "redsys";
 
 export async function POST(request: Request) {
-  if (!ADMIN_API_BASE || !ADMIN_API_TOKEN) {
-    return NextResponse.json(
-      { message: "Admin API configuration missing" },
-      { status: 500 }
-    );
-  }
-
   let payload: RequestPayload;
 
   try {
@@ -47,11 +39,7 @@ export async function POST(request: Request) {
       lastName: customer.lastName,
       email: customer.email,
     },
-    env: {
-      apiBaseConfigured: !!ADMIN_API_BASE,
-      apiTokenConfigured: !!ADMIN_API_TOKEN,
-      gatewayId: ADMIN_PAYMENT_GATEWAY_ID,
-    }
+    gateway: ADMIN_PAYMENT_GATEWAY_ID,
   });
 
   const validationError = validatePayload(order, customer);
@@ -60,11 +48,54 @@ export async function POST(request: Request) {
   }
 
   try {
-    const product = await createDriveTestProduct(order);
-    console.log("[DriveTestPayment] Product created successfully:", { productId: product.id });
-    const paymentLink = await createPaymentLink(order, product.id, customer);
+    // Prepare product data
+    const quantityLabel = getQuantityLabel(order.metadata?.locale, order.quantity);
+    const unitPrice = formatPriceString(order.unitPrice);
+    const totalPrice = formatPriceString(order.total);
+    const rangeMin = formatPriceString(order.priceRange.min);
+    const rangeMax = formatPriceString(order.priceRange.max);
 
-    return NextResponse.json({ paymentUrl: paymentLink.payment_url }, { status: 200 });
+    const description = [
+      `<p><strong>Pacchetto:</strong> ${order.package}</p>`,
+      `<p><strong>Quantità:</strong> ${order.quantity} ${quantityLabel}</p>`,
+      `<p><strong>Prezzo unitario:</strong> ${unitPrice} ${order.currency}</p>`,
+      `<p><strong>Totale:</strong> ${totalPrice} ${order.currency}</p>`,
+      `<p><strong>Range stimato:</strong> ${rangeMin} - ${rangeMax} ${order.currency}</p>`,
+    ].join("");
+
+    const productName = order.metadata?.productName?.trim() ||
+      `${order.package} - ${order.quantity} ${quantityLabel}`;
+
+    // Use WooCommerce library to create product and order
+    const result = await createCheckoutWithProducts(
+      [{
+        name: productName,
+        regular_price: order.unitPrice,
+        quantity: order.quantity,
+        description: description,
+      }],
+      {
+        first_name: customer.firstName,
+        last_name: customer.lastName,
+        email: customer.email,
+      },
+      {
+        gateway: ADMIN_PAYMENT_GATEWAY_ID as 'redsys' | 'stripe',
+        metadata: {
+          source: 'drive_test',
+          package: order.package,
+          locale: order.metadata?.locale,
+          timestamp: new Date().toISOString(),
+        },
+      }
+    );
+
+    console.log("[DriveTestPayment] Payment link created:", {
+      order_id: result.order_id,
+      total: result.total,
+    });
+
+    return NextResponse.json({ paymentUrl: result.payment_url }, { status: 200 });
   } catch (error) {
     console.error("[DriveTestPayment] error:", error);
     return NextResponse.json(
@@ -74,139 +105,6 @@ export async function POST(request: Request) {
   }
 }
 
-async function createDriveTestProduct(order: DriveTestOrder) {
-  if (order.metadata?.wooProductId) {
-    return { id: order.metadata.wooProductId };
-  }
-
-  const sku = `drive-test-${Date.now()}`;
-  const quantityLabel = getQuantityLabel(order.metadata?.locale, order.quantity);
-  const unitPrice = formatPriceString(order.unitPrice);
-  const totalPrice = formatPriceString(order.total);
-  const rangeMin = formatPriceString(order.priceRange.min);
-  const rangeMax = formatPriceString(order.priceRange.max);
-
-  const description = [
-    `<p><strong>Pacchetto:</strong> ${order.package}</p>`,
-    `<p><strong>Quantità:</strong> ${order.quantity} ${quantityLabel}</p>`,
-    `<p><strong>Prezzo unitario:</strong> ${unitPrice} ${order.currency}</p>`,
-    `<p><strong>Totale:</strong> ${totalPrice} ${order.currency}</p>`,
-    `<p><strong>Range stimato:</strong> ${rangeMin} - ${rangeMax} ${order.currency}</p>`,
-  ].join("");
-
-  const response = await fetch(
-    `${ADMIN_API_BASE}/woocommerce/drive-test/products?token=${ADMIN_API_TOKEN}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name:
-          order.metadata?.productName?.trim() ||
-          `${order.package} - ${order.quantity} ${quantityLabel}`,
-        type: "simple",
-        status: "publish",
-        sku,
-        regular_price: unitPrice,
-        virtual: true,
-        description,
-        short_description:
-          order.metadata?.productName?.trim() ||
-          `${order.package} (${order.quantity} ${quantityLabel})`,
-      }),
-      cache: "no-store",
-    }
-  );
-
-  if (!response.ok) {
-    const errorPayload = await safeParseJSON(response);
-    const errorMessage = errorPayload?.message || "Failed to create product";
-    console.error("[DriveTestPayment] Product creation failed:", {
-      status: response.status,
-      statusText: response.statusText,
-      errorPayload,
-      requestBody: {
-        name: order.metadata?.productName?.trim() || `${order.package} - ${order.quantity}`,
-        type: "simple",
-        status: "publish",
-        sku: `drive-test-${Date.now()}`,
-        regular_price: formatPriceString(order.unitPrice),
-      }
-    });
-    throw new Error(errorMessage);
-  }
-
-  return response.json() as Promise<{ id: number }>;
-}
-
-async function createPaymentLink(
-  order: DriveTestOrder,
-  productId: number,
-  customer: DriveTestCustomer
-) {
-  const quantity = Number.isInteger(order.quantity) && order.quantity > 0 ? order.quantity : 1;
-
-  const response = await fetch(
-    `${ADMIN_API_BASE}/woocommerce/drive-test/payment-links?token=${ADMIN_API_TOKEN}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        gateway: ADMIN_PAYMENT_GATEWAY_ID,
-        customer: {
-          first_name: customer.firstName,
-          last_name: customer.lastName,
-          email: customer.email,
-        },
-        items: [
-          {
-            product_id: productId,
-            quantity,
-          },
-        ],
-      }),
-      cache: "no-store",
-    }
-  );
-
-  if (!response.ok) {
-    const errorPayload = await safeParseJSON(response);
-    const errorMessage = errorPayload?.message || "Failed to create payment link";
-    console.error("[DriveTestPayment] Payment link creation failed:", {
-      status: response.status,
-      statusText: response.statusText,
-      errorPayload: JSON.stringify(errorPayload, null, 2),
-      requestBody: {
-        gateway: ADMIN_PAYMENT_GATEWAY_ID,
-        customer: {
-          first_name: customer.firstName,
-          last_name: customer.lastName,
-          email: customer.email,
-        },
-        items: [
-          {
-            product_id: productId,
-            quantity,
-          },
-        ],
-      }
-    });
-    throw new Error(errorMessage);
-  }
-
-  return response.json() as Promise<{ payment_url: string }>;
-}
-
-async function safeParseJSON(response: Response) {
-  try {
-    return await response.json();
-  } catch {
-    return null;
-  }
-}
 
 function getQuantityLabel(locale: string | undefined, quantity: number) {
   const normalized = locale?.split("-")[0];
