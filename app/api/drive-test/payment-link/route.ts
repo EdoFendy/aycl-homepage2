@@ -95,7 +95,7 @@ async function createDriveTestProduct(order: DriveTestOrder) {
   ].join("");
 
   const response = await fetch(
-    `${ADMIN_API_BASE}/products?token=${ADMIN_API_TOKEN}`,
+    `${ADMIN_API_BASE}/woocommerce/products?token=${ADMIN_API_TOKEN}`,
     {
       method: "POST",
       headers: {
@@ -148,7 +148,7 @@ async function createPaymentLink(
   const quantity = Number.isInteger(order.quantity) && order.quantity > 0 ? order.quantity : 1;
 
   const response = await fetch(
-    `${ADMIN_API_BASE}/payment-links?token=${ADMIN_API_TOKEN}`,
+    `${ADMIN_API_BASE}/woocommerce/payment-links?token=${ADMIN_API_TOKEN}`,
     {
       method: "POST",
       headers: {
